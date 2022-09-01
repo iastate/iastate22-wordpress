@@ -1,0 +1,68 @@
+.paragraph-widget--callout-with-image {
+  margin-top: rem(53);
+  margin-bottom: rem(53);
+
+  .callout-with-image__media {
+    margin-left: rem(-36);
+    @include media-breakpoint-up(md) {
+      margin-left: rem(-70);
+    }
+    @include media-breakpoint-up(xl) {
+      margin-left: rem(-190);
+    }
+  }
+}
+
+.callout-with-image {
+  @include media-breakpoint-up(md) {
+    display: flex;
+    align-items: flex-start;
+  }
+  @include media-breakpoint-up(lg) {
+    align-items: center;
+  }
+}
+
+.callout-with-image__media {
+  @extend %responsive-img;
+  margin-bottom: rem(30);
+  &:before {
+    padding-top: 66.67%;
+  }
+  @include media-breakpoint-up(md) {
+    flex: 1 1 0px;
+  }
+  @include media-breakpoint-up(lg) {
+    flex: 0 1 auto;
+    width: 70%;
+  }
+  .callout-with-image--small & {
+    margin-bottom: rem(17);
+    @include media-breakpoint-up(lg) {
+      width: 60%;
+    }
+    &:before {
+      padding-top: 57.31%;
+    }
+  }
+}
+
+.callout-with-image__content {
+  @include media-breakpoint-up(md) {
+    flex: 1 1 0px;
+    padding-left: rem(45);
+  }
+  @include media-breakpoint-up(lg) {
+    padding-left: rem(90);
+    flex: 0 1 auto;
+    width: 60%;
+  }
+  .iastate22-button {
+    margin-top: rem(22);
+  }
+  p {
+    .callout-with-image--small & {
+      margin-top: rem(20);
+    }
+  }
+}

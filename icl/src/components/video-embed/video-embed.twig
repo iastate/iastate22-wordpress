@@ -1,0 +1,21 @@
+<div class="video-embed">
+  <div class="video-embed__media-wrap">
+    {% if wallpaper %}
+    <img src="{{ wallpaper|path }}" alt="" />
+    {% else %}
+      {% if source == "youtube" %}
+      <img src="https://img.youtube.com/vi/{{ youtube_video_id }}/maxresdefault.jpg" alt="Video Poster">
+      {% elseif source == "vimeo" %}
+      <img src="https://vumbnail.com/{{ vimeo_video_id }}.jpg" alt="Video Poster">
+      {% endif %}
+    {% endif %}
+    {% if source == "youtube" %}
+      <div class="video-embed__video" aria-label="YouTube Video: {{ title }}" data-vid="{{ youtube_video_id }}"></div>
+    {% elseif source == "vimeo" %}
+      <div data-vimeo-id="{{ vimeo_video_id }}" class="video--vim"></div>
+    {% endif %}
+  </div>
+  {% if caption %}
+    <div class="video-embed__caption">{{ caption }}</div>
+  {% endif %}
+</div>

@@ -1,0 +1,15 @@
+{
+  "context": {
+    "hero": {
+      "title": "Marston Hall",
+      "button_set": {
+        "items": [
+          {
+            "text": "About the Rededication",
+            "url": "https://iastate.edu"
+          }
+        ]
+      }
+    }
+  }
+}

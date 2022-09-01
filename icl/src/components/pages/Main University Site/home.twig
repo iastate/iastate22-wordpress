@@ -1,0 +1,258 @@
+{% extends "@page" %}
+
+{% block content %}
+<script>
+  document.body.classList.add("home");
+</script>
+
+<div class="home-hero{% if home_announcement_alert %} home-hero--with-announcement{% endif %}">
+  <div class="home-hero__media">
+		<img class="home-hero__media-mobile" src="{{ hero.image_mobile|path }}" alt="" loading="lazy" width="633" height="920">
+    <img class="home-hero__media-desktop" src="{{ hero.image_desktop|path }}" alt="" loading="lazy" width="2000" height="800">
+	</div>
+  <div class="home-hero__animation">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 300" preserveAspectRatio="xMidYMid meet">
+      <path d="M 50 40 L 150 0 L 210 70 L 300 95 L 280 200 L 200 240 L 60 285 L 35 150 L 50 40 Z" >
+        <animate id="anim1" dur="5s" repeatCount="1" attributeName="d" values="M 50 40 L 150 0 L 210 70 L 300 95 L 280 200 L 200 240 L 60 285 L 35 150 L 50 40 Z; M 60 50 L 155 60 L 290 75 L 320 180 L 240 275 L 125 260 L 50 250 L 55 145 L 60 50 Z; M 75 70 L 140 30 L 235 75 L 335 125 L 260 225 L 170 245 L 85 265 L 10 110 L 75 70 Z; M 60 50 L 155 60 L 290 75 L 320 180 L 240 275 L 125 260 L 50 250 L 55 145 L 60 50 Z; M 50 40 L 150 0 L 210 70 L 300 95 L 280 200 L 200 240 L 60 285 L 35 150 L 50 40 Z" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1" />
+      </path>
+    </svg>
+  </div>
+  <div class="home-hero__content-wrapper">
+    <h1 class="home-hero__title">{{ hero.title|raw }}</h1>
+    {% include "@button--reverse" with hero.button %}
+  </div>
+</div>
+
+{% if home_announcement_alert %}
+  {% include "@home-announcement--alert" with home_announcement_alert %}
+{% endif %}
+
+<div class="home-community">
+  <div class="home-community__content-wrap">
+    <div class="home-community__label"><h2>{{ community.label }}</h2></div>
+    <h3 class="home-community__headline">{{ community.headline}}</h3>
+    <p class="home-community__body">{{ community.body}}</p>
+  </div>
+  <div class="home-community__callout">
+    <div class="home-community__callout-content-wrap">
+      <h2 class="home-community__callout-headline">{{ community.callout.headline }}</h2>
+      <p class="home-community__callout-body">{{ community.callout.body }}</p>
+      {% include "@button" with community.callout.button %}
+    </div>
+    <div class="home-community__callout-media-statistic-wrap">
+      <div class="home-community__callout-media">
+        <img src="{{ community.callout.imageOne|path }}" alt="" loading="lazy" width="520" height="347">
+      </div>
+      <div class="home-community__callout-media-two">
+        <img src="{{ community.callout.imageTwo|path }}" alt="" loading="lazy" width="478" height="290">
+      </div>
+      <div class="home-community__callout-statistic">
+        <h3 class="home-community__callout-statistic-stat">{{ community.callout.statistic.stat }}</h3>
+        <p class="home-community__callout-statistic-description">{{ community.callout.statistic.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# Homepage blockquote is different from standard kitchen sink blockquote component as it contains a video modal #}
+<div class="home-iastate22-blockquote iastate22-blockquote{% if home_blockquote.portrait %} iastate22-blockquote--with-image{% else %} iastate22-blockquote--with-no-image{% endif %}">
+  <div class="iastate22-blockquote__inner-wrap">
+    {% if home_blockquote.portrait %}
+    <div class="iastate22-blockquote__portrait" data-micromodal-trigger="{{ home_blockquote.modal.id }}">
+      <img src="{{ home_blockquote.portrait|path }}" alt="" loading="lazy" width="258" height="258">
+      <button class="video-embed__button">
+        <svg viewBox = "0 0 83 83" preserveAspectRatio="xMidYMid meet" class="video-play-icon" xmlns="http://www.w3.org/2000/svg"><g class="outer-circle" fill="none" fill-rule="evenodd"><g opacity=".377" fill="#FFF" fill-rule="nonzero" transform="translate(1 1)"><circle cx="40" cy="40" r="40"/><path d="M40 0C17.909 0 0 17.909 0 40s17.909 40 40 40 40-17.909 40-40S62.091 0 40 0Zm0 1c21.54 0 39 17.46 39 39S61.54 79 40 79 1 61.54 1 40 18.46 1 40 1Z"/></g><path d="M24 22.818h35V57.93H24z"/><path class="arrow" d="m59.986 39.288-28.433-17.68c-2.073-1.363-3.767-.36-3.767 2.229V58.16c0 2.593 1.694 3.593 3.767 2.229l28.433-17.68c.565-.4.934-1.022 1.014-1.71a2.438 2.438 0 0 0-1.01-1.707l-.004-.004Z" fill="#FFF" fill-rule="nonzero"/></g></svg>
+        <span class="visible-for-screen-readers">Play Video</span>
+      </button>
+    </div>
+    {% endif %}
+    <div class="iastate22-blockquote__text-wrap">
+      <h2 class="iastate22-blockquote__quote">{{ home_blockquote.quote }}</h2>
+      {% if home_blockquote.author %}
+      <p class="iastate22-blockquote__author">{{ home_blockquote.author }}{% if home_blockquote.author_role %}, {{home_blockquote.author_role}}{% endif %}</p>
+      {% endif %}
+    </div>
+  </div>
+  <div class="iastate22-modal iastate22-modal--video" id="{{ home_blockquote.modal.id }}" aria-hidden="false">
+    <div class="iastate22-modal__overlay" tabindex="-1" data-micromodal-close>
+      <div class="iastate22-modal__container{% if home_blockquote.modal.image %} iastate22-modal__container-with-media{% endif %}" id="{{ home_blockquote.modal.id }}-content" role="dialog" aria-modal="true" aria-label="{{ home_blockquote.modal.id }}-title">
+        <button class="iastate22-modal__close" aria-label="Close modal" data-micromodal-close><span class="visible-for-screen-readers">Close YouTube Video: {{ home_blockquote.modal.video.title }}</span><i class="fa-light fa-xmark" aria-hidden="true"></i></button>
+        <div class="iastate22-modal__media-wrap">
+          <div class="iastate22-modal__media" data-vid="{{ home_blockquote.modal.video.video_id }}"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="home-academics">
+  <div class="home-academics__copy-explore-wrap">
+    <div class="home-academics__copy-wrap">
+      <h2 class="home-academics__headline">{{ academics.headline }}</h2>
+      <p class="home-academics__intro-copy">{{ academics.intro_copy }}</p>
+    </div>
+    <div class="home-academics__explore">
+      <h3 class="home-academics__explore-label">{{ academics.explore.label}}</h3>
+      <ul>
+        {% for link in academics.explore.links %}
+          <li><a class="link-tertiary" href="{{link.url}}">{{link.title}}<span class="arrow"></span></a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {# Homepage image grid is different from standard kitchen sink component as it contains card--linked-image component #}
+  <div class="home-academics__image-grid image-grid">
+    <div class="image-grid__image">
+      {% include "@card--linked-image" with academics.image_grid.image_one %}
+    </div>
+    <div class="image-grid__image">
+      {% include "@card--linked-image" with academics.image_grid.image_two %}
+    </div>
+    <div class="image-grid__image">
+      {% include "@card--linked-image" with academics.image_grid.image_three %}
+    </div>
+  </div>
+</div>
+
+<div class="home-solutions">
+  <h2 class="home-solutions__headline">{{ solutions.headline }}</h2>
+  <p class="home-solutions__intro-copy">{{ solutions.intro_copy }}</p>
+  <div class="home-solutions__carousel-holder">
+    <div class="home-solutions__carousel">
+      {% for card in solutions.cards %}
+      <div class="home-solutions__carousel-slide">
+        {% include "@card--profile-with-modal" with card %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<div class="home-location">
+  <div class="home-location__media">
+    <img src="{{ location.image|path }}" alt="" loading="lazy" width="1422" height="790">
+  </div>
+  <div class="home-location__caption">
+    <span class="fak fa-iastate22-map-pin" aria-hidden="true"></span>
+    <div class="home-location__caption-text"><p>{{ location.caption.text }} <a href="{{ location.caption.link.url }}">{{ location.caption.link.text }}</a></p></div>
+  </div>
+</div>
+
+<div class="home-events-news">
+  <h2 class="home-events-news__headline">{{ events_news.headline }}</h2>
+  <div class="home-events-news__event-list">
+    <ul>
+      {% for event in events_news.event_list %}
+      <li>
+        <article class="home-events-news__item">
+          <span class="home-events__event-date">{{ event.date }}</span>
+          <h2 class="home-events-news__item-title"><a href="{{ event.link.url}}">{{ event.link.title}}<span class="arrow"></span></a></h2>
+        </article>
+      </li>
+      {% endfor %}
+    </ul>
+    <a class="home-link-button" href="{{events_news.all_events_link.url}}"><span class="home-link-button__arrow-wrap"><span class="arrow"></span></span>{{events_news.all_events_link.title}}</a>
+  </div>
+
+  <div class="home-events-news__news-list">
+    <ul>
+      {% for news in events_news.news_list %}
+      <li data-image="{{ news.imageSrc }}">
+        <article class="home-events-news__item">
+          <h2 class="home-events-news__item-title"><a href="{{ news.link.url}}">{{ news.link.title}}<span class="arrow"></span></a></h2>
+          <span class="home-events__news-date">{{ news.date }}</span>
+        </article>
+      </li>
+      {% endfor %}
+    </ul>
+    <a class="home-link-button" href="{{events_news.all_news_link.url}}"><span class="home-link-button__arrow-wrap"><span class="arrow"></span></span>{{events_news.all_news_link.title}}</a>
+  </div>
+
+</div>
+
+<div class="home-social">
+  <div class="home-social__headline-icons-wrap">
+    <h2 class="home-social__headline">{{ social.headline }}</h2>
+    <ul class="home-social__social-links">
+      <li>
+        <a href="#" target="_blank">
+          <i class="fak fa-iastate22-instagram" aria-hidden="true"></i>
+          <span class="visible-for-screen-readers">Instagram</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" target="_blank">
+          <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+          <span class="visible-for-screen-readers">YouTube</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" target="_blank">
+          <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+          <span class="visible-for-screen-readers">Facebook</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" target="_blank">
+          <i class="fa-brands fa-twitter" aria-hidden="true"></i>
+          <span class="visible-for-screen-readers">Twitter</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="home-social__images-wrap">
+    <div class="home-social__images-image">
+      <img src="{{ social.images.one|path }}" alt="" width="301" height="301" />
+    </div>
+    <div class="home-social__images-image">
+      <img src="{{ social.images.two|path }}" alt="" width="301" height="301" />
+    </div>
+    <div class="home-social__images-image">
+      <img src="{{ social.images.three|path }}" alt="" width="301" height="301" />
+    </div>
+  </div>
+</div>
+
+<div class="home-resources">
+  <h2 class="home-resources__headline">{{ resources.headline }}</h2>
+  <div class="home-resources__subhead-link-wrap">
+    <div class="home-resources__subhead-wrap"><h3 class="home-resources__subhead">{{ resources.subhead }}</h3></div>
+    {% include "@link-set" with resources.link_set %}
+  </div>
+  <div class="home-resources__questions-image-wrap">
+    <div class="home-resources__questions">
+      <h3 class="home-resources__questions-subhead">{{ resources.questions.subhead }}</h2>
+      <div class="home-resources__questions-links">
+        <ul>
+          {% for link in resources.questions.links %}
+          <li>
+            <a class="home-link-button" href="{{link.url}}"><span class="home-link-button__arrow-wrap"><span class="arrow"></span></span>{{link.text}}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <div class="home-resources__image">
+      <img src="{{ resources.image|path }}" alt="" width="290" height="210" loading="lazy">
+    </div>
+  </div>
+</div>
+
+<div class="home-ctas">
+  <div class="home-ctas__headline-button-wrap">
+    <div class="home-ctas__headline-wrap"><h2 class="home-ctas__headline">{{ ctas.headline }}</h2></div>
+    {% include "@button-set" with ctas.button_set %}
+  </div>
+  <div class="home-ctas__image">
+    <img src="{{ ctas.images.one|path }}" alt="" width="378" height="236" loading="lazy">
+  </div>
+  <div class="home-ctas__image">
+    <img src="{{ ctas.images.two|path }}" alt="" width="378" height="274" loading="lazy">
+  </div>
+</div>
+
+<div class="home-full-width-campus-photo">
+    <img class="home-full-width-campus-photo__mobile" src="{{ campus_photo.image_mobile|path }}" alt="" loading="lazy" width="633" height="290">
+    <img class="home-full-width-campus-photo__desktop" src="{{ campus_photo.image_desktop|path }}" alt="" loading="lazy" width="1600" height="733">
+</div>
+{% endblock %}

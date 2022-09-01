@@ -1,0 +1,130 @@
+.paragraph-widget--callout-inset {
+  @extend %full-width-component;
+  @include media-breakpoint-up(lg) {
+    margin-top: rem(120);
+  }
+}
+
+.callout-inset {
+  position: relative;
+  .feature-with-large-image {
+    z-index: 1;
+    border-top-color: $off-white;
+    background-color: $iastate-red;
+    @include media-breakpoint-up(sm) {
+      border-top: none;
+    }
+    @include media-breakpoint-up(lg) {
+      background-color: transparent;
+    }
+    &:before {
+      display: none;
+    }
+    &:after {
+      @include media-breakpoint-up(lg) {
+        content: "";
+        position: absolute;
+        background-color: $white;
+        top: 50%;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+      }
+    }
+  }
+  .feature-with-large-image__content {
+    @include media-breakpoint-up(lg) {
+      background-color: $iastate-red;
+    }
+
+    h2,
+    .feature-with-large-image__text {
+      color: $white;
+    }
+
+    .feature-with-large-image__text {
+      p {
+        font-family: $typeface-sans-serif;
+        font-weight: 700;
+      }
+    }
+  }
+  .iastate22-button {
+    @extend %iastate22-button--reverse;
+  }
+  // off-white color in background
+  &:after {
+    @include media-breakpoint-up(sm) {
+      content: "";
+      position: absolute;
+      background-color: $off-white;
+      top: 0;
+      left: 0;
+      bottom: 50%;
+      right: 0;
+    }
+    @include media-breakpoint-up(lg) {
+      left: rem(100);
+      right: 50%;
+      z-index: 0;
+      bottom: 0;
+    }
+    @include media-breakpoint-up(xl) {
+      left: rem(190);
+    }
+  }
+}
+
+.callout-inset_inset {
+  background-color: $off-white;
+  padding: rem(60) rem(36);
+  position: relative;
+  z-index: 1;
+  @include media-breakpoint-up(sm) {
+    text-align: center;
+    padding-left: rem(108);
+    padding-right: rem(108);
+  }
+  @include media-breakpoint-up(lg) {
+    margin-right: rem(100);
+    margin-left: rem(100);
+    padding: rem(60) rem(70) rem(80);
+  }
+  @include media-breakpoint-up(xl) {
+    margin-right: rem(190);
+    margin-left: rem(190);
+    padding: rem(60) rem(114) rem(107);
+  }
+  p {
+    line-height: (29 / 18);
+    @include media-breakpoint-up(md) {
+      line-height: (26 / 16);
+    }
+  }
+  .text-content {
+    ul,
+    ol {
+      text-align: left;
+    }
+    &:last-child {
+      margin-bottom: 0;
+      @include media-breakpoint-up(xl) {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.callout-inset_inset-headline {
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    border-bottom: rem(2) solid $iastate-gold;
+    left: 50%;
+    margin-left: rem(-25);
+    width: rem(50);
+    bottom: 0;
+  }
+}

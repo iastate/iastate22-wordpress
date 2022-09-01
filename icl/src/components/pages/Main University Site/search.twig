@@ -1,0 +1,22 @@
+{% extends "@page" %}
+
+{% block content %}
+<script>
+  document.body.classList.add("search");
+</script>
+
+<div class="outer-pad">
+  <div class="red-bkgrnd-hero search-hero">
+    <div class="red-bkgrnd-hero__breadcrumbs">
+    {% include "@breadcrumb--top-level-pages" with hero.breadcrumbs %}
+    </div>
+    <h1 class="red-bkgrnd-hero__title">{{ hero.title }}</h1>
+    <div class="red-bkgrnd-hero__message">{{ hero.message|raw }}</div>
+  </div>
+  <div class="search-wrapper">
+    <div class="search-wrapper__label"><h3>{{ search.label }}</h3></div>
+    <div class="gcse-search"></div>
+  </div>
+  <script async src="https://cse.google.com/cse.js?cx=257e21f65c60c4e9c"></script>
+</div>
+{% endblock %}

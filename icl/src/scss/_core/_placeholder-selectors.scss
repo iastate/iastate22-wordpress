@@ -1,0 +1,133 @@
+%visible-for-screen-readers,
+.visible-for-screen-readers {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* Removes default list style and uses CSS before pseudo's instead to allow styling of numbers */
+%styled-ol,
+.styled-ol {
+  counter-reset: list;
+  list-style-type: none !important;
+  li {
+    position: relative;
+    &:before {
+      content: counter(list, $ordered-list-style-type) ".\00a0";
+      counter-increment: list;
+      display: inline-block;
+      margin-right: -1em;
+      position: absolute;
+      transform: translateX(-100%);
+    }
+  }
+}
+
+%outer-pad-x,
+.outer-pad-x {
+  padding-left: rem(36);
+  padding-right: rem(36);
+  @include media-breakpoint-up(md) {
+    padding-left: rem(70);
+    padding-right: rem(70);
+  }
+  @include media-breakpoint-up(xl) {
+    padding-left: rem(190);
+    padding-right: rem(298);
+  }
+}
+
+%extended-component-width {
+  @include media-breakpoint-up(xl) {
+    margin-right: rem(-108);
+  }
+}
+
+%full-width-component {
+  margin-left: rem(-36);
+  margin-right: rem(-36);
+  @include media-breakpoint-up(md) {
+    margin-left: rem(-70);
+    margin-right: rem(-70);
+  }
+  @include media-breakpoint-up(xl) {
+    margin-left: rem(-190);
+    margin-right: rem(-298);
+  }
+}
+
+%responsive-img,
+.responsive-img {
+  position: relative;
+  &:before {
+    content: "";
+    display: block;
+  }
+  img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+%caption,
+.caption {
+  margin-top: rem(8);
+  font-family: $typeface-sans-serif;
+  font-style: italic;
+  font-size: rem(16);
+  line-height: (26 / 16);
+  @include media-breakpoint-up(lg) {
+    font-size: rem(14);
+    line-height: (22 / 14);
+  }
+}
+
+%arrow,
+.arrow {
+  position: absolute;
+  top: rem(12);
+  width: rem(12);
+  height: rem(2);
+  right: rem(-23);
+  background-color: $iastate-maroon;
+  transition: 0.2s width ease-in-out, 0.2s right ease-in-out;
+  &:after,
+  &:before {
+    content: "";
+    position: absolute;
+    width: rem(8);
+    height: rem(2);
+    right: rem(-3);
+    background-color: $iastate-maroon;
+  }
+  &:after {
+    top: rem(-2.2);
+    transform: rotate(45deg);
+  }
+
+  &:before {
+    top: rem(2);
+    transform: rotate(-45deg);
+  }
+}
+
+%h2-yellow-border {
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: rem(50);
+    border-bottom: rem(2) solid $iastate-gold;
+    left: 0;
+  }
+}

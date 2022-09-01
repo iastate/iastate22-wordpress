@@ -1,0 +1,72 @@
+@import "~normalize-scss";
+
+// Silc Components
+@import "~silc-accordion/src/scss/index";
+
+// Variable Overrides
+@import "_core/variables";
+
+// Bootstrap
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/accordion";
+@import "~bootstrap/scss/forms";
+
+// Core
+@import "_core/functions";
+@import "_core/placeholder-selectors";
+@import "_core/base";
+@import "_core/typography";
+@import "_core/layout";
+@import "_core/accordion";
+
+// Custom Components
+@import "components/overrides";
+@import "../components/button/button";
+@import "../components/button-set/button-set";
+@import "../components/link-secondary/link-secondary";
+@import "../components/link-tertiary/link-tertiary";
+@import "../components/link-set/link-set";
+@import "../components/link-block/link-block";
+@import "../components/breadcrumb/breadcrumb";
+@import "../components/card/card";
+@import "../components/card-set/card-set";
+@import "../components/hero/hero";
+@import "../components/feature-with-large-image/feature-with-large-image";
+@import "../components/feature/feature";
+@import "../components/feature-with-large-image-and-intro/feature-with-large-image-and-intro";
+@import "../components/external-news-story/external-news-story";
+@import "../components/video-embed/video-embed";
+@import "../components/table/table";
+@import "../components/form/form";
+@import "../components/subnav/subnav";
+@import "../components/full-width-image/full-width-image";
+@import "../components/call-to-action/call-to-action";
+@import "../components/image-grid/image-grid";
+@import "../components/image-grid-with-text/image-grid-with-text";
+@import "../components/stat/stat";
+@import "../components/statistic/statistic";
+@import "../components/multi-column-content/multi-column-content";
+@import "../components/blockquote/blockquote";
+@import "../components/modal/modal";
+@import "../components/carousel/carousel";
+@import "../components/site-footer/site-footer";
+@import "../components/site-header/site-header";
+@import "../components/feature-with-small-image/feature-with-small-image";
+@import "../components/feature-set/feature-set";
+@import "../components/pagination/pagination";
+@import "../components/home-announcement/home-announcement";
+@import "../components/ecosystem-home-hero/ecosystem-home-hero";
+@import "../components/personal-profile-info-card/personal-profile-info-card";
+@import "../components/privacy-consent/privacy-consent";
+
+// Pages
+@import "../components/pages/home";
+@import "../components/pages/admission-and-aid";
+@import "../components/pages/additional-pages";
+@import "../components/pages/college-template";

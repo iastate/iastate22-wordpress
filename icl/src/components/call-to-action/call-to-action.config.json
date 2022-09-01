@@ -1,0 +1,40 @@
+{
+  "context": {},
+  "variants": [
+    {
+      "name": "small",
+      "context": {
+        "title": "Small Call to Action Voluptate Lorem Ipsum Dolor",
+        "body": "Nemo enim ipsam voluptatem quia voluptas.",
+        "button_set": {
+          "items": [
+            {
+              "text": "Primary CTA Style",
+              "url": "https://iastate.edu"
+            },
+            {
+              "text": "Primary CTA Style",
+              "url": "https://iastate.edu"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "large",
+      "context": {
+        "title": "Large Call to Action Voluptate Lorem",
+        "body": "<p>Nemo enim ipsam voluptatem quia voluptas.</p>",
+        "image": "../../img/CTA-Large-Image_FPO.jpg",
+        "button_set": {
+          "items": [
+            {
+              "text": "Primary CTA Style",
+              "url": "https://iastate.edu"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

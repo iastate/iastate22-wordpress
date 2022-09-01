@@ -1,0 +1,29 @@
+{% macro menu_items(items, level = 0) %}
+  {% for item in items %}
+    <li>
+      {% if item.url %}
+        <a href="{{ item.url }}"{% if item.current %} aria-current="page"{% endif %}>{{ item.title }}</a>
+      {% else %}
+        <span class="lw_separator_title">{{ item.title }}</span>
+      {% endif %}
+      {% if (level == 0 or item.current) and item.children|length %}
+        <ul>
+          {{ _self.menu_items(item.children, level + 1) }}
+        </ul>
+      {% endif %}
+    </li>
+  {% endfor %}
+{% endmacro %}
+
+{% import _self as macros %}
+
+<nav class="subnav" aria-label="Sidebar">
+  <noscript>
+    <button class="subnav__toggle" id="subnav-toggle" aria-controls="subnav-list" aria-haspopup="true" aria-expanded="false"><span>Explore This Section</span></button>
+  </noscript>
+  <div class="subnav__list" id="subnav-list">
+    <ul>
+      {{ macros.menu_items(items) }}
+    </ul>
+  </div>
+</nav>

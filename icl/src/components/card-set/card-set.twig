@@ -1,0 +1,15 @@
+<div class="card-set{% if teaser_news %} card-set--teaser{% elseif teaser_profile %} card-set--teaser{% endif %}">
+  <ul>
+    {% for card in cards %}
+      {% if with_modal %}
+        <li>{% include "@card--with-modal" with card %}</li>
+      {% elseif teaser_news %}
+        <li>{% include "@card--teaser-news" with card %}</li>
+      {% elseif teaser_profile %}
+        <li>{% include "@card--teaser-profile" with card %}</li>
+      {% else %}
+        <li>{% include "@card" with card %}</li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>

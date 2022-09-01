@@ -1,0 +1,47 @@
+<div class="iastate22-carousel-holder">
+    <div class="iastate22-carousel">
+        {% for slide in slides %}
+            <div class="carousel__slide">
+              {% if slide.carousel_content == "image" %}
+              <div class="carousel__slide-image" style="background-image:url({{ slide.image|path }})"></div>
+              {% elseif slide.carousel_content == "video" %}
+              <div class="video-embed">
+                <div class="video-embed__media-wrap">
+                  {% if slide.carousel_video.video.poster_image.url %}
+                    <img src="{{ slide.carousel_video.video.poster_image.url }}" alt="{{ slide.carousel_video.video.poster_image.alt }}" width="{{ slide.carousel_video.video.poster_image.width }}" height="{{ slide.carousel_video.video.poster_image.height }}" />
+                  {% else %}
+                    {% if slide.carousel_video.video.source == "youtube" %}
+                      <img src="https://img.youtube.com/vi/{{ slide.carousel_video.video.youtube_video_id }}/maxresdefault.jpg" alt="Video Poster">
+                    {% elseif slide.carousel_video.video.source == "vimeo" %}
+                      <img src="https://vumbnail.com/{{ slide.carousel_video.video.vimeo_video_id }}.jpg" alt="Video Poster">
+                    {% endif %}
+                  {% endif %}
+                  {% if slide.carousel_video.video.source == "youtube" %}
+                    <div class="video-embed__video" aria-label="YouTube Video: {{ slide.carousel_video.video.title }}" data-vid="{{ slide.carousel_video.video.youtube_video_id }}"></div>
+                    {% elseif slide.carousel_video.video.source == "vimeo" %}
+                    <div data-vimeo-id="{{ slide.carousel_video.video.vimeo_video_id }}" class="video--vim"></div>
+                    {% endif %}
+                </div>
+                {% if fields.media_caption_toggle == true %}
+                    <div class="video-embed__caption">{{ fields.media_caption }}</div>
+                {% endif %}
+              </div>
+            {% endif %}
+              <div class="carousel__slide-content">
+                  {% if slide.caption %}<p class="carousel__slide-content-caption">{{ slide.caption }}</p>{% endif %}
+                  {% if slide.title %}<h3 class="carousel__slide-content-title">{{ slide.title }}</h3>{% endif %}
+                  {% if slide.body %}<p class="carousel__slide-content-body">{{ slide.body }}</p>{% endif %}
+              </div>
+          </div>
+      {% endfor %}
+    </div>
+    <div class="carousel__nav">
+      <div class="carousel__nav-sizer"></div>
+      <button class="carousel__nav-previous" aria-label="Previous slide">
+          <span class="visible-for-screen-readers">Previous slide</span>
+      </button>
+      <button class="carousel__nav-next" aria-label="Next slide">
+          <span class="visible-for-screen-readers">Next slide</span>
+      </button>
+    </div>
+</div>

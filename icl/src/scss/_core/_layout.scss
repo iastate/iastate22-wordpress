@@ -1,0 +1,38 @@
+.off-canvas {
+  overflow-x: hidden;
+}
+.max-bound {
+  width: 100%;
+  max-width: rem(1600);
+  margin: 0 auto;
+  background-color: #fff;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.outer-pad {
+  @extend %outer-pad-x;
+}
+
+.section {
+  margin: rem(48) 0;
+}
+
+main {
+  padding-top: rem(55);
+  flex: 1;
+  @include media-breakpoint-up(xl) {
+    padding-top: rem(117);
+  }
+  .home & {
+    padding-top: 0 !important;
+  }
+}
+
+.site-header--ecosystem + main {
+  padding-top: rem(120);
+  @include media-breakpoint-up(xl) {
+    padding-top: rem(235);
+  }
+}

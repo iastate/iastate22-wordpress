@@ -1,0 +1,17 @@
+.paragraph-widget--button-set {
+  margin: rem(22) 0 rem(60);
+}
+
+.iastate22-button-set {
+  margin: rem(20) 0;
+  ul {
+    padding: 0;
+    li {
+      padding-left: 0;
+      text-indent: initial;
+      &::before {
+        display: none;
+      }
+    }
+  }
+}

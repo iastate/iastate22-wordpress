@@ -1,0 +1,21 @@
+{
+  "context": {
+    "links": [
+      {
+        "url": "https://iastate.edu",
+        "text": "Secondary Link Style",
+        "variant": "iastate22-link-secondary"
+      },
+      {
+        "url": "https://iastate.edu",
+        "text": "External Link Style",
+        "variant": "iastate22-link-external"
+      },
+      {
+        "url": "https://iastate.edu",
+        "text": "Tertiary Link Style",
+        "variant": "link-tertiary"
+      }
+    ]
+  }
+}

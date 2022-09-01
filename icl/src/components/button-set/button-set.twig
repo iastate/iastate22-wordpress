@@ -1,0 +1,9 @@
+<div class="iastate22-button-set">
+  <ul>
+    {% for item in items %}
+      <li>
+        <a class="iastate22-button" href="{{ item.url }}">{{ item.text }}<span class="arrow"></span></a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

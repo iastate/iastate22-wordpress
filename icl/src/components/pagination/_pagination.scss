@@ -1,0 +1,124 @@
+.pagination-block {
+  margin: rem(50) auto;
+  .pagination {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    li {
+      font-family: $typeface-sans-serif;
+      font-weight: 700;
+      font-size: rem(21);
+      line-height: (40 / 21);
+      color: $iastate-maroon;
+      width: rem(21);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      position: relative;
+      @include media-breakpoint-up(lg) {
+        font-size: rem(30);
+        line-height: (40 / 30);
+        width: rem(40);
+      }
+      &.disabled {
+        opacity: 0.2;
+      }
+      &.first,
+      &.prev,
+      &.next,
+      &.last {
+        a,
+        button {
+          background-color: transparent;
+          border: none;
+          height: rem(20);
+          width: rem(10);
+          transform: scale(0.75);
+          @include media-breakpoint-up(lg) {
+            transform: none;
+          }
+          &:after {
+            content: "";
+            background-repeat: no-repeat no-repeat;
+            background-position: center center;
+            background-size: cover;
+            display: block;
+            height: rem(20);
+            width: rem(10);
+          }
+          &:before {
+            display: none;
+          }
+        }
+      }
+      &.first {
+        a,
+        button {
+          width: rem(18);
+          &:after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20.121' height='21.414'%3E%3Cg data-name='Group 1' fill='none' stroke='%237c2529' stroke-width='2'%3E%3Cpath d='m11.414.708-10 10 10 10'/%3E%3Cpath data-name='SVG_Pagination_Back' d='m19.414.708-10 10 10 10'/%3E%3C/g%3E%3C/svg%3E");
+
+            width: rem(18);
+          }
+        }
+      }
+      &.prev {
+        a,
+        button {
+          &:after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12.121' height='21.414'%3E%3Cpath d='m11.414.707-10 10 10 10' fill='none' stroke='%237c2529' stroke-width='2'/%3E%3C/svg%3E");
+          }
+        }
+      }
+      &.next {
+        a,
+        button {
+          &:after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12.121' height='21.414'%3E%3Cpath d='m.707 20.706 10-10-10-10' fill='none' stroke='%237c2529' stroke-width='2'/%3E%3C/svg%3E");
+          }
+        }
+      }
+      &.last {
+        a,
+        button {
+          width: rem(18);
+          &:after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20.121' height='21.414'%3E%3Cg data-name='Group 1' fill='none' stroke='%237c2529' stroke-width='2'%3E%3Cpath d='m8.707 20.706 10-10-10-10'/%3E%3Cpath data-name='SVG_Pagination_Back' d='m.707 20.706 10-10-10-10'/%3E%3C/g%3E%3C/svg%3E");
+            width: rem(18);
+          }
+        }
+      }
+      a {
+        color: currentColor;
+        text-decoration: none;
+        &:hover {
+          &:before {
+            opacity: 1;
+          }
+        }
+        &:before {
+          content: "";
+          position: absolute;
+          bottom: rem(3);
+          width: rem(22);
+          left: 50%;
+          margin-left: rem(-11);
+          border-bottom: rem(3) solid $iastate-maroon;
+          opacity: 0;
+          transition: 0.2s opacity ease-in-out;
+          @include media-breakpoint-up(lg) {
+            width: rem(38);
+            margin-left: rem(-19);
+            bottom: rem(-7);
+          }
+        }
+      }
+      .current {
+        color: $iastate-red;
+      }
+    }
+  }
+}

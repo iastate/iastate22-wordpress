@@ -1,0 +1,11 @@
+<nav class="subnav subnav--horizontal" aria-label="Sidebar">
+  <div class="subnav__list" id="subnav-list">
+    <ul>
+      {% for item in items %}
+      <li>
+        <a href="{{ item.url }}">{{ item.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>

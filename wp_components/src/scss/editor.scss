@@ -1,0 +1,81 @@
+@import "../../../icl/src/scss/index";
+
+.wp-block {
+  max-width: 1600px;
+  background: $white;
+
+  // Visual Indicator
+  &:hover,
+  &:focus {
+    outline: solid 1px blue;
+  }
+}
+
+.editor-styles-wrapper {
+}
+#tinymce {
+  background: $white !important;
+}
+
+.wp-block .hero__text-wrap {
+  margin-left: 0;
+}
+
+.editor-styles-wrapper .wp-block .hero__media {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.mce-i-dashicon.dashicons-align-left {
+  display: none;
+}
+
+.editor-styles-wrapper .acf-field .validation-error {
+  border: solid 2px red;
+}
+
+.editor-styles-wrapper {
+  background: #FFFFFF!important;
+}
+.editor-styles-wrapper:not(.js) .lazyload {
+  display: inherit!important;
+}
+.editor-styles-wrapper .acf-field .validation-error {
+  border: solid 3px red;
+}
+.acf-input {
+
+}
+
+.acf-input .error-message {
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.acf-input.invalid .error-message {
+  opacity: 1;
+}
+
+.edit-post-header__settings {
+  position: relative;
+}
+
+.validator-message {
+  color: #FF0000;
+  position: absolute;
+  bottom: -14px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  opacity: 1;
+  font-size: 12px;
+  transition: opacity .3s ease-out;
+}
+
+.validator-message.valid {
+  opacity: 0;
+}

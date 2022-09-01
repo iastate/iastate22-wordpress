@@ -1,0 +1,289 @@
+/* Font Declarations
+========================================================================== */
+
+@font-face {
+  font-family: "Nimbus Sans";
+  src: url("https://cdn.theme.iastate.edu/fonts/NimbusSanL-Reg.woff") format("woff"),
+    url("https://cdn.theme.iastate.edu/fonts/NimbusSanL-Reg.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nimbus Sans";
+  src: url("https://cdn.theme.iastate.edu/fonts/NimbusSanL-RegIta.woff") format("woff"),
+    url("https://cdn.theme.iastate.edu/fonts/NimbusSanL-RegIta.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nimbus Sans";
+  src: url("https://cdn.theme.iastate.edu/fonts/NimbusSanL-Bol.woff") format("woff"),
+    url("https://cdn.theme.iastate.edu/fonts/NimbusSanL-Bol.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nimbus Sans";
+  src: url("https://cdn.theme.iastate.edu/fonts/NimbusSanL-BolIta.woff") format("woff"),
+    url("https://cdn.theme.iastate.edu/fonts/NimbusSanL-BolIta.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* Base Styles
+========================================================================== */
+
+body {
+  font-family: $typeface-sans-serif;
+  font-size: rem(18);
+  line-height: (32 / 18);
+  color: $grey;
+  @include media-breakpoint-up(md) {
+    font-size: rem(16);
+    line-height: (28 / 16);
+  }
+}
+
+a:not(.iastate22-button):not(.iastate22-link-secondary):not(.iastate22-link-external):not(.link-tertiary) {
+  .text-content &,
+  .accordion-item & {
+    color: $iastate-maroon;
+    font-weight: 700;
+    font-family: $typeface-sans-serif;
+    transition: 0.2s color ease-in-out;
+    &:hover {
+      color: $iastate-red;
+    }
+  }
+}
+
+p {
+  margin: rem(18) 0;
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+  a {
+    text-decoration: underline;
+    transition: $link-transition;
+    &:hover {
+      color: $iastate-red;
+    }
+  }
+}
+
+ul,
+ol {
+  .text-content &,
+  .accordion-item & {
+    margin: $list-margin;
+    padding: $list-padding;
+    li {
+      font-size: rem(18);
+      line-height: (32 / 18);
+      margin: $list-item-margin;
+      @include media-breakpoint-up(md) {
+        font-size: rem(16);
+        line-height: (29 / 16);
+      }
+      &:first-child {
+        margin-top: 0;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    ul,
+    ol {
+      margin: $list-list-margin;
+    }
+  }
+  .text-content > &,
+  .accordion-item & {
+    &:first-child {
+      margin-top: 0;
+      ul,
+      ol,
+      li {
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+    &:last-child {
+      margin-bottom: 0;
+      ul,
+      ol,
+      li {
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+ul {
+  .text-content &,
+  .accordion-item & {
+    list-style-type: none;
+    li {
+      padding-left: rem(20);
+      text-indent: rem(-20);
+      &:before {
+        content: "•";
+        padding-right: rem(13);
+        color: $iastate-maroon;
+      }
+      ul {
+        li {
+          &:before {
+            content: "–";
+            padding-right: rem(10);
+            color: $iastate-maroon;
+          }
+        }
+      }
+    }
+  }
+}
+
+ol {
+  .text-content &,
+  .accordion-item & {
+    list-style-type: none;
+    counter-reset: item;
+    > li {
+      padding-left: rem(20);
+      text-indent: rem(-20);
+      &:before {
+        content: counter(item) ". ";
+        counter-increment: item;
+        color: $iastate-maroon;
+      }
+    }
+  }
+}
+
+/* Headings
+========================================================================== */
+
+h1,
+.h1,
+%h1,
+h2,
+.h2,
+%h2,
+h3,
+.h3,
+%h3,
+h4,
+.h4,
+%h4,
+h5,
+.h5,
+%h5,
+h6,
+.h6,
+%h6 {
+  line-height: $heading-line-height;
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+h1,
+.h1,
+%h1 {
+  color: $iastate-red;
+  font-family: $typeface-serif;
+  font-size: rem(50);
+  font-weight: normal;
+  letter-spacing: 0;
+  line-height: (60 / 50);
+  margin: $h1-margin;
+  @include media-breakpoint-up(md) {
+    font-size: rem(70);
+    line-height: (93 / 70);
+  }
+}
+
+h2,
+.h2,
+%h2 {
+  color: $iastate-red;
+  font-family: $typeface-serif;
+  font-size: rem(30);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: (42 / 30);
+  margin: $h2-margin;
+  padding-bottom: rem(28);
+  margin-bottom: rem(22);
+  position: relative;
+  .text-content & {
+    @extend %h2-yellow-border;
+  }
+  & + h3,
+  & + .h3,
+  & + %h3 {
+    margin-top: 0;
+  }
+}
+
+h3,
+.h3,
+%h3 {
+  color: $iastate-red;
+  font-family: $typeface-sans-serif;
+  font-size: rem(21);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: (30 / 21);
+  margin: rem(38) 0 rem(9) 0;
+}
+
+h4,
+.h4,
+%h4 {
+  color: $iastate-maroon;
+  font-family: $typeface-sans-serif;
+  font-size: rem(18);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: (25 / 18);
+  margin: $h4-margin;
+}
+
+h5,
+.h5,
+%h5 {
+  color: $iastate-maroon;
+  font-family: $typeface-sans-serif;
+  font-size: rem(16);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: (25 / 16);
+  margin: $h5-margin;
+}
+
+h6,
+.h6,
+%h6 {
+  color: $iastate-maroon;
+  font-family: $typeface-sans-serif;
+  font-size: rem(16);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: (25 / 16);
+  margin: $h5-margin;
+}

@@ -1,0 +1,82 @@
+<footer class="site-footer">
+  <div class="site-footer__flex-wrap">
+    <img class="site-footer__logo" src="{{ "https://cdn.theme.iastate.edu/img/iastate22/iowa-state-university-logo-with-tagline-sci-tech.svg"|path }}" alt="Iowa State University of Science and Technology" loading="lazy" width="516" height="69">
+
+    <div class="site-footer__social-links-wrap">
+      <ul class="site-footer__social">
+        <li>
+          <a href="#" target="_blank">
+            <i class="fak fa-iastate22-instagram" aria-hidden="true"></i>
+            <span class="visible-for-screen-readers">Instagram</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" target="_blank">
+            <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+            <span class="visible-for-screen-readers">YouTube</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" target="_blank">
+            <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+            <span class="visible-for-screen-readers">Facebook</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" target="_blank">
+            <i class="fa-brands fa-twitter" aria-hidden="true"></i>
+            <span class="visible-for-screen-readers">Twitter</span>
+          </a>
+        </li>
+      </ul>
+
+      <nav class="site-footer__primary-nav" aria-label="Footer Primary">
+        <ul>
+          {% for link in footer_nav %}
+          <li>
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
+
+    </div>
+    
+
+    <nav class="site-footer__secondary-nav" aria-label="Footer Secondary">
+      <h2 class="site-footer__section-label">Quick Links</h2>
+      <ul>
+        {% for link in footer_secondary_nav %}
+        <li>
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <nav class="site-footer__departments-nav" aria-label="Footer Departments">
+      <ul>
+        {% for department in footer_departments %}
+        <li>
+          <p class="site-footer__section-label">{{ department.title }}</p>
+          <a class="site-footer__section-email" href="mailto:{{ department.email }}">{{ department.email }}</a>
+          <a class="site-footer__section-phone" href="tel:{{ department.phone }}">{{ department.phone }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+
+  <div class="site-footer__bottom-wrap">
+    <nav class="site-footer__utility-nav" aria-label="Footer Utility">
+      <ul>
+        {% for link in footer_utility_nav %}
+        <li>
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <div class="site-footer__copyright"><p>&copy; {{copyright}}</p></div>
+  </div>
+</footer>

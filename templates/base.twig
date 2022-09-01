@@ -1,0 +1,33 @@
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+	<body class="{{body_class}}" data-template="base.twig">
+		<a class="skip-link" href="#main-content">Skip To Main Content</a>
+		<div class="off-canvas">
+			<div class="max-bound">	
+				{% block header %}
+					{% include 'components/header--eco.twig' %}
+				{% endblock %}
+				<main>
+					{% block content %}
+					{% endblock %}
+				</main>
+				{% block footer %}
+					{% include 'footer.twig' %}
+					{{ function('wp_footer') }}
+				{% endblock %}
+			</div>
+		</div>
+
+
+
+		{% block page_footer_container %}
+			{% include "page-footer.twig" %}
+		{% endblock %}
+	</body>
+</html>

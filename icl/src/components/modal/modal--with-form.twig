@@ -1,0 +1,25 @@
+<button class="iastate22-button" data-micromodal-trigger="{{ id }}">Modal Trigger<span class="arrow"></span></div>
+
+<div class="iastate22-modal" id="{{ id }}" aria-hidden="false">
+  <div class="iastate22-modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="iastate22-modal__container{% if image %} iastate22-modal__container-with-media{% endif %}" id="{{ id }}-content" role="dialog" aria-modal="true" aria-labelledby="{{ id }}-title">
+      <button class="iastate22-modal__close" aria-label="Close modal" data-micromodal-close><i class="fa-light fa-xmark" aria-hidden="true"></i></button>
+      {% if image %}
+      <div class="iastate22-modal__media">
+        <img src="{{ image|path }}" alt="" loading="lazy" width="400" height="400">
+      </div>
+      {% endif %}
+      <div class="iastate22-modal__content">
+        <h2 class="iastate22-modal__title" id="{{ id }}-title">{{ title }}</h2>
+        {{ content|raw }}
+        <form class="iastate22-modal__content-form" method="post">
+          <label>
+            <div class="label-text">{{ form_field_label }}</div>
+            <input type="{{ input_type }}" name="{{ input_name }}" id="{{ input_id }}" {% if required %}required{% endif %}/>
+          </label>
+          <button type="submit" value="Submit">{{ form_input_text }}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

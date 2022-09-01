@@ -1,0 +1,110 @@
+{
+  "context": {
+    "parent_unit_name": "",
+    "website_title": "Sarah Ryan",
+    "search_visible": false,
+    "utility_button": [],
+    "utility_nav": [],
+    "full_nav": [],
+    "faculty_bio_info_card": {
+      "image": "../../img/faculty-bio-photo_fpo.jpg",
+      "name": "FirstName LastName",
+      "titles": [
+        "Medium Title 1 Lorem Ipsum Dolor Sit Amet",
+        "Short Title 2 Lorem",
+        "Long Title 3 Lorem Ipsum Dolor Sit Amet, Consecteteur Lorem Ipsum Dolor Sit Amet"
+      ],
+      "link_set": {
+        "links": [
+          {
+            "url": "https://iastate.edu",
+            "text": "Department/Unit Name Lorem Ipsum",
+            "variant": "iastate22-link-secondary"
+          },
+          {
+            "url": "https://iastate.edu",
+            "text": "Department/Unit Name Lorem Ipsum Dolor Sit Amet",
+            "variant": "iastate22-link-secondary"
+          },
+          {
+            "url": "https://iastate.edu",
+            "text": "External Link Name Lorem Ipsum",
+            "variant": "iastate22-link-external"
+          }
+        ]
+      },
+      "contact_box": {
+        "label": "Contact",
+        "email": "smryan@iastate.edu",
+        "phone": "(515) 294-4347",
+        "address": {
+          "building": "3017 Black Engr.",
+          "street": "2529 Union Dr.",
+          "city_state_zip": "Ames, IA 50011-2030"
+        },
+        "social_links": {
+          "instagram": "#",
+          "youtube": "#",
+          "facebook": "#",
+          "twitter": "#"
+        }
+      }
+    },
+    "button_set": {
+      "items": [
+        {
+          "text": "Download CV",
+          "url": "https://iastate.edu"
+        }
+      ]
+    },
+    "two_column_text": {
+      "columns": [
+        "<h2>Education</h2><p>PhD, Industrial and Operations Engineering, The University of Michigan</p><p>MSE, Industrial and Operations Engineering, The University of Michigan</p><p>BS (with high distinction), Systems Engineering, The University of Virginia</p>",
+        "<h2>Affiliations</h2><div class=\"link-set\"><ul><li><a href=\"https://iastate.edu\" class=\"link-set__link iastate22-link-secondary\">DataFEWSion Graduate Traineeship<span class=\"arrow\"></span></a></li><li><a href=\"https://iastate.edu\" class=\"link-set__link iastate22-link-secondary\">The Engineering Economist<span class=\"arrow\"></span></a></li></ul></div>"
+      ]
+    },
+    "social_links": {
+      "instagram": "",
+      "youtube": "",
+      "facebook": "",
+      "twitter": "#",
+      "linkedin": "",
+      "flickr": ""
+    },
+    "footer_nav": [],
+    "footer_secondary_nav": [
+      {
+        "title": "Sign Ons and Tools",
+        "url": "#"
+      }
+    ],
+    "site_org_contact": {
+      "name": "Sarah Ryan",
+      "email": [
+        {
+          "email_address": "sryan@iastate.edu"
+        }
+      ],
+      "phone": [
+        {
+          "label": "",
+          "phone_number": "(515) 294-3112"
+        }
+      ],
+      "address": {
+        "building": "5205 Adv Tch Res Bid (ATRB)",
+        "street": "2213 Pammel Dr",
+        "city_state_zip": "Ames, IA 50011-1101"
+      }
+    }
+  },
+  "variants": [
+    {
+      "name": "no-image",
+      "context": {
+        "image": ""
+      }
+    }
+  ]
+}

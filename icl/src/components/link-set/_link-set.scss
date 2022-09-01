@@ -1,0 +1,53 @@
+.paragraph-widget--link-set {
+  margin-bottom: rem(50);
+}
+
+.link-set {
+  ul {
+    padding: 0;
+    li {
+      padding-left: 0;
+      margin: 0 0 rem(12) 0;
+      text-indent: 0;
+      &:before {
+        display: none;
+      }
+    }
+  }
+}
+
+.link-set__link {
+  color: $iastate-maroon;
+  font-family: $typeface-sans-serif;
+  font-weight: 700;
+  &.iastate22-link-external {
+    font-size: rem(18);
+    text-decoration: none;
+    line-height: (25 / 18);
+    &:after {
+      content: "";
+      width: rem(18);
+      height: rem(18);
+      background-image: url("data:image/svg+xml,%0A%3Csvg width='18px' height='18px' viewBox='0 0 18 18' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpolygon id='path-jrvdubsivk-1' points='0 0 18 0 18 18 0 18'%3E%3C/polygon%3E%3C/defs%3E%3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='image'%3E%3Cmask id='mask-jrvdubsivk-2' fill='white'%3E%3Cuse xlink:href='%23path-jrvdubsivk-1'%3E%3C/use%3E%3C/mask%3E%3Cg id='Path'%3E%3C/g%3E%3Cg id='Group' mask='url(%23mask-jrvdubsivk-2)' fill='%237C2529' fill-rule='nonzero'%3E%3Cg transform='translate(1.000000, 1.000000)' id='Path'%3E%3Cpolygon points='5 -1 5 1 1 1 1 15 15 15 15 11 17 11 17 17 -1 17 -1 -1'%3E%3C/polygon%3E%3Cpolygon points='17 -1 17 8 15 8 15 1 8 1 8 -1'%3E%3C/polygon%3E%3Cpolygon points='15.2928932 -0.707106781 16.7071068 0.707106781 6.70710678 10.7071068 5.29289322 9.29289322'%3E%3C/polygon%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      background-repeat: no-repeat no-repeat;
+      background-position: center center;
+      background-size: rem(18);
+      display: inline-block;
+      position: relative;
+      top: rem(4);
+      margin-left: rem(12);
+    }
+    &:hover {
+      text-decoration: underline;
+      color: $iastate-maroon;
+    }
+    .arrow {
+      display: none;
+    }
+  }
+
+  &.iastate22-link-secondary,
+  &.link-tertiary {
+    margin: 0;
+  }
+}

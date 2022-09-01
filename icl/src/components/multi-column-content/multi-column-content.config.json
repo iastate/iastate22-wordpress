@@ -1,0 +1,45 @@
+{
+  "context": {
+    "columns": [
+      "<h3>3-Column Heading Lorem</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>",
+      "<h3>3-Column Heading Lorem</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>",
+      "<h3>3-Column Heading Lorem</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>"
+    ]
+  },
+  "variants": [
+    {
+      "name": "alternative",
+      "context": {
+        "columns": [
+          {
+            "icon": "../../img/icons/multicolor-icon-office-of-dei.svg",
+            "title": "Office of Diversity, Equity and Inclusion",
+            "description": "<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>",
+            "link": {
+              "url": "https://www.iastate.edu/",
+              "title": "Learn more about the Office"
+            }
+          },
+          {
+            "icon": "../../img/icons/multicolor-icon-center-for-lgbtqia+.svg",
+            "title": "Center for LGBTQIA+ Student Success",
+            "description": "<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>",
+            "link": {
+              "url": "https://www.iastate.edu/",
+              "title": "Read more about our LGBTQIA+ Community"
+            }
+          },
+          {
+            "icon": "../../img/icons/multicolor-icon-student-accessibility.svg",
+            "title": "Student Accessibility Services",
+            "description": "<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>",
+            "link": {
+              "url": "https://www.iastate.edu/",
+              "title": "Learn about Accessibility Services"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

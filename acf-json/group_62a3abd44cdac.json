@@ -1,0 +1,60 @@
+{
+    "key": "group_62a3abd44cdac",
+    "title": "Social Nav Menu",
+    "fields": [
+        {
+            "key": "field_62a3ac557d557",
+            "label": "Social Network",
+            "name": "network",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "instagram": "Instagram",
+                "youtube": "YouTube",
+                "facebook": "Facebook",
+                "twitter": "Twitter",
+                "linkedin": "LinkedIn",
+                "tiktok": "TikTok",
+                "vimeo": "Vimeo",
+                "snapchat": "Snapchat",
+                "pinterest": "Pinterest",
+                "podcast": "Podcast",
+                "comments": "Blog",
+                "address-book": "Directory"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "label",
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "nav_menu_item",
+                "operator": "==",
+                "value": "10"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1661367090
+}

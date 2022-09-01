@@ -1,0 +1,350 @@
+.iastate22-card {
+  box-shadow: rem(9) rem(9) rem(20) rgba($black, 0.2);
+  background: $white;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  &.iastate22-card--linked-image {
+    box-shadow: none;
+    text-align: left;
+  }
+  &.iastate22-card--profile-with-modal {
+    cursor: grab;
+    height: 100%;
+    @include media-breakpoint-up(lg) {
+      cursor: auto;
+    }
+  }
+  &.iastate22-card--teaser {
+    box-shadow: none;
+    @include media-breakpoint-up(sm) {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+  }
+  &.clickable {
+    cursor: pointer;
+    &:hover {
+      &:before {
+        opacity: 1;
+      }
+      .iastate22-card__media {
+        img {
+          transform: scale(1.1);
+        }
+      }
+    }
+    &.iastate22-card--linked-image {
+      &:hover {
+        .arrow {
+          width: rem(12);
+        }
+      }
+    }
+    &.iastate22-card--teaser {
+      &:hover {
+        .iastate22-card__cta {
+          color: $iastate-red;
+        }
+      }
+    }
+  }
+  &:before {
+    content: "";
+    background-color: transparent;
+    position: absolute;
+    border: rem(8) solid $iastate-gold;
+    top: rem(-8);
+    left: rem(-8);
+    right: rem(-8);
+    bottom: rem(-8);
+    z-index: 0;
+    opacity: 0;
+    transition: 0.2s opacity ease-in-out;
+  }
+  p {
+    a {
+      color: $iastate-maroon;
+    }
+  }
+}
+
+.iastate22-card__cta {
+  font-family: $typeface-sans-serif;
+  color: $iastate-maroon;
+  font-weight: 700;
+  font-size: rem(18);
+  line-height: (28 / 18);
+  transition: 0.2s color ease-in-out;
+  margin-top: rem(5);
+  display: inline-block;
+  cursor: pointer;
+  &:hover {
+    color: $iastate-red;
+  }
+  .iastate22-card--linked-image & {
+    position: absolute;
+    background-color: $iastate-red;
+    padding: rem(31) rem(52) rem(31) rem(26);
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    color: $white;
+    text-decoration: none;
+    min-width: rem(249);
+    text-align: left;
+    .arrow {
+      transform: translateX(#{rem(13)});
+      right: initial;
+      top: 49%;
+      width: 0;
+      background-color: $iastate-gold;
+
+      &:after,
+      &:before {
+        background-color: $iastate-gold;
+      }
+    }
+  }
+  .iastate22-card--profile-with-modal &,
+  .iastate22-card--with-modal & {
+    color: $iastate-red;
+    margin-top: rem(50);
+    margin-bottom: rem(5);
+    font-size: rem(16);
+    line-height: (26 / 16);
+    text-decoration: underline;
+    text-underline-offset: rem(1);
+    margin: auto 0 rem(5);
+    border: none;
+    background-color: transparent;
+    @include media-breakpoint-up(md) {
+      bottom: rem(30);
+    }
+    cursor: pointer;
+    &:hover {
+      color: $iastate-maroon;
+    }
+  }
+  .iastate22-card--teaser & {
+    text-align: left;
+    display: block;
+    font-size: rem(21);
+    line-height: (30 / 21);
+  }
+}
+
+.iastate22-card__content {
+  margin: 0;
+  padding: rem(22) rem(41);
+  position: relative;
+  z-index: 2;
+  background-color: $white;
+  .iastate22-card--profile-with-modal & {
+    padding: rem(12) rem(22);
+    min-height: rem(210);
+    display: flex;
+    flex-direction: column;
+    @include media-breakpoint-up(md) {
+      padding: rem(23);
+      min-height: rem(239);
+    }
+  }
+  .iastate22-card--teaser & {
+    @include media-breakpoint-up(sm) {
+      flex: 0 1 auto;
+      width: 50%;
+    }
+    @include media-breakpoint-up(md) {
+      width: 66.6%;
+    }
+  }
+}
+
+.iastate22-card__media {
+  overflow: hidden;
+  z-index: 1;
+  @extend %responsive-img;
+  &:before {
+    padding-top: 100%;
+  }
+  .iastate22-card--linked-image & {
+    &:before {
+      padding-top: 86.47%;
+    }
+  }
+
+  .iastate22-card--profile-with-modal & {
+    &:before {
+      padding-top: 94.67%;
+    }
+  }
+  .iastate22-card--teaser & {
+    @include media-breakpoint-up(sm) {
+      flex: 0 1 auto;
+      width: 50%;
+    }
+    @include media-breakpoint-up(md) {
+      width: 33.3%;
+    }
+    &:before {
+      padding-top: 66.45%;
+    }
+  }
+  .iastate22-card--teaser-profile & {
+    @include media-breakpoint-up(md) {
+      max-width: rem(196);
+    }
+    &:before {
+      padding-top: 100%;
+    }
+  }
+
+  img {
+    transition: 0.2s transform ease-in-out;
+  }
+}
+
+.iastate22-card__title {
+  margin: 0;
+  padding: 0;
+  font-family: $typeface-sans-serif;
+  font-weight: 700;
+  color: $iastate-red;
+  font-size: rem(21);
+  line-height: (30 / 21);
+  .iastate22-card--profile-with-modal & {
+    color: $iastate-maroon;
+    font-size: rem(18);
+    line-height: (23 / 18);
+    margin-bottom: rem(13);
+    @include media-breakpoint-up(md) {
+      font-size: rem(21);
+      line-height: (29 / 21);
+      margin-bottom: rem(23);
+    }
+  }
+  a {
+    color: currentColor;
+    text-decoration: none;
+  }
+}
+
+.iastate22-card__body {
+  margin-top: rem(5);
+}
+
+// These styles only on profile-with-modal variant
+.iastate22-card__name {
+  .iastate22-card--profile-with-modal & {
+    color: $iastate-maroon;
+    font-family: $typeface-sans-serif;
+    font-weight: 700;
+    font-size: rem(16);
+    line-height: (20 / 16);
+  }
+}
+.iastate22-card__role {
+  .iastate22-card--profile-with-modal & {
+    color: $iastate-maroon;
+    font-size: rem(16);
+    line-height: (20 / 16);
+    padding-bottom: rem(30);
+  }
+}
+
+// modal popup window styles for iastate22-card--profile-with-modal variant
+.iastate22-card--profile-with-modal {
+  .iastate22-modal__container {
+    padding: rem(37);
+    width: 90%;
+  }
+  .iastate22-modal__media-name-wrap {
+    display: flex;
+    align-items: center;
+    margin-left: rem(-37);
+    margin-right: rem(-37);
+    @include media-breakpoint-up(md) {
+      flex-direction: column;
+      flex: 0 1 auto;
+      width: 36%;
+      margin: 0;
+    }
+  }
+  .iastate22-modal__media,
+  .iastate22-modal__name-role-wrap {
+    flex: 1 1 0;
+  }
+  .iastate22-modal__media {
+    padding-right: rem(10);
+    @include media-breakpoint-up(md) {
+      flex: 0 1 auto;
+      width: 100%;
+      padding: 0;
+    }
+  }
+  .iastate22-modal__name-role-wrap {
+    padding-left: rem(10);
+    @include media-breakpoint-up(md) {
+      margin-top: rem(15);
+      padding: 0;
+      text-align: center;
+    }
+  }
+  .iastate22-card__name {
+    margin-bottom: rem(6);
+  }
+  .iastate22-card__role {
+    padding: 0;
+  }
+  .iastate22-modal__content {
+    @include media-breakpoint-up(md) {
+      padding-top: 0;
+      padding-bottom: rem(20);
+    }
+  }
+  .iastate22-modal__title {
+    font-family: $typeface-serif;
+    font-weight: 700;
+    font-size: rem(30);
+    line-height: (44 / 30);
+  }
+  .iastate22-modal__body-content {
+    color: $iastate-maroon;
+    font-size: rem(18);
+    line-height: (29 / 18);
+  }
+
+  .iastate22-modal__content-cta {
+    color: $iastate-maroon;
+    font-family: $typeface-sans-serif;
+    font-weight: 700;
+    font-size: rem(18);
+    line-height: (26 / 18);
+  }
+  a {
+    color: $iastate-red;
+    transition: 0.2s color ease-in-out;
+    &:hover {
+      color: $iastate-maroon;
+    }
+  }
+}
+
+// modal popup window styles for iastate22-card--with-modal variant
+.iastate22-modal__body-content {
+  + .link-set {
+    margin-top: rem(15);
+  }
+}
+
+// styles here only needed for news and profile teaser cards
+.iastate22-card__content-body {
+  text-align: left;
+}
+.iastate22-card__content-date {
+  text-align: left;
+  color: $iastate-maroon;
+}

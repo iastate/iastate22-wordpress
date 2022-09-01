@@ -1,0 +1,32 @@
+<nav class="subnav" aria-label="Sidebar">
+  <noscript>
+    <button class="subnav__toggle" id="subnav-toggle" aria-controls="subnav-list" aria-haspopup="true" aria-expanded="false"><span>Explore This Section</span></button>
+  </noscript>
+  <div class="subnav__list" id="subnav-list">
+    <ul>
+      <li>
+        <a href="{{ function('get_permalink', rent) }}">Parent Page</a>
+      </li>
+      {% for key, item in siblings %}
+      <li>
+        {% if item %}
+          <a href="{{ function('get_permalink', item.ID) }}"{% if item.ID == current %} aria-current="page"{% endif %}>{{ item.post_title }}</a>
+        {% else %}
+          <span class="lw_separator_title">{{ item.post_title }}</span>
+        {% endif %}
+        {% if childrens[key]|length > 0 %}
+          <ul>
+            {% for subitem in childrens[key] %}
+            <li>
+              <a href="{{ function('get_permalink', subitem.ID) }}">{{ subitem.post_title }}</a>
+              {# <a href="https://www.iastate.edu/">Child Page Title Lorem</a> #}
+            </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+        
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+</nav>

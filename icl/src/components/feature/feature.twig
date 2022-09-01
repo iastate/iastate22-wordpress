@@ -1,0 +1,12 @@
+<div class="iastate22-callout{% if image %}{% else %} iastate22-callout--no-image{% endif %}">
+  {% if image %}
+  <div class="iastate22-callout__media">
+    <img src="{{ image|path }}" alt="" width="622" height="414" loading="lazy" >
+  </div>
+  {% endif %}
+  <div class="iastate22-callout__content text-content">
+    <h3>{{title}}</h3>
+    <p>{{body_copy}}</p>
+    {% include "@link-set" with link_set %}
+  </div>
+</div>

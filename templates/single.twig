@@ -1,0 +1,35 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+			<div class="outer-pad">
+				<section class="article-content">
+					<div class="article-header hero">
+						<div class="hero__text-wrap">
+							{% include ['templates/partial/breadcrumbs.twig'] %}
+							<h1 class="hero__title">{{ post.title }}</h1>
+						</div>
+
+						{% if post.thumbnail %}
+							<div class="hero__media">
+								<img src="{{ post.thumbnail.src|resize(2000, 500) }}">
+							</div>
+						{% endif %}
+						
+						<div class="blog-author">
+							<i><span>By </span><a href="{{post.author.path}}" class="link-set__link link-tertiary"> {{ post.author.name }} </a><span> &bull;</span> {{ post.date }}</i>
+						</div>
+					</div>
+					<div class="article-body">
+						{{post.content}}
+					</div>
+
+					<div class="article-category-tag">
+						{% include ['templates/partial/post-category-tag.twig'] %}
+					</div>
+				</section>
+			</div>
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}

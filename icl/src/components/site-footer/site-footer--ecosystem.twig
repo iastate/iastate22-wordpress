@@ -1,0 +1,125 @@
+<footer class="site-footer site-footer--ecosystem">
+  <div class="site-footer__flex-wrap">
+    <div class="site-footer__logo-social-links-wrap">
+      <img class="site-footer__logo" src="{{ "https://cdn.theme.iastate.edu/img/iastate22/iowa-state-university-logo-with-tagline-sci-tech.svg"|path }}" alt="Iowa State University of Science and Technology" loading="lazy" width="516" height="69">
+      
+      {% if social_links %}
+      <ul class="site-footer__social">
+        {% if social_links.instagram %}
+        <li>
+          <a href="{{ social_links.instagram }}" target="_blank">
+            <i class="fak fa-iastate22-instagram" aria-hidden="true"></i>
+            <span class="visible-for-screen-readers">Instagram</span>
+          </a>
+        </li>
+        {% endif %}
+        {% if social_links.youtube %}
+        <li>
+          <a href="{{ social_links.youtube }}" target="_blank">
+            <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+            <span class="visible-for-screen-readers">YouTube</span>
+          </a>
+        </li>
+        {% endif %}
+        {% if social_links.facebook %}
+        <li>
+          <a href="{{ social_links.facebook }}" target="_blank">
+            <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+            <span class="visible-for-screen-readers">Facebook</span>
+          </a>
+        </li>
+        {% endif %}
+        {% if social_links.twitter %}
+        <li>
+          <a href="{{ social_links.twitter }}" target="_blank">
+            <i class="fa-brands fa-twitter" aria-hidden="true"></i>
+            <span class="visible-for-screen-readers">Twitter</span>
+          </a>
+        </li>
+        {% endif %}
+        {% if social_links.linkedin %}
+        <li>
+          <a href="{{ social_links.linkedin }}" target="_blank">
+            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+            <span class="visible-for-screen-readers">LinkedIn</span>
+          </a>
+        </li>
+        {% endif %}
+        {% if social_links.flickr %}
+        <li>
+          <a href="{{ social_links.flickr }}" target="_blank">
+            <i class="fak fa-iastate22-flickr" aria-hidden="true"></i>
+            <span class="visible-for-screen-readers">Flickr</span>
+          </a>
+        </li>
+        {% endif %}
+      </ul>
+      {% endif %}
+    </div>
+
+    {% if footer_nav %}
+    <nav class="site-footer__primary-nav" aria-label="Footer Primary">
+      <ul>
+        {% for link in footer_nav %}
+        <li>
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    {% endif %}
+  
+    
+
+    <nav class="site-footer__secondary-nav" aria-label="Footer Secondary">
+      {% if footer_secondary_nav|length > 3 %}<h2 class="site-footer__section-label">Quick Links</h2>{% endif %}
+      <ul{% if footer_secondary_nav|length < 3 %} class="site-footer__secondary-nav-short"{% endif %}>
+        {% for link in footer_secondary_nav %}
+        <li>
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <div class="site-footer__site-org-contact-info">
+      <h2 class="site-footer__section-label">{{ site_org_contact.name }}</h2>      
+      {% if site_org_contact.address %}
+      <div class="site-footer__site-org-contact-address">
+        <p>{% if site_org_contact.address.building %}{{ site_org_contact.address.building }}<br>{% endif %}
+        {{ site_org_contact.address.street }}<br>
+        {{ site_org_contact.address.city_state_zip }}</p>
+      </div>
+      {% endif %}
+      <div class="site-footer__site-org-contact-email-phone-wrap">
+        {% if site_org_contact.phone %}
+        <div class="site-footer__site-org-contact-phone">
+          {% for phone in site_org_contact.phone %}
+          <p>{% if phone.label %}{{ phone.label }}: {% endif %}{{ phone.phone_number }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% if site_org_contact.email %}
+        <div class="site-footer__site-org-contact-email">
+          {% for email in site_org_contact.email %}
+          <p>{% if email.label %}{{ email.label }}: {% endif %}<a href="mailto:{{ email.email_address }}">{{ email.email_address }}</a></p>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="site-footer__bottom-wrap">
+    <nav class="site-footer__utility-nav" aria-label="Footer Utility">
+      <ul>
+        {% for link in footer_utility_nav %}
+        <li>
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <div class="site-footer__copyright"><p>&copy; {{copyright}}</p></div>
+  </div>
+</footer>

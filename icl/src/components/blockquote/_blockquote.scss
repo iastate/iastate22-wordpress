@@ -1,0 +1,131 @@
+.paragraph-widget--blockquote {
+  @extend %full-width-component;
+  @include media-breakpoint-up(xl) {
+    margin-top: rem(60);
+    margin-bottom: rem(60);
+    margin-right: rem(-298);
+    position: relative;
+  }
+  &:before {
+    @include media-breakpoint-up(xxl) {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -50vw;
+      width: 150vw;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1;
+      background-color: $iastate-red;
+      pointer-events: none;
+    }
+  }
+}
+
+.iastate22-blockquote {
+  background-color: $iastate-red;
+  @extend %outer-pad-x;
+  padding: rem(140) rem(36) rem(100);
+  position: relative;
+  @include media-breakpoint-up(md) {
+    padding-left: rem(70);
+    padding-right: rem(70);
+  }
+  @include media-breakpoint-up(xl) {
+    padding: rem(60) rem(36) rem(90);
+  }
+}
+
+.iastate22-blockquote__inner-wrap {
+  @include media-breakpoint-up(xl) {
+    display: flex;
+    align-items: flex-start;
+    width: 90%;
+    margin: 0 auto;
+  }
+  @include media-breakpoint-up(xxl) {
+    position: relative;
+    width: 80%;
+    left: rem(-60);
+  }
+  .iastate22-blockquote--with-no-image & {
+    @include media-breakpoint-up(xl) {
+      padding-left: rem(258);
+    }
+  }
+}
+
+.iastate22-blockquote__portrait {
+  @extend %responsive-img;
+  max-width: rem(166);
+  margin: rem(-80) auto rem(28);
+  @include media-breakpoint-up(md) {
+    max-width: rem(230);
+  }
+  @include media-breakpoint-up(xl) {
+    flex: 0 0 auto;
+    margin: 0;
+    max-width: rem(258);
+    width: rem(258);
+    left: rem(-12);
+  }
+
+  &:before {
+    padding-top: 100%;
+  }
+  img {
+    border-radius: 50%;
+  }
+}
+
+.iastate22-blockquote__text-wrap {
+  position: relative;
+  @include media-breakpoint-up(xl) {
+    padding-left: rem(50);
+  }
+}
+.iastate22-blockquote__quote {
+  color: $white;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  @include media-breakpoint-up(md) {
+    font-size: rem(40);
+    line-height: (58 / 40);
+  }
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    width: rem(64);
+    height: rem(52);
+    background-repeat: no-repeat no-repeat;
+    background-position: center center;
+    background-size: rem(64) rem(52);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='63.979' height='52'%3E%3Cg data-name='Group 416' fill='%23f1be48'%3E%3Cpath data-name='“' d='M27.043 52.001v-25h-16c-.4-10 4.8-15.8 16-17.8v-9.2c-17.6 1.4-27.8 12.8-27 30.2v21.8ZM63.979 52.001v-25h-16c-.4-10 4.8-15.8 16-17.8v-9.2c-17.6 1.4-27.8 12.8-27 30.2v21.8Z'/%3E%3C/g%3E%3C/svg%3E");
+    z-index: 1;
+  }
+  &:before {
+    top: rem(-80);
+    @include media-breakpoint-up(xl) {
+      top: rem(-9);
+      margin-left: rem(-115);
+    }
+  }
+  &:after {
+    transform: rotate(180deg);
+    bottom: rem(-81);
+    right: 0;
+  }
+}
+.iastate22-blockquote__author {
+  color: $white;
+  font-family: $typeface-sans-serif;
+  font-weight: 700;
+  margin-top: rem(20);
+  padding-right: rem(75);
+  @include media-breakpoint-up(xl) {
+    margin-top: rem(2);
+  }
+}

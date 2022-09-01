@@ -1,0 +1,14 @@
+@function strip-unit($number) {
+    @if type-of($number) == "number" and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+    @return $number;
+}
+
+@function em($size, $context-size: $font-size-root) {
+    @return (strip-unit($size) / strip-unit($context-size)) * 1em;
+}
+
+@function rem($size) {
+    @return (strip-unit($size) / strip-unit($font-size-root)) * 1rem;
+}

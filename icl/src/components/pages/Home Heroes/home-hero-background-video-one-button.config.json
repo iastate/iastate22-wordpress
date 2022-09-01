@@ -1,0 +1,17 @@
+{
+  "context": {
+    "hero": {
+      "image": "../../img/ecosystem-hero-featured_fpo.jpg",
+      "title": "Marston Hall",
+      "video_id": "LjOmcZkXVcU",
+      "button_set": {
+        "items": [
+          {
+            "text": "About the Rededication",
+            "url": "https://iastate.edu"
+          }
+        ]
+      }
+    }
+  }
+}

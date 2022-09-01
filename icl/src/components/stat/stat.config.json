@@ -1,0 +1,19 @@
+{
+  "context": {
+    "statistics_label": "Class of 2025 Profile",
+    "statistics": [
+      {
+        "statistic_title": "X,XXX",
+        "statistic_text": "Enrolled Students"
+      },
+      {
+        "statistic_title": "XX%",
+        "statistic_text": "Out of State or International Students"
+      },
+      {
+        "statistic_title": "1 in 4",
+        "statistic_text": "Students are Black, Asian, Hispanic or Multiracial"
+      }
+    ]
+  }
+}

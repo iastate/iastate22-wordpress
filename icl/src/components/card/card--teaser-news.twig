@@ -1,0 +1,12 @@
+<div class="iastate22-card iastate22-card--teaser iastate22-card--teaser-news"{% if clickable is defined %} data-clickable="{{ clickable }}"{% endif %}>
+  {% if image %}
+  <div class="iastate22-card__media">
+    <img src="{{ image }}" alt="" loading="lazy" width="304" height="202">
+  </div>
+  {% endif %}
+  <div class="iastate22-card__content">
+    <a href="{{ url }}" class="iastate22-card__cta">{{ title }}</a>
+    <p class="iastate22-card__content-body">{{ body }}</p>
+    <p class="iastate22-card__content-date">{{ date }}</p>
+  </div>
+</div>

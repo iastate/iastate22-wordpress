@@ -1,0 +1,38 @@
+{
+  "context": {
+    "statistic": {
+      "statistics_label": "Class of 2025 Profile",
+      "statistics": [
+        {
+          "statistic_title": "X,XXX",
+          "statistic_text": "Enrolled Students"
+        },
+        {
+          "statistic_title": "XX%",
+          "statistic_text": "Out of State or International Students"
+        },
+        {
+          "statistic_title": "1 in 4",
+          "statistic_text": "Students are Black, Asian, Hispanic or Multiracial"
+        }
+      ]
+    },
+    "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>"
+  },
+  "variants": [
+    {
+      "name": "right",
+      "context": {
+        "statistic": {
+          "statistics_label": "",
+          "statistics": [
+            {
+              "statistic_title": "X,XXX",
+              "statistic_text": "Enrolled Students"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

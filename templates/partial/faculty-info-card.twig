@@ -1,0 +1,70 @@
+<div class="faculty-bio-info-card{% if not photo %} faculty-bio-info-card--no-image{% endif %}">
+  {% if photo %}
+  <div class="faculty-bio-info-card__media">
+    <img src="{{ photo.url }}" alt="{{ photo.description }}">
+  </div>
+  {% endif %}
+  
+  <div class="faculty-bio-info-card__content">
+    <h1 class="faculty-bio-info-card__name">{{ firstName }} {{ lastName }}</h1>
+    {% if titles %}
+    <ul class="faculty-bio-info-card__titles">
+      {% for title in titles %}
+      <li>
+        {{ title.title }}
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% if profileLinks %}
+    <div class="link-set">
+        <ul>
+            {% for link in profileLinks %}
+                {% if link.link.target == "_blank" %}
+                    {% set linkClass = "link-set__link iastate22-link-external" %}
+                {% else %}
+                    {% set linkClass = "link-set__link iastate22-link-secondary" %}
+                {% endif %}
+                <li>
+                    <a href="{{link.link.url}}" class="{{ linkClass }}"{% if link.link.target == "_blank" %} target="_blank"{% endif %}>{{link.link.title}}<span class="arrow"></span></a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+  </div>
+  <div class="faculty-bio-info-card__contact-box">
+  {% if email or phone or address %}
+    <h3>Contact</h3>
+    <div class="faculty-bio-info-card__contact-box-columns-wrap">
+      {% if email or phone %}
+        <div class="faculty-bio-info-card__contact-box-column">
+          {% if email %}<p><a href="mailto:{{ email }}">{{ email }}</a></p>{% endif %}
+          {% if phone %}<p>{{ phone }}</p>{% endif %}
+        </div>
+      {% endif %}
+      {% if address %}
+      <div class="faculty-bio-info-card__contact-box-column">
+        <p>{{ address }}</p>
+      </div>
+      {% endif %}
+    </div>
+  {% endif %}
+    {% if social_networks %}
+    <ul class="faculty-bio-info-card__contact-box-social">
+        {% for network in social_networks %}
+            <li>
+                <a href="{{ network.network.link }}" target="_blank">
+                    {% if network.network.network == "Instagram" or network.network.network == "Flickr"  %}
+                        <i class="fak fa-iastate22-{{ network.network.network|lower }}" aria-hidden="true"></i>          
+                    {% else %}
+                        <i class="fa-brands fa-{{ network.network.network|lower }}" aria-hidden="true"></i>
+                    {% endif %}
+                    <span class="visible-for-screen-readers">{{ network.network.network }}</span>
+                </a>   
+            </li>  
+        {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</div>

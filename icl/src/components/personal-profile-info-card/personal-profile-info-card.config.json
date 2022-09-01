@@ -1,0 +1,48 @@
+{
+  "context": {
+    "image": "../../img/faculty-bio-photo_fpo.jpg",
+    "name": "FirstName LastName",
+    "titles": [
+      "Medium Title 1 Lorem Ipsum Dolor Sit Amet",
+      "Short Title 2 Lorem",
+      "Long Title 3 Lorem Ipsum Dolor Sit Amet, Consecteteur Lorem Ipsum Dolor Sit Amet"
+    ],
+    "link_set": {
+      "links": [
+        {
+          "url": "https://iastate.edu",
+          "text": "Department/Unit Name Lorem Ipsum",
+          "variant": "iastate22-link-secondary"
+        },
+        {
+          "url": "https://iastate.edu",
+          "text": "Department/Unit Name Lorem Ipsum Dolor Sit Amet",
+          "variant": "iastate22-link-secondary"
+        },
+        {
+          "url": "https://iastate.edu",
+          "text": "External Link Name Lorem Ipsum",
+          "variant": "iastate22-link-external"
+        }
+      ]
+    },
+    "contact_box": {
+      "label": "Contact",
+      "email": "smryan@iastate.edu",
+      "phone": "(515) 294-4347",
+      "address": {
+        "building": "3017 Black Engr.",
+        "street": "2529 Union Dr.",
+        "city_state_zip": "Ames, IA 50011-2030"
+      },
+      "social_links": {
+        "instagram": "#",
+        "youtube": "#",
+        "facebook": "#",
+        "twitter": "#",
+        "linkedin": "#",
+        "flickr": "#"
+      }
+    }
+  }
+}

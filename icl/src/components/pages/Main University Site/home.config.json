@@ -1,0 +1,330 @@
+{
+  "context": {
+    "hero": {
+      "image_mobile": "../../img/Home-Hero-Mobile-FPO.jpg",
+      "image_desktop": "../../img/Home-Hero-Desktop-FPO.jpg",
+      "title": "Where <span>Big Ideas</span> are <span>Boldly Human</span>",
+      "button": {
+        "text": "See the lowa State Experience",
+        "url": "#"
+      }
+    },
+    "home_announcement_alert": {
+      "text": "Announcement Title Lorem Ipsum Dolor",
+      "link": {
+        "url": "https://www.iastate.edu/",
+        "text": "Read More"
+      }
+    },
+    "community": {
+      "label": "The Iowa State University Community",
+      "headline": "Our Future Starts With You",
+      "body": "At Iowa State lorem ipsum Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.",
+      "callout": {
+        "headline": "Learning Communities: Making Discovery a Team Sport",
+        "body": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
+        "button": {
+          "text": "About Learning Communities",
+          "url": "#"
+        },
+        "imageOne": "../../img/HP_Our_Future_Photo_1.jpg",
+        "imageTwo": "../../img/HP_Our_Future_Photo_2.jpg",
+        "statistic": {
+          "stat": "90%",
+          "description": "First-year students participate in at least one learning community"
+        }
+      }
+    },
+    "home_blockquote": {
+      "quote": "Throughout my time at ISU, I’ve always felt encouraged, supported, and mentored by faculty—and my classmates too.",
+      "author": "Eliza, ’23 on her experience at ISU",
+      "portrait": "../../img/featured-quote.jpg",
+      "modal": {
+        "id": "modal-1",
+        "video": {
+          "wallpaper": "../../img/Home_Video_Thumbnail_FPO.jpg",
+          "title": "Your future starts now.",
+          "video_id": "LjOmcZkXVcU"
+        }
+      }
+    },
+    "academics": {
+      "headline": "Learning That Matters to You and the World",
+      "intro_copy": "Academic programs at Iowa State University of Science and Technology develop practical STEM skills and knowledge of the human condition.",
+      "image_grid": {
+        "image_one": {
+          "image": "../../img/IMG-HP_Find_My_Major_FPO.jpg",
+          "cta": {
+            "url": "https://www.iastate.edu/",
+            "text": "Find My Major"
+          }
+        },
+        "image_two": {
+          "image": "../../img/IMG-HP_Graduate_Programs.jpg",
+          "cta": {
+            "url": "https://www.iastate.edu/",
+            "text": "Graduate Programs"
+          }
+        },
+        "image_three": {
+          "image": "../../img/IMG-HP_Veterinary_Medicine.jpg",
+          "cta": {
+            "url": "https://www.iastate.edu/",
+            "text": "Veterinary Medicine"
+          }
+        }
+      },
+      "explore": {
+        "label": "Explore Programs",
+        "links": [
+          {
+            "title": "Agriculture and Life Sciences",
+            "url": "https://www.iastate.edu/"
+          },
+          {
+            "title": "Business",
+            "url": "https://www.iastate.edu/"
+          },
+          {
+            "title": "Design",
+            "url": "https://www.iastate.edu/"
+          },
+          {
+            "title": "Engineering",
+            "url": "https://www.iastate.edu/"
+          },
+          {
+            "title": "Human Services",
+            "url": "https://www.iastate.edu/"
+          },
+          {
+            "title": "Liberal Arts and Sciences",
+            "url": "https://www.iastate.edu/"
+          }
+        ]
+      }
+    },
+    "solutions": {
+      "headline": "Finding the Solutions That Matter Most",
+      "intro_copy": "See how the Iowa State University community has tackled today’s issues…Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, magni dolores eos.",
+      "cards": [
+        {
+          "title": "Advocating for Social Justice",
+          "image": "../../img/HP_Finding_Solutions_Story_1_FPO.jpg",
+          "name": "Zakariyah Hill, ’21",
+          "role": "Founder Supply Hive",
+          "url": "https://www.iastate.edu/",
+          "clickable": false,
+          "cta": {
+            "url": "https://www.iastate.edu/",
+            "text": "Read More"
+          },
+          "modal": {
+            "id": "modal-2",
+            "image": "../../img/Component-Modal-Square-Image_FPO.jpg",
+            "title": "Modal Title Lorem Ipsum Dolor Sit Amet",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "call_to_action_intro": "ISU Can Help You Accomplish Great Things Lorem Ipsum",
+            "call_to_action": {
+              "url": "https://www.iastate.edu/",
+              "title": "Innovation & Entrepreneurship"
+            }
+          }
+        },
+        {
+          "title": "Challenge Lorem Ipsum Dolor Amet",
+          "image": "../../img/HP_Finding_Solutions_Story_2_FPO.jpg",
+          "name": "Fname Lastname ’19",
+          "role": "Role Lorem Ipsum Dolor",
+          "url": "https://www.iastate.edu/",
+          "clickable": false,
+          "cta": {
+            "url": "https://www.iastate.edu/",
+            "text": "Read More"
+          },
+          "modal": {
+            "id": "modal-3",
+            "image": "../../img/Component-Modal-Square-Image_FPO.jpg",
+            "title": "Modal Title Lorem Ipsum Dolor Sit Amet",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+            "call_to_action_intro": "Lorem Ipsum",
+            "call_to_action": {
+              "url": "https://www.iastate.edu/",
+              "title": "Link Title"
+            }
+          }
+        },
+        {
+          "title": "Eliminating Plastics to Combat Climate Change",
+          "image": "../../img/HP_Finding_Solutions_Story_3_FPO.jpg",
+          "name": "Keith Forst",
+          "role": "Polymer and Food Protection Consortium",
+          "url": "https://www.iastate.edu/",
+          "clickable": false,
+          "cta": {
+            "url": "https://www.iastate.edu/",
+            "text": "Read More"
+          },
+          "modal": {
+            "id": "modal-4",
+            "image": "../../img/Component-Modal-Square-Image_FPO.jpg",
+            "title": "Modal Title Lorem Ipsum Dolor Sit Amet",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+            "call_to_action_intro": "Lorem Ipsum",
+            "call_to_action": {
+              "url": "https://www.iastate.edu/",
+              "title": "Link Title"
+            }
+          }
+        }
+      ]
+    },
+    "location": {
+      "image": "../../img/home-location-jack-trice-stadium.jpg",
+      "caption": {
+        "text": "Jack Trice Stadium  Lorem Ipsum Dolor",
+        "link": {
+          "url": "https://www.iastate.edu/",
+          "text": "Explore Our Campus & Location"
+        }
+      }
+    },
+    "events_news": {
+      "headline": "What We’re Up To Now",
+      "event_list": [
+        {
+          "date": "July 10 - August 13",
+          "link": {
+            "url": "https://www.iastate.edu/",
+            "title": "Experience Iowa State: General Open House"
+          }
+        },
+        {
+          "date": "September 28",
+          "link": {
+            "url": "https://www.iastate.edu/",
+            "title": "Latino Family Visit Day"
+          }
+        },
+        {
+          "date": "June 2-19",
+          "link": {
+            "url": "https://www.iastate.edu/",
+            "title": "Multicultural Student Experience Day"
+          }
+        }
+      ],
+      "all_events_link": {
+        "url": "https://www.iastate.edu/",
+        "title": "View Full Event Calendar"
+      },
+      "news_list": [
+        {
+          "date": "October 10",
+          "imageSrc": "../../img/HP_News_Story_1_FPO.jpg",
+          "link": {
+            "url": "https://www.iastate.edu/",
+            "title": "Climate forecast troubling, but there’s hope"
+          }
+        },
+        {
+          "date": "November 10 - 14",
+          "imageSrc": "../../img/HP_News_Story_2_FPO.jpg",
+          "link": {
+            "url": "https://www.iastate.edu/",
+            "title": "Enrollment numbers reflect student interest in STEM fields"
+          }
+        },
+        {
+          "date": "May 3",
+          "imageSrc": "../../img/HP_News_Story_3_FPO.jpg",
+          "link": {
+            "url": "https://www.iastate.edu/",
+            "title": "Mosquito immune cells may hold answers to disease transmission"
+          }
+        }
+      ],
+      "all_news_link": {
+        "url": "https://www.iastate.edu/",
+        "title": "View All News"
+      }
+    },
+    "social": {
+      "headline": "Cyclones on Social",
+      "images": {
+        "one": "../../img/HP_Cyclones_Social_Photo_1.jpg",
+        "two": "../../img/HP_Cyclones_Social_Photo_2.jpg",
+        "three": "../../img/HP_Cyclones_Social_Photo_3.jpg"
+      }
+    },
+    "resources": {
+      "headline": "Start Your Future With Us",
+      "subhead": "Resources for Future Students",
+      "link_set": {
+        "links": [
+          {
+            "url": "https://iastate.edu",
+            "text": "How to Apply"
+          },
+          {
+            "url": "https://iastate.edu",
+            "text": "Tuition and Fees"
+          },
+          {
+            "url": "https://iastate.edu",
+            "text": "Scholarships"
+          },
+          {
+            "url": "https://iastate.edu",
+            "text": "Housing and Dining"
+          },
+          {
+            "url": "https://iastate.edu",
+            "text": "New Student Programs"
+          },
+          {
+            "url": "https://iastate.edu",
+            "text": "My Admissions Account"
+          }
+        ]
+      },
+      "questions": {
+        "subhead": "Questions?",
+        "links": [
+          {
+            "url": "https://iastate.edu",
+            "text": "Meet Your Admissions Counselor"
+          }
+        ]
+      },
+      "image": "../../img/HP_Start-Your-Future_Photo_1.jpg"
+    },
+    "ctas": {
+      "headline": "Take the Next Step",
+      "button_set": {
+        "items": [
+          {
+            "text": "Request Information",
+            "url": "https://iastate.edu"
+          },
+          {
+            "text": "Apply",
+            "url": "https://iastate.edu"
+          },
+          {
+            "text": "Visit",
+            "url": "https://iastate.edu"
+          }
+        ]
+      },
+      "images": {
+        "one": "../../img/HP_Start-Your-Future_Photo_2.jpg",
+        "two": "../../img/HP_Start-Your-Future_Photo_3.jpg"
+      }
+    },
+    "campus_photo": {
+      "image_mobile": "../../img/HP_Footer_Campus_Mobile.jpg",
+      "image_desktop": "../../img/HP_Footer_Campus_Desktop.jpg"
+    }
+  }
+}

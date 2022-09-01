@@ -1,0 +1,8 @@
+<div class="image-grid-with-text">
+  <div class="image-grid-with-text__content text-content">
+    <h2>{{title}}</h2>
+    <div>{{copy|raw}}</div>
+    {% include "@button-set" with button_set %}
+  </div>
+  {% include "@image-grid" with image_grid %}
+</div>

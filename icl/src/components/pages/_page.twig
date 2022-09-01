@@ -1,0 +1,16 @@
+<a class="skip-link" href="#main-content">Skip To Main Content</a>
+<div class="off-canvas">
+  <div class="max-bound">
+    {% block header %}
+      {% include "@site-header" %}
+    {% endblock %}
+    <main id="main-content">
+      {% block content %}
+      {% endblock %}
+    </main>
+    {% block footer %}
+      {% include "@site-footer" %}
+    {% endblock %}
+  </div>
+</div>
+{% render "@privacy-consent" %}

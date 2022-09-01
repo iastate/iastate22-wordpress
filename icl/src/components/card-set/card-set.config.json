@@ -1,0 +1,36 @@
+{
+  "context": {
+    "cards": [
+      {
+        "title": "Card Title Lorem Ipsum Dolor Sit Amet ",
+        "body": "<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>",
+        "image": "../../img/Component-Card-Image-1.jpg",
+        "url": "https://www.iastate.edu/",
+        "cta": {
+          "url": "https://www.iastate.edu/",
+          "text": "Optional Link Text Lorem"
+        }
+      },
+      {
+        "title": "Card Title Lorem Ipsum Dolor Sit Amet ",
+        "body": "<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>",
+        "image": "../../img/Component-Card-Image-2.jpg",
+        "url": "https://www.iastate.edu/",
+        "cta": {
+          "url": "https://www.iastate.edu/",
+          "text": "Optional Link Text Lorem"
+        }
+      },
+      {
+        "title": "Card Title Lorem Ipsum Dolor Sit Amet ",
+        "body": "<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>",
+        "image": "../../img/Component-Card-Image-3.jpg",
+        "url": "https://www.iastate.edu/",
+        "cta": {
+          "url": "https://www.iastate.edu/",
+          "text": "Optional Link Text Lorem"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "context": {
+    "title": "Card Title",
+    "body": "<p>Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur.</p>",
+    "image": "../../img/Component-Card-Image-1.jpg",
+    "url": "https://www.iastate.edu/",
+    "cta": {
+      "url": "https://www.iastate.edu/",
+      "text": "Learn More"
+    }
+  },
+  "variants": [
+    {
+      "name": "linked-image",
+      "context": {
+        "image": "../../img/IMG-HP_Find_My_Major_FPO.jpg",
+        "cta": {
+          "url": "https://www.iastate.edu/",
+          "text": "Find My Major"
+        }
+      }
+    },
+    {
+      "name": "profile-with-modal",
+      "context": {
+        "title": "Advocating for Social Justice",
+        "clickable": false,
+        "image": "../../img/HP_Finding_Solutions_Story_1_FPO.jpg",
+        "name": "Zakariyah Hill, ’21",
+        "role": "Founder Supply Hive",
+        "cta": {
+          "url": "https://www.iastate.edu/",
+          "text": "Read More"
+        },
+        "modal": {
+          "id": "modal-1",
+          "image": "../../img/Component-Modal-Square-Image_FPO.jpg",
+          "title": "Modal Title Lorem Ipsum Dolor Sit Amet",
+          "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+          "call_to_action_intro": "ISU Can Help You Accomplish Great Things Lorem Ipsum",
+          "call_to_action": {
+            "url": "https://www.iastate.edu/",
+            "title": "Innovation & Entrepreneurship"
+          }
+        }
+      }
+    },
+    {
+      "name": "with-modal",
+      "context": {
+        "title": "Modal Title",
+        "clickable": true,
+        "image": "../../img/HP_Finding_Solutions_Story_1_FPO.jpg",
+        "body": "<p>Modal Title Lorem Ipsum Dolor Sit Amet</p>",
+        "cta_text": "Read More",
+        "modal": {
+          "id": "modal-1",
+          "image": "../../img/Component-Modal-Square-Image_FPO.jpg",
+          "title": "Modal Title Lorem Ipsum Dolor Sit Amet",
+          "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+          "link_set": {
+            "links": [
+              {
+                "url": "https://iastate.edu",
+                "text": "Link Example",
+                "variant": "link-tertiary"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "teaser-news",
+      "context": {
+        "image": "../../img/Component-Feature-News-Story-Image.jpg",
+        "url": "#",
+        "title": "Headline Nemo enim irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non lectus a lectus hendrerit facilisis quis ac augue. Sed quis sem eget felis venenatis aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor nibh feugiat magna dictum, malesuada euismod lectus pulvinar.",
+        "date": "June 16, 2022"
+      }
+    },
+    {
+      "name": "teaser-profile",
+      "context": {
+        "image": "../../img/faculty-bio-photo_fpo.jpg",
+        "url": "#",
+        "title": "FirstName LastName",
+        "body": "Short Title Lorem Ipsum"
+      }
+    }
+  ]
+}

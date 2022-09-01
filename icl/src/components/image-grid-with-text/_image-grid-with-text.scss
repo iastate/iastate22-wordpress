@@ -1,0 +1,33 @@
+// image on desktop needs to be pull 216px out to the right
+.image-grid-with-text {
+  @include media-breakpoint-up(lg) {
+    display: flex;
+  }
+}
+
+.image-grid-with-text__content,
+.image-grid {
+  @include media-breakpoint-up(lg) {
+    flex: 0 1 auto;
+    width: 50%;
+  }
+}
+
+.image-grid-with-text__content {
+  margin-bottom: rem(35);
+  @include media-breakpoint-up(lg) {
+    padding-right: rem(50);
+  }
+}
+
+.image-grid {
+  @include media-breakpoint-up(lg) {
+    margin-right: rem(-108);
+    width: 60%;
+    padding-left: rem(50);
+  }
+  @include media-breakpoint-up(xl) {
+    margin-right: rem(-216);
+    width: 70%;
+  }
+}

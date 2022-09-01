@@ -1,0 +1,120 @@
+.paragraph-widget--video-embed {
+  @extend %extended-component-width;
+}
+
+.video-embed__media-wrap {
+  z-index: 1;
+  @extend %responsive-img;
+
+  &:before {
+    padding-top: 56.125%;
+  }
+  // yellow square for hover
+  &:after {
+    content: "";
+    background-color: $iastate-gold;
+    position: absolute;
+    top: rem(-8);
+    bottom: rem(-8);
+    pointer-events: none;
+    left: rem(-8);
+    right: rem(-8);
+    transition: 0.2s opacity ease-in-out;
+    opacity: 0;
+    z-index: -1;
+  }
+  img {
+    transition: 0.2s opacity ease-in-out;
+    z-index: 1;
+  }
+
+  iframe {
+    transition: 0.2s opacity ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+
+  &.video-playing {
+    img {
+      opacity: 0;
+      z-index: 0;
+    }
+    iframe {
+      opacity: 1;
+    }
+    .video-embed__button {
+      opacity: 0;
+    }
+    .video-embed__video {
+      pointer-events: all;
+    }
+  }
+  &.video-embed__video-hover {
+    &:after {
+      opacity: 1;
+    }
+  }
+}
+
+.video-embed__video {
+  pointer-events: none;
+}
+
+.video-embed__button {
+  z-index: 5;
+  cursor: pointer;
+  width: rem(60);
+  height: rem(60);
+  margin-top: rem(-30);
+  margin-left: rem(-30);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  @include media-breakpoint-up(lg) {
+    width: rem(80);
+    height: rem(80);
+    margin-top: rem(-40);
+    margin-left: rem(-40);
+  }
+  .video-play-icon {
+    width: auto;
+    .outer-circle g {
+      transition: 0.2s opacity ease-in-out;
+    }
+    .arrow {
+      transition: 0.2s fill ease-in-out;
+    }
+  }
+  &:hover {
+    .video-play-icon {
+      .outer-circle g {
+        opacity: 1;
+      }
+      .arrow {
+        fill: $iastate-maroon;
+      }
+    }
+  }
+}
+
+.video-embed__caption {
+  margin-top: rem(10);
+  @extend %caption;
+  @include media-breakpoint-up(md) {
+    padding-left: rem(53);
+    padding-right: rem(53);
+  }
+  @include media-breakpoint-up(lg) {
+    padding-left: rem(106);
+    padding-right: rem(106);
+    margin-top: rem(12);
+    line-height: (26 / 14);
+  }
+}

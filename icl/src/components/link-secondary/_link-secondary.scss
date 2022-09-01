@@ -1,0 +1,25 @@
+.iastate22-link-secondary {
+  display: inline-block;
+  appearance: none;
+  margin: rem(10) 0;
+  cursor: pointer;
+  color: $iastate-maroon;
+  font-family: $typeface-sans-serif;
+  font-weight: 700;
+  font-size: rem(18);
+  line-height: (25 / 18);
+  text-decoration: none;
+  position: relative;
+  .arrow {
+    bottom: rem(11);
+    top: initial;
+    right: initial;
+    margin-left: rem(11);
+  }
+  &:hover {
+    color: $iastate-maroon;
+    .arrow {
+      width: rem(22);
+    }
+  }
+}

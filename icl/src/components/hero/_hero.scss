@@ -1,0 +1,114 @@
+.hero {
+  margin-bottom: rem(126);
+  position: relative;
+  @include media-breakpoint-up(lg) {
+    padding-top: rem(40);
+    margin-bottom: 0;
+  }
+  &.hero--top-level-lp {
+    @include media-breakpoint-up(lg) {
+      padding-top: rem(25);
+      margin-bottom: rem(65);
+      margin-right: rem(-110);
+    }
+  }
+  &.hero--no-media,
+  &.hero--top-level-lp--no-media {
+    @include media-breakpoint-up(lg) {
+      margin-bottom: rem(40);
+    }
+  }
+}
+
+.hero__title {
+  margin: 0;
+  font-size: rem(36);
+  font-weight: 600;
+  @include media-breakpoint-up(sm) {
+    font-size: rem(50);
+    font-weight: 400;
+  }
+  @include media-breakpoint-up(md) {
+    font-size: rem(70);
+    line-height: (93 / 70);
+  }
+  @include media-breakpoint-up(lg) {
+    margin: rem(25) 0 rem(10) 0;
+  }
+}
+
+.hero__text-wrap {
+  margin-bottom: rem(10);
+  @include media-breakpoint-up(xl) {
+    margin-left: rem(-108);
+  }
+  .hero--top-level-lp & {
+    margin-top: rem(24);
+    margin-bottom: rem(20);
+    @include media-breakpoint-up(lg) {
+      margin-bottom: rem(10);
+    }
+  }
+}
+
+.hero__media {
+  @extend %responsive-img;
+  margin: 0 rem(-11) rem(30) rem(-36);
+
+  @include media-breakpoint-up(md) {
+    margin-left: rem(-70);
+    margin-right: rem(130);
+  }
+
+  @include media-breakpoint-up(xl) {
+    margin-left: rem(-190);
+    margin-right: rem(-110);
+  }
+  .hero--top-level-lp & {
+    margin-right: rem(-36);
+    @include media-breakpoint-up(md) {
+      margin-right: rem(-70);
+    }
+    @include media-breakpoint-up(xl) {
+      margin-right: 0;
+    }
+  }
+  &:before {
+    padding-top: 37.4%;
+  }
+}
+
+.hero__subnav-wrap {
+  z-index: 2;
+  max-width: rem(342);
+  position: absolute;
+  @include media-breakpoint-up(lg) {
+    top: 0;
+    right: rem(-70);
+    left: initial;
+    max-width: rem(278);
+  }
+  @include media-breakpoint-up(xl) {
+    right: rem(-298);
+  }
+
+  // top level lp horizontal version
+  .hero--top-level-lp & {
+    @include media-breakpoint-up(lg) {
+      top: initial;
+      right: initial;
+      left: 0;
+      position: relative;
+      margin-top: rem(-53);
+      margin-bottom: rem(58);
+      max-width: none;
+    }
+    @include media-breakpoint-up(xl) {
+      right: initial;
+      margin-right: rem(-109);
+    }
+  }
+  .hero--top-level-lp--no-media & {
+    margin-top: rem(30);
+  }
+}

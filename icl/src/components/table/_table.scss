@@ -1,0 +1,80 @@
+.paragraph-widget--table {
+  margin-right: rem(-36);
+  @include media-breakpoint-up(md) {
+    margin-right: 0;
+  }
+}
+
+// table
+.iastate22-table {
+  background: linear-gradient(to right, #fff 30%, rgba(255, 255, 255, 0)),
+    linear-gradient(to right, rgba(255, 255, 255, 0), #fff 70%) 0 100%,
+    radial-gradient(farthest-side at 0% 50%, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)),
+    radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)) 0 100%;
+  background-repeat: no-repeat;
+  background-color: $white;
+  background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+  background-position: 0 0, 100%, 0 0, 100%;
+  background-attachment: local, local, scroll, scroll;
+  overflow: auto;
+
+  table {
+    empty-cells: show;
+    border-collapse: collapse;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    color: black;
+    border: rem(2) solid $light-grey;
+    overflow: auto;
+    > :not(:first-child) {
+      border-top: none;
+    }
+  }
+
+  caption {
+    @extend %visible-for-screen-readers;
+  }
+
+  thead {
+    text-align: left;
+    tr {
+      background-color: $iastate-red;
+      color: $white;
+    }
+    th {
+      padding: rem(25);
+      font-family: $typeface-sans-serif;
+      font-size: rem(21);
+      line-height: (30 / 21);
+      font-weight: 700;
+      vertical-align: top;
+    }
+  }
+
+  tbody {
+    border-top: none;
+    tr {
+      &:nth-child(even) {
+        background-color: rgba($black, 0.048);
+      }
+    }
+    td {
+      padding: rem(25);
+      min-width: rem(225);
+      max-width: 90vw;
+      vertical-align: top;
+      border: rem(1) solid $off-white2;
+      line-height: 1.5;
+      @include media-breakpoint-up(md) {
+        min-width: initial;
+        line-height: 1.75;
+      }
+      &:first-child {
+        font-family: $typeface-sans-serif;
+        font-weight: 700;
+        color: $iastate-red;
+      }
+    }
+  }
+}

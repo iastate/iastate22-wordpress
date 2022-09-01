@@ -1,0 +1,32 @@
+{
+  "context": {
+    "hero": {
+      "title": "Profiles Index Page",
+      "image": "",
+      "subnav_horizontal": ""
+    },
+    "card_set": {
+      "teaser_profile": true
+    },
+    "cards": [
+      {
+        "image": "../../img/faculty-bio-photo_fpo.jpg",
+        "url": "#",
+        "title": "FirstName LastName",
+        "body": "Short Title Lorem Ipsum"
+      },
+      {
+        "image": "../../img/faculty-bio-photo_fpo.jpg",
+        "url": "#",
+        "title": "FirstName LastName",
+        "body": "Short Title Lorem Ipsum"
+      },
+      {
+        "image": "",
+        "url": "#",
+        "title": "FirstName LastName",
+        "body": "No Image Example Short Title Lorem Ipsum"
+      }
+    ]
+  }
+}

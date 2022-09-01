@@ -1,0 +1,185 @@
+{
+  "context": {
+    "footer_nav": [
+      {
+        "title": "Request Info",
+        "url": "#"
+      },
+      {
+        "title": "Apply",
+        "url": "#"
+      },
+      {
+        "title": "Visit",
+        "url": "#"
+      },
+      {
+        "title": "Give",
+        "url": "#"
+      },
+      {
+        "title": "Contact",
+        "url": "#"
+      }
+    ],
+    "footer_secondary_nav": [
+      {
+        "title": "News",
+        "url": "#"
+      },
+      {
+        "title": "Events",
+        "url": "#"
+      },
+      {
+        "title": "Directory",
+        "url": "#"
+      },
+      {
+        "title": "A-Z Index",
+        "url": "#"
+      },
+      {
+        "title": "Athletics",
+        "url": "#"
+      },
+      {
+        "title": "Library",
+        "url": "#"
+      },
+      {
+        "title": "Extension and Outreach",
+        "url": "#"
+      },
+      {
+        "title": "Employment",
+        "url": "#"
+      },
+      {
+        "title": "COVID-19",
+        "url": "#"
+      }
+    ],
+    "footer_departments": [
+      {
+        "title": "General Information",
+        "email": "contact@iastate.edu",
+        "phone": "515-294-4111"
+      },
+      {
+        "title": "Admissions",
+        "email": "admissions@iastate.ede",
+        "phone": "515-294-5836"
+      }
+    ],
+    "footer_utility_nav": [
+      {
+        "title": "Privacy Policy",
+        "url": "#"
+      },
+      {
+        "title": "Non-discrimination Policy",
+        "url": "#"
+      },
+      {
+        "title": "Digital Access and Accessibility",
+        "url": "#"
+      },
+      {
+        "title": "Consumer Information",
+        "url": "#"
+      }
+    ],
+    "copyright": "Iowa State University of Science and Technology"
+  },
+  "variants": [
+    {
+      "name": "ecosystem",
+      "context": {
+        "social_links": {
+          "instagram": "#",
+          "youtube": "#",
+          "facebook": "#",
+          "twitter": "#",
+          "linkedin": "#",
+          "flickr": "#"
+        },
+        "footer_nav": [
+          {
+            "title": "Footer Link 1",
+            "url": "#"
+          },
+          {
+            "title": "Footer Link 2",
+            "url": "#"
+          },
+          {
+            "title": "Footer Link 3",
+            "url": "#"
+          },
+          {
+            "title": "Footer Link 4",
+            "url": "#"
+          },
+          {
+            "title": "Footer Link 5",
+            "url": "#"
+          },
+          {
+            "title": "Footer Link 6",
+            "url": "#"
+          }
+        ],
+        "footer_secondary_nav": [
+          {
+            "title": "Quick Link 1",
+            "url": "#"
+          },
+          {
+            "title": "Quick Link 2",
+            "url": "#"
+          },
+          {
+            "title": "Quick Link 3",
+            "url": "#"
+          },
+          {
+            "title": "Quick Link 4",
+            "url": "#"
+          },
+          {
+            "title": "Quick Link 5",
+            "url": "#"
+          },
+          {
+            "title": "Sign Ons and Tools",
+            "url": "#"
+          }
+        ],
+        "site_org_contact": {
+          "name": "Site Name/Org Name Lorem Ipsum",
+          "email": [
+            {
+              "label": "Undergrad",
+              "email_address": "email@iastate.edu"
+            },
+            {
+              "email_address": "email@iastate.edu"
+            }
+          ],
+          "phone": [
+            {
+              "label": "P",
+              "phone_number": "(515) 294-4347"
+            }
+          ],
+          "address": {
+            "building": "Building",
+            "street": "12345 Street Address",
+            "city_state_zip": "Ames, IA 50011"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+.link-tertiary {
+  display: inline-block;
+  appearance: none;
+  margin: rem(10) 0;
+  cursor: pointer;
+  color: $iastate-maroon;
+  font-family: $typeface-sans-serif;
+  font-weight: 700;
+  font-size: rem(16);
+  line-height: (26 / 18);
+  text-decoration: underline;
+  text-decoration-color: $iastate-maroon;
+  position: relative;
+  transition: 0.2s text-decoration-color ease-in-out;
+  .arrow {
+    opacity: 0;
+    transition: 0.2s opacity ease-in-out;
+    bottom: rem(11);
+    top: initial;
+    right: initial;
+    margin-left: rem(11);
+  }
+  &:hover {
+    text-decoration-color: transparent;
+    color: $iastate-maroon;
+    .arrow {
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,667 @@
+.college {
+  main {
+    padding-top: 0 !important;
+  }
+}
+
+// Hero Section
+.college-hero {
+  position: relative;
+  margin-left: rem(-36);
+  margin-right: rem(-36);
+  @include media-breakpoint-up(md) {
+    margin-left: rem(-70);
+    margin-right: rem(-70);
+  }
+  @include media-breakpoint-up(xl) {
+    margin-left: rem(-190);
+    margin-right: rem(-298);
+  }
+  .hero__subnav-wrap {
+    margin-top: rem(-33);
+    left: rem(36);
+    @include media-breakpoint-up(lg) {
+      top: initial;
+      right: initial;
+      max-width: none;
+      margin-top: rem(-23);
+    }
+    @include media-breakpoint-up(xl) {
+      left: rem(181);
+    }
+  }
+}
+
+.college-hero__breadcrumbs {
+  position: absolute;
+  z-index: 2;
+  left: rem(20);
+  top: rem(60);
+  @include media-breakpoint-up(md) {
+    left: rem(36);
+  }
+  @include media-breakpoint-up(xl) {
+    top: rem(127);
+  }
+  @include media-breakpoint-up(xxl) {
+    left: rem(82);
+  }
+  .iastate22-breadcrumb__list {
+    li {
+      &:after {
+        border-color: $white;
+      }
+      a {
+        color: $white;
+        &:hover {
+          color: $iastate-gold;
+        }
+      }
+    }
+  }
+}
+
+.college-hero__media {
+  @extend %responsive-img;
+  @include media-breakpoint-up(md) {
+    min-height: rem(600);
+  }
+  @include media-breakpoint-up(lg) {
+    min-height: initial;
+  }
+  @include media-breakpoint-up(xxl) {
+    margin-left: rem(-200);
+    margin-right: rem(-200);
+  }
+
+  &:before {
+    padding-top: 172.46%;
+    @include media-breakpoint-up(md) {
+      padding-top: 59.24%;
+    }
+  }
+  &:after {
+    content: "";
+    background: linear-gradient(180deg, rgba($black, 0.5) 0%, rgba($black, 0) 50%);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+.college-hero__title {
+  color: $white;
+  width: 70%;
+  position: relative;
+  z-index: 2;
+  font-size: 11.5vw;
+  line-height: 1.4;
+  position: absolute;
+  top: 83%;
+  transform: translateY(-83%);
+  left: rem(36);
+  margin: 0;
+  padding: 0;
+  @include media-breakpoint-up(sm) {
+    font-size: 10vw;
+  }
+  @include media-breakpoint-up(md) {
+    font-size: rem(70);
+    line-height: (93 / 70);
+    width: 50%;
+    max-width: rem(648);
+  }
+  @include media-breakpoint-up(lg) {
+    width: auto;
+    top: 57%;
+    transform: translateY(-57%);
+  }
+  @include media-breakpoint-up(xl) {
+    left: rem(82);
+  }
+}
+
+.college-hero__graphic {
+  position: absolute;
+  width: 130vw;
+  left: rem(-80);
+  mix-blend-mode: multiply;
+  z-index: 1;
+  bottom: 0;
+  pointer-events: none;
+  @include media-breakpoint-up(md) {
+    left: rem(-3);
+    width: 90vw;
+    transform: none;
+    top: initial;
+    bottom: rem(-61);
+    max-width: rem(1120);
+  }
+  @include media-breakpoint-up(lg) {
+    bottom: rem(-56);
+  }
+  @include media-breakpoint-up(xl) {
+    left: rem(45);
+  }
+  @include media-breakpoint-up(xxl) {
+    max-width: rem(1450);
+  }
+
+  svg {
+    width: 100%;
+    height: auto;
+    fill: $iastate-red;
+    isolation: isolate;
+  }
+}
+
+// Overview Section
+.college-overview {
+  background-color: $iastate-red;
+  margin-left: rem(-36);
+  margin-right: rem(-36);
+  padding-top: rem(65);
+  padding-bottom: rem(160);
+  position: relative;
+  @extend %outer-pad-x;
+  @include media-breakpoint-up(md) {
+    margin-left: rem(-70);
+    margin-right: rem(-70);
+  }
+  @include media-breakpoint-up(lg) {
+    padding-top: rem(60);
+    padding-bottom: rem(60);
+  }
+  @include media-breakpoint-up(xl) {
+    margin-left: rem(-190);
+    margin-right: rem(-298);
+    padding-right: rem(82);
+  }
+  &:before {
+    @include media-breakpoint-up(xl) {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: rem(-200);
+      right: rem(-200);
+      bottom: 0;
+      background-color: $iastate-red;
+      z-index: -1;
+      max-width: 2000px;
+    }
+  }
+  .iastate22-button-set {
+    .iastate22-button {
+      @extend %iastate22-button--reverse;
+    }
+  }
+}
+
+.college-overview__copy-wrap {
+  @include media-breakpoint-up(lg) {
+    width: 48%;
+  }
+  @include media-breakpoint-up(xl) {
+    width: 45%;
+  }
+  @include media-breakpoint-up(xxl) {
+    width: 58%;
+  }
+}
+
+.college-overview__title {
+  color: $white;
+  @extend %h2-yellow-border;
+  @include media-breakpoint-up(lg) {
+    padding-bottom: 0;
+  }
+  &:after {
+    @include media-breakpoint-up(lg) {
+      display: none;
+    }
+  }
+}
+
+.college-overview__intro {
+  color: $white;
+  line-height: (29 / 18);
+  @include media-breakpoint-up(xl) {
+    font-family: $typeface-sans-serif;
+    font-weight: 700;
+    line-height: (29 / 16);
+  }
+}
+
+.college-overview__media {
+  margin-top: rem(65);
+  @extend %responsive-img;
+  @include media-breakpoint-up(lg) {
+    position: absolute;
+    width: 40%;
+    right: rem(70);
+    top: rem(70);
+    margin: rem(105) 0 0;
+  }
+  @include media-breakpoint-up(xl) {
+    width: rem(432);
+    right: rem(82);
+  }
+  &:before {
+    padding-top: 100%;
+  }
+}
+
+// In-page Nav section
+.college-in-page-nav {
+  background-color: $off-white;
+  margin-top: rem(-100);
+  margin-bottom: rem(60);
+  padding: rem(48) rem(44);
+  position: relative;
+  @include media-breakpoint-up(lg) {
+    width: 48%;
+    margin-top: rem(-47);
+  }
+  @include media-breakpoint-up(xl) {
+    width: 68%;
+    margin-left: rem(-109);
+    padding: rem(24) rem(70) rem(50) rem(109);
+  }
+  @include media-breakpoint-up(xxl) {
+    width: 75%;
+    max-width: rem(875);
+  }
+}
+
+.college-in-page-nav_title {
+  font-size: rem(21);
+  line-height: (42 / 21);
+  padding: 0;
+  margin-bottom: rem(8);
+  @extend %h2-yellow-border;
+  @include media-breakpoint-up(lg) {
+    padding-bottom: rem(18);
+    margin-bottom: rem(18);
+    font-size: rem(20);
+    line-height: (42 / 20);
+  }
+  &:after {
+    display: none;
+    @include media-breakpoint-up(lg) {
+      display: block;
+    }
+  }
+}
+
+.college-in-page-nav__nav {
+  ul {
+    @include media-breakpoint-up(md) {
+      column-count: 2;
+      column-gap: rem(30);
+    }
+    @include media-breakpoint-up(lg) {
+      column-count: 1;
+      column-gap: 0;
+    }
+    @include media-breakpoint-up(xxl) {
+      column-count: 2;
+      column-gap: rem(60);
+    }
+    li {
+      .link-tertiary {
+        font-size: rem(18);
+        line-height: (22 / 18);
+        @include media-breakpoint-up(lg) {
+          font-size: rem(16);
+          line-height: (22 / 16);
+        }
+      }
+    }
+  }
+}
+
+// What Can I Study
+.college-maj-min-certs {
+  .maj-min-cert-program-list {
+    padding-top: rem(30);
+    padding-bottom: rem(16);
+    @include media-breakpoint-up(md) {
+      margin-bottom: rem(50);
+    }
+    @include media-breakpoint-up(lg) {
+      padding-top: rem(60);
+      margin-bottom: rem(80);
+    }
+    @include media-breakpoint-up(xl) {
+      margin-right: auto;
+      margin-left: auto;
+      margin-bottom: rem(135);
+      width: rem(1071);
+    }
+    ul {
+      li {
+        @include media-breakpoint-up(lg) {
+          margin-bottom: rem(34);
+        }
+      }
+    }
+  }
+}
+.college-maj-min-certs__media {
+  @extend %responsive-img;
+  margin-left: rem(-36);
+  margin-right: rem(-36);
+  @include media-breakpoint-up(md) {
+    margin-left: rem(-70);
+    margin-right: rem(-70);
+  }
+  @include media-breakpoint-up(xl) {
+    margin-left: rem(-110);
+    margin-right: rem(-215);
+  }
+  &:before {
+    padding-top: 47.1%;
+  }
+}
+.college-maj-min-certs__intro-wrap {
+  margin-top: rem(30);
+  background-color: $white;
+  position: relative;
+  @include media-breakpoint-up(lg) {
+    margin-top: rem(-150);
+    padding: rem(65) rem(50) 0;
+  }
+  @include media-breakpoint-up(xl) {
+    margin-top: rem(-241);
+    margin-right: rem(-103);
+  }
+}
+.college-maj-min-certs__title {
+  @extend %h2-yellow-border;
+  text-align: center;
+  &:after {
+    left: 50%;
+    margin-left: rem(-25);
+  }
+}
+.college-maj-min-certs__intro {
+  line-height: (29 / 18);
+  @include media-breakpoint-up(lg) {
+    text-align: center;
+    width: 75%;
+    margin: 0 auto;
+  }
+}
+.college-maj-min-certs__subhead {
+  text-align: center;
+  padding: 0 rem(30);
+  @include media-breakpoint-up(lg) {
+    margin-top: rem(50);
+  }
+}
+
+// Research Section
+.college-research__intro-wrap {
+  max-width: rem(844);
+}
+.college-research__title {
+  @extend %h2-yellow-border;
+}
+
+// Innovation and Entrepreneurship Section
+.college-innovation {
+  padding: rem(20) 0 0 0;
+  @include media-breakpoint-up(lg) {
+    padding-bottom: rem(37);
+  }
+}
+.college-innovation__intro-wrap {
+  max-width: rem(844);
+  @include media-breakpoint-up(lg) {
+    margin-bottom: rem(50);
+  }
+}
+.college-innovation__title {
+  @extend %h2-yellow-border;
+}
+
+.college-innovation__intro {
+  line-height: (29 / 18);
+  @include media-breakpoint-up(lg) {
+    line-height: (29 / 16);
+  }
+}
+
+// Opportunities Section
+.college-opportunities {
+  .paragraph-widget--callout-inset {
+    margin-top: 0;
+    .callout-inset_inset {
+      padding-bottom: rem(70);
+    }
+  }
+}
+
+// Success Section
+.college-success {
+  padding: rem(18) 0 rem(28);
+  @include media-breakpoint-up(lg) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-bottom: rem(187);
+  }
+  @include media-breakpoint-up(xl) {
+    margin-right: rem(-102);
+  }
+}
+
+.college-success__intro-career-paths-wrap {
+  @include media-breakpoint-up(lg) {
+    flex: 1 1 0px;
+  }
+}
+
+.college-success__title {
+  @extend %h2-yellow-border;
+}
+
+.college-success__intro {
+  margin-bottom: rem(17);
+}
+
+.college-success__career-paths {
+  margin-top: rem(48);
+  .college-success__career-paths-title {
+    @include media-breakpoint-up(lg) {
+      margin-bottom: rem(20);
+    }
+  }
+
+  ul {
+    margin-top: rem(15);
+    @include media-breakpoint-up(md) {
+      column-count: 2;
+      column-gap: rem(30);
+    }
+    li {
+      margin-bottom: rem(8);
+      padding-left: rem(16);
+      &:before {
+        content: "\2022";
+        display: inline-block;
+        color: $iastate-red;
+        margin-left: rem(-16);
+        float: left;
+      }
+    }
+  }
+}
+
+.college-success__featured-story {
+  margin-top: rem(45);
+  margin-bottom: rem(40);
+  @include media-breakpoint-up(sm) {
+    max-width: rem(344);
+  }
+  @include media-breakpoint-up(lg) {
+    flex: 0 0 auto;
+    margin: 0 rem(-20) 0 rem(80);
+  }
+  .iastate22-card--profile-with-modal {
+    &:hover {
+      .iastate22-card__cta {
+        color: $iastate-red;
+      }
+    }
+  }
+  .iastate22-card__content {
+    padding: rem(20);
+  }
+  .iastate22-card__title {
+    color: $iastate-red;
+    font-size: rem(21);
+    line-height: (29 / 21);
+    margin-bottom: rem(25);
+  }
+  .iastate22-card__name,
+  .iastate22-card__role {
+    color: $black;
+  }
+  .iastate22-card__cta {
+    color: $iastate-maroon;
+    margin-top: rem(28);
+    margin-bottom: rem(13);
+  }
+}
+
+.college-success__featured-story-title {
+  margin-bottom: rem(15);
+}
+
+// Calls To Action Section
+.college-ctas {
+  margin-left: rem(-36);
+  margin-right: rem(-36);
+  position: relative;
+  @include media-breakpoint-up(md) {
+    margin-left: rem(-70);
+    margin-right: rem(-70);
+  }
+  @include media-breakpoint-up(xl) {
+    margin-left: rem(-190);
+    margin-right: rem(-298);
+    min-height: rem(810);
+  }
+}
+
+.college-ctas__cta {
+  @extend %outer-pad-x;
+  padding-top: rem(60);
+  padding-bottom: rem(40);
+  position: relative;
+  background-color: $iastate-red;
+  z-index: 1;
+  @include media-breakpoint-up(xl) {
+    max-width: rem(520);
+    margin-left: auto;
+    margin-right: rem(82);
+    padding: rem(60) rem(85) rem(30);
+  }
+  &.college-ctas__cta-top {
+    @include media-breakpoint-up(xl) {
+      top: rem(-60);
+    }
+  }
+  &.college-ctas__cta-bottom {
+    @include media-breakpoint-up(xl) {
+      margin-top: rem(5);
+    }
+  }
+
+  &:before {
+    content: "";
+    border-bottom: rem(8) solid $iastate-gold;
+    top: rem(-4);
+    left: 50%;
+    margin-left: rem(-28);
+    width: rem(56);
+    height: rem(8);
+    position: absolute;
+  }
+  .iastate22-button {
+    @extend %iastate22-button--reverse;
+  }
+}
+
+.college-ctas__cta-title {
+  color: $white;
+  margin: 0 0 rem(22);
+  padding: 0;
+}
+
+.college-ctas__cta-intro {
+  color: $white;
+  line-height: (29 / 18);
+  font-family: $typeface-sans-serif;
+  font-weight: 700;
+}
+
+.college-ctas__cta-media {
+  @extend %responsive-img;
+  @include media-breakpoint-up(xl) {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  &:before {
+    padding-top: 56.25%;
+  }
+}
+
+// Keep Exploring Section
+.college-keep-exploring {
+  margin-left: rem(-36);
+  margin-right: rem(-36);
+  position: relative;
+  @include media-breakpoint-up(md) {
+    margin-left: rem(-70);
+    margin-right: rem(-70);
+  }
+  @include media-breakpoint-up(xl) {
+    margin-left: rem(-190);
+    margin-right: rem(-298);
+  }
+  &:before {
+    @include media-breakpoint-up(xl) {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -50vw;
+      width: 150vw;
+      bottom: 0;
+      background-color: $off-white;
+      z-index: -1;
+    }
+  }
+  .call-to-action--small {
+    padding-bottom: rem(60);
+    .call-to-action__copy-wrap {
+      padding: 0;
+      @include media-breakpoint-up(md) {
+        padding-right: rem(39);
+      }
+      .call-to-action__headline {
+        text-align: left;
+        @include media-breakpoint-up(md) {
+          text-align: right;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<div class="statistic">
+  {% if statistics_label %}<h2 class="statistics__label">{{ statistics_label }}</h2>{% endif %}
+  <ul>
+    {% for statistic in statistics %}
+    <li>
+      <h3 class="statistic__title">{{ statistic.statistic_title }}</h3>
+      <p class="statistic__text">{{ statistic.statistic_text }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+</div>

@@ -1,0 +1,10 @@
+<div class="call-to-action call-to-action--large">
+  <div class="call-to-action__media">
+    <img src="{{ image|path }}" alt="" loading="lazy" width="1713" height="641" >
+  </div>
+  <div class="call-to-action__copy-wrap">
+    <h2 class="call-to-action__headline">{{title}}</h2>
+    <div class="text-content">{{body|raw}}</div>
+    {% include "@button-set" with button_set %}
+  </div>
+</div>

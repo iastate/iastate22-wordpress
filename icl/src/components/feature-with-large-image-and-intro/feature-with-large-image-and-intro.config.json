@@ -1,0 +1,19 @@
+{
+  "context": {
+    "title": "Inset Call Out with H2",
+    "intro_text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+    "feature_with_large_image": {
+      "image": "../../img/Feature-Image-Inset-Large_FPO.jpg",
+      "title": "Inset Feature with H2 and Large Image",
+      "text": "<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni lorem ipsem.</p>",
+      "button_set": {
+        "items": [
+          {
+            "text": "Primary CTA Style",
+            "url": "https://iastate.edu"
+          }
+        ]
+      }
+    }
+  }
+}

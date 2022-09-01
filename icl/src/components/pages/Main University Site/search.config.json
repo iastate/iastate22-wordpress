@@ -1,0 +1,23 @@
+{
+  "context": {
+    "hero": {
+      "breadcrumbs": {
+        "links": [
+          {
+            "url": "https://www.iastate.edu/",
+            "name": "Home"
+          },
+          {
+            "url": "https://www.iastate.edu/",
+            "name": "Search"
+          }
+        ]
+      },
+      "title": "Search",
+      "message": "<h2>Search all Iowa State University Sites</h2>"
+    },
+    "search": {
+      "label": "Search by Keyword"
+    }
+  }
+}

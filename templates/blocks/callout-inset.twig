@@ -1,0 +1,24 @@
+<div class="paragraph-widget paragraph-widget--callout-inset">
+    <div class="callout-inset">
+    <div class="callout-inset_inset">
+        <h2 class="callout-inset_inset-headline">{{fields.callout.title|striptags}}</h2>
+        <div>{{fields.callout.content|striptags }}</div>
+    </div>
+    <div class="feature-with-large-image">
+        <div class="feature-with-large-image__media">
+            <img src="{{ fields.image.url|striptags }}" alt="{{ fields.image.alt|striptags }}" width="{{ fields.image.width|striptags }}" height="{{ fields.image.height|striptags }}"/>
+        </div>
+        <div class="feature-with-large-image__content">
+            <h2>{{ fields.inset.title|striptags }}</h2>
+            <div class="feature-with-large-image__text">{{fields.inset.content|striptags}}</div>
+            <div class="iastate22-button-set">
+                <ul>
+                    <li>
+                        <a class="iastate22-button" href="{{ fields.inset.link.url|striptags }}">{{ fields.inset.link.label|striptags }}<span class="arrow"></span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>

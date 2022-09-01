@@ -1,0 +1,124 @@
+.iastate22-form {
+  .form-item {
+    margin-bottom: rem(30);
+  }
+  label,
+  .label {
+    display: block;
+    font-family: $typeface-sans-serif;
+    font-size: rem(18);
+    line-height: (25 / 18);
+    font-weight: 700;
+    color: $iastate-maroon;
+    margin-bottom: rem(9.8);
+    &.required {
+      color: $iastate-red;
+    }
+    .optional {
+      font-family: $typeface-sans-serif;
+      color: $grey;
+      margin-left: rem(15);
+    }
+  }
+  input,
+  textarea {
+    font-family: $typeface-sans-serif;
+    font-size: rem(16);
+    font-weight: 400;
+    line-height: (29 / 16);
+    color: $grey;
+    border-radius: 0;
+    border: 1px solid $grey;
+    padding: rem(8) rem(15);
+  }
+  input[type="text"],
+  textarea {
+    width: 100%;
+  }
+  textarea {
+    min-height: rem(177);
+  }
+  select {
+    width: 100%;
+    font-family: $typeface-sans-serif;
+    font-size: rem(16);
+    line-height: (29 / 16);
+    color: $grey;
+    height: rem(46);
+    border-radius: 0;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12.273' height='7.551'%3E%3Cpath d='m11.566.707-5.429 5.43L.707.707' fill='none' stroke='%234a4a4a' stroke-width='2'/%3E%3C/svg%3E");
+    background-repeat: no-repeat no-repeat;
+    background-position: 95% 50%;
+    background-size: rem(14);
+    cursor: pointer;
+    padding-left: rem(15);
+  }
+  input[type="checkbox"],
+  input[type="radio"] {
+    @extend %visible-for-screen-readers;
+    & + label {
+      position: relative;
+      padding-left: rem(35);
+      &:before,
+      &:after {
+        content: "";
+        cursor: pointer;
+        position: absolute;
+        width: rem(25);
+        height: rem(25);
+      }
+      &:before {
+        background: #fff;
+        box-shadow: inset 0 0 0 1px $grey;
+        top: -2px;
+        left: 0;
+      }
+      &:after {
+        background-color: $iastate-maroon;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15.854' height='15.2'%3E%3Cpath d='m1.03 8.087 5.117 4.832L14.628.862' fill='none' stroke='%23fff' stroke-width='3'/%3E%3C/svg%3E");
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: rem(14);
+        top: -2px;
+        left: 0;
+        z-index: 1;
+        opacity: 0;
+        transition: 0.2s opacity ease-in-out;
+      }
+    }
+    &:checked {
+      & + label {
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  input[type="radio"] {
+    & + label {
+      &:before,
+      &:after {
+        border-radius: 50%;
+      }
+      &:after {
+        background-image: none;
+        transform: scale(0.7);
+      }
+    }
+  }
+  input[type="checkbox"],
+  input[type="radio"] {
+    & + label {
+      display: inline;
+      font-family: $typeface-sans-serif;
+      font-size: rem(16);
+      line-height: (29 / 16);
+      color: $grey;
+      font-weight: 400;
+    }
+  }
+  button[type="submit"] {
+    @extend %iastate22-button;
+  }
+}

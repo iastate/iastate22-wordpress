@@ -1,0 +1,167 @@
+{
+    "key": "group_6297975ad0d11",
+    "title": "Multi Column Content",
+    "fields": [
+        {
+            "key": "field_62979ade5000e",
+            "label": "Columns",
+            "name": "columns",
+            "type": "repeater",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 2,
+            "max": 3,
+            "layout": "block",
+            "button_label": "Add Column",
+            "sub_fields": [
+                {
+                    "key": "field_62979ce55000f",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_62979cfb50010",
+                    "label": "Content",
+                    "name": "content",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "collapsed": "",
+                    "min": 1,
+                    "max": 2,
+                    "layout": "block",
+                    "button_label": "Add Content Item",
+                    "sub_fields": [
+                        {
+                            "key": "field_62979f1a50011",
+                            "label": "Content Type",
+                            "name": "content_type",
+                            "type": "flexible_content",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layouts": {
+                                "layout_62979f23f04ff": {
+                                    "key": "layout_62979f23f04ff",
+                                    "name": "text_content",
+                                    "label": "Text Content",
+                                    "display": "block",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_6297a52150012",
+                                            "label": "Text Content",
+                                            "name": "text_content",
+                                            "type": "textarea",
+                                            "instructions": "",
+                                            "required": 1,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "maxlength": "",
+                                            "rows": 5,
+                                            "new_lines": "br"
+                                        }
+                                    ],
+                                    "min": "",
+                                    "max": ""
+                                },
+                                "layout_6297a59d50015": {
+                                    "key": "layout_6297a59d50015",
+                                    "name": "image",
+                                    "label": "Image",
+                                    "display": "block",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_6297a5a550016",
+                                            "label": "Image",
+                                            "name": "image",
+                                            "type": "image",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "return_format": "array",
+                                            "preview_size": "medium",
+                                            "library": "all",
+                                            "min_width": "",
+                                            "min_height": "",
+                                            "min_size": "",
+                                            "max_width": "",
+                                            "max_height": "",
+                                            "max_size": "",
+                                            "mime_types": ""
+                                        }
+                                    ],
+                                    "min": "",
+                                    "max": ""
+                                }
+                            },
+                            "button_label": "Add Content",
+                            "min": 1,
+                            "max": 2
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/multi-column-content"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1657642669
+}

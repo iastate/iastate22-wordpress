@@ -1,0 +1,91 @@
+<div class="personal-profile-info-card{% if not image %} personal-profile-info-card--no-image{% endif %}">
+  {% if image %}
+  <div class="personal-profile-info-card__media">
+    <img src="{{ image }}" alt="" loading="lazy" width="450" height="450">
+  </div>
+  {% endif %}
+  
+  <div class="personal-profile-info-card__content">
+    <h1 class="personal-profile-info-card__name">{{ name }}</h1>
+    {% if titles %}
+    <ul class="personal-profile-info-card__titles">
+      {% for title in titles %}
+      <li>
+        {{ title }}
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% if link_set %}
+    {% include "@link-set" with link_set %}
+    {% endif %}
+  </div>
+  <div class="personal-profile-info-card__contact-box">
+    <h3>{{ contact_box.label }}</h3>
+    <div class="personal-profile-info-card__contact-box-columns-wrap">
+      <div class="personal-profile-info-card__contact-box-column">
+        {% if contact_box.email %}<p><a href="mailto:{{ contact_box.email }}">{{ contact_box.email }}</a></p>{% endif %}
+        {% if contact_box.phone %}<p>{{ contact_box.phone }}</p>{% endif %}
+      </div>
+      <div class="personal-profile-info-card__contact-box-column">
+        {% if contact_box.address %}
+        <p>{{ contact_box.address.building }}<br>
+        {{ contact_box.address.street }}<br>
+        {{ contact_box.address.city_state_zip }}</p>
+        {% endif %}
+      </div>
+    </div>
+    {% if contact_box.social_links %}
+    <ul class="personal-profile-info-card__contact-box-social">
+      {% if contact_box.social_links.instagram %}
+      <li>
+        <a href="{{ contact_box.social_links.instagram }}" target="_blank">
+          <i class="fak fa-iastate22-instagram" aria-hidden="true"></i>
+          <span class="visible-for-screen-readers">Instagram</span>
+        </a>
+      </li>
+      {% endif %}
+      {% if contact_box.social_links.youtube %}
+      <li>
+        <a href="{{ contact_box.social_links.youtube }}" target="_blank">
+          <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+          <span class="visible-for-screen-readers">YouTube</span>
+        </a>
+      </li>
+      {% endif %}
+      {% if contact_box.social_links.facebook %}
+      <li>
+        <a href="{{ contact_box.social_links.facebook }}" target="_blank">
+          <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          <span class="visible-for-screen-readers">Facebook</span>
+        </a>
+      </li>
+      {% endif %}
+      {% if contact_box.social_links.twitter %}
+      <li>
+        <a href="{{ contact_box.social_links.twitter }}" target="_blank">
+          <i class="fa-brands fa-twitter" aria-hidden="true"></i>
+          <span class="visible-for-screen-readers">Twitter</span>
+        </a>
+      </li>
+      {% endif %}
+      {% if contact_box.social_links.linkedin %}
+      <li>
+        <a href="{{ contact_box.social_links.linkedin }}" target="_blank">
+          <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+          <span class="visible-for-screen-readers">LinkedIn</span>
+        </a>
+      </li>
+      {% endif %}
+      {% if contact_box.social_links.flickr %}
+      <li>
+        <a href="{{ contact_box.social_links.flickr }}" target="_blank">
+          <i class="fak fa-iastate22-flickr" aria-hidden="true"></i>
+          <span class="visible-for-screen-readers">Flickr</span>
+        </a>
+      </li>
+      {% endif %}
+    </ul>
+    {% endif %}
+  </div>
+</div>

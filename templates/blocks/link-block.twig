@@ -1,0 +1,14 @@
+<div class="paragraph-widget paragraph-widget--link-block">
+    <div class="link-block">
+        <h2>{{ fields.title|striptags }}</h2>
+        <div class="link-set">
+            <ul>
+            {% for link in fields.links %}
+                <li>
+                    <a href="{{ link.url|striptags }}" class="link-set__link iastate22-link-secondary">{{ link.label|striptags }}<span class="arrow"></span></a>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>    
+</div>

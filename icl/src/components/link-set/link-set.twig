@@ -1,0 +1,9 @@
+<div class="link-set">
+  <ul>
+    {% for link in links %}
+    <li>
+      <a href="{{link.url}}" class="link-set__link{% if link.variant %} {{link.variant}}{% endif %}">{{link.text}}{% if link.variant %}<span class="arrow"></span>{% endif %}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>

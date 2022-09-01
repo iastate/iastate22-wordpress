@@ -1,0 +1,51 @@
+{
+  "context": {
+    "slides": [
+      {
+        "carousel_content": "image",
+        "image": "../../img/carousel-slide_fpo.jpg",
+        "caption": "Image caption lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip consequat.",
+        "title": "Image Slide Short Descriptive Title Lorem",
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      },
+      {
+        "carousel_content": "video",
+        "carousel_video": {
+          "video": {
+            "poster_image": {
+              "url": "../../img/IMG-Inline_Center_FPO.jpg",
+              "alt": "",
+              "width": "1200",
+              "height": "673"
+            },
+            "source": "youtube",
+            "youtube_video_id": "LjOmcZkXVcU",
+            "vimeo_video_id": ""
+          }
+        },
+        "caption": "Image caption lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip consequat.",
+        "title": "YouTube Video Example",
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      },
+      {
+        "carousel_content": "video",
+        "carousel_video": {
+          "video": {
+            "poster_image": {
+              "url": "",
+              "alt": "",
+              "width": "1200",
+              "height": "673"
+            },
+            "source": "vimeo",
+            "youtube_video_id": "",
+            "vimeo_video_id": "74317943"
+          }
+        },
+        "caption": "Image caption lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip consequat.",
+        "title": "Vimeo Video Example",
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      }
+    ]
+  }
+}

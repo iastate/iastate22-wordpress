@@ -1,0 +1,88 @@
+{
+    "key": "group_629f7570481e5",
+    "title": "Helper - All CTAs",
+    "fields": [
+        {
+            "key": "field_629f75704b0c9",
+            "label": "Link Style",
+            "name": "link_style",
+            "type": "select",
+            "instructions": "Select a the style of link that you would like to use from the menu below.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "button": "Button",
+                "standard": "Standard",
+                "minimal": "Minimal",
+                "external": "External"
+            },
+            "default_value": [
+                "button"
+            ],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_629f75704b112",
+            "label": "Link Text",
+            "name": "label",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_629f75704b164",
+            "label": "Link URL",
+            "name": "link_url",
+            "type": "url",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "current_user",
+                "operator": "!=",
+                "value": "logged_in"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1657642570
+}

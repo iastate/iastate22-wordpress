@@ -1,0 +1,60 @@
+%iastate22-button,
+.iastate22-button {
+  display: block;
+  border: rem(2) solid $iastate-maroon;
+  border-radius: rem(30);
+  padding: rem(8) rem(35) rem(8) rem(20);
+  appearance: none;
+  margin: rem(10) 0;
+  text-align: left;
+  cursor: pointer;
+  background-color: transparent;
+  color: $iastate-maroon;
+  font-family: $typeface-sans-serif;
+  font-weight: 700;
+  font-size: rem(18);
+  line-height: (25 / 18);
+  text-decoration: none;
+  transition: 0.2s color ease-in-out, 0.2s background-color ease-in-out, 0.2s padding ease-in-out;
+  position: relative;
+  @include media-breakpoint-up(md) {
+    display: inline-block;
+  }
+  .arrow {
+    right: rem(17);
+    top: rem(20);
+    width: 0;
+    background-color: $iastate-gold;
+
+    &:after,
+    &:before {
+      background-color: $iastate-gold;
+    }
+  }
+
+  &:hover {
+    background-color: $iastate-maroon;
+    color: $white;
+    padding-right: rem(40);
+    .arrow {
+      width: rem(12);
+    }
+  }
+}
+
+%iastate22-button--reverse,
+.iastate22-button--reverse {
+  border-color: $white;
+  background-color: $white;
+  .arrow {
+    background-color: $iastate-maroon;
+    &:after,
+    &:before {
+      background-color: $iastate-maroon;
+    }
+  }
+  &:hover {
+    background-color: $white;
+    color: $iastate-maroon;
+  }
+}

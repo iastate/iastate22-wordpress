@@ -1,0 +1,25 @@
+{
+  "context": {
+    "id": "modal-1",
+    "image": "../../img/Component-Modal-Square-Image_FPO.jpg",
+    "title": "Modal Title Lorem Ipsum Dolor Sit Amet",
+    "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+    "call_to_action": "<a href=\"#\" class=\"iastate22-button\">Button Label Lorem</a>"
+  },
+  "variants": [
+    {
+      "name": "with-form",
+      "context": {
+        "image": "../../img/Component-Modal-Square-Image_FPO.jpg",
+        "title": "Modal Title Lorem Ipsum Dolor Sit Amet",
+        "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+        "form_field_label": "Email",
+        "input_type": "email",
+        "input_name": "email",
+        "input_id": "email",
+        "required": true,
+        "form_input_text": "Sign Up"
+      }
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+    "key": "group_62fd652a7bb13",
+    "title": "Helper - Video Embed",
+    "fields": [
+        {
+            "key": "field_62fd652a7f702",
+            "label": "Video",
+            "name": "video",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_62fd652a805a4",
+                    "label": "TItle",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_62fd65427a814",
+                    "label": "Video Source",
+                    "name": "source",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "-- select one -- :": "-- select one -- :",
+                        "youtube": "YouTube",
+                        "vimeo": "Vimeo"
+                    },
+                    "default_value": false,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_62fd652a805e9",
+                    "label": "YouTube Video ID",
+                    "name": "youtube_video_id",
+                    "type": "text",
+                    "instructions": "Enter the 11 digit YouTube video ID code",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_62fd65427a814",
+                                "operator": "==",
+                                "value": "youtube"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": 11
+                },
+                {
+                    "key": "field_62fd665f10cfa",
+                    "label": "Vimeo Video ID",
+                    "name": "vimeo_video_id",
+                    "type": "text",
+                    "instructions": "Enter the 9 digit Vimeo video ID code",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_62fd65427a814",
+                                "operator": "==",
+                                "value": "vimeo"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": 9
+                },
+                {
+                    "key": "field_62fd652a80630",
+                    "label": "Video Poster?",
+                    "name": "video_poster",
+                    "type": "true_false",
+                    "instructions": "Select this if you would like to use a custom video poster image. By default, the YouTube video thumbnail is used.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_62fd652a8067d",
+                    "label": "Poster Image",
+                    "name": "poster_image",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_62fd652a80630",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "current_user",
+                "operator": "!=",
+                "value": "logged_in"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1660777083
+}

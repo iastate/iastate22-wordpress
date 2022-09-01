@@ -1,0 +1,84 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <script>
+    document.body.classList.add("faculty-bio");
+    </script>
+    {% set firstName = post.meta('first_name') %}
+    {% set lastName = post.meta('last_name') %}
+    {% set photo = post.meta('photo') %}
+    {% set titles = post.meta('titles') %}
+    {% set profileLinks = post.meta('profile_links') %}
+    {% set email = post.meta('email') %}
+    {% set phone = post.meta('phone') %}
+    {% set address = post.meta('address') %}
+    {% set social_networks = post.meta('social_networks') %}
+    {% set biography = post.meta('bio') %}
+    {% set resume = post.meta('resume') %}
+    {% set degrees = post.meta('degrees') %}
+    {% set affiliations = post.meta('affiliations') %}
+    {% set publications = post.meta('publication') %}
+
+<div class="outer-pad">
+    <div class="faculty-bio-info-card_wrap">
+        {% include "partial/faculty-info-card.twig" %}
+    </div>
+    {% if biography %}
+        <div class="text-content">
+            <h2>Bio</h2>
+            {{ biography }}
+        </div>
+    {% endif %}
+    {% if resume %}
+        <div class="paragraph-widget paragraph-widget--button-set">
+            <div class="iastate22-button-set">
+                <ul>
+                    <li>
+                        <a class="iastate22-button" href="{{ resume.url }}">Download CV<span class="arrow"></span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+    <div class="paragraph-widget paragraph-widget--multicolumn-content">
+        <div class="multi-column-content multi-column-content-two-col">
+            {% if degrees or affiliations %}
+                {% if degrees %}
+                    <div class="multi-column-content__column">
+                        <div class="text-content">
+                            <h2>Education</h2>
+                            {% for degree in degrees %}
+                                <p>{{ degree.degree }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+                {% if affiliations %}
+                    <div class="multi-column-content__column">
+                        <div class="text-content">
+                            <h2>Affiliations</h2>
+                            {% for affiliation in affiliations %}
+                                <p>
+                                    <a class="link-set__link iastate22-link-secondary" href="{{ affiliation.affiliation.url }}"{% if affiliation.affiliation.target == "_blank" %} target="_blank"{% endif %}>{{ affiliation.affiliation.title }}<span class="arrow"></span></a>
+                                </p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    {% if publications %}
+        <div class="paragraph-widget paragraph-widget--text-html">
+            <div class="text-content">
+                <h2>Selected Publications</h2>
+                <ul>
+                    {% for publication in publications %}
+                        <li>{{ publication.publication }}{% if publication.reference %}<a href="{{ publication.reference.url }}"{% if publication.reference.target == "_blank" %} target="_blank"{% endif %}>{{ publication.reference.title }}</a>{% endif %}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

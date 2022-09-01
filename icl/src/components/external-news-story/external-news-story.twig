@@ -1,0 +1,15 @@
+<div class="external-news-story">
+  {% if subhead %}
+  <h2>{{subhead}}</h2>
+  {% endif %}
+  <div class="external-news-story__flex-wrap">
+    <div class="external-news-story__media">
+      <img src="{{ image|path }}" alt="" loading="lazy" width="608" height="404" >
+    </div>
+    <div class="external-news-story__content">
+      <h3>{{headline}}</h3>
+      <p>{{body_copy}}</p>
+      {% include "@link-set" with link_set %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,180 @@
+{
+    "key": "group_6298ffaf3be60",
+    "title": "Tables",
+    "fields": [
+        {
+            "key": "field_629906661baf0",
+            "label": "Table Caption",
+            "name": "table_caption",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_629906751baf1",
+                    "label": "Caption ID",
+                    "name": "caption_id",
+                    "type": "text",
+                    "instructions": "Enter a unique ID for the table caption.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_6299076b1baf2",
+                    "label": "Caption",
+                    "name": "caption",
+                    "type": "text",
+                    "instructions": "Table text caption goes here.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        },
+        {
+            "key": "field_6298ffba230c4",
+            "label": "Table Headers",
+            "name": "table_headers",
+            "type": "repeater",
+            "instructions": "Set the table headers here.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 1,
+            "max": 4,
+            "layout": "table",
+            "button_label": "Add Table Header",
+            "sub_fields": [
+                {
+                    "key": "field_62990112230c5",
+                    "label": "Header",
+                    "name": "header",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        },
+        {
+            "key": "field_62990122230c6",
+            "label": "Table Rows",
+            "name": "table_rows",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Table Row",
+            "sub_fields": [
+                {
+                    "key": "field_629901a5230c7",
+                    "label": "Table Column",
+                    "name": "table_column",
+                    "type": "repeater",
+                    "instructions": "Note: Columns MUST match the number of Table Header entries. Publishing with more or less columns will produce undesired results.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "collapsed": "",
+                    "min": 1,
+                    "max": 4,
+                    "layout": "table",
+                    "button_label": "Add Table Column",
+                    "sub_fields": [
+                        {
+                            "key": "field_62990202230c8",
+                            "label": "Column Copy",
+                            "name": "column_copy",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/tables"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1657642658
+}

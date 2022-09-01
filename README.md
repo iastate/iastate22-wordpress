@@ -1,9 +1,7 @@
 
-# The Timber Starter Theme
+# Iowa State Wordpress Starter Theme
 
-The "_s" for Timber: a dead-simple theme that you can build from. The primary purpose of this theme is to provide a file structure rather than a framework for markup or styles. Configure your Sass, scripts, and task runners however you would like!
-
-[![Build Status](https://travis-ci.org/timber/starter-theme.svg)](https://travis-ci.org/timber/starter-theme)
+The starter theme is based on the [Timber Starter theme](https://wordpress.org/plugins/timber-library/) and incorporates the [Iowa State Frontend Library](https://github.com/iastate/iastate22-frontend) for styles, components and functionality. Please refer to that repository for specific information regarding the front-end library.
 
 ## Installing the Theme
 

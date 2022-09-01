@@ -1,0 +1,246 @@
+{
+    "key": "group_62ab886141e49",
+    "title": "Hero - Top Level Landing Page",
+    "fields": [
+        {
+            "key": "field_62ab886145894",
+            "label": "Hero Title",
+            "name": "hero_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_62ab887d0bf08",
+            "label": "Ecosystem",
+            "name": "ecosystem",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "featured_image": "Home Hero - Featured Image",
+                "video": "Home Hero - Background Video",
+                "supporting_image": "Home Hero - Supporting Image",
+                "atmospheric_image": "Home Hero - Atmospheric Image",
+                "plain": "Home Hero - No Image"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "featured_image",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_62ab8c0601340",
+            "label": "Image",
+            "name": "hero_image",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_62ab887d0bf08",
+                        "operator": "==",
+                        "value": "featured_image"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_62ab887d0bf08",
+                        "operator": "==",
+                        "value": "supporting_image"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_62ab887d0bf08",
+                        "operator": "==",
+                        "value": "atmospheric_image"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_62ab887d0bf08",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_62ab8861458fa",
+                    "label": "Hero Image",
+                    "name": "hero_image",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ".jpg, .jpeg, .png"
+                }
+            ]
+        },
+        {
+            "key": "field_62ab8db2f8b0a",
+            "label": "Video",
+            "name": "video",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_62ab887d0bf08",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_62abc193ab8ef",
+                    "label": "Video Title",
+                    "name": "video_title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_62ab8e39f8b0b",
+                    "label": "Youtube Video ID",
+                    "name": "youtube_video_id",
+                    "type": "text",
+                    "instructions": "Enter the 11 digit YouTube video ID in the field below",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": 11
+                }
+            ]
+        },
+        {
+            "key": "field_62ab8b52e735f",
+            "label": "Buttons",
+            "name": "buttons",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Button",
+            "sub_fields": [
+                {
+                    "key": "field_62ab8b62e7360",
+                    "label": "Button",
+                    "name": "button",
+                    "type": "clone",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "clone": [
+                        "group_62ab8a151fe6c"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/landing-hero"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1660760926
+}

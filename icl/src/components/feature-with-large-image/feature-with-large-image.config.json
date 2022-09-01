@@ -1,0 +1,15 @@
+{
+  "context": {
+    "image": "../../img/feature_with_large_image.jpg",
+    "title": "Feature with H2 and Large Image",
+    "text": "<p>Nemo <a href=\"#\">enim ipsam voluptatem quia</a> voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni lorem ipsem.</p>",
+    "button_set": {
+      "items": [
+        {
+          "text": "Primary CTA Style",
+          "url": "https://iastate.edu"
+        }
+      ]
+    }
+  }
+}

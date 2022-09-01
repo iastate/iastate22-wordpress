@@ -1,0 +1,31 @@
+.privacy-consent {
+  background-color: $iastate-maroon;
+  color: $white;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  padding: rem(24);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  &[hidden],
+  body:not(.js) & {
+    display: none;
+  }
+}
+
+.privacy-consent__content {
+  a {
+    color: $iastate-gold;
+  }
+}
+
+.privacy-consent__buttons {
+  margin-top: rem(10);
+  .iastate22-button {
+    display: inline-block;
+    &:not(:last-child) {
+      margin-right: rem(10);
+    }
+  }
+}

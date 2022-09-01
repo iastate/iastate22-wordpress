@@ -1,0 +1,20 @@
+{
+  "context": {
+    "hero": {
+      "image": "../../img/ecosystem-hero-atmospheric_fpo.jpg",
+      "title": "Hero Title Lorem Ipsum Dolor",
+      "button_set": {
+        "items": [
+          {
+            "text": "Button Label",
+            "url": "https://iastate.edu"
+          },
+          {
+            "text": "Button Label",
+            "url": "https://iastate.edu"
+          }
+        ]
+      }
+    }
+  }
+}

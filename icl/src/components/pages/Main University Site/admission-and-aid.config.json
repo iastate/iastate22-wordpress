@@ -1,0 +1,270 @@
+{
+  "context": {
+    "hero": {
+      "breadcrumbs": {
+        "links": [
+          {
+            "url": "https://www.iastate.edu/",
+            "name": "Home"
+          },
+          {
+            "url": "https://www.iastate.edu/",
+            "name": "Admission and Aid"
+          }
+        ]
+      },
+      "image_mobile": "../../img/admission-hero-mobile.jpg",
+      "image_desktop": "../../img/admission-hero-desktop.jpg",
+      "title": "Admission and Aid",
+      "subnav_horizontal": {
+        "items": [
+          {
+            "url": "https://www.iastate.edu/",
+            "title": "Level 2 Page Lorem Ipsum"
+          },
+          {
+            "url": "https://www.iastate.edu/",
+            "title": "Level 2 Page Lorem"
+          },
+          {
+            "url": "https://www.iastate.edu/",
+            "title": "Level 2 Page Lorem Ipsum Dolor Sit Amet"
+          },
+          {
+            "url": "https://www.iastate.edu/",
+            "title": "Level 2 Page Lorem"
+          },
+          {
+            "url": "https://www.iastate.edu/",
+            "title": "Level 2 Page Lorem Ipsum Dolor"
+          }
+        ]
+      }
+    },
+    "explore": {
+      "title": "Explore",
+      "intro": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+      "video_embed": {
+        "wallpaper": "../../img/admission-video-cover.jpg",
+        "source": "youtube",
+        "title": "Your future starts now.",
+        "youtube_video_id": "Pxu7m8QehcY",
+
+        "caption": "Video caption lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
+      }
+    },
+    "why_iowa": {
+      "label": "Why Iowa State University",
+      "callouts": [
+        {
+          "image": "../../img/admission-why-callout-1.jpg",
+          "title": "Study Science, Arts and Technology",
+          "link": {
+            "url": "https://www.iastate.edu/",
+            "title": "Majors, Minors and Certificates"
+          }
+        },
+        {
+          "image": "../../img/admission-why-callout-2.jpg",
+          "title": "Create, Innovate, Research and Build",
+          "link": {
+            "url": "https://www.iastate.edu/",
+            "title": "Opportunities Outside the Classroom"
+          }
+        },
+        {
+          "image": "../../img/admission-why-callout-3.jpg",
+          "title": "Learn in a Welcoming Community",
+          "link": {
+            "url": "https://www.iastate.edu/",
+            "title": "Diversity, Equity and Inclusion at lowa State"
+          }
+        }
+      ],
+      "statistics": {
+        "statistics_label": "Class of 2025 Profile",
+        "statistics": [
+          {
+            "statistic_title": "X,XXX",
+            "statistic_text": "Enrolled Students"
+          },
+          {
+            "statistic_title": "XX%",
+            "statistic_text": "Out of State or International Students"
+          },
+          {
+            "statistic_title": "1 in 4",
+            "statistic_text": "Students are Black, Asian, Hispanic or Multiracial"
+          }
+        ]
+      }
+    },
+    "afford": {
+      "title": "Afford",
+      "intro": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+      "link_set": {
+        "links": [
+          {
+            "url": "https://iastate.edu",
+            "text": "Try Our Net Price Calculator",
+            "variant": "iastate22-link-external"
+          }
+        ]
+      },
+      "columns": {
+        "columns": [
+          {
+            "icon": "https://cdn.theme.iastate.edu/img/iastate22/icons/multicolor-icon-tuition-fees.svg",
+            "title": "Tuition and Fees",
+            "description": "<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>",
+            "link": {
+              "url": "https://www.iastate.edu/",
+              "title": "View Cost of Attendance"
+            }
+          },
+          {
+            "icon": "https://cdn.theme.iastate.edu/img/iastate22/icons/multicolor-icon-scholarships.svg",
+            "title": "Scholarships",
+            "description": "<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>",
+            "link": {
+              "url": "https://www.iastate.edu/",
+              "title": "Apply for Scholarships"
+            }
+          },
+          {
+            "icon": "https://cdn.theme.iastate.edu/img/iastate22/icons/multicolor-icon-financial-aid.svg",
+            "title": "Financial Aid",
+            "description": "<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>",
+            "link": {
+              "url": "https://www.iastate.edu/",
+              "title": "Learn about Financial Aid"
+            }
+          }
+        ]
+      }
+    },
+    "apply": {
+      "title": "Apply",
+      "intro_text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+      "button_set": {
+        "items": [
+          {
+            "text": "Apply to Iowa State",
+            "url": "https://iastate.edu"
+          }
+        ]
+      },
+      "image": "../../img/admission_feature_cyclone_fpo.jpg",
+      "subtitle": "Already a Cyclone?",
+      "link_set": {
+        "links": [
+          {
+            "url": "https://iastate.edu",
+            "text": "New Student Programs",
+            "variant": "iastate22-link-secondary"
+          },
+          {
+            "url": "https://iastate.edu",
+            "text": "Admitted Student Information",
+            "variant": "iastate22-link-secondary"
+          }
+        ]
+      }
+    },
+    "links": {
+      "subtitle": "Start your journey.",
+      "title": "I am an incoming...",
+      "link_list": [
+        {
+          "icon": "https://cdn.theme.iastate.edu/img/iastate22/icons/multicolor-icon-undergraduate.svg",
+          "url": "https://iastate.edu",
+          "text": "Undergraduate Student"
+        },
+        {
+          "icon": "https://cdn.theme.iastate.edu/img/iastate22/icons/multicolor-icon-graduate.svg",
+          "url": "https://iastate.edu",
+          "text": "Graduate Student"
+        },
+        {
+          "icon": "https://cdn.theme.iastate.edu/img/iastate22/icons/multicolor-icon-transfer.svg",
+          "url": "https://iastate.edu",
+          "text": "Transfer Student"
+        },
+        {
+          "icon": "https://cdn.theme.iastate.edu/img/iastate22/icons/multicolor-icon-non-degree.svg",
+          "url": "https://iastate.edu",
+          "text": "Non-Degree Student"
+        },
+        {
+          "icon": "https://cdn.theme.iastate.edu/img/iastate22/icons/multicolor-icon-military-non-traditional.svg",
+          "url": "https://iastate.edu",
+          "text": "Military or Nontraditional Student"
+        },
+        {
+          "icon": "https://cdn.theme.iastate.edu/img/iastate22/icons/multicolor-icon-international.svg",
+          "url": "https://iastate.edu",
+          "text": "International Student"
+        }
+      ]
+    },
+    "connect": {
+      "title": "Connect with Admissions",
+      "sections": [
+        {
+          "title": "Request Info",
+          "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>",
+          "link_set": {
+            "links": [
+              {
+                "url": "https://iastate.edu",
+                "text": "Request Admission Information",
+                "variant": "link-tertiary"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Visit",
+          "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>",
+          "link_set": {
+            "links": [
+              {
+                "url": "https://iastate.edu",
+                "text": "Campus Tours",
+                "variant": "link-tertiary"
+              },
+              {
+                "url": "https://iastate.edu",
+                "text": "Virtual Office Sessions",
+                "variant": "link-tertiary"
+              },
+              {
+                "url": "https://iastate.edu",
+                "text": "Virtual Tour",
+                "variant": "link-tertiary"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Connect",
+          "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>",
+          "link_set": {
+            "links": [
+              {
+                "url": "https://iastate.edu",
+                "text": "Meet Your Admissions Counselor",
+                "variant": "link-tertiary"
+              },
+              {
+                "url": "https://iastate.edu",
+                "text": "Chat with Students and Staff",
+                "variant": "link-tertiary"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

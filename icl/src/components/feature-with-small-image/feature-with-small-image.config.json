@@ -1,0 +1,11 @@
+{
+  "context": {
+    "image": "../../img/Component-Feature-Image-Small.jpg",
+    "title": "Heading 2 - This is a title of major section of a page",
+    "body_copy": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni lorem ipsem. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni lorem ipsem.",
+    "button": {
+      "text": "Primary CTA Style",
+      "url": "#"
+    }
+  }
+}

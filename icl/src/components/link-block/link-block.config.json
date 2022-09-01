@@ -1,0 +1,39 @@
+{
+  "context": {
+    "title": "Optional Subheading Lorem Ipsum Dolor",
+    "link_set": {
+      "links": [
+        {
+          "url": "https://iastate.edu",
+          "text": "Link Label Lorem Ipsum Dolor Sit",
+          "variant": "iastate22-link-secondary"
+        },
+        {
+          "url": "https://iastate.edu",
+          "text": "Link Label Lorem Ipsum Dolor",
+          "variant": "iastate22-link-secondary"
+        },
+        {
+          "url": "https://iastate.edu",
+          "text": "Link Label Lorem",
+          "variant": "iastate22-link-secondary"
+        },
+        {
+          "url": "https://iastate.edu",
+          "text": "Link Name Lorem Ipsum",
+          "variant": "iastate22-link-secondary"
+        },
+        {
+          "url": "https://iastate.edu",
+          "text": "Link Label Lorem Dolor",
+          "variant": "iastate22-link-secondary"
+        },
+        {
+          "url": "https://iastate.edu",
+          "text": "Link Label Lorem Ipsum Dolor",
+          "variant": "iastate22-link-secondary"
+        }
+      ]
+    }
+  }
+}

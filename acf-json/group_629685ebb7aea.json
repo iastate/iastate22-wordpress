@@ -1,0 +1,66 @@
+{
+    "key": "group_629685ebb7aea",
+    "title": "Button Set",
+    "fields": [
+        {
+            "key": "field_629688df8aa41",
+            "label": "Buttons",
+            "name": "buttons",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_629689958aa42",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add New Button",
+            "sub_fields": [
+                {
+                    "key": "field_629689958aa42",
+                    "label": "Button",
+                    "name": "button",
+                    "type": "clone",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "clone": [
+                        "group_62968614dee4b"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/button-set"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1657642488
+}

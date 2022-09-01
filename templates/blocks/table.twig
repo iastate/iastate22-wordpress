@@ -1,0 +1,23 @@
+<div class="paragraph-widget paragraph-widget--table">
+    <div class="iastate22-table" role="region" aria-labelledby="{{ fields.table_caption.caption_id|striptags }}" tabindex="0">
+    <table>
+        <caption id="{{ fields.table_caption.caption_id }}">{{ fields.table_caption.caption|striptags }}</caption>
+        <thead>
+            <tr>
+                {% for header in fields.table_headers %}
+                    <th>{{ header.header|striptags }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in fields.table_rows %}
+                <tr>
+                    {% for column in row.table_column %}
+                        <td>{{ column.column_copy|striptags("<p><br>") }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</div>

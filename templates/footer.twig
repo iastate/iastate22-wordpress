@@ -1,0 +1,85 @@
+<footer class="site-footer site-footer--ecosystem">
+	<div class="site-footer__flex-wrap">
+		<img class="site-footer__logo" src="{{ "https://cdn.theme.iastate.edu/img/iastate22/iowa-state-university-logo-with-tagline-sci-tech.svg" }}" alt="Iowa State University of Science and Technology"/>
+
+		{% if social_menu %}
+			<ul class="site-footer__social">
+				{% for link in social_menu.items %}
+					<li>
+						{% if link.network == "instagram" %}
+							<a href="{{ link.url }}" target="_blank">
+								<i class="fak fa-iastate22-{{ link.network }}" aria-hidden="true"></i>
+								<span class="visible-for-screen-readers">{{ link.title }}</span>
+							</a>
+						{% elseif link.network == "podcast" %}
+							<a href="{{ link.url }}" target="_blank">
+								<i class="web-social-icon fa-solid fa-{{ link.network }}" aria-hidden="true"></i>
+								<span class="visible-for-screen-readers">{{ link.title }}</span>
+							</a>
+						{% elseif link.network == "comments" or link.network == "address-book" %}
+							<a href="{{ link.url }}" target="_blank">
+								<i class="fa-solid fa-{{ link.network }}" aria-hidden="true"></i>
+								<span class="visible-for-screen-readers">{{ link.title }}</span>
+							</a>
+						{% else %}
+							<a href="{{ link.url }}" target="_blank">
+								<i class="fa-brands fa-{{ link.network }}" aria-hidden="true"></i>
+								<span class="visible-for-screen-readers">{{ link.title }}</span>
+							</a>
+						{% endif %}
+					</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+		{% if footer_primary_menu %}
+			<nav class="site-footer__primary-nav" aria-label="Footer Primary">
+				<ul>
+					{% for link in footer_primary_menu.items %}
+						<li>
+							<a href="{{ link.url }}">{{ link.title }}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</nav>
+		{% endif %}
+
+		<nav class="site-footer__secondary-nav" aria-label="Footer Secondary">
+			<h2 class="site-footer__section-label">Quick Links</h2>
+			<ul>
+				{% for link in footer_secondary_menu.items %}
+					<li>
+						<a href="{{ link.url }}">{{ link.title }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</nav>
+
+		<nav class="site-footer__departments-nav" aria-label="Footer Departments">
+			<ul>
+				{% for department in options.departments %}
+					<li>
+						<p class="site-footer__section-label">{{ department.title }}</p>
+						<a class="site-footer__section-email" href="mailto:{{ department.email_address.email }}">{{ department.email_address.label }}</a>
+						<a class="site-footer__section-phone" href="tel:{{ department.phone_number }}">{{ department.phone_number }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</nav>
+	</div>
+
+	<div class="site-footer__bottom-wrap">
+		<nav class="site-footer__utility-nav" aria-label="Footer Utility">
+			<ul>
+				{% for link in footer_utility_menu.items %}
+					<li>
+						<a href="{{ link.url }}">{{ link.title }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</nav>
+		<div class="site-footer__copyright">
+			<p>&copy; Iowa State University of Science and Technology
+				{{"now"|date('Y')}}</p>
+		</div>
+	</div>
+</footer>

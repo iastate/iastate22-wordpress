@@ -1,0 +1,9 @@
+<nav class="iastate22-breadcrumb iastate22-breadcrumb--top-level-pages" aria-label="Breadcrumb">
+	<ol class="iastate22-breadcrumb__list">
+		{% for link in links %}
+			<li>
+				<a href="{{ link.url }}"{% if loop.last %} aria-current="page"{% endif %}>{{ link.name }}</a>
+			</li>
+		{% endfor %}
+	</ol>
+</nav>

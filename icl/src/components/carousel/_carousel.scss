@@ -1,0 +1,156 @@
+@import "~flickity/css/flickity";
+
+.paragraph-widget--carousel {
+  @extend %extended-component-width;
+}
+
+.flickity-viewport {
+  transition: height 0.3s ease-in-out;
+}
+
+.iastate22-carousel-holder {
+  position: relative;
+
+  .iastate22-carousel {
+    background: $white;
+  }
+
+  .carousel__slide {
+    width: 100%;
+    .video-embed__media-wrap {
+      &:before {
+        padding-top: 57.5%;
+      }
+    }
+    .video-embed__video-hover {
+      &:after {
+        opacity: 0;
+      }
+    }
+  }
+
+  .carousel__slide-image {
+    height: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 57.45%;
+  }
+
+  .carousel__slide-content {
+    text-align: left;
+    margin-top: rem(70);
+    @include media-breakpoint-up(lg) {
+      margin-top: rem(15);
+    }
+    .carousel__slide-content-caption {
+      @extend %caption;
+    }
+  }
+
+  .carousel__nav {
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  .carousel__nav-sizer {
+    width: 100%;
+    padding-top: 57.45%;
+    height: 0;
+    left: 0;
+    top: 0;
+  }
+
+  .carousel__nav-previous,
+  .carousel__nav-next {
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    pointer-events: initial;
+    position: absolute;
+    top: 50%;
+    width: rem(44);
+    height: rem(44);
+    background-color: $iastate-maroon;
+    transform: translate(50%, -50%);
+    transition: 0.3s background-color ease-in-out;
+    @include media-breakpoint-up(lg) {
+      width: rem(60);
+      height: rem(60);
+    }
+    &:hover {
+      background-color: $iastate-red;
+    }
+    &::after {
+      content: "";
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='23.437' height='21.469'%3E%3Cg fill='none' stroke='%23fff' stroke-width='2'%3E%3Cpath data-name='Path 52' d='m11.145.734 10.818 10-10.818 10'/%3E%3Cpath data-name='Path 1510' d='M21.257 10.734H-.001'/%3E%3C/g%3E%3C/svg%3E");
+      background-repeat: no-repeat no-repeat;
+      background-position: center center;
+      background-size: cover;
+      position: absolute;
+      width: rem(25);
+      height: rem(23);
+      top: rem(10);
+      left: rem(10);
+      @include media-breakpoint-up(lg) {
+        width: rem(30);
+        height: rem(26);
+        top: rem(17);
+        left: rem(15);
+      }
+    }
+  }
+
+  .carousel__nav-previous {
+    left: 0;
+    transform: translate(-50%, -50%);
+    &::after {
+      transform: rotate(180deg);
+    }
+  }
+
+  .carousel__nav-next {
+    right: 0;
+  }
+
+  .carousel__nav-dots {
+    padding-top: 60%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    pointer-events: none;
+    @include media-breakpoint-up(lg) {
+      padding-top: 52%;
+    }
+    li {
+      margin: 0 rem(12);
+      .dot {
+        cursor: pointer;
+        pointer-events: initial;
+        border-radius: 50%;
+        width: rem(20);
+        height: rem(20);
+        background-color: rgba($grey, 0.5);
+        border: none;
+        appearance: none;
+        @include media-breakpoint-up(lg) {
+          background-color: rgba($white, 0.5);
+        }
+        &.is-selected {
+          background-color: $iastate-red;
+          @include media-breakpoint-up(lg) {
+            background-color: $white;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!-- Prevents GDPR-dependent scripts from executing on load -->
+        <script>
+            window.YETT_BLACKLIST = [
+                /addthis\.com/
+            ];
+        </script>
+        <script src="//unpkg.com/yett"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+        <link media="screen" rel="stylesheet" href="{{ '/css/index.css'|path }}">
+        <title>Preview Layout</title>
+        <script>
+            document.documentElement.classList.add('js');
+        </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        {{ yield }}
+        <script src="{{ '/js/index.js'|path }}"></script>
+        <script src="https://kit.fontawesome.com/b658fac974.js" crossorigin="anonymous"></script>
+        <link media="print" rel="stylesheet" href="{{ '/css/print.css'|path }}">
+    </body>
+</html>

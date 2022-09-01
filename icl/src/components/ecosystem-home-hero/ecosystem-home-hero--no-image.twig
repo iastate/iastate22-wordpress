@@ -1,0 +1,8 @@
+<div class="ecosystem-home-hero ecosystem-home-hero--no-image">
+  <div class="ecosystem-home-hero__content">
+    <h1 class="ecosystem-home-hero__title">{{ hero.title }}</h1>
+    {% if hero.button_set.items %}
+      {% include "@button-set" with hero.button_set %}
+    {% endif %}
+  </div>
+</div>

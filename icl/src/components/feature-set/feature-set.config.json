@@ -1,0 +1,42 @@
+{
+  "context": {
+    "callouts": [
+      {
+        "image": "../../img/Component-Featured-Image-Small_FPO.jpg",
+        "title": "Feature Title Lorem Ipsum Dolor",
+        "body_copy": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "links": [
+          {
+            "url": "https://iastate.edu",
+            "text": "Link Lorem Ipsum Dolor",
+            "variant": "iastate22-link-secondary"
+          }
+        ]
+      },
+      {
+        "image": "../../img/Component-Featured-Image-Small-2_FPO.jpg",
+        "title": "Feature Title Lorem Ipsum Dolor",
+        "body_copy": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "links": [
+          {
+            "url": "https://iastate.edu",
+            "text": "Link Lorem Ipsum Dolor",
+            "variant": "iastate22-link-secondary"
+          }
+        ]
+      },
+      {
+        "image": "../../img/Component-Featured-Image-Small_FPO.jpg",
+        "title": "Feature Title Lorem Ipsum Dolor",
+        "body_copy": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "links": [
+          {
+            "url": "https://iastate.edu",
+            "text": "Link Lorem Ipsum Dolor",
+            "variant": "iastate22-link-secondary"
+          }
+        ]
+      }
+    ]
+  }
+}

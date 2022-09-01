@@ -1,0 +1,129 @@
+/* Colors
+	 ========================================================================== */
+
+$primary: #369;
+$secondary: #4e7dab;
+$tertiary: #7ba3ca;
+$white: #ffffff;
+$off-white: #f5f5f5;
+$off-white2: #f3f3f3;
+$light-grey: #ebebeb;
+$iastate-dark-blue: #003d4c;
+$grey: #4a4a4a;
+$grey2: #e0e0e0;
+$grey3: #567078;
+$grey4: #707070;
+$grey-blue: #07333e;
+$black: #000000;
+$iastate-red: #c8102e;
+$iastate-maroon: #7c2529;
+$iastate-gold: #f1be48;
+
+/* Fonts
+   ========================================================================== */
+$typeface-sans-serif: "Nimbus Sans", sans-serif;
+$typeface-serif: "Merriweather", serif;
+$font-size-root: 16px;
+
+/* Base
+   ========================================================================== */
+
+$base-line-height: 1.5; // 24px
+$base-font-size: 16px;
+$base-font-family: sans-serif;
+$base-color: $black;
+$base-margin: 1rem 0;
+
+/* Links
+   ========================================================================== */
+
+$link-color: $black;
+$link-text-decoration: underline;
+$link-transition: 0.25s color ease-in-out;
+$link_hover-color: $black;
+$fancy-link-color: $primary;
+$fancy-link-font-family: $base-font-family;
+$fancy-link-font-size: $base-font-size;
+$fancy-link-font-weight: 500;
+$fancy-link-text-decoration: underline;
+$fancy-link_hover-color: $secondary;
+$fancy-link_transition: 0.25s color ease-in-out;
+
+$fancy-link-icon: ">";
+$fancy-link-icon-transition: 0.25s transform ease-in-out;
+
+/* Lists
+   ========================================================================== */
+
+$unordered-list-style-type: initial;
+$ordered-list-style-type: decimal;
+$list-margin: $base-margin;
+$list-padding: 0 1.5rem;
+$list-list-margin: 0.25rem 0;
+$list-item-margin: 0.25rem 0;
+$list-item-font-size: 1rem;
+
+/* Headings
+   ========================================================================== */
+
+$heading-line-height: 1.2;
+
+$h1-color: $base-color;
+$h2-color: $base-color;
+$h3-color: $base-color;
+$h4-color: $base-color;
+$h5-color: $base-color;
+$h6-color: $base-color;
+
+$h1-font-family: $base-font-family;
+$h2-font-family: $base-font-family;
+$h3-font-family: $base-font-family;
+$h4-font-family: $base-font-family;
+$h5-font-family: $base-font-family;
+$h6-font-family: $base-font-family;
+
+$h1-font-size: 2.5rem; // 40px
+$h2-font-size: 2rem; // 32px
+$h3-font-size: 1.75rem; // 28px
+$h4-font-size: 1.5rem; // 24px
+$h5-font-size: 1.25rem; // 20px
+$h6-font-size: 1rem; // 16px
+
+$h1-font-weight: 700;
+$h2-font-weight: 700;
+$h3-font-weight: 700;
+$h4-font-weight: 700;
+$h5-font-weight: 700;
+$h6-font-weight: 700;
+
+$h1-letter-spacing: 0;
+$h2-letter-spacing: 0;
+$h3-letter-spacing: 0;
+$h4-letter-spacing: 0;
+$h5-letter-spacing: 0;
+$h6-letter-spacing: 0;
+
+$h1-margin: 3rem 0 1rem; // 48px top, 16px bottom
+$h2-margin: 3rem 0 1rem; // 48px top, 16px bottom
+$h3-margin: 3rem 0 1rem; // 48px top, 16px bottom
+$h4-margin: 3rem 0 1rem; // 48px top, 16px bottom
+$h5-margin: 3rem 0 1rem; // 48px top, 16px bottom
+$h6-margin: 3rem 0 1rem; // 48px top, 16px bottom
+
+/* Layout
+   ========================================================================== */
+
+/* Outer-pad
+   ========================================================================== */
+
+/* Section
+   ========================================================================== */
+
+/* Silc Accordion
+   ========================================================================== */
+$silc-accordion__label-padding: 1rem;
+$silc-accordion__label-background: #f1f1f1;
+$silc-accordion__content-padding: 1rem;
+$silc-accordion__label--hover-background: #ccc;
+$silc-accordion__label--active-background: #eee;
+$silc-accordion__content-border: 1px solid #eee;

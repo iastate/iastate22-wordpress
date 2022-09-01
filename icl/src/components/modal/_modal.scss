@@ -1,0 +1,146 @@
+.iastate22-modal {
+  display: none;
+
+  &.is-open {
+    display: block;
+    position: relative;
+    z-index: 11;
+  }
+}
+
+.iastate22-modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba($white, 0.9);
+}
+
+.iastate22-modal__container {
+  background-color: $white;
+  max-width: rem(414);
+  width: 80%;
+  max-height: 90vh;
+  box-shadow: rem(9) rem(9) rem(20) rgba($black, 0.2);
+  overflow-y: auto;
+  position: relative;
+  padding: rem(45);
+  @include media-breakpoint-up(md) {
+    max-width: rem(844);
+    width: 90%;
+    max-height: 100vh;
+    padding: 0;
+  }
+  @include media-breakpoint-up(lg) {
+    width: 100%;
+  }
+  &.iastate22-modal__container-with-media {
+    @include media-breakpoint-up(md) {
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.iastate22-modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.iastate22-modal__content {
+  padding: rem(20) 0 0 0;
+  @include media-breakpoint-up(md) {
+    flex: 0 1 auto;
+    width: 100%;
+    padding: rem(45) rem(75) rem(45) rem(54);
+  }
+  .iastate22-modal__container-with-media & {
+    @include media-breakpoint-up(md) {
+      width: 64%;
+    }
+  }
+  .iastate22-modal__content-cta {
+    margin-top: rem(20);
+  }
+}
+
+.iastate22-modal__title {
+  margin: 0 0 rem(10) 0;
+  padding: 0;
+  font-family: $typeface-sans-serif;
+  font-size: rem(21);
+  line-height: (30 / 21);
+  font-weight: 700;
+}
+
+.iastate22-modal__close {
+  background: transparent;
+  z-index: 1;
+  width: rem(44);
+  height: rem(44);
+  position: absolute;
+  top: rem(2);
+  right: rem(2);
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    .fa-xmark {
+      color: $iastate-maroon;
+    }
+  }
+  .fa-xmark {
+    pointer-events: none;
+    font-size: rem(25);
+    color: $iastate-red;
+    transition: 0.2s color ease-in-out;
+    @include media-breakpoint-up(md) {
+      font-size: rem(30);
+    }
+  }
+}
+
+.iastate22-modal__media {
+  @extend %responsive-img;
+  @include media-breakpoint-up(md) {
+    flex: 0 1 auto;
+    width: 36%;
+  }
+  &:before {
+    padding-top: 100%;
+  }
+}
+
+.iastate22-modal__content-form {
+  margin-top: rem(20);
+  @include media-breakpoint-up(md) {
+    display: flex;
+    align-items: flex-end;
+  }
+  label {
+    margin-bottom: 0;
+    padding-right: rem(10);
+    @include media-breakpoint-up(md) {
+      flex: 1 1 auto;
+    }
+    .label-text {
+      margin-bottom: rem(3);
+    }
+    input {
+      width: 100%;
+    }
+  }
+  button[type="submit"] {
+    @extend %iastate22-button;
+    margin-bottom: 0;
+    @include media-breakpoint-up(md) {
+      flex: 0 0 auto;
+    }
+  }
+}

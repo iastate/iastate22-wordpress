@@ -1,0 +1,11 @@
+<div class="paragraph-widget paragraph-widget--button-set">
+    <div class="iastate22-button-set">
+        <ul>
+            {% for item in fields.buttons %}
+            <li>
+                <a class="iastate22-button" href="{{ item.url|striptags }}"{% if item.external == true %} target="_blank"{% endif %}>{{ item.label|striptags }}<span class="arrow"></span></a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

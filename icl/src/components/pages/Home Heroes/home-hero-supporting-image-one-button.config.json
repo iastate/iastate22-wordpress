@@ -1,0 +1,16 @@
+{
+  "context": {
+    "hero": {
+      "image": "../../img/ecosystem-hero-supporting_fpo.jpg",
+      "title": "Marston Hall",
+      "button_set": {
+        "items": [
+          {
+            "text": "Button Label",
+            "url": "https://iastate.edu"
+          }
+        ]
+      }
+    }
+  }
+}

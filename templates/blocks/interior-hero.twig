@@ -1,0 +1,22 @@
+<div class="hero">
+  <div class="hero__text-wrap">
+    {% include ['templates/partial/breadcrumbs.twig'] %}
+    <h1 class="hero__title">
+      {% if fields.hero_title %}
+        {{fields.hero_title|striptags }}
+      {% else %}
+        {{ wp_title }}
+      {% endif %}
+    </h1>
+  </div>
+  {% if fields.hero_image %}
+  <div class="hero__media">
+    <img src="{{fields.hero_image.url|striptags}}" alt="{{fields.hero_image.alt|striptags}}" width="{{ fields.hero_image.width|striptags }}" height="{{ fields.hero_image.height|striptags }}">
+  </div>
+  {% endif %}
+  {% if rent > 0 %}
+    <div class="hero__subnav-wrap">
+      {% include ['templates/partial/subnav.twig'] %}
+    </div>
+  {% endif %}
+</div>

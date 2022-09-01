@@ -1,0 +1,49 @@
+{% extends "@page" %}
+
+{% block content %}
+<div class="outer-pad">
+  {% include "@hero--top-level-lp" with hero %}
+  
+  <div class="maj-min-cert-statistic">
+    <div class="paragraph-widget paragraph-widget--statistic-with-text">
+      <div class="text-content">
+        {% include "@statistic--right" with statistic_with_text %}
+      </div>
+    </div>
+  </div>
+
+  <div class="maj-min-cert-explore">
+    <h2 class="maj-min-cert-explore__title">{{ explore.title }}</h2>
+    {% include "@button-set" with explore.button_set %}
+  </div>
+
+  <form class="iastate22-form maj-min-cert-program-search" id="majMinSearch">
+    <h2 class="maj-min-cert-program-search__title">{{ search.title }}</h2>
+    <label class="search-label" for="search">{{ search.form.label }}</label>
+    <input id="search" type="text">
+    <button value="Search" type="submit">{{ search.form.button_text }}<span class="arrow"></span></button>
+  </form>
+
+  <div class="maj-min-cert-program-list">
+    <ul>
+    {% for list in program_list.section %}
+      <li>
+        <h2 class="maj-min-cert-program-list__letter-label">{{ list.letter }}</h2>
+        <ul>
+          {% for list_item in list.listings %}
+          <li>
+            <a href="{{ list_item.url }}" class="iastate22-link-secondary">{{ list_item.title }}<span class="arrow"></span></a>
+            <p class="maj-min-cert-program-list__program-type">{{ list_item.program_type }}</p>
+          </li>
+          {% endfor %}
+        </ul>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+
+  <div class="maj-min-cert-program-list-cta--small">
+    {% include "@call-to-action--small" with call_to_action_small %}
+  </div>
+</div>
+{% endblock %}

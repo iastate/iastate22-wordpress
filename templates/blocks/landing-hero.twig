@@ -1,0 +1,55 @@
+{% if fields.ecosystem == "featured_image" %}
+  {% set heroClass = "ecosystem-home-hero ecosystem-home-hero--featured-image" %}
+{% elseif fields.ecosystem == "supporting_image" %}
+  {% set heroClass = "ecosystem-home-hero ecosystem-home-hero--supporting-image" %}
+{% elseif fields.ecosystem == "atmospheric_image" %}
+  {% set heroClass = "ecosystem-home-hero ecosystem-home-hero--atmospheric-image" %}
+{% elseif fields.ecosystem == "video" %}
+  {% set heroClass = "ecosystem-home-hero ecosystem-home-hero--background-video ecosystem-home-hero--featured-image" %}
+{% elseif fields.ecosystem == "plain" %}
+  {% set heroClass = "ecosystem-home-hero ecosystem-home-hero--no-image" %}
+{% endif %}
+<div class="{{ heroClass }}">
+  {% if fields.ecosystem == "supporting_image" or fields.ecosystem == "plain" %}
+    <div class="ecosystem-home-hero__content">
+      <h1 class="ecosystem-home-hero__title">{{ fields.hero_title|striptags }}</h1>
+      {% if fields.buttons %}
+        <div class="iastate22-button-set">
+          <ul>
+            {% for button in fields.buttons %}
+              <li>
+                <a class="iastate22-button" href="{{ button.url|striptags }}">{{ button.label|striptags }}<span class="arrow"></span></a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+  {% if fields.ecosystem == "plain" %}
+
+  {% else %}
+  <div class="ecosystem-home-hero__media">
+    <img src="{{ fields.hero_image.hero_image.url|striptags }}" alt="{{ fields.hero_image.hero_image.alt|striptags }}" width="{{ fields.hero_image.hero_image.width|striptags }}" height="{{ fields.hero_image.hero_image.height|striptags }}">
+    {% if fields.ecosystem == "video" %}
+      <div class="ecosystem-home-hero__video" aria-label="YouTube Video: {{ fields.video.video_title|striptags }}" data-vid="{{ fields.video.youtube_video_id|striptags }}"></div>
+    {% endif %}
+  </div>
+  {% endif %}
+  {% if fields.ecosystem == "featured_image" or fields.ecosystem == "atmospheric_image" or fields.ecosystem == "video" %}
+  <div class="ecosystem-home-hero__content">
+    <h1 class="ecosystem-home-hero__title">{{ fields.hero_title|striptags }}</h1>
+    {% if fields.buttons %}
+      <div class="iastate22-button-set">
+        <ul>
+          {% for button in fields.buttons %}
+            <li>
+              <a class="iastate22-button" href="{{ button.url|striptags }}">{{ button.label|striptags }}<span class="arrow"></span></a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>

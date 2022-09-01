@@ -1,0 +1,51 @@
+.paragraph-widget--callout-set {
+  margin: rem(30) 0 rem(50) 0;
+  .iastate22-callout--no-image .iastate22-callout__content,
+  .iastate22-callout__media {
+    @include media-breakpoint-up(xl) {
+      margin-left: rem(-112);
+    }
+  }
+}
+
+.callout-set {
+  position: relative;
+  &:before {
+    @include media-breakpoint-up(lg) {
+      content: "";
+      background-color: $off-white;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: rem(-70);
+      width: 50%;
+      max-width: rem(386);
+    }
+    @include media-breakpoint-up(xl) {
+      left: rem(-190);
+    }
+  }
+  ul {
+    @include media-breakpoint-up(lg) {
+      padding-top: rem(60);
+      padding-bottom: rem(10);
+    }
+    li {
+      margin-bottom: rem(51);
+      @include media-breakpoint-up(xl) {
+        margin-bottom: rem(35);
+      }
+    }
+  }
+  .link-set {
+    ul {
+      @include media-breakpoint-up(md) {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+      li {
+        margin: 0 0 rem(12) 0;
+      }
+    }
+  }
+}

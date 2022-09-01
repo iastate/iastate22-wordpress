@@ -1,0 +1,396 @@
+{
+  "context": {
+    "hero": {
+      "breadcrumbs": {
+        "links": [
+          {
+            "url": "https://www.iastate.edu/",
+            "name": "Home"
+          },
+          {
+            "url": "https://www.iastate.edu/",
+            "name": "Academics"
+          },
+          {
+            "url": "https://www.iastate.edu/",
+            "name": "Majors, Minors and Certificates"
+          },
+          {
+            "url": "https://www.iastate.edu/",
+            "name": "Agriculture and Life Sciences"
+          }
+        ]
+      },
+      "images": [
+        {
+          "mobile": {
+            "src": "/img/college-template-hero-fpo-mobile.jpg",
+            "alt": "lorem alt text"
+          },
+          "desktop": {
+            "src": "/img/college-template-hero-fpo-desktop.jpg",
+            "alt": "lorem alt text"
+          }
+        },
+        {
+          "mobile": {
+            "src": "/img/college-template-hero-fpo-mobile-2.jpg",
+            "alt": "lorem alt text"
+          },
+          "desktop": {
+            "src": "/img/college-template-hero-fpo-desktop-2.jpg",
+            "alt": "lorem alt text"
+          }
+        },
+        {
+          "mobile": {
+            "src": "/img/college-template-hero-fpo-mobile-3.jpg",
+            "alt": "lorem alt text"
+          },
+          "desktop": {
+            "src": "/img/college-template-hero-fpo-desktop-3.jpg",
+            "alt": "lorem alt text"
+          }
+        }
+      ],
+      "title": "Agriculture and Life Sciences"
+    },
+    "overview": {
+      "title": "Solve Real World Problems Lorem Ipsum Dolor",
+      "intro": "The College of Agriculture and Life Sciences is one of the world’s leading institutions of agriculture, with more than 160 years of leadership in science, education and extension. The college educates future leaders, conducts mission-oriented research and shares new knowledge for the betterment of Iowa and the world. The college is one of eight colleges at Iowa State University, which is one of the most influential land grant universities in the nation.",
+      "button_set": {
+        "items": [
+          {
+            "text": "Visit College Site",
+            "url": "https://iastate.edu"
+          }
+        ]
+      },
+      "image": "../../img/college-agriculture-intro-fpo.jpg"
+    },
+    "in_page_nav": {
+      "title": "On This Page",
+      "navigation": [
+        {
+          "title": "What Can I Study?",
+          "url": "#majors-minors-certificates"
+        },
+        {
+          "title": "Research",
+          "url": "#research"
+        },
+        {
+          "title": "Innovation and Entrepreneurship",
+          "url": "#innovation-entrepreneurship"
+        },
+        {
+          "title": "Opportunities",
+          "url": "#opportunities"
+        },
+        {
+          "title": "Success at lowa State",
+          "url": "#success"
+        },
+        {
+          "title": "Take the Next Step",
+          "url": "#keep-exploring"
+        }
+      ]
+    },
+    "maj_min_certs": {
+      "id": "majors-minors-certificates",
+      "image": "../../img/what-can-i-study.jpg",
+      "title": "What Can I Study?",
+      "intro": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+      "subhead": "Majors, Minors and Certificates",
+      "listings": [
+        {
+          "title": "Agricultural Business",
+          "url": "https://www.iastate.edu/",
+          "program_type": "Major, Minor"
+        },
+        {
+          "title": "Agricultural Studies",
+          "url": "https://www.iastate.edu/",
+          "program_type": "Minor"
+        },
+        {
+          "title": "Agricultural Systems Technology",
+          "url": "https://www.iastate.edu/",
+          "program_type": "Major"
+        },
+        {
+          "title": "Agricultural and Life Sciences",
+          "url": "https://www.iastate.edu/",
+          "program_type": "Major"
+        },
+        {
+          "title": "Agronomy",
+          "url": "https://www.iastate.edu/",
+          "program_type": "Major, Certificate"
+        },
+        {
+          "title": "Animal Ecology",
+          "url": "https://www.iastate.edu/",
+          "program_type": "Major, Minor"
+        },
+        {
+          "title": "Animal Science",
+          "url": "https://www.iastate.edu/",
+          "program_type": "Program Type Lorem"
+        },
+        {
+          "title": "Biology",
+          "url": "https://www.iastate.edu/",
+          "program_type": "Program Type Lorem"
+        },
+        {
+          "title": "Culinary Food Sciences",
+          "url": "https://www.iastate.edu/",
+          "program_type": "Major, Minor"
+        },
+        {
+          "title": "Dietetics",
+          "url": "https://www.iastate.edu/",
+          "program_type": "Major, Minor"
+        },
+        {
+          "title": "Diet and Exercise Science",
+          "url": "https://www.iastate.edu/",
+          "program_type": "Program Type Lorem"
+        },
+        {
+          "title": "Dietetics",
+          "url": "https://www.iastate.edu/",
+          "program_type": "Program Type Lorem"
+        },
+        {
+          "title": "Environmental Science",
+          "url": "https://www.iastate.edu/",
+          "program_type": "Major, Minor"
+        },
+        {
+          "title": "Food Science",
+          "url": "https://www.iastate.edu/",
+          "program_type": "Major, Minor"
+        },
+        {
+          "title": "Forestry",
+          "url": "https://www.iastate.edu/",
+          "program_type": "Major"
+        },
+        {
+          "title": "Genetics",
+          "url": "https://www.iastate.edu/",
+          "program_type": "Major, Minor"
+        },
+        {
+          "title": "Major/Minor/Certificate Name Lorem Ipsum",
+          "url": "https://www.iastate.edu/",
+          "program_type": "Program Type Lorem"
+        },
+        {
+          "title": "Major/Minor/Certificate Name Lorem Ipsum",
+          "url": "https://www.iastate.edu/",
+          "program_type": "Program Type Lorem"
+        },
+        {
+          "title": "Major/Minor/Certificate Name Lorem Ipsum",
+          "url": "https://www.iastate.edu/",
+          "program_type": "Program Type Lorem"
+        },
+        {
+          "title": "Major/Minor/Certificate Name Lorem Ipsum",
+          "url": "https://www.iastate.edu/",
+          "program_type": "Program Type Lorem"
+        },
+        {
+          "title": "Major/Minor/Certificate Name Lorem Ipsum",
+          "url": "https://www.iastate.edu/",
+          "program_type": "Program Type Lorem"
+        },
+        {
+          "title": "Major/Minor/Certificate Name Lorem Ipsum",
+          "url": "https://www.iastate.edu/",
+          "program_type": "Program Type Lorem"
+        },
+        {
+          "title": "Major/Minor/Certificate Name Lorem Ipsum",
+          "url": "https://www.iastate.edu/",
+          "program_type": "Program Type Lorem"
+        },
+        {
+          "title": "Major/Minor/Certificate Name Lorem Ipsum",
+          "url": "https://www.iastate.edu/",
+          "program_type": "Program Type Lorem"
+        }
+      ]
+    },
+    "research": {
+      "id": "research",
+      "title": "Research",
+      "intro": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>",
+      "button_set": {
+        "items": [
+          {
+            "text": "Research Opportunities",
+            "url": "https://iastate.edu"
+          }
+        ]
+      },
+      "external_news_story": {
+        "subhead": "Featured Research",
+        "image": "../../img/featured-research-fpo.jpg",
+        "headline": "Researchers Using Hair to Gauge Stress Response in Pigs",
+        "body_copy": "Animal science researchers at lowa State are trying to if find out if trimming pigs' hair can provide insight into how they respond to stressors they encounter through life, including disease.",
+        "link_set": {
+          "links": [
+            {
+              "url": "https://iastate.edu",
+              "text": "Read Story",
+              "variant": "iastate22-link-external"
+            }
+          ]
+        }
+      }
+    },
+    "innovation": {
+      "id": "innovation-entrepreneurship",
+      "title": "Innovation and Entrepreneurship",
+      "intro": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proiden.</p>",
+      "external_news_story": {
+        "subhead": "Start Something in the College of Lorem Ipsum",
+        "image": "../../img/innovation-fpo.jpg",
+        "headline": "Researchers Using Hair to Gauge Stress Response in Pigs",
+        "body_copy": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
+        "link_set": {
+          "links": [
+            {
+              "url": "https://iastate.edu",
+              "text": "Read Story",
+              "variant": "iastate22-link-external"
+            }
+          ]
+        }
+      }
+    },
+    "opportunities": {
+      "id": "opportunities",
+      "callout_inset": {
+        "title": "Opportunities",
+        "intro_text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+        "feature_with_large_image": {
+          "image": "../../img/Feature-Image-Inset-Large_FPO.jpg",
+          "title": "Study Abroad Lorem Ipsum",
+          "text": "<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni lorem ipsem.</p>",
+          "button_set": {
+            "items": [
+              {
+                "text": "Link Lorem Ipsum Dolor",
+                "url": "https://iastate.edu"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "success": {
+      "id": "success",
+      "title": "Success at Iowa State",
+      "intro": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+      "link_set": {
+        "links": [
+          {
+            "url": "https://iastate.edu",
+            "text": "Learn More About Career Preparation",
+            "variant": "iastate22-link-secondary"
+          }
+        ]
+      },
+      "career_paths": {
+        "title": "Agriculture and Life Sciences Career Paths",
+        "paths": [
+          "Ut enim ad minim veniam",
+          "Quis nostrud exercitation ullamco",
+          "Laboris nisi ut aliquip ex ea",
+          "Commodo consequat",
+          "Ut enim ad minim veniam",
+          "Quis nostrud exercitation ullamco",
+          "Ut enim ad minim veniam",
+          "Quis nostrud exercitation ullamco",
+          "Laboris nisi ut aliquip ex ea",
+          "Commodo consequat",
+          "Ut enim ad minim veniam"
+        ]
+      },
+      "featured_story": {
+        "title": "Featured Story",
+        "card": {
+          "title": "Eliminating Plastics to Combat Climate Change",
+          "clickable": true,
+          "image": "../../img/HP_Finding_Solutions_Story_3_FPO.jpg",
+          "name": "Keith Forst",
+          "role": "Polymer and Food Protection Consortium",
+          "cta": {
+            "url": "https://www.iastate.edu/",
+            "text": "Read More"
+          },
+          "modal": {
+            "id": "modal-1",
+            "image": "../../img/Component-Modal-Square-Image_FPO.jpg",
+            "title": "Modal Title Lorem Ipsum Dolor Sit Amet",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "call_to_action_intro": "ISU Can Help You Accomplish Great Things Lorem Ipsum",
+            "call_to_action": {
+              "url": "https://www.iastate.edu/",
+              "title": "Innovation & Entrepreneurship"
+            }
+          }
+        }
+      }
+    },
+    "ctas": {
+      "id": "calls-to-action",
+      "cta_one": {
+        "title": "I&rsquo;m Ready to Apply",
+        "intro": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut Aliqui.</p>",
+        "button_set": {
+          "items": [
+            {
+              "text": "Apply Today",
+              "url": "https://iastate.edu"
+            }
+          ]
+        }
+      },
+      "image": "../../img/ready-to-apply-campus-photo.jpg",
+      "cta_two": {
+        "title": "I&rsquo;m Ready to Accept",
+        "intro": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
+        "button_set": {
+          "items": [
+            {
+              "text": "My Admissions Account",
+              "url": "https://iastate.edu"
+            }
+          ]
+        }
+      }
+    },
+    "keep_exploring": {
+      "id": "keep-exploring",
+      "call_to_action_small": {
+        "title": "See All That Iowa State Offers Lorem",
+        "body": "",
+        "button_set": {
+          "items": [
+            {
+              "text": "View All Majors and Minors",
+              "url": "https://iastate.edu"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

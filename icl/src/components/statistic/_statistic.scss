@@ -1,0 +1,39 @@
+.statistic-with-text {
+  @include media-breakpoint-up(md) {
+    display: flex;
+    align-items: flex-start;
+  }
+  .statistic {
+    margin-top: rem(28);
+    margin-bottom: rem(42);
+    @include media-breakpoint-up(md) {
+      flex: 0 0 auto;
+      width: rem(324);
+      margin: rem(10) rem(45) rem(10) 0;
+    }
+    @include media-breakpoint-up(lg) {
+      margin-right: rem(90);
+    }
+  }
+
+  .statistic-with-text__text {
+    margin-bottom: 0;
+    @include media-breakpoint-up(md) {
+      flex: 1 1 0;
+    }
+  }
+
+  &.statistic-with-text--right {
+    @include media-breakpoint-up(md) {
+      flex-direction: row-reverse;
+    }
+    .statistic {
+      @include media-breakpoint-up(md) {
+        margin: rem(10) 0 rem(10) rem(45);
+      }
+      @include media-breakpoint-up(lg) {
+        margin-left: rem(90);
+      }
+    }
+  }
+}

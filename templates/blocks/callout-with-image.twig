@@ -1,0 +1,36 @@
+<div class="paragraph-widget paragraph-widget--callout-with-image">
+    <div class="callout-with-image">
+    <div class="callout-with-image__media">
+        <img src="{{ fields.callout_with_image.callout_image.url|striptags }}" alt="{{ fields.callout_with_image.callout_image.title|striptags }}" width="622" height="414" />
+    </div>
+    <div class="callout-with-image__content text-content">
+        {% if fields.callout_with_image.callout_content.title %}
+        <h2>{{ fields.callout_with_image.callout_content.title|striptags }}</h2>
+        {% endif %}
+        {{ fields.callout_with_image.callout_content.content|striptags }}
+        {% if fields.callout_with_image.callout_content.callout_ctas %}
+        <div class="link-set">
+            <ul>
+                {% for item in fields.callout_with_image.callout_content.callout_ctas %}
+                <li>
+                {% if item.link_style == "button" %}
+                    {% set linkClass = "link-set__link iastate22-button" %}
+                {% elseif item.link_style == "standard" %}
+                    {% set linkClass = "link-set__link iastate22-link-secondary" %}
+                {% elseif item.link_style == "external" %}
+                    {% set linkClass = "link-set__link iastate22-link-external" %}
+                {% elseif item.link_style == "minimal" %}
+                    {% set linkClass = "link-set__link link-tertiary" %}
+                {% endif %}
+                    <a class="{{ linkClass }}" href="{{ item.link_url|striptags }}"{% if item.link_style == "external" %} target="_blank"{% endif %}>
+                        {{ item.label|striptags }}
+                        <span class="arrow"></span>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+    </div>
+</div>

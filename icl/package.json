@@ -1,0 +1,109 @@
+{
+  "name": "idfive-component-library",
+  "version": "0.3.0",
+  "description": "Starter component library for idfive web projects",
+  "main": "index.js",
+  "scripts": {
+    "serve": "webpack-dev-server --mode development --open",
+    "watch": "webpack --mode development --watch",
+    "build": "webpack --mode production",
+    "fractal": "concurrently --kill-others-on-fail \"npm run watch\" \"fractal start --sync\"",
+    "fractal:build": "fractal build",
+    "fractal:component": "fractal create-component",
+    "format": "prettier --write 'src/**/*.js' 'src/**/*.ts' 'src/**/*.vue' 'src/**/*.scss' 'src/**/*.json'",
+    "imagemin": "cd src/img && npx @squoosh/cli --mozjpeg auto *.jpg"
+  },
+  "author": {
+    "name": "idfive",
+    "email": "code@idfive.com",
+    "url": "https://idfive.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@frctl/fractal": "^1.2.1",
+    "@frctl/twig": "^1.1.0",
+    "@types/node": "^10.17.11",
+    "@types/youtube-player": "^5.5.6",
+    "@vimeo/player": "^2.17.1",
+    "ajv": "^6.5.2",
+    "autoprefixer": "^9.7.3",
+    "babel-loader": "^8.0.6",
+    "babel-loader-exclude-node-modules-except": "^1.0.3",
+    "concurrently": "^3.5.0",
+    "copy-webpack-plugin": "^4.1.1",
+    "css-loader": "^2.1.1",
+    "extract-loader": "^3.0.0",
+    "file-loader": "^1.1.11",
+    "html-loader": "^0.5.1",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.3",
+    "mini-css-extract-plugin": "^0.4.4",
+    "node-sass": "^4.9.2",
+    "normalize-scss": "^7.0.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-focus-within": "^3.0.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-object-fit-images": "^1.1.2",
+    "prettier": "^1.19.1",
+    "resolve-url-loader": "^3.0.0",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.1",
+    "terser-webpack-plugin": "^1.2.1",
+    "ts-loader": "^5.1.0",
+    "typescript": "^3.8.0",
+    "url-loader": "^1.1.1",
+    "vue-loader": "^15.8.3",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/idfivellc/idfive-component-library"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.2",
+    "@types/bootstrap": "^5.1.9",
+    "body-scroll-lock": "^3.1.5",
+    "bootstrap": "^5.1.3",
+    "core-js": "^3.21.1",
+    "debounce": "^1.2.1",
+    "flickity": "^2.1.2",
+    "flickity-imagesloaded": "^2.0.0",
+    "focus-within": "^3.0.2",
+    "headroom.js": "^0.12.0",
+    "js-cookie": "^2.2.1",
+    "lazysizes": "^5.2.0",
+    "lodash.kebabcase": "^4.1.1",
+    "masonry-layout": "^4.2.2",
+    "micromodal": "^0.4.2",
+    "object-fit-images": "^3.2.4",
+    "silc-accordion": "^0.10.2",
+    "silc-core": "^0.6.0",
+    "silc-grid": "^0.6.0",
+    "silc-nav": "^1.0.8",
+    "silc-utilities": "^0.3.2",
+    "vue": "^2.6.11",
+    "youtube-player": "^5.5.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,vue,scss,json}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "Firefox ESR",
+    "not dead"
+  ]
+}

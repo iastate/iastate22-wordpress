@@ -1,0 +1,13 @@
+<div class="callout-with-image">
+  <div class="callout-with-image__media">
+    <img src="{{ image|path }}" alt="" width="622" height="414" loading="lazy" >
+  </div>
+  <div class="callout-with-image__content text-content">
+    <h2>{{title}}</h2>
+    <p>{{body_copy}}</p>
+    {% include "@button" with button %}
+    {% if link_set %}
+      {% include "@link-set" with link_set %}
+    {% endif %}
+  </div>
+</div>

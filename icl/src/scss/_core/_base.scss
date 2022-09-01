@@ -1,0 +1,184 @@
+html {
+  box-sizing: border-box;
+  height: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: rem(70);
+  @include media-breakpoint-up(xl) {
+    scroll-padding-top: rem(120);
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  background-color: $white;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// basic page WYSIWYG image styles
+.alignleft,
+.align-left,
+.alignright,
+.align-right,
+.aligncenter,
+.align-center,
+.alignnone,
+.align-none {
+  margin: rem(36) 0;
+  display: table;
+  max-width: 100%;
+  @include media-breakpoint-up(md) {
+    margin: rem(8) 0;
+  }
+  img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    width: 100%;
+  }
+  figcaption {
+    caption-side: bottom;
+    display: table-caption;
+    @extend %caption;
+  }
+}
+
+.aligncenter,
+.align-center {
+  margin-top: rem(45);
+  position: relative;
+  @include media-breakpoint-up(lg) {
+    max-width: 82%;
+    margin: rem(60) auto;
+    clear: both;
+  }
+
+  figcaption {
+    text-align: left;
+    position: relative;
+    @include media-breakpoint-up(lg) {
+      padding-right: rem(104);
+    }
+  }
+}
+
+.alignleft,
+.align-left,
+.alignright,
+.align-right {
+  float: none;
+  @include media-breakpoint-up(md) {
+    max-width: 37%;
+    margin-bottom: rem(20);
+  }
+}
+
+.alignleft,
+.align-left {
+  @include media-breakpoint-up(md) {
+    margin-right: rem(55);
+    float: left;
+  }
+  @include media-breakpoint-up(lg) {
+    margin-right: rem(88);
+  }
+}
+
+.alignright,
+.align-right {
+  @include media-breakpoint-up(md) {
+    margin-left: rem(55);
+    float: right;
+  }
+  @include media-breakpoint-up(lg) {
+    margin-left: rem(88);
+  }
+}
+
+// paragraph widgets
+.paragraph-widget {
+  margin-top: rem(30);
+  margin-bottom: rem(40);
+  @include media-breakpoint-up(xl) {
+    margin-bottom: rem(60);
+  }
+  &.paragraph-widget--text-html {
+    margin-bottom: 0;
+    &:last-child {
+      margin-bottom: rem(40);
+      @include media-breakpoint-up(xl) {
+        margin-bottom: rem(60);
+      }
+    }
+  }
+}
+
+.text-content {
+  &:after {
+    @include media-breakpoint-up(md) {
+      content: "";
+      clear: both;
+      display: table;
+    }
+  }
+  &:last-child {
+    margin-bottom: rem(40);
+  }
+}
+
+// helper classes to negate paragraph widgets for flush components
+.paragraph-widget-no-margin-top {
+  margin-top: 0 !important;
+}
+
+.paragraph-widget-no-margin-bottom {
+  margin-bottom: 0 !important;
+}
+
+// external link text for screen readers
+[target="_blank"] {
+  &:after {
+    content: " (Opens in new tab/window)";
+    @extend %visible-for-screen-readers;
+  }
+}
+
+.skip-link {
+  background-color: $white;
+  display: inline-block;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  &:focus {
+    opacity: 1;
+    pointer-events: initial;
+  }
+}
+
+// Adding scroll-margin top only for ios anchors
+@supports (-webkit-touch-callout: none) {
+  #main-content {
+    *:target {
+      scroll-margin-top: rem(30);
+    }
+  }
+}

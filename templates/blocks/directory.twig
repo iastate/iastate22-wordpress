@@ -1,0 +1,30 @@
+<div class="paragraph-widget paragraph-widget--card-set">
+    <div class="card-set">
+        <ul>
+            {% for item in Post(fields.directory) %}
+                <li>
+                    <div class="iastate22-card clickable">
+                        {% if item.photo %}
+                            <div class="iastate22-card__media">
+                                <img src="{{ Image(item.photo).src }}" alt="{{ Image(item.photo).alt }}">
+                            </div>
+                        {% endif %}
+                        <div class="iastate22-card__content">
+                            {% if item.post_title %}
+                                <h2 class="iastate22-card__title">
+                                    <a href="{{ item.guid }}">{{ item.post_title|striptags }}</a>
+                                </h2>
+                            {% endif %}
+                            <div class="iastate22-card__body">
+                                {{ item.titles_0_title|striptags }}
+                            </div>
+                            {% if item.guid %}
+                                <a href="{{ item.guid }}" class="iastate22-card__cta">View More <span class="visible-for-screen-readers">about {{ item.post_title }}</span></a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

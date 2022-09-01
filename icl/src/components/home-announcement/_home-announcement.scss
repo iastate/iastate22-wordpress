@@ -1,0 +1,40 @@
+.home-announcement {
+  background-color: $iastate-dark-blue;
+  padding: rem(12) rem(60) rem(12) rem(40);
+  display: flex;
+  align-items: center;
+  max-width: rem(514);
+  position: relative;
+  z-index: 1;
+  margin-left: auto;
+  margin-top: rem(-36);
+  @include media-breakpoint-up(sm) {
+    padding-left: rem(20);
+  }
+}
+
+.home-announcement__text {
+  color: $white;
+  font-family: $typeface-serif;
+  font-size: rem(16);
+  font-weight: 700;
+  line-height: (26 / 16);
+  padding-left: rem(24);
+  @include media-breakpoint-up(sm) {
+    padding-left: rem(17);
+  }
+  a {
+    color: $iastate-gold;
+    margin-left: rem(2);
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+.fa-iastate22-info-box,
+.fa-iastate22-exclamation-point {
+  flex: 0 0 auto;
+  color: $iastate-gold;
+  font-size: rem(30);
+}

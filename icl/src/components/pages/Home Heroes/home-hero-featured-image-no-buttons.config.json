@@ -1,0 +1,11 @@
+{
+  "context": {
+    "hero": {
+      "image": "../../img/ecosystem-hero-featured_fpo.jpg",
+      "title": "Civil, Construction and Environmental Engineering",
+      "button_set": {
+        "items": []
+      }
+    }
+  }
+}

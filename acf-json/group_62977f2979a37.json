@@ -1,0 +1,66 @@
+{
+    "key": "group_62977f2979a37",
+    "title": "Link Set",
+    "fields": [
+        {
+            "key": "field_62977f297b8c4",
+            "label": "Links",
+            "name": "links",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_629689958aa42",
+            "min": 1,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add New Link",
+            "sub_fields": [
+                {
+                    "key": "field_62977f297ca1d",
+                    "label": "Link",
+                    "name": "link",
+                    "type": "clone",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "clone": [
+                        "group_62977c2f55a28"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/link-set"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1657642672
+}

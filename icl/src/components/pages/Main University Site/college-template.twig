@@ -1,0 +1,145 @@
+{% extends "@page" %}
+
+{% block content %}
+<script>
+  document.body.classList.add("college");
+</script>
+
+<div class="outer-pad">
+    <div class="college-hero">
+      <div class="college-hero__breadcrumbs">
+        {% include "@breadcrumb--top-level-pages" with hero.breadcrumbs %}
+      </div>
+      <div class="college-hero__media">
+        {% for image in hero.images %}
+        <picture>
+          <source media="(min-width: 768px)" data-srcset="{{ image.desktop.src|path }}">
+          <source data-srcset="{{ image.mobile.src|path }}">
+          <img data-src="{{ image.mobile.src|path }}" loading="lazy" alt="{{ hero.mobile.alt }}" width="2160" height="1149">
+        </picture>
+        {% endfor %}
+      </div>
+      <h1 class="college-hero__title">{{ hero.title }}</h1>
+      <div class="college-hero__graphic">
+        <svg viewBox="0 0 1120 680" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+          <path d="m176.5 242.613 884.121-187.942 211.016 233.864 15.7 427.392-851.774-107.764Z" transform="rotate(180 643.668 357.964)" />
+        </svg>
+      </div>
+    </div>
+
+    <div class="college-overview">
+      <div class="college-overview__copy-wrap">
+        <h2 class="college-overview__title">{{ overview.title }}</h2>
+        <div class="college-overview__intro"><p>{{ overview.intro }}</p></div>
+        {% include "@button-set" with overview.button_set %}
+      </div>
+      <div class="college-overview__media">
+        <img src="{{ overview.image|path }}" alt="" loading="lazy" width="430" height="430">
+      </div>
+    </div>
+
+    <div class="college-in-page-nav">
+      <h2 class="college-in-page-nav_title">{{ in_page_nav.title }}</h2>
+      <nav class="college-in-page-nav__nav">
+        <ul>
+          {% for nav in in_page_nav.navigation %}
+          <li>
+            <a href="{{ nav.url }}" class="link-tertiary">{{ nav.title }}<span class="arrow"></span></a>
+          </li>
+          {% endfor %}
+        </ul>
+    </div>
+
+    <div class="college-maj-min-certs" id="{{ maj_min_certs.id }}">
+      <div class="college-maj-min-certs__media">
+        <img src="{{ maj_min_certs.image|path }}" alt="" loading="lazy" width="1437" height="677">
+      </div>
+      <div class="college-maj-min-certs__intro-wrap">
+        <h2 class="college-maj-min-certs__title">{{ maj_min_certs.title }}</h2>
+        <div class="college-maj-min-certs__intro">{{ maj_min_certs.intro|raw }}</div>
+        <h3 class="college-maj-min-certs__subhead">{{ maj_min_certs.subhead }}</h3>
+      </div>
+      <div class="maj-min-cert-program-list">
+        <ul>
+        {% for listing in maj_min_certs.listings %}
+          <li>
+            <a href="{{ listing.url }}" class="iastate22-link-secondary">{{ listing.title }}<span class="arrow"></span></a>
+            <p class="maj-min-cert-program-list__program-type">{{ listing.program_type }}</p>
+          </li>
+        {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="college-research" id="{{ research.id }}">
+      <div class="college-research__intro-wrap">
+        <h2 class="college-research__title">{{ research.title }}</h2>
+        <div class="college-research__intro">{{ research.intro|raw }}</div>
+        {% include "@button-set" with research.button_set %}
+      </div>
+      <div class="paragraph-widget paragraph-widget--external-news-story">
+        {% include "@external-news-story" with research.external_news_story %}
+      </div>
+    </div>
+
+    <div class="college-innovation" id="{{ innovation.id }}">
+      <div class="college-innovation__intro-wrap">
+        <h2 class="college-innovation__title">{{ innovation.title }}</h2>
+        <div class="college-innovation__intro">{{ innovation.intro|raw }}</div>
+      </div>
+      <div class="paragraph-widget paragraph-widget--external-news-story">
+        {% include "@external-news-story" with innovation.external_news_story %}
+      </div>
+    </div>
+
+    <div class="college-opportunities" id="{{ opportunities.id }}">
+      <div class="paragraph-widget paragraph-widget--callout-inset">
+        {% include "@feature-with-large-image-and-intro" with opportunities.callout_inset %}
+      </div>
+    </div>
+
+    <div class="college-success" id="{{ success.id }}">
+      <div class="college-success__intro-career-paths-wrap">
+        <div class="college-success__intro-wrap">
+          <h2 class="college-success__title">{{ success.title }}</h2>
+          <div class="college-success__intro">{{ success.intro|raw }}</div>
+          {% include "@link-set" with success.link_set %}
+        </div>
+        <div class="college-success__career-paths">
+          <h3 class="college-success__career-paths-title">{{ success.career_paths.title }}</h3>
+          <ul>
+          {% for path in success.career_paths.paths %}
+            <li>
+              <p>{{ path }}</p>
+            </li>
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="college-success__featured-story">
+        <h3 class="college-success__featured-story-title">{{ success.featured_story.title }}</h3>
+        {% include "@card--profile-with-modal" with success.featured_story.card %}
+      </div>
+    </div>
+
+    <div class="college-ctas" id="{{ ctas.id }}">
+      <div class="college-ctas__cta college-ctas__cta-top">
+        <h2 class="college-ctas__cta-title">{{ ctas.cta_one.title }}</h2>
+        <div class="college-ctas__cta-intro">{{ ctas.cta_one.intro|raw }}</div>
+        {% include "@button-set" with ctas.cta_one.button_set %}
+      </div>
+      <div class="college-ctas__cta-media">
+        <img src="{{ ctas.image|path }}" alt="" loading="lazy" width="1600" height="810">
+      </div>
+      <div class="college-ctas__cta college-ctas__cta-bottom">
+        <h2 class="college-ctas__cta-title">{{ ctas.cta_two.title }}</h2>
+        <div class="college-ctas__cta-intro">{{ ctas.cta_two.intro|raw }}</div>
+        {% include "@button-set" with ctas.cta_two.button_set %}
+      </div>
+    </div>
+
+    <div class="college-keep-exploring" id="{{ keep_exploring.id }}">
+      {% include "@call-to-action--small" with keep_exploring.call_to_action_small %}
+    </div>
+</div>
+{% endblock %}

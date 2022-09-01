@@ -1,0 +1,13 @@
+<div class="iastate22-category-tag" aria-label="Category and Tag">
+    <ul class="iastate22-category__list">
+        {% for term in post.terms('category') %}
+            <li><a href="{{term.link}}" class="link-set__link link-tertiary">{{term.name}}</a></li>
+        {% endfor %}
+    </ul>
+        
+    <ul class="iastate22-tag__list">
+        {% for term in post.terms('tags') %}
+            <li><a href="{{term.link}}" class="link-set__link link-tertiary">{{term.name}}</a></li>
+        {% endfor %}
+	</ul>
+</div>

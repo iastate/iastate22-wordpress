@@ -1,0 +1,291 @@
+.ecosystem-home-hero {
+  position: relative;
+  margin: 0 rem(-36) rem(40);
+  @include media-breakpoint-up(md) {
+    margin: 0 rem(-70) rem(60);
+  }
+  @include media-breakpoint-up(xl) {
+    margin: 0 rem(-298) rem(70) rem(-190);
+  }
+  &.ecosystem-home-hero--no-image {
+    background-color: $iastate-red;
+    padding: rem(50) rem(36);
+    @include media-breakpoint-up(md) {
+      padding: rem(60) rem(70);
+    }
+    @include media-breakpoint-up(xl) {
+      padding: rem(105) rem(82);
+    }
+    &:before {
+      @include media-breakpoint-up(xl) {
+        content: "";
+        background-color: $iastate-red;
+        position: absolute;
+        top: 0;
+        left: -50vw;
+        width: 150vw;
+        bottom: 0;
+        z-index: -1;
+      }
+    }
+  }
+
+  &.ecosystem-home-hero--supporting-image {
+    background-color: $iastate-red;
+    @include media-breakpoint-up(lg) {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding-bottom: rem(84);
+      margin-right: 0;
+    }
+    @include media-breakpoint-up(xl) {
+      margin-right: rem(-110);
+    }
+    &:before {
+      @include media-breakpoint-up(xl) {
+        content: "";
+        background-color: $iastate-red;
+        position: absolute;
+        top: 0;
+        left: -100vw;
+        width: 100vw;
+        bottom: 0;
+        z-index: -1;
+      }
+    }
+  }
+
+  &.ecosystem-home-hero--atmospheric-image {
+    .iastate22-button-set {
+      ul {
+        @include media-breakpoint-up(md) {
+          justify-content: center;
+        }
+        .iastate22-button {
+          border-color: $iastate-maroon;
+          .arrow {
+            background-color: $iastate-gold;
+            &:before,
+            &:after {
+              background-color: $iastate-gold;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .iastate22-button-set {
+    ul {
+      @include media-breakpoint-up(md) {
+        display: flex;
+      }
+      .iastate22-button {
+        @extend %iastate22-button--reverse;
+        @include media-breakpoint-up(md) {
+          margin-right: rem(20);
+        }
+      }
+    }
+  }
+}
+
+.ecosystem-home-hero__media {
+  @extend %responsive-img;
+
+  .ecosystem-home-hero--featured-image & {
+    &:before {
+      padding-top: 128%;
+      @include media-breakpoint-up(md) {
+        padding-top: 53.19%;
+      }
+    }
+    &:after {
+      content: "";
+      background-color: rgba($grey-blue, 0.5);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+    }
+  }
+
+  .ecosystem-home-hero--background-video & {
+    &:before {
+      @include media-breakpoint-up(md) {
+        padding-top: 56.2%;
+      }
+    }
+    // Only show the image as a fallback for users with reduced motion enabled
+    img {
+      display: none;
+      @media (prefers-reduced-motion) {
+        display: block;
+      }
+    }
+    iframe {
+      opacity: 0; // Initially hide the video player until it starts playing.
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 177.77vh;
+      @include media-breakpoint-up(md) {
+        min-width: initial;
+      }
+    }
+  }
+
+  .ecosystem-home-hero--supporting-image & {
+    max-width: rem(475);
+    @include media-breakpoint-up(sm) {
+      margin-left: rem(38);
+    }
+    @include media-breakpoint-up(lg) {
+      margin: 0;
+      max-width: none;
+      flex: 0 1 auto;
+      width: 46%;
+      align-self: flex-start;
+      right: rem(-108);
+    }
+    &:before {
+      padding-top: 100%;
+    }
+    &:after {
+      content: "";
+      background-color: $white;
+      position: absolute;
+      top: 50%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100vw;
+      z-index: 0;
+      @include media-breakpoint-up(sm) {
+        left: rem(-38);
+      }
+      @include media-breakpoint-up(lg) {
+        display: none;
+      }
+    }
+    img {
+      z-index: 1;
+    }
+  }
+  .ecosystem-home-hero--atmospheric-image & {
+    &:before {
+      padding-top: 47.08%;
+    }
+  }
+}
+
+.ecosystem-home-hero__content {
+  .ecosystem-home-hero--featured-image & {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 rem(32);
+    z-index: 2;
+    @include media-breakpoint-up(md) {
+      margin: 0 rem(82);
+      width: 80%;
+    }
+    @include media-breakpoint-up(lg) {
+      width: 60%;
+      max-width: rem(750);
+    }
+  }
+
+  .ecosystem-home-hero--no-image & {
+    .iastate22-button-set {
+      margin-bottom: 0;
+    }
+  }
+
+  .ecosystem-home-hero--supporting-image & {
+    padding: rem(38);
+    @include media-breakpoint-up(lg) {
+      flex: 0 1 auto;
+      width: 54%;
+      padding: rem(40) 0 0 rem(83);
+    }
+  }
+
+  .ecosystem-home-hero--atmospheric-image & {
+    padding: rem(38);
+    @include media-breakpoint-up(md) {
+      background-color: $white;
+      position: relative;
+      top: rem(-75);
+      margin-right: rem(40);
+      margin-left: rem(40);
+      margin-bottom: rem(-75);
+    }
+    @include media-breakpoint-up(lg) {
+      top: rem(-120);
+      margin-right: rem(82);
+      margin-left: rem(82);
+      padding-top: rem(50);
+      margin-bottom: rem(-120);
+    }
+    @include media-breakpoint-up(xl) {
+      top: rem(-162);
+      margin-bottom: rem(-162);
+      padding-top: rem(60);
+    }
+  }
+}
+
+.ecosystem-home-hero__title {
+  color: $white;
+  font-size: rem(42.8);
+  @include media-breakpoint-up(md) {
+    font-size: rem(70);
+  }
+  .ecosystem-home-hero--supporting-image &,
+  .ecosystem-home-hero--atmospheric-image & {
+    @include media-breakpoint-up(md) {
+      font-size: rem(55);
+      line-height: (75 / 55);
+    }
+    @include media-breakpoint-up(xl) {
+      font-size: rem(70);
+      line-height: (93 / 70);
+    }
+  }
+  .ecosystem-home-hero--atmospheric-image & {
+    color: $iastate-red;
+    text-align: center;
+  }
+}
+
+// Styles for Background Video Variant only
+.ecosystem-home-hero__video-button {
+  padding: 0 0 0 rem(7);
+  height: rem(20);
+  background-color: transparent;
+  border-right: none;
+  border-top: rem(10) solid transparent;
+  border-bottom: rem(10) solid transparent;
+  border-left: rem(10) solid $white;
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: rem(40);
+  right: rem(40);
+  cursor: pointer;
+
+  &.ecosystem-home-hero__video-button--pause {
+    border: none;
+    border-left: rem(7) solid $white;
+    border-right: rem(7) solid $white;
+  }
+}

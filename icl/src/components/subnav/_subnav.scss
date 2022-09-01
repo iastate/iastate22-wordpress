@@ -1,0 +1,323 @@
+.subnav {
+  position: relative;
+  box-shadow: rem(9) rem(9) rem(20) rgba($black, 0.15);
+  &.subnav--horizontal {
+    @include media-breakpoint-up(lg) {
+      box-shadow: none;
+    }
+  }
+  &:hover {
+    html:not(.js) & {
+      .subnav__list {
+        height: auto;
+      }
+    }
+  }
+}
+
+.subnav__toggle {
+  background-color: $iastate-red;
+  height: rem(66);
+  color: $white;
+  cursor: pointer;
+  display: block;
+  border: none;
+  font-family: $typeface-sans-serif;
+  font-size: rem(18);
+  font-weight: 700;
+  line-height: (26 / 18);
+  padding: 0 rem(30);
+  position: relative;
+  text-align: left;
+  transition: 0.2s color ease-in-out;
+  width: 100%;
+  margin-right: rem(13);
+  @include media-breakpoint-up(lg) {
+    display: none;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    right: rem(20);
+    top: rem(25);
+    width: rem(10);
+    height: rem(10);
+    border-right: rem(2) solid $iastate-gold;
+    border-bottom: rem(2) solid $iastate-gold;
+    transform: rotate(45deg);
+    transform-origin: center;
+    transition: 0.2s transform ease-in-out, 0.2s top ease-in-out;
+    .subnav--horizontal & {
+      @include media-breakpoint-up(lg) {
+        top: rem(15);
+      }
+    }
+  }
+  &:hover,
+  .user-tabbing &:focus {
+    color: $white;
+  }
+  &[aria-expanded="true"] {
+    &:before {
+      transform: rotate(225deg);
+      top: rem(30);
+      .subnav--horizontal & {
+        @include media-breakpoint-up(lg) {
+          top: rem(21);
+        }
+      }
+    }
+  }
+  .subnav--horizontal & {
+    @include media-breakpoint-up(lg) {
+      display: block;
+      max-width: rem(215);
+      font-size: rem(16);
+      line-height: (26 / 16);
+      height: rem(46);
+      padding: 0 rem(18);
+    }
+  }
+}
+
+.subnav__list {
+  overflow: hidden;
+  transition: 0.2s height ease-in-out;
+  background-color: $white;
+  &[aria-hidden="true"] {
+    height: 0;
+  }
+  html:not(.js) & {
+    height: 0;
+    @include media-breakpoint-up(lg) {
+      height: auto;
+    }
+  }
+  // yellow line for desktop horizontal variant
+  .subnav--horizontal & {
+    &:before {
+      @include media-breakpoint-up(lg) {
+        content: "";
+        position: absolute;
+        border-bottom: rem(2) solid $iastate-gold;
+        left: rem(-70);
+        right: rem(-70);
+        bottom: 0;
+        opacity: 0;
+        transition: 0.2s opacity ease-in-out;
+      }
+      @include media-breakpoint-up(xl) {
+        left: rem(-190);
+        right: rem(-81);
+      }
+    }
+    &[aria-hidden="false"] {
+      &:before {
+        opacity: 1;
+      }
+    }
+  }
+  // sibling pages only
+  & > ul {
+    padding-bottom: rem(20);
+    .subnav--horizontal & {
+      @include media-breakpoint-up(lg) {
+        display: flex;
+        flex-wrap: wrap;
+        padding: rem(35) rem(10) rem(25) 0;
+        position: relative;
+      }
+    }
+    & > li {
+      padding: 0 rem(30);
+      .subnav--horizontal & {
+        @include media-breakpoint-up(lg) {
+          flex: 0 1 auto;
+          width: 20%;
+          padding: 0 rem(20) 0 0;
+          margin-bottom: rem(20);
+        }
+      }
+      a {
+        display: block;
+        font-family: $typeface-sans-serif;
+        font-weight: 700;
+        font-size: rem(18);
+        line-height: (22 / 18);
+        color: $iastate-maroon;
+        text-decoration: none;
+        padding: rem(15);
+        position: relative;
+        z-index: 1;
+        transition: 0.2s background-color ease-in-out, 0.2s color ease-in-out;
+        @include media-breakpoint-up(lg) {
+          font-size: rem(16);
+          line-height: (19 / 16);
+          padding-right: rem(25);
+        }
+        // current page and hover
+        &:hover,
+        &[aria-current="page"] {
+          background-color: $off-white;
+          color: $iastate-red;
+          @include media-breakpoint-up(lg) {
+            background-color: $white;
+          }
+          &:after {
+            opacity: 0;
+          }
+          &:before {
+            @include media-breakpoint-up(lg) {
+              opacity: 1;
+            }
+          }
+        }
+        &[aria-current="page"] {
+          pointer-events: none;
+        }
+        // border under each item
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: rem(-1);
+          left: rem(14);
+          right: 0;
+          border-bottom: rem(1) solid $grey2;
+          transition: 0.2s opacity ease-in-out;
+          @include media-breakpoint-up(lg) {
+            right: rem(20);
+          }
+        }
+        // background color for desktop items
+        &:before {
+          @include media-breakpoint-up(lg) {
+            content: "";
+            background-color: $off-white;
+            position: absolute;
+            left: rem(-30);
+            right: rem(-30);
+            top: 0;
+            bottom: 0;
+            z-index: -1;
+            opacity: 0;
+            transition: 0.2s opacity ease-in-out;
+          }
+        }
+        .subnav--horizontal & {
+          @include media-breakpoint-up(lg) {
+            padding: 0;
+          }
+          &:before,
+          &:after {
+            display: none;
+          }
+        }
+      }
+      // first child parent page
+      &:first-child {
+        @include media-breakpoint-up(lg) {
+          background-color: $iastate-red;
+        }
+        a {
+          @include media-breakpoint-up(lg) {
+            padding: rem(21) rem(15);
+            color: $white;
+            font-size: rem(18);
+            line-height: (25 / 18);
+          }
+          &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: rem(21);
+            width: rem(9);
+            height: rem(9);
+            border-right: rem(2) solid $iastate-maroon;
+            border-bottom: rem(2) solid $iastate-maroon;
+            transform: rotate(135deg);
+            transform-origin: center;
+            transition: 0.2s left ease-in-out;
+            @include media-breakpoint-up(lg) {
+              border-color: $iastate-gold;
+              top: rem(29);
+              opacity: 1;
+              background-color: transparent;
+            }
+          }
+          &::after {
+            @include media-breakpoint-up(lg) {
+              display: none;
+            }
+          }
+          &:hover {
+            @include media-breakpoint-up(lg) {
+              background-color: $iastate-red;
+            }
+            &:before {
+              @include media-breakpoint-up(lg) {
+                left: rem(-8);
+              }
+            }
+            .subnav--horizontal & {
+              @include media-breakpoint-up(lg) {
+                background-color: transparent;
+                color: $iastate-red;
+              }
+            }
+          }
+          .subnav--horizontal & {
+            @include media-breakpoint-up(lg) {
+              padding: 0;
+              color: $iastate-maroon;
+              font-size: rem(16);
+              line-height: (19 / 16);
+            }
+          }
+        }
+        .subnav--horizontal & {
+          @include media-breakpoint-up(lg) {
+            background-color: transparent;
+          }
+        }
+      }
+      // last child removing border
+      &:last-child {
+        a {
+          &:after {
+            display: none;
+          }
+        }
+      }
+      // child page ul hidden on mobile
+      > ul {
+        margin-bottom: rem(10);
+        .subnav--horizontal & {
+          @include media-breakpoint-up(lg) {
+            display: none;
+          }
+        }
+        li {
+          a {
+            font-family: $typeface-sans-serif;
+            font-weight: 400;
+            text-decoration: underline;
+            text-decoration-thickness: rem(1);
+            text-underline-offset: rem(1);
+            padding: rem(8) rem(17) rem(8) rem(30);
+            &:after {
+              display: none;
+            }
+          }
+          &:last-child {
+            a {
+              &:after {
+                display: block;
+                bottom: rem(-10);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

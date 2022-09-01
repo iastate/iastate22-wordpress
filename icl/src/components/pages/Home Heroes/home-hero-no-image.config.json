@@ -1,0 +1,19 @@
+{
+  "context": {
+    "hero": {
+      "title": "Hero Title Lorem Ipsum Dolor",
+      "button_set": {
+        "items": [
+          {
+            "text": "Button Label",
+            "url": "https://iastate.edu"
+          },
+          {
+            "text": "Button Label",
+            "url": "https://iastate.edu"
+          }
+        ]
+      }
+    }
+  }
+}

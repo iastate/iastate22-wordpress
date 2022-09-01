@@ -1,0 +1,151 @@
+.personal-profile-info-card_wrap {
+  margin-bottom: rem(50);
+  margin-top: rem(50);
+  @include media-breakpoint-up(xl) {
+    margin-left: rem(-158);
+    margin-right: rem(-268);
+  }
+  @include media-breakpoint-up(xxl) {
+    margin-left: rem(-108);
+    margin-right: rem(-215);
+  }
+}
+
+.personal-profile-info-card {
+  @include media-breakpoint-up(md) {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+.personal-profile-info-card__media {
+  @extend %responsive-img;
+  margin: 0 auto;
+  @include media-breakpoint-up(sm) {
+    max-width: rem(304);
+  }
+  @include media-breakpoint-up(md) {
+    flex: 0 0 auto;
+    width: rem(304);
+  }
+
+  &:before {
+    padding-top: 100%;
+  }
+}
+
+.personal-profile-info-card__content {
+  padding: rem(38) 0;
+  @include media-breakpoint-up(md) {
+    flex: 1 1 0;
+    padding: 0 rem(38) rem(38) rem(38);
+  }
+  .personal-profile-info-card--no-image & {
+    padding-left: 0;
+  }
+}
+
+.personal-profile-info-card__name {
+  position: relative;
+  font-size: rem(30);
+  font-weight: 700;
+  padding-bottom: rem(20);
+  margin-top: rem(48);
+  margin-bottom: rem(22);
+  @extend %h2-yellow-border;
+}
+
+.personal-profile-info-card__titles {
+  margin-bottom: rem(30);
+  li {
+    margin-bottom: rem(12);
+  }
+}
+
+.personal-profile-info-card__contact-box {
+  background-color: $off-white;
+  margin: rem(20) 0 0;
+  padding: rem(38);
+  position: relative;
+  @include media-breakpoint-up(md) {
+    flex: 0 1 auto;
+    width: 100%;
+    margin: 0;
+  }
+  @include media-breakpoint-up(xl) {
+    padding: rem(50) rem(60);
+    flex: 0 0 auto;
+    width: rem(412);
+  }
+
+  &:before {
+    content: "";
+    border-bottom: rem(8) solid $iastate-gold;
+    top: rem(-4);
+    left: 50%;
+    margin-left: rem(-28);
+    width: rem(56);
+    height: rem(8);
+    position: absolute;
+  }
+  p {
+    font-weight: 700;
+    a {
+      color: $grey;
+      text-decoration-thickness: rem(1);
+      text-underline-offset: rem(1);
+      transition: 0.2s color ease-in-out;
+      &:hover {
+        color: $iastate-red;
+      }
+    }
+  }
+}
+
+.personal-profile-info-card__contact-box-columns-wrap {
+  @include media-breakpoint-up(md) {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: rem(625);
+  }
+  @include media-breakpoint-up(xl) {
+    display: block;
+    max-width: none;
+  }
+}
+
+.personal-profile-info-card__contact-box-column {
+  padding-bottom: rem(14);
+  p {
+    @include media-breakpoint-up(md) {
+      margin: 0;
+    }
+  }
+}
+
+.personal-profile-info-card__contact-box-social {
+  display: flex;
+  flex-wrap: wrap;
+  li {
+    margin-right: rem(10);
+    a {
+      border-radius: 50%;
+      border: rem(2) solid $iastate-red;
+      display: inline-block;
+      width: rem(30);
+      height: rem(30);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $iastate-red;
+      font-size: rem(13);
+      transition: 0.2s border-color ease-in-out, 0.2s color ease-in-out;
+      &:hover {
+        border-color: $iastate-maroon;
+        color: $iastate-maroon;
+      }
+    }
+  }
+}
