@@ -39,6 +39,10 @@
           left: 0;
           right: 0;
           z-index: 1;
+          opacity: 0;
+          @include media-breakpoint-up(sm) {
+            opacity: 1;
+          }
           @include media-breakpoint-up(md) {
             bottom: rem(-46);
           }

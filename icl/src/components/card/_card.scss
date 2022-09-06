@@ -17,8 +17,8 @@
     }
   }
   &.iastate22-card--teaser {
-    box-shadow: none;
     @include media-breakpoint-up(sm) {
+      box-shadow: none;
       display: flex;
       align-items: center;
       flex-wrap: wrap;
@@ -159,6 +159,7 @@
     }
     @include media-breakpoint-up(md) {
       width: 66.6%;
+      padding: rem(23);
     }
   }
 }

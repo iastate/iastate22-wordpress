@@ -1,8 +1,8 @@
 .site-header {
-    .logged-in.admin-bar & {
-      top: rem(46);
-      @media only screen and (min-width: 783px) {
-        top: rem(32);
-      }
+  .logged-in.admin-bar & {
+    top: 46px;
+    @media only screen and (min-width: 783px) {
+      top: 32px;
     }
   }
+}

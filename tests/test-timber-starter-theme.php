@@ -25,7 +25,7 @@
 		}
 
 		function testLoading() {
-			$str = Timber::compile('tease.twig');
+			$str = Timber::compile('tease-profile.twig');
 			$this->assertStringStartsWith('<article class="tease tease-" id="tease-">', $str);
 			$this->assertStringEndsWith('</article>', $str);
 		}

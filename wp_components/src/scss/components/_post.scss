@@ -1,4 +1,9 @@
 .article-category-tag {
-    padding-bottom: rem(30);
+  padding-bottom: 30px;
 }
-  
+.post-type-post {
+  margin-bottom: 50px;
+  @media only screen and (min-width: 768px) {
+    margin-bottom: 70px;
+  }
+}

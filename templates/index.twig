@@ -14,7 +14,7 @@
 		<ul>
 		{% for post in posts %}
 			<li>
-			{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+			{% include ['tease-'~post.post_type~'.twig', 'tease-profile.twig'] %}
 			</li>
 		{% endfor %}
 		</ul>

@@ -100,6 +100,13 @@
                                         "operator": "==",
                                         "value": "default"
                                     }
+                                ],
+                                [
+                                    {
+                                        "field": "field_630644842e684",
+                                        "operator": "==",
+                                        "value": "profile_with_modal"
+                                    }
                                 ]
                             ],
                             "wrapper": {
@@ -476,5 +483,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1661378272
+    "modified": 1662048600
 }

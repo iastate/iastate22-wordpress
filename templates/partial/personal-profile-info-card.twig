@@ -1,14 +1,14 @@
-<div class="faculty-bio-info-card{% if not photo %} faculty-bio-info-card--no-image{% endif %}">
+<div class="personal-profile-info-card{% if not photo %} personal-profile-info-card--no-image{% endif %}">
   {% if photo %}
-  <div class="faculty-bio-info-card__media">
+  <div class="personal-profile-info-card__media">
     <img src="{{ photo.url }}" alt="{{ photo.description }}">
   </div>
   {% endif %}
   
-  <div class="faculty-bio-info-card__content">
-    <h1 class="faculty-bio-info-card__name">{{ firstName }} {{ lastName }}</h1>
+  <div class="personal-profile-info-card__content">
+    <h1 class="personal-profile-info-card__name">{{ firstName }} {{ lastName }}</h1>
     {% if titles %}
-    <ul class="faculty-bio-info-card__titles">
+    <ul class="personal-profile-info-card__titles">
       {% for title in titles %}
       <li>
         {{ title.title }}
@@ -33,25 +33,25 @@
     </div>
     {% endif %}
   </div>
-  <div class="faculty-bio-info-card__contact-box">
+  <div class="personal-profile-info-card__contact-box">
   {% if email or phone or address %}
     <h3>Contact</h3>
-    <div class="faculty-bio-info-card__contact-box-columns-wrap">
+    <div class="personal-profile-info-card__contact-box-columns-wrap">
       {% if email or phone %}
-        <div class="faculty-bio-info-card__contact-box-column">
+        <div class="personal-profile-info-card__contact-box-column">
           {% if email %}<p><a href="mailto:{{ email }}">{{ email }}</a></p>{% endif %}
           {% if phone %}<p>{{ phone }}</p>{% endif %}
         </div>
       {% endif %}
       {% if address %}
-      <div class="faculty-bio-info-card__contact-box-column">
+      <div class="personal-profile-info-card__contact-box-column">
         <p>{{ address }}</p>
       </div>
       {% endif %}
     </div>
   {% endif %}
     {% if social_networks %}
-    <ul class="faculty-bio-info-card__contact-box-social">
+    <ul class="personal-profile-info-card__contact-box-social">
         {% for network in social_networks %}
             <li>
                 <a href="{{ network.network.link }}" target="_blank">

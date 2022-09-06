@@ -28,6 +28,10 @@
   @include media-breakpoint-up(md) {
     flex: 0 0 auto;
     width: rem(304);
+    margin-bottom: rem(34);
+  }
+  @include media-breakpoint-up(xl) {
+    margin-bottom: 0;
   }
 
   &:before {

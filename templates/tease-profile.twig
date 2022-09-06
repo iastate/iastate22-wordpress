@@ -1,5 +1,4 @@
-<div class="tease tease-{{post.post_type}} iastate22-card iastate22-card--teaser iastate22-card--teaser-news clickable" id="tease-{{post.ID}}">
-
+<div class="tease tease-{{post.post_type}} iastate22-card iastate22-card--teaser iastate22-card--teaser-profile clickable" id="tease-{{post.ID}}">
 	{% block content %}
 		{% if post.photo %}
 			<div class="iastate22-card__media">
@@ -10,6 +9,5 @@
 			<a href="{{post.link}}" class="iastate22-card__cta">{{post.first_name}} {{ post.last_name }}</a>
 			<p class="iastate22-card__content-body">{{ post.titles_0_title|striptags }}</p>
 		</div>
-		
 	{% endblock %}
 </div>
