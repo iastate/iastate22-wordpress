@@ -121,9 +121,10 @@
     }
     // Only show the image as a fallback for users with reduced motion enabled
     img {
-      display: none;
+      opacity: 1;
+      transition: 0.3s opacity ease-in-out;
       @media (prefers-reduced-motion) {
-        display: block;
+        opacity: 1;
       }
     }
     iframe {
@@ -137,6 +138,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
       min-width: 177.77vh;
+      transition: 0.3s opacity ease-in-out;
       @include media-breakpoint-up(md) {
         min-width: initial;
       }

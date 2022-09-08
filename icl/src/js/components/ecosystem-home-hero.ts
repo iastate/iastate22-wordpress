@@ -3,6 +3,7 @@ import YoutubePlayer from "youtube-player";
 export class EcosystemHeroBackgroundVideo {
   private element: HTMLElement;
   private media: HTMLElement;
+  private mediaImg: HTMLElement;
   private playerRoot: HTMLElement;
   private player: any;
   private playButton: HTMLButtonElement;
@@ -13,6 +14,7 @@ export class EcosystemHeroBackgroundVideo {
     if (!!element) {
       this.element = element;
       this.media = this.element.querySelector(".ecosystem-home-hero__media");
+      this.mediaImg = this.element.querySelector(".ecosystem-home-hero__media img");
       this.playerRoot = this.element.querySelector(".ecosystem-home-hero__video");
       this.init();
     }
@@ -84,8 +86,12 @@ export class EcosystemHeroBackgroundVideo {
     this.playButton.addEventListener("click", () => {
       if (this.isPlaying) {
         this.player.pauseVideo();
+        this.mediaImg.style.opacity = "1";
+        this.playerRoot.style.opacity = "0";
       } else {
         this.player.playVideo();
+        this.mediaImg.style.opacity = "0";
+        this.playerRoot.style.opacity = "1";
       }
     });
   }
