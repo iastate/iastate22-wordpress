@@ -12,6 +12,10 @@ Install this theme as you would any other, and be sure the Timber plugin, and AC
 2. Download the zip for this theme (or clone it) and move it to `wp-content/themes` in your WordPress installation. 
 3. Activate the theme in Appearance >  Themes.
 
+### Installing via composer
+
+`composer require iastate/wordpress-theme`
+
 ## What's here?
 
 - `inc/` is a folder for theme functions. It serves the purpose of the functions.php file in a more organized way. 
