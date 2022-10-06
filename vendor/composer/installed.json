@@ -213,8 +213,8 @@
         },
         {
             "name": "iastate/frontend-component-library",
-            "version": "1.0.3",
-            "version_normalized": "1.0.3.0",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:iastate/iastate22-frontend.git",
@@ -227,6 +227,7 @@
                 "shasum": ""
             },
             "time": "2022-10-06T17:31:15+00:00",
+            "default-branch": true,
             "type": "library",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
@@ -790,5 +791,16 @@
         }
     ],
     "dev": true,
-    "dev-package-names": []
+    "dev-package-names": [
+        "altorouter/altorouter",
+        "composer/installers",
+        "iastate/frontend-component-library",
+        "symfony/polyfill-ctype",
+        "symfony/polyfill-mbstring",
+        "symfony/polyfill-php72",
+        "timber/timber",
+        "twig/cache-extension",
+        "twig/twig",
+        "upstatement/routes"
+    ]
 }

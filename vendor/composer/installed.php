@@ -5,7 +5,7 @@
         'type' => 'wordpress-theme',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '5127cfa718462a13f8010afd57aff2c1e49764e0',
+        'reference' => '239031477801d80f74eec579f9decc1d153e5d80',
         'name' => 'iastate/wordpress-theme',
         'dev' => true,
     ),
@@ -17,7 +17,7 @@
             'install_path' => __DIR__ . '/../altorouter/altorouter',
             'aliases' => array(),
             'reference' => 'f6fede4f94ced7c22ba63a9b8af0bf2dc38e3cb2',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'composer/installers' => array(
             'pretty_version' => 'v2.2.0',
@@ -26,16 +26,18 @@
             'install_path' => __DIR__ . '/./installers',
             'aliases' => array(),
             'reference' => 'c29dc4b93137acb82734f672c37e029dfbd95b35',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'iastate/frontend-component-library' => array(
-            'pretty_version' => '1.0.3',
-            'version' => '1.0.3.0',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'library',
             'install_path' => __DIR__ . '/../iastate/frontend-component-library',
-            'aliases' => array(),
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
             'reference' => '3d057947c89a84d749dcd6313fc9ba4f20753f36',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'iastate/wordpress-theme' => array(
             'pretty_version' => 'dev-master',
@@ -43,7 +45,7 @@
             'type' => 'wordpress-theme',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '5127cfa718462a13f8010afd57aff2c1e49764e0',
+            'reference' => '239031477801d80f74eec579f9decc1d153e5d80',
             'dev_requirement' => false,
         ),
         'symfony/polyfill-ctype' => array(
@@ -53,7 +55,7 @@
             'install_path' => __DIR__ . '/../symfony/polyfill-ctype',
             'aliases' => array(),
             'reference' => '6fd1b9a79f6e3cf65f9e679b23af304cd9e010d4',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'symfony/polyfill-mbstring' => array(
             'pretty_version' => 'v1.26.0',
@@ -62,7 +64,7 @@
             'install_path' => __DIR__ . '/../symfony/polyfill-mbstring',
             'aliases' => array(),
             'reference' => '9344f9cb97f3b19424af1a21a3b0e75b0a7d8d7e',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'symfony/polyfill-php72' => array(
             'pretty_version' => 'v1.26.0',
@@ -71,7 +73,7 @@
             'install_path' => __DIR__ . '/../symfony/polyfill-php72',
             'aliases' => array(),
             'reference' => 'bf44a9fd41feaac72b074de600314a93e2ae78e2',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'timber/timber' => array(
             'pretty_version' => '1.20.0',
@@ -80,7 +82,7 @@
             'install_path' => __DIR__ . '/../timber/timber',
             'aliases' => array(),
             'reference' => '3ac8c7629656009b9e0d6d9e4ccda202aad3b8e0',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'twig/cache-extension' => array(
             'pretty_version' => 'v1.5.0',
@@ -89,7 +91,7 @@
             'install_path' => __DIR__ . '/../twig/cache-extension',
             'aliases' => array(),
             'reference' => '2c243643f59132194458bd03c745b079bbb12e78',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'twig/twig' => array(
             'pretty_version' => 'v2.15.3',
@@ -98,7 +100,7 @@
             'install_path' => __DIR__ . '/../twig/twig',
             'aliases' => array(),
             'reference' => 'ab402673db8746cb3a4c46f3869d6253699f614a',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'upstatement/routes' => array(
             'pretty_version' => '0.9.1',
@@ -107,7 +109,7 @@
             'install_path' => __DIR__ . '/../upstatement/routes',
             'aliases' => array(),
             'reference' => 'cac3c844ab824e4039fd26edbea5402415aa6d0a',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
     ),
 );
