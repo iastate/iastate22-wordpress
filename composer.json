@@ -22,7 +22,7 @@
       "composer/installers": true
     }
   },
-  "require": {
+  "require-dev": {
     "timber/timber": "^1.20",
     "iastate/frontend-component-library": "^1.0"
   }
