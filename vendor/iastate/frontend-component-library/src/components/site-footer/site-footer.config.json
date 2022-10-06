@@ -178,7 +178,25 @@
             "street": "12345 Street Address",
             "city_state_zip": "Ames, IA 50011"
           }
-        }
+        },
+        "footer_utility_nav": [
+          {
+            "title": "Privacy Policy",
+            "url": "https://www.iastate.edu/disclaimers-and-terms"
+          },
+          {
+            "title": "Non-discrimination Policy",
+            "url": "https://www.policy.iastate.edu/policy/discrimination"
+          },
+          {
+            "title": "Digital Access and Accessibility",
+            "url": "https://www.digitalaccess.iastate.edu/"
+          },
+          {
+            "title": "Consumer Information",
+            "url": "https://www.iastate.edu/consumer-information"
+          }
+        ]
       }
     }
   ]

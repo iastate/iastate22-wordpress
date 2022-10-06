@@ -212,6 +212,42 @@
             "install-path": "./installers"
         },
         {
+            "name": "iastate/frontend-component-library",
+            "version": "1.0.3",
+            "version_normalized": "1.0.3.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:iastate/iastate22-frontend.git",
+                "reference": "3d057947c89a84d749dcd6313fc9ba4f20753f36"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/iastate/iastate22-frontend/zipball/3d057947c89a84d749dcd6313fc9ba4f20753f36",
+                "reference": "3d057947c89a84d749dcd6313fc9ba4f20753f36",
+                "shasum": ""
+            },
+            "time": "2022-10-06T17:31:15+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "iastate Web Development Services",
+                    "email": "webdev@iastate.edu",
+                    "homepage": "https://webdev.its.iastate.edu/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "idfive",
+                    "email": "code@idfive.com",
+                    "homepage": "https://idfive.com/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Frontend component library for Iowa State University.",
+            "install-path": "../iastate/frontend-component-library"
+        },
+        {
             "name": "symfony/polyfill-ctype",
             "version": "v1.26.0",
             "version_normalized": "1.26.0.0",

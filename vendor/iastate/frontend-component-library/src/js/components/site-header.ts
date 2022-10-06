@@ -42,7 +42,6 @@ export class SiteHeader {
       this.closeSearchButton = AccessibilityUtilities.convertAnchorToButton(
         document.querySelector(".site-header__search-close")
       );
-
       this.formInput = document.querySelector(".site-header__search-form-desktop input[type='search']");
       this.utilityDropdownTrigger = document.querySelector(".site-header__utility-dropdown-trigger");
       this.utilityDropdownMenu = document.querySelector(".site-header__utility-dropdown-menu");

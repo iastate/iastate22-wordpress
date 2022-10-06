@@ -1,0 +1,21 @@
+{
+    "name": "iastate/frontend-component-library",
+    "description": "Frontend component library for Iowa State University.",
+    "type":"library",
+    "minimum-stability" : "stable",
+    "authors": [
+        {
+            "name": "iastate Web Development Services",
+            "email": "webdev@iastate.edu",
+            "homepage": "https://webdev.its.iastate.edu/",
+            "role": "Developer"
+        },
+        {
+            "name": "idfive",
+            "email": "code@idfive.com",
+            "homepage": "https://idfive.com/",
+            "role": "Developer"
+        }
+    ]
+}
+  

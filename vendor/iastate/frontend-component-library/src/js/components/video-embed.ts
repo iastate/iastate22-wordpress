@@ -1,5 +1,5 @@
 import YoutubePlayer from "youtube-player";
-import VimeoPlayer from '@vimeo/player';
+import VimeoPlayer from "@vimeo/player";
 
 export class VideoEmbed {
   private element: HTMLElement;
@@ -39,11 +39,10 @@ export class VideoEmbed {
 
   private handlePlayButtonClick() {
     this.playButton.addEventListener("click", () => {
-      console.log(this.youtubeMedia);
       // Lazily create the video player on click.
-      if(this.youtubeMedia !== null) {
+      if (this.youtubeMedia !== null) {
         this.createVideoPlayer();
-      } else if(this.vimeoMedia !== null) {
+      } else if (this.vimeoMedia !== null) {
         this.playVimeoVid();
       }
     });
@@ -76,8 +75,7 @@ export class VideoEmbed {
 
   private playVimeoVid() {
     let vimeoplayer = new VimeoPlayer(this.vimeoMedia);
-    console.log(vimeoplayer);
-    vimeoplayer.play().then(()=> {
+    vimeoplayer.play().then(() => {
       if (!this.media.classList.contains("video-playing")) {
         this.media.classList.add("video-playing");
       }
