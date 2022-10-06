@@ -153,13 +153,13 @@ class StarterSite extends Timber\Site {
 	}
 
 	function load_styles() {
-		wp_enqueue_style( 'screen', get_stylesheet_directory_uri() . '/iastate/iastate22-frontend/build/css/index.css', array(), '0.0.1', 'screen' );
+		wp_enqueue_style( 'screen', get_stylesheet_directory_uri() . '/vendor/iastate/iastate22-frontend/build/css/index.css', array(), '0.0.1', 'screen' );
 		wp_enqueue_style( 'wp_only', get_stylesheet_directory_uri() . '/wp_components/build/css/index.css', array(), '0.0.1', 'screen' );
-		wp_enqueue_style( 'printcss', get_stylesheet_directory_uri() . '/iastate/iastate22-frontend/build/css/print.css', array(), '0.0.1', 'print' );
+		wp_enqueue_style( 'printcss', get_stylesheet_directory_uri() . '/vendor/iastate/iastate22-frontend/build/css/print.css', array(), '0.0.1', 'print' );
 		wp_enqueue_style( 'default', get_stylesheet_directory_uri() . '/style.css', array(), '' );
 	}
 	function load_scripts() {
-		wp_enqueue_script( 'main', get_stylesheet_directory_uri() . '/iastate/iastate22-frontend/build/js/index.js', array(), '1.0.0', true );
+		wp_enqueue_script( 'main', get_stylesheet_directory_uri() . '/vendor/iastate/iastate22-frontend/build/js/index.js', array(), '1.0.0', true );
 		wp_enqueue_script( 'fontawesome', 'https://kit.fontawesome.com/b658fac974.js', array(), '1.0.0', true );
 	}
 
