@@ -1,15 +1,15 @@
 # Iowa State Wordpress Starter Theme
 
-The starter theme is based on the [Timber Library](https://wordpress.org/plugins/timber-library/) and incorporates the [Iowa State Frontend Library](https://github.com/iastate/iastate22-frontend) for styles, components and functionality. Please refer to that repository for specific information regarding the front-end library.
+The starter theme is based on the [Timber Library](https://wordpress.org/plugins/timber-library/) and incorporates the [Iowa State Frontend Library](https://github.com/iastate/iastate22-frontend) for styles, components and functionality. Please refer to that repository for specific information regarding the front-end library, and markup.
 
-This theme utilizes twig for templating, and relies on Advanced Custom Fields.
+This theme utilizes twig for templating, and relies on the Advanced Custom Fields module.
 
 ## Installing the Theme
 
 Install this theme as you would any other, and be sure the Timber plugin, and ACF Plugin are activated.
 
 1. Make sure you have installed the plugin for ACF Pro.
-2. Download the zip for this theme (or clone it) and move it to `wp-content/themes` in your WordPress installation. 
+2. Download the zip for this theme (or install via composer) and move it to `wp-content/themes` in your WordPress installation. 
 3. Activate the theme in Appearance >  Themes.
 
 ### Installing via composer
