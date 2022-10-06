@@ -1,10 +1,10 @@
 ## Team
 
-Your name or company
-http://yoursite.org
-@you_on_twitter
+iastate Web Development Services
+webdev@iastate.edu
+https://webdev.its.iastate.edu/
 
 
 ## Site
 
-Software: Built with [Timber](http://upstatement.com/timber) by Upstatement
+Software: Custom wordpress theme for Iowa State University.
