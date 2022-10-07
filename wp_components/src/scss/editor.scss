@@ -1,8 +1,8 @@
-@import "../../../vendor/iastate/iastate22-frontend/src/scss/index";
+@import "../../../vendor/iastate/frontend-component-library/build/css/index";
 
 .wp-block {
   max-width: 1440px;
-  background: $white;
+  background: #fff;
   margin-left: auto;
   margin-right: auto;
 
@@ -13,10 +13,8 @@
   }
 }
 
-.editor-styles-wrapper {
-}
 #tinymce {
-  background: $white !important;
+  background: #fff !important;
 }
 
 .wp-block .hero__text-wrap {
@@ -44,9 +42,6 @@
 }
 .editor-styles-wrapper .acf-field .validation-error {
   border: solid 3px red;
-}
-.acf-input {
-
 }
 
 .acf-input .error-message {

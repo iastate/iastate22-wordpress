@@ -3,12 +3,11 @@ const webpack = require("webpack");
 const UglifyJsPlugin = require("terser-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const babelLoaderExcludeNodeModulesExcept = require("babel-loader-exclude-node-modules-except");
 
 const config = {
-  entry: ["./src/scss/index.scss", "./src/scss/editor.scss", "./src/scss/print.scss", "./src/js/index.ts"],
+  entry: ["./src/scss/index.scss", "./src/scss/editor.scss"],
   output: {
     filename: "js/index.js",
     path: path.resolve(__dirname, "build"),
@@ -145,17 +144,6 @@ const config = {
     ],
   },
   plugins: [
-    new CopyWebpackPlugin([
-      {
-        from: "src/img",
-        to: "img",
-      },
-      {
-        from: "src/favicon.ico",
-        to: "",
-      },
-    ]),
-    new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
       filename: "css/index.css",
     }),
