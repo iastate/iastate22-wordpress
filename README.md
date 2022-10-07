@@ -1,6 +1,6 @@
 # Iowa State Wordpress Starter Theme
 
-The starter theme is based on the [Timber Library](https://wordpress.org/plugins/timber-library/) and incorporates the [Iowa State Frontend Library](https://github.com/iastate/iastate22-frontend) for styles, components and functionality. Please refer to that repository for specific information regarding the front-end library, and markup.
+The starter theme for all ISU WP sites is based on the [Timber Library](https://wordpress.org/plugins/timber-library/) and incorporates the [Iowa State Frontend Library](https://github.com/iastate/iastate22-frontend) for styles, components and functionality. Please refer to that repository for specific information regarding the front-end library, and markup.
 
 This theme utilizes twig for templating, and relies on the Advanced Custom Fields module.
 
