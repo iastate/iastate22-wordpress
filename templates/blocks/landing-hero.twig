@@ -12,7 +12,17 @@
 <div class="{{ heroClass }}">
   {% if fields.ecosystem == "supporting_image" or fields.ecosystem == "plain" %}
     <div class="ecosystem-home-hero__content">
-      <h1 class="ecosystem-home-hero__title">{{ fields.hero_title|striptags }}</h1>
+      <h1 class="ecosystem-home-hero__title">
+        {% if fields.hero_title|length > 0 %}
+          {{ fields.hero_title|striptags }}
+        {% else %}
+          {% set title = "" %}
+          {% for post in posts %}
+            {% set title = post.post_title %}
+          {% endfor %}
+          {{ title }}
+        {% endif %}
+      </h1>
       {% if fields.buttons %}
         <div class="iastate22-button-set">
           <ul>
@@ -38,7 +48,17 @@
   {% endif %}
   {% if fields.ecosystem == "featured_image" or fields.ecosystem == "atmospheric_image" or fields.ecosystem == "video" %}
   <div class="ecosystem-home-hero__content">
-    <h1 class="ecosystem-home-hero__title">{{ fields.hero_title|striptags }}</h1>
+    <h1 class="ecosystem-home-hero__title">
+        {% if fields.hero_title|length > 0 %}
+          {{ fields.hero_title|striptags }}
+        {% else %}
+          {% set title = "" %}
+          {% for post in posts %}
+            {% set title = post.post_title %}
+          {% endfor %}
+          {{ title }}
+        {% endif %}
+    </h1>
     {% if fields.buttons %}
       <div class="iastate22-button-set">
         <ul>

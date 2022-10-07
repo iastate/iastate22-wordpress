@@ -1,8 +1,10 @@
 @import "../../../vendor/iastate/iastate22-frontend/src/scss/index";
 
 .wp-block {
-  max-width: 1600px;
+  max-width: 1440px;
   background: $white;
+  margin-left: auto;
+  margin-right: auto;
 
   // Visual Indicator
   &:hover,

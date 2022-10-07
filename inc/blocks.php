@@ -27,14 +27,7 @@ function idf_acf_init() {
         'icon' => 'welcome-widgets-menus',
         'mode' => 'edit',
         'keywords' => array('Hero', 'Heroes', 'Top', 'Landing'),
-        'example'  => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'preview_image_help' => $gtb_preview_image_path . '/ISU_Gutenberg_Landing_Hero_2x.jpg',
-                )
-            )
-        )
+        'example'  => array()
     ));
     acf_register_block_type( array(
         'name'  => 'interior_hero',
@@ -47,14 +40,7 @@ function idf_acf_init() {
         'icon' => 'superhero',
         'mode' => 'edit',
         'keywords' => array('Hero', 'Heroes', 'Top', 'Interior'),
-        'example'  => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'preview_image_help' => $gtb_preview_image_path . '/ISU_Gutenberg_Interior_Hero_2x.jpg',
-                )
-            )
-        )
+        
     ));
     acf_register_block_type( array(
         'name'  => 'text_content',
@@ -66,14 +52,7 @@ function idf_acf_init() {
         'icon' => 'text',
         'mode' => 'edit',
         'keywords' => array('Text', 'Paragraph', 'Copy', 'Editor'),
-        'example'  => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'preview_image_help' => $gtb_preview_image_path . '/ISU_Gutenberg_Text_Content_2x.jpg',
-                )
-            )
-        )
+        
     ));
     acf_register_block_type( array(
         'name'  => 'button_set',
@@ -85,14 +64,7 @@ function idf_acf_init() {
         'icon' => 'button',
         'mode' => 'edit',
         'keywords' => array('Button', 'Link', 'Switch', 'Control'),
-        'example'  => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'preview_image_help' => $gtb_preview_image_path . '/ISU_Gutenberg_Button_Set_2x.jpg',
-                )
-            )
-        )
+        
     ));
     acf_register_block_type( array(
         'name'  => 'link_set',
@@ -104,14 +76,7 @@ function idf_acf_init() {
         'icon' => 'admin-links',
         'mode' => 'edit',
         'keywords' => array('Link'),
-        'example'  => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'preview_image_help' => $gtb_preview_image_path . '/ISU_Gutenberg_Link_Set_2x.jpg',
-                )
-            )
-        )
+        
     ));
     acf_register_block_type( array(
         'name'  => 'multi_column_content',
@@ -123,14 +88,7 @@ function idf_acf_init() {
         'icon' => 'images-alt2',
         'mode' => 'edit',
         'keywords' => array('Columns', 'Content', 'Multi', 'Layout'),
-        'example'  => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'preview_image_help' => $gtb_preview_image_path . '/ISU_Gutenberg_Multi_Column_Content_2x.jpg',
-                )
-            )
-        )
+        
     ));
     acf_register_block_type( array(
         'name'  => 'carousel',
@@ -142,14 +100,7 @@ function idf_acf_init() {
         'icon' => 'images-alt2',
         'mode' => 'edit',
         'keywords' => array('Carousel', 'Images', 'Slide', 'Show', 'Slideshow'),
-        'example'  => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'preview_image_help' => $gtb_preview_image_path . '/ISU_Gutenberg_Image_Carousel_2x.jpg',
-                )
-            )
-        )
+        
     ));
     acf_register_block_type( array(
         'name'  => 'tables',
@@ -161,14 +112,7 @@ function idf_acf_init() {
         'icon' => 'editor-table',
         'mode' => 'edit',
         'keywords' => array('Table', 'Data'),
-        'example'  => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'preview_image_help' => $gtb_preview_image_path . '/ISU_Gutenberg_Tables_2x.jpg',
-                )
-            )
-        )
+        
     ));
     acf_register_block_type( array(
         'name'  => 'accordion',
@@ -180,14 +124,7 @@ function idf_acf_init() {
         'icon' => 'editor-justify',
         'mode' => 'edit',
         'keywords' => array('Accordion', 'Menu', "List"),
-        'example'  => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'preview_image_help' => $gtb_preview_image_path . '/ISU_Gutenberg_Accordion_2x.jpg',
-                )
-            )
-        )
+        
     ));
     acf_register_block_type( array(
         'name'  => 'statistic-with-text',
@@ -199,14 +136,7 @@ function idf_acf_init() {
         'icon' => 'analytics',
         'mode' => 'edit',
         'keywords' => array('Statistic', 'Text', "Decorative", "Feature"),
-        'example'  => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'preview_image_help' => $gtb_preview_image_path . '/ISU_Gutenberg_Statistic_with_Text_2x.jpg',
-                )
-            )
-        )
+        
     ));
     acf_register_block_type( array(
         'name'  => 'callout-with-image',
@@ -218,14 +148,7 @@ function idf_acf_init() {
         'icon' => 'embed-photo',
         'mode' => 'edit',
         'keywords' => array('Image', 'Callout', "CTA", "Feature", "Card"),
-        'example'  => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'preview_image_help' => $gtb_preview_image_path . '/ISU_Gutenberg_Feature_with_Small_Image.jpg',
-                )
-            )
-        )
+        
     ));
     acf_register_block_type( array(
         'name'  => 'callout-set',
@@ -237,14 +160,7 @@ function idf_acf_init() {
         'icon' => 'embed-photo',
         'mode' => 'edit',
         'keywords' => array('Image', 'Callout', "CTA", "Feature", "Set", "Cards"),
-        'example'  => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'preview_image_help' => $gtb_preview_image_path . '/ISU_Gutenberg_Feature_Set.jpg',
-                )
-            )
-        )
+        
     ));
     acf_register_block_type( array(
         'name'  => 'image-grid-with-text',
@@ -256,14 +172,7 @@ function idf_acf_init() {
         'icon' => 'grid-view',
         'mode' => 'edit',
         'keywords' => array('Image', 'Grid', "CTA", "Feature", "Card"),
-        'example'  => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'preview_image_help' => $gtb_preview_image_path . '/ISU_Gutenberg_Image_Grid_with_Text_2x.jpg',
-                )
-            )
-        )
+        
     ));
     acf_register_block_type( array(
         'name'  => 'video',
@@ -275,14 +184,7 @@ function idf_acf_init() {
         'icon' => 'video-alt3',
         'mode' => 'edit',
         'keywords' => array('Video', 'Youtube', "Player"),
-        'example'  => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'preview_image_help' => $gtb_preview_image_path . '/ISU_Gutenberg_Video_2x.jpg',
-                )
-            )
-        )
+        
     ));
     acf_register_block_type( array(
         'name'  => 'link-block',
@@ -294,14 +196,7 @@ function idf_acf_init() {
         'icon' => 'admin-links',
         'mode' => 'edit',
         'keywords' => array('Video', 'Youtube', "Player"),
-        'example'  => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'preview_image_help' => $gtb_preview_image_path . '/ISU_Gutenberg_Link_Block_2x.jpg',
-                )
-            )
-        )
+        
     ));
     acf_register_block_type( array(
         'name'  => 'external-news-story',
@@ -313,14 +208,7 @@ function idf_acf_init() {
         'icon' => 'admin-links',
         'mode' => 'edit',
         'keywords' => array('Feature', 'News', 'Story'),
-        'example'  => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'preview_image_help' => $gtb_preview_image_path . '/ISU_Gutenberg_External_News_Story_2x.jpg',
-                )
-            )
-        )
+        
     ));
     acf_register_block_type( array(
         'name'  => 'blockquote',
@@ -332,14 +220,7 @@ function idf_acf_init() {
         'icon' => 'format-quote',
         'mode' => 'edit',
         'keywords' => array('Quote', 'Blockquote'),
-        'example'  => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'preview_image_help' => $gtb_preview_image_path . '/ISU_Gutenberg_Blockquote_2x.jpg',
-                )
-            )
-        )
+        
     ));
     acf_register_block_type( array(
         'name'  => 'cards',
@@ -351,14 +232,7 @@ function idf_acf_init() {
         'icon' => 'screenoptions',
         'mode' => 'edit',
         'keywords' => array('Card', 'Cards', 'Set'),
-        'example'  => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'preview_image_help' => $gtb_preview_image_path . '/ISU_Gutenberg_Cards_2x.jpg',
-                )
-            )
-        )
+        
     ));
     acf_register_block_type( array(
         'name'  => 'feature-with-large-image',
@@ -370,14 +244,7 @@ function idf_acf_init() {
         'icon' => 'format-image',
         'mode' => 'edit',
         'keywords' => array('Feature', 'Image'),
-        'example'  => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'preview_image_help' => $gtb_preview_image_path . '/ISU_Gutenberg_Feature_with_Large_Image_2x.jpg',
-                )
-            )
-        )
+        
     ));
     acf_register_block_type( array(
         'name'  => 'callout-inset',
@@ -389,14 +256,7 @@ function idf_acf_init() {
         'icon' => 'feedback',
         'mode' => 'edit',
         'keywords' => array('Feature', 'Inset', 'Image'),
-        'example'  => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'preview_image_help' => $gtb_preview_image_path . '/ISU_Gutenberg_Feature_Set.jpg',
-                )
-            )
-        )
+        
     ));
     acf_register_block_type( array(
         'name'  => 'cta-small',
@@ -408,14 +268,7 @@ function idf_acf_init() {
         'icon' => 'align-wide',
         'mode' => 'edit',
         'keywords' => array('Feature', 'Inset', 'Image'),
-        'example'  => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'preview_image_help' => $gtb_preview_image_path . '/ISU_Gutenberg_Call_to_Action_Small_2x.jpg',
-                )
-            )
-        )
+        
     ));
     acf_register_block_type( array(
         'name'  => 'cta-large',
@@ -427,14 +280,7 @@ function idf_acf_init() {
         'icon' => 'align-wide',
         'mode' => 'edit',
         'keywords' => array('Feature', 'Inset', 'Image'),
-        'example'  => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'preview_image_help' => $gtb_preview_image_path . '/ISU_Gutenberg_Call_to_Action_Large_2x.jpg.jpg',
-                )
-            )
-        )
+        
     ));
 
     if ( $activated_profile_plugin ) {
@@ -448,14 +294,7 @@ function idf_acf_init() {
             'icon' => 'align-wide',
             'mode' => 'edit',
             'keywords' => array('Feature', 'Inset', 'Image'),
-            'example'  => array(
-                'attributes' => array(
-                    'mode' => 'preview',
-                    'data' => array(
-                        'preview_image_help' => $gtb_preview_image_path . '/ISU_Gutenberg_Directory_2x.jpg',
-                    )
-                )
-            )
+            
         ));
     }
 
@@ -469,14 +308,7 @@ function idf_acf_init() {
         'icon' => 'format-image',
         'mode' => 'edit',
         'keywords' => array('Image', 'Full'),
-        'example'  => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'preview_image_help' => $gtb_preview_image_path . '/ISU_Gutenberg_Full_Width_Image_2x.jpg',
-                )
-            )
-        )
+        
     ));
 }
 
@@ -502,6 +334,7 @@ function idf_acf_block_render_interior_hero( $block, $content = '', $is_preview 
 
     $timber_post = new Timber\Post();
     $rent = $timber_post->post_parent;
+    $parent_title = get_the_title($rent);
     $arg = (array(
         'parent' => $rent
     ));
@@ -518,6 +351,7 @@ function idf_acf_block_render_interior_hero( $block, $content = '', $is_preview 
     $context['current'] = $timber_post->ID;
     $context['childrens'] = $childrens;
     $context['rent'] = $rent;
+    $context['parent_title'] = $parent_title;
     $context['is_preview'] = $is_preview;
     
     Timber::render('templates/blocks/interior-hero.twig', $context);
@@ -528,13 +362,7 @@ function idf_acf_block_render_text_content( $block, $content = '', $is_preview =
 
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    if ( $is_preview && ! empty( $block['data'] ) ) {
-        echo '<img src="'. $block['data']['preview_image_help'] .'" style="width:100%; height:auto;">';
-        return;
-    } elseif ( $is_preview ) {
-        echo 'Other condition';
-        return;
-    }
+    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/text-content.twig', $context);
 }
@@ -544,13 +372,7 @@ function idf_acf_block_render_button_set( $block, $content = '', $is_preview = f
 
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    if ( $is_preview && ! empty( $block['data'] ) ) {
-        echo '<img src="'. $block['data']['preview_image_help'] .'" style="width:100%; height:auto;">';
-        return;
-    } elseif ( $is_preview ) {
-        echo 'Other condition';
-        return;
-    }
+    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/button-set.twig', $context);
 }
@@ -560,13 +382,7 @@ function idf_acf_block_render_link_set( $block, $content = '', $is_preview = fal
 
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    if ( $is_preview && ! empty( $block['data'] ) ) {
-        echo '<img src="'. $block['data']['preview_image_help'] .'" style="width:100%; height:auto;">';
-        return;
-    } elseif ( $is_preview ) {
-        echo 'Other condition';
-        return;
-    }
+    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/link-set.twig', $context);
 }
@@ -576,13 +392,7 @@ function idf_acf_block_render_multi_column_content( $block, $content = '', $is_p
 
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    if ( $is_preview && ! empty( $block['data'] ) ) {
-        echo '<img src="'. $block['data']['preview_image_help'] .'" style="width:100%; height:auto;">';
-        return;
-    } elseif ( $is_preview ) {
-        echo 'Other condition';
-        return;
-    }
+    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/multi-column-content.twig', $context);
 }
@@ -592,13 +402,7 @@ function idf_acf_block_render_carousel( $block, $content = '', $is_preview = fal
 
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    if ( $is_preview && ! empty( $block['data'] ) ) {
-        echo '<img src="'. $block['data']['preview_image_help'] .'" style="width:100%; height:auto;">';
-        return;
-    } elseif ( $is_preview ) {
-        echo 'Other condition';
-        return;
-    }
+    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/carousel.twig', $context);
 }
@@ -608,13 +412,7 @@ function idf_acf_block_render_table( $block, $content = '', $is_preview = false 
 
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    if ( $is_preview && ! empty( $block['data'] ) ) {
-        echo '<img src="'. $block['data']['preview_image_help'] .'" style="width:100%; height:auto;">';
-        return;
-    } elseif ( $is_preview ) {
-        echo 'Other condition';
-        return;
-    }
+    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/table.twig', $context);
 }
@@ -623,13 +421,7 @@ function idf_acf_block_render_accordion( $block, $content = '', $is_preview = fa
     $context = Timber::context();
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    if ( $is_preview && ! empty( $block['data'] ) ) {
-        echo '<img src="'. $block['data']['preview_image_help'] .'" style="width:100%; height:auto;">';
-        return;
-    } elseif ( $is_preview ) {
-        echo 'Other condition';
-        return;
-    }
+    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/accordion.twig', $context);
 }
@@ -639,13 +431,7 @@ function idf_acf_block_render_full_width_image( $block, $content = '', $is_previ
 
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    if ( $is_preview && ! empty( $block['data'] ) ) {
-        echo '<img src="'. $block['data']['preview_image_help'] .'" style="width:100%; height:auto;">';
-        return;
-    } elseif ( $is_preview ) {
-        echo 'Other condition';
-        return;
-    }
+    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/full-width-image.twig', $context);
 }
@@ -655,13 +441,7 @@ function idf_acf_block_render_statistic_with_text( $block, $content = '', $is_pr
 
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    if ( $is_preview && ! empty( $block['data'] ) ) {
-        echo '<img src="'. $block['data']['preview_image_help'] .'" style="width:100%; height:auto;">';
-        return;
-    } elseif ( $is_preview ) {
-        echo 'Other condition';
-        return;
-    }
+    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/statistic-with-text.twig', $context);
 }
@@ -670,13 +450,7 @@ function idf_acf_block_render_callout_with_image( $block, $content = '', $is_pre
 
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    if ( $is_preview && ! empty( $block['data'] ) ) {
-        echo '<img src="'. $block['data']['preview_image_help'] .'" style="width:100%; height:auto;">';
-        return;
-    } elseif ( $is_preview ) {
-        echo 'Other condition';
-        return;
-    }
+    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/callout-with-image.twig', $context);
 }
@@ -686,13 +460,7 @@ function idf_acf_block_render_callout_set( $block, $content = '', $is_preview = 
 
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    if ( $is_preview && ! empty( $block['data'] ) ) {
-        echo '<img src="'. $block['data']['preview_image_help'] .'" style="width:100%; height:auto;">';
-        return;
-    } elseif ( $is_preview ) {
-        echo 'Other condition';
-        return;
-    }
+    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/callout-set.twig', $context);
 }
@@ -702,13 +470,7 @@ function idf_acf_block_render_image_grid_with_text( $block, $content = '', $is_p
 
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    if ( $is_preview && ! empty( $block['data'] ) ) {
-        echo '<img src="'. $block['data']['preview_image_help'] .'" style="width:100%; height:auto;">';
-        return;
-    } elseif ( $is_preview ) {
-        echo 'Other condition';
-        return;
-    }
+    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/image-grid-with-text.twig', $context);
 }
@@ -718,13 +480,7 @@ function idf_acf_block_render_video( $block, $content = '', $is_preview = false 
 
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    if ( $is_preview && ! empty( $block['data'] ) ) {
-        echo '<img src="'. $block['data']['preview_image_help'] .'" style="width:100%; height:auto;">';
-        return;
-    } elseif ( $is_preview ) {
-        echo 'Other condition';
-        return;
-    }
+    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/video.twig', $context);
 }
@@ -734,13 +490,7 @@ function idf_acf_block_render_link_block( $block, $content = '', $is_preview = f
 
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    if ( $is_preview && ! empty( $block['data'] ) ) {
-        echo '<img src="'. $block['data']['preview_image_help'] .'" style="width:100%; height:auto;">';
-        return;
-    } elseif ( $is_preview ) {
-        echo 'Other condition';
-        return;
-    }
+    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/link-block.twig', $context);
 }
@@ -750,13 +500,7 @@ function idf_acf_block_render_external_news_story( $block, $content = '', $is_pr
 
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    if ( $is_preview && ! empty( $block['data'] ) ) {
-        echo '<img src="'. $block['data']['preview_image_help'] .'" style="width:100%; height:auto;">';
-        return;
-    } elseif ( $is_preview ) {
-        echo 'Other condition';
-        return;
-    }
+    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/external-news-story.twig', $context);
 }
@@ -766,13 +510,7 @@ function idf_acf_block_render_blockquote( $block, $content = '', $is_preview = f
 
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    if ( $is_preview && ! empty( $block['data'] ) ) {
-        echo '<img src="'. $block['data']['preview_image_help'] .'" style="width:100%; height:auto;">';
-        return;
-    } elseif ( $is_preview ) {
-        echo 'Other condition';
-        return;
-    }
+    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/blockquote.twig', $context);
 }
@@ -782,13 +520,7 @@ function idf_acf_block_render_cards( $block, $content = '', $is_preview = false 
 
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    if ( $is_preview && ! empty( $block['data'] ) ) {
-        echo '<img src="'. $block['data']['preview_image_help'] .'" style="width:100%; height:auto;">';
-        return;
-    } elseif ( $is_preview ) {
-        echo 'Other condition';
-        return;
-    }
+    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/cards.twig', $context);
 }
@@ -798,13 +530,7 @@ function idf_acf_block_render_feature_with_large_image( $block, $content = '', $
 
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    if ( $is_preview && ! empty( $block['data'] ) ) {
-        echo '<img src="'. $block['data']['preview_image_help'] .'" style="width:100%; height:auto;">';
-        return;
-    } elseif ( $is_preview ) {
-        echo 'Other condition';
-        return;
-    }
+    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/feature-with-large-image.twig', $context);
 }
@@ -814,13 +540,7 @@ function idf_acf_block_render_callout_inset( $block, $content = '', $is_preview 
 
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    if ( $is_preview && ! empty( $block['data'] ) ) {
-        echo '<img src="'. $block['data']['preview_image_help'] .'" style="width:100%; height:auto;">';
-        return;
-    } elseif ( $is_preview ) {
-        echo 'Other condition';
-        return;
-    }
+    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/callout-inset.twig', $context);
 }
@@ -830,13 +550,7 @@ function idf_acf_block_render_cta_small( $block, $content = '', $is_preview = fa
 
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    if ( $is_preview && ! empty( $block['data'] ) ) {
-        echo '<img src="'. $block['data']['preview_image_help'] .'" style="width:100%; height:auto;">';
-        return;
-    } elseif ( $is_preview ) {
-        echo 'Other condition';
-        return;
-    }
+    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/cta-small.twig', $context);
 }
@@ -846,13 +560,7 @@ function idf_acf_block_render_cta_large( $block, $content = '', $is_preview = fa
 
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    if ( $is_preview && ! empty( $block['data'] ) ) {
-        echo '<img src="'. $block['data']['preview_image_help'] .'" style="width:100%; height:auto;">';
-        return;
-    } elseif ( $is_preview ) {
-        echo 'Other condition';
-        return;
-    }
+    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/cta-large.twig', $context);
 }
@@ -863,13 +571,7 @@ function idf_acf_block_render_directory( $block, $content = '', $is_preview = fa
     $context['block'] = $block;
     $context['fields'] = get_fields();
 
-    if ( $is_preview && ! empty( $block['data'] ) ) {
-        echo '<img src="'. $block['data']['preview_image_help'] .'" style="width:100%; height:auto;">';
-        return;
-    } elseif ( $is_preview ) {
-        echo 'Other condition';
-        return;
-    }
+    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/directory.twig', $context);
 }

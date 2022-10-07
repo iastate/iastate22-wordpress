@@ -4,15 +4,10 @@ add_action( 'after_setup_theme', '_gutenberg_css' );
 function _gutenberg_css(){
 
 	add_theme_support( 'editor-styles' ); // if you don't add this line, your stylesheet won't be added
-	add_editor_style( 'wp_components/build/css/editor.css' ); // tries to include style-editor.css directly from your theme folder
+	add_editor_style( '/wp_components/build/css/editor.css' ); // tries to include style-editor.css directly from your theme folder
 }
 
 add_action('enqueue_block_editor_assets', '_gutenberg_js');
-
-function _gutenberg_js() {
-  wp_register_script('editor-js', get_stylesheet_directory_uri() . '/vendor/iastate/frontend-component-library/build/js/editor.js', array(), '', true);
-  wp_enqueue_script('editor-js');
-}
 
 function customWYSIWYG($arr){
 	$arr['block_formats'] = 'Paragraph=p;Heading 2=h2;Heading 3=h3;Heading 4=h4';

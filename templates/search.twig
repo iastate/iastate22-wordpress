@@ -4,24 +4,42 @@
 {% block content %}
   {# see `base.twig:27` for where this block's content will be inserted #}
   <div class="outer-pad">
-  <div class="hero">
-    <div class="hero__text-wrap">
-      <h1 class="hero__title">{{ title }}</h1>
-    </div>
-    {% if fields.hero_image %}
-    <div class="hero__media">
-      <img src="{{fields.hero_image.url}}" alt="{{fields.hero_image.description}}" width="{{ fields.hero_image.width }}" height="{{ fields.hero_image.height }}">
-    </div>
-    {% endif %}
-  </div>
-
-    <div class="paragraph-widget paragraph-widget--text-html">
-      <div class="text-content">
-        {% for post in posts %}
-          {% include ['tease-'~post.post_type~'.twig', 'tease-profile.twig'] %}
-        {% endfor %}
+    <div class="hero">
+      <div class="hero__text-wrap">
+        <h1 class="hero__title">{{ title }}</h1>
       </div>
+      {% if fields.hero_image %}
+      <div class="hero__media">
+        <img src="{{fields.hero_image.url}}" alt="{{fields.hero_image.description}}" width="{{ fields.hero_image.width }}" height="{{ fields.hero_image.height }}">
+      </div>
+      {% endif %}
     </div>
+
+    <div class="card-set card-set--teaser">
+    {% if posts|length %}
+		  <ul>
+        {% for post in posts %}
+          <li>
+            <div class="tease tease-{{post.post_type}} iastate22-card iastate22-card--teaser iastate22-card--teaser-profile clickable" id="tease-{{post.ID}}">
+                {% if post.thumbnail.src %}
+                  <div class="iastate22-card__media">
+                   <img src="{{post.thumbnail.src}}" />
+                  </div>
+                {% endif %}
+                <div class="iastate22-card__content">
+                  <a href="{{post.link}}" class="iastate22-card__cta">{{post.post_title }}</a>
+                  <p class="iastate22-card__content-body">{{ post.preview.length(25) }}</p>
+                  <p class="iastate22-card__content-date">{{ post.date }}</p>
+                </div>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <h2>No posts found</h2>
+    {% endif %}
+    </div>
+    
     {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
   </div>
 {% endblock %}

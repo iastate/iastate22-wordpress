@@ -57,7 +57,6 @@ function my_acf_input_admin_footer() {
         }
 
         $(requiredFields).each(function(e) {
-            console.log(this);
             let valid = this.checkValidity();
             let rt = this.parentNode.parentNode;
             let type = this.getAttribute("type");
