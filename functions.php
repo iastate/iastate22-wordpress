@@ -20,7 +20,6 @@ if ( file_exists( $composer_autoload ) ) {
 include('inc/timber.php');
 include('inc/blocks.php');
 include('inc/editor.php');
-include('inc/users.php');
 include('inc/menus.php');
 include('inc/overrides.php');
 include('inc/validation.php');
