@@ -58,7 +58,7 @@ function post_options_code( $post ) {
 	
 	?>
     <div class="alignleft">
-		<input id="show_author" type="radio" name="_meta_info" value="show_author"<?php checked( 'show_author', $author_info ); ?> />
+		<input id="show_author" type="radio" name="_meta_info" value="show_author"<?php checked( 'show_author', $author_info ); ?> <?php echo ( $author_info == 1 )?' checked="checked"' : ''; ?>/>
 		<label for="show_author" class="selectit"><?php _e( 'Show author' ); ?></label>
 		<br />
         <input id="hide_author" type="radio" name="_meta_info" value="hide_author"<?php checked( 'hide_author', $author_info ); ?> />
