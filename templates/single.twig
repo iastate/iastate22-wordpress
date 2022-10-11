@@ -19,7 +19,7 @@
 						
 						<div class="blog-author">
 							<i>
-								{% if fields.show_author == "true" %}
+								{% if show_author == true %}
 									<span>By </span><a href="{{post.author.path}}" class="link-set__link link-tertiary"> {{ post.author.name }} </a><span> &bull;</span> 
 								{% endif %}
 									{{ post.date }}</i>

@@ -12,7 +12,15 @@
 $context         = Timber::context();
 $timber_post     = Timber::query_post();
 $context['post'] = $timber_post;
-$context['fields'] = get_fields();
+
+$author_info = get_post_meta( $timber_post->ID, '_meta_info', true) ? get_post_meta( $timber_post->ID, '_meta_info', true) : 1;
+
+if ($author_info == 'show_author') {
+	$context['show_author'] = true;
+} else {
+	$context['show_author'] = false;
+}
+
 
 if ( post_password_required( $timber_post->ID ) ) {
 	Timber::render( 'single-password.twig', $context );
