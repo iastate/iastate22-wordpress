@@ -15,7 +15,7 @@ $context['post'] = $timber_post;
 
 $author_info = get_post_meta( $timber_post->ID, '_meta_info', true) ? get_post_meta( $timber_post->ID, '_meta_info', true) : 1;
 
-if ($author_info == 'show_author') {
+if ($author_info == 'show_author' || $author_info == 1) {
 	$context['show_author'] = true;
 } else {
 	$context['show_author'] = false;
