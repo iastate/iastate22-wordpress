@@ -18,7 +18,11 @@
 						{% endif %}
 						
 						<div class="blog-author">
-							<i><span>By </span><a href="{{post.author.path}}" class="link-set__link link-tertiary"> {{ post.author.name }} </a><span> &bull;</span> {{ post.date }}</i>
+							<i>
+								{% if fields.show_author == "true" %}
+									<span>By </span><a href="{{post.author.path}}" class="link-set__link link-tertiary"> {{ post.author.name }} </a><span> &bull;</span> 
+								{% endif %}
+									{{ post.date }}</i>
 						</div>
 					</div>
 					<div class="article-body">
