@@ -69,14 +69,10 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, 52px);
     gap: rem(15);
-    @include media-breakpoint-up(md) {
-      justify-content: space-between;
-    }
     @include media-breakpoint-up(xl) {
       grid-template-columns: repeat(auto-fit, 52px);
       max-width: 50%;
-    }
-    @include media-breakpoint-up(xxl) {
+      flex: 1 1 0;
       gap: rem(30);
     }
   }

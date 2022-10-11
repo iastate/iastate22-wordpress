@@ -1,9 +1,15 @@
 {
-    "packages": [
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "d386cbaf405ca506ea77d690637aa27d",
+    "packages": [],
+    "packages-dev": [
         {
             "name": "altorouter/altorouter",
             "version": "2.0.2",
-            "version_normalized": "2.0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dannyvankooten/AltoRouter.git",
@@ -23,9 +29,7 @@
                 "phpunit/phpunit": "5.7.*",
                 "squizlabs/php_codesniffer": "3.4.2"
             },
-            "time": "2020-03-09T08:34:59+00:00",
             "type": "library",
-            "installation-source": "dist",
             "autoload": {
                 "classmap": [
                     "AltoRouter.php"
@@ -61,12 +65,11 @@
                 "issues": "https://github.com/dannyvankooten/AltoRouter/issues",
                 "source": "https://github.com/dannyvankooten/AltoRouter/tree/2.0.2"
             },
-            "install-path": "../altorouter/altorouter"
+            "time": "2020-03-09T08:34:59+00:00"
         },
         {
             "name": "composer/installers",
             "version": "v2.2.0",
-            "version_normalized": "2.2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
@@ -90,7 +93,6 @@
                 "symfony/phpunit-bridge": "^5.3",
                 "symfony/process": "^5"
             },
-            "time": "2022-08-20T06:45:11+00:00",
             "type": "composer-plugin",
             "extra": {
                 "class": "Composer\\Installers\\Plugin",
@@ -99,7 +101,6 @@
                 },
                 "plugin-modifies-install-path": true
             },
-            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "Composer\\Installers\\": "src/Composer/Installers"
@@ -209,12 +210,11 @@
                     "type": "tidelift"
                 }
             ],
-            "install-path": "./installers"
+            "time": "2022-08-20T06:45:11+00:00"
         },
         {
             "name": "iastate/frontend-component-library",
             "version": "dev-master",
-            "version_normalized": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:iastate/iastate22-frontend.git",
@@ -226,10 +226,8 @@
                 "reference": "1be3347b8bb7e2d309242db42f2f4eff7de68e15",
                 "shasum": ""
             },
-            "time": "2022-10-11T15:19:27+00:00",
             "default-branch": true,
             "type": "library",
-            "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
             "authors": [
                 {
@@ -246,12 +244,11 @@
                 }
             ],
             "description": "Frontend component library for Iowa State University.",
-            "install-path": "../iastate/frontend-component-library"
+            "time": "2022-10-11T15:19:27+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
             "version": "v1.26.0",
-            "version_normalized": "1.26.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
@@ -272,7 +269,6 @@
             "suggest": {
                 "ext-ctype": "For best performance"
             },
-            "time": "2022-05-24T11:49:31+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -283,7 +279,6 @@
                     "url": "https://github.com/symfony/polyfill"
                 }
             },
-            "installation-source": "dist",
             "autoload": {
                 "files": [
                     "bootstrap.php"
@@ -331,12 +326,11 @@
                     "type": "tidelift"
                 }
             ],
-            "install-path": "../symfony/polyfill-ctype"
+            "time": "2022-05-24T11:49:31+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
             "version": "v1.26.0",
-            "version_normalized": "1.26.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
@@ -357,7 +351,6 @@
             "suggest": {
                 "ext-mbstring": "For best performance"
             },
-            "time": "2022-05-24T11:49:31+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -368,7 +361,6 @@
                     "url": "https://github.com/symfony/polyfill"
                 }
             },
-            "installation-source": "dist",
             "autoload": {
                 "files": [
                     "bootstrap.php"
@@ -417,12 +409,11 @@
                     "type": "tidelift"
                 }
             ],
-            "install-path": "../symfony/polyfill-mbstring"
+            "time": "2022-05-24T11:49:31+00:00"
         },
         {
             "name": "symfony/polyfill-php72",
             "version": "v1.26.0",
-            "version_normalized": "1.26.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php72.git",
@@ -437,7 +428,6 @@
             "require": {
                 "php": ">=7.1"
             },
-            "time": "2022-05-24T11:49:31+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -448,7 +438,6 @@
                     "url": "https://github.com/symfony/polyfill"
                 }
             },
-            "installation-source": "dist",
             "autoload": {
                 "files": [
                     "bootstrap.php"
@@ -496,12 +485,11 @@
                     "type": "tidelift"
                 }
             ],
-            "install-path": "../symfony/polyfill-php72"
+            "time": "2022-05-24T11:49:31+00:00"
         },
         {
             "name": "timber/timber",
             "version": "1.20.0",
-            "version_normalized": "1.20.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/timber/timber.git",
@@ -533,9 +521,7 @@
             "suggest": {
                 "satooshi/php-coveralls": "1.0.* for code coverage"
             },
-            "time": "2022-06-22T19:42:09+00:00",
             "type": "library",
-            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "Timber\\": "lib/"
@@ -570,12 +556,11 @@
                 "issues": "https://github.com/timber/timber/issues",
                 "source": "https://github.com/timber/timber"
             },
-            "install-path": "../timber/timber"
+            "time": "2022-06-22T19:42:09+00:00"
         },
         {
             "name": "twig/cache-extension",
             "version": "v1.5.0",
-            "version_normalized": "1.5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/twig-cache-extension.git",
@@ -600,14 +585,12 @@
             "suggest": {
                 "psr/cache-implementation": "To make use of PSR-6 cache implementation via PsrCacheAdapter."
             },
-            "time": "2020-10-04T09:56:48+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.5-dev"
                 }
             },
-            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "": "lib/"
@@ -645,12 +628,11 @@
                 }
             ],
             "abandoned": "twig/cache-extra",
-            "install-path": "../twig/cache-extension"
+            "time": "2020-10-04T09:56:48+00:00"
         },
         {
             "name": "twig/twig",
             "version": "v2.15.3",
-            "version_normalized": "2.15.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
@@ -672,14 +654,12 @@
                 "psr/container": "^1.0",
                 "symfony/phpunit-bridge": "^4.4.9|^5.0.9|^6.0"
             },
-            "time": "2022-09-28T08:40:08+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "2.15-dev"
                 }
             },
-            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Twig_": "lib/"
@@ -728,12 +708,11 @@
                     "type": "tidelift"
                 }
             ],
-            "install-path": "../twig/twig"
+            "time": "2022-09-28T08:40:08+00:00"
         },
         {
             "name": "upstatement/routes",
             "version": "0.9.1",
-            "version_normalized": "0.9.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Upstatement/routes.git",
@@ -755,9 +734,7 @@
                 "satooshi/php-coveralls": "*",
                 "wp-cli/wp-cli": "*"
             },
-            "time": "2022-06-22T19:53:51+00:00",
             "type": "library",
-            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Routes": ""
@@ -787,20 +764,17 @@
                 "source": "https://github.com/Upstatement/routes",
                 "wiki": "https://github.com/Upstatement/routes/wiki"
             },
-            "install-path": "../upstatement/routes"
+            "time": "2022-06-22T19:53:51+00:00"
         }
     ],
-    "dev": true,
-    "dev-package-names": [
-        "altorouter/altorouter",
-        "composer/installers",
-        "iastate/frontend-component-library",
-        "symfony/polyfill-ctype",
-        "symfony/polyfill-mbstring",
-        "symfony/polyfill-php72",
-        "timber/timber",
-        "twig/cache-extension",
-        "twig/twig",
-        "upstatement/routes"
-    ]
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "iastate/frontend-component-library": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.2.0"
 }
