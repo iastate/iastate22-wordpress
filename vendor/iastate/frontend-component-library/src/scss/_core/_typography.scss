@@ -49,8 +49,7 @@ body {
 }
 
 a:not(.iastate22-button):not(.iastate22-link-secondary):not(.iastate22-link-external):not(.link-tertiary) {
-  .text-content &,
-  .accordion-item & {
+  .text-content & {
     color: $iastate-maroon;
     font-weight: 700;
     font-family: $typeface-sans-serif;
@@ -80,8 +79,7 @@ p {
 
 ul,
 ol {
-  .text-content &,
-  .accordion-item & {
+  .text-content & {
     margin: $list-margin;
     padding: $list-padding;
     li {
@@ -104,8 +102,7 @@ ol {
       margin: $list-list-margin;
     }
   }
-  .text-content > &,
-  .accordion-item & {
+  .text-content > & {
     &:first-child {
       margin-top: 0;
       ul,
@@ -130,8 +127,7 @@ ol {
 }
 
 ul {
-  .text-content &,
-  .accordion-item & {
+  .text-content & {
     list-style-type: none;
     li {
       padding-left: rem(20);
@@ -155,8 +151,7 @@ ul {
 }
 
 ol {
-  .text-content &,
-  .accordion-item & {
+  .text-content & {
     list-style-type: none;
     counter-reset: item;
     > li {

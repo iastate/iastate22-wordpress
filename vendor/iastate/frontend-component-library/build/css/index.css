@@ -2262,15 +2262,13 @@ body {
       font-size: 1rem;
       line-height: 1.75; } }
 
-.text-content a:not(.iastate22-button):not(.iastate22-link-secondary):not(.iastate22-link-external):not(.link-tertiary),
-.accordion-item a:not(.iastate22-button):not(.iastate22-link-secondary):not(.iastate22-link-external):not(.link-tertiary) {
+.text-content a:not(.iastate22-button):not(.iastate22-link-secondary):not(.iastate22-link-external):not(.link-tertiary) {
   color: #7c2529;
   font-weight: 700;
   font-family: "Nimbus Sans", sans-serif;
   -webkit-transition: 0.2s color ease-in-out;
   transition: 0.2s color ease-in-out; }
-  .text-content a:not(.iastate22-button):not(.iastate22-link-secondary):not(.iastate22-link-external):not(.link-tertiary):hover,
-  .accordion-item a:not(.iastate22-button):not(.iastate22-link-secondary):not(.iastate22-link-external):not(.link-tertiary):hover {
+  .text-content a:not(.iastate22-button):not(.iastate22-link-secondary):not(.iastate22-link-external):not(.link-tertiary):hover {
     color: #c8102e; }
 
 p {
@@ -2286,132 +2284,80 @@ p {
     p a:hover {
       color: #c8102e; }
 
-.text-content ul,
-.accordion-item ul, .text-content
-ol,
-.accordion-item
+.text-content ul, .text-content
 ol {
   margin: 1rem 0;
   padding: 0 1.5rem; }
-  .text-content ul li,
-  .accordion-item ul li, .text-content
-  ol li,
-  .accordion-item
+  .text-content ul li, .text-content
   ol li {
     font-size: 1.125rem;
     line-height: 1.77778;
     margin: 0.25rem 0; }
     @media (min-width: 768px) {
-      .text-content ul li,
-      .accordion-item ul li, .text-content
-      ol li,
-      .accordion-item
+      .text-content ul li, .text-content
       ol li {
         font-size: 1rem;
         line-height: 1.8125; } }
-    .text-content ul li:first-child,
-    .accordion-item ul li:first-child, .text-content
-    ol li:first-child,
-    .accordion-item
+    .text-content ul li:first-child, .text-content
     ol li:first-child {
       margin-top: 0; }
-    .text-content ul li:last-child,
-    .accordion-item ul li:last-child, .text-content
-    ol li:last-child,
-    .accordion-item
+    .text-content ul li:last-child, .text-content
     ol li:last-child {
       margin-bottom: 0; }
   .text-content ul ul,
-  .text-content ul ol,
-  .accordion-item ul ul,
-  .accordion-item ul ol, .text-content
+  .text-content ul ol, .text-content
   ol ul,
   .text-content
-  ol ol,
-  .accordion-item
-  ol ul,
-  .accordion-item
   ol ol {
     margin: 0.25rem 0; }
 
-.text-content > ul:first-child,
-.accordion-item ul:first-child, .text-content >
-ol:first-child,
-.accordion-item
+.text-content > ul:first-child, .text-content >
 ol:first-child {
   margin-top: 0; }
   .text-content > ul:first-child ul:first-child,
   .text-content > ul:first-child ol:first-child,
-  .text-content > ul:first-child li:first-child,
-  .accordion-item ul:first-child ul:first-child,
-  .accordion-item ul:first-child ol:first-child,
-  .accordion-item ul:first-child li:first-child, .text-content >
+  .text-content > ul:first-child li:first-child, .text-content >
   ol:first-child ul:first-child,
   .text-content >
   ol:first-child ol:first-child,
   .text-content >
-  ol:first-child li:first-child,
-  .accordion-item
-  ol:first-child ul:first-child,
-  .accordion-item
-  ol:first-child ol:first-child,
-  .accordion-item
   ol:first-child li:first-child {
     margin-top: 0; }
 
-.text-content > ul:last-child,
-.accordion-item ul:last-child, .text-content >
-ol:last-child,
-.accordion-item
+.text-content > ul:last-child, .text-content >
 ol:last-child {
   margin-bottom: 0; }
   .text-content > ul:last-child ul:last-child,
   .text-content > ul:last-child ol:last-child,
-  .text-content > ul:last-child li:last-child,
-  .accordion-item ul:last-child ul:last-child,
-  .accordion-item ul:last-child ol:last-child,
-  .accordion-item ul:last-child li:last-child, .text-content >
+  .text-content > ul:last-child li:last-child, .text-content >
   ol:last-child ul:last-child,
   .text-content >
   ol:last-child ol:last-child,
   .text-content >
-  ol:last-child li:last-child,
-  .accordion-item
-  ol:last-child ul:last-child,
-  .accordion-item
-  ol:last-child ol:last-child,
-  .accordion-item
   ol:last-child li:last-child {
     margin-bottom: 0; }
 
-.text-content ul,
-.accordion-item ul {
+.text-content ul {
   list-style-type: none; }
-  .text-content ul li,
-  .accordion-item ul li {
+  .text-content ul li {
     padding-left: 1.25rem;
     text-indent: -1.25rem; }
-    .text-content ul li:before,
-    .accordion-item ul li:before {
+    .text-content ul li:before {
       content: "•";
       padding-right: 0.8125rem;
       color: #7c2529; }
-    .text-content ul li ul li:before,
-    .accordion-item ul li ul li:before {
+    .text-content ul li ul li:before {
       content: "–";
       padding-right: 0.625rem;
       color: #7c2529; }
 
-.text-content ol,
-.accordion-item ol {
+.text-content ol {
   list-style-type: none;
   counter-reset: item; }
-  .text-content ol > li,
-  .accordion-item ol > li {
+  .text-content ol > li {
     padding-left: 1.25rem;
     text-indent: -1.25rem; }
-    .text-content ol > li:before,
-    .accordion-item ol > li:before {
+    .text-content ol > li:before {
       content: counter(item) ". ";
       counter-increment: item;
       color: #7c2529; }
@@ -3302,40 +3248,40 @@ main {
         -webkit-transform: translateX(-50%);
                 transform: translateX(-50%);
         pointer-events: none; } }
-  .card-set ul {
+  .card-set > ul {
     display: -webkit-box;
     display: flex;
     flex-wrap: wrap; }
     @media (min-width: 768px) {
-      .card-set ul {
+      .card-set > ul {
         margin-right: -1.25rem; } }
     @media (min-width: 992px) {
-      .card-set ul {
+      .card-set > ul {
         margin-right: -2.5rem; } }
-    .card-set ul:after {
+    .card-set > ul:after {
       display: none; }
       @media (min-width: 768px) {
-        .card-set ul:after {
+        .card-set > ul:after {
           content: "";
           -webkit-box-flex: 0;
                   flex: 0 1 auto;
           width: 50%;
           display: block; } }
       @media (min-width: 992px) {
-        .card-set ul:after {
+        .card-set > ul:after {
           display: none; } }
-    .card-set ul li {
+    .card-set > ul > li {
       max-width: 25rem;
       margin: 0 auto 1.875rem;
       -webkit-box-flex: 0;
               flex: 0 1 auto;
       width: 100%; }
       @media (min-width: 768px) {
-        .card-set ul li {
+        .card-set > ul > li {
           width: 50%;
           padding-right: 1.25rem; } }
       @media (min-width: 992px) {
-        .card-set ul li {
+        .card-set > ul > li {
           max-width: none;
           width: 33.3%;
           padding-right: 2.5rem; } }

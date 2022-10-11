@@ -1,20 +1,20 @@
 {% set id = random(1111,9999) %}
 
 <div class="paragraph-widget paragraph-widget--accordion">
-    <div class="accordion accordion-flush" id="accordionFlush{{id}}">
-    {% set counter = 0 %}
-    {% for item in fields.accordion %}
-        {% set counter = counter + 1 %}
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-heading_{{ id }}_{{ counter }}">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse_{{ id }}_{{ counter }}" aria-expanded="false" aria-controls="flush-collapse_{{ id }}_{{ counter }}">
-                    {{ item.title|striptags }}
-                </button>
-            </h2>
-            <div id="flush-collapse_{{ id }}_{{ counter }}" class="accordion-collapse collapse" aria-labelledby="flush-heading_{{ id }}_{{ counter }}" data-bs-parent="#accordionFlush{{id}}">
-                <div class="accordion-body">{{ item.content|striptags('<h1><h2><h3><h4><h5><h6><p><ul><ol><li><a><button><dd><dl><dt><blockquote><figure><figcaption><img><span><hr><br><br/>') }}</div>
-            </div>
-        </div>
-    {% endfor %}
-    </div>
+	<div class="accordion accordion-flush" id="accordionFlush{{id}}">
+		{% set counter = 0 %}
+		{% for item in fields.accordion %}
+			{% set counter = counter + 1 %}
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="flush-heading_{{ id }}_{{ counter }}">
+					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse_{{ id }}_{{ counter }}" aria-expanded="false" aria-controls="flush-collapse_{{ id }}_{{ counter }}">
+						{{ item.title|striptags }}
+					</button>
+				</h2>
+				<div id="flush-collapse_{{ id }}_{{ counter }}" class="accordion-collapse collapse" aria-labelledby="flush-heading_{{ id }}_{{ counter }}" data-bs-parent="#accordionFlush{{id}}">
+					<div class="accordion-body text-content">{{ item.content|striptags('<h1><h2><h3><h4><h5><h6><p><ul><ol><li><a><button><dd><dl><dt><blockquote><figure><figcaption><img><span><hr><br><br/>') }}</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
 </div>

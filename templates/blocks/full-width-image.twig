@@ -1,11 +1,10 @@
-
 <div class="paragraph-widget paragraph-widget--full-width-image">
-    <figure class="full-width-image">
-        {% if fields.image.url %}
-            <img src="{{ fields.image.url|striptags }}" alt="{{ fields.image.alt|striptags }}">
-        {% endif %}
-        {% if fields.image_caption_toggle == true %}
-            <figcaption class="full-width-image__caption">{{ fields.image_caption|striptags }}</figcaption>
-        {% endif %}
-    </figure>
+	<figure class="full-width-image">
+		{% if fields.image.url %}
+			<img src="{{ fields.image.url|striptags }}" alt="{{ fields.image.alt|striptags }}">
+		{% endif %}
+		{% if fields.image_caption_toggle == true %}
+			<figcaption class="full-width-image__caption text-content">{{ fields.image_caption|striptags }}</figcaption>
+		{% endif %}
+	</figure>
 </div>

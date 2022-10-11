@@ -1,26 +1,25 @@
 <div class="paragraph-widget paragraph-widget--external-news-story">
-    <div class="external-news-story">
-    {% if fields.title %}
-    <h2>{{ fields.title|striptags }}</h2>
-    {% endif %}
-    <div class="external-news-story__flex-wrap">
-        <div class="external-news-story__media">
-        <img src="{{ fields.story.thumbnail.url|striptags }}" alt="{{ fields.story.thumbnail.alt|striptags }}" width="{{ fields.story.thumbnail.width|striptags }}" height="{{ fields.story.thumbnail.height|striptags }}" />
-        </div>
-        <div class="external-news-story__content">
-        {% if fields.story.headline %}<h3>{{ fields.story.headline|striptags }}</h3>{% endif %}
-        {% if fields.story.excerpt %}<p>{{fields.story.excerpt|striptags }}</p>{% endif %}
-        <div class="link-set">
-        <ul>
-            <li>
-                <a class="link-set__link iastate22-link-external" href="{{ fields.story.link.url|striptags }}" target="_blank">
-                    {{ fields.story.link.label|striptags }}
-                    <span class="arrow"></span>
-                </a>
-            </li>
-            </ul>
-        </div>
-        </div>
-    </div>
-    </div>
+	<div class="external-news-story">
+		{% if fields.title %}
+			<h2>{{ fields.title|striptags }}</h2>
+		{% endif %}
+		<div class="external-news-story__flex-wrap">
+			<div class="external-news-story__media">
+				<img src="{{ fields.story.thumbnail.url|striptags }}" alt="{{ fields.story.thumbnail.alt|striptags }}" width="{{ fields.story.thumbnail.width|striptags }}" height="{{ fields.story.thumbnail.height|striptags }}"/>
+			</div>
+			<div class="external-news-story__content text-content">
+				{% if fields.story.headline %}
+					<h3>{{ fields.story.headline|striptags }}</h3>
+				{% endif %}
+				{% if fields.story.excerpt %}
+					<p>{{fields.story.excerpt|striptags }}</p>
+				{% endif %}
+				<div class="link-set">
+					<ul>
+						<li><a class="link-set__link iastate22-link-external"href="{{ fields.story.link.url|striptags }}" target="_blank">{{ fields.story.link.label|striptags }}<span class="arrow"></span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
