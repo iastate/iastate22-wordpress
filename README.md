@@ -9,16 +9,20 @@ This theme utilizes twig for templating, and relies on the Advanced Custom Field
 Install this theme as you would any other, and be sure the Timber plugin, and ACF Plugin are activated.
 
 1. Make sure you have installed the plugin for ACF Pro.
-2. Download the zip for this theme (or install via composer) and move it to `wp-content/themes` in your WordPress installation. 
-3. Activate the theme in Appearance >  Themes.
+2. Download the zip for this theme (or install via composer) and move it to `wp-content/themes` in your WordPress installation.
+3. Activate the theme in Appearance > Themes.
 
 ### Installing via composer
 
 `composer require iastate/wordpress-theme`
 
+### Updating the frontend library
+
+`composer update iastate/frontend-component-library`
+
 ## What's here?
 
-- `inc/` is a folder for theme functions. It serves the purpose of the functions.php file in a more organized way. 
+- `inc/` is a folder for theme functions. It serves the purpose of the functions.php file in a more organized way.
 - `vendor/iastate/frontend-component-library/` is the [Iowa State Frontend Library](https://github.com/iastate/iastate22-frontend), designed for the Iowa State family of websites. This is controlled by compoiser, and should not be modified here, except for testing.
 - `wp_components/` is a Wordpress specific version of the component library. It contains styles specific to the Wordpress interface and editor, that are not a part of the ICL.
 - `templates/` contains all of your Twig templates. These pretty much correspond 1 to 1 with the PHP files that respond to the WordPress template hierarchy. At the end of each PHP template, you'll notice a `Timber::render()` function whose first parameter is the Twig file where that data (or `$context`) will be used. Just an FYI.
