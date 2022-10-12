@@ -9,19 +9,25 @@
     li {
       font-family: $typeface-sans-serif;
       font-weight: 700;
-      font-size: rem(21);
-      line-height: (40 / 21);
+      font-size: rem(16);
+      line-height: (30 / 16);
       color: $iastate-maroon;
-      width: rem(21);
+      min-width: rem(21);
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
       position: relative;
+      padding-inline: rem(3);
+      @include media-breakpoint-up(sm) {
+        padding-inline: rem(10);
+        font-size: rem(21);
+        line-height: (40 / 21);
+      }
       @include media-breakpoint-up(lg) {
         font-size: rem(30);
         line-height: (40 / 30);
-        width: rem(40);
+        min-width: rem(40);
       }
       &.disabled {
         opacity: 0.2;
@@ -103,15 +109,13 @@
           content: "";
           position: absolute;
           bottom: rem(3);
-          width: rem(22);
-          left: 50%;
-          margin-left: rem(-11);
+          width: 100%;
+          left: 0;
+          right: 0;
           border-bottom: rem(3) solid $iastate-maroon;
           opacity: 0;
           transition: 0.2s opacity ease-in-out;
           @include media-breakpoint-up(lg) {
-            width: rem(38);
-            margin-left: rem(-19);
             bottom: rem(-7);
           }
         }

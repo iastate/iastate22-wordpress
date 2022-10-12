@@ -7165,10 +7165,10 @@ html:not(.js) .nojs-close-menu {
     .pagination-block .pagination li {
       font-family: "Nimbus Sans", sans-serif;
       font-weight: 700;
-      font-size: 1.3125rem;
-      line-height: 1.90476;
+      font-size: 1rem;
+      line-height: 1.875;
       color: #7c2529;
-      width: 1.3125rem;
+      min-width: 1.3125rem;
       display: -webkit-box;
       display: flex;
       -webkit-box-align: center;
@@ -7176,12 +7176,18 @@ html:not(.js) .nojs-close-menu {
       -webkit-box-pack: center;
               justify-content: center;
       text-decoration: none;
-      position: relative; }
+      position: relative;
+      padding-inline: 0.1875rem; }
+      @media (min-width: 576px) {
+        .pagination-block .pagination li {
+          padding-inline: 0.625rem;
+          font-size: 1.3125rem;
+          line-height: 1.90476; } }
       @media (min-width: 992px) {
         .pagination-block .pagination li {
           font-size: 1.875rem;
           line-height: 1.33333;
-          width: 2.5rem; } }
+          min-width: 2.5rem; } }
       .pagination-block .pagination li.disabled {
         opacity: 0.2; }
       .pagination-block .pagination li.first a,
@@ -7250,17 +7256,15 @@ html:not(.js) .nojs-close-menu {
           content: "";
           position: absolute;
           bottom: 0.1875rem;
-          width: 1.375rem;
-          left: 50%;
-          margin-left: -0.6875rem;
+          width: 100%;
+          left: 0;
+          right: 0;
           border-bottom: 0.1875rem solid #7c2529;
           opacity: 0;
           -webkit-transition: 0.2s opacity ease-in-out;
           transition: 0.2s opacity ease-in-out; }
           @media (min-width: 992px) {
             .pagination-block .pagination li a:before {
-              width: 2.375rem;
-              margin-left: -1.1875rem;
               bottom: -0.4375rem; } }
       .pagination-block .pagination li .current {
         color: #c8102e; }
