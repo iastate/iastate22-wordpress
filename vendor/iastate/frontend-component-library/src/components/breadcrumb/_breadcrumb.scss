@@ -7,6 +7,7 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
+  font-size: 0;
 
   a {
     font-weight: 700;
@@ -33,7 +34,7 @@
   li {
     display: none;
     position: relative;
-    margin-right: rem(20);
+    margin-right: rem(24);
     &:not(:last-child) {
       &:after {
         content: "";

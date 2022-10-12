@@ -2814,7 +2814,8 @@ main {
 .iastate22-breadcrumb__list {
   list-style-type: none;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  font-size: 0; }
   .iastate22-breadcrumb__list a {
     font-weight: 700;
     font-family: "Nimbus Sans", sans-serif;
@@ -2837,7 +2838,7 @@ main {
   .iastate22-breadcrumb__list li {
     display: none;
     position: relative;
-    margin-right: 1.25rem; }
+    margin-right: 1.5rem; }
     .iastate22-breadcrumb__list li:not(:last-child):after {
       content: "";
       position: absolute;
