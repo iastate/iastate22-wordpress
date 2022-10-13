@@ -61,7 +61,7 @@ class StarterSite extends Timber\Site {
 	public function add_to_context( $context ) {
 		$defaults = array(
 			'menu'            => 'Main Menu'
-		   );
+		);
 		$context['foo']   = 'bar';
 		$context['stuff'] = 'I am a value set in your functions.php file';
 		$context['notes'] = 'These values are available everytime you call Timber::context();';
@@ -71,6 +71,7 @@ class StarterSite extends Timber\Site {
 		$context['footer_primary_menu']  = new TimberMenu("footer-primary-menu");
 		$context['footer_secondary_menu']  = new TimberMenu("footer-secondary-menu");
 		$context['footer_utility_menu']  = new TimberMenu("footer-utility-menu");
+		$context['ks_sidebar_menu']  = new TimberMenu("ks-sidebar-menu");
 		$context['options'] = get_fields('options');
 		$context['site']  = $this;
 		if (function_exists('bcn_display')) {

@@ -7,24 +7,21 @@
       <li>
         <a href="{{ function('get_permalink', rent) }}">{{ parent_title }}</a>
       </li>
-      {% for key, item in siblings %}
-      <li>
-        {% if item %}
-          <a href="{{ function('get_permalink', item.ID) }}"{% if item.ID == current %} aria-current="page"{% endif %}>{{ item.post_title }}</a>
-        {% else %}
-          <span class="lw_separator_title">{{ item.post_title }}</span>
-        {% endif %}
-        {% if childrens[key]|length > 0 %}
+      {% for link in ks_sidebar_menu.items %}
+        <li>
+          <a href="{{ link.url }}">{{ link.title }}</a>
+
+          {% if link.children|length > 0 %}
           <ul>
-            {% for subitem in childrens[key] %}
+            {% for child in link.children %}
             <li>
-              <a href="{{ function('get_permalink', subitem.ID) }}">{{ subitem.post_title }}</a>
+              <a href="{{ child.url }}">{{ child.title }}</a>
             </li>
             {% endfor %}
           </ul>
         {% endif %}
-      </li>
-    {% endfor %}
+        </li>
+      {% endfor %}
     </ul>
   </div>
 </nav>
