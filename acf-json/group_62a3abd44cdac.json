@@ -43,7 +43,7 @@
             {
                 "param": "nav_menu_item",
                 "operator": "==",
-                "value": "10"
+                "value": "location\/social-menu"
             }
         ]
     ],
@@ -56,5 +56,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1661367090
+    "modified": 1665647410
 }
