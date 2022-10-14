@@ -45,7 +45,7 @@
                     "key": "field_62a24b38819ff",
                     "label": "Quote",
                     "name": "quote",
-                    "type": "textarea",
+                    "type": "wysiwyg",
                     "instructions": "",
                     "required": 1,
                     "conditional_logic": 0,
@@ -55,10 +55,10 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": 4,
-                    "new_lines": ""
+                    "delay": 0,
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1
                 },
                 {
                     "key": "field_62a24b5a81a00",
@@ -97,7 +97,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1657642481
+    "show_in_rest": 0,
+    "modified": 1665755892
 }

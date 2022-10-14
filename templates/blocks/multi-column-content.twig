@@ -7,7 +7,7 @@
         {% for content in column.content %}
           {% for ct in content.content_type %}  
             {% if ct.acf_fc_layout == "text_content" %}
-              <p>{{ ct.text_content|striptags("<br>") }}</p>
+              <div>{{ ct.text_content }}</div>
             {% elseif ct.acf_fc_layout == "image" %}
               <img src="{{ ct.image.url|striptags }}" alt="{{ ct.image.alt|striptags }}" width="{{ ct.image.width|striptags }}" height="{{ ct.image.height|striptags }}">
             {% endif %}

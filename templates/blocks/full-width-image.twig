@@ -4,7 +4,7 @@
 			<img src="{{ fields.image.url|striptags }}" alt="{{ fields.image.alt|striptags }}">
 		{% endif %}
 		{% if fields.image_caption_toggle == true %}
-			<figcaption class="full-width-image__caption text-content">{{ fields.image_caption|striptags }}</figcaption>
+			<figcaption class="full-width-image__caption text-content">{{ fields.image_caption }}</figcaption>
 		{% endif %}
 	</figure>
 </div>

@@ -30,13 +30,13 @@
 					{% endif %}
 					<div class="carousel__slide-content">
 						{% if slide.carousel_caption %}
-							<p class="carousel__slide-content-caption">{{ slide.carousel_caption|striptags }}</p>
+							<div class="carousel__slide-content-caption">{{ slide.carousel_caption }}</div>
 						{% endif %}
 						{% if slide.title %}
 							<h3 class="carousel__slide-content-title">{{ slide.title|striptags }}</h3>
 						{% endif %}
 						{% if slide.carousel_copy %}
-							<p class="carousel__slide-content-body">{{ slide.carousel_copy|striptags }}</p>
+							<div class="carousel__slide-content-body">{{ slide.carousel_copy }}</div>
 						{% endif %}
 					</div>
 				</div>

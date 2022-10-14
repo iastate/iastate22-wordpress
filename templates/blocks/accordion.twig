@@ -12,7 +12,7 @@
 					</button>
 				</h2>
 				<div id="flush-collapse_{{ id }}_{{ counter }}" class="accordion-collapse collapse" aria-labelledby="flush-heading_{{ id }}_{{ counter }}" data-bs-parent="#accordionFlush{{id}}">
-					<div class="accordion-body text-content">{{ item.content|striptags('<h1><h2><h3><h4><h5><h6><p><ul><ol><li><a><button><dd><dl><dt><blockquote><figure><figcaption><img><span><hr><br><br/>') }}</div>
+					<div class="accordion-body text-content">{{ item.content }}</div>
 				</div>
 			</div>
 		{% endfor %}

@@ -5,7 +5,7 @@
     </div>
     <div class="feature-with-large-image__content">
         {% if fields.callout.title %}<h2>{{ fields.callout.title|striptags }}</h2>{% endif %}
-        {% if fields.callout.content %}<div class="feature-with-large-image__text">{{ fields.callout.content|striptags }}</div>{% endif %}
+        {% if fields.callout.content %}<div class="feature-with-large-image__text">{{ fields.callout.content }}</div>{% endif %}
         {% if fields.callout.link.url %}
         <div class="iastate22-button-set">
             <ul>
