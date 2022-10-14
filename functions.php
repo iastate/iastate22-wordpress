@@ -48,7 +48,7 @@ add_action( 'admin_init', 'post_options_metabox', 1 );
 add_action( 'save_post', 'save_post_options' );
 
 function post_options_metabox() {
-    add_meta_box( 'post_options', __( 'Show/Hide Author' ), 'post_options_code', 'post', 'normal', 'high' );
+    add_meta_box( 'post_options', __( 'Show/Hide Post Author' ), 'post_options_code', 'post', 'normal', 'high' );
 }
 
 function post_options_code( $post ) { 
@@ -66,7 +66,7 @@ function post_options_code( $post ) {
 		<br />
     </div>
     <div class="alignright">
-        <span class="description"><?php _e( 'This is the option which show or hide author' ); ?></span>
+        <span class="description"><?php _e( 'This shows or hides the post author, in the front end template.' ); ?></span>
     </div>
     <div class="clear"></div><?php
 }

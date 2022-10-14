@@ -3,6 +3,17 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 add_action('acf/init', 'idf_acf_init');
 
+// Register new custom block category, and add ass first item in list.
+function idf_plugin_block_categories( $categories ) {
+    $custom_isu_category = array(
+        'slug' => 'isu-blocks',
+        'title' => __( 'Iowa State Theme', 'isu-boilerplate' )
+    );
+    array_unshift( $categories, $custom_isu_category );
+    return $categories;
+}
+add_action( 'block_categories', 'idf_plugin_block_categories', 10, 2 );
+
 function idf_acf_init() {
     // if(! function_exists(" acf_register_block_type" )) {
     //     return;
@@ -21,7 +32,7 @@ function idf_acf_init() {
         'title' => __( 'Landing Hero'),
         'description' => __( 'Landing Hero Section'),
         'render_callback' => 'idf_acf_block_render_landing_hero',
-        'category' => 'custom',
+        'category' => 'isu-blocks',
         'align' => 'wide',
         'supports' => array('align' => array('wide','full' ),'multiple' => false), // wide and full are optional,
         'icon' => 'welcome-widgets-menus',
@@ -34,7 +45,7 @@ function idf_acf_init() {
         'title' => __( 'Interior Hero'),
         'description' => __( 'Interior Hero Section'),
         'render_callback' => 'idf_acf_block_render_interior_hero',
-        'category' => 'custom',
+        'category' => 'isu-blocks',
         'align' => 'wide',
         'supports' => array('align' => array('wide','full' ),'multiple' => false), // wide and full are optional,
         'icon' => 'superhero',
@@ -47,7 +58,7 @@ function idf_acf_init() {
         'title' => __( 'Text Content'),
         'description' => __( 'WYSIWYG Text Editor'),
         'render_callback' => 'idf_acf_block_render_text_content',
-        'category' => 'custom',
+        'category' => 'isu-blocks',
         'align' => 'wide',
         'icon' => 'text',
         'mode' => 'edit',
@@ -59,7 +70,7 @@ function idf_acf_init() {
         'title' => __( 'Button Set'),
         'description' => __( 'Link Buttons'),
         'render_callback' => 'idf_acf_block_render_button_set',
-        'category' => 'custom',
+        'category' => 'isu-blocks',
         'align' => 'wide',
         'icon' => 'button',
         'mode' => 'edit',
@@ -71,7 +82,7 @@ function idf_acf_init() {
         'title' => __( 'Link Set'),
         'description' => __( 'Links'),
         'render_callback' => 'idf_acf_block_render_link_set',
-        'category' => 'custom',
+        'category' => 'isu-blocks',
         'align' => 'wide',
         'icon' => 'admin-links',
         'mode' => 'edit',
@@ -83,7 +94,7 @@ function idf_acf_init() {
         'title' => __( 'Multi Column Content'),
         'description' => __( 'Content column blocks. Maximum of 3'),
         'render_callback' => 'idf_acf_block_render_multi_column_content',
-        'category' => 'custom',
+        'category' => 'isu-blocks',
         'align' => 'wide',
         'icon' => 'images-alt2',
         'mode' => 'edit',
@@ -95,7 +106,7 @@ function idf_acf_init() {
         'title' => __( 'Image Carousel'),
         'description' => __( 'A slideshow of images'),
         'render_callback' => 'idf_acf_block_render_carousel',
-        'category' => 'custom',
+        'category' => 'isu-blocks',
         'align' => 'wide',
         'icon' => 'images-alt2',
         'mode' => 'edit',
@@ -107,7 +118,7 @@ function idf_acf_init() {
         'title' => __( 'Tables'),
         'description' => __( 'A Data Table'),
         'render_callback' => 'idf_acf_block_render_table',
-        'category' => 'custom',
+        'category' => 'isu-blocks',
         'align' => 'wide',
         'icon' => 'editor-table',
         'mode' => 'edit',
@@ -119,7 +130,7 @@ function idf_acf_init() {
         'title' => __( 'Accordion'),
         'description' => __( 'A set of collapsable content areas'),
         'render_callback' => 'idf_acf_block_render_accordion',
-        'category' => 'custom',
+        'category' => 'isu-blocks',
         'align' => 'wide',
         'icon' => 'editor-justify',
         'mode' => 'edit',
@@ -131,7 +142,7 @@ function idf_acf_init() {
         'title' => __( 'Statistic with Text'),
         'description' => __( 'A split column layout with a decorative statistic option'),
         'render_callback' => 'idf_acf_block_render_statistic_with_text',
-        'category' => 'custom',
+        'category' => 'isu-blocks',
         'align' => 'wide',
         'icon' => 'analytics',
         'mode' => 'edit',
@@ -143,7 +154,7 @@ function idf_acf_init() {
         'title' => __( 'Callout with Image'),
         'description' => __( 'A decorative image side card'),
         'render_callback' => 'idf_acf_block_render_callout_with_image',
-        'category' => 'custom',
+        'category' => 'isu-blocks',
         'align' => 'wide',
         'icon' => 'embed-photo',
         'mode' => 'edit',
@@ -155,7 +166,7 @@ function idf_acf_init() {
         'title' => __( 'Callout Set'),
         'description' => __( 'A set of decorative side cards with a gray outer background'),
         'render_callback' => 'idf_acf_block_render_callout_set',
-        'category' => 'custom',
+        'category' => 'isu-blocks',
         'align' => 'wide',
         'icon' => 'embed-photo',
         'mode' => 'edit',
@@ -167,7 +178,7 @@ function idf_acf_init() {
         'title' => __( 'Image Grid with Text'),
         'description' => __( 'A set of decorative side cards with a gray outer background'),
         'render_callback' => 'idf_acf_block_render_image_grid_with_text',
-        'category' => 'custom',
+        'category' => 'isu-blocks',
         'align' => 'wide',
         'icon' => 'grid-view',
         'mode' => 'edit',
@@ -179,7 +190,7 @@ function idf_acf_init() {
         'title' => __( 'Video'),
         'description' => __( 'A video player'),
         'render_callback' => 'idf_acf_block_render_video',
-        'category' => 'custom',
+        'category' => 'isu-blocks',
         'align' => 'wide',
         'icon' => 'video-alt3',
         'mode' => 'edit',
@@ -191,7 +202,7 @@ function idf_acf_init() {
         'title' => __( 'Link Block'),
         'description' => __( 'A block with a set of links'),
         'render_callback' => 'idf_acf_block_render_link_block',
-        'category' => 'custom',
+        'category' => 'isu-blocks',
         'align' => 'wide',
         'icon' => 'admin-links',
         'mode' => 'edit',
@@ -203,7 +214,7 @@ function idf_acf_init() {
         'title' => __( 'External News Story'),
         'description' => __( 'A block display for an external news story'),
         'render_callback' => 'idf_acf_block_render_external_news_story',
-        'category' => 'custom',
+        'category' => 'isu-blocks',
         'align' => 'wide',
         'icon' => 'admin-links',
         'mode' => 'edit',
@@ -215,7 +226,7 @@ function idf_acf_init() {
         'title' => __( 'Blockquote'),
         'description' => __( 'A decorative blockquote with attribution'),
         'render_callback' => 'idf_acf_block_render_blockquote',
-        'category' => 'custom',
+        'category' => 'isu-blocks',
         'align' => 'wide',
         'icon' => 'format-quote',
         'mode' => 'edit',
@@ -227,7 +238,7 @@ function idf_acf_init() {
         'title' => __( 'Cards'),
         'description' => __( 'A set of image cards'),
         'render_callback' => 'idf_acf_block_render_cards',
-        'category' => 'custom',
+        'category' => 'isu-blocks',
         'align' => 'wide',
         'icon' => 'screenoptions',
         'mode' => 'edit',
@@ -239,7 +250,7 @@ function idf_acf_init() {
         'title' => __( 'Feature with Large Image'),
         'description' => __( 'A large image with a CTA overlay'),
         'render_callback' => 'idf_acf_block_render_feature_with_large_image',
-        'category' => 'custom',
+        'category' => 'isu-blocks',
         'align' => 'wide',
         'icon' => 'format-image',
         'mode' => 'edit',
@@ -251,7 +262,7 @@ function idf_acf_init() {
         'title' => __( 'Callout Inset'),
         'description' => __( 'A large image with a CTA overlay inset in a content area'),
         'render_callback' => 'idf_acf_block_render_callout_inset',
-        'category' => 'custom',
+        'category' => 'isu-blocks',
         'align' => 'wide',
         'icon' => 'feedback',
         'mode' => 'edit',
@@ -263,7 +274,7 @@ function idf_acf_init() {
         'title' => __( 'Call to Action, Small'),
         'description' => __( 'A small CTA banner'),
         'render_callback' => 'idf_acf_block_render_cta_small',
-        'category' => 'custom',
+        'category' => 'isu-blocks',
         'align' => 'wide',
         'icon' => 'align-wide',
         'mode' => 'edit',
@@ -275,7 +286,7 @@ function idf_acf_init() {
         'title' => __( 'Call to Action, Large'),
         'description' => __( 'A large CTA banner with a background image'),
         'render_callback' => 'idf_acf_block_render_cta_large',
-        'category' => 'custom',
+        'category' => 'isu-blocks',
         'align' => 'wide',
         'icon' => 'align-wide',
         'mode' => 'edit',
@@ -289,7 +300,7 @@ function idf_acf_init() {
             'title' => __( 'Directory'),
             'description' => __( 'Create custom listings of ISU Personal Profiles content.'),
             'render_callback' => 'idf_acf_block_render_directory',
-            'category' => 'custom',
+            'category' => 'isu-blocks',
             'align' => 'wide',
             'icon' => 'align-wide',
             'mode' => 'edit',
@@ -304,7 +315,7 @@ function idf_acf_init() {
         'description' => __( 'Full Width Image with optional lower CTA'),
         'render_callback' => 'idf_acf_block_render_full_width_image',
         'align' => 'wide',
-        'category' => 'custom',
+        'category' => 'isu-blocks',
         'icon' => 'format-image',
         'mode' => 'edit',
         'keywords' => array('Image', 'Full'),
@@ -359,60 +370,48 @@ function idf_acf_block_render_interior_hero( $block, $content = '', $is_preview 
 
 function idf_acf_block_render_text_content( $block, $content = '', $is_preview = false ) {
     $context = Timber::context();
-
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/text-content.twig', $context);
 }
 
 function idf_acf_block_render_button_set( $block, $content = '', $is_preview = false ) {
     $context = Timber::context();
-
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/button-set.twig', $context);
 }
 
 function idf_acf_block_render_link_set( $block, $content = '', $is_preview = false ) {
     $context = Timber::context();
-
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/link-set.twig', $context);
 }
 
 function idf_acf_block_render_multi_column_content( $block, $content = '', $is_preview = false ) {
     $context = Timber::context();
-
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/multi-column-content.twig', $context);
 }
 
 function idf_acf_block_render_carousel( $block, $content = '', $is_preview = false ) {
     $context = Timber::context();
-
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/carousel.twig', $context);
 }
 
 function idf_acf_block_render_table( $block, $content = '', $is_preview = false ) {
     $context = Timber::context();
-
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/table.twig', $context);
 }
@@ -421,181 +420,127 @@ function idf_acf_block_render_accordion( $block, $content = '', $is_preview = fa
     $context = Timber::context();
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/accordion.twig', $context);
 }
 
 function idf_acf_block_render_full_width_image( $block, $content = '', $is_preview = false ) {
     $context = Timber::context();
-
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/full-width-image.twig', $context);
 }
 
 function idf_acf_block_render_statistic_with_text( $block, $content = '', $is_preview = false ) {
     $context = Timber::context();
-
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/statistic-with-text.twig', $context);
 }
 function idf_acf_block_render_callout_with_image( $block, $content = '', $is_preview = false ) {
     $context = Timber::context();
-
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/callout-with-image.twig', $context);
 }
 
 function idf_acf_block_render_callout_set( $block, $content = '', $is_preview = false ) {
     $context = Timber::context();
-
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/callout-set.twig', $context);
 }
 
 function idf_acf_block_render_image_grid_with_text( $block, $content = '', $is_preview = false ) {
     $context = Timber::context();
-
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/image-grid-with-text.twig', $context);
 }
 
 function idf_acf_block_render_video( $block, $content = '', $is_preview = false ) {
     $context = Timber::context();
-
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/video.twig', $context);
 }
 
 function idf_acf_block_render_link_block( $block, $content = '', $is_preview = false ) {
     $context = Timber::context();
-
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/link-block.twig', $context);
 }
 
 function idf_acf_block_render_external_news_story( $block, $content = '', $is_preview = false ) {
     $context = Timber::context();
-
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/external-news-story.twig', $context);
 }
 
 function idf_acf_block_render_blockquote( $block, $content = '', $is_preview = false ) {
     $context = Timber::context();
-
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/blockquote.twig', $context);
 }
 
 function idf_acf_block_render_cards( $block, $content = '', $is_preview = false ) {
     $context = Timber::context();
-
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/cards.twig', $context);
 }
 
 function idf_acf_block_render_feature_with_large_image( $block, $content = '', $is_preview = false ) {
     $context = Timber::context();
-
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/feature-with-large-image.twig', $context);
 }
 
 function idf_acf_block_render_callout_inset( $block, $content = '', $is_preview = false ) {
     $context = Timber::context();
-
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/callout-inset.twig', $context);
 }
 
 function idf_acf_block_render_cta_small( $block, $content = '', $is_preview = false ) {
     $context = Timber::context();
-
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/cta-small.twig', $context);
 }
 
 function idf_acf_block_render_cta_large( $block, $content = '', $is_preview = false ) {
     $context = Timber::context();
-
     $context['block'] = $block;
     $context['fields'] = get_fields();
-    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/cta-large.twig', $context);
 }
 
 function idf_acf_block_render_directory( $block, $content = '', $is_preview = false ) {
     $context = Timber::context();
-
     $context['block'] = $block;
     $context['fields'] = get_fields();
-
-    
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/directory.twig', $context);
-}
-
-add_filter( 'block_categories_all', function($categories, $post) {
-    return array_merge(
-        $categories,
-        array(
-            array(
-                'slug' => 'custom',
-                'title' => __('Custom', 'custom'),
-                'icon' => 'wordpress',
-                'mode' => 'edit',
-            ),
-        )
-    );
-}, 10, 2);
-
-add_filter( 'render_block', 'wrap_table_block', 10, 2 );
-function wrap_table_block( $block_content, $block ) {
-  if ( 'core/table' === $block['blockName'] ) {
-    $block_content = '<div class="example">' . $block_content . '</div>';
-  }
-  return $block_content;
 }
 
 // Block Reset/Whitelist
