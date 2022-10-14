@@ -20,6 +20,7 @@
             "max": 3,
             "layout": "block",
             "button_label": "Add Column",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_62979ce55000f",
@@ -38,7 +39,8 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_62979ade5000e"
                 },
                 {
                     "key": "field_62979cfb50010",
@@ -58,6 +60,7 @@
                     "max": 2,
                     "layout": "block",
                     "button_label": "Add Content Item",
+                    "rows_per_page": 20,
                     "sub_fields": [
                         {
                             "key": "field_62979f1a50011",
@@ -83,7 +86,7 @@
                                             "key": "field_6297a52150012",
                                             "label": "Text Content",
                                             "name": "text_content",
-                                            "type": "textarea",
+                                            "type": "wysiwyg",
                                             "instructions": "",
                                             "required": 1,
                                             "conditional_logic": 0,
@@ -93,10 +96,10 @@
                                                 "id": ""
                                             },
                                             "default_value": "",
-                                            "placeholder": "",
-                                            "maxlength": "",
-                                            "rows": 5,
-                                            "new_lines": "br"
+                                            "delay": 0,
+                                            "tabs": "all",
+                                            "toolbar": "full",
+                                            "media_upload": 1
                                         }
                                     ],
                                     "min": "",
@@ -139,9 +142,11 @@
                             },
                             "button_label": "Add Content",
                             "min": 1,
-                            "max": 2
+                            "max": 2,
+                            "parent_repeater": "field_62979cfb50010"
                         }
-                    ]
+                    ],
+                    "parent_repeater": "field_62979ade5000e"
                 }
             ]
         }
@@ -161,7 +166,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1657642669
+    "show_in_rest": 0,
+    "modified": 1665717404
 }

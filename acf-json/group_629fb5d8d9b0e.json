@@ -55,7 +55,7 @@
                             "key": "field_629fb5d8dea03",
                             "label": "Grid Content",
                             "name": "content",
-                            "type": "textarea",
+                            "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -65,10 +65,10 @@
                                 "id": ""
                             },
                             "default_value": "",
-                            "placeholder": "",
-                            "maxlength": "",
-                            "rows": 4,
-                            "new_lines": "wpautop"
+                            "delay": 0,
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1
                         },
                         {
                             "key": "field_629fc64735c3b",
@@ -184,7 +184,7 @@
                             "key": "field_629fd71bfa482",
                             "label": "Image Caption",
                             "name": "image_caption",
-                            "type": "textarea",
+                            "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -194,10 +194,10 @@
                                 "id": ""
                             },
                             "default_value": "",
-                            "placeholder": "",
-                            "maxlength": "",
-                            "rows": 2,
-                            "new_lines": ""
+                            "delay": 0,
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1
                         }
                     ]
                 }
@@ -219,7 +219,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1657642609
+    "show_in_rest": 0,
+    "modified": 1665717323
 }

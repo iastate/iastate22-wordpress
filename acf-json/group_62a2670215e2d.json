@@ -64,7 +64,7 @@
                     "key": "field_62a267021b3c8",
                     "label": "Callout Content",
                     "name": "content",
-                    "type": "textarea",
+                    "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -74,10 +74,10 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "",
-                    "maxlength": 300,
-                    "rows": 4,
-                    "new_lines": "wpautop"
+                    "delay": 0,
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1
                 },
                 {
                     "key": "field_62a267021d89b",
@@ -121,5 +121,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1660760478
+    "modified": 1665716949
 }

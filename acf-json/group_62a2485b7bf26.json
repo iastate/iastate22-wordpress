@@ -83,7 +83,7 @@
                     "key": "field_62a248e3752b8",
                     "label": "Excerpt",
                     "name": "excerpt",
-                    "type": "textarea",
+                    "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -93,10 +93,10 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": 2,
-                    "new_lines": ""
+                    "delay": 0,
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1
                 },
                 {
                     "key": "field_62a248f3752b9",
@@ -168,7 +168,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1657642548
+    "show_in_rest": 0,
+    "modified": 1665717066
 }
