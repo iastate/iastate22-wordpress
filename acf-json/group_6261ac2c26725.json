@@ -53,7 +53,7 @@
             "key": "field_6261ac2c31caf",
             "label": "Caption",
             "name": "media_caption",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 1,
             "conditional_logic": [
@@ -71,10 +71,10 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
+            "delay": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1
         }
     ],
     "location": [
@@ -95,5 +95,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1660774194
+    "modified": 1665756266
 }

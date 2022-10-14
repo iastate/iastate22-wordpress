@@ -4,7 +4,7 @@
         <img src="{{ fields.callout_image.url }}" alt="{{ fields.callout_image.alt }}" width="{{ fields.callout_image.width }}" height="{{ fields.callout_image.height }}" />
     </div>
     <div class="call-to-action__copy-wrap">
-        <h2 class="call-to-action__headline">{{ fields.callout_content.title }}</h2>
+        <h2 class="call-to-action__headline">{{ fields.callout_content.title|striptags }}</h2>
         <div>{{ fields.callout_content.content }}</div>
         <div class="iastate22-button-set">
             <ul>
