@@ -1,37 +1,3 @@
-{# <div class="paragraph-widget paragraph-widget--callout-with-image">
-    <div class="callout-with-image">
-    <div class="callout-with-image__media">
-        <img src="{{ fields.callout_with_image.callout_image.url }}" alt="{{ fields.callout_with_image.callout_image.title }}" width="622" height="414" />
-    </div>
-    <div class="callout-with-image__content text-content">
-        <h2>{{ fields.callout_with_image.callout_content.title }}</h2>
-        {{ fields.callout_with_image.callout_content.content }}
-        {% if fields.callout_with_image.callout_content.callout_ctas %}
-        <div class="link-set">
-            <ul>
-                {% for item in fields.callout_with_image.callout_content.callout_ctas %}
-                <li>
-                {% if item.link_style == "button" %}
-                    {% set linkClass = "link-set__link iastate22-button" %}
-                {% elseif item.link_style == "standard" %}
-                    {% set linkClass = "link-set__link iastate22-link-secondary" %}
-                {% elseif item.link_style == "external" %}
-                    {% set linkClass = "link-set__link iastate22-link-external" %}
-                {% elseif item.link_style == "minimal" %}
-                    {% set linkClass = "link-set__link link-tertiary" %}
-                {% endif %}
-                    <a class="{{ linkClass }}" href="{{ item.link_url }}"{% if item.link_style == "external" %} target="_blank"{% endif %}>
-                        {{ item.label }}
-                        <span class="arrow"></span>
-                    </a>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
-        {% endif %}
-    </div>
-    </div>
-</div> #}
 <div class="paragraph-widget paragraph-widget--callout-set">
 	<div class="callout-set">
 		<ul>
@@ -40,15 +6,15 @@
 					<div class="iastate22-callout{% if callout.callout_image %}{% else %} iastate22-callout--no-image{% endif %}">
 						{% if callout.callout_image %}
 							<div class="iastate22-callout__media">
-								<img src="{{ callout.callout_image.url|striptags }}" alt="{{ callout.callout_image.title|striptags }}" width="622" height="414"/>
+								<img src="{{ callout.callout_image.url }}" alt="{{ callout.callout_image.title }}" width="622" height="414"/>
 							</div>
 						{% endif %}
 						<div class="iastate22-callout__content text-content">
 							{% if callout.callout_content.title %}
-								<h3>{{callout.callout_content.title|striptags }}</h3>
+								<h3>{{callout.callout_content.title }}</h3>
 							{% endif %}
 							{% if callout.callout_content.content %}
-								<div>{{callout.callout_content.content|striptags }}</div>
+								<div>{{callout.callout_content.content }}</div>
 							{% endif %}
 							{% if callout.callout_content.callout_ctas %}
 								<div class="link-set">
@@ -64,8 +30,8 @@
 												{% elseif item.link_style == "minimal" %}
 													{% set linkClass = "link-set__link link-tertiary" %}
 												{% endif %}
-												<a class="{{ linkClass }}" href="{{ item.link_url|striptags }}" {% if item.link_style == "external" %} target="_blank" {% endif %}>
-													{{ item.label|striptags }}
+												<a class="{{ linkClass }}" href="{{ item.link_url }}" {% if item.link_style == "external" %} target="_blank" {% endif %}>
+													{{ item.label }}
 													<span class="arrow"></span>
 												</a>
 											</li>

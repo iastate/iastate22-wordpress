@@ -14,7 +14,7 @@
     <div class="ecosystem-home-hero__content">
       <h1 class="ecosystem-home-hero__title">
         {% if fields.hero_title|length > 0 %}
-          {{ fields.hero_title|striptags }}
+          {{ fields.hero_title }}
         {% else %}
           {% set title = "" %}
           {% for post in posts %}
@@ -28,7 +28,7 @@
           <ul>
             {% for button in fields.buttons %}
               <li>
-                <a class="iastate22-button" href="{{ button.url|striptags }}">{{ button.label|striptags }}<span class="arrow"></span></a>
+                <a class="iastate22-button" href="{{ button.url }}">{{ button.label }}<span class="arrow"></span></a>
               </li>
             {% endfor %}
           </ul>
@@ -40,9 +40,9 @@
 
   {% else %}
   <div class="ecosystem-home-hero__media">
-    <img src="{{ fields.hero_image.hero_image.url|striptags }}" alt="{{ fields.hero_image.hero_image.alt|striptags }}" width="{{ fields.hero_image.hero_image.width|striptags }}" height="{{ fields.hero_image.hero_image.height|striptags }}">
+    <img src="{{ fields.hero_image.hero_image.url }}" alt="{{ fields.hero_image.hero_image.alt }}" width="{{ fields.hero_image.hero_image.width }}" height="{{ fields.hero_image.hero_image.height }}">
     {% if fields.ecosystem == "video" %}
-      <div class="ecosystem-home-hero__video" aria-label="YouTube Video: {{ fields.video.video_title|striptags }}" data-vid="{{ fields.video.youtube_video_id|striptags }}"></div>
+      <div class="ecosystem-home-hero__video" aria-label="YouTube Video: {{ fields.video.video_title }}" data-vid="{{ fields.video.youtube_video_id }}"></div>
     {% endif %}
   </div>
   {% endif %}
@@ -50,7 +50,7 @@
   <div class="ecosystem-home-hero__content">
     <h1 class="ecosystem-home-hero__title">
         {% if fields.hero_title|length > 0 %}
-          {{ fields.hero_title|striptags }}
+          {{ fields.hero_title }}
         {% else %}
           {% set title = "" %}
           {% for post in posts %}
@@ -64,7 +64,7 @@
         <ul>
           {% for button in fields.buttons %}
             <li>
-              <a class="iastate22-button" href="{{ button.url|striptags }}">{{ button.label|striptags }}<span class="arrow"></span></a>
+              <a class="iastate22-button" href="{{ button.url }}">{{ button.label }}<span class="arrow"></span></a>
             </li>
           {% endfor %}
         </ul>

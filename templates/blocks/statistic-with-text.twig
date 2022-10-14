@@ -1,12 +1,12 @@
 <div class="paragraph-widget paragraph-widget--statistic-with-text">
     <div class="statistic-with-text">
         <div class="statistic">
-            {% if fields.statistics_label %}<h2 class="statistics__label">{{ fields.statistics_label|striptags }}</h2>{% endif %}
+            {% if fields.statistics_label %}<h2 class="statistics__label">{{ fields.statistics_label }}</h2>{% endif %}
             <ul>
                 {% for statistic in fields.statistics_content.statistics %}
                 <li>
-                    <h3 class="statistic__title">{{ statistic.statistic|striptags }}</h3>
-                    <p class="statistic__text">{{ statistic.text|striptags }}</p>
+                    <h3 class="statistic__title">{{ statistic.statistic }}</h3>
+                    <p class="statistic__text">{{ statistic.text }}</p>
                 </li>
                 {% endfor %}
             </ul>

@@ -2,22 +2,22 @@
 	<div class="video-embed">
 		<div class="video-embed__media-wrap">
 			{% if fields.video.video.poster_image.url %}
-				<img src="{{ fields.video.video.poster_image.url|striptags }}" alt="{{ fields.video.video.poster_image.alt|striptags }}" width="{{ fields.video.video.poster_image.width|striptags }}" height="{{ fields.video.video.poster_image.height|striptags }}"/>
+				<img src="{{ fields.video.video.poster_image.url }}" alt="{{ fields.video.video.poster_image.alt }}" width="{{ fields.video.video.poster_image.width }}" height="{{ fields.video.video.poster_image.height }}"/>
 			{% else %}
 				{% if fields.video.video.source == "youtube" %}
-					<img src="https://img.youtube.com/vi/{{ fields.video.video.youtube_video_id|striptags }}/maxresdefault.jpg" alt="Video Poster">
+					<img src="https://img.youtube.com/vi/{{ fields.video.video.youtube_video_id }}/maxresdefault.jpg" alt="Video Poster">
 				{% elseif fields.video.video.source == "vimeo" %}
-					<img src="https://vumbnail.com/{{ fields.video.video.vimeo_video_id|striptags }}.jpg" alt="Video Poster">
+					<img src="https://vumbnail.com/{{ fields.video.video.vimeo_video_id }}.jpg" alt="Video Poster">
 				{% endif %}
 			{% endif %}
 			{% if fields.video.video.source == "youtube" %}
-				<div class="video-embed__video" aria-label="YouTube Video: {{ fields.video.video.title|striptags }}" data-vid="{{ fields.video.video.youtube_video_id|striptags }}"></div>
+				<div class="video-embed__video" aria-label="YouTube Video: {{ fields.video.video.title }}" data-vid="{{ fields.video.video.youtube_video_id }}"></div>
 			{% elseif fields.video.video.source == "vimeo" %}
-				<div data-vimeo-id="{{ fields.video.video.vimeo_video_id|striptags }}" class="video--vim"></div>
+				<div data-vimeo-id="{{ fields.video.video.vimeo_video_id }}" class="video--vim"></div>
 			{% endif %}
 		</div>
 		{% if fields.media_caption_toggle == true %}
-			<div class="video-embed__caption">{{ fields.media_caption|striptags }}</div>
+			<div class="video-embed__caption">{{ fields.media_caption }}</div>
 		{% endif %}
 	</div>
 </div>
