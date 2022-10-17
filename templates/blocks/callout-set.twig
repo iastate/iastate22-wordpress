@@ -45,10 +45,10 @@
 						{% endif %}
 						<div class="iastate22-callout__content text-content">
 							{% if callout.callout_content.title %}
-								<h3>{{callout.callout_content.title|striptags }}</h3>
+								<h3>{{ callout.callout_content.title|striptags }}</h3>
 							{% endif %}
 							{% if callout.callout_content.content %}
-								<div>{{callout.callout_content.content|striptags }}</div>
+								<div>{{ callout.callout_content.content }}</div>
 							{% endif %}
 							{% if callout.callout_content.callout_ctas %}
 								<div class="link-set">

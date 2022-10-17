@@ -20,6 +20,7 @@
             "max": 0,
             "layout": "row",
             "button_label": "Add Carousel Item",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_62fe5f0b3acdc",
@@ -44,7 +45,8 @@
                     "ui": 0,
                     "return_format": "value",
                     "ajax": 0,
-                    "placeholder": ""
+                    "placeholder": "",
+                    "parent_repeater": "field_6297d5809a94a"
                 },
                 {
                     "key": "field_6297d5b79a94b",
@@ -76,7 +78,8 @@
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "",
+                    "parent_repeater": "field_6297d5809a94a"
                 },
                 {
                     "key": "field_62fe604fd1da3",
@@ -105,13 +108,14 @@
                     "display": "group",
                     "layout": "block",
                     "prefix_label": 0,
-                    "prefix_name": 0
+                    "prefix_name": 0,
+                    "parent_repeater": "field_6297d5809a94a"
                 },
                 {
                     "key": "field_6297d5e29a94c",
                     "label": "Carousel Caption",
                     "name": "carousel_caption",
-                    "type": "textarea",
+                    "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -121,10 +125,11 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": 3,
-                    "new_lines": ""
+                    "delay": 0,
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1,
+                    "parent_repeater": "field_6297d5809a94a"
                 },
                 {
                     "key": "field_6297d9d5d9dc9",
@@ -143,13 +148,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_6297d5809a94a"
                 },
                 {
                     "key": "field_6297d9e2d9dca",
                     "label": "Carousel Copy",
                     "name": "carousel_copy",
-                    "type": "textarea",
+                    "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -159,10 +165,11 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": "",
-                    "new_lines": ""
+                    "delay": 0,
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1,
+                    "parent_repeater": "field_6297d5809a94a"
                 }
             ]
         }
@@ -185,5 +192,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1660838028
+    "modified": 1665986383
 }
