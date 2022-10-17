@@ -7,20 +7,20 @@
 						<div class="iastate22-card clickable">
 							{% if card.card.image %}
 								<div class="iastate22-card__media">
-									<img src="{{ card.card.image.url|striptags }}" alt="{{ card.card.image.alt|striptags }}" width="{{ card.card.image.width|striptags }}" height="{{ card.card.image.height|striptags }}">
+									<img src="{{ card.card.image.url }}" alt="{{ card.card.image.alt }}" width="{{ card.card.image.width }}" height="{{ card.card.image.height }}">
 								</div>
 							{% endif %}
 							<div class="iastate22-card__content">
 								{% if card.card.title %}
 									<h2 class="iastate22-card__title">
-										<a href="{{ card.card.link.url|striptags }}">{{ card.card.title|striptags }}</a>
+										<a href="{{ card.card.link.url }}">{{ card.card.title }}</a>
 									</h2>
 								{% endif %}
 								<div class="iastate22-card__body text-content">
-									{{ card.card.content|striptags }}
+									{{ card.card.content }}
 								</div>
 								{% if card.card.link.url and card.card.link.label and card.card.link_toggle == "true" %}
-									<a href="{{ card.card.link.url|striptags }}" class="iastate22-card__cta">{{ card.card.link.label|striptags }}</a>
+									<a href="{{ card.card.link.url }}" class="iastate22-card__cta">{{ card.card.link.label }}</a>
 								{% endif %}
 							</div>
 						</div>
@@ -28,11 +28,11 @@
 						<div class="iastate22-card iastate22-card--linked-image">
 							{% if card.card.image %}
 								<div class="iastate22-card__media">
-									<img src="{{ card.card.image.url|striptags }}" alt="">
+									<img src="{{ card.card.image.url }}" alt="">
 								</div>
 							{% endif %}
 							{% if card.card.link.url and card.card.link.label %}
-								<a class="iastate22-card__cta" href="{{ card.card.link.url|striptags }}">{{ card.card.link.label|striptags }}<span class="arrow"></span>
+								<a class="iastate22-card__cta" href="{{ card.card.link.url }}">{{ card.card.link.label }}<span class="arrow"></span>
 								</a>
 							{% endif %}
 						</div>
@@ -41,7 +41,7 @@
 						<div class="iastate22-card iastate22-card--profile-with-modal" {% if clickable is defined %} data-clickable="{{ clickable }}" {% endif %}>
 							{% if card.card.image %}
 								<div class="iastate22-card__media">
-									<img src="{{ card.card.image.url|striptags }}" alt="" loading="lazy" width="600" height="600">
+									<img src="{{ card.card.image.url }}" alt="" loading="lazy" width="600" height="600">
 								</div>
 							{% endif %}
 							<div class="iastate22-card__content">
@@ -63,7 +63,7 @@
 											</button>
 											<div class="iastate22-modal__media-name-wrap">
 												<div class="iastate22-modal__media">
-													<img src="{{ modal.modal_image.url|striptags }}" alt="" loading="lazy" width="207" height="197">
+													<img src="{{ modal.modal_image.url }}" alt="" loading="lazy" width="207" height="197">
 												</div>
 												<div class="iastate22-modal__name-role-wrap">
 													<div class="iastate22-card__name">

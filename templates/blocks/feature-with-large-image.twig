@@ -1,7 +1,7 @@
 <div class="paragraph-widget paragraph-widget--feature-with-large-image">
     <div class="feature-with-large-image">
     <div class="feature-with-large-image__media">
-        <img src="{{ fields.image.url|striptags }}" alt="{{ fields.image.alt|striptags }}" width="{{ fields.image.width|striptags }}" height="{{ fields.image.height|striptags }}" />
+        <img src="{{ fields.image.url }}" alt="{{ fields.image.alt }}" width="{{ fields.image.width }}" height="{{ fields.image.height }}" />
     </div>
     <div class="feature-with-large-image__content">
         {% if fields.callout.title %}<h2>{{ fields.callout.title|striptags }}</h2>{% endif %}
@@ -10,7 +10,7 @@
         <div class="iastate22-button-set">
             <ul>
                 <li>
-                    <a class="iastate22-button" href="{{ fields.callout.link.url|striptags }}">{{ fields.callout.link.label|striptags }}<span class="arrow"></span></a>
+                    <a class="iastate22-button" href="{{ fields.callout.link.url }}">{{ fields.callout.link.label }}<span class="arrow"></span></a>
                 </li>
             </ul>
         </div>

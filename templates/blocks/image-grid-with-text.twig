@@ -7,7 +7,7 @@
             <div class="iastate22-button-set">
                 <ul>
                     <li>
-                        <a class="iastate22-button" href="{{ fields.image_grid_with_text.grid_content.link_url|striptags }}"{% if fields.image_grid_with_text.grid_content.external == true %} target="_blank"{% endif %}>{{ fields.image_grid_with_text.grid_content.label|striptags }}<span class="arrow"></span></a>
+                        <a class="iastate22-button" href="{{ fields.image_grid_with_text.grid_content.link_url }}"{% if fields.image_grid_with_text.grid_content.external == true %} target="_blank"{% endif %}>{{ fields.image_grid_with_text.grid_content.label }}<span class="arrow"></span></a>
                     </li>
                 </ul>
             </div>
@@ -16,17 +16,17 @@
     <div class="image-grid">
         {% if fields.image_grid_with_text.image_grid.main_image.url %}
             <div class="image-grid__image">
-                <img src="{{ fields.image_grid_with_text.image_grid.main_image.url|striptags }}" alt="" width="627" height="418" />
+                <img src="{{ fields.image_grid_with_text.image_grid.main_image.url }}" alt="" width="627" height="418" />
             </div>
         {% endif %}
         {% if fields.image_grid_with_text.image_grid.left_image.url %}
             <div class="image-grid__image">
-                <img src="{{ fields.image_grid_with_text.image_grid.left_image.url|striptags }}" alt="" width="303" height="202" />
+                <img src="{{ fields.image_grid_with_text.image_grid.left_image.url }}" alt="" width="303" height="202" />
             </div>
         {% endif %}
         {% if fields.image_grid_with_text.image_grid.right_image.url %}
             <div class="image-grid__image">
-                <img src="{{ fields.image_grid_with_text.image_grid.right_image.url|striptags }}" alt="" width="303" height="202" />
+                <img src="{{ fields.image_grid_with_text.image_grid.right_image.url }}" alt="" width="303" height="202" />
             </div>
         {% endif %}
         {% if fields.image_grid_with_text.image_grid.image_caption %}<div class="image-grid__caption">{{fields.image_grid_with_text.image_grid.image_caption }}</div>{% endif %}

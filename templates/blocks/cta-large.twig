@@ -1,7 +1,7 @@
 <div class="paragraph-widget paragraph-widget--call-to-action--large">
     <div class="call-to-action call-to-action--large">
     <div class="call-to-action__media">
-        <img src="{{ fields.callout_image.url|striptags }}" alt="{{ fields.callout_image.alt|striptags }}" width="{{ fields.callout_image.width|striptags }}" height="{{ fields.callout_image.height|striptags }}" />
+        <img src="{{ fields.callout_image.url }}" alt="{{ fields.callout_image.alt }}" width="{{ fields.callout_image.width }}" height="{{ fields.callout_image.height }}" />
     </div>
     <div class="call-to-action__copy-wrap">
         <h2 class="call-to-action__headline">{{ fields.callout_content.title|striptags }}</h2>
@@ -9,7 +9,7 @@
         <div class="iastate22-button-set">
             <ul>
                 <li>
-                    <a class="iastate22-button" href="{{ fields.callout_content.link_url|striptags }}">{{ fields.callout_content.label|striptags }}<span class="arrow"></span></a>
+                    <a class="iastate22-button" href="{{ fields.callout_content.link_url }}">{{ fields.callout_content.label }}<span class="arrow"></span></a>
                 </li>
             </ul>
         </div>
