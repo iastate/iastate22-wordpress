@@ -4316,6 +4316,8 @@ main {
       font-size: 1rem;
       line-height: 1.8125;
       font-weight: 700; }
+    .call-to-action--large .call-to-action__copy-wrap ul {
+      color: #ffffff; }
   .call-to-action--large .iastate22-button-set {
     margin-top: 1.5625rem; }
 
