@@ -20,6 +20,7 @@
             "max": 0,
             "layout": "block",
             "button_label": "Add New Card",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_62a2525686d33",
@@ -178,7 +179,7 @@
                             "key": "field_62a2511790114",
                             "label": "Card Copy",
                             "name": "content",
-                            "type": "textarea",
+                            "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": [
@@ -196,10 +197,10 @@
                                 "id": ""
                             },
                             "default_value": "",
-                            "placeholder": "",
-                            "maxlength": "",
-                            "rows": 4,
-                            "new_lines": ""
+                            "delay": 0,
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1
                         },
                         {
                             "key": "field_62c48f1c80839",
@@ -460,7 +461,8 @@
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    "parent_repeater": "field_62a2507990110"
                 }
             ]
         }
@@ -483,5 +485,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1662048600
+    "modified": 1666057520
 }
