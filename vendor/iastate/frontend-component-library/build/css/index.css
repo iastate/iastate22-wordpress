@@ -4318,6 +4318,8 @@ main {
       font-weight: 700; }
     .call-to-action--large .call-to-action__copy-wrap ul {
       color: #ffffff; }
+    .call-to-action--large .call-to-action__copy-wrap.text-content ul li:before {
+      color: #ffffff; }
   .call-to-action--large .iastate22-button-set {
     margin-top: 1.5625rem; }
 

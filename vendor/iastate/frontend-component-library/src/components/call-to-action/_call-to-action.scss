@@ -141,6 +141,10 @@
     ul {
       color: $white;
     }
+
+    &.text-content ul li:before {
+      color: $white;
+    }
   }
   .iastate22-button-set {
     margin-top: rem(25);
