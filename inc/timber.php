@@ -157,7 +157,7 @@ class StarterSite extends Timber\Site {
 		wp_enqueue_style( 'screen', get_stylesheet_directory_uri() . '/vendor/iastate/frontend-component-library/build/css/index.css', array(), '0.0.1', 'screen' );
 		wp_enqueue_style( 'wp_only', get_stylesheet_directory_uri() . '/wp_components/build/css/index.css', array(), '0.0.1', 'screen' );
 		wp_enqueue_style( 'printcss', get_stylesheet_directory_uri() . '/vendor/iastate/frontend-component-library/build/css/print.css', array(), '0.0.1', 'print' );
-		wp_enqueue_style( 'default', get_stylesheet_directory_uri() . '/style.css', array(), '' );
+		wp_enqueue_style( 'default', get_template_directory_uri() . '/style.css', array(), '' );
 	}
 	function load_scripts() {
 		wp_enqueue_script( 'main', get_stylesheet_directory_uri() . '/vendor/iastate/frontend-component-library/build/js/index.js', array(), '1.0.0', true );

@@ -20,7 +20,19 @@ Install this theme as you would any other, and be sure the Timber plugin, and AC
 
 `composer update iastate/frontend-component-library`
 
-## What's here?
+## Development
+
+### Versioning
+
+Releases for this project should follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+Steps when releasing:
+
+- Update style.css with the new release version, ie `1.0.1`.
+- Commit (or merge) and push master to origin.
+- Tag `1.0.1` (the new release version), and push to origin. The tag is what composer uses to define a new release.
+
+### What's here?
 
 - `inc/` is a folder for theme functions. It serves the purpose of the functions.php file in a more organized way.
 - `vendor/iastate/frontend-component-library/` is the [Iowa State Frontend Library](https://github.com/iastate/iastate22-frontend), designed for the Iowa State family of websites. This is controlled by compoiser, and should not be modified here, except for testing.
@@ -29,7 +41,7 @@ Install this theme as you would any other, and be sure the Timber plugin, and AC
 - `acf_json/` is a json copy of the custom ACF data fields, they're used for syncronization across development environments.
 - `bin/` and `tests/` ... basically don't worry about (or remove) these unless you know what they are and want to.
 
-## Other Resources
+### Other Resources
 
 - The [main Timber Wiki](https://github.com/jarednova/timber/wiki) is super great, so reference those often. Also, check out these articles and projects for more info:
 - [This branch](https://github.com/laras126/timber-starter-theme/tree/tackle-box) of the starter theme has some more example code with ACF and a slightly different set up.
