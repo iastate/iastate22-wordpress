@@ -82,10 +82,6 @@
 .call-to-action--large {
   position: relative;
 
-  @include media-breakpoint-up(lg) {
-    min-height: rem(550);
-  }
-
   .call-to-action__media {
     @extend %responsive-img;
 
@@ -93,39 +89,31 @@
       padding-top: 37.44%;
     }
   }
-  .call-to-action__media {
-    @include media-breakpoint-up(lg) {
-      position: absolute;
-      height: calc(100% - 80px);
-      min-height: rem(550);
-      top: rem(30);
-      width: 100%;
-    }
-    @include media-breakpoint-up(xl) {
-      height: calc(100% - 130px);
-      top: rem(50);
-    }
-  }
   .call-to-action__copy-wrap {
     background-color: $iastate-red;
     padding: rem(55) rem(36) rem(40);
     position: relative;
     @include media-breakpoint-up(lg) {
-      margin-top: rem(-30);
-      margin-left: auto;
+      position: absolute;
+      top: rem(-30);
+      right: 0;
       width: 40%;
       max-width: rem(520);
       padding: rem(25) rem(45);
+      max-height: 41.5vw;
+      overflow: hidden;
     }
     @include media-breakpoint-up(xl) {
-      margin-bottom: rem(-80);
-      margin-right: rem(40);
-      margin-top: rem(-50);
+      right: rem(40);
       padding: rem(40) rem(90) rem(30);
     }
     @include media-breakpoint-up(xxl) {
-      margin-right: rem(82);
+      right: rem(82);
       padding: rem(64) rem(83) rem(20);
+      max-height: rem(600);
+    }
+    @media (min-width: 1600px) {
+      max-height: rem(660);
     }
 
     &:before {
@@ -154,14 +142,6 @@
       font-size: rem(16);
       line-height: (29 / 16);
       font-weight: 700;
-    }
-
-    ul {
-      color: $white;
-    }
-
-    &.text-content ul li:before {
-      color: $white;
     }
   }
   .iastate22-button-set {

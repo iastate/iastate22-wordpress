@@ -4274,43 +4274,34 @@ main {
 
 .call-to-action--large {
   position: relative; }
-  @media (min-width: 992px) {
-    .call-to-action--large {
-      min-height: 34.375rem; } }
   .call-to-action--large .call-to-action__media:before {
     padding-top: 37.44%; }
-  @media (min-width: 992px) {
-    .call-to-action--large .call-to-action__media {
-      position: absolute;
-      height: calc(100% - 80px);
-      min-height: 34.375rem;
-      top: 1.875rem;
-      width: 100%; } }
-  @media (min-width: 1200px) {
-    .call-to-action--large .call-to-action__media {
-      height: calc(100% - 130px);
-      top: 3.125rem; } }
   .call-to-action--large .call-to-action__copy-wrap {
     background-color: #c8102e;
     padding: 3.4375rem 2.25rem 2.5rem;
     position: relative; }
     @media (min-width: 992px) {
       .call-to-action--large .call-to-action__copy-wrap {
-        margin-top: -1.875rem;
-        margin-left: auto;
+        position: absolute;
+        top: -1.875rem;
+        right: 0;
         width: 40%;
         max-width: 32.5rem;
-        padding: 1.5625rem 2.8125rem; } }
+        padding: 1.5625rem 2.8125rem;
+        max-height: 41.5vw;
+        overflow: hidden; } }
     @media (min-width: 1200px) {
       .call-to-action--large .call-to-action__copy-wrap {
-        margin-bottom: -5rem;
-        margin-right: 2.5rem;
-        margin-top: -3.125rem;
+        right: 2.5rem;
         padding: 2.5rem 5.625rem 1.875rem; } }
     @media (min-width: 1400px) {
       .call-to-action--large .call-to-action__copy-wrap {
-        margin-right: 5.125rem;
-        padding: 4rem 5.1875rem 1.25rem; } }
+        right: 5.125rem;
+        padding: 4rem 5.1875rem 1.25rem;
+        max-height: 37.5rem; } }
+    @media (min-width: 1600px) {
+      .call-to-action--large .call-to-action__copy-wrap {
+        max-height: 41.25rem; } }
     .call-to-action--large .call-to-action__copy-wrap:before {
       content: "";
       border-bottom: 0.5rem solid #f1be48;
@@ -4331,10 +4322,6 @@ main {
       font-size: 1rem;
       line-height: 1.8125;
       font-weight: 700; }
-    .call-to-action--large .call-to-action__copy-wrap ul {
-      color: #ffffff; }
-    .call-to-action--large .call-to-action__copy-wrap.text-content ul li:before {
-      color: #ffffff; }
   .call-to-action--large .iastate22-button-set {
     margin-top: 1.5625rem; }
 
