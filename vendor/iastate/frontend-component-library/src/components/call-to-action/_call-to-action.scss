@@ -82,6 +82,10 @@
 .call-to-action--large {
   position: relative;
 
+  @include media-breakpoint-up(lg) {
+    min-height: rem(550);
+  }
+
   .call-to-action__media {
     @extend %responsive-img;
 
@@ -93,6 +97,7 @@
     @include media-breakpoint-up(lg) {
       position: absolute;
       height: calc(100% - 80px);
+      min-height: rem(550);
       top: rem(30);
       width: 100%;
     }

@@ -4274,12 +4274,16 @@ main {
 
 .call-to-action--large {
   position: relative; }
+  @media (min-width: 992px) {
+    .call-to-action--large {
+      min-height: 34.375rem; } }
   .call-to-action--large .call-to-action__media:before {
     padding-top: 37.44%; }
   @media (min-width: 992px) {
     .call-to-action--large .call-to-action__media {
       position: absolute;
       height: calc(100% - 80px);
+      min-height: 34.375rem;
       top: 1.875rem;
       width: 100%; } }
   @media (min-width: 1200px) {
