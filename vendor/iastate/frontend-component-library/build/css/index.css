@@ -4276,25 +4276,36 @@ main {
   position: relative; }
   .call-to-action--large .call-to-action__media:before {
     padding-top: 37.44%; }
+  @media (min-width: 992px) {
+    .call-to-action--large .call-to-action__media {
+      position: absolute;
+      height: calc(100% - 80px);
+      top: 1.875rem;
+      width: 100%; } }
+  @media (min-width: 1200px) {
+    .call-to-action--large .call-to-action__media {
+      height: calc(100% - 130px);
+      top: 3.125rem; } }
   .call-to-action--large .call-to-action__copy-wrap {
     background-color: #c8102e;
     padding: 3.4375rem 2.25rem 2.5rem;
     position: relative; }
     @media (min-width: 992px) {
       .call-to-action--large .call-to-action__copy-wrap {
-        position: absolute;
-        top: -1.875rem;
-        right: 0;
+        margin-top: -1.875rem;
+        margin-left: auto;
         width: 40%;
         max-width: 32.5rem;
         padding: 1.5625rem 2.8125rem; } }
     @media (min-width: 1200px) {
       .call-to-action--large .call-to-action__copy-wrap {
-        right: 2.5rem;
+        margin-bottom: -5rem;
+        margin-right: 2.5rem;
+        margin-top: -3.125rem;
         padding: 2.5rem 5.625rem 1.875rem; } }
     @media (min-width: 1400px) {
       .call-to-action--large .call-to-action__copy-wrap {
-        right: 5.125rem;
+        margin-right: 5.125rem;
         padding: 4rem 5.1875rem 1.25rem; } }
     .call-to-action--large .call-to-action__copy-wrap:before {
       content: "";
