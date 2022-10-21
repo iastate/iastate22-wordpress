@@ -6,7 +6,7 @@
   {% endif %}
   <div class="iastate22-callout__content text-content">
     <h3>{{title}}</h3>
-    <div>{{body_copy|raw}}</div>
+    {% if body_copy %}<div>{{body_copy|raw}}</div>{% endif %}
     {% include "@link-set" with link_set %}
   </div>
 </div>
