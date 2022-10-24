@@ -10,8 +10,14 @@
 							{% include ['templates/partial/breadcrumbs.twig'] %}
 							<h1 class="hero__title">{{ post.title }}</h1>
 						</div>
-
-						{% if post.thumbnail %}
+						
+						{% if post.meta("use_featured_image_as_hero") == "false" %}
+							{% if post.hero_image %}
+							<div class="hero__media">
+								<img src="{{ Image(post.hero_image).src|resize(2000, 500) }}" alt="{{ Image(post.hero_image).alt }}">
+							</div>
+							{% endif %}
+						{% else %}
 							<div class="hero__media">
 								<img src="{{ post.thumbnail.src|resize(2000, 500) }}">
 							</div>
@@ -22,7 +28,8 @@
 								{% if show_author == true %}
 									<span>By </span><a href="{{post.author.path}}" class="link-set__link link-tertiary"> {{ post.author.name }} </a><span> &bull;</span> 
 								{% endif %}
-									{{ post.date }}</i>
+								{{ post.date }}
+							</i>
 						</div>
 					</div>
 					<div class="article-body">

@@ -45,6 +45,10 @@
   @include media-breakpoint-up(xxl) {
     width: 50%;
   }
+
+  img {
+    width: 100%;
+  }
 }
 
 .site-footer__social-links-wrap {
