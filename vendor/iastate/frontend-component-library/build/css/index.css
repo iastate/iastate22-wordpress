@@ -5120,6 +5120,8 @@ https://flickity.metafizzy.co
   @media (min-width: 1400px) {
     .site-footer__logo {
       width: 50%; } }
+  .site-footer__logo img {
+    width: 100%; }
 
 @media (min-width: 1200px) {
   .site-footer__social-links-wrap {
