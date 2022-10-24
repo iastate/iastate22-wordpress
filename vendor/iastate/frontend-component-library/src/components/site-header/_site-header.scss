@@ -93,7 +93,9 @@
   &.site-header__logo-no-parent-unit {
     transition: 0.2s top ease-in-out, 0.2s filter ease-in-out, 0.2s transform ease-in-out;
     .site-header--ecosystem.headroom--unpinned & {
-      transform: translateY(-100%);
+      @include media-breakpoint-up(xl) {
+        transform: translateY(-100%);
+      }
     }
   }
 }
