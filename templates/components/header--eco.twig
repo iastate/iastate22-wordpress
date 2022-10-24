@@ -1,10 +1,10 @@
 <header class="site-header site-header--ecosystem">
   <div class="site-header__top">
     <div class="site-header__logo-name-wrap">
-      <a href="https://www.iastate.edu/" class="site-header__logo">
+      <a href="https://www.iastate.edu/" class="site-header__logo{% if not options.parent_unit.name %} site-header__logo-no-parent-unit{% endif %}">
         <img src="{{ "https://cdn.theme.iastate.edu/img/iastate22/iowa-state-university-logo-no-tagline-red.svg" }}" alt="Iowa State University">
       </a>
-      {% if options.parent_unit %}<a class="site-header__parent-unit-name" href="{{ options.parent_unit.url }}">{{ options.parent_unit.name }}</a>{% endif %}
+      {% if options.parent_unit.name %}<a class="site-header__parent-unit-name" href="{{ options.parent_unit.url }}">{{ options.parent_unit.name }}</a>{% endif %}
     </div>
     <div class="site-header__website-title"><a href="{{ site.url }}">{{ site.description }}</a></div>
     <div class="site-header__utility-search-wrap">
