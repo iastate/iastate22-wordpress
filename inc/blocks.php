@@ -29,8 +29,8 @@ function idf_acf_init() {
 
     acf_register_block_type( array(
         'name'  => 'landing_hero',
-        'title' => __( 'Landing Hero'),
-        'description' => __( 'Landing Hero Section'),
+        'title' => __( 'Home Hero'),
+        'description' => __( 'Home Hero Section'),
         'render_callback' => 'idf_acf_block_render_landing_hero',
         'category' => 'isu-blocks',
         'align' => 'wide',
@@ -42,8 +42,8 @@ function idf_acf_init() {
     ));
     acf_register_block_type( array(
         'name'  => 'interior_hero',
-        'title' => __( 'Interior Hero'),
-        'description' => __( 'Interior Hero Section'),
+        'title' => __( 'Hero'),
+        'description' => __( 'Hero Section'),
         'render_callback' => 'idf_acf_block_render_interior_hero',
         'category' => 'isu-blocks',
         'align' => 'wide',
@@ -55,8 +55,8 @@ function idf_acf_init() {
     ));
     acf_register_block_type( array(
         'name'  => 'text_content',
-        'title' => __( 'Text Content'),
-        'description' => __( 'WYSIWYG Text Editor'),
+        'title' => __( 'Rich Text/WYSIWYG'),
+        'description' => __( 'Rich Text/WYSIWYG Editor'),
         'render_callback' => 'idf_acf_block_render_text_content',
         'category' => 'isu-blocks',
         'align' => 'wide',
@@ -103,8 +103,8 @@ function idf_acf_init() {
     ));
     acf_register_block_type( array(
         'name'  => 'carousel',
-        'title' => __( 'Image Carousel'),
-        'description' => __( 'A slideshow of images'),
+        'title' => __( 'Carousel'),
+        'description' => __( 'Carousel'),
         'render_callback' => 'idf_acf_block_render_carousel',
         'category' => 'isu-blocks',
         'align' => 'wide',
@@ -115,7 +115,7 @@ function idf_acf_init() {
     ));
     acf_register_block_type( array(
         'name'  => 'tables',
-        'title' => __( 'Tables'),
+        'title' => __( 'Table'),
         'description' => __( 'A Data Table'),
         'render_callback' => 'idf_acf_block_render_table',
         'category' => 'isu-blocks',
@@ -139,7 +139,7 @@ function idf_acf_init() {
     ));
     acf_register_block_type( array(
         'name'  => 'statistic-with-text',
-        'title' => __( 'Statistic with Text'),
+        'title' => __( 'Statistic'),
         'description' => __( 'A split column layout with a decorative statistic option'),
         'render_callback' => 'idf_acf_block_render_statistic_with_text',
         'category' => 'isu-blocks',
@@ -151,7 +151,7 @@ function idf_acf_init() {
     ));
     acf_register_block_type( array(
         'name'  => 'callout-with-image',
-        'title' => __( 'Callout with Image'),
+        'title' => __( 'Feature With Small Image'),
         'description' => __( 'A decorative image side card'),
         'render_callback' => 'idf_acf_block_render_callout_with_image',
         'category' => 'isu-blocks',
@@ -163,7 +163,7 @@ function idf_acf_init() {
     ));
     acf_register_block_type( array(
         'name'  => 'callout-set',
-        'title' => __( 'Callout Set'),
+        'title' => __( 'Feature Set'),
         'description' => __( 'A set of decorative side cards with a gray outer background'),
         'render_callback' => 'idf_acf_block_render_callout_set',
         'category' => 'isu-blocks',
@@ -187,7 +187,7 @@ function idf_acf_init() {
     ));
     acf_register_block_type( array(
         'name'  => 'video',
-        'title' => __( 'Video'),
+        'title' => __( 'Video Embed'),
         'description' => __( 'A video player'),
         'render_callback' => 'idf_acf_block_render_video',
         'category' => 'isu-blocks',
@@ -235,7 +235,7 @@ function idf_acf_init() {
     ));
     acf_register_block_type( array(
         'name'  => 'cards',
-        'title' => __( 'Cards'),
+        'title' => __( 'Card Set'),
         'description' => __( 'A set of image cards'),
         'render_callback' => 'idf_acf_block_render_cards',
         'category' => 'isu-blocks',
@@ -259,7 +259,7 @@ function idf_acf_init() {
     ));
     acf_register_block_type( array(
         'name'  => 'callout-inset',
-        'title' => __( 'Callout Inset'),
+        'title' => __( 'Feature With Large Image And Intro'),
         'description' => __( 'A large image with a CTA overlay inset in a content area'),
         'render_callback' => 'idf_acf_block_render_callout_inset',
         'category' => 'isu-blocks',
@@ -271,7 +271,7 @@ function idf_acf_init() {
     ));
     acf_register_block_type( array(
         'name'  => 'cta-small',
-        'title' => __( 'Call to Action, Small'),
+        'title' => __( 'Call to Action: Small'),
         'description' => __( 'A small CTA banner'),
         'render_callback' => 'idf_acf_block_render_cta_small',
         'category' => 'isu-blocks',
@@ -283,7 +283,7 @@ function idf_acf_init() {
     ));
     acf_register_block_type( array(
         'name'  => 'cta-large',
-        'title' => __( 'Call to Action, Large'),
+        'title' => __( 'Call to Action: Large'),
         'description' => __( 'A large CTA banner with a background image'),
         'render_callback' => 'idf_acf_block_render_cta_large',
         'category' => 'isu-blocks',
