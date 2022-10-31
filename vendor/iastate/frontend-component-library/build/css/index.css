@@ -2596,15 +2596,6 @@ main {
 .accordion-body {
   padding: 0 0 1.875rem 0; }
 
-/* ==========================================================================
-   Button
-   ========================================================================== */
-/* ==========================================================================
-   Card
-   ========================================================================== */
-/* ==========================================================================
-   Hero
-   ========================================================================== */
 .iastate22-form button[type="submit"], .iastate22-modal__content-form button[type="submit"], .site-header__mega-menu-main-nav > ul > li > a,
 .site-header__mega-menu-main-nav > ul > li > button,
 .iastate22-button {
@@ -5120,6 +5111,8 @@ https://flickity.metafizzy.co
   @media (min-width: 1400px) {
     .site-footer__logo {
       width: 50%; } }
+  .site-footer__logo img {
+    width: 100%; }
 
 @media (min-width: 1200px) {
   .site-footer__social-links-wrap {
@@ -5711,9 +5704,10 @@ https://flickity.metafizzy.co
     transition: 0.2s top ease-in-out, 0.2s -webkit-filter ease-in-out, 0.2s -webkit-transform ease-in-out;
     transition: 0.2s top ease-in-out, 0.2s filter ease-in-out, 0.2s transform ease-in-out;
     transition: 0.2s top ease-in-out, 0.2s filter ease-in-out, 0.2s transform ease-in-out, 0.2s -webkit-filter ease-in-out, 0.2s -webkit-transform ease-in-out; }
-    .site-header--ecosystem.headroom--unpinned .site-header__logo.site-header__logo-no-parent-unit {
-      -webkit-transform: translateY(-100%);
-              transform: translateY(-100%); }
+    @media (min-width: 1200px) {
+      .site-header--ecosystem.headroom--unpinned .site-header__logo.site-header__logo-no-parent-unit {
+        -webkit-transform: translateY(-100%);
+                transform: translateY(-100%); } }
 
 .site-header__top {
   -webkit-box-align: center;
