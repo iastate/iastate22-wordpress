@@ -5102,7 +5102,8 @@ https://flickity.metafizzy.co
 .site-footer__logo {
   width: 100%;
   max-width: 32.25rem;
-  height: 100%; }
+  height: 100%;
+  display: block; }
   @media (min-width: 1200px) {
     .site-footer__logo {
       -webkit-box-flex: 0;
