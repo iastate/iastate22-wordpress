@@ -49,7 +49,7 @@
       login: "idfive"
       host: "142.93.75.126"
       port: "22"
-      env_key: "secure!WMH4dkfSxNrqXhED7jsrqA=="
+      env_key: "id_project"
       authentication_mode: "ENV_KEY"
       deployment_excludes:
         - "node_modules/"
