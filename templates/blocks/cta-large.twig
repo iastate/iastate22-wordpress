@@ -8,7 +8,9 @@
 			<div class="text-content">{{ fields.callout_content.content }}</div>
 			<div class="iastate22-button-set">
 				<ul>
-					<li><a class="iastate22-button"href="{{ fields.callout_content.link_url }}">{{ fields.callout_content.label }}<span class="arrow"></span></a></li>
+					{% for item in fields.callout_content.callout_cta %}
+					<li><a class="iastate22-button"href="{{ item.link_url }}">{{ item.link_text }}<span class="arrow"></span></a></li>
+					{% endfor %}
 				</ul>
 			</div>
 		</div>

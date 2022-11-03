@@ -80,10 +80,10 @@
                     "media_upload": 1
                 },
                 {
-                    "key": "field_62a267021d89b",
-                    "label": "CTA",
-                    "name": "cta",
-                    "type": "clone",
+                    "key": "field_6363476215e5e",
+                    "label": "Callout CTA",
+                    "name": "callout_cta",
+                    "type": "repeater",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -92,13 +92,52 @@
                         "class": "",
                         "id": ""
                     },
-                    "clone": [
-                        "group_629f7570481e5"
-                    ],
-                    "display": "seamless",
-                    "layout": "block",
-                    "prefix_label": 0,
-                    "prefix_name": 0
+                    "layout": "table",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add Row",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_6363477a15e5f",
+                            "label": "Link Text",
+                            "name": "link_text",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_6363476215e5e"
+                        },
+                        {
+                            "key": "field_6363478015e60",
+                            "label": "Link Url",
+                            "name": "link_url",
+                            "type": "url",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "parent_repeater": "field_6363476215e5e"
+                        }
+                    ]
                 }
             ]
         }
@@ -121,5 +160,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1665716949
+    "modified": 1667450759
 }
