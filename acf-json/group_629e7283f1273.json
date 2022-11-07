@@ -3,9 +3,36 @@
     "title": "Statistic",
     "fields": [
         {
+            "key": "field_63690dfd8eeac",
+            "label": "Statistics Location",
+            "name": "statistics_location",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Left",
+                "right": "Right"
+            },
+            "default_value": "left",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_629e728cfe8b2",
             "label": "Statistics Label",
             "name": "statistics_label",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -25,6 +52,7 @@
             "key": "field_629e72f9fe8b3",
             "label": "Statistics Content",
             "name": "statistics_content",
+            "aria-label": "",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -40,6 +68,7 @@
                     "key": "field_629e73b552cd0",
                     "label": "Statistics",
                     "name": "statistics",
+                    "aria-label": "",
                     "type": "repeater",
                     "instructions": "",
                     "required": 1,
@@ -53,12 +82,14 @@
                     "min": 1,
                     "max": 0,
                     "layout": "block",
-                    "button_label": "",
+                    "button_label": "Add Row",
+                    "rows_per_page": 20,
                     "sub_fields": [
                         {
                             "key": "field_629e741e52cd1",
                             "label": "Statistic",
                             "name": "statistic",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 1,
@@ -72,13 +103,15 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": "",
-                            "maxlength": ""
+                            "maxlength": "",
+                            "parent_repeater": "field_629e73b552cd0"
                         },
                         {
                             "key": "field_629e742e52cd2",
                             "label": "Statistic Description",
                             "name": "text",
-                            "type": "textarea",
+                            "aria-label": "",
+                            "type": "wysiwyg",
                             "instructions": "",
                             "required": 1,
                             "conditional_logic": 0,
@@ -88,10 +121,11 @@
                                 "id": ""
                             },
                             "default_value": "",
-                            "placeholder": "",
-                            "maxlength": "",
-                            "rows": 2,
-                            "new_lines": ""
+                            "delay": 0,
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "parent_repeater": "field_629e73b552cd0"
                         }
                     ]
                 },
@@ -99,9 +133,10 @@
                     "key": "field_629e75494e3ec",
                     "label": "Statistics Text Field",
                     "name": "content",
+                    "aria-label": "",
                     "type": "wysiwyg",
                     "instructions": "",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "50",
@@ -135,5 +170,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1660759175
+    "modified": 1667830046
 }

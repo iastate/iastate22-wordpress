@@ -56,6 +56,7 @@ export class FeaturedStoryCarousel {
     const resize = () => {
       this.convertToCarouselOnMobile();
       this.makeCardClickableOnDesktop();
+      this.equalCarouselSlideHeight();
     };
     window.addEventListener("resize", debounce(resize, 100));
     resize();
@@ -89,6 +90,20 @@ export class FeaturedStoryCarousel {
     if (!mobileMQ.matches && !!this.carousel) {
       this.carousel.destroy();
       this.carousel = null;
+    }
+  }
+
+  private equalCarouselSlideHeight() {
+    if (mobileMQ.matches) {
+      const flickityViewport = document.querySelector(
+        ".home-solutions__carousel-holder .flickity-viewport"
+      ) as HTMLElement;
+      const flickitySlide = document.querySelectorAll(".home-solutions__carousel-slide") as any;
+      setTimeout(() => {
+        flickitySlide.forEach((slide) => {
+          slide.style.height = flickityViewport.offsetHeight + "px";
+        });
+      }, 500);
     }
   }
 }
