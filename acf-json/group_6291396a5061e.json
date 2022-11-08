@@ -92,6 +92,26 @@
             "endpoint": 0
         },
         {
+            "key": "field_636a775cbfedf",
+            "label": "Site Name",
+            "name": "site_name",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_62913976d3237",
             "label": "Footer Departments",
             "name": "departments",
@@ -112,27 +132,6 @@
             "button_label": "Add Row",
             "rows_per_page": 20,
             "sub_fields": [
-                {
-                    "key": "field_6291398fd3238",
-                    "label": "Site Name",
-                    "name": "site_name",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_62913976d3237"
-                },
                 {
                     "key": "field_636a688f14ef7",
                     "label": "Content",
@@ -180,5 +179,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1667919330
+    "modified": 1667921827
 }

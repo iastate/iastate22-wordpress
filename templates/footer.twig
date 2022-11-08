@@ -57,10 +57,10 @@
 		</nav>
 
 		<nav class="site-footer__departments-nav" aria-label="Footer Departments">
+			<h2 class="site-footer__section-label">{{options.site_name}}</h2>
 			<ul>
 				{% for department in options.departments %}
 					<li>
-						<div class="site-footer__section-label">{{ department.site_name }}</div>
 						<div class="site-footer__section-content">{{ department.content }}</div>
 					</li>
 				{% endfor %}
