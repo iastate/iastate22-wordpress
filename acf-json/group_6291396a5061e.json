@@ -115,7 +115,7 @@
                 {
                     "key": "field_6291398fd3238",
                     "label": "Site Name",
-                    "name": "title",
+                    "name": "site_name",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
@@ -180,5 +180,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1667918419
+    "modified": 1667919330
 }
