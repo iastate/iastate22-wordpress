@@ -5420,7 +5420,8 @@ https://flickity.metafizzy.co
   font-weight: 700;
   margin-bottom: 2.1875rem;
   font-size: 1.125rem;
-  line-height: 1.44444; }
+  line-height: 1.44444;
+  color: #ffffff; }
   @media (min-width: 768px) {
     .site-footer__departments-nav ul li {
       -webkit-box-flex: 1;
