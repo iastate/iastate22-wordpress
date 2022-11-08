@@ -60,9 +60,8 @@
 			<ul>
 				{% for department in options.departments %}
 					<li>
-						<p class="site-footer__section-label">{{ department.title }}</p>
-						<a class="site-footer__section-email" href="mailto:{{ department.email_address.email }}">{{ department.email_address.label }}</a>
-						<a class="site-footer__section-phone" href="tel:{{ department.phone_number }}">{{ department.phone_number }}</a>
+						<div class="site-footer__section-label">{{ department.title }}</div>
+						<div class="site-footer__section-content">{{ department.content }}</div>
 					</li>
 				{% endfor %}
 			</ul>
