@@ -4,7 +4,7 @@
     {% for statistic in statistics %}
     <li>
       <h3 class="statistic__title">{{ statistic.statistic_title }}</h3>
-      <p class="statistic__text">{{ statistic.statistic_text }}</p>
+      <div class="statistic__text">{{ statistic.statistic_text|raw }}</div>
     </li>
     {% endfor %}
   </ul>

@@ -4467,6 +4467,10 @@ main {
     -webkit-box-align: start;
             align-items: flex-start; } }
 
+@media (min-width: 768px) {
+  .statistic-with-text.statistic-with-text--full-width .statistic {
+    width: 100%; } }
+
 .statistic-with-text .statistic {
   margin-top: 1.75rem;
   margin-bottom: 2.625rem; }

@@ -3,6 +3,15 @@
     display: flex;
     align-items: flex-start;
   }
+
+  &.statistic-with-text--full-width {
+    .statistic {
+      @include media-breakpoint-up(md) {
+        width: 100%;
+      }
+    }
+  }
+
   .statistic {
     margin-top: rem(28);
     margin-bottom: rem(42);
