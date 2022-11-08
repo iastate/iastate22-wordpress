@@ -6,6 +6,7 @@
             "key": "field_62a39c3518f3d",
             "label": "SIte Header Options",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -22,6 +23,7 @@
             "key": "field_62a39c51ad215",
             "label": "Parent Unit",
             "name": "parent_unit",
+            "aria-label": "",
             "type": "group",
             "instructions": "Enter the name and URL of the Parent Unit that appears below the Iowa State logo",
             "required": 0,
@@ -37,6 +39,7 @@
                     "key": "field_62a3a04fadb1d",
                     "label": "Unit Name",
                     "name": "name",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -56,9 +59,10 @@
                     "key": "field_62a3a142adb1e",
                     "label": "Unit Link",
                     "name": "url",
+                    "aria-label": "",
                     "type": "url",
                     "instructions": "",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -74,6 +78,7 @@
             "key": "field_62a39c2918f3c",
             "label": "Footer Options",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -90,6 +95,7 @@
             "key": "field_62913976d3237",
             "label": "Footer Departments",
             "name": "departments",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -103,32 +109,15 @@
             "min": 1,
             "max": 2,
             "layout": "row",
-            "button_label": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_6291398fd3238",
-                    "label": "Title",
+                    "label": "Site Name",
                     "name": "title",
+                    "aria-label": "",
                     "type": "text",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_62913efc1219b",
-                    "label": "Email",
-                    "name": "email_address",
-                    "type": "group",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -137,38 +126,21 @@
                         "class": "",
                         "id": ""
                     },
-                    "layout": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_62913b2faade9",
-                            "label": "Email Address",
-                            "name": "email",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 1,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "group_629139b1a4d62"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        }
-                    ]
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_62913976d3237"
                 },
                 {
-                    "key": "field_62913b4baadea",
-                    "label": "Phone Number",
-                    "name": "phone_number",
-                    "type": "text",
+                    "key": "field_636a688f14ef7",
+                    "label": "Content",
+                    "name": "content",
+                    "aria-label": "",
+                    "type": "textarea",
                     "instructions": "",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -176,10 +148,11 @@
                         "id": ""
                     },
                     "default_value": "",
+                    "maxlength": "",
+                    "rows": "",
                     "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "new_lines": "",
+                    "parent_repeater": "field_62913976d3237"
                 }
             ]
         }
@@ -207,5 +180,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1661270344
+    "modified": 1667918419
 }
