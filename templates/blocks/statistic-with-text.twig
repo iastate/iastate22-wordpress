@@ -1,5 +1,5 @@
 <div class="paragraph-widget paragraph-widget--statistic-with-text">
-    <div class="statistic-with-text statistic-with-text--{{ fields.statistics_location }}{{ if fields.statistics_content.content}} statistic-with-text--full-width{% endif %}">
+    <div class="statistic-with-text statistic-with-text--{{ fields.statistics_location }}{% if not fields.statistics_content.content}} statistic-with-text--full-width{% endif %}">
         <div class="statistic">
             {% if fields.statistics_label %}<h2 class="statistics__label">{{ fields.statistics_label }}</h2>{% endif %}
             <ul>
@@ -11,7 +11,7 @@
                 {% endfor %}
             </ul>
         </div>
-        {{ if fields.statistics_content.content}}
+        {% if fields.statistics_content.content %}
         <div class="statistic-with-text__text">
             {{fields.statistics_content.content}}
         </div>
