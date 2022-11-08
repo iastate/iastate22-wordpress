@@ -1,4 +1,4 @@
-<div class="statistic-with-text">
+<div class="statistic-with-text{% if not text %} statistic-with-text--full-width{% endif %}">
   {% include "@stat" with statistic %}
-  <div class="statistic-with-text__text text-content">{{text|raw}}</div>
+  {% if text %}<div class="statistic-with-text__text text-content">{{text|raw}}</div>{% endif %}
 </div>
