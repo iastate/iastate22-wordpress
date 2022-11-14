@@ -1,38 +1,41 @@
 <footer class="site-footer site-footer--ecosystem">
 	<div class="site-footer__flex-wrap">
-		<a href="https://www.iastate.edu" class="site-footer__logo">
-			<img src="{{ "https://cdn.theme.iastate.edu/img/iastate22/iowa-state-university-logo-with-tagline-sci-tech.svg" }}" alt="Iowa State University of Science and Technology"/>
-		</a>
+		<div class="site-footer__logo-social-links-wrap">
+			<a href="https://www.iastate.edu" class="site-footer__logo">
+				<img src="{{ "https://cdn.theme.iastate.edu/img/iastate22/iowa-state-university-logo-with-tagline-sci-tech.svg" }}" alt="Iowa State University of Science and Technology"/>
+			</a>
 
-		{% if social_menu %}
-			<ul class="site-footer__social">
-				{% for link in social_menu.items %}
-					<li>
-						{% if link.network == "instagram" %}
-							<a href="{{ link.url }}" target="_blank">
-								<i class="fak fa-iastate22-{{ link.network }}" aria-hidden="true"></i>
-								<span class="visible-for-screen-readers">{{ link.title }}</span>
-							</a>
-						{% elseif link.network == "podcast" %}
-							<a href="{{ link.url }}" target="_blank">
-								<i class="web-social-icon fa-solid fa-{{ link.network }}" aria-hidden="true"></i>
-								<span class="visible-for-screen-readers">{{ link.title }}</span>
-							</a>
-						{% elseif link.network == "comments" or link.network == "address-book" %}
-							<a href="{{ link.url }}" target="_blank">
-								<i class="fa-solid fa-{{ link.network }}" aria-hidden="true"></i>
-								<span class="visible-for-screen-readers">{{ link.title }}</span>
-							</a>
-						{% else %}
-							<a href="{{ link.url }}" target="_blank">
-								<i class="fa-brands fa-{{ link.network }}" aria-hidden="true"></i>
-								<span class="visible-for-screen-readers">{{ link.title }}</span>
-							</a>
-						{% endif %}
-					</li>
-				{% endfor %}
-			</ul>
-		{% endif %}
+			{% if social_menu %}
+				<ul class="site-footer__social">
+					{% for link in social_menu.items %}
+						<li>
+							{% if link.network == "instagram" %}
+								<a href="{{ link.url }}" target="_blank">
+									<i class="fak fa-iastate22-{{ link.network }}" aria-hidden="true"></i>
+									<span class="visible-for-screen-readers">{{ link.title }}</span>
+								</a>
+							{% elseif link.network == "podcast" %}
+								<a href="{{ link.url }}" target="_blank">
+									<i class="web-social-icon fa-solid fa-{{ link.network }}" aria-hidden="true"></i>
+									<span class="visible-for-screen-readers">{{ link.title }}</span>
+								</a>
+							{% elseif link.network == "comments" or link.network == "address-book" %}
+								<a href="{{ link.url }}" target="_blank">
+									<i class="fa-solid fa-{{ link.network }}" aria-hidden="true"></i>
+									<span class="visible-for-screen-readers">{{ link.title }}</span>
+								</a>
+							{% else %}
+								<a href="{{ link.url }}" target="_blank">
+									<i class="fa-brands fa-{{ link.network }}" aria-hidden="true"></i>
+									<span class="visible-for-screen-readers">{{ link.title }}</span>
+								</a>
+							{% endif %}
+						</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+		</div>
+
 		{% if footer_primary_menu %}
 			<nav class="site-footer__primary-nav" aria-label="Footer Primary">
 				<ul>
@@ -56,16 +59,40 @@
 			</ul>
 		</nav>
 
-		<nav class="site-footer__departments-nav" aria-label="Footer Departments">
+		<div class="site-footer__site-org-contact-info">
 			<h2 class="site-footer__section-label">{{options.site_name}}</h2>
-			<ul>
-				{% for department in options.departments %}
-					<li>
-						<div class="site-footer__section-content">{{ department.content }}</div>
-					</li>
-				{% endfor %}
-			</ul>
-		</nav>
+			{% if options.address %}
+      <div class="site-footer__site-org-contact-address">
+        <p>
+					{% if options.address.building %}{{ options.address.building }}<br>{% endif %}
+					{% if options.address.street %}{{ options.address.street }}<br>{% endif %}
+					{% if options.address.city_state_zip %}{{ options.address.city_state_zip }}{% endif %}
+				</p>
+      </div>
+      {% endif %}
+
+			<div class="site-footer__site-org-contact-email-phone-wrap">
+				{% if options.emails %}
+					<div class="site-footer__site-org-contact-email">
+						{% for item in options.emails %}
+							<p><a href="mailto:{{ item.email }}">{{ item.email }}</a></p>
+						{% endfor %}
+					</div>
+        {% endif %}
+        {% if options.phone_fax %}
+        <div class="site-footer__site-org-contact-phone">
+          {% for item in options.phone_fax %}
+						{% if item.phone %}
+          		<p>P: {{ item.phone }}</p>
+						{% endif %}
+						{% if item.fax %}
+          		<p>F: {{ item.fax }}</p>
+						{% endif %}
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+		</div>
 	</div>
 
 	<div class="site-footer__bottom-wrap">
