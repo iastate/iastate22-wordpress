@@ -6,6 +6,7 @@
             "key": "field_629fc6d4959b7",
             "label": "Link Text",
             "name": "label",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 1,
@@ -25,7 +26,8 @@
             "key": "field_629fc6d4959fc",
             "label": "Link URL",
             "name": "link_url",
-            "type": "url",
+            "aria-label": "",
+            "type": "link",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -34,13 +36,13 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": ""
+            "return_format": "array"
         },
         {
             "key": "field_629fc6d495a6a",
             "label": "External",
             "name": "external",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "Select this if you want the link to open in a new tab",
             "required": 0,
@@ -72,7 +74,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "For a standard button type with the option to link externally",
-    "modified": 1657642580
+    "show_in_rest": 0,
+    "modified": 1668567826
 }

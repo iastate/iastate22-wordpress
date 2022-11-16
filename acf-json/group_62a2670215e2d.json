@@ -6,6 +6,7 @@
             "key": "field_62a2670219412",
             "label": "Callout Image",
             "name": "callout_image",
+            "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 1,
@@ -30,6 +31,7 @@
             "key": "field_62a2670219454",
             "label": "Callout Content",
             "name": "callout_content",
+            "aria-label": "",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -45,6 +47,7 @@
                     "key": "field_62a267021b381",
                     "label": "Callout Title",
                     "name": "title",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 1,
@@ -64,6 +67,7 @@
                     "key": "field_62a267021b3c8",
                     "label": "Callout Content",
                     "name": "content",
+                    "aria-label": "",
                     "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
@@ -80,9 +84,10 @@
                     "media_upload": 1
                 },
                 {
-                    "key": "field_6363476215e5e",
-                    "label": "Callout CTA",
+                    "key": "field_6363d571e8d8f",
+                    "label": "Callout Cta",
                     "name": "callout_cta",
+                    "aria-label": "",
                     "type": "repeater",
                     "instructions": "",
                     "required": 0,
@@ -101,9 +106,10 @@
                     "rows_per_page": 20,
                     "sub_fields": [
                         {
-                            "key": "field_6363477a15e5f",
+                            "key": "field_6363d58de8d90",
                             "label": "Link Text",
                             "name": "link_text",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -118,13 +124,14 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": "",
-                            "parent_repeater": "field_6363476215e5e"
+                            "parent_repeater": "field_6363d571e8d8f"
                         },
                         {
-                            "key": "field_6363478015e60",
+                            "key": "field_6363d596e8d91",
                             "label": "Link Url",
                             "name": "link_url",
-                            "type": "url",
+                            "aria-label": "",
+                            "type": "link",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -133,9 +140,8 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "placeholder": "",
-                            "parent_repeater": "field_6363476215e5e"
+                            "return_format": "array",
+                            "parent_repeater": "field_6363d571e8d8f"
                         }
                     ]
                 }
@@ -160,5 +166,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1667450759
+    "modified": 1668524796
 }

@@ -6,6 +6,7 @@
             "key": "field_62a26625df0d9",
             "label": "Feature Intro",
             "name": "callout",
+            "aria-label": "",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -21,6 +22,7 @@
                     "key": "field_62a26625df0da",
                     "label": "Title",
                     "name": "title",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 1,
@@ -40,7 +42,8 @@
                     "key": "field_62a26625df0db",
                     "label": "Content",
                     "name": "content",
-                    "type": "textarea",
+                    "aria-label": "",
+                    "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -50,10 +53,10 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "",
-                    "maxlength": 250,
-                    "rows": 3,
-                    "new_lines": ""
+                    "delay": 0,
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1
                 }
             ]
         },
@@ -61,6 +64,7 @@
             "key": "field_62a265fe38e2d",
             "label": "Feature Image",
             "name": "image",
+            "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 1,
@@ -85,6 +89,7 @@
             "key": "field_62a265fe38e70",
             "label": "Feature Content",
             "name": "inset",
+            "aria-label": "",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -100,6 +105,7 @@
                     "key": "field_62a265fe3a680",
                     "label": "Title",
                     "name": "title",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 1,
@@ -119,7 +125,8 @@
                     "key": "field_62a265fe3a6bf",
                     "label": "Content",
                     "name": "content",
-                    "type": "textarea",
+                    "aria-label": "",
+                    "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -129,15 +136,16 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": 3,
-                    "new_lines": ""
+                    "delay": 0,
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1
                 },
                 {
                     "key": "field_62a265fe3a6fc",
                     "label": "Link",
                     "name": "link",
+                    "aria-label": "",
                     "type": "group",
                     "instructions": "",
                     "required": 0,
@@ -153,6 +161,7 @@
                             "key": "field_62a265fe3d34c",
                             "label": "Label",
                             "name": "label",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 1,
@@ -172,7 +181,8 @@
                             "key": "field_62a265fe3d38b",
                             "label": "URL",
                             "name": "url",
-                            "type": "url",
+                            "aria-label": "",
+                            "type": "link",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -181,8 +191,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "placeholder": ""
+                            "return_format": "array"
                         }
                     ]
                 }
@@ -207,5 +216,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1660762276
+    "modified": 1668567533
 }

@@ -6,6 +6,7 @@
             "key": "field_62a243aafd279",
             "label": "Title",
             "name": "title",
+            "aria-label": "",
             "type": "text",
             "instructions": "Title field is optional",
             "required": 0,
@@ -25,6 +26,7 @@
             "key": "field_62a2463afd27a",
             "label": "Links",
             "name": "links",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -39,11 +41,13 @@
             "max": 0,
             "layout": "block",
             "button_label": "Add New Link",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_62a2479233034",
                     "label": "Link",
                     "name": "",
+                    "aria-label": "",
                     "type": "accordion",
                     "instructions": "",
                     "required": 0,
@@ -55,12 +59,14 @@
                     },
                     "open": 1,
                     "multi_expand": 0,
-                    "endpoint": 0
+                    "endpoint": 0,
+                    "parent_repeater": "field_62a2463afd27a"
                 },
                 {
                     "key": "field_62a24671fd27b",
                     "label": "Label",
                     "name": "label",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 1,
@@ -74,13 +80,15 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_62a2463afd27a"
                 },
                 {
                     "key": "field_62a24688fd27c",
                     "label": "URL",
                     "name": "url",
-                    "type": "url",
+                    "aria-label": "",
+                    "type": "link",
                     "instructions": "",
                     "required": 1,
                     "conditional_logic": 0,
@@ -89,8 +97,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "placeholder": ""
+                    "return_format": "array",
+                    "parent_repeater": "field_62a2463afd27a"
                 }
             ]
         }
@@ -110,7 +118,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1657642675
+    "show_in_rest": 0,
+    "modified": 1668568288
 }

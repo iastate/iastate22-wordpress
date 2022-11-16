@@ -6,6 +6,7 @@
             "key": "field_62968711005f4",
             "label": "Button Style",
             "name": "button_style",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 1,
@@ -18,9 +19,7 @@
             "choices": {
                 "primary": "Primary"
             },
-            "default_value": [
-                "primary"
-            ],
+            "default_value": "primary",
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -32,6 +31,7 @@
             "key": "field_62968629005f1",
             "label": "Link Text",
             "name": "label",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 1,
@@ -51,7 +51,8 @@
             "key": "field_6296863b005f2",
             "label": "Link URL",
             "name": "link_url",
-            "type": "url",
+            "aria-label": "",
+            "type": "link",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -60,13 +61,13 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": ""
+            "return_format": "array"
         },
         {
             "key": "field_62968648005f3",
             "label": "External",
             "name": "external",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "Select this if you want the link to open in a new tab",
             "required": 0,
@@ -98,7 +99,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "All button options selectable",
-    "modified": 1657642585
+    "show_in_rest": 0,
+    "modified": 1668567842
 }

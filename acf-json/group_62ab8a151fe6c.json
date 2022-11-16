@@ -6,6 +6,7 @@
             "key": "field_62ab8a1522ebc",
             "label": "Link Text",
             "name": "label",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 1,
@@ -25,7 +26,8 @@
             "key": "field_62ab8a1522f06",
             "label": "Link URL",
             "name": "link_url",
-            "type": "url",
+            "aria-label": "",
+            "type": "link",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -34,8 +36,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": ""
+            "return_format": "array"
         }
     ],
     "location": [
@@ -53,7 +54,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "A simple link and URL for buttons where the style is not selectable.",
-    "modified": 1657642602
+    "show_in_rest": 0,
+    "modified": 1668567880
 }

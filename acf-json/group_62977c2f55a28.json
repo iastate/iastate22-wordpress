@@ -6,6 +6,7 @@
             "key": "field_62977c2f58c55",
             "label": "Link Style",
             "name": "link_style",
+            "aria-label": "",
             "type": "select",
             "instructions": "Select a the style of link that you would like to use from the menu below.",
             "required": 1,
@@ -20,9 +21,7 @@
                 "minimal": "Minimal",
                 "external": "External"
             },
-            "default_value": [
-                "standard"
-            ],
+            "default_value": "standard",
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -34,6 +33,7 @@
             "key": "field_62977c2f58c98",
             "label": "Link Text",
             "name": "label",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 1,
@@ -53,7 +53,8 @@
             "key": "field_62977c2f58ce0",
             "label": "Link URL",
             "name": "link_url",
-            "type": "url",
+            "aria-label": "",
+            "type": "link",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -62,8 +63,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": ""
+            "return_format": "array"
         }
     ],
     "location": [
@@ -81,7 +81,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1657642597
+    "show_in_rest": 0,
+    "modified": 1668567861
 }

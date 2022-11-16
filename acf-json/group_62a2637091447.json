@@ -6,6 +6,7 @@
             "key": "field_62a26386065e0",
             "label": "Feature Image",
             "name": "image",
+            "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 1,
@@ -30,6 +31,7 @@
             "key": "field_62a2639d065e1",
             "label": "Feature Content",
             "name": "callout",
+            "aria-label": "",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -45,6 +47,7 @@
                     "key": "field_62a263b3065e2",
                     "label": "Title",
                     "name": "title",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 1,
@@ -64,6 +67,7 @@
                     "key": "field_62a263c0065e3",
                     "label": "Content",
                     "name": "content",
+                    "aria-label": "",
                     "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
@@ -83,6 +87,7 @@
                     "key": "field_62a263d4065e4",
                     "label": "Link",
                     "name": "link",
+                    "aria-label": "",
                     "type": "group",
                     "instructions": "",
                     "required": 0,
@@ -98,6 +103,7 @@
                             "key": "field_62a2646d065e5",
                             "label": "Label",
                             "name": "label",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 1,
@@ -117,7 +123,8 @@
                             "key": "field_62a2647e065e6",
                             "label": "URL",
                             "name": "url",
-                            "type": "url",
+                            "aria-label": "",
+                            "type": "link",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -126,8 +133,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "placeholder": ""
+                            "return_format": "array"
                         }
                     ]
                 }
@@ -152,5 +158,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1665717144
+    "modified": 1668567502
 }
