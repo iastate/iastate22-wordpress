@@ -36,7 +36,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array"
+            "return_format": "url"
         }
     ],
     "location": [
@@ -57,5 +57,5 @@
     "active": true,
     "description": "A simple link and URL for buttons where the style is not selectable.",
     "show_in_rest": 0,
-    "modified": 1668567880
+    "modified": 1669084410
 }

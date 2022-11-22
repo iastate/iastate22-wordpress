@@ -61,7 +61,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array"
+            "return_format": "url"
         },
         {
             "key": "field_62968648005f3",
@@ -102,5 +102,5 @@
     "active": true,
     "description": "All button options selectable",
     "show_in_rest": 0,
-    "modified": 1668567842
+    "modified": 1669084380
 }

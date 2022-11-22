@@ -36,7 +36,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array"
+            "return_format": "url"
         },
         {
             "key": "field_629fc6d495a6a",
@@ -77,5 +77,5 @@
     "active": true,
     "description": "For a standard button type with the option to link externally",
     "show_in_rest": 0,
-    "modified": 1668567826
+    "modified": 1669084369
 }
