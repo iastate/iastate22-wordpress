@@ -9,7 +9,7 @@ function register_menus() {
             'footer-primary-menu' => __( 'Footer Primary Menu' ),
             'footer-secondary-menu' => __( 'Footer Secondary Menu' ),
             'footer-utility-menu' => __( 'Footer Utility Menu' ),
-            'ks-sidebar-menu' => __( 'KS Sidebar Menu' )
+            'subnav-side-menu' => __( 'Subnav side menu' )
         )
     );
 }

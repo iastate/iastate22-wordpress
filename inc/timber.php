@@ -71,7 +71,7 @@ class StarterSite extends Timber\Site {
 		$context['footer_primary_menu']  = new TimberMenu("footer-primary-menu");
 		$context['footer_secondary_menu']  = new TimberMenu("footer-secondary-menu");
 		$context['footer_utility_menu']  = new TimberMenu("footer-utility-menu");
-		$context['ks_sidebar_menu']  = new TimberMenu("ks-sidebar-menu");
+		$context['subnav_side_menu']  = new TimberMenu("subnav-side-menu");
 		$context['options'] = get_fields('options');
 		$context['site']  = $this;
 		if (function_exists('bcn_display')) {

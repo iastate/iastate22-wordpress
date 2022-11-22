@@ -14,9 +14,9 @@
     <img src="{{fields.hero_image.url}}" alt="{{fields.hero_image.alt}}" width="{{ fields.hero_image.width }}" height="{{ fields.hero_image.height }}">
   </div>
   {% endif %}
-  {% if rent > 0 %}
+  
     <div class="hero__subnav-wrap">
       {% include ['templates/partial/subnav.twig'] %}
     </div>
-  {% endif %}
+  
 </div>
