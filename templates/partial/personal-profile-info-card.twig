@@ -25,9 +25,12 @@
           {% else %}
             {% set linkClass = "link-set__link iastate22-link-secondary" %}
           {% endif %}
+
+          {% if link.link.url|length %}
           <li>
             <a href="{{link.link.url}}" class="{{ linkClass }}"{% if link.link.target == "_blank" %} target="_blank"{% endif %}>{{link.link.title}}<span class="arrow"></span></a>
           </li>
+          {% endif %}
         {% endfor %}
         </ul>
     </div>
@@ -56,7 +59,13 @@
         <li>
           <a href="{{ network.network.link }}" target="_blank">
             {% if network.network.network == "Instagram" or network.network.network == "Flickr"  %}
-              <i class="fak fa-iastate22-{{ network.network.network|lower }}" aria-hidden="true"></i>          
+              <i class="fak fa-iastate22-{{ network.network.network|lower }}" aria-hidden="true"></i>      
+            {% elseif network.network.network == "Podcast" %}
+              <i class="fas fa-podcast"></i>
+            {% elseif network.network.network == "Blog" %}
+              <i class="fa-solid fa-blog"></i>
+            {% elseif network.network.network == "Directory" %}
+              <i class="fa-regular fa-folder-open"></i>
             {% else %}
               <i class="fa-brands fa-{{ network.network.network|lower }}" aria-hidden="true"></i>
             {% endif %}
