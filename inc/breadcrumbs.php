@@ -28,7 +28,7 @@ function the_breadcrumb()
             if ($thisCat->parent != 0) {
                 echo '<li>' . get_category_parents($thisCat->parent, true, '</li>');
             }
-            echo $before . single_cat_title('', false);
+            echo $before . single_cat_title('', false) . $after;
         } elseif (is_search()) {
             echo $before . 'Search results for "' . get_search_query() . '"' . $after;
         } elseif (is_day()) {
