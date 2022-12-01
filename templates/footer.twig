@@ -52,9 +52,11 @@
 			<h2 class="site-footer__section-label">Quick Links</h2>
 			<ul>
 				{% for link in footer_secondary_menu.items %}
+					{% if link.url %}
 					<li>
 						<a href="{{ link.url }}">{{ link.title }}</a>
 					</li>
+					{% endif %}
 				{% endfor %}
 			</ul>
 		</nav>
