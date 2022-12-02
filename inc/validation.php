@@ -2,7 +2,11 @@
 
 /*---===/ Sets Input Fields based on Object selection \===---*/
 function my_acf_input_admin_footer() {
-	// This works, but it's sloppy.
+	// Only load the script on block editor pages.
+	$screen = get_current_screen();
+	if ( ! $screen->is_block_editor() ){
+		return;
+	}
 ?>
 <script type="text/javascript">
 (function($) {

@@ -65,13 +65,27 @@ class StarterSite extends Timber\Site {
 		$context['foo']   = 'bar';
 		$context['stuff'] = 'I am a value set in your functions.php file';
 		$context['notes'] = 'These values are available everytime you call Timber::context();';
-		$context['main_menu']  = new TimberMenu("main-menu");
-		$context['utility_menu']  = new TimberMenu("utility-menu");
-		$context['social_menu']  = new TimberMenu("social-menu");
-		$context['footer_primary_menu']  = new TimberMenu("footer-primary-menu");
-		$context['footer_secondary_menu']  = new TimberMenu("footer-secondary-menu");
-		$context['footer_utility_menu']  = new TimberMenu("footer-utility-menu");
-		$context['subnav_side_menu']  = new TimberMenu("subnav-side-menu");
+		if(has_nav_menu('main-menu')) {
+			$context['main_menu']  = new TimberMenu("main-menu");
+		}
+		if(has_nav_menu('utility-menu')) {
+			$context['utility_menu']  = new TimberMenu("utility-menu");
+		}
+		if(has_nav_menu('social-menu')) {
+			$context['social_menu']  = new TimberMenu("social-menu");
+		}
+		if(has_nav_menu('footer-primary-menu')) {
+			$context['footer_primary_menu']  = new TimberMenu("footer-primary-menu");
+		}
+		if(has_nav_menu('footer-secondary-menu')) {
+			$context['footer_secondary_menu']  = new TimberMenu("footer-secondary-menu");
+		}
+		if(has_nav_menu('footer-utility-menu')) {
+			$context['footer_utility_menu']  = new TimberMenu("footer-utility-menu");
+		}
+		if(has_nav_menu('subnav-side-menu')) {
+			$context['subnav_side_menu']  = new TimberMenu("subnav-side-menu");
+		}
 		$context['options'] = get_fields('options');
 		$context['site']  = $this;
 		if (function_exists('bcn_display')) {
