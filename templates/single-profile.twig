@@ -33,9 +33,11 @@
         <div class="paragraph-widget paragraph-widget--button-set">
             <div class="iastate22-button-set">
                 <ul>
+                    {% if resume.url %}
                     <li>
                         <a class="iastate22-button" href="{{ resume.url }}">Download CV<span class="arrow"></span></a>
                     </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>

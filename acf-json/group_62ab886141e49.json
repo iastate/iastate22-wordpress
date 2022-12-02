@@ -4,8 +4,9 @@
     "fields": [
         {
             "key": "field_62ab886145894",
-            "label": "Hero Title",
+            "label": "Hero Title a",
             "name": "hero_title",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -16,15 +17,16 @@
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "append": ""
         },
         {
             "key": "field_62ab887d0bf08",
             "label": "Ecosystem",
             "name": "ecosystem",
+            "aria-label": "",
             "type": "radio",
             "instructions": "",
             "required": 0,
@@ -52,6 +54,7 @@
             "key": "field_62ab8c0601340",
             "label": "Image",
             "name": "hero_image",
+            "aria-label": "",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -96,6 +99,7 @@
                     "key": "field_62ab8861458fa",
                     "label": "Hero Image",
                     "name": "hero_image",
+                    "aria-label": "",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -122,6 +126,7 @@
             "key": "field_62ab8db2f8b0a",
             "label": "Video",
             "name": "video",
+            "aria-label": "",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -145,6 +150,7 @@
                     "key": "field_62abc193ab8ef",
                     "label": "Video Title",
                     "name": "video_title",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 1,
@@ -164,6 +170,7 @@
                     "key": "field_62ab8e39f8b0b",
                     "label": "Youtube Video ID",
                     "name": "youtube_video_id",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "Enter the 11 digit YouTube video ID in the field below",
                     "required": 0,
@@ -185,6 +192,7 @@
             "key": "field_62ab8b52e735f",
             "label": "Buttons",
             "name": "buttons",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -199,11 +207,13 @@
             "max": 0,
             "layout": "block",
             "button_label": "Add Button",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_62ab8b62e7360",
                     "label": "Button",
                     "name": "button",
+                    "aria-label": "",
                     "type": "clone",
                     "instructions": "",
                     "required": 1,
@@ -219,7 +229,8 @@
                     "display": "seamless",
                     "layout": "block",
                     "prefix_label": 0,
-                    "prefix_name": 0
+                    "prefix_name": 0,
+                    "parent_repeater": "field_62ab8b52e735f"
                 }
             ]
         }
@@ -242,5 +253,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1660760926
+    "modified": 1669988886
 }
