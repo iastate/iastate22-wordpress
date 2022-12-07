@@ -31,14 +31,16 @@
             {% else %}
               <span class="lw_separator_title">{{ item.post_title }}</span>
             {% endif %}
-            {% if childrens[key]|length > 0 %}
-              <ul>
-                {% for subitem in childrens[key] %}
-                <li>
-                  <a href="{{ function('get_permalink', subitem.ID) }}">{{ subitem.post_title }}</a>
-                </li>
-                {% endfor %}
-              </ul>
+            {% if item.ID == current %}
+              {% if childrens[key]|length > 0 %}
+                <ul>
+                  {% for subitem in childrens[key] %}
+                  <li>
+                    <a href="{{ function('get_permalink', subitem.ID) }}">{{ subitem.post_title }}</a>
+                  </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
             {% endif %}
           </li>
         {% endfor %}
