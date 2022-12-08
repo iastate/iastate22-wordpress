@@ -589,7 +589,7 @@
                     "aria-label": "",
                     "type": "textarea",
                     "instructions": "",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -597,9 +597,9 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "",
                     "maxlength": "",
                     "rows": 2,
+                    "placeholder": "",
                     "new_lines": "",
                     "parent_repeater": "field_62a8f7fe67086"
                 },
@@ -641,5 +641,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1669087327
+    "modified": 1670471709
 }
