@@ -61,19 +61,18 @@
           {{ title }}
         {% endif %}
     </h1>
-    {% if fields.buttons %}
-      <div class="iastate22-button-set">
-        <ul>
-          {% for button in fields.buttons %}
-            {% if button.url %}
-            <li>
-              <a class="iastate22-button" href="{{ button.url }}">{{ button.label }}<span class="arrow"></span></a>
-            </li>
-            {% endif %}
-          {% endfor %}
-        </ul>
-      </div>
-    {% endif %}
+    
+    <div class="iastate22-button-set">
+      <ul>
+        {% for button in fields.buttons %}
+          {% if button.link_url %}
+          <li>
+            <a class="iastate22-button" href="{{ button.link_url }}">{{ button.label }}<span class="arrow"></span></a>
+          </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
   </div>
   {% endif %}
 </div>

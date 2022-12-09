@@ -2,21 +2,21 @@
     <div class="link-set">
         <ul>
             {% for item in fields.links %}
-            {% if item.url %}
-            <li>
-            {% if item.link_style == "standard" %}
-                {% set linkClass = "link-set__link iastate22-link-secondary" %}
-            {% elseif item.link_style == "external" %}
-                {% set linkClass = "link-set__link iastate22-link-external" %}
-            {% elseif item.link_style == "minimal" %}
-                {% set linkClass = "link-set__link link-tertiary" %}
-            {% endif %}
-                <a class="{{ linkClass }}" href="{{ item.url }}"{% if item.link_style == "external" %} target="_blank"{% endif %}>
-                    {{ item.label }}
-                    <span class="arrow"></span>
-                </a>
-            </li>
-            {% endif %}
+                {% if item.link_url %}
+                    <li>
+                    {% if item.link_style == "standard" %}
+                        {% set linkClass = "link-set__link iastate22-link-secondary" %}
+                    {% elseif item.link_style == "external" %}
+                        {% set linkClass = "link-set__link iastate22-link-external" %}
+                    {% elseif item.link_style == "minimal" %}
+                        {% set linkClass = "link-set__link link-tertiary" %}
+                    {% endif %}
+                        <a class="{{ linkClass }}" href="{{ item.link_url }}"{% if item.link_style == "external" %} target="_blank"{% endif %}>
+                            {{ item.label }}
+                            <span class="arrow"></span>
+                        </a>
+                    </li>
+                {% endif %}
             {% endfor %}
         </ul>
     </div>

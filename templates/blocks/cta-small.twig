@@ -9,9 +9,9 @@
         <div class="iastate22-button-set">
             <ul>
                 {% for item in fields.callout_content.callout_ctas %}
-                {% if item.url %}
+                {% if item.link_url %}
                 <li>
-                    <a class="iastate22-button" href="{{ item.url }}"{% if item.external == true %} target="_blank"{% endif %}>{{ item.label }}<span class="arrow"></span></a>
+                    <a class="iastate22-button" href="{{ item.link_url }}"{% if item.external == true %} target="_blank"{% endif %}>{{ item.label }}<span class="arrow"></span></a>
                 </li>
                 {% endif %}
                 {% endfor %}
