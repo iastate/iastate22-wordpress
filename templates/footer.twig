@@ -49,6 +49,7 @@
 		{% endif %}
 
 		<nav class="site-footer__secondary-nav" aria-label="Footer Secondary">
+			{% if footer_secondary_menu.items %}
 			<h2 class="site-footer__section-label">Quick Links</h2>
 			<ul>
 				{% for link in footer_secondary_menu.items %}
@@ -59,6 +60,7 @@
 					{% endif %}
 				{% endfor %}
 			</ul>
+			{% endif %}
 		</nav>
 
 		<div class="site-footer__site-org-contact-info">
