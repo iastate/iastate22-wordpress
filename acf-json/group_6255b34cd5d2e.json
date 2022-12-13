@@ -6,6 +6,7 @@
             "key": "field_6255b34cda50e",
             "label": "Hero Title",
             "name": "hero_title",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -25,6 +26,7 @@
             "key": "field_6255b34ce0356",
             "label": "Hero Image",
             "name": "hero_image",
+            "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -44,6 +46,26 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ".jpg, .jpeg, .png"
+        },
+        {
+            "key": "field_6398defb00e2b",
+            "label": "Subnavigation",
+            "name": "subnav_toggle",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Deactivate to hide the sub navigation bar",
+            "default_value": 1,
+            "ui_on_text": "On",
+            "ui_off_text": "Off",
+            "ui": 1
         }
     ],
     "location": [
@@ -64,5 +86,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1660760663
+    "modified": 1670963197
 }
