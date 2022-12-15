@@ -46,13 +46,18 @@ function my_acf_input_admin_footer() {
     });
     
     function checkRequired(form) {
-        let inputs = $(form).find('input, textarea, select'),
+        let inputs = $(form).find('input, textarea, select, .acf-row:not(.acf-clone) div.acf-field-link[data-name="card_link"]'),
             requiredFields = [],
+            requiredLinks = [],
             vM = document.querySelector('.edit-post-header__settings .validator-message'),
             tally = 0;
         for(var i = 0; i < inputs.length; i++) {
             if(inputs[i].getAttribute('required') !== null && inputs[i].getAttribute('required') !== false) {
                 requiredFields.push(inputs[i]);
+            }
+            if(inputs[i].classList.contains('is-required') === true) {
+                console.log($(inputs[i]));
+                requiredLinks.push(inputs[i]);
             }
             $(inputs[i]).off('input');
             $(inputs[i]).on('input', function(e) {
@@ -91,6 +96,34 @@ function my_acf_input_admin_footer() {
                 rt.classList.remove("invalid");
             }
         });
+
+        $(requiredLinks).each(function(e) {
+            let rt = this;
+                results = this.querySelector('.link-wrap'),
+                linkTitle = results.querySelector('.link-title').textContent,
+                linkUrl = results.querySelector('.link-url').getAttribute('href'),
+                valid = checkLinkValidity(linkTitle, linkUrl),
+                errorMessage = document.createElement("div");
+            
+            if(rt.querySelector(".error-message") === null) {
+                errorMessage.classList.add("error-message");
+                rt.appendChild(errorMessage);
+            }
+
+            if(valid === false) {
+                tally++;
+                if(this.classList.contains("validation-error") === false) {
+                    this.classList.add("validation-error");
+                    let msg = "Link is required";
+                    rt.querySelector('.error-message').textContent = ""+msg+"";
+                    rt.classList.add("invalid");
+                }
+            } else {
+                this.classList.remove("validation-error");
+                rt.classList.remove("invalid");
+            }
+        });
+
         if(tally > 0) {
             console.log("Validation Failures: "+tally);
             
@@ -120,6 +153,14 @@ function my_acf_input_admin_footer() {
             field.classList.remove("validation-error");
             rt.classList.remove("invalid");
             checkRequired(form);
+        }
+    }
+
+    function checkLinkValidity(link, url) {
+        if(link.length > 0 && url.length > 0) {
+            return true;
+        } else {
+            return false;
         }
     }
 

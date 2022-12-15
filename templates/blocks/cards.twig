@@ -13,14 +13,14 @@
 							<div class="iastate22-card__content">
 								{% if card.card.title %}
 									<h2 class="iastate22-card__title">
-										<a href="{{ card.card.link.url }}">{{ card.card.title }}</a>
+										<a href="{{ card.card.card_link.url }}"{% if card.card.card_link.target == "_blank"%} target="_blank"{% endif %}>{{ card.card.card_link.title }}</a>
 									</h2>
 								{% endif %}
 								<div class="iastate22-card__body text-content">
 									{{ card.card.content }}
 								</div>
-								{% if card.card.link.url and card.card.link.label and card.card.link_toggle == "true" %}
-									<a href="{{ card.card.link.url }}" class="iastate22-card__cta">{{ card.card.link.label }}</a>
+								{% if card.card.card_link.url and card.card.card_link.title %}
+									<a href="{{ card.card.card_link.url }}" class="iastate22-card__cta"{% if card.card.card_link.target == "_blank"%} target="_blank"{% endif %}>{{ card.card.card_link.title }}</a>
 								{% endif %}
 							</div>
 						</div>
@@ -31,8 +31,8 @@
 									<img src="{{ card.card.image.url }}" alt="">
 								</div>
 							{% endif %}
-							{% if card.card.link.url and card.card.link.label %}
-								<a class="iastate22-card__cta" href="{{ card.card.link.url }}">{{ card.card.link.label }}<span class="arrow"></span>
+							{% if card.card.card_link.url and card.card.card_link.title %}
+								<a class="iastate22-card__cta" href="{{ card.card.card_link.url }}"{% if card.card.card_link.target == "_blank"%} target="_blank"{% endif %}>{{ card.card.card_link.title }}<span class="arrow"></span>
 								</a>
 							{% endif %}
 						</div>
