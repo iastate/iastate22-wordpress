@@ -61,7 +61,7 @@
                             <h2>Affiliations</h2>
                             {% for affiliation in affiliations %}
                                 <p>
-                                    <a class="link-set__link iastate22-link-secondary" href="{{ affiliation.affiliation.url }}"{% if affiliation.affiliation.target == "_blank" %} target="_blank"{% endif %}>{{ affiliation.affiliation.title }}<span class="arrow"></span></a>
+                                    <a class="link-set__link iastate22-link-secondary" href="{{ affiliation.affiliation.url }}"{% if affiliation.affiliation.target == "_blank" %} target="_blank"{% endif %}>{{ affiliation.affiliation.title | default(affiliation.affiliation.url) }}<span class="arrow"></span></a>
                                 </p>
                             {% endfor %}
                         </div>

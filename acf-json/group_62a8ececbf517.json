@@ -201,7 +201,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "url",
+                    "return_format": "array",
                     "parent_repeater": "field_62a8f8b4f7634"
                 }
             ]
@@ -537,7 +537,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "url",
+                    "return_format": "array",
                     "parent_repeater": "field_62a8f78967083"
                 }
             ]
@@ -641,5 +641,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1670471709
+    "modified": 1671168708
 }

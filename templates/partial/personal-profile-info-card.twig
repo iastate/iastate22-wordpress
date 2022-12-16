@@ -28,7 +28,7 @@
 
           {% if link.link.url|length %}
           <li>
-            <a href="{{link.link.url}}" class="{{ linkClass }}"{% if link.link.target == "_blank" %} target="_blank"{% endif %}>{{link.link.title}}<span class="arrow"></span></a>
+            <a href="{{link.link.url}}" class="{{ linkClass }}"{% if link.link.target == "_blank" %} target="_blank"{% endif %}>{{link.link.title | default(link.link.url)}}<span class="arrow"></span></a>
           </li>
           {% endif %}
         {% endfor %}
