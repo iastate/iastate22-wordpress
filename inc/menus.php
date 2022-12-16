@@ -7,7 +7,7 @@ function register_menus() {
             'utility-menu' => __( 'Utility Menu' ),
             'social-menu' => __( 'Social Menu' ),
             'footer-primary-menu' => __( 'Footer Primary Menu' ),
-            'footer-secondary-menu' => __( 'Footer Secondary Menu' ),
+            'footer-secondary-menu' => __( 'Footer Quick Links Menu' ),
             'footer-utility-menu' => __( 'Footer Utility Menu' ),
             'subnav-side-menu' => __( 'Subnav side menu' )
         )
