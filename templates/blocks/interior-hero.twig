@@ -15,8 +15,10 @@
   </div>
   {% endif %}
   
+  {% if fields.subnav_toggle == true %}
     <div class="hero__subnav-wrap">
-      {% include ['templates/partial/subnav.twig'] %}
+        {% include ['templates/partial/subnav.twig'] %}
     </div>
+  {% endif %}
   
 </div>
