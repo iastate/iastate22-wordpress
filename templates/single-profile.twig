@@ -55,14 +55,16 @@
                         </div>
                     </div>
                 {% endif %}
-                {% if affiliations %}
+                {% if affiliations[0]["affiliation"]|length > 1 %}
                     <div class="multi-column-content__column">
                         <div class="text-content">
                             <h2>Affiliations</h2>
                             {% for affiliation in affiliations %}
+                                {% if affiliation.affiliation.url %}
                                 <p>
                                     <a class="link-set__link iastate22-link-secondary" href="{{ affiliation.affiliation.url }}"{% if affiliation.affiliation.target == "_blank" %} target="_blank"{% endif %}>{{ affiliation.affiliation.title | default(affiliation.affiliation.url) }}<span class="arrow"></span></a>
                                 </p>
+                                {% endif %}
                             {% endfor %}
                         </div>
                     </div>
