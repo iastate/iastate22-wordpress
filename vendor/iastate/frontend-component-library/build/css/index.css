@@ -5202,7 +5202,8 @@ https://flickity.metafizzy.co
     .site-footer--ecosystem .site-footer__primary-nav ul {
       flex-wrap: wrap;
       -webkit-box-pack: start;
-              justify-content: flex-start; } }
+              justify-content: flex-start;
+      border-bottom: none; } }
   @media (min-width: 1200px) {
     .site-footer--ecosystem .site-footer__primary-nav ul {
       -webkit-box-pack: end;
@@ -5223,7 +5224,8 @@ https://flickity.metafizzy.co
         border-bottom: 0.125rem solid #f1be48; } }
     @media (min-width: 768px) {
       .site-footer--ecosystem .site-footer__primary-nav ul li {
-        padding: 0 1.875rem 0 0; } }
+        padding: 0 1.875rem 0 0;
+        border-bottom: 0.125rem solid #f1be48; } }
     .site-footer__primary-nav ul li:first-child {
       border-top: 0.125rem solid #f1be48; }
       @media (min-width: 768px) {
@@ -5292,7 +5294,8 @@ https://flickity.metafizzy.co
     .site-footer__secondary-nav {
       border-bottom: none;
       min-height: 8.125rem;
-      min-width: 25rem; } }
+      min-width: 25rem;
+      margin-bottom: 0; } }
   @media (min-width: 1200px) {
     .site-footer--ecosystem .site-footer__secondary-nav {
       -webkit-box-flex: 1;
@@ -5302,7 +5305,8 @@ https://flickity.metafizzy.co
       flex-wrap: wrap;
       -webkit-box-align: end;
               align-items: flex-end;
-      padding-bottom: 0.4375rem; } }
+      padding-bottom: 0;
+      padding-right: 3.75rem; } }
   @media (min-width: 1200px) {
     .site-footer--ecosystem .site-footer__secondary-nav .site-footer__section-label {
       -webkit-box-flex: 0;
@@ -5470,12 +5474,14 @@ https://flickity.metafizzy.co
     .site-footer__bottom-wrap {
       margin-left: -4.25rem;
       margin-right: -4.25rem;
+      margin-top: 1.875rem;
       padding-left: 4.25rem;
       padding-right: 4.25rem; } }
   @media (min-width: 1200px) {
     .site-footer__bottom-wrap {
       margin-left: -5.125rem;
       margin-right: -5.125rem;
+      margin-top: 3.125rem;
       display: -webkit-box;
       display: flex;
       -webkit-box-align: center;
@@ -5530,13 +5536,16 @@ https://flickity.metafizzy.co
       display: -webkit-box;
       display: flex; } }
   .site-footer__utility-nav ul li {
-    text-align: center; }
+    text-align: center;
+    line-height: 1.4; }
     @media (min-width: 768px) {
       .site-footer__utility-nav ul li {
         text-align: left; } }
     @media (min-width: 1200px) {
       .site-footer__utility-nav ul li {
-        margin-right: 0.9375rem;
+        margin-right: 0.9375rem; } }
+    @media (min-width: 1400px) {
+      .site-footer__utility-nav ul li {
         text-align: center; } }
     .site-footer__utility-nav ul li a {
       color: #ffffff;
@@ -5544,8 +5553,7 @@ https://flickity.metafizzy.co
       transition: 0.2s color ease-in-out;
       font-family: "Nimbus Sans", sans-serif;
       font-weight: 700;
-      font-size: 0.9375rem;
-      line-height: 1.73333; }
+      font-size: 0.9375rem; }
       .site-footer__utility-nav ul li a:hover {
         color: #f1be48; }
 
@@ -5562,7 +5570,7 @@ https://flickity.metafizzy.co
     .site-footer__copyright {
       font-size: 1.125rem;
       line-height: 1.55556;
-      text-align: center; } }
+      padding-right: 2.5rem; } }
 
 @media (min-width: 1200px) {
   .site-footer__logo-social-links-wrap {
@@ -5585,11 +5593,9 @@ https://flickity.metafizzy.co
       text-align: left; } }
   @media (min-width: 1200px) {
     .site-footer__site-org-contact-info {
-      -webkit-box-flex: 1;
-              flex: 1 1 0; } }
-  @media (min-width: 1400px) {
-    .site-footer__site-org-contact-info {
-      margin-right: 9rem; } }
+      -webkit-box-flex: 0;
+              flex: 0 1 auto;
+      width: 50%; } }
   .site-footer__site-org-contact-info .site-footer__section-label {
     color: #ffffff;
     padding: 0; }
@@ -5611,6 +5617,13 @@ https://flickity.metafizzy.co
       .site-footer__site-org-contact-info p a:hover {
         color: #f1be48; }
 
+@media (min-width: 992px) {
+  .site-footer__site-org-contact-address,
+  .site-footer__site-org-contact-email-phone-wrap {
+    -webkit-box-flex: 0;
+            flex: 0 1 auto;
+    width: 50%; } }
+
 .site-footer__site-org-contact-address,
 .site-footer__site-org-contact-email,
 .site-footer__site-org-contact-phone {
@@ -5625,10 +5638,26 @@ https://flickity.metafizzy.co
 .site-footer__site-org-contact-phone p {
   margin: 0; }
 
+@media (min-width: 768px) {
+  .site-footer--ecosystem .site-footer__logo-social-links-wrap + .site-footer__secondary-nav,
+  .site-footer--ecosystem .site-footer__logo-social-links-wrap + .site-footer__secondary-nav + .site-footer__site-org-contact-info {
+    margin-top: 2.5rem; } }
+
 @media (min-width: 1200px) {
   .site-footer--ecosystem .site-footer__logo-social-links-wrap + .site-footer__secondary-nav,
   .site-footer--ecosystem .site-footer__logo-social-links-wrap + .site-footer__secondary-nav + .site-footer__site-org-contact-info {
     margin-top: 3.75rem; } }
+
+@media (min-width: 1200px) {
+  .site-footer--ecosystem .site-footer__primary-nav + .site-footer__site-org-contact-info {
+    position: relative;
+    left: 50%; } }
+
+@media (min-width: 1200px) {
+  .site-footer--ecosystem .site-footer__logo-social-links-wrap + .site-footer__site-org-contact-info {
+    position: relative;
+    left: 50%;
+    margin-top: 1.875rem; } }
 
 .site-header {
   pointer-events: none;

@@ -1,0 +1,425 @@
+{
+  "context": {
+    "footer_test_one": {
+      "social_links": {
+        "instagram": "",
+        "youtube": "",
+        "facebook": "",
+        "twitter": "",
+        "linkedin": "",
+        "flickr": ""
+      },
+      "footer_nav": [
+        {
+          "title": "Footer Link 1",
+          "url": "#"
+        },
+        {
+          "title": "Footer Link 2",
+          "url": "#"
+        },
+        {
+          "title": "Footer Link 3",
+          "url": "#"
+        },
+        {
+          "title": "Footer Link 4",
+          "url": "#"
+        },
+        {
+          "title": "Footer Link 5",
+          "url": "#"
+        },
+        {
+          "title": "Footer Link 6",
+          "url": "#"
+        },
+        {
+          "title": "Footer Link 7",
+          "url": "#"
+        },
+        {
+          "title": "Footer Link 8",
+          "url": "#"
+        },
+        {
+          "title": "Footer Link 9",
+          "url": "#"
+        },
+        {
+          "title": "Footer Link 10",
+          "url": "#"
+        },
+        {
+          "title": "Footer Link 11",
+          "url": "#"
+        },
+        {
+          "title": "Footer Link 12",
+          "url": "#"
+        },
+        {
+          "title": "Footer Link 13",
+          "url": "#"
+        },
+        {
+          "title": "Footer Link 14",
+          "url": "#"
+        },
+        {
+          "title": "Footer Link 15",
+          "url": "#"
+        },
+        {
+          "title": "Footer Link 16",
+          "url": "#"
+        },
+        {
+          "title": "Footer Link 17",
+          "url": "#"
+        },
+        {
+          "title": "Footer Link 18",
+          "url": "#"
+        }
+      ],
+      "footer_secondary_nav": [
+        {
+          "title": "Voluptate laboris tempor esse eu",
+          "url": "#"
+        },
+        {
+          "title": "Minim adipiscing reprehenderit sint",
+          "url": "#"
+        },
+        {
+          "title": "Sint culpa occaecat elit quis ex",
+          "url": "#"
+        },
+        {
+          "title": "Et minim minim velit",
+          "url": "#"
+        },
+        {
+          "title": "Aliqua deserunt labore fugiat nisi",
+          "url": "#"
+        },
+        {
+          "title": "Dolore dolor fugiat ullamco laborum",
+          "url": "#"
+        },
+        {
+          "title": "Id eu dolore in incididunt sunt",
+          "url": "#"
+        },
+        {
+          "title": "Ad veniam consequat",
+          "url": "#"
+        }
+      ],
+      "site_org_contact": {
+        "name": "Site Name/Org Name Lorem Ipsum",
+        "email": [
+          {
+            "label": "Undergrad",
+            "email_address": "email@iastate.edu"
+          },
+          {
+            "email_address": "email@iastate.edu"
+          },
+          {
+            "email_address": "email2@iastate.edu"
+          },
+          {
+            "email_address": "email3@iastate.edu"
+          }
+        ],
+        "phone": [
+          {
+            "label": "<abbr title=\"Phone\">P</abbr>",
+            "phone_number": "(515) 294-4347"
+          }
+        ],
+        "address": {
+          "building": "Building",
+          "street": "12345 Street Address",
+          "city_state_zip": "Ames, IA 50011"
+        }
+      },
+      "footer_utility_nav": [
+        {
+          "title": "Privacy Policy",
+          "url": "https://www.iastate.edu/disclaimers-and-terms"
+        },
+        {
+          "title": "Non-discrimination Policy",
+          "url": "https://www.policy.iastate.edu/policy/discrimination"
+        },
+        {
+          "title": "Digital Access and Accessibility",
+          "url": "https://www.digitalaccess.iastate.edu/"
+        },
+        {
+          "title": "Consumer Information",
+          "url": "https://www.iastate.edu/consumer-information"
+        }
+      ]
+    },
+    "footer_test_two": {
+      "social_links": {
+        "instagram": "",
+        "youtube": "",
+        "facebook": "",
+        "twitter": "",
+        "linkedin": "",
+        "flickr": ""
+      },
+      "footer_nav": [
+        {
+          "title": "Teams Discussion Forum",
+          "url": "#"
+        },
+        {
+          "title": "WordPress Package Help",
+          "url": "#"
+        }
+      ],
+      "footer_secondary_nav": [
+        {
+          "title": "Strategic Relations and Communications",
+          "url": "#"
+        },
+        {
+          "title": "Web Development Services",
+          "url": "#"
+        }
+      ],
+      "site_org_contact": {
+        "name": "Site Name/Org Name Lorem Ipsum",
+        "email": [
+          {
+            "label": "Theme Support (longer title)",
+            "email_address": "email@iastate.edu"
+          },
+          {
+            "label": "Erin Rosacker, project manager",
+            "email_address": "edavison@iastate.edu"
+          },
+          {
+            "email_address": "email2@iastate.edu"
+          },
+          {
+            "email_address": "email3@iastate.edu"
+          }
+        ],
+        "phone": [
+          {
+            "label": "<abbr title=\"Phone\">P</abbr>",
+            "phone_number": "(515) 294-4347"
+          }
+        ],
+        "address": {
+          "building": "Building",
+          "street": "12345 Street Address",
+          "city_state_zip": "Ames, IA 50011"
+        }
+      },
+      "footer_utility_nav": [
+        {
+          "title": "Privacy Policy",
+          "url": "https://www.iastate.edu/disclaimers-and-terms"
+        },
+        {
+          "title": "Non-discrimination Policy",
+          "url": "https://www.policy.iastate.edu/policy/discrimination"
+        },
+        {
+          "title": "Digital Access and Accessibility",
+          "url": "https://www.digitalaccess.iastate.edu/"
+        },
+        {
+          "title": "Consumer Information",
+          "url": "https://www.iastate.edu/consumer-information"
+        }
+      ]
+    },
+    "footer_test_three": {
+      "social_links": {
+        "instagram": "#",
+        "youtube": "#",
+        "facebook": "#",
+        "twitter": "#",
+        "linkedin": "",
+        "flickr": ""
+      },
+      "footer_nav": [
+        {
+          "title": "Staff Directory",
+          "url": "#"
+        }
+      ],
+      "footer_secondary_nav": [
+        {
+          "title": "A-Z Index",
+          "url": "#"
+        },
+        {
+          "title": "Directory",
+          "url": "#"
+        },
+        {
+          "title": "Events",
+          "url": "#"
+        },
+        {
+          "title": "President's Council",
+          "url": "#"
+        },
+        {
+          "title": "President's Leadership Class",
+          "url": "#"
+        },
+        {
+          "title": "Committee for the Consideration of Removing Names from University Property",
+          "url": "#"
+        }
+      ],
+      "site_org_contact": {
+        "name": "Office of the President",
+        "email": [
+          {
+            "label": "",
+            "email_address": "president@iastate.edu"
+          }
+        ],
+        "phone": [
+          {
+            "label": "<abbr title=\"Phone\">P</abbr>",
+            "phone_number": "515-294-2042"
+          },
+          {
+            "label": "<abbr title=\"Fax\">F</abbr>",
+            "phone_number": "515-294-0566"
+          }
+        ],
+        "address": {
+          "building": "1750 Beardshear Hall",
+          "street": "515 Morrill Road",
+          "city_state_zip": "Ames, IA 50011"
+        }
+      },
+      "footer_utility_nav": [
+        {
+          "title": "Privacy Policy",
+          "url": "https://www.iastate.edu/disclaimers-and-terms"
+        },
+        {
+          "title": "Non-discrimination Policy",
+          "url": "https://www.policy.iastate.edu/policy/discrimination"
+        },
+        {
+          "title": "Digital Access and Accessibility",
+          "url": "https://www.digitalaccess.iastate.edu/"
+        },
+        {
+          "title": "Consumer Information",
+          "url": "https://www.iastate.edu/consumer-information"
+        }
+      ]
+    },
+    "footer_test_four": {
+      "social_links": {
+        "instagram": "",
+        "youtube": "",
+        "facebook": "",
+        "twitter": "",
+        "linkedin": "",
+        "flickr": ""
+      },
+      "footer_nav": [],
+      "footer_secondary_nav": [],
+      "site_org_contact": {
+        "name": "Site Name/Org Name Lorem Ipsum",
+        "email": [
+          {
+            "label": "",
+            "email_address": "president@iastate.edu"
+          }
+        ],
+        "phone": [
+          {
+            "label": "<abbr title=\"Phone\">P</abbr>",
+            "phone_number": "515-294-2042"
+          },
+          {
+            "label": "<abbr title=\"Fax\">F</abbr>",
+            "phone_number": "515-294-0566"
+          }
+        ],
+        "address": {
+          "building": "",
+          "street": "",
+          "city_state_zip": ""
+        }
+      },
+      "footer_utility_nav": [
+        {
+          "title": "Privacy Policy",
+          "url": "https://www.iastate.edu/disclaimers-and-terms"
+        },
+        {
+          "title": "Non-discrimination Policy",
+          "url": "https://www.policy.iastate.edu/policy/discrimination"
+        },
+        {
+          "title": "Digital Access and Accessibility",
+          "url": "https://www.digitalaccess.iastate.edu/"
+        },
+        {
+          "title": "Consumer Information",
+          "url": "https://www.iastate.edu/consumer-information"
+        }
+      ]
+    },
+    "footer_test_five": {
+      "social_links": {
+        "instagram": "",
+        "youtube": "",
+        "facebook": "",
+        "twitter": "",
+        "linkedin": "",
+        "flickr": ""
+      },
+      "footer_nav": [],
+      "footer_secondary_nav": [],
+      "site_org_contact": {
+        "name": "",
+        "email": [],
+        "phone": [],
+        "address": {
+          "building": "",
+          "street": "",
+          "city_state_zip": ""
+        }
+      },
+      "footer_utility_nav": [
+        {
+          "title": "Privacy Policy",
+          "url": "https://www.iastate.edu/disclaimers-and-terms"
+        },
+        {
+          "title": "Non-discrimination Policy",
+          "url": "https://www.policy.iastate.edu/policy/discrimination"
+        },
+        {
+          "title": "Digital Access and Accessibility",
+          "url": "https://www.digitalaccess.iastate.edu/"
+        },
+        {
+          "title": "Consumer Information",
+          "url": "https://www.iastate.edu/consumer-information"
+        }
+      ]
+    }
+  }
+}

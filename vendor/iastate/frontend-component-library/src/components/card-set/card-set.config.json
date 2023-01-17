@@ -6,16 +6,18 @@
         "body": "<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>",
         "image": "../../img/Component-Card-Image-1.jpg",
         "url": "https://www.iastate.edu/",
+        "external": false,
         "cta": {
           "url": "https://www.iastate.edu/",
           "text": "Optional Link Text Lorem"
         }
       },
       {
-        "title": "Card Title Lorem Ipsum Dolor Sit Amet ",
+        "title": "External Example - Card Title Lorem Ipsum",
         "body": "<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>",
         "image": "../../img/Component-Card-Image-2.jpg",
         "url": "https://www.iastate.edu/",
+        "external": true,
         "cta": {
           "url": "https://www.iastate.edu/",
           "text": "Optional Link Text Lorem"
@@ -26,6 +28,7 @@
         "body": "<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>",
         "image": "../../img/Component-Card-Image-3.jpg",
         "url": "https://www.iastate.edu/",
+        "external": false,
         "cta": {
           "url": "https://www.iastate.edu/",
           "text": "Optional Link Text Lorem"

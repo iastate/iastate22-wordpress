@@ -1,21 +1,24 @@
-<div class="iastate22-card"{% if clickable is defined %} data-clickable="{{ clickable }}"{% endif %}>
+<div class="iastate22-card" {% if clickable is defined %} data-clickable="{{ clickable }}" {% endif %}>
   {% if image %}
-  <div class="iastate22-card__media">
-		<img src="{{ image|path }}" alt="" loading="lazy" width="600" height="600" >
-	</div>
+    <div class="iastate22-card__media">
+      <img src="{{ image|path }}" alt="" loading="lazy" width="600" height="600">
+    </div>
   {% endif %}
-	<div class="iastate22-card__content">
-		<h2 class="iastate22-card__title"><a href="{{url}}">{{ title }}</a></h2>
-		<div class="iastate22-card__body text-content">
-			{{ body|raw }}
-		</div>
-		{% if cta.url %}
-			{% if cta.text %}
-				<a href="{{ cta.url }}" class="iastate22-card__cta">{{ cta.text }}</a>
-			{% else %}
-				{# Provide a screen-reader only fallback if no text is provided to allow JS to work properly #}
-				<a href="{{ cta.url }}" class="iastate22-card__cta visible-for-screen-readers">Learn more about {{ title }}</a>
-			{% endif %}
-		{% endif %}
-	</div>
+  <div class="iastate22-card__content">
+    <h2 class="iastate22-card__title">
+      <a href="{{url}}" {% if external == true %} target="_blank" {% endif %}>{{ title }}</a>
+    </h2>
+    <div class="iastate22-card__body text-content">
+      {{ body|raw }}
+    </div>
+    {% if cta.url %}
+      {% if cta.text %}
+        <a href="{{ cta.url }}" class="iastate22-card__cta" {% if external == true %} target="_blank" {% endif %}>{{ cta.text }}</a>
+      {% else %}
+        {# Provide a screen-reader only fallback if no text is provided to allow JS to work properly #}
+        <a href="{{ cta.url }}" class="iastate22-card__cta visible-for-screen-readers">Learn more about
+          {{ title }}</a>
+      {% endif %}
+    {% endif %}
+  </div>
 </div>

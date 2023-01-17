@@ -1,0 +1,27 @@
+{% extends "@page" %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+  <div class="outer-pad">
+    <div class="text-content">
+      <h2>Footer Tests</h2>
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {% include "@site-footer--ecosystem" with footer_test_one %}
+  <br>
+  <br>
+  {% include "@site-footer--ecosystem" with footer_test_two %}
+  <br>
+  <br>
+  {% include "@site-footer--ecosystem" with footer_test_three %}
+  <br>
+  <br>
+  {% include "@site-footer--ecosystem" with footer_test_four %}
+  <br>
+  <br>
+  {% include "@site-footer--ecosystem" with footer_test_five %}
+{% endblock %}
