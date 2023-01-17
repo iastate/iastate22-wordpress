@@ -53,7 +53,7 @@
         {% if footer_secondary_menu|length > 3 %}
           <h2 class="site-footer__section-label">Quick Links</h2>
         {% endif %}
-        <ul>
+        <ul {% if footer_secondary_menu|length < 3 %} class="site-footer__secondary-nav-short" {% endif %}>
           {% for link in footer_secondary_menu.items %}
             {% if link.url %}
               <li>
@@ -68,7 +68,7 @@
     {% if options.site_name or options.address.building or options.address.street or options.address.city_state_zip or options.phone_fax or options.emails %}
       <div class="site-footer__site-org-contact-info">
         <h2 class="site-footer__section-label">{{options.site_name}}</h2>
-        {% if options.address %}
+        {% if options.address.building or options.address.street or options.address.city_state_zip %}
           <div class="site-footer__site-org-contact-address">
             <p>
               {% if options.address.building %}
