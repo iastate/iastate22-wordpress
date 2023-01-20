@@ -36,7 +36,7 @@
       {% endif %}
     </div>
 
-    {% if footer_primary_menu %}
+    {% if footer_primary_menu.items %}
       <nav class="site-footer__primary-nav" aria-label="Footer Primary">
         <ul>
           {% for link in footer_primary_menu.items %}
@@ -47,13 +47,12 @@
         </ul>
       </nav>
     {% endif %}
-
-    {% if footer_secondary_menu %}
+    {% if footer_secondary_menu.items %}
       <nav class="site-footer__secondary-nav" aria-label="Footer Secondary">
-        {% if footer_secondary_menu|length > 3 %}
+        {% if footer_secondary_menu.items|length > 3 %}
           <h2 class="site-footer__section-label">Quick Links</h2>
         {% endif %}
-        <ul {% if footer_secondary_menu|length < 3 %} class="site-footer__secondary-nav-short" {% endif %}>
+        <ul {% if footer_secondary_menu.items|length < 3 %} class="site-footer__secondary-nav-short" {% endif %}>
           {% for link in footer_secondary_menu.items %}
             {% if link.url %}
               <li>
@@ -65,9 +64,9 @@
       </nav>
     {% endif %}
 
-    {% if options.site_name or options.address.building or options.address.street or options.address.city_state_zip or options.phone_fax or options.emails %}
+    {% if options.site_name or options.address.building or options.address.street or options.address.city_state_zip or options.phone_fax.0.phone is not empty or options.phone_fax.0.phone is not empty or options.emails.0.email is not empty %}
       <div class="site-footer__site-org-contact-info">
-        <h2 class="site-footer__section-label">{{options.site_name}}</h2>
+        {% if options.site_name %}<h2 class="site-footer__section-label">{{options.site_name}}</h2>{% endif %}
         {% if options.address.building or options.address.street or options.address.city_state_zip %}
           <div class="site-footer__site-org-contact-address">
             <p>
@@ -85,7 +84,7 @@
         {% endif %}
 
         <div class="site-footer__site-org-contact-email-phone-wrap">
-          {% if options.emails %}
+          {% if options.emails.0.email is not empty %}
             <div class="site-footer__site-org-contact-email">
               {% for item in options.emails %}
                 <p>
