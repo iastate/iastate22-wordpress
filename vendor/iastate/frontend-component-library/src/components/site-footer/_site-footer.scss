@@ -252,9 +252,10 @@
       flex: 1 1 0;
       display: flex;
       flex-wrap: wrap;
-      align-items: flex-end;
+      align-items: flex-start;
       padding-bottom: 0;
       padding-right: rem(60);
+      min-height: initial;
     }
     .site-footer__section-label {
       @include media-breakpoint-up(xl) {
