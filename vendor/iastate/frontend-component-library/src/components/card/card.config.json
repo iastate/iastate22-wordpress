@@ -4,6 +4,7 @@
     "body": "<p>Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur.</p>",
     "image": "../../img/Component-Card-Image-1.jpg",
     "url": "https://www.iastate.edu/",
+    "external": true,
     "cta": {
       "url": "https://www.iastate.edu/",
       "text": "Learn More"

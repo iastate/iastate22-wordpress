@@ -169,7 +169,7 @@
           ],
           "phone": [
             {
-              "label": "P",
+              "label": "<abbr title=\"Phone\">P</abbr>",
               "phone_number": "(515) 294-4347"
             }
           ],
