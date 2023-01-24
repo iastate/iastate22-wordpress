@@ -167,12 +167,12 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_62ab8e39f8b0b",
-                    "label": "Youtube Video ID",
-                    "name": "youtube_video_id",
+                    "key": "field_63d0284425ecd",
+                    "label": "Source",
+                    "name": "source",
                     "aria-label": "",
-                    "type": "text",
-                    "instructions": "Enter the 11 digit YouTube video ID in the field below",
+                    "type": "select",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -180,11 +180,74 @@
                         "class": "",
                         "id": ""
                     },
+                    "choices": {
+                        "-- select one -- :": "-- select one -- :",
+                        "youtube": "YouTube",
+                        "vimeo": "Vimeo"
+                    },
+                    "default_value": false,
+                    "return_format": "label",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_62ab8e39f8b0b",
+                    "label": "Youtube Video ID",
+                    "name": "youtube_video_id",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Enter the 11 digit YouTube video ID in the field below",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_63d0284425ecd",
+                                "operator": "==",
+                                "value": "youtube"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
                     "default_value": "",
+                    "maxlength": 11,
                     "placeholder": "",
                     "prepend": "",
-                    "append": "",
-                    "maxlength": 11
+                    "append": ""
+                },
+                {
+                    "key": "field_63d0288e25ece",
+                    "label": "Vimeo Video ID",
+                    "name": "vimeo_video_id",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Enter the Vimeo video ID code",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_63d0284425ecd",
+                                "operator": "==",
+                                "value": "vimeo"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": 10,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
                 }
             ]
         },
@@ -253,5 +316,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1670575631
+    "modified": 1674586439
 }

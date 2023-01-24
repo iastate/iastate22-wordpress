@@ -44,7 +44,13 @@
   <div class="ecosystem-home-hero__media">
     <img src="{{ fields.hero_image.hero_image.url }}" alt="{{ fields.hero_image.hero_image.alt }}" width="{{ fields.hero_image.hero_image.width }}" height="{{ fields.hero_image.hero_image.height }}">
     {% if fields.ecosystem == "video" %}
-      <div class="ecosystem-home-hero__video" aria-label="YouTube Video: {{ fields.video.video_title }}" data-vid="{{ fields.video.youtube_video_id }}"></div>
+      {% if fields.video.source == "youtube" %}
+        <div class="ecosystem-home-hero__video" aria-label="YouTube Video: {{ fields.video.video_title }}" data-vid="{{ fields.video.youtube_video_id }}"></div>
+      {% if fields.video.source == "vimeo" %}
+        <div class="ecosystem-home-hero__video" aria-label="Vimeo Video: {{ fields.video.video_title }}">
+          <iframe title="" src="https://player.vimeo.com/video/{{ fields.full_width_video.vimeo_video_id }}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      {% endif %}
     {% endif %}
   </div>
   {% endif %}

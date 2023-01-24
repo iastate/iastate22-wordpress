@@ -6,6 +6,7 @@
             "key": "field_62fd652a7f702",
             "label": "Video",
             "name": "video",
+            "aria-label": "",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -21,6 +22,7 @@
                     "key": "field_62fd652a805a4",
                     "label": "TItle",
                     "name": "title",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 1,
@@ -40,6 +42,7 @@
                     "key": "field_62fd65427a814",
                     "label": "Video Source",
                     "name": "source",
+                    "aria-label": "",
                     "type": "select",
                     "instructions": "",
                     "required": 0,
@@ -66,6 +69,7 @@
                     "key": "field_62fd652a805e9",
                     "label": "YouTube Video ID",
                     "name": "youtube_video_id",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "Enter the 11 digit YouTube video ID code",
                     "required": 1,
@@ -93,8 +97,9 @@
                     "key": "field_62fd665f10cfa",
                     "label": "Vimeo Video ID",
                     "name": "vimeo_video_id",
+                    "aria-label": "",
                     "type": "text",
-                    "instructions": "Enter the 9 digit Vimeo video ID code",
+                    "instructions": "Enter the Vimeo video ID code",
                     "required": 1,
                     "conditional_logic": [
                         [
@@ -111,15 +116,16 @@
                         "id": ""
                     },
                     "default_value": "",
+                    "maxlength": 9,
                     "placeholder": "",
                     "prepend": "",
-                    "append": "",
-                    "maxlength": 9
+                    "append": ""
                 },
                 {
                     "key": "field_62fd652a80630",
                     "label": "Video Poster?",
                     "name": "video_poster",
+                    "aria-label": "",
                     "type": "true_false",
                     "instructions": "Select this if you would like to use a custom video poster image. By default, the YouTube video thumbnail is used.",
                     "required": 0,
@@ -139,6 +145,7 @@
                     "key": "field_62fd652a8067d",
                     "label": "Poster Image",
                     "name": "poster_image",
+                    "aria-label": "",
                     "type": "image",
                     "instructions": "",
                     "required": 1,
@@ -188,5 +195,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1660777083
+    "modified": 1674586312
 }
