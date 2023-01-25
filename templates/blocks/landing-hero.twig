@@ -47,7 +47,7 @@
       {% if fields.video.source == "youtube" %}
         <div class="ecosystem-home-hero__video" aria-label="YouTube Video: {{ fields.video.video_title }}" data-vid="{{ fields.video.youtube_video_id }}"></div>
       {% elseif fields.video.source == "vimeo" %}
-        <div class="ecosystem-home-hero__video" aria-label="Vimeo Video: {{ fields.video.video_title }}" data-vimeo-muted="true" data-vimeo-loop="true" data-vimeo-background="true" data-vimeo-autoplay="true" data-vimeo-id="{{ fields.full_width_video.vimeo_video_id|striptags }}"></div>
+        <div class="ecosystem-home-hero__video" aria-label="Vimeo Video: {{ fields.video.video_title }}" data-vimeo-muted="true" data-vimeo-loop="true" data-vimeo-background="true" data-vimeo-autoplay="true" data-vimeo-id="{{ fields.video.vimeo_video_id|striptags }}"></div>
       {% endif %}
     {% endif %}
   </div>
