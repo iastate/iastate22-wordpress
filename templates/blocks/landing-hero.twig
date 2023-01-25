@@ -27,9 +27,9 @@
         <div class="iastate22-button-set">
           <ul>
             {% for button in fields.buttons %}
-              {% if button.link_url.url %}
+              {% if button.link_url %}
               <li>
-                <a class="iastate22-button" href="{{ button.link_url.url }}">{{ button.label }}<span class="arrow"></span></a>
+                <a class="iastate22-button" href="{{ button.link_url }}">{{ button.label }}<span class="arrow"></span></a>
               </li>
               {% endif %}
             {% endfor %}
