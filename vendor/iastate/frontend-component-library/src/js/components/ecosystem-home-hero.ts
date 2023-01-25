@@ -37,9 +37,9 @@ export class EcosystemHeroBackgroundVideo {
   }
 
   private createVideoPlayer() {
-    const videoId = this.playerRoot.dataset.vid;
+    const videoId = this.playerRoot.getAttribute("data-vid");
     const vimeoId = this.playerRoot.getAttribute("data-vimeo-id");
-    if (videoId !== undefined) {
+    if (videoId !== null) {
       this.player = YoutubePlayer(this.playerRoot, {
         videoId,
         playerVars: {
@@ -57,7 +57,7 @@ export class EcosystemHeroBackgroundVideo {
       });
       this.handlePlayerEvents();
       this.handlePlayButtonClick();
-    } else if (vimeoId !== undefined) {
+    } else if (vimeoId !== null) {
       this.vimPlayer = new VimeoPlayer(this.playerRoot);
       this.handleVimeoPlayerEvents();
       this.handleVimeoPlayButtonClick();

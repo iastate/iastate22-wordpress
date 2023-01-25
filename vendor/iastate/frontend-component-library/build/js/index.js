@@ -16157,9 +16157,9 @@
               });
           }),
           (t.prototype.createVideoPlayer = function() {
-            var t = this.playerRoot.dataset.vid,
+            var t = this.playerRoot.getAttribute("data-vid"),
               e = this.playerRoot.getAttribute("data-vimeo-id");
-            void 0 !== t
+            null !== t
               ? ((this.player = r.default(this.playerRoot, {
                   videoId: t,
                   playerVars: {
@@ -16177,7 +16177,7 @@
                 })),
                 this.handlePlayerEvents(),
                 this.handlePlayButtonClick())
-              : void 0 !== e &&
+              : null !== e &&
                 ((this.vimPlayer = new o.default(this.playerRoot)),
                 this.handleVimeoPlayerEvents(),
                 this.handleVimeoPlayButtonClick());
