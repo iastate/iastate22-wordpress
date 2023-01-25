@@ -186,7 +186,7 @@
                         "vimeo": "Vimeo"
                     },
                     "default_value": false,
-                    "return_format": "label",
+                    "return_format": "value",
                     "multiple": 0,
                     "allow_null": 0,
                     "ui": 0,
@@ -316,5 +316,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1674586439
+    "modified": 1674677550
 }
