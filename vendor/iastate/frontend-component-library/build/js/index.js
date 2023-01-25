@@ -46,7 +46,7 @@
       return Object.prototype.hasOwnProperty.call(t, e);
     }),
     (n.p = "../"),
-    n((n.s = 205));
+    n((n.s = 206));
 })([
   function(t, e, n) {
     var i = n(1),
@@ -2142,7 +2142,7 @@
     };
   },
   function(t, e, n) {
-    var i = n(211);
+    var i = n(212);
     t.exports = function(t, e) {
       return new (i(t))(0 === e ? 0 : e);
     };
@@ -2652,7 +2652,7 @@
       f = n(20),
       d = n(30),
       p = n(174),
-      g = n(261),
+      g = n(262),
       v = n(37),
       m = n(39),
       y = n(52).f,
@@ -3695,9 +3695,9 @@
                 ? "symbol"
                 : typeof t;
             },
-      r = a(n(473)),
-      o = a(n(474)),
-      s = a(n(476));
+      r = a(n(474)),
+      o = a(n(475)),
+      s = a(n(477));
     function a(t) {
       return t && t.__esModule ? t : { default: t };
     }
@@ -4288,7 +4288,7 @@
       r = n(38),
       o = n(11),
       s = n(14),
-      a = n(242),
+      a = n(243),
       c = n(128),
       u = n(64),
       l = n(15),
@@ -4739,8 +4739,8 @@
       d = n(23).f,
       p = n(140).set,
       g = n(185),
-      v = n(346),
-      m = n(347),
+      v = n(347),
+      m = n(348),
       y = n(57),
       b = h.MutationObserver || h.WebKitMutationObserver,
       _ = h.document,
@@ -4887,7 +4887,7 @@
   },
   function(t, e, n) {
     var i = n(1),
-      r = n(409),
+      r = n(410),
       o = i.RangeError;
     t.exports = function(t, e) {
       var n = r(t);
@@ -5587,6 +5587,1169 @@
       });
   },
   function(t, e, n) {
+    "use strict";
+    n.r(e),
+      function(t, n) {
+        function i(t, e) {
+          for (var n = 0; n < e.length; n++) {
+            var i = e[n];
+            (i.enumerable = i.enumerable || !1),
+              (i.configurable = !0),
+              "value" in i && (i.writable = !0),
+              Object.defineProperty(t, i.key, i);
+          }
+        }
+        var r = void 0 !== t && "[object global]" === {}.toString.call(t);
+        function o(t, e) {
+          return 0 === t.indexOf(e.toLowerCase())
+            ? t
+            : ""
+                .concat(e.toLowerCase())
+                .concat(t.substr(0, 1).toUpperCase())
+                .concat(t.substr(1));
+        }
+        function s(t) {
+          return /^(https?:)?\/\/((player|www)\.)?vimeo\.com(?=$|\/)/.test(t);
+        }
+        function a() {
+          var t,
+            e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
+            n = e.id,
+            i = e.url,
+            r = n || i;
+          if (!r)
+            throw new Error(
+              "An id or url must be passed, either in an options object or as a data-vimeo-id or data-vimeo-url attribute."
+            );
+          if (((t = r), !isNaN(parseFloat(t)) && isFinite(t) && Math.floor(t) == t))
+            return "https://vimeo.com/".concat(r);
+          if (s(r)) return r.replace("http:", "https:");
+          if (n) throw new TypeError("“".concat(n, "” is not a valid video id."));
+          throw new TypeError("“".concat(r, "” is not a vimeo.com url."));
+        }
+        var c = void 0 !== Array.prototype.indexOf,
+          u = "undefined" != typeof window && void 0 !== window.postMessage;
+        if (!(r || (c && u))) throw new Error("Sorry, the Vimeo Player API is not available in this browser.");
+        var l =
+          "undefined" != typeof globalThis
+            ? globalThis
+            : "undefined" != typeof window
+            ? window
+            : void 0 !== t
+            ? t
+            : "undefined" != typeof self
+            ? self
+            : {};
+        /*!
+         * weakmap-polyfill v2.0.4 - ECMAScript6 WeakMap polyfill
+         * https://github.com/polygonplanet/weakmap-polyfill
+         * Copyright (c) 2015-2021 polygonplanet <polygon.planet.aqua@gmail.com>
+         * @license MIT
+         */
+        !(function(t) {
+          if (!t.WeakMap) {
+            var e = Object.prototype.hasOwnProperty,
+              n =
+                Object.defineProperty &&
+                (function() {
+                  try {
+                    return 1 === Object.defineProperty({}, "x", { value: 1 }).x;
+                  } catch (t) {}
+                })(),
+              i = function(t, e, i) {
+                n ? Object.defineProperty(t, e, { configurable: !0, writable: !0, value: i }) : (t[e] = i);
+              };
+            t.WeakMap = (function() {
+              function t() {
+                if (void 0 === this) throw new TypeError("Constructor WeakMap requires 'new'");
+                if ((i(this, "_id", "_WeakMap" + "_" + o() + "." + o()), arguments.length > 0))
+                  throw new TypeError("WeakMap iterable is not supported");
+              }
+              function n(t, n) {
+                if (!r(t) || !e.call(t, "_id"))
+                  throw new TypeError(n + " method called on incompatible receiver " + typeof t);
+              }
+              function o() {
+                return Math.random()
+                  .toString()
+                  .substring(2);
+              }
+              return (
+                i(t.prototype, "delete", function(t) {
+                  if ((n(this, "delete"), !r(t))) return !1;
+                  var e = t[this._id];
+                  return !(!e || e[0] !== t) && (delete t[this._id], !0);
+                }),
+                i(t.prototype, "get", function(t) {
+                  if ((n(this, "get"), r(t))) {
+                    var e = t[this._id];
+                    return e && e[0] === t ? e[1] : void 0;
+                  }
+                }),
+                i(t.prototype, "has", function(t) {
+                  if ((n(this, "has"), !r(t))) return !1;
+                  var e = t[this._id];
+                  return !(!e || e[0] !== t);
+                }),
+                i(t.prototype, "set", function(t, e) {
+                  if ((n(this, "set"), !r(t))) throw new TypeError("Invalid value used as weak map key");
+                  var o = t[this._id];
+                  return o && o[0] === t ? ((o[1] = e), this) : (i(t, this._id, [t, e]), this);
+                }),
+                i(t, "_polyfill", !0),
+                t
+              );
+            })();
+          }
+          function r(t) {
+            return Object(t) === t;
+          }
+        })(
+          "undefined" != typeof globalThis
+            ? globalThis
+            : "undefined" != typeof self
+            ? self
+            : "undefined" != typeof window
+            ? window
+            : l
+        );
+        var h = (function(t, e) {
+            return t((e = { exports: {} }), e.exports), e.exports;
+          })(function(t) {
+            /*! Native Promise Only
+    v0.8.1 (c) Kyle Simpson
+    MIT License: http://getify.mit-license.org
+*/
+            var e, i, r;
+            (r = function() {
+              var t,
+                e,
+                i,
+                r = Object.prototype.toString,
+                o =
+                  void 0 !== n
+                    ? function(t) {
+                        return n(t);
+                      }
+                    : setTimeout;
+              try {
+                Object.defineProperty({}, "x", {}),
+                  (t = function(t, e, n, i) {
+                    return Object.defineProperty(t, e, { value: n, writable: !0, configurable: !1 !== i });
+                  });
+              } catch (e) {
+                t = function(t, e, n) {
+                  return (t[e] = n), t;
+                };
+              }
+              function s(t, n) {
+                i.add(t, n), e || (e = o(i.drain));
+              }
+              function a(t) {
+                var e,
+                  n = typeof t;
+                return null == t || ("object" != n && "function" != n) || (e = t.then), "function" == typeof e && e;
+              }
+              function c() {
+                for (var t = 0; t < this.chain.length; t++)
+                  u(this, 1 === this.state ? this.chain[t].success : this.chain[t].failure, this.chain[t]);
+                this.chain.length = 0;
+              }
+              function u(t, e, n) {
+                var i, r;
+                try {
+                  !1 === e
+                    ? n.reject(t.msg)
+                    : (i = !0 === e ? t.msg : e.call(void 0, t.msg)) === n.promise
+                    ? n.reject(TypeError("Promise-chain cycle"))
+                    : (r = a(i))
+                    ? r.call(i, n.resolve, n.reject)
+                    : n.resolve(i);
+                } catch (t) {
+                  n.reject(t);
+                }
+              }
+              function l(t) {
+                var e,
+                  n = this;
+                if (!n.triggered) {
+                  (n.triggered = !0), n.def && (n = n.def);
+                  try {
+                    (e = a(t))
+                      ? s(function() {
+                          var i = new d(n);
+                          try {
+                            e.call(
+                              t,
+                              function() {
+                                l.apply(i, arguments);
+                              },
+                              function() {
+                                h.apply(i, arguments);
+                              }
+                            );
+                          } catch (t) {
+                            h.call(i, t);
+                          }
+                        })
+                      : ((n.msg = t), (n.state = 1), n.chain.length > 0 && s(c, n));
+                  } catch (t) {
+                    h.call(new d(n), t);
+                  }
+                }
+              }
+              function h(t) {
+                var e = this;
+                e.triggered ||
+                  ((e.triggered = !0), e.def && (e = e.def), (e.msg = t), (e.state = 2), e.chain.length > 0 && s(c, e));
+              }
+              function f(t, e, n, i) {
+                for (var r = 0; r < e.length; r++)
+                  !(function(r) {
+                    t.resolve(e[r]).then(function(t) {
+                      n(r, t);
+                    }, i);
+                  })(r);
+              }
+              function d(t) {
+                (this.def = t), (this.triggered = !1);
+              }
+              function p(t) {
+                (this.promise = t), (this.state = 0), (this.triggered = !1), (this.chain = []), (this.msg = void 0);
+              }
+              function g(t) {
+                if ("function" != typeof t) throw TypeError("Not a function");
+                if (0 !== this.__NPO__) throw TypeError("Not a promise");
+                this.__NPO__ = 1;
+                var e = new p(this);
+                (this.then = function(t, n) {
+                  var i = { success: "function" != typeof t || t, failure: "function" == typeof n && n };
+                  return (
+                    (i.promise = new this.constructor(function(t, e) {
+                      if ("function" != typeof t || "function" != typeof e) throw TypeError("Not a function");
+                      (i.resolve = t), (i.reject = e);
+                    })),
+                    e.chain.push(i),
+                    0 !== e.state && s(c, e),
+                    i.promise
+                  );
+                }),
+                  (this.catch = function(t) {
+                    return this.then(void 0, t);
+                  });
+                try {
+                  t.call(
+                    void 0,
+                    function(t) {
+                      l.call(e, t);
+                    },
+                    function(t) {
+                      h.call(e, t);
+                    }
+                  );
+                } catch (t) {
+                  h.call(e, t);
+                }
+              }
+              i = (function() {
+                var t, n, i;
+                function r(t, e) {
+                  (this.fn = t), (this.self = e), (this.next = void 0);
+                }
+                return {
+                  add: function(e, o) {
+                    (i = new r(e, o)), n ? (n.next = i) : (t = i), (n = i), (i = void 0);
+                  },
+                  drain: function() {
+                    var i = t;
+                    for (t = n = e = void 0; i; ) i.fn.call(i.self), (i = i.next);
+                  },
+                };
+              })();
+              var v = t({}, "constructor", g, !1);
+              return (
+                (g.prototype = v),
+                t(v, "__NPO__", 0, !1),
+                t(g, "resolve", function(t) {
+                  return t && "object" == typeof t && 1 === t.__NPO__
+                    ? t
+                    : new this(function(e, n) {
+                        if ("function" != typeof e || "function" != typeof n) throw TypeError("Not a function");
+                        e(t);
+                      });
+                }),
+                t(g, "reject", function(t) {
+                  return new this(function(e, n) {
+                    if ("function" != typeof e || "function" != typeof n) throw TypeError("Not a function");
+                    n(t);
+                  });
+                }),
+                t(g, "all", function(t) {
+                  var e = this;
+                  return "[object Array]" != r.call(t)
+                    ? e.reject(TypeError("Not an array"))
+                    : 0 === t.length
+                    ? e.resolve([])
+                    : new e(function(n, i) {
+                        if ("function" != typeof n || "function" != typeof i) throw TypeError("Not a function");
+                        var r = t.length,
+                          o = Array(r),
+                          s = 0;
+                        f(
+                          e,
+                          t,
+                          function(t, e) {
+                            (o[t] = e), ++s === r && n(o);
+                          },
+                          i
+                        );
+                      });
+                }),
+                t(g, "race", function(t) {
+                  var e = this;
+                  return "[object Array]" != r.call(t)
+                    ? e.reject(TypeError("Not an array"))
+                    : new e(function(n, i) {
+                        if ("function" != typeof n || "function" != typeof i) throw TypeError("Not a function");
+                        f(
+                          e,
+                          t,
+                          function(t, e) {
+                            n(e);
+                          },
+                          i
+                        );
+                      });
+                }),
+                g
+              );
+            }),
+              ((i = l)[(e = "Promise")] = i[e] || r()),
+              t.exports && (t.exports = i[e]);
+          }),
+          f = new WeakMap();
+        function d(t, e, n) {
+          var i = f.get(t.element) || {};
+          e in i || (i[e] = []), i[e].push(n), f.set(t.element, i);
+        }
+        function p(t, e) {
+          return (f.get(t.element) || {})[e] || [];
+        }
+        function g(t, e, n) {
+          var i = f.get(t.element) || {};
+          if (!i[e]) return !0;
+          if (!n) return (i[e] = []), f.set(t.element, i), !0;
+          var r = i[e].indexOf(n);
+          return -1 !== r && i[e].splice(r, 1), f.set(t.element, i), i[e] && 0 === i[e].length;
+        }
+        function v(t) {
+          if ("string" == typeof t)
+            try {
+              t = JSON.parse(t);
+            } catch (t) {
+              return console.warn(t), {};
+            }
+          return t;
+        }
+        function m(t, e, n) {
+          if (t.element.contentWindow && t.element.contentWindow.postMessage) {
+            var i = { method: e };
+            void 0 !== n && (i.value = n);
+            var r = parseFloat(navigator.userAgent.toLowerCase().replace(/^.*msie (\d+).*$/, "$1"));
+            r >= 8 && r < 10 && (i = JSON.stringify(i)), t.element.contentWindow.postMessage(i, t.origin);
+          }
+        }
+        function y(t, e) {
+          var n,
+            i = [];
+          if ((e = v(e)).event) {
+            if ("error" === e.event)
+              p(t, e.data.method).forEach(function(n) {
+                var i = new Error(e.data.message);
+                (i.name = e.data.name), n.reject(i), g(t, e.data.method, n);
+              });
+            (i = p(t, "event:".concat(e.event))), (n = e.data);
+          } else if (e.method) {
+            var r = (function(t, e) {
+              var n = p(t, e);
+              if (n.length < 1) return !1;
+              var i = n.shift();
+              return g(t, e, i), i;
+            })(t, e.method);
+            r && (i.push(r), (n = e.value));
+          }
+          i.forEach(function(e) {
+            try {
+              if ("function" == typeof e) return void e.call(t, n);
+              e.resolve(n);
+            } catch (t) {}
+          });
+        }
+        var b = [
+          "autopause",
+          "autoplay",
+          "background",
+          "byline",
+          "color",
+          "controls",
+          "dnt",
+          "height",
+          "id",
+          "interactive_params",
+          "keyboard",
+          "loop",
+          "maxheight",
+          "maxwidth",
+          "muted",
+          "playsinline",
+          "portrait",
+          "responsive",
+          "speed",
+          "texttrack",
+          "title",
+          "transparent",
+          "url",
+          "width",
+        ];
+        function _(t) {
+          var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
+          return b.reduce(function(e, n) {
+            var i = t.getAttribute("data-vimeo-".concat(n));
+            return (i || "" === i) && (e[n] = "" === i ? 1 : i), e;
+          }, e);
+        }
+        function w(t, e) {
+          var n = t.html;
+          if (!e) throw new TypeError("An element must be provided");
+          if (null !== e.getAttribute("data-vimeo-initialized")) return e.querySelector("iframe");
+          var i = document.createElement("div");
+          return (
+            (i.innerHTML = n),
+            e.appendChild(i.firstChild),
+            e.setAttribute("data-vimeo-initialized", "true"),
+            e.querySelector("iframe")
+          );
+        }
+        function E(t) {
+          var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
+            n = arguments.length > 2 ? arguments[2] : void 0;
+          return new Promise(function(i, r) {
+            if (!s(t)) throw new TypeError("“".concat(t, "” is not a vimeo.com url."));
+            var o = "https://vimeo.com/api/oembed.json?url=".concat(encodeURIComponent(t));
+            for (var a in e) e.hasOwnProperty(a) && (o += "&".concat(a, "=").concat(encodeURIComponent(e[a])));
+            var c = "XDomainRequest" in window ? new XDomainRequest() : new XMLHttpRequest();
+            c.open("GET", o, !0),
+              (c.onload = function() {
+                if (404 !== c.status)
+                  if (403 !== c.status)
+                    try {
+                      var e = JSON.parse(c.responseText);
+                      if (403 === e.domain_status_code)
+                        return w(e, n), void r(new Error("“".concat(t, "” is not embeddable.")));
+                      i(e);
+                    } catch (t) {
+                      r(t);
+                    }
+                  else r(new Error("“".concat(t, "” is not embeddable.")));
+                else r(new Error("“".concat(t, "” was not found.")));
+              }),
+              (c.onerror = function() {
+                var t = c.status ? " (".concat(c.status, ")") : "";
+                r(new Error("There was an error fetching the embed code from Vimeo".concat(t, ".")));
+              }),
+              c.send();
+          });
+        }
+        var x = new WeakMap(),
+          S = new WeakMap(),
+          A = {},
+          T = (function() {
+            function t(e) {
+              var n = this,
+                i = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
+              if (
+                /*! @vimeo/player v2.17.1 | (c) 2022 Vimeo | MIT License | https://github.com/vimeo/player.js */
+                ((function(t, e) {
+                  if (!(t instanceof e)) throw new TypeError("Cannot call a class as a function");
+                })(this, t),
+                window.jQuery &&
+                  e instanceof jQuery &&
+                  (e.length > 1 &&
+                    window.console &&
+                    console.warn &&
+                    console.warn("A jQuery object with multiple elements was passed, using the first element."),
+                  (e = e[0])),
+                "undefined" != typeof document && "string" == typeof e && (e = document.getElementById(e)),
+                !(function(t) {
+                  return Boolean(
+                    t && 1 === t.nodeType && "nodeName" in t && t.ownerDocument && t.ownerDocument.defaultView
+                  );
+                })(e))
+              )
+                throw new TypeError("You must pass either a valid element or a valid id.");
+              if ("IFRAME" !== e.nodeName) {
+                var r = e.querySelector("iframe");
+                r && (e = r);
+              }
+              if ("IFRAME" === e.nodeName && !s(e.getAttribute("src") || ""))
+                throw new Error("The player element passed isn’t a Vimeo embed.");
+              if (x.has(e)) return x.get(e);
+              (this._window = e.ownerDocument.defaultView), (this.element = e), (this.origin = "*");
+              var o = new h(function(t, r) {
+                if (
+                  ((n._onMessage = function(e) {
+                    if (s(e.origin) && n.element.contentWindow === e.source) {
+                      "*" === n.origin && (n.origin = e.origin);
+                      var i = v(e.data);
+                      if (i && "error" === i.event && i.data && "ready" === i.data.method) {
+                        var o = new Error(i.data.message);
+                        return (o.name = i.data.name), void r(o);
+                      }
+                      var a = i && "ready" === i.event,
+                        c = i && "ping" === i.method;
+                      if (a || c) return n.element.setAttribute("data-ready", "true"), void t();
+                      y(n, i);
+                    }
+                  }),
+                  n._window.addEventListener("message", n._onMessage),
+                  "IFRAME" !== n.element.nodeName)
+                ) {
+                  var o = _(e, i);
+                  E(a(o), o, e)
+                    .then(function(t) {
+                      var i,
+                        r,
+                        o,
+                        s = w(t, e);
+                      return (
+                        (n.element = s),
+                        (n._originalElement = e),
+                        (i = e),
+                        (r = s),
+                        (o = f.get(i)),
+                        f.set(r, o),
+                        f.delete(i),
+                        x.set(n.element, n),
+                        t
+                      );
+                    })
+                    .catch(r);
+                }
+              });
+              if (
+                (S.set(this, o),
+                x.set(this.element, this),
+                "IFRAME" === this.element.nodeName && m(this, "ping"),
+                A.isEnabled)
+              ) {
+                var c = function() {
+                  return A.exit();
+                };
+                (this.fullscreenchangeHandler = function() {
+                  A.isFullscreen ? d(n, "event:exitFullscreen", c) : g(n, "event:exitFullscreen", c),
+                    n.ready().then(function() {
+                      m(n, "fullscreenchange", A.isFullscreen);
+                    });
+                }),
+                  A.on("fullscreenchange", this.fullscreenchangeHandler);
+              }
+              return this;
+            }
+            var e, n, r;
+            return (
+              (e = t),
+              (n = [
+                {
+                  key: "callMethod",
+                  value: function(t) {
+                    var e = this,
+                      n = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
+                    return new h(function(i, r) {
+                      return e
+                        .ready()
+                        .then(function() {
+                          d(e, t, { resolve: i, reject: r }), m(e, t, n);
+                        })
+                        .catch(r);
+                    });
+                  },
+                },
+                {
+                  key: "get",
+                  value: function(t) {
+                    var e = this;
+                    return new h(function(n, i) {
+                      return (
+                        (t = o(t, "get")),
+                        e
+                          .ready()
+                          .then(function() {
+                            d(e, t, { resolve: n, reject: i }), m(e, t);
+                          })
+                          .catch(i)
+                      );
+                    });
+                  },
+                },
+                {
+                  key: "set",
+                  value: function(t, e) {
+                    var n = this;
+                    return new h(function(i, r) {
+                      if (((t = o(t, "set")), null == e)) throw new TypeError("There must be a value to set.");
+                      return n
+                        .ready()
+                        .then(function() {
+                          d(n, t, { resolve: i, reject: r }), m(n, t, e);
+                        })
+                        .catch(r);
+                    });
+                  },
+                },
+                {
+                  key: "on",
+                  value: function(t, e) {
+                    if (!t) throw new TypeError("You must pass an event name.");
+                    if (!e) throw new TypeError("You must pass a callback function.");
+                    if ("function" != typeof e) throw new TypeError("The callback must be a function.");
+                    0 === p(this, "event:".concat(t)).length &&
+                      this.callMethod("addEventListener", t).catch(function() {}),
+                      d(this, "event:".concat(t), e);
+                  },
+                },
+                {
+                  key: "off",
+                  value: function(t, e) {
+                    if (!t) throw new TypeError("You must pass an event name.");
+                    if (e && "function" != typeof e) throw new TypeError("The callback must be a function.");
+                    g(this, "event:".concat(t), e) && this.callMethod("removeEventListener", t).catch(function(t) {});
+                  },
+                },
+                {
+                  key: "loadVideo",
+                  value: function(t) {
+                    return this.callMethod("loadVideo", t);
+                  },
+                },
+                {
+                  key: "ready",
+                  value: function() {
+                    var t =
+                      S.get(this) ||
+                      new h(function(t, e) {
+                        e(new Error("Unknown player. Probably unloaded."));
+                      });
+                    return h.resolve(t);
+                  },
+                },
+                {
+                  key: "addCuePoint",
+                  value: function(t) {
+                    var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
+                    return this.callMethod("addCuePoint", { time: t, data: e });
+                  },
+                },
+                {
+                  key: "removeCuePoint",
+                  value: function(t) {
+                    return this.callMethod("removeCuePoint", t);
+                  },
+                },
+                {
+                  key: "enableTextTrack",
+                  value: function(t, e) {
+                    if (!t) throw new TypeError("You must pass a language.");
+                    return this.callMethod("enableTextTrack", { language: t, kind: e });
+                  },
+                },
+                {
+                  key: "disableTextTrack",
+                  value: function() {
+                    return this.callMethod("disableTextTrack");
+                  },
+                },
+                {
+                  key: "pause",
+                  value: function() {
+                    return this.callMethod("pause");
+                  },
+                },
+                {
+                  key: "play",
+                  value: function() {
+                    return this.callMethod("play");
+                  },
+                },
+                {
+                  key: "requestFullscreen",
+                  value: function() {
+                    return A.isEnabled ? A.request(this.element) : this.callMethod("requestFullscreen");
+                  },
+                },
+                {
+                  key: "exitFullscreen",
+                  value: function() {
+                    return A.isEnabled ? A.exit() : this.callMethod("exitFullscreen");
+                  },
+                },
+                {
+                  key: "getFullscreen",
+                  value: function() {
+                    return A.isEnabled ? h.resolve(A.isFullscreen) : this.get("fullscreen");
+                  },
+                },
+                {
+                  key: "requestPictureInPicture",
+                  value: function() {
+                    return this.callMethod("requestPictureInPicture");
+                  },
+                },
+                {
+                  key: "exitPictureInPicture",
+                  value: function() {
+                    return this.callMethod("exitPictureInPicture");
+                  },
+                },
+                {
+                  key: "getPictureInPicture",
+                  value: function() {
+                    return this.get("pictureInPicture");
+                  },
+                },
+                {
+                  key: "unload",
+                  value: function() {
+                    return this.callMethod("unload");
+                  },
+                },
+                {
+                  key: "destroy",
+                  value: function() {
+                    var t = this;
+                    return new h(function(e) {
+                      if (
+                        (S.delete(t),
+                        x.delete(t.element),
+                        t._originalElement &&
+                          (x.delete(t._originalElement), t._originalElement.removeAttribute("data-vimeo-initialized")),
+                        t.element &&
+                          "IFRAME" === t.element.nodeName &&
+                          t.element.parentNode &&
+                          (t.element.parentNode.parentNode &&
+                          t._originalElement &&
+                          t._originalElement !== t.element.parentNode
+                            ? t.element.parentNode.parentNode.removeChild(t.element.parentNode)
+                            : t.element.parentNode.removeChild(t.element)),
+                        t.element && "DIV" === t.element.nodeName && t.element.parentNode)
+                      ) {
+                        t.element.removeAttribute("data-vimeo-initialized");
+                        var n = t.element.querySelector("iframe");
+                        n &&
+                          n.parentNode &&
+                          (n.parentNode.parentNode && t._originalElement && t._originalElement !== n.parentNode
+                            ? n.parentNode.parentNode.removeChild(n.parentNode)
+                            : n.parentNode.removeChild(n));
+                      }
+                      t._window.removeEventListener("message", t._onMessage),
+                        A.isEnabled && A.off("fullscreenchange", t.fullscreenchangeHandler),
+                        e();
+                    });
+                  },
+                },
+                {
+                  key: "getAutopause",
+                  value: function() {
+                    return this.get("autopause");
+                  },
+                },
+                {
+                  key: "setAutopause",
+                  value: function(t) {
+                    return this.set("autopause", t);
+                  },
+                },
+                {
+                  key: "getBuffered",
+                  value: function() {
+                    return this.get("buffered");
+                  },
+                },
+                {
+                  key: "getCameraProps",
+                  value: function() {
+                    return this.get("cameraProps");
+                  },
+                },
+                {
+                  key: "setCameraProps",
+                  value: function(t) {
+                    return this.set("cameraProps", t);
+                  },
+                },
+                {
+                  key: "getChapters",
+                  value: function() {
+                    return this.get("chapters");
+                  },
+                },
+                {
+                  key: "getCurrentChapter",
+                  value: function() {
+                    return this.get("currentChapter");
+                  },
+                },
+                {
+                  key: "getColor",
+                  value: function() {
+                    return this.get("color");
+                  },
+                },
+                {
+                  key: "setColor",
+                  value: function(t) {
+                    return this.set("color", t);
+                  },
+                },
+                {
+                  key: "getCuePoints",
+                  value: function() {
+                    return this.get("cuePoints");
+                  },
+                },
+                {
+                  key: "getCurrentTime",
+                  value: function() {
+                    return this.get("currentTime");
+                  },
+                },
+                {
+                  key: "setCurrentTime",
+                  value: function(t) {
+                    return this.set("currentTime", t);
+                  },
+                },
+                {
+                  key: "getDuration",
+                  value: function() {
+                    return this.get("duration");
+                  },
+                },
+                {
+                  key: "getEnded",
+                  value: function() {
+                    return this.get("ended");
+                  },
+                },
+                {
+                  key: "getLoop",
+                  value: function() {
+                    return this.get("loop");
+                  },
+                },
+                {
+                  key: "setLoop",
+                  value: function(t) {
+                    return this.set("loop", t);
+                  },
+                },
+                {
+                  key: "setMuted",
+                  value: function(t) {
+                    return this.set("muted", t);
+                  },
+                },
+                {
+                  key: "getMuted",
+                  value: function() {
+                    return this.get("muted");
+                  },
+                },
+                {
+                  key: "getPaused",
+                  value: function() {
+                    return this.get("paused");
+                  },
+                },
+                {
+                  key: "getPlaybackRate",
+                  value: function() {
+                    return this.get("playbackRate");
+                  },
+                },
+                {
+                  key: "setPlaybackRate",
+                  value: function(t) {
+                    return this.set("playbackRate", t);
+                  },
+                },
+                {
+                  key: "getPlayed",
+                  value: function() {
+                    return this.get("played");
+                  },
+                },
+                {
+                  key: "getQualities",
+                  value: function() {
+                    return this.get("qualities");
+                  },
+                },
+                {
+                  key: "getQuality",
+                  value: function() {
+                    return this.get("quality");
+                  },
+                },
+                {
+                  key: "setQuality",
+                  value: function(t) {
+                    return this.set("quality", t);
+                  },
+                },
+                {
+                  key: "getSeekable",
+                  value: function() {
+                    return this.get("seekable");
+                  },
+                },
+                {
+                  key: "getSeeking",
+                  value: function() {
+                    return this.get("seeking");
+                  },
+                },
+                {
+                  key: "getTextTracks",
+                  value: function() {
+                    return this.get("textTracks");
+                  },
+                },
+                {
+                  key: "getVideoEmbedCode",
+                  value: function() {
+                    return this.get("videoEmbedCode");
+                  },
+                },
+                {
+                  key: "getVideoId",
+                  value: function() {
+                    return this.get("videoId");
+                  },
+                },
+                {
+                  key: "getVideoTitle",
+                  value: function() {
+                    return this.get("videoTitle");
+                  },
+                },
+                {
+                  key: "getVideoWidth",
+                  value: function() {
+                    return this.get("videoWidth");
+                  },
+                },
+                {
+                  key: "getVideoHeight",
+                  value: function() {
+                    return this.get("videoHeight");
+                  },
+                },
+                {
+                  key: "getVideoUrl",
+                  value: function() {
+                    return this.get("videoUrl");
+                  },
+                },
+                {
+                  key: "getVolume",
+                  value: function() {
+                    return this.get("volume");
+                  },
+                },
+                {
+                  key: "setVolume",
+                  value: function(t) {
+                    return this.set("volume", t);
+                  },
+                },
+              ]) && i(e.prototype, n),
+              r && i(e, r),
+              t
+            );
+          })();
+        r ||
+          ((A = (function() {
+            var t = (function() {
+                for (
+                  var t,
+                    e = [
+                      [
+                        "requestFullscreen",
+                        "exitFullscreen",
+                        "fullscreenElement",
+                        "fullscreenEnabled",
+                        "fullscreenchange",
+                        "fullscreenerror",
+                      ],
+                      [
+                        "webkitRequestFullscreen",
+                        "webkitExitFullscreen",
+                        "webkitFullscreenElement",
+                        "webkitFullscreenEnabled",
+                        "webkitfullscreenchange",
+                        "webkitfullscreenerror",
+                      ],
+                      [
+                        "webkitRequestFullScreen",
+                        "webkitCancelFullScreen",
+                        "webkitCurrentFullScreenElement",
+                        "webkitCancelFullScreen",
+                        "webkitfullscreenchange",
+                        "webkitfullscreenerror",
+                      ],
+                      [
+                        "mozRequestFullScreen",
+                        "mozCancelFullScreen",
+                        "mozFullScreenElement",
+                        "mozFullScreenEnabled",
+                        "mozfullscreenchange",
+                        "mozfullscreenerror",
+                      ],
+                      [
+                        "msRequestFullscreen",
+                        "msExitFullscreen",
+                        "msFullscreenElement",
+                        "msFullscreenEnabled",
+                        "MSFullscreenChange",
+                        "MSFullscreenError",
+                      ],
+                    ],
+                    n = 0,
+                    i = e.length,
+                    r = {};
+                  n < i;
+                  n++
+                )
+                  if ((t = e[n]) && t[1] in document) {
+                    for (n = 0; n < t.length; n++) r[e[0][n]] = t[n];
+                    return r;
+                  }
+                return !1;
+              })(),
+              e = { fullscreenchange: t.fullscreenchange, fullscreenerror: t.fullscreenerror },
+              n = {
+                request: function(e) {
+                  return new Promise(function(i, r) {
+                    var o = function t() {
+                      n.off("fullscreenchange", t), i();
+                    };
+                    n.on("fullscreenchange", o);
+                    var s = (e = e || document.documentElement)[t.requestFullscreen]();
+                    s instanceof Promise && s.then(o).catch(r);
+                  });
+                },
+                exit: function() {
+                  return new Promise(function(e, i) {
+                    if (n.isFullscreen) {
+                      var r = function t() {
+                        n.off("fullscreenchange", t), e();
+                      };
+                      n.on("fullscreenchange", r);
+                      var o = document[t.exitFullscreen]();
+                      o instanceof Promise && o.then(r).catch(i);
+                    } else e();
+                  });
+                },
+                on: function(t, n) {
+                  var i = e[t];
+                  i && document.addEventListener(i, n);
+                },
+                off: function(t, n) {
+                  var i = e[t];
+                  i && document.removeEventListener(i, n);
+                },
+              };
+            return (
+              Object.defineProperties(n, {
+                isFullscreen: {
+                  get: function() {
+                    return Boolean(document[t.fullscreenElement]);
+                  },
+                },
+                element: {
+                  enumerable: !0,
+                  get: function() {
+                    return document[t.fullscreenElement];
+                  },
+                },
+                isEnabled: {
+                  enumerable: !0,
+                  get: function() {
+                    return Boolean(document[t.fullscreenEnabled]);
+                  },
+                },
+              }),
+              n
+            );
+          })()),
+          (function() {
+            var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : document,
+              e = [].slice.call(t.querySelectorAll("[data-vimeo-id], [data-vimeo-url]")),
+              n = function(t) {
+                "console" in window &&
+                  console.error &&
+                  console.error("There was an error creating an embed: ".concat(t));
+              };
+            e.forEach(function(t) {
+              try {
+                if (null !== t.getAttribute("data-vimeo-defer")) return;
+                var e = _(t);
+                E(a(e), e, t)
+                  .then(function(e) {
+                    return w(e, t);
+                  })
+                  .catch(n);
+              } catch (t) {
+                n(t);
+              }
+            });
+          })(),
+          (function() {
+            var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : document;
+            if (!window.VimeoPlayerResizeEmbeds_) {
+              window.VimeoPlayerResizeEmbeds_ = !0;
+              window.addEventListener("message", function(e) {
+                if (s(e.origin) && e.data && "spacechange" === e.data.event)
+                  for (var n = t.querySelectorAll("iframe"), i = 0; i < n.length; i++)
+                    if (n[i].contentWindow === e.source) {
+                      n[i].parentElement.style.paddingBottom = "".concat(e.data.data[0].bottom, "px");
+                      break;
+                    }
+              });
+            }
+          })(),
+          (function() {
+            var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : document;
+            if (!window.VimeoSeoMetadataAppended) {
+              window.VimeoSeoMetadataAppended = !0;
+              window.addEventListener("message", function(e) {
+                if (s(e.origin)) {
+                  var n = v(e.data);
+                  if (n && "ready" === n.event)
+                    for (var i, r = t.querySelectorAll("iframe"), o = 0; o < r.length; o++) {
+                      var a = r[o],
+                        c = a.contentWindow === e.source;
+                      if (((i = a.src), /^https:\/\/player\.vimeo\.com\/video\/\d+/.test(i) && c))
+                        new T(a).callMethod("appendVideoMetadata", window.location.href);
+                    }
+                }
+              });
+            }
+          })()),
+          (e.default = T);
+      }.call(this, n(71), n(493).setImmediate);
+  },
+  function(t, e, n) {
     var i, r;
     /*!
      * Flickity imagesLoaded v2.0.0
@@ -5618,7 +6781,7 @@
         }.apply(e, i)) || (t.exports = r);
   },
   function(t, e, n) {
-    n(206), n(207), (t.exports = n(208));
+    n(207), n(208), (t.exports = n(209));
   },
   function(t, e, n) {},
   function(t, e, n) {
@@ -5631,18 +6794,18 @@
       function(t) {
         return t && t.__esModule ? t : { default: t };
       };
-    Object.defineProperty(e, "__esModule", { value: !0 }), n(209);
-    var r = i(n(464)),
-      o = i(n(465)),
-      s = n(466),
-      a = n(468),
-      c = i(n(471)),
-      u = i(n(485)),
+    Object.defineProperty(e, "__esModule", { value: !0 }), n(210);
+    var r = i(n(465)),
+      o = i(n(466)),
+      s = n(467),
+      a = n(469),
+      c = i(n(472)),
+      u = i(n(486)),
       l = i(n(203)),
-      h = i(n(487)),
-      f = i(n(488)),
-      d = i(n(490)),
-      p = i(n(491)),
+      h = i(n(488)),
+      f = i(n(489)),
+      d = i(n(491)),
+      p = i(n(492)),
       g = i(n(495)),
       v = i(n(496)),
       m = i(n(509)),
@@ -5666,8 +6829,7 @@
       v.default();
   },
   function(t, e, n) {
-    n(210),
-      n(212),
+    n(211),
       n(213),
       n(214),
       n(215),
@@ -5697,11 +6859,11 @@
       n(239),
       n(240),
       n(241),
-      n(243),
+      n(242),
       n(244),
       n(245),
-      n(100),
       n(246),
+      n(100),
       n(247),
       n(248),
       n(249),
@@ -5716,7 +6878,7 @@
       n(258),
       n(259),
       n(260),
-      n(262),
+      n(261),
       n(263),
       n(264),
       n(265),
@@ -5724,9 +6886,9 @@
       n(267),
       n(268),
       n(269),
-      n(271),
+      n(270),
       n(272),
-      n(274),
+      n(273),
       n(275),
       n(276),
       n(277),
@@ -5743,7 +6905,7 @@
       n(288),
       n(289),
       n(290),
-      n(292),
+      n(291),
       n(293),
       n(294),
       n(295),
@@ -5756,7 +6918,7 @@
       n(302),
       n(303),
       n(304),
-      n(306),
+      n(305),
       n(307),
       n(308),
       n(309),
@@ -5791,11 +6953,11 @@
       n(338),
       n(339),
       n(340),
-      n(342),
+      n(341),
       n(343),
       n(344),
       n(345),
-      n(351),
+      n(346),
       n(352),
       n(353),
       n(354),
@@ -5814,8 +6976,8 @@
       n(367),
       n(368),
       n(369),
-      n(143),
       n(370),
+      n(143),
       n(371),
       n(372),
       n(373),
@@ -5825,8 +6987,8 @@
       n(377),
       n(378),
       n(379),
-      n(190),
       n(380),
+      n(190),
       n(381),
       n(382),
       n(383),
@@ -5855,7 +7017,7 @@
       n(406),
       n(407),
       n(408),
-      n(410),
+      n(409),
       n(411),
       n(412),
       n(413),
@@ -5868,7 +7030,7 @@
       n(420),
       n(421),
       n(422),
-      n(425),
+      n(423),
       n(426),
       n(427),
       n(428),
@@ -5897,14 +7059,15 @@
       n(451),
       n(452),
       n(453),
-      n(455),
+      n(454),
       n(456),
       n(457),
       n(458),
       n(459),
       n(460),
       n(461),
-      n(463),
+      n(462),
+      n(464),
       n(201),
       (t.exports = n(160));
   },
@@ -7173,7 +8336,7 @@
   },
   function(t, e, n) {
     var i = n(0),
-      r = n(270);
+      r = n(271);
     i({ target: "Date", proto: !0, forced: Date.prototype.toISOString !== r }, { toISOString: r });
   },
   function(t, e, n) {
@@ -7260,7 +8423,7 @@
   function(t, e, n) {
     var i = n(12),
       r = n(17),
-      o = n(273),
+      o = n(274),
       s = n(7)("toPrimitive"),
       a = Date.prototype;
     i(a, s) || r(a, s, o);
@@ -7510,7 +8673,7 @@
     i({ target: "Math", stat: !0, forced: r != Math.expm1 }, { expm1: r });
   },
   function(t, e, n) {
-    n(0)({ target: "Math", stat: !0 }, { fround: n(291) });
+    n(0)({ target: "Math", stat: !0 }, { fround: n(292) });
   },
   function(t, e, n) {
     var i = n(138),
@@ -7737,7 +8900,7 @@
     n(0)({ target: "Number", stat: !0 }, { EPSILON: Math.pow(2, -52) });
   },
   function(t, e, n) {
-    n(0)({ target: "Number", stat: !0 }, { isFinite: n(305) });
+    n(0)({ target: "Number", stat: !0 }, { isFinite: n(306) });
   },
   function(t, e, n) {
     var i = n(1).isFinite;
@@ -8336,7 +9499,7 @@
   function(t, e, n) {
     var i = n(124),
       r = n(17),
-      o = n(341);
+      o = n(342);
     i || r(Object.prototype, "toString", o, { unsafe: !0 });
   },
   function(t, e, n) {
@@ -8399,14 +9562,14 @@
       T = n(140).set,
       k = n(186),
       C = n(187),
-      O = n(348),
+      O = n(349),
       L = n(110),
       I = n(141),
-      M = n(349),
+      M = n(350),
       P = n(19),
       D = n(77),
       N = n(7),
-      R = n(350),
+      R = n(351),
       j = n(57),
       B = n(51),
       F = N("species"),
@@ -10387,7 +11550,7 @@
     "use strict";
     var i = n(10),
       r = n(22).filter,
-      o = n(423),
+      o = n(424),
       s = i.aTypedArray;
     (0, i.exportTypedArrayMethod)("filter", function(t) {
       var e = r(s(this), t, arguments.length > 1 ? arguments[1] : void 0);
@@ -10395,7 +11558,7 @@
     });
   },
   function(t, e, n) {
-    var i = n(424),
+    var i = n(425),
       r = n(116);
     t.exports = function(t, e) {
       return i(r(t), e);
@@ -11020,7 +12183,7 @@
   function(t, e, n) {
     "use strict";
     var i = n(0),
-      r = n(454),
+      r = n(455),
       o = n(16),
       s = n(2),
       a = n(32),
@@ -11619,7 +12782,7 @@
       g = n(169),
       v = n(80),
       m = n(113).codeAt,
-      y = n(462),
+      y = n(463),
       b = n(8),
       _ = n(36),
       w = n(54),
@@ -12608,7 +13771,7 @@
   function(t, e, n) {
     "use strict";
     e.__esModule = !0;
-    var i = n(467);
+    var i = n(468);
     (e.SilcCore = i.default),
       (e.silcCoreInit = function() {
         new i.default();
@@ -12625,7 +13788,7 @@
   function(t, e, n) {
     "use strict";
     e.__esModule = !0;
-    var i = n(469);
+    var i = n(470);
     (e.SilcAccordion = i.default),
       (e.silcAccordionInit = function() {
         var t = document.querySelectorAll(".silc-accordion:not(.silc-accordion--initialized)");
@@ -12637,7 +13800,7 @@
     e.__esModule = !0;
     var i = n(89),
       r =
-        (n(470),
+        (n(471),
         (function() {
           function t(t) {
             (this.labels = []),
@@ -12868,9 +14031,9 @@
           return t && t.__esModule ? t : { default: t };
         };
     Object.defineProperty(e, "__esModule", { value: !0 }), (e.Modal = void 0);
-    var o = r(n(472)),
+    var o = r(n(473)),
       s = r(n(148)),
-      a = n(484),
+      a = n(485),
       c = r(n(149)),
       u = (function() {
         function t(t) {
@@ -13287,7 +14450,7 @@
     "use strict";
     Object.defineProperty(e, "__esModule", { value: !0 });
     var i,
-      r = n(475),
+      r = n(476),
       o = (i = r) && i.__esModule ? i : { default: i };
     (e.default = function(t) {
       return new Promise(function(e) {
@@ -13344,10 +14507,10 @@
   function(t, e, n) {
     "use strict";
     Object.defineProperty(e, "__esModule", { value: !0 });
-    var i = a(n(477)),
-      r = a(n(480)),
-      o = a(n(481)),
-      s = a(n(482));
+    var i = a(n(478)),
+      r = a(n(481)),
+      o = a(n(482)),
+      s = a(n(483));
     function a(t) {
       return t && t.__esModule ? t : { default: t };
     }
@@ -13465,7 +14628,7 @@
           t
         );
       }
-      ((e = t.exports = n(478)).log = function() {
+      ((e = t.exports = n(479)).log = function() {
         return (
           "object" == typeof console && console.log && Function.prototype.apply.call(console.log, console, arguments)
         );
@@ -13597,7 +14760,7 @@
         for (n = 0, i = e.names.length; n < i; n++) if (e.names[n].test(t)) return !0;
         return !1;
       }),
-      (e.humanize = n(479)),
+      (e.humanize = n(480)),
       (e.names = []),
       (e.skips = []),
       (e.formatters = {});
@@ -13742,7 +14905,7 @@
     "use strict";
     Object.defineProperty(e, "__esModule", { value: !0 });
     var i,
-      r = n(483),
+      r = n(484),
       o = (i = r) && i.__esModule ? i : { default: i };
     (e.default = {
       pauseVideo: { acceptableStates: [o.default.ENDED, o.default.PAUSED], stateChangeRequired: !1 },
@@ -13895,7 +15058,7 @@
       };
     Object.defineProperty(e, "__esModule", { value: !0 }), (e.SiteHeader = void 0);
     var r = i(n(89)),
-      o = i(n(486)),
+      o = i(n(487)),
       s = i(n(149)),
       a = window.matchMedia("(max-width: 1200px)"),
       c = (function() {
@@ -14530,7 +15693,7 @@
         return t && t.__esModule ? t : { default: t };
       };
     Object.defineProperty(e, "__esModule", { value: !0 }), (e.PrivacyConsent = void 0);
-    var r = i(n(489)),
+    var r = i(n(490)),
       o = (function() {
         function t(t) {
           (this.userConsented = !1),
@@ -14735,7 +15898,7 @@
       };
     Object.defineProperty(e, "__esModule", { value: !0 }), (e.VideoEmbed = void 0);
     var r = i(n(148)),
-      o = i(n(492)),
+      o = i(n(204)),
       s = (function() {
         function t(t) {
           t &&
@@ -14805,1169 +15968,6 @@
       (e.default = function() {
         for (var t = document.querySelectorAll(".video-embed"), e = 0; e < t.length; e++) new s(t[e]);
       });
-  },
-  function(t, e, n) {
-    "use strict";
-    n.r(e),
-      function(t, n) {
-        function i(t, e) {
-          for (var n = 0; n < e.length; n++) {
-            var i = e[n];
-            (i.enumerable = i.enumerable || !1),
-              (i.configurable = !0),
-              "value" in i && (i.writable = !0),
-              Object.defineProperty(t, i.key, i);
-          }
-        }
-        var r = void 0 !== t && "[object global]" === {}.toString.call(t);
-        function o(t, e) {
-          return 0 === t.indexOf(e.toLowerCase())
-            ? t
-            : ""
-                .concat(e.toLowerCase())
-                .concat(t.substr(0, 1).toUpperCase())
-                .concat(t.substr(1));
-        }
-        function s(t) {
-          return /^(https?:)?\/\/((player|www)\.)?vimeo\.com(?=$|\/)/.test(t);
-        }
-        function a() {
-          var t,
-            e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
-            n = e.id,
-            i = e.url,
-            r = n || i;
-          if (!r)
-            throw new Error(
-              "An id or url must be passed, either in an options object or as a data-vimeo-id or data-vimeo-url attribute."
-            );
-          if (((t = r), !isNaN(parseFloat(t)) && isFinite(t) && Math.floor(t) == t))
-            return "https://vimeo.com/".concat(r);
-          if (s(r)) return r.replace("http:", "https:");
-          if (n) throw new TypeError("“".concat(n, "” is not a valid video id."));
-          throw new TypeError("“".concat(r, "” is not a vimeo.com url."));
-        }
-        var c = void 0 !== Array.prototype.indexOf,
-          u = "undefined" != typeof window && void 0 !== window.postMessage;
-        if (!(r || (c && u))) throw new Error("Sorry, the Vimeo Player API is not available in this browser.");
-        var l =
-          "undefined" != typeof globalThis
-            ? globalThis
-            : "undefined" != typeof window
-            ? window
-            : void 0 !== t
-            ? t
-            : "undefined" != typeof self
-            ? self
-            : {};
-        /*!
-         * weakmap-polyfill v2.0.4 - ECMAScript6 WeakMap polyfill
-         * https://github.com/polygonplanet/weakmap-polyfill
-         * Copyright (c) 2015-2021 polygonplanet <polygon.planet.aqua@gmail.com>
-         * @license MIT
-         */
-        !(function(t) {
-          if (!t.WeakMap) {
-            var e = Object.prototype.hasOwnProperty,
-              n =
-                Object.defineProperty &&
-                (function() {
-                  try {
-                    return 1 === Object.defineProperty({}, "x", { value: 1 }).x;
-                  } catch (t) {}
-                })(),
-              i = function(t, e, i) {
-                n ? Object.defineProperty(t, e, { configurable: !0, writable: !0, value: i }) : (t[e] = i);
-              };
-            t.WeakMap = (function() {
-              function t() {
-                if (void 0 === this) throw new TypeError("Constructor WeakMap requires 'new'");
-                if ((i(this, "_id", "_WeakMap" + "_" + o() + "." + o()), arguments.length > 0))
-                  throw new TypeError("WeakMap iterable is not supported");
-              }
-              function n(t, n) {
-                if (!r(t) || !e.call(t, "_id"))
-                  throw new TypeError(n + " method called on incompatible receiver " + typeof t);
-              }
-              function o() {
-                return Math.random()
-                  .toString()
-                  .substring(2);
-              }
-              return (
-                i(t.prototype, "delete", function(t) {
-                  if ((n(this, "delete"), !r(t))) return !1;
-                  var e = t[this._id];
-                  return !(!e || e[0] !== t) && (delete t[this._id], !0);
-                }),
-                i(t.prototype, "get", function(t) {
-                  if ((n(this, "get"), r(t))) {
-                    var e = t[this._id];
-                    return e && e[0] === t ? e[1] : void 0;
-                  }
-                }),
-                i(t.prototype, "has", function(t) {
-                  if ((n(this, "has"), !r(t))) return !1;
-                  var e = t[this._id];
-                  return !(!e || e[0] !== t);
-                }),
-                i(t.prototype, "set", function(t, e) {
-                  if ((n(this, "set"), !r(t))) throw new TypeError("Invalid value used as weak map key");
-                  var o = t[this._id];
-                  return o && o[0] === t ? ((o[1] = e), this) : (i(t, this._id, [t, e]), this);
-                }),
-                i(t, "_polyfill", !0),
-                t
-              );
-            })();
-          }
-          function r(t) {
-            return Object(t) === t;
-          }
-        })(
-          "undefined" != typeof globalThis
-            ? globalThis
-            : "undefined" != typeof self
-            ? self
-            : "undefined" != typeof window
-            ? window
-            : l
-        );
-        var h = (function(t, e) {
-            return t((e = { exports: {} }), e.exports), e.exports;
-          })(function(t) {
-            /*! Native Promise Only
-    v0.8.1 (c) Kyle Simpson
-    MIT License: http://getify.mit-license.org
-*/
-            var e, i, r;
-            (r = function() {
-              var t,
-                e,
-                i,
-                r = Object.prototype.toString,
-                o =
-                  void 0 !== n
-                    ? function(t) {
-                        return n(t);
-                      }
-                    : setTimeout;
-              try {
-                Object.defineProperty({}, "x", {}),
-                  (t = function(t, e, n, i) {
-                    return Object.defineProperty(t, e, { value: n, writable: !0, configurable: !1 !== i });
-                  });
-              } catch (e) {
-                t = function(t, e, n) {
-                  return (t[e] = n), t;
-                };
-              }
-              function s(t, n) {
-                i.add(t, n), e || (e = o(i.drain));
-              }
-              function a(t) {
-                var e,
-                  n = typeof t;
-                return null == t || ("object" != n && "function" != n) || (e = t.then), "function" == typeof e && e;
-              }
-              function c() {
-                for (var t = 0; t < this.chain.length; t++)
-                  u(this, 1 === this.state ? this.chain[t].success : this.chain[t].failure, this.chain[t]);
-                this.chain.length = 0;
-              }
-              function u(t, e, n) {
-                var i, r;
-                try {
-                  !1 === e
-                    ? n.reject(t.msg)
-                    : (i = !0 === e ? t.msg : e.call(void 0, t.msg)) === n.promise
-                    ? n.reject(TypeError("Promise-chain cycle"))
-                    : (r = a(i))
-                    ? r.call(i, n.resolve, n.reject)
-                    : n.resolve(i);
-                } catch (t) {
-                  n.reject(t);
-                }
-              }
-              function l(t) {
-                var e,
-                  n = this;
-                if (!n.triggered) {
-                  (n.triggered = !0), n.def && (n = n.def);
-                  try {
-                    (e = a(t))
-                      ? s(function() {
-                          var i = new d(n);
-                          try {
-                            e.call(
-                              t,
-                              function() {
-                                l.apply(i, arguments);
-                              },
-                              function() {
-                                h.apply(i, arguments);
-                              }
-                            );
-                          } catch (t) {
-                            h.call(i, t);
-                          }
-                        })
-                      : ((n.msg = t), (n.state = 1), n.chain.length > 0 && s(c, n));
-                  } catch (t) {
-                    h.call(new d(n), t);
-                  }
-                }
-              }
-              function h(t) {
-                var e = this;
-                e.triggered ||
-                  ((e.triggered = !0), e.def && (e = e.def), (e.msg = t), (e.state = 2), e.chain.length > 0 && s(c, e));
-              }
-              function f(t, e, n, i) {
-                for (var r = 0; r < e.length; r++)
-                  !(function(r) {
-                    t.resolve(e[r]).then(function(t) {
-                      n(r, t);
-                    }, i);
-                  })(r);
-              }
-              function d(t) {
-                (this.def = t), (this.triggered = !1);
-              }
-              function p(t) {
-                (this.promise = t), (this.state = 0), (this.triggered = !1), (this.chain = []), (this.msg = void 0);
-              }
-              function g(t) {
-                if ("function" != typeof t) throw TypeError("Not a function");
-                if (0 !== this.__NPO__) throw TypeError("Not a promise");
-                this.__NPO__ = 1;
-                var e = new p(this);
-                (this.then = function(t, n) {
-                  var i = { success: "function" != typeof t || t, failure: "function" == typeof n && n };
-                  return (
-                    (i.promise = new this.constructor(function(t, e) {
-                      if ("function" != typeof t || "function" != typeof e) throw TypeError("Not a function");
-                      (i.resolve = t), (i.reject = e);
-                    })),
-                    e.chain.push(i),
-                    0 !== e.state && s(c, e),
-                    i.promise
-                  );
-                }),
-                  (this.catch = function(t) {
-                    return this.then(void 0, t);
-                  });
-                try {
-                  t.call(
-                    void 0,
-                    function(t) {
-                      l.call(e, t);
-                    },
-                    function(t) {
-                      h.call(e, t);
-                    }
-                  );
-                } catch (t) {
-                  h.call(e, t);
-                }
-              }
-              i = (function() {
-                var t, n, i;
-                function r(t, e) {
-                  (this.fn = t), (this.self = e), (this.next = void 0);
-                }
-                return {
-                  add: function(e, o) {
-                    (i = new r(e, o)), n ? (n.next = i) : (t = i), (n = i), (i = void 0);
-                  },
-                  drain: function() {
-                    var i = t;
-                    for (t = n = e = void 0; i; ) i.fn.call(i.self), (i = i.next);
-                  },
-                };
-              })();
-              var v = t({}, "constructor", g, !1);
-              return (
-                (g.prototype = v),
-                t(v, "__NPO__", 0, !1),
-                t(g, "resolve", function(t) {
-                  return t && "object" == typeof t && 1 === t.__NPO__
-                    ? t
-                    : new this(function(e, n) {
-                        if ("function" != typeof e || "function" != typeof n) throw TypeError("Not a function");
-                        e(t);
-                      });
-                }),
-                t(g, "reject", function(t) {
-                  return new this(function(e, n) {
-                    if ("function" != typeof e || "function" != typeof n) throw TypeError("Not a function");
-                    n(t);
-                  });
-                }),
-                t(g, "all", function(t) {
-                  var e = this;
-                  return "[object Array]" != r.call(t)
-                    ? e.reject(TypeError("Not an array"))
-                    : 0 === t.length
-                    ? e.resolve([])
-                    : new e(function(n, i) {
-                        if ("function" != typeof n || "function" != typeof i) throw TypeError("Not a function");
-                        var r = t.length,
-                          o = Array(r),
-                          s = 0;
-                        f(
-                          e,
-                          t,
-                          function(t, e) {
-                            (o[t] = e), ++s === r && n(o);
-                          },
-                          i
-                        );
-                      });
-                }),
-                t(g, "race", function(t) {
-                  var e = this;
-                  return "[object Array]" != r.call(t)
-                    ? e.reject(TypeError("Not an array"))
-                    : new e(function(n, i) {
-                        if ("function" != typeof n || "function" != typeof i) throw TypeError("Not a function");
-                        f(
-                          e,
-                          t,
-                          function(t, e) {
-                            n(e);
-                          },
-                          i
-                        );
-                      });
-                }),
-                g
-              );
-            }),
-              ((i = l)[(e = "Promise")] = i[e] || r()),
-              t.exports && (t.exports = i[e]);
-          }),
-          f = new WeakMap();
-        function d(t, e, n) {
-          var i = f.get(t.element) || {};
-          e in i || (i[e] = []), i[e].push(n), f.set(t.element, i);
-        }
-        function p(t, e) {
-          return (f.get(t.element) || {})[e] || [];
-        }
-        function g(t, e, n) {
-          var i = f.get(t.element) || {};
-          if (!i[e]) return !0;
-          if (!n) return (i[e] = []), f.set(t.element, i), !0;
-          var r = i[e].indexOf(n);
-          return -1 !== r && i[e].splice(r, 1), f.set(t.element, i), i[e] && 0 === i[e].length;
-        }
-        function v(t) {
-          if ("string" == typeof t)
-            try {
-              t = JSON.parse(t);
-            } catch (t) {
-              return console.warn(t), {};
-            }
-          return t;
-        }
-        function m(t, e, n) {
-          if (t.element.contentWindow && t.element.contentWindow.postMessage) {
-            var i = { method: e };
-            void 0 !== n && (i.value = n);
-            var r = parseFloat(navigator.userAgent.toLowerCase().replace(/^.*msie (\d+).*$/, "$1"));
-            r >= 8 && r < 10 && (i = JSON.stringify(i)), t.element.contentWindow.postMessage(i, t.origin);
-          }
-        }
-        function y(t, e) {
-          var n,
-            i = [];
-          if ((e = v(e)).event) {
-            if ("error" === e.event)
-              p(t, e.data.method).forEach(function(n) {
-                var i = new Error(e.data.message);
-                (i.name = e.data.name), n.reject(i), g(t, e.data.method, n);
-              });
-            (i = p(t, "event:".concat(e.event))), (n = e.data);
-          } else if (e.method) {
-            var r = (function(t, e) {
-              var n = p(t, e);
-              if (n.length < 1) return !1;
-              var i = n.shift();
-              return g(t, e, i), i;
-            })(t, e.method);
-            r && (i.push(r), (n = e.value));
-          }
-          i.forEach(function(e) {
-            try {
-              if ("function" == typeof e) return void e.call(t, n);
-              e.resolve(n);
-            } catch (t) {}
-          });
-        }
-        var b = [
-          "autopause",
-          "autoplay",
-          "background",
-          "byline",
-          "color",
-          "controls",
-          "dnt",
-          "height",
-          "id",
-          "interactive_params",
-          "keyboard",
-          "loop",
-          "maxheight",
-          "maxwidth",
-          "muted",
-          "playsinline",
-          "portrait",
-          "responsive",
-          "speed",
-          "texttrack",
-          "title",
-          "transparent",
-          "url",
-          "width",
-        ];
-        function _(t) {
-          var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
-          return b.reduce(function(e, n) {
-            var i = t.getAttribute("data-vimeo-".concat(n));
-            return (i || "" === i) && (e[n] = "" === i ? 1 : i), e;
-          }, e);
-        }
-        function w(t, e) {
-          var n = t.html;
-          if (!e) throw new TypeError("An element must be provided");
-          if (null !== e.getAttribute("data-vimeo-initialized")) return e.querySelector("iframe");
-          var i = document.createElement("div");
-          return (
-            (i.innerHTML = n),
-            e.appendChild(i.firstChild),
-            e.setAttribute("data-vimeo-initialized", "true"),
-            e.querySelector("iframe")
-          );
-        }
-        function E(t) {
-          var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
-            n = arguments.length > 2 ? arguments[2] : void 0;
-          return new Promise(function(i, r) {
-            if (!s(t)) throw new TypeError("“".concat(t, "” is not a vimeo.com url."));
-            var o = "https://vimeo.com/api/oembed.json?url=".concat(encodeURIComponent(t));
-            for (var a in e) e.hasOwnProperty(a) && (o += "&".concat(a, "=").concat(encodeURIComponent(e[a])));
-            var c = "XDomainRequest" in window ? new XDomainRequest() : new XMLHttpRequest();
-            c.open("GET", o, !0),
-              (c.onload = function() {
-                if (404 !== c.status)
-                  if (403 !== c.status)
-                    try {
-                      var e = JSON.parse(c.responseText);
-                      if (403 === e.domain_status_code)
-                        return w(e, n), void r(new Error("“".concat(t, "” is not embeddable.")));
-                      i(e);
-                    } catch (t) {
-                      r(t);
-                    }
-                  else r(new Error("“".concat(t, "” is not embeddable.")));
-                else r(new Error("“".concat(t, "” was not found.")));
-              }),
-              (c.onerror = function() {
-                var t = c.status ? " (".concat(c.status, ")") : "";
-                r(new Error("There was an error fetching the embed code from Vimeo".concat(t, ".")));
-              }),
-              c.send();
-          });
-        }
-        var x = new WeakMap(),
-          S = new WeakMap(),
-          A = {},
-          T = (function() {
-            function t(e) {
-              var n = this,
-                i = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
-              if (
-                /*! @vimeo/player v2.17.1 | (c) 2022 Vimeo | MIT License | https://github.com/vimeo/player.js */
-                ((function(t, e) {
-                  if (!(t instanceof e)) throw new TypeError("Cannot call a class as a function");
-                })(this, t),
-                window.jQuery &&
-                  e instanceof jQuery &&
-                  (e.length > 1 &&
-                    window.console &&
-                    console.warn &&
-                    console.warn("A jQuery object with multiple elements was passed, using the first element."),
-                  (e = e[0])),
-                "undefined" != typeof document && "string" == typeof e && (e = document.getElementById(e)),
-                !(function(t) {
-                  return Boolean(
-                    t && 1 === t.nodeType && "nodeName" in t && t.ownerDocument && t.ownerDocument.defaultView
-                  );
-                })(e))
-              )
-                throw new TypeError("You must pass either a valid element or a valid id.");
-              if ("IFRAME" !== e.nodeName) {
-                var r = e.querySelector("iframe");
-                r && (e = r);
-              }
-              if ("IFRAME" === e.nodeName && !s(e.getAttribute("src") || ""))
-                throw new Error("The player element passed isn’t a Vimeo embed.");
-              if (x.has(e)) return x.get(e);
-              (this._window = e.ownerDocument.defaultView), (this.element = e), (this.origin = "*");
-              var o = new h(function(t, r) {
-                if (
-                  ((n._onMessage = function(e) {
-                    if (s(e.origin) && n.element.contentWindow === e.source) {
-                      "*" === n.origin && (n.origin = e.origin);
-                      var i = v(e.data);
-                      if (i && "error" === i.event && i.data && "ready" === i.data.method) {
-                        var o = new Error(i.data.message);
-                        return (o.name = i.data.name), void r(o);
-                      }
-                      var a = i && "ready" === i.event,
-                        c = i && "ping" === i.method;
-                      if (a || c) return n.element.setAttribute("data-ready", "true"), void t();
-                      y(n, i);
-                    }
-                  }),
-                  n._window.addEventListener("message", n._onMessage),
-                  "IFRAME" !== n.element.nodeName)
-                ) {
-                  var o = _(e, i);
-                  E(a(o), o, e)
-                    .then(function(t) {
-                      var i,
-                        r,
-                        o,
-                        s = w(t, e);
-                      return (
-                        (n.element = s),
-                        (n._originalElement = e),
-                        (i = e),
-                        (r = s),
-                        (o = f.get(i)),
-                        f.set(r, o),
-                        f.delete(i),
-                        x.set(n.element, n),
-                        t
-                      );
-                    })
-                    .catch(r);
-                }
-              });
-              if (
-                (S.set(this, o),
-                x.set(this.element, this),
-                "IFRAME" === this.element.nodeName && m(this, "ping"),
-                A.isEnabled)
-              ) {
-                var c = function() {
-                  return A.exit();
-                };
-                (this.fullscreenchangeHandler = function() {
-                  A.isFullscreen ? d(n, "event:exitFullscreen", c) : g(n, "event:exitFullscreen", c),
-                    n.ready().then(function() {
-                      m(n, "fullscreenchange", A.isFullscreen);
-                    });
-                }),
-                  A.on("fullscreenchange", this.fullscreenchangeHandler);
-              }
-              return this;
-            }
-            var e, n, r;
-            return (
-              (e = t),
-              (n = [
-                {
-                  key: "callMethod",
-                  value: function(t) {
-                    var e = this,
-                      n = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
-                    return new h(function(i, r) {
-                      return e
-                        .ready()
-                        .then(function() {
-                          d(e, t, { resolve: i, reject: r }), m(e, t, n);
-                        })
-                        .catch(r);
-                    });
-                  },
-                },
-                {
-                  key: "get",
-                  value: function(t) {
-                    var e = this;
-                    return new h(function(n, i) {
-                      return (
-                        (t = o(t, "get")),
-                        e
-                          .ready()
-                          .then(function() {
-                            d(e, t, { resolve: n, reject: i }), m(e, t);
-                          })
-                          .catch(i)
-                      );
-                    });
-                  },
-                },
-                {
-                  key: "set",
-                  value: function(t, e) {
-                    var n = this;
-                    return new h(function(i, r) {
-                      if (((t = o(t, "set")), null == e)) throw new TypeError("There must be a value to set.");
-                      return n
-                        .ready()
-                        .then(function() {
-                          d(n, t, { resolve: i, reject: r }), m(n, t, e);
-                        })
-                        .catch(r);
-                    });
-                  },
-                },
-                {
-                  key: "on",
-                  value: function(t, e) {
-                    if (!t) throw new TypeError("You must pass an event name.");
-                    if (!e) throw new TypeError("You must pass a callback function.");
-                    if ("function" != typeof e) throw new TypeError("The callback must be a function.");
-                    0 === p(this, "event:".concat(t)).length &&
-                      this.callMethod("addEventListener", t).catch(function() {}),
-                      d(this, "event:".concat(t), e);
-                  },
-                },
-                {
-                  key: "off",
-                  value: function(t, e) {
-                    if (!t) throw new TypeError("You must pass an event name.");
-                    if (e && "function" != typeof e) throw new TypeError("The callback must be a function.");
-                    g(this, "event:".concat(t), e) && this.callMethod("removeEventListener", t).catch(function(t) {});
-                  },
-                },
-                {
-                  key: "loadVideo",
-                  value: function(t) {
-                    return this.callMethod("loadVideo", t);
-                  },
-                },
-                {
-                  key: "ready",
-                  value: function() {
-                    var t =
-                      S.get(this) ||
-                      new h(function(t, e) {
-                        e(new Error("Unknown player. Probably unloaded."));
-                      });
-                    return h.resolve(t);
-                  },
-                },
-                {
-                  key: "addCuePoint",
-                  value: function(t) {
-                    var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
-                    return this.callMethod("addCuePoint", { time: t, data: e });
-                  },
-                },
-                {
-                  key: "removeCuePoint",
-                  value: function(t) {
-                    return this.callMethod("removeCuePoint", t);
-                  },
-                },
-                {
-                  key: "enableTextTrack",
-                  value: function(t, e) {
-                    if (!t) throw new TypeError("You must pass a language.");
-                    return this.callMethod("enableTextTrack", { language: t, kind: e });
-                  },
-                },
-                {
-                  key: "disableTextTrack",
-                  value: function() {
-                    return this.callMethod("disableTextTrack");
-                  },
-                },
-                {
-                  key: "pause",
-                  value: function() {
-                    return this.callMethod("pause");
-                  },
-                },
-                {
-                  key: "play",
-                  value: function() {
-                    return this.callMethod("play");
-                  },
-                },
-                {
-                  key: "requestFullscreen",
-                  value: function() {
-                    return A.isEnabled ? A.request(this.element) : this.callMethod("requestFullscreen");
-                  },
-                },
-                {
-                  key: "exitFullscreen",
-                  value: function() {
-                    return A.isEnabled ? A.exit() : this.callMethod("exitFullscreen");
-                  },
-                },
-                {
-                  key: "getFullscreen",
-                  value: function() {
-                    return A.isEnabled ? h.resolve(A.isFullscreen) : this.get("fullscreen");
-                  },
-                },
-                {
-                  key: "requestPictureInPicture",
-                  value: function() {
-                    return this.callMethod("requestPictureInPicture");
-                  },
-                },
-                {
-                  key: "exitPictureInPicture",
-                  value: function() {
-                    return this.callMethod("exitPictureInPicture");
-                  },
-                },
-                {
-                  key: "getPictureInPicture",
-                  value: function() {
-                    return this.get("pictureInPicture");
-                  },
-                },
-                {
-                  key: "unload",
-                  value: function() {
-                    return this.callMethod("unload");
-                  },
-                },
-                {
-                  key: "destroy",
-                  value: function() {
-                    var t = this;
-                    return new h(function(e) {
-                      if (
-                        (S.delete(t),
-                        x.delete(t.element),
-                        t._originalElement &&
-                          (x.delete(t._originalElement), t._originalElement.removeAttribute("data-vimeo-initialized")),
-                        t.element &&
-                          "IFRAME" === t.element.nodeName &&
-                          t.element.parentNode &&
-                          (t.element.parentNode.parentNode &&
-                          t._originalElement &&
-                          t._originalElement !== t.element.parentNode
-                            ? t.element.parentNode.parentNode.removeChild(t.element.parentNode)
-                            : t.element.parentNode.removeChild(t.element)),
-                        t.element && "DIV" === t.element.nodeName && t.element.parentNode)
-                      ) {
-                        t.element.removeAttribute("data-vimeo-initialized");
-                        var n = t.element.querySelector("iframe");
-                        n &&
-                          n.parentNode &&
-                          (n.parentNode.parentNode && t._originalElement && t._originalElement !== n.parentNode
-                            ? n.parentNode.parentNode.removeChild(n.parentNode)
-                            : n.parentNode.removeChild(n));
-                      }
-                      t._window.removeEventListener("message", t._onMessage),
-                        A.isEnabled && A.off("fullscreenchange", t.fullscreenchangeHandler),
-                        e();
-                    });
-                  },
-                },
-                {
-                  key: "getAutopause",
-                  value: function() {
-                    return this.get("autopause");
-                  },
-                },
-                {
-                  key: "setAutopause",
-                  value: function(t) {
-                    return this.set("autopause", t);
-                  },
-                },
-                {
-                  key: "getBuffered",
-                  value: function() {
-                    return this.get("buffered");
-                  },
-                },
-                {
-                  key: "getCameraProps",
-                  value: function() {
-                    return this.get("cameraProps");
-                  },
-                },
-                {
-                  key: "setCameraProps",
-                  value: function(t) {
-                    return this.set("cameraProps", t);
-                  },
-                },
-                {
-                  key: "getChapters",
-                  value: function() {
-                    return this.get("chapters");
-                  },
-                },
-                {
-                  key: "getCurrentChapter",
-                  value: function() {
-                    return this.get("currentChapter");
-                  },
-                },
-                {
-                  key: "getColor",
-                  value: function() {
-                    return this.get("color");
-                  },
-                },
-                {
-                  key: "setColor",
-                  value: function(t) {
-                    return this.set("color", t);
-                  },
-                },
-                {
-                  key: "getCuePoints",
-                  value: function() {
-                    return this.get("cuePoints");
-                  },
-                },
-                {
-                  key: "getCurrentTime",
-                  value: function() {
-                    return this.get("currentTime");
-                  },
-                },
-                {
-                  key: "setCurrentTime",
-                  value: function(t) {
-                    return this.set("currentTime", t);
-                  },
-                },
-                {
-                  key: "getDuration",
-                  value: function() {
-                    return this.get("duration");
-                  },
-                },
-                {
-                  key: "getEnded",
-                  value: function() {
-                    return this.get("ended");
-                  },
-                },
-                {
-                  key: "getLoop",
-                  value: function() {
-                    return this.get("loop");
-                  },
-                },
-                {
-                  key: "setLoop",
-                  value: function(t) {
-                    return this.set("loop", t);
-                  },
-                },
-                {
-                  key: "setMuted",
-                  value: function(t) {
-                    return this.set("muted", t);
-                  },
-                },
-                {
-                  key: "getMuted",
-                  value: function() {
-                    return this.get("muted");
-                  },
-                },
-                {
-                  key: "getPaused",
-                  value: function() {
-                    return this.get("paused");
-                  },
-                },
-                {
-                  key: "getPlaybackRate",
-                  value: function() {
-                    return this.get("playbackRate");
-                  },
-                },
-                {
-                  key: "setPlaybackRate",
-                  value: function(t) {
-                    return this.set("playbackRate", t);
-                  },
-                },
-                {
-                  key: "getPlayed",
-                  value: function() {
-                    return this.get("played");
-                  },
-                },
-                {
-                  key: "getQualities",
-                  value: function() {
-                    return this.get("qualities");
-                  },
-                },
-                {
-                  key: "getQuality",
-                  value: function() {
-                    return this.get("quality");
-                  },
-                },
-                {
-                  key: "setQuality",
-                  value: function(t) {
-                    return this.set("quality", t);
-                  },
-                },
-                {
-                  key: "getSeekable",
-                  value: function() {
-                    return this.get("seekable");
-                  },
-                },
-                {
-                  key: "getSeeking",
-                  value: function() {
-                    return this.get("seeking");
-                  },
-                },
-                {
-                  key: "getTextTracks",
-                  value: function() {
-                    return this.get("textTracks");
-                  },
-                },
-                {
-                  key: "getVideoEmbedCode",
-                  value: function() {
-                    return this.get("videoEmbedCode");
-                  },
-                },
-                {
-                  key: "getVideoId",
-                  value: function() {
-                    return this.get("videoId");
-                  },
-                },
-                {
-                  key: "getVideoTitle",
-                  value: function() {
-                    return this.get("videoTitle");
-                  },
-                },
-                {
-                  key: "getVideoWidth",
-                  value: function() {
-                    return this.get("videoWidth");
-                  },
-                },
-                {
-                  key: "getVideoHeight",
-                  value: function() {
-                    return this.get("videoHeight");
-                  },
-                },
-                {
-                  key: "getVideoUrl",
-                  value: function() {
-                    return this.get("videoUrl");
-                  },
-                },
-                {
-                  key: "getVolume",
-                  value: function() {
-                    return this.get("volume");
-                  },
-                },
-                {
-                  key: "setVolume",
-                  value: function(t) {
-                    return this.set("volume", t);
-                  },
-                },
-              ]) && i(e.prototype, n),
-              r && i(e, r),
-              t
-            );
-          })();
-        r ||
-          ((A = (function() {
-            var t = (function() {
-                for (
-                  var t,
-                    e = [
-                      [
-                        "requestFullscreen",
-                        "exitFullscreen",
-                        "fullscreenElement",
-                        "fullscreenEnabled",
-                        "fullscreenchange",
-                        "fullscreenerror",
-                      ],
-                      [
-                        "webkitRequestFullscreen",
-                        "webkitExitFullscreen",
-                        "webkitFullscreenElement",
-                        "webkitFullscreenEnabled",
-                        "webkitfullscreenchange",
-                        "webkitfullscreenerror",
-                      ],
-                      [
-                        "webkitRequestFullScreen",
-                        "webkitCancelFullScreen",
-                        "webkitCurrentFullScreenElement",
-                        "webkitCancelFullScreen",
-                        "webkitfullscreenchange",
-                        "webkitfullscreenerror",
-                      ],
-                      [
-                        "mozRequestFullScreen",
-                        "mozCancelFullScreen",
-                        "mozFullScreenElement",
-                        "mozFullScreenEnabled",
-                        "mozfullscreenchange",
-                        "mozfullscreenerror",
-                      ],
-                      [
-                        "msRequestFullscreen",
-                        "msExitFullscreen",
-                        "msFullscreenElement",
-                        "msFullscreenEnabled",
-                        "MSFullscreenChange",
-                        "MSFullscreenError",
-                      ],
-                    ],
-                    n = 0,
-                    i = e.length,
-                    r = {};
-                  n < i;
-                  n++
-                )
-                  if ((t = e[n]) && t[1] in document) {
-                    for (n = 0; n < t.length; n++) r[e[0][n]] = t[n];
-                    return r;
-                  }
-                return !1;
-              })(),
-              e = { fullscreenchange: t.fullscreenchange, fullscreenerror: t.fullscreenerror },
-              n = {
-                request: function(e) {
-                  return new Promise(function(i, r) {
-                    var o = function t() {
-                      n.off("fullscreenchange", t), i();
-                    };
-                    n.on("fullscreenchange", o);
-                    var s = (e = e || document.documentElement)[t.requestFullscreen]();
-                    s instanceof Promise && s.then(o).catch(r);
-                  });
-                },
-                exit: function() {
-                  return new Promise(function(e, i) {
-                    if (n.isFullscreen) {
-                      var r = function t() {
-                        n.off("fullscreenchange", t), e();
-                      };
-                      n.on("fullscreenchange", r);
-                      var o = document[t.exitFullscreen]();
-                      o instanceof Promise && o.then(r).catch(i);
-                    } else e();
-                  });
-                },
-                on: function(t, n) {
-                  var i = e[t];
-                  i && document.addEventListener(i, n);
-                },
-                off: function(t, n) {
-                  var i = e[t];
-                  i && document.removeEventListener(i, n);
-                },
-              };
-            return (
-              Object.defineProperties(n, {
-                isFullscreen: {
-                  get: function() {
-                    return Boolean(document[t.fullscreenElement]);
-                  },
-                },
-                element: {
-                  enumerable: !0,
-                  get: function() {
-                    return document[t.fullscreenElement];
-                  },
-                },
-                isEnabled: {
-                  enumerable: !0,
-                  get: function() {
-                    return Boolean(document[t.fullscreenEnabled]);
-                  },
-                },
-              }),
-              n
-            );
-          })()),
-          (function() {
-            var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : document,
-              e = [].slice.call(t.querySelectorAll("[data-vimeo-id], [data-vimeo-url]")),
-              n = function(t) {
-                "console" in window &&
-                  console.error &&
-                  console.error("There was an error creating an embed: ".concat(t));
-              };
-            e.forEach(function(t) {
-              try {
-                if (null !== t.getAttribute("data-vimeo-defer")) return;
-                var e = _(t);
-                E(a(e), e, t)
-                  .then(function(e) {
-                    return w(e, t);
-                  })
-                  .catch(n);
-              } catch (t) {
-                n(t);
-              }
-            });
-          })(),
-          (function() {
-            var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : document;
-            if (!window.VimeoPlayerResizeEmbeds_) {
-              window.VimeoPlayerResizeEmbeds_ = !0;
-              window.addEventListener("message", function(e) {
-                if (s(e.origin) && e.data && "spacechange" === e.data.event)
-                  for (var n = t.querySelectorAll("iframe"), i = 0; i < n.length; i++)
-                    if (n[i].contentWindow === e.source) {
-                      n[i].parentElement.style.paddingBottom = "".concat(e.data.data[0].bottom, "px");
-                      break;
-                    }
-              });
-            }
-          })(),
-          (function() {
-            var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : document;
-            if (!window.VimeoSeoMetadataAppended) {
-              window.VimeoSeoMetadataAppended = !0;
-              window.addEventListener("message", function(e) {
-                if (s(e.origin)) {
-                  var n = v(e.data);
-                  if (n && "ready" === n.event)
-                    for (var i, r = t.querySelectorAll("iframe"), o = 0; o < r.length; o++) {
-                      var a = r[o],
-                        c = a.contentWindow === e.source;
-                      if (((i = a.src), /^https:\/\/player\.vimeo\.com\/video\/\d+/.test(i) && c))
-                        new T(a).callMethod("appendVideoMetadata", window.location.href);
-                    }
-                }
-              });
-            }
-          })()),
-          (e.default = T);
-      }.call(this, n(71), n(493).setImmediate);
   },
   function(t, e, n) {
     (function(t) {
@@ -16133,7 +16133,8 @@
       };
     Object.defineProperty(e, "__esModule", { value: !0 }), (e.EcosystemHeroBackgroundVideo = void 0);
     var r = i(n(148)),
-      o = (function() {
+      o = i(n(204)),
+      s = (function() {
         function t(t) {
           (this.isPlaying = !1),
             t &&
@@ -16145,11 +16146,7 @@
         }
         return (
           (t.prototype.init = function() {
-            this.handlePrefersReducedMotionChange(),
-              this.createVideoPlayer(),
-              this.createPlayButton(),
-              this.handlePlayerEvents(),
-              this.handlePlayButtonClick();
+            this.handlePrefersReducedMotionChange(), this.createVideoPlayer(), this.createPlayButton();
           }),
           (t.prototype.handlePrefersReducedMotionChange = function() {
             var t = this,
@@ -16160,22 +16157,30 @@
               });
           }),
           (t.prototype.createVideoPlayer = function() {
-            var t = this.playerRoot.dataset.vid;
-            this.player = r.default(this.playerRoot, {
-              videoId: t,
-              playerVars: {
-                autoplay: this.reducedMotion ? 0 : 1,
-                controls: 0,
-                disablekb: 1,
-                enablejsapi: 1,
-                fs: 0,
-                loop: 1,
-                modestbranding: 1,
-                rel: 0,
-                playlist: t,
-                playsinline: 1,
-              },
-            });
+            var t = this.playerRoot.dataset.vid,
+              e = this.playerRoot.getAttribute("data-vimeo-id");
+            void 0 !== t
+              ? ((this.player = r.default(this.playerRoot, {
+                  videoId: t,
+                  playerVars: {
+                    autoplay: this.reducedMotion ? 0 : 1,
+                    controls: 0,
+                    disablekb: 1,
+                    enablejsapi: 1,
+                    fs: 0,
+                    loop: 1,
+                    modestbranding: 1,
+                    rel: 0,
+                    playlist: t,
+                    playsinline: 1,
+                  },
+                })),
+                this.handlePlayerEvents(),
+                this.handlePlayButtonClick())
+              : void 0 !== e &&
+                ((this.vimPlayer = new o.default(this.playerRoot)),
+                this.handleVimeoPlayerEvents(),
+                this.handleVimeoPlayButtonClick());
           }),
           (t.prototype.handlePlayerEvents = function() {
             var t = this;
@@ -16196,6 +16201,19 @@
                     t.playButton.classList.remove("ecosystem-home-hero__video-button--pause"));
               });
           }),
+          (t.prototype.handleVimeoPlayerEvents = function() {
+            var t = this;
+            this.vimPlayer.ready().then(function() {
+              !0 !== t.reducedMotion &&
+                t.vimPlayer
+                  .play()
+                  .then(function() {})
+                  .catch(function(t) {
+                    console.log("Error:"), console.log(t);
+                  });
+            }),
+              this.playerRoot.style.opacity || (this.playerRoot.style.opacity = "1");
+          }),
           (t.prototype.handlePlayButtonClick = function() {
             var t = this;
             this.playButton.addEventListener("click", function() {
@@ -16203,6 +16221,25 @@
                 ? (t.player.pauseVideo(), (t.mediaImg.style.opacity = "1"), (t.playerRoot.style.opacity = "0"))
                 : (t.player.playVideo(), (t.mediaImg.style.opacity = "0"), (t.playerRoot.style.opacity = "1"));
             });
+          }),
+          (t.prototype.handleVimeoPlayButtonClick = function() {
+            var t = this;
+            setTimeout(function() {
+              t.playButton.addEventListener("click", function() {
+                console.log(t.vimPlayer),
+                  t.vimPlayer.getPaused().then(function(e) {
+                    e
+                      ? (t.vimPlayer.play(),
+                        (t.mediaImg.style.opacity = "0"),
+                        (t.playerRoot.style.opacity = "1"),
+                        t.playButton.classList.remove("ecosystem-home-hero__video-button--pause"))
+                      : (t.vimPlayer.pause(),
+                        (t.mediaImg.style.opacity = "1"),
+                        (t.playerRoot.style.opacity = "0"),
+                        t.playButton.classList.add("ecosystem-home-hero__video-button--pause"));
+                  });
+              });
+            }, 400);
           }),
           (t.prototype.createPlayButton = function() {
             var t = document.createElement("BUTTON");
@@ -16218,10 +16255,10 @@
           t
         );
       })();
-    (e.EcosystemHeroBackgroundVideo = o),
+    (e.EcosystemHeroBackgroundVideo = s),
       (e.default = function() {
         var t = document.querySelector(".ecosystem-home-hero--background-video");
-        new o(t);
+        new s(t);
       });
   },
   function(t, e, n) {
@@ -16233,7 +16270,7 @@
       };
     Object.defineProperty(e, "__esModule", { value: !0 }), (e.Carousel = void 0);
     var r = i(n(150));
-    n(204);
+    n(205);
     var o = i(n(89)),
       s = window.matchMedia("(max-width: 992px)"),
       a = (function() {
@@ -17537,7 +17574,7 @@
     Object.defineProperty(e, "__esModule", { value: !0 }),
       (e.NewsAndEvents = e.FeaturedStoryCarousel = e.PlayPauseAnimation = void 0);
     var r = i(n(150));
-    n(204);
+    n(205);
     var o = i(n(89)),
       s = i(n(510)),
       a = n(203),

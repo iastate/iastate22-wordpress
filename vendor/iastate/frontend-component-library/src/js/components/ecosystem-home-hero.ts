@@ -1,4 +1,5 @@
 import YoutubePlayer from "youtube-player";
+import VimeoPlayer from "@vimeo/player";
 
 export class EcosystemHeroBackgroundVideo {
   private element: HTMLElement;
@@ -9,6 +10,7 @@ export class EcosystemHeroBackgroundVideo {
   private playButton: HTMLButtonElement;
   private isPlaying: boolean = false;
   private reducedMotion: boolean;
+  private vimPlayer: any;
 
   constructor(element: HTMLElement) {
     if (!!element) {
@@ -24,8 +26,6 @@ export class EcosystemHeroBackgroundVideo {
     this.handlePrefersReducedMotionChange();
     this.createVideoPlayer();
     this.createPlayButton();
-    this.handlePlayerEvents();
-    this.handlePlayButtonClick();
   }
 
   private handlePrefersReducedMotionChange() {
@@ -38,21 +38,30 @@ export class EcosystemHeroBackgroundVideo {
 
   private createVideoPlayer() {
     const videoId = this.playerRoot.dataset.vid;
-    this.player = YoutubePlayer(this.playerRoot, {
-      videoId,
-      playerVars: {
-        autoplay: this.reducedMotion ? 0 : 1, // Prevent autoplay for users with reduced motion
-        controls: 0,
-        disablekb: 1,
-        enablejsapi: 1,
-        fs: 0,
-        loop: 1,
-        modestbranding: 1,
-        rel: 0,
-        playlist: videoId,
-        playsinline: 1,
-      },
-    });
+    const vimeoId = this.playerRoot.getAttribute("data-vimeo-id");
+    if (videoId !== undefined) {
+      this.player = YoutubePlayer(this.playerRoot, {
+        videoId,
+        playerVars: {
+          autoplay: this.reducedMotion ? 0 : 1, // Prevent autoplay for users with reduced motion
+          controls: 0,
+          disablekb: 1,
+          enablejsapi: 1,
+          fs: 0,
+          loop: 1,
+          modestbranding: 1,
+          rel: 0,
+          playlist: videoId,
+          playsinline: 1,
+        },
+      });
+      this.handlePlayerEvents();
+      this.handlePlayButtonClick();
+    } else if (vimeoId !== undefined) {
+      this.vimPlayer = new VimeoPlayer(this.playerRoot);
+      this.handleVimeoPlayerEvents();
+      this.handleVimeoPlayButtonClick();
+    }
   }
 
   private handlePlayerEvents() {
@@ -82,6 +91,21 @@ export class EcosystemHeroBackgroundVideo {
     });
   }
 
+  private handleVimeoPlayerEvents() {
+    this.vimPlayer.ready().then(() => {
+      if (this.reducedMotion !== true) {
+        this.vimPlayer
+          .play()
+          .then(() => {})
+          .catch((error) => {
+            console.log("Error:");
+            console.log(error);
+          });
+      }
+    });
+    if (!this.playerRoot.style.opacity) this.playerRoot.style.opacity = "1";
+  }
+
   private handlePlayButtonClick() {
     this.playButton.addEventListener("click", () => {
       if (this.isPlaying) {
@@ -94,6 +118,27 @@ export class EcosystemHeroBackgroundVideo {
         this.playerRoot.style.opacity = "1";
       }
     });
+  }
+
+  private handleVimeoPlayButtonClick() {
+    setTimeout(() => {
+      this.playButton.addEventListener("click", () => {
+        console.log(this.vimPlayer);
+        this.vimPlayer.getPaused().then((paused) => {
+          if (!paused) {
+            this.vimPlayer.pause();
+            this.mediaImg.style.opacity = "1";
+            this.playerRoot.style.opacity = "0";
+            this.playButton.classList.add("ecosystem-home-hero__video-button--pause");
+          } else {
+            this.vimPlayer.play();
+            this.mediaImg.style.opacity = "0";
+            this.playerRoot.style.opacity = "1";
+            this.playButton.classList.remove("ecosystem-home-hero__video-button--pause");
+          }
+        });
+      });
+    }, 400);
   }
 
   private createPlayButton() {

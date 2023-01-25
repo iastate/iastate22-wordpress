@@ -45,6 +45,28 @@
       }
     },
     {
+      "name": "background-video--vimeo",
+      "context": {
+        "hero": {
+          "image": "../../img/ecosystem-hero-featured_fpo.jpg",
+          "title": "Hero Title Lorem Ipsum Dolor",
+          "vimeo_id": "243145806",
+          "button_set": {
+            "items": [
+              {
+                "text": "Button Label",
+                "url": "https://iastate.edu"
+              },
+              {
+                "text": "Button Label",
+                "url": "https://iastate.edu"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
       "name": "no-image",
       "context": {
         "hero": {

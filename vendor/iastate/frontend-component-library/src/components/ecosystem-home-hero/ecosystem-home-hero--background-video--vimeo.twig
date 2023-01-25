@@ -1,0 +1,12 @@
+<div class="ecosystem-home-hero ecosystem-home-hero--background-video ecosystem-home-hero--featured-image">
+  <div class="ecosystem-home-hero__media">
+    <img src="{{ hero.image }}" alt="" loading="lazy" width="2002" height="1065" >
+    <div class="ecosystem-home-hero__video" aria-label="Vimeo Video: {{ title }}" data-vimeo-muted="true" data-vimeo-loop="true" data-vimeo-background="true" data-vimeo-autoplay="true" data-vimeo-id="{{ hero.vimeo_id|striptags }}"></div>
+  </div>
+  <div class="ecosystem-home-hero__content">
+    <h1 class="ecosystem-home-hero__title">{{ hero.title }}</h1>
+    {% if hero.button_set.items %}
+      {% include "@button-set" with hero.button_set %}
+    {% endif %}
+  </div>
+</div>
