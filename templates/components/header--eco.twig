@@ -6,7 +6,7 @@
       </a>
       {% if options.parent_unit.name %}<a class="site-header__parent-unit-name" href="{{ options.parent_unit.url }}">{{ options.parent_unit.name }}</a>{% endif %}
     </div>
-    <div class="site-header__website-title"><a href="{{ site.url }}">{{ site.description }}</a></div>
+    <div class="site-header__website-title"><a href="{{ site.url }}">{{ site.title }}</a></div>
     <div class="site-header__utility-search-wrap">
       {% if utility_menu %}
       <nav class="site-header__utility" aria-label="Utility">
