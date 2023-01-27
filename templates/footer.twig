@@ -88,6 +88,9 @@
             <div class="site-footer__site-org-contact-email">
               {% for item in options.emails %}
                 <p>
+                {% if item.label %}
+                  {{ item.label }}, 
+                {% endif %}
                   <a href="mailto:{{ item.email }}">{{ item.email }}</a>
                 </p>
               {% endfor %}
@@ -98,13 +101,8 @@
               {% for item in options.phone_fax %}
                 {% if item.phone %}
                   <p>
-                    <abbr title="Phone">P</abbr>:
+                    <abbr title="Phone">{{ item.label }}</abbr>:
                     {{ item.phone }}</p>
-                {% endif %}
-                {% if item.fax %}
-                  <p>
-                    <abbr title="Fax">F</abbr>:
-                    {{ item.fax }}</p>
                 {% endif %}
               {% endfor %}
             </div>

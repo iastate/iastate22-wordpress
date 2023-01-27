@@ -13,9 +13,33 @@
         <ul>
           {% for link in utility_menu.items %}
             <li>
-              <a href="{{ link.url }}">{{ link.title }}</a>
+              {% if link.children %}
+                <button class="site-header__utility-dropdown-trigger">{{ link.title }}</button>
+                <ul class="site-header__utility-dropdown-menu">
+                  {% for item in link.children %}  
+                    <li>
+                      <a href="{{ item.url }}" target="_blank">{{ item.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% else %}
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              {% endif %}
             </li>
           {% endfor %}
+          {% if options.info_for == true %}
+            <li>
+              <button class="site-header__utility-dropdown-trigger">Info For...</button>
+              <ul class="site-header__utility-dropdown-menu" aria-hidden="true">
+                <li>
+                  <a href="https://students.info.iastate.edu/" target="_blank">Current Students</a>
+                </li>
+                <li>
+                  <a href="https://facultystaff.info.iastate.edu" target="_blank">Faculty and Staff</a>
+                </li>
+              </ul>
+            </li>
+          {% endif %}
         </ul>
       </nav>
       <div class="site-header__search">
@@ -99,3 +123,6 @@
     </div>
   </div>
 </header>
+<pre>
+  {{ dump(options.info_for) }}
+</pre>

@@ -75,6 +75,26 @@
             ]
         },
         {
+            "key": "field_63d066cc68773",
+            "label": "Info For Menu Option",
+            "name": "info_for",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Enabling this will add the 'info for' dropdown link to the utility menu. This link is a pair of hard-coded Iowa State site links: https:\/\/students.info.iastate.edu\/ and https:\/\/facultystaff.info.iastate.edu\/",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
             "key": "field_62a39c2918f3c",
             "label": "Footer Options",
             "name": "",
@@ -213,8 +233,8 @@
             "sub_fields": [
                 {
                     "key": "field_63724ffac2242",
-                    "label": "Phone",
-                    "name": "phone",
+                    "label": "Label",
+                    "name": "label",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
@@ -234,8 +254,8 @@
                 },
                 {
                     "key": "field_637250357c5ff",
-                    "label": "Fax",
-                    "name": "fax",
+                    "label": "Phone",
+                    "name": "phone",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
@@ -277,6 +297,27 @@
             "button_label": "Add Row",
             "rows_per_page": 20,
             "sub_fields": [
+                {
+                    "key": "field_63d410347d8c8",
+                    "label": "Email Title",
+                    "name": "label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_637251b2e4c46"
+                },
                 {
                     "key": "field_637251bee4c47",
                     "label": "Email",
@@ -324,5 +365,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1668436677
+    "modified": 1674846422
 }
