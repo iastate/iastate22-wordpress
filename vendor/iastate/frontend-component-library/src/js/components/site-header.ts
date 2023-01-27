@@ -18,8 +18,8 @@ export class SiteHeader {
   private formInput: HTMLFormElement;
   public visible: boolean = false;
   private selectedMainNavSectionIndex: number = null;
-  private utilityDropdownTrigger: HTMLButtonElement;
-  private utilityDropdownMenu: HTMLElement;
+  private utilityDropdownTrigger: NodeListOf<HTMLButtonElement>;
+  // private utilityDropdownMenu: HTMLElement;
   private eventHandlers: any = {
     show: [],
     hide: [],
@@ -43,8 +43,8 @@ export class SiteHeader {
         document.querySelector(".site-header__search-close")
       );
       this.formInput = document.querySelector(".site-header__search-form-desktop input[type='search']");
-      this.utilityDropdownTrigger = document.querySelector(".site-header__utility-dropdown-trigger");
-      this.utilityDropdownMenu = document.querySelector(".site-header__utility-dropdown-menu");
+      this.utilityDropdownTrigger = document.querySelectorAll(".site-header__utility-dropdown-trigger");
+      // this.utilityDropdownMenu = document.querySelector(".site-header__utility-dropdown-menu");
 
       this.init();
     }
@@ -367,40 +367,44 @@ export class SiteHeader {
 
   private handleUtilityDropdown() {
     if (this.utilityDropdownTrigger) {
-      this.utilityDropdownTrigger.setAttribute("aria-expanded", "false");
-      this.utilityDropdownMenu.setAttribute("aria-hidden", "true");
-      const mainDropdownTriggers = document.querySelectorAll(".site-header__mega-menu-main-nav-parent") as NodeListOf<
-        HTMLElement
-      >;
+      this.utilityDropdownTrigger.forEach((el, i) => {
+        let utilityTrigger = el;
+        let utilityMenu = el.parentNode.querySelector(".site-header__utility-dropdown-menu");
+        utilityTrigger.setAttribute("aria-expanded", "false");
+        utilityMenu.setAttribute("aria-hidden", "true");
+        const mainDropdownTriggers = document.querySelectorAll(".site-header__mega-menu-main-nav-parent") as NodeListOf<
+          HTMLElement
+        >;
 
-      this.utilityDropdownTrigger.addEventListener("click", () => {
-        if (this.utilityDropdownTrigger.getAttribute("aria-expanded") === "false") {
-          this.utilityDropdownTrigger.setAttribute("aria-expanded", "true");
-          this.utilityDropdownMenu.setAttribute("aria-hidden", "false");
-          window.addEventListener("click", (e) => {
-            if (e.target != this.utilityDropdownMenu && e.target != this.utilityDropdownTrigger) {
-              this.utilityDropdownTrigger.setAttribute("aria-expanded", "false");
-              this.utilityDropdownMenu.setAttribute("aria-hidden", "true");
+        utilityTrigger.addEventListener("click", () => {
+          if (utilityTrigger.getAttribute("aria-expanded") === "false") {
+            utilityTrigger.setAttribute("aria-expanded", "true");
+            utilityMenu.setAttribute("aria-hidden", "false");
+            window.addEventListener("click", (e) => {
+              if (e.target != utilityMenu && e.target != utilityTrigger) {
+                utilityTrigger.setAttribute("aria-expanded", "false");
+                utilityMenu.setAttribute("aria-hidden", "true");
+              }
+            });
+            mainDropdownTriggers.forEach(function(link) {
+              if (link.getAttribute("aria-expanded") === "true") {
+                link.setAttribute("aria-expanded", "false");
+                link.nextElementSibling.setAttribute("aria-hidden", "true");
+              }
+            });
+            if (this.searchFormDesktop.getAttribute("aria-hidden") === "false") {
+              this.searchTrigger.setAttribute("aria-expanded", "false");
+              this.searchFormDesktop.setAttribute("aria-hidden", "true");
+              this.closeSearchButton.setAttribute("aria-hidden", "true");
+              setTimeout(() => {
+                this.searchFormDesktop.style.visibility = "hidden";
+              }, 300);
             }
-          });
-          mainDropdownTriggers.forEach(function(link) {
-            if (link.getAttribute("aria-expanded") === "true") {
-              link.setAttribute("aria-expanded", "false");
-              link.nextElementSibling.setAttribute("aria-hidden", "true");
-            }
-          });
-          if (this.searchFormDesktop.getAttribute("aria-hidden") === "false") {
-            this.searchTrigger.setAttribute("aria-expanded", "false");
-            this.searchFormDesktop.setAttribute("aria-hidden", "true");
-            this.closeSearchButton.setAttribute("aria-hidden", "true");
-            setTimeout(() => {
-              this.searchFormDesktop.style.visibility = "hidden";
-            }, 300);
+          } else {
+            utilityTrigger.setAttribute("aria-expanded", "false");
+            utilityMenu.setAttribute("aria-hidden", "true");
           }
-        } else {
-          this.utilityDropdownTrigger.setAttribute("aria-expanded", "false");
-          this.utilityDropdownMenu.setAttribute("aria-hidden", "true");
-        }
+        });
       });
     }
   }

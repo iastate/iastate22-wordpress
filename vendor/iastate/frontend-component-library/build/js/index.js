@@ -15083,8 +15083,7 @@
                 document.querySelector(".site-header__search-close")
               )),
               (this.formInput = document.querySelector(".site-header__search-form-desktop input[type='search']")),
-              (this.utilityDropdownTrigger = document.querySelector(".site-header__utility-dropdown-trigger")),
-              (this.utilityDropdownMenu = document.querySelector(".site-header__utility-dropdown-menu")),
+              (this.utilityDropdownTrigger = document.querySelectorAll(".site-header__utility-dropdown-trigger")),
               this.init());
         }
         return (
@@ -15342,36 +15341,36 @@
           }),
           (t.prototype.handleUtilityDropdown = function() {
             var t = this;
-            if (this.utilityDropdownTrigger) {
-              this.utilityDropdownTrigger.setAttribute("aria-expanded", "false"),
-                this.utilityDropdownMenu.setAttribute("aria-hidden", "true");
-              var e = document.querySelectorAll(".site-header__mega-menu-main-nav-parent");
-              this.utilityDropdownTrigger.addEventListener("click", function() {
-                "false" === t.utilityDropdownTrigger.getAttribute("aria-expanded")
-                  ? (t.utilityDropdownTrigger.setAttribute("aria-expanded", "true"),
-                    t.utilityDropdownMenu.setAttribute("aria-hidden", "false"),
-                    window.addEventListener("click", function(e) {
-                      e.target != t.utilityDropdownMenu &&
-                        e.target != t.utilityDropdownTrigger &&
-                        (t.utilityDropdownTrigger.setAttribute("aria-expanded", "false"),
-                        t.utilityDropdownMenu.setAttribute("aria-hidden", "true"));
-                    }),
-                    e.forEach(function(t) {
-                      "true" === t.getAttribute("aria-expanded") &&
-                        (t.setAttribute("aria-expanded", "false"),
-                        t.nextElementSibling.setAttribute("aria-hidden", "true"));
-                    }),
-                    "false" === t.searchFormDesktop.getAttribute("aria-hidden") &&
-                      (t.searchTrigger.setAttribute("aria-expanded", "false"),
-                      t.searchFormDesktop.setAttribute("aria-hidden", "true"),
-                      t.closeSearchButton.setAttribute("aria-hidden", "true"),
-                      setTimeout(function() {
-                        t.searchFormDesktop.style.visibility = "hidden";
-                      }, 300)))
-                  : (t.utilityDropdownTrigger.setAttribute("aria-expanded", "false"),
-                    t.utilityDropdownMenu.setAttribute("aria-hidden", "true"));
+            this.utilityDropdownTrigger &&
+              this.utilityDropdownTrigger.forEach(function(e, n) {
+                var i = e,
+                  r = e.parentNode.querySelector(".site-header__utility-dropdown-menu");
+                i.setAttribute("aria-expanded", "false"), r.setAttribute("aria-hidden", "true");
+                var o = document.querySelectorAll(".site-header__mega-menu-main-nav-parent");
+                i.addEventListener("click", function() {
+                  "false" === i.getAttribute("aria-expanded")
+                    ? (i.setAttribute("aria-expanded", "true"),
+                      r.setAttribute("aria-hidden", "false"),
+                      window.addEventListener("click", function(t) {
+                        t.target != r &&
+                          t.target != i &&
+                          (i.setAttribute("aria-expanded", "false"), r.setAttribute("aria-hidden", "true"));
+                      }),
+                      o.forEach(function(t) {
+                        "true" === t.getAttribute("aria-expanded") &&
+                          (t.setAttribute("aria-expanded", "false"),
+                          t.nextElementSibling.setAttribute("aria-hidden", "true"));
+                      }),
+                      "false" === t.searchFormDesktop.getAttribute("aria-hidden") &&
+                        (t.searchTrigger.setAttribute("aria-expanded", "false"),
+                        t.searchFormDesktop.setAttribute("aria-hidden", "true"),
+                        t.closeSearchButton.setAttribute("aria-hidden", "true"),
+                        setTimeout(function() {
+                          t.searchFormDesktop.style.visibility = "hidden";
+                        }, 300)))
+                    : (i.setAttribute("aria-expanded", "false"), r.setAttribute("aria-hidden", "true"));
+                });
               });
-            }
           }),
           t
         );
