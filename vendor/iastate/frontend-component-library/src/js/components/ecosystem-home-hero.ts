@@ -63,7 +63,7 @@ export class EcosystemHeroBackgroundVideo {
       this.handleVimeoPlayerEvents();
       this.handleVimeoPlayButtonClick();
     } else {
-      this.cdnVideo = this.element.querySelector(".ecosystem-home-hero__video video");
+      this.cdnVideo = this.element.querySelector(".ecosystem-home-hero__media video");
       this.cdnVideo.play();
       this.mediaImg.style.opacity = "0";
       this.playerRoot.style.opacity = "1";

@@ -16180,7 +16180,7 @@
               ? ((this.vimPlayer = new o.default(this.playerRoot)),
                 this.handleVimeoPlayerEvents(),
                 this.handleVimeoPlayButtonClick())
-              : ((this.cdnVideo = this.element.querySelector(".ecosystem-home-hero__video video")),
+              : ((this.cdnVideo = this.element.querySelector(".ecosystem-home-hero__media video")),
                 this.cdnVideo.play(),
                 (this.mediaImg.style.opacity = "0"),
                 (this.playerRoot.style.opacity = "1"),
