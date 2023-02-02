@@ -183,7 +183,9 @@
                     "choices": {
                         "-- select one -- :": "-- select one -- :",
                         "youtube": "YouTube",
-                        "vimeo": "Vimeo"
+                        "vimeo": "Vimeo",
+                        "cdn": "CDN",
+                        "media_gallery": "Media Gallery"
                     },
                     "default_value": false,
                     "return_format": "value",
@@ -248,6 +250,62 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": ""
+                },
+                {
+                    "key": "field_63dc008dd8651",
+                    "label": "CDN",
+                    "name": "cdn",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Enter the URL of the site that you would like to link a video from",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_63d0284425ecd",
+                                "operator": "==",
+                                "value": "cdn"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_63dc00c396f18",
+                    "label": "Media Video",
+                    "name": "media_video",
+                    "aria-label": "",
+                    "type": "file",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_63d0284425ecd",
+                                "operator": "==",
+                                "value": "media_gallery"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_size": "",
+                    "max_size": "",
+                    "mime_types": ""
                 }
             ]
         },
@@ -316,5 +374,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1674677550
+    "modified": 1675364277
 }
