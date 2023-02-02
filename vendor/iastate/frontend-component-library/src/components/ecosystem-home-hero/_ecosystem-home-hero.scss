@@ -127,7 +127,8 @@
         opacity: 1;
       }
     }
-    iframe {
+    iframe,
+    video {
       opacity: 0; // Initially hide the video player until it starts playing.
       position: absolute;
       width: 100%;
@@ -142,6 +143,10 @@
       @include media-breakpoint-up(md) {
         min-width: initial;
       }
+    }
+
+    video {
+      opacity: 1;
     }
   }
 

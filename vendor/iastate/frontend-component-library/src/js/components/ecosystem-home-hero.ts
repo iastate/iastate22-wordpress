@@ -11,6 +11,7 @@ export class EcosystemHeroBackgroundVideo {
   private isPlaying: boolean = false;
   private reducedMotion: boolean;
   private vimPlayer: any;
+  private cdnVideo: HTMLVideoElement;
 
   constructor(element: HTMLElement) {
     if (!!element) {
@@ -61,6 +62,12 @@ export class EcosystemHeroBackgroundVideo {
       this.vimPlayer = new VimeoPlayer(this.playerRoot);
       this.handleVimeoPlayerEvents();
       this.handleVimeoPlayButtonClick();
+    } else {
+      this.cdnVideo = this.element.querySelector(".ecosystem-home-hero__video video");
+      this.cdnVideo.play();
+      this.mediaImg.style.opacity = "0";
+      this.playerRoot.style.opacity = "1";
+      this.handleVideoPlayButtonClick();
     }
   }
 
@@ -123,7 +130,6 @@ export class EcosystemHeroBackgroundVideo {
   private handleVimeoPlayButtonClick() {
     setTimeout(() => {
       this.playButton.addEventListener("click", () => {
-        console.log(this.vimPlayer);
         this.vimPlayer.getPaused().then((paused) => {
           if (!paused) {
             this.vimPlayer.pause();
@@ -137,6 +143,24 @@ export class EcosystemHeroBackgroundVideo {
             this.playButton.classList.remove("ecosystem-home-hero__video-button--pause");
           }
         });
+      });
+    }, 400);
+  }
+
+  private handleVideoPlayButtonClick() {
+    setTimeout(() => {
+      this.playButton.addEventListener("click", () => {
+        if (this.cdnVideo.paused === true) {
+          this.cdnVideo.play();
+          this.mediaImg.style.opacity = "0";
+          this.playerRoot.style.opacity = "1";
+          this.playButton.classList.remove("ecosystem-home-hero__video-button--pause");
+        } else {
+          this.cdnVideo.pause();
+          this.mediaImg.style.opacity = "1";
+          this.playerRoot.style.opacity = "0";
+          this.playButton.classList.add("ecosystem-home-hero__video-button--pause");
+        }
       });
     }, 400);
   }

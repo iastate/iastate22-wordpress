@@ -16176,10 +16176,15 @@
                 })),
                 this.handlePlayerEvents(),
                 this.handlePlayButtonClick())
-              : null !== e &&
-                ((this.vimPlayer = new o.default(this.playerRoot)),
+              : null !== e
+              ? ((this.vimPlayer = new o.default(this.playerRoot)),
                 this.handleVimeoPlayerEvents(),
-                this.handleVimeoPlayButtonClick());
+                this.handleVimeoPlayButtonClick())
+              : ((this.cdnVideo = this.element.querySelector(".ecosystem-home-hero__video video")),
+                this.cdnVideo.play(),
+                (this.mediaImg.style.opacity = "0"),
+                (this.playerRoot.style.opacity = "1"),
+                this.handleVideoPlayButtonClick());
           }),
           (t.prototype.handlePlayerEvents = function() {
             var t = this;
@@ -16225,18 +16230,33 @@
             var t = this;
             setTimeout(function() {
               t.playButton.addEventListener("click", function() {
-                console.log(t.vimPlayer),
-                  t.vimPlayer.getPaused().then(function(e) {
-                    e
-                      ? (t.vimPlayer.play(),
-                        (t.mediaImg.style.opacity = "0"),
-                        (t.playerRoot.style.opacity = "1"),
-                        t.playButton.classList.remove("ecosystem-home-hero__video-button--pause"))
-                      : (t.vimPlayer.pause(),
-                        (t.mediaImg.style.opacity = "1"),
-                        (t.playerRoot.style.opacity = "0"),
-                        t.playButton.classList.add("ecosystem-home-hero__video-button--pause"));
-                  });
+                t.vimPlayer.getPaused().then(function(e) {
+                  e
+                    ? (t.vimPlayer.play(),
+                      (t.mediaImg.style.opacity = "0"),
+                      (t.playerRoot.style.opacity = "1"),
+                      t.playButton.classList.remove("ecosystem-home-hero__video-button--pause"))
+                    : (t.vimPlayer.pause(),
+                      (t.mediaImg.style.opacity = "1"),
+                      (t.playerRoot.style.opacity = "0"),
+                      t.playButton.classList.add("ecosystem-home-hero__video-button--pause"));
+                });
+              });
+            }, 400);
+          }),
+          (t.prototype.handleVideoPlayButtonClick = function() {
+            var t = this;
+            setTimeout(function() {
+              t.playButton.addEventListener("click", function() {
+                !0 === t.cdnVideo.paused
+                  ? (t.cdnVideo.play(),
+                    (t.mediaImg.style.opacity = "0"),
+                    (t.playerRoot.style.opacity = "1"),
+                    t.playButton.classList.remove("ecosystem-home-hero__video-button--pause"))
+                  : (t.cdnVideo.pause(),
+                    (t.mediaImg.style.opacity = "1"),
+                    (t.playerRoot.style.opacity = "0"),
+                    t.playButton.classList.add("ecosystem-home-hero__video-button--pause"));
               });
             }, 400);
           }),
