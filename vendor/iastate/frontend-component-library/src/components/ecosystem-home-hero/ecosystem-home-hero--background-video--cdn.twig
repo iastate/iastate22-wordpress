@@ -1,0 +1,14 @@
+<div class="ecosystem-home-hero ecosystem-home-hero--background-video ecosystem-home-hero--featured-image">
+  <div class="ecosystem-home-hero__media">
+    <img src="{{ hero.image }}" alt="" loading="lazy" width="2002" height="1065">
+    <video class="ecosystem-home-hero__video" autoplay muted loop>
+      <source src="{{ hero.video.url }}" type="{{ hero.video.mime_type }}">
+    </video>
+  </div>
+  <div class="ecosystem-home-hero__content">
+    <h1 class="ecosystem-home-hero__title">{{ hero.title }}</h1>
+    {% if hero.button_set.items %}
+      {% include "@button-set" with hero.button_set %}
+    {% endif %}
+  </div>
+</div>

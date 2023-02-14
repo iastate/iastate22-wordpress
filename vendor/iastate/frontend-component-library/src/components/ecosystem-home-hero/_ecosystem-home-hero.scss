@@ -6,6 +6,7 @@
   }
   @include media-breakpoint-up(xl) {
     margin: 0 rem(-298) rem(70) rem(-190);
+    margin: 0;
   }
   &.ecosystem-home-hero--no-image {
     background-color: $iastate-red;

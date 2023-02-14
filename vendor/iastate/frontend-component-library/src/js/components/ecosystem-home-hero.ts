@@ -25,8 +25,8 @@ export class EcosystemHeroBackgroundVideo {
 
   private init() {
     this.handlePrefersReducedMotionChange();
-    this.createVideoPlayer();
     this.createPlayButton();
+    this.createVideoPlayer();
   }
 
   private handlePrefersReducedMotionChange() {
@@ -67,7 +67,13 @@ export class EcosystemHeroBackgroundVideo {
       this.cdnVideo.play();
       this.mediaImg.style.opacity = "0";
       this.playerRoot.style.opacity = "1";
+      this.playButton.classList.add("ecosystem-home-hero__video-button--pause");
       this.handleVideoPlayButtonClick();
+      if (this.reducedMotion) {
+        this.mediaImg.style.opacity = "1";
+        this.playerRoot.style.opacity = "0";
+        this.playButton.classList.remove("ecosystem-home-hero__video-button--pause");
+      }
     }
   }
 
@@ -108,9 +114,16 @@ export class EcosystemHeroBackgroundVideo {
             console.log("Error:");
             console.log(error);
           });
+      } else {
+        this.vimPlayer.pause();
+        this.playerRoot.style.opacity = "0";
+        this.playButton.querySelector(".visible-for-screen-readers").textContent = "Play Video";
+        this.playButton.classList.remove("ecosystem-home-hero__video-button--pause");
       }
     });
     if (!this.playerRoot.style.opacity) this.playerRoot.style.opacity = "1";
+    this.playButton.querySelector(".visible-for-screen-readers").textContent = "Pause Video";
+    this.playButton.classList.add("ecosystem-home-hero__video-button--pause");
   }
 
   private handlePlayButtonClick() {
@@ -135,12 +148,14 @@ export class EcosystemHeroBackgroundVideo {
             this.vimPlayer.pause();
             this.mediaImg.style.opacity = "1";
             this.playerRoot.style.opacity = "0";
-            this.playButton.classList.add("ecosystem-home-hero__video-button--pause");
+            this.playButton.classList.remove("ecosystem-home-hero__video-button--pause");
+            this.playButton.querySelector(".visible-for-screen-readers").textContent = "Play Video";
           } else {
             this.vimPlayer.play();
             this.mediaImg.style.opacity = "0";
             this.playerRoot.style.opacity = "1";
-            this.playButton.classList.remove("ecosystem-home-hero__video-button--pause");
+            this.playButton.classList.add("ecosystem-home-hero__video-button--pause");
+            this.playButton.querySelector(".visible-for-screen-readers").textContent = "Pause Video";
           }
         });
       });
@@ -150,16 +165,30 @@ export class EcosystemHeroBackgroundVideo {
   private handleVideoPlayButtonClick() {
     setTimeout(() => {
       this.playButton.addEventListener("click", () => {
-        if (this.cdnVideo.paused === true) {
-          this.cdnVideo.play();
-          this.mediaImg.style.opacity = "0";
-          this.playerRoot.style.opacity = "1";
-          this.playButton.classList.remove("ecosystem-home-hero__video-button--pause");
+        if (!this.reducedMotion) {
+          if (this.cdnVideo.paused === true) {
+            this.cdnVideo.play();
+            this.mediaImg.style.opacity = "0";
+            this.playerRoot.style.opacity = "1";
+            this.playButton.classList.add("ecosystem-home-hero__video-button--pause");
+          } else {
+            this.cdnVideo.pause();
+            this.mediaImg.style.opacity = "1";
+            this.playerRoot.style.opacity = "0";
+            this.playButton.classList.remove("ecosystem-home-hero__video-button--pause");
+          }
         } else {
-          this.cdnVideo.pause();
-          this.mediaImg.style.opacity = "1";
-          this.playerRoot.style.opacity = "0";
-          this.playButton.classList.add("ecosystem-home-hero__video-button--pause");
+          if (!this.playButton.classList.contains("ecosystem-home-hero__video-button--pause")) {
+            this.cdnVideo.play();
+            this.mediaImg.style.opacity = "0";
+            this.playerRoot.style.opacity = "1";
+            this.playButton.classList.add("ecosystem-home-hero__video-button--pause");
+          } else {
+            this.cdnVideo.pause();
+            this.mediaImg.style.opacity = "1";
+            this.playerRoot.style.opacity = "0";
+            this.playButton.classList.remove("ecosystem-home-hero__video-button--pause");
+          }
         }
       });
     }, 400);

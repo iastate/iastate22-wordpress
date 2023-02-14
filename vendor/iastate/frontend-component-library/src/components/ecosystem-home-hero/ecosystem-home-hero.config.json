@@ -67,6 +67,31 @@
       }
     },
     {
+      "name": "background-video--cdn",
+      "context": {
+        "hero": {
+          "image": "../../img/ecosystem-hero-featured_fpo.jpg",
+          "title": "Hero Title Lorem Ipsum Dolor",
+          "video": {
+            "url": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+            "mime_type": "video/mp4"
+          },
+          "button_set": {
+            "items": [
+              {
+                "text": "Button Label",
+                "url": "https://iastate.edu"
+              },
+              {
+                "text": "Button Label",
+                "url": "https://iastate.edu"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
       "name": "no-image",
       "context": {
         "hero": {
