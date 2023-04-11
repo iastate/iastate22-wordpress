@@ -1,0 +1,22 @@
+<div class="hero-stories-feed-item">
+  {% if image %}
+  <div class="hero-stories-feed-item__media">
+    <div class="hero-stories-feed-item__media-container">
+      <a href="{{url}}"><img class="hero-stories-feed-item__media-image" src="{{ image.src }}" alt="{{ image.alt }}" loading="lazy" /></a>
+    </div>
+  </div>
+  {% endif %}
+  <div class="hero-stories-feed-item__content">
+    <div class="hero-stories-feed-item__content-tags">
+      <ul>
+        {% for item in tags %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <h2 class="hero-stories-feed-item__title">
+      <a class="iastate22-link-secondary" href="{{url}}" {% if external == true %} target="_blank" {% endif %}>{{ title }}<span class="arrow"></span></a>
+    </h2>
+    <p class="hero-stories-feed-item__content-date">{{ date }}</p>
+  </div>
+</div>

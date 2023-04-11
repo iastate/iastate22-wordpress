@@ -1,148 +1,130 @@
 {% extends "@page" %}
 
 {% block content %}
-<script>
-  document.body.classList.add("admission-and-aid");
-</script>
+  <script>
+    document.body.classList.add("admission-and-aid");
+  </script>
 
-<div class="admission-aid-hero">
-  <div class="admission-aid-hero__breadcrumbs">
-    {% include "@breadcrumb--top-level-pages" with hero.breadcrumbs %}
-  </div>
-  <div class="admission-aid-hero__media">
-		<img class="admission-aid-hero__media-mobile" src="{{ hero.image_mobile|path }}" alt="" loading="lazy" width="633" height="1092">
-    <img class="admission-aid-hero__media-desktop" src="{{ hero.image_desktop|path }}" alt="" loading="lazy" width="2000" height="1082">
-	</div>
-  <h1 class="admission-aid-hero__title">{{ hero.title }}</h1>
-  <div class="admission-aid-hero__graphic">
-    <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
-      <path d="m582 75 74 318 125 69-350 104L22 428 3 264v-85L582 75z"/>
-    </svg>
-  </div>
-  <div class="hero__subnav-wrap">
-    {% include "@subnav--horizontal" with hero.subnav_horizontal %}
-  </div>
-</div>
-
-<div class="admission-aid-explore">
-  <div class="admission-aid-explore__content">
-    <h2 class="admission-aid-explore__title">{{ explore.title }}</h2>
-    <div class="admission-aid-explore__intro">{{ explore.intro|raw }}</div>
-  </div>
-  {% include "@video-embed" with explore.video_embed %}
-</div>
-
-<div class="admission-aid-why">
-  <div class="admission-aid-why__callouts">
-    <h2 class="admission-aid-why__callouts-label">{{why_iowa.label}}</h2>
-    <ul>
-      {% for callout in why_iowa.callouts %}
-      <li>
-        <div class="admission-aid-why__callout-media">
-          <img src="{{ callout.image|path }}" alt="" loading="lazy" width="382" height="254">
-        </div>
-        <div class="admission-aid-why__callout-content">
-          <h3 class="admission-aid-why__callout-title">{{ callout.title }}</h3>
-          <a class="link-tertiary" href="{{ callout.link.url }}">{{ callout.link.title }}<span class="arrow"></span></a>
-        </div>
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-  <div class="admission-aid-why__statistic">
-    {% include "@statistic" with why_iowa.statistics %}
-  </div>
-</div>
-
-<div class="admission-aid-afford">
-  <div class="admission-aid-afford__intro">
-    <h2 class="admission-aid-afford__intro-title">{{ afford.title }}</h2>
-    <div class="admission-aid-afford__intro-copy">{{ afford.intro|raw }}</div>
-    {% include "@link-set" with afford.link_set %}
-  </div>
-  <div class="paragraph-widget paragraph-widget--multicolumn-content">
-    {% include "@multi-column-content--alternative" with afford.columns %}
-  </div>
-</div>
-
-<div class="admission-aid-apply callout-inset">
-  <div class="callout-inset_inset">
-    <h2 class="callout-inset_inset-headline">{{ apply.title }}</h2>
-    <div class="callout-inset_inset-text">{{ apply.intro_text|raw }}</div>
-    {% include "@button-set" with apply.button_set %}
-  </div>
-  <div class="feature-with-large-image">
-    <div class="feature-with-large-image__media">
-      <img src="{{ apply.image|path }}" alt="" loading="lazy" width="1280" height="720">
+  <div class="admission-aid-hero">
+    <div class="admission-aid-hero__breadcrumbs">
+      {% include "@breadcrumb--top-level-pages" with hero.breadcrumbs %}
     </div>
-    <div class="feature-with-large-image__content">
-      <h2>{{apply.subtitle}}</h2>
-      {% include "@link-set" with apply.link_set %}
+    <div class="admission-aid-hero__media">
+      <img class="admission-aid-hero__media-mobile" src="{{ hero.image_mobile|path }}" alt="" loading="lazy" width="633" height="1092">
+      <img class="admission-aid-hero__media-desktop" src="{{ hero.image_desktop|path }}" alt="" loading="lazy" width="2000" height="1082">
+    </div>
+    <h1 class="admission-aid-hero__title">{{ hero.title }}</h1>
+    <div class="admission-aid-hero__graphic">
+      <svg viewbox="0 0 800 600" preserveaspectratio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+        <path d="m582 75 74 318 125 69-350 104L22 428 3 264v-85L582 75z"/>
+      </svg>
+    </div>
+    <div class="hero__subnav-wrap">
+      {% include "@subnav--horizontal" with hero.subnav_horizontal %}
     </div>
   </div>
-</div>
 
-<div class="admission-aid-links">
-  <div class="admission-aid-links__intro">
-    <h2 class="admission-aid-links__intro-subtitle">{{ links.subtitle }}</h2>
-    <h3 class="admission-aid-links__intro-title">{{ links.title }}</h3>
+  <div class="admission-aid-explore">
+    <div class="admission-aid-explore__content">
+      <h2 class="admission-aid-explore__title">{{ explore.title }}</h2>
+      <div class="admission-aid-explore__intro">{{ explore.intro|raw }}</div>
+    </div>
+    {% include "@video-embed" with explore.video_embed %}
   </div>
-  <div class="admission-aid-links__link-list">
-    <ul>
-      {% for link in links.link_list %}
-        <li>
-          <a href="" class="admission-aid-links__link-list-link">
-            <div class="admission-aid-links__link-list-icon">
-              <img src="{{ link.icon|path }}" alt="" loading="lazy" width="130" height="130">
+
+  <div class="admission-aid-why">
+    <div class="admission-aid-why__callouts">
+      <h2 class="admission-aid-why__callouts-label">{{why_iowa.label}}</h2>
+      <ul>
+        {% for callout in why_iowa.callouts %}
+          <li>
+            <div class="admission-aid-why__callout-media">
+              <img src="{{ callout.image|path }}" alt="" loading="lazy" width="382" height="254">
             </div>
-            <span class="admission-aid-links__link-list-link-text" href="{{ link.url }}">{{ link.text }}<span class="arrow"></span></span>
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
+            <div class="admission-aid-why__callout-content">
+              <h3 class="admission-aid-why__callout-title">{{ callout.title }}</h3>
+              <a class="link-tertiary" href="{{ callout.link.url }}">{{ callout.link.title }}<span class="arrow"></span>
+              </a>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="admission-aid-why__statistic">
+      {% include "@stat" with why_iowa.statistics %}
+    </div>
   </div>
-</div>
 
-<div class="admission-aid-connect">
-  <h2 class="admission-aid-connect__title">{{ connect.title }}</h2>
-  <div class="admission-aid-connect__social">
-    <ul>
-      <li>
-        <a href="#" target="_blank">
-          <i class="fak fa-iastate22-instagram" aria-hidden="true"></i>
-          <span class="visible-for-screen-readers">Instagram</span>
-        </a>
-      </li>
-      <li>
-        <a href="#" target="_blank">
-          <i class="fa-brands fa-youtube" aria-hidden="true"></i>
-          <span class="visible-for-screen-readers">YouTube</span>
-        </a>
-      </li>
-      <li>
-        <a href="#" target="_blank">
-          <i class="fa-brands fa-facebook" aria-hidden="true"></i>
-          <span class="visible-for-screen-readers">Facebook</span>
-        </a>
-      </li>
-      <li>
-        <a href="#" target="_blank">
-          <i class="fa-brands fa-twitter" aria-hidden="true"></i>
-          <span class="visible-for-screen-readers">Twitter</span>
-        </a>
-      </li>
-    </ul>
+  <div class="admission-aid-afford">
+    <div class="admission-aid-afford__intro">
+      <h2 class="admission-aid-afford__intro-title">{{ afford.title }}</h2>
+      <div class="admission-aid-afford__intro-copy">{{ afford.intro|raw }}</div>
+      {% include "@link-set" with afford.link_set %}
+    </div>
+    <div class="paragraph-widget paragraph-widget--multicolumn-content">
+      {% include "@multi-column-content--alternative" with afford.columns %}
+    </div>
   </div>
-  <div class="admission-aid-connect__sections">
-    <ul>
-      {% for section in connect.sections %}
-      <li>
-        <h3 class="admission-aid-connect__section-title">{{ section.title }}</h3>
-        <div class="dmission-aid-connect__section-description">{{ section.description|raw }}</div>
-        {% include "@link-set" with section.link_set %}
-      </li>
-      {% endfor %}
-    </ul>
+
+  <div class="admission-aid-apply callout-inset">
+    <div class="callout-inset_inset">
+      <h2 class="callout-inset_inset-headline">{{ apply.title }}</h2>
+      <div class="callout-inset_inset-text">{{ apply.intro_text|raw }}</div>
+      {% include "@button-set" with apply.button_set %}
+    </div>
+    <div class="feature-with-large-image">
+      <div class="feature-with-large-image__media">
+        <img src="{{ apply.image|path }}" alt="" loading="lazy" width="1280" height="720">
+      </div>
+      <div class="feature-with-large-image__content">
+        <h2>{{apply.subtitle}}</h2>
+        {% include "@link-set" with apply.link_set %}
+      </div>
+    </div>
   </div>
-</div>
+
+  <div class="admission-aid-links">
+    <div class="admission-aid-links__intro">
+      <h2 class="admission-aid-links__intro-subtitle">{{ links.subtitle }}</h2>
+      <h3 class="admission-aid-links__intro-title">{{ links.title }}</h3>
+    </div>
+    <div class="admission-aid-links__link-list">
+      <ul>
+        {% for link in links.link_list %}
+          <li>
+            <a href="" class="admission-aid-links__link-list-link">
+              <div class="admission-aid-links__link-list-icon">
+                <img src="{{ link.icon|path }}" alt="" loading="lazy" width="130" height="130">
+              </div>
+              <span class="admission-aid-links__link-list-link-text" href="{{ link.url }}">{{ link.text }}<span class="arrow"></span>
+              </span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="admission-aid-connect">
+    <h2 class="admission-aid-connect__title">{{ connect.title }}</h2>
+    <div class="admission-aid-connect__social">
+      <ul>
+        <li><a href="#" target="_blank"><i class="fak fa-iastate22-instagram" aria-hidden="true"></i><span class="visible-for-screen-readers">Instagram</span></a></li>
+        <li><a href="#" target="_blank"><i class="fa-brands fa-youtube" aria-hidden="true"></i><span class="visible-for-screen-readers">YouTube</span></a></li>
+        <li><a href="#" target="_blank"><i class="fa-brands fa-facebook" aria-hidden="true"></i><span class="visible-for-screen-readers">Facebook</span></a></li>
+        <li><a href="#" target="_blank"><i class="fa-brands fa-twitter" aria-hidden="true"></i><span class="visible-for-screen-readers">Twitter</span></a></li>
+      </ul>
+    </div>
+    <div class="admission-aid-connect__sections">
+      <ul>
+        {% for section in connect.sections %}
+          <li>
+            <h3 class="admission-aid-connect__section-title">{{ section.title }}</h3>
+            <div class="dmission-aid-connect__section-description">{{ section.description|raw }}</div>
+            {% include "@link-set" with section.link_set %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
 {% endblock %}

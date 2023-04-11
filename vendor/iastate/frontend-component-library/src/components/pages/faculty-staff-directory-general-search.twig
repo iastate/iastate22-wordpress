@@ -1,0 +1,58 @@
+{% extends "@page" %}
+
+{% block header %}
+  {% include "@site-header--ecosystem" %}
+{% endblock %}
+
+{% block content %}
+<div class="outer-pad">
+  <div class="faculty-staff-directory-header">
+  {% include "@ecosystem-home-hero--no-image" %}
+  
+    <div class="paragraph-widget paragraph-widget--filter-form">
+      <div class="filter-form">
+        <h2 class="filter-form__label">All Faculty &amp; Staff</h2>
+        <form class="iastate22-form iastate22-form--inline" id="InlineForm" action="#" method="post">
+          <div class="form-item">
+            <label for="name">Search</label>
+            <input class="iastate22-form--search" type="text" name="name" id="name" value="" tabindex="1">
+          </div>
+          <div class="form-item">
+            <label for="select-choice">Category 1</label>
+            <select class="iastate22-form--select"  name="select-choice" id="select-choice">
+              <option value="Choice 1">Choice 1</option>
+              <option value="Choice 2">Choice 2</option>
+              <option value="Choice 3">Choice 3</option>
+            </select>
+          </div>
+          <div class="form-item">
+            <label for="select-choice">Category 2</label>
+            <select class="iastate22-form--select"  name="select-choice" id="select-choice">
+              <option value="Choice 1">Choice 1</option>
+              <option value="Choice 2">Choice 2</option>
+              <option value="Choice 3">Choice 3</option>
+            </select>
+          </div>
+          <div class="form-item">
+            <button type="submit">Search<span class="arrow"></span>
+            </button>
+          </div>
+        </form>
+        <p class="filter-form-results">About 344 Results &bull; <a href="#">Reset</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="paragraph-widget paragraph-widget--faculty-staff-feed-item">
+    {% include "@faculty-staff-feed-item-set" with faculty_staff_feed_item_set %}
+  </div>
+  
+  <div class="paragraph-widget paragraph-widget--pagination">
+    {% include "@pagination" %}
+  </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+  {% include "@site-footer--ecosystem" %}
+{% endblock %}

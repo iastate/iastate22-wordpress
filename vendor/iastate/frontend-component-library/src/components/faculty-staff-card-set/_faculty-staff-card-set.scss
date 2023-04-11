@@ -1,0 +1,11 @@
+.faculty-staff-card-set {
+  display: block;
+  @include media-breakpoint-up(lg) {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: rem(40);
+  }
+  .faculty-staff-card {
+    margin-bottom: rem(40);
+  }
+}

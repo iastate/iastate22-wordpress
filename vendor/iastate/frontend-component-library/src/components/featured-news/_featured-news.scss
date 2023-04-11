@@ -1,0 +1,153 @@
+.featured-news {
+  margin: rem(50) 0 rem(30);
+  @include media-breakpoint-up(xl) {
+    margin-left: rem(-108);
+    margin-right: rem(-108);
+  }
+  .featured-news-container {
+    display: flex;
+    gap: rem(20);
+    flex-direction: column;
+    @include media-breakpoint-up(lg) {
+      flex-direction: row;
+      gap: rem(50);
+    }
+    .featured-news__large-article {
+      padding-right: 0;
+      border-right: none;
+      @include media-breakpoint-up(lg) {
+        padding-right: rem(50);
+        border-right: solid rem(3) $light-grey;
+      }
+      .featured-news__large-article__container {
+        position: relative;
+        p {
+          line-height: rem(30);
+        }
+        .featured-news__featured-block {
+          position: absolute;
+          top: rem(-20);
+          left: rem(20);
+          background-color: $iastate-red;
+          padding: rem(10) rem(20);
+          z-index: 10;
+          p {
+            color: $white;
+            font-weight: 600;
+            font-size: rem(20);
+          }
+        }
+        .featured-news__large-article__image-container {
+          position: relative;
+          @extend %responsive-img;
+          .featured-news__large-article__image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+          }
+          &:before {
+            padding-top: 72.8%;
+          }
+        }
+        .featured-news__large-article__tags,
+        .featured-news__small-article__tags {
+          ul {
+            margin: rem(20) 0 0;
+            li {
+              color: $iastate-red;
+              font-size: rem(16);
+              font-weight: 600;
+              padding-right: rem(15);
+              display: none;
+              &:first-child {
+                display: inline;
+              }
+              @include media-breakpoint-up(lg) {
+                display: inline;
+              }
+            }
+          }
+        }
+        .featured-news__large-article__title {
+          margin: 0;
+          padding: 0;
+          .iastate22-link-secondary {
+            font-size: rem(22);
+          }
+        }
+        .featured-news__large-article__excerpt {
+          margin: 0;
+          &:after {
+            content: "...";
+          }
+        }
+        .featured-news__date {
+          font-style: italic;
+          margin: 0;
+        }
+      }
+    }
+    .featured-news__small-article {
+      @include media-breakpoint-up(lg) {
+        width: rem(500);
+        padding-right: rem(50);
+      }
+      .featured-news__small-article__container {
+        margin-bottom: rem(25);
+        &:last-child {
+          margin-bottom: 0;
+        }
+        .featured-news__small-article__image-container {
+          position: relative;
+          @extend %responsive-img;
+          .featured-news__small-article__image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+          }
+          &:before {
+            padding-top: 72.8%;
+          }
+        }
+        .featured-news__small-article__tags {
+          ul {
+            margin: rem(20) 0 0;
+            li {
+              color: $iastate-red;
+              font-size: rem(16);
+              font-weight: 600;
+              padding-right: rem(15);
+              display: none;
+              &:first-child {
+                display: inline;
+              }
+              @include media-breakpoint-up(lg) {
+                display: inline;
+              }
+            }
+          }
+        }
+        .featured-news__small-article__title {
+          margin: 0;
+          padding: 0;
+          .iastate22-link-secondary {
+            font-size: rem(22);
+            margin: 0;
+          }
+        }
+        .featured-news__date {
+          font-style: italic;
+          margin: 0;
+        }
+      }
+    }
+  }
+}

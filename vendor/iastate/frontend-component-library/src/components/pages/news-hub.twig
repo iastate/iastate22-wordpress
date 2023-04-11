@@ -1,0 +1,80 @@
+{% extends "@page" %}
+
+{% block header %}
+  {% include "@site-header--ecosystem" %}
+{% endblock %}
+
+{% block content %}
+  <div class="outer-pad news-hub">
+    {% include "@hero" with hero %}
+
+    {% include "@featured-news" with featured_news %}
+
+    <div class="recent-articles">
+      <div class="text-content">
+        <h2>Recent Articles</h2>
+      </div>
+      {% include "@card-set" with recent_articles %}
+    </div>
+
+    <div class="paragraph-widget paragraph-widget--news-items">
+      <div class="text-content">
+        <h2>In The News</h2>
+      </div>
+      <div class="news-items">
+        <div class="news-item">
+          {% include "@news-item" with article1 %}
+        </div>
+        <div class="news-item">
+          {% include "@news-item" with article2 %}
+        </div>
+      </div>
+    </div>
+
+    <div class="paragraph-widget paragraph-widget--filter-form">
+      <div class="filter-form">
+        <h2 class="filter-form__label">All Stories</h2>
+        <form class="iastate22-form iastate22-form--inline" id="InlineForm" action="#" method="post">
+          <div class="form-item">
+            <label for="name">Search</label>
+            <input class="iastate22-form--search" type="text" name="name" id="name" value="" tabindex="1">
+          </div>
+          <div class="form-item">
+            <label for="select-choice">Category 1</label>
+            <select class="iastate22-form--select"  name="select-choice" id="select-choice">
+              <option value="Choice 1">Choice 1</option>
+              <option value="Choice 2">Choice 2</option>
+              <option value="Choice 3">Choice 3</option>
+            </select>
+          </div>
+          <div class="form-item">
+            <label for="select-choice">Category 2</label>
+            <select class="iastate22-form--select"  name="select-choice" id="select-choice">
+              <option value="Choice 1">Choice 1</option>
+              <option value="Choice 2">Choice 2</option>
+              <option value="Choice 3">Choice 3</option>
+            </select>
+          </div>
+          <div class="form-item">
+            <button type="submit">Search<span class="arrow"></span>
+            </button>
+          </div>
+        </form>
+        <p class="filter-form-results">About 344 Results &bull; <a href="#">Reset</a></p>
+      </div>
+    </div>
+
+    <div class="paragraph-widget paragraph-widget--hero-stories-feed-item-set">
+        {% include "@hero-stories-feed-item-set" with news_articles %}
+    </div>
+
+    <div class="paragraph-widget paragraph-widget--pagination">
+      {% include "@pagination" %}
+    </div>
+  </div>
+{% endblock %}
+
+
+{% block footer %}
+  {% include "@site-footer--ecosystem" %}
+{% endblock %}

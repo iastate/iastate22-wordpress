@@ -1,0 +1,123 @@
+.faculty-staff-directory-header,
+.paragraph-widget--filter-form {
+  margin-bottom: rem(50);
+  .iastate22-breadcrumb__list li {
+    &:after {
+      border-color: $white;
+    }
+    a {
+      color: $white;
+    }
+  }
+  .ecosystem-home-hero--no-image {
+    margin-bottom: 0;
+    padding-top: rem(40);
+    padding-bottom: 0;
+    .ecosystem-home-hero__title {
+      margin-top: 0;
+    }
+  }
+  .a-z-index-header-container {
+    background-color: $iastate-red;
+    position: relative;
+    padding-top: rem(30);
+    padding-bottom: rem(30);
+  }
+  .paragraph-widget--filter-form {
+    margin: 0;
+  }
+  .iastate22-form--search,
+  .iastate22-form input[type="text"] {
+    width: rem(350);
+    margin-bottom: rem(25);
+    @include media-breakpoint-up(md) {
+      margin-bottom: 0;
+    }
+  }
+  .iastate22-form--select {
+    width: rem(250);
+    margin-bottom: rem(25);
+    @include media-breakpoint-up(md) {
+      margin-bottom: 0;
+    }
+  }
+  .a-z-index-letter-list {
+    @include media-breakpoint-up(lg) {
+      padding: rem(40) rem(80) rem(35) rem(110);
+    }
+    @include media-breakpoint-up(xl) {
+      padding: rem(40) rem(110) rem(35) rem(185);
+    }
+    ul {
+      li {
+        max-width: rem(33);
+      }
+    }
+  }
+  .filter-form-results {
+    color: $white;
+    a {
+      color: $white;
+      font-style: italic;
+    }
+  }
+}
+
+.iastate22-form.iastate22-form--inline {
+  display: block;
+  @include media-breakpoint-up(md) {
+    display: flex;
+  }
+}
+
+.faculty-staff-back-button {
+  margin-top: rem(30);
+  @include media-breakpoint-up(xl) {
+    margin-left: rem(-145);
+  }
+  @include media-breakpoint-up(xxl) {
+    margin-left: rem(-100);
+  }
+  position: relative;
+  a {
+    color: $iastate-maroon;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    top: rem(10);
+    left: rem(-10);
+    width: rem(10);
+    height: rem(10);
+    border-left: solid rem(2) $iastate-maroon;
+    border-bottom: solid rem(2) $iastate-maroon;
+    transform: rotate(45deg);
+  }
+}
+
+.paragraph-widget--category-tags {
+  .text-content {
+    .category-title {
+      color: $grey;
+    }
+    .category-tags {
+      padding-left: 0;
+      li {
+        display: inline;
+        padding: 0 rem(20) 0 0;
+        &:before {
+          content: "";
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+.directory-form {
+  .iastate22-form {
+    .iastate22-form--select {
+      width: rem(350);
+    }
+  }
+}

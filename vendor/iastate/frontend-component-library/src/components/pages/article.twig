@@ -1,0 +1,59 @@
+{% extends "@page" %}
+
+{% block header %}
+  {% include "@site-header--ecosystem" %}
+{% endblock %}
+
+{% block content %}
+  <div class="outer-pad">
+    <p class="iastate-article__back-btn"><a href="#">All Articles</a></p>
+    {% include "@stater-article-hero" with hero %}
+    {% include "@share" %}
+    <div class="paragraph-widget paragraph-widget--text-content">
+      <div class="text-content">
+        <h2>Community Is About Belonging</h2>
+        <p class="article-overview">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vestibulum lorem sed risus ultricies tristique nulla aliquet. Sem et tortor consequat id porta nibh venenatis. Bibendum enim facilisis gravida neque. Egestas egestas fringilla phasellus faucibus scelerisque eleifend donec. Dui nunc mattis enim ut. Faucibus et molestie ac feugiat sed. Mauris a diam maecenas sed enim. Aliquet lectus proin nibh nisl condimentum id venenatis a. Tellus in metus vulputate eu scelerisque. Consectetur adipiscing elit duis tristique sollicitudin. Malesuada nunc vel risus commodo viverra maecenas. Consectetur purus ut faucibus pulvinar elementum integer enim neque volutpat. Risus sed vulputate odio ut. Leo in vitae turpis massa sed elementum tempus egestas sed.</p>
+      </div>
+    </div>
+
+    <div class="paragraph-widget paragraph-widget--blockquote">
+      {% include "@blockquote" with pull_quote_no_author %}
+    </div>
+
+    <div class="paragraph-widget paragraph-widget--text-content">
+      <div class="text-content">
+        <h3>Eget nunc scelerisque viverra mauris</h3>
+        <p>Eget nunc scelerisque viverra mauris in aliquam sem fringilla. Facilisi nullam vehicula ipsum a arcu cursus. Orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Nec dui nunc mattis enim ut tellus elementum sagittis. Ultricies leo integer malesuada nunc. Facilisis mauris sit amet massa vitae tortor condimentum lacinia. Amet facilisis magna etiam tempor. Eu consequat ac felis donec et. Mollis aliquam ut porttitor leo a diam sollicitudin tempor id. Ac auctor augue mauris augue. Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. Aliquet enim tortor at auctor urna nunc id cursus metus. Nunc congue nisi vitae suscipit tellus mauris a diam. In pellentesque massa placerat duis ultricies. Quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus.</p>
+        <p>Egestas diam in arcu cursus euismod. Nulla posuere sollicitudin aliquam ultrices sagittis. Penatibus et magnis dis parturient montes nascetur. Consequat id porta nibh venenatis. Pellentesque eu tincidunt tortor aliquam. Sit amet volutpat consequat mauris nunc congue nisi. Mattis pellentesque id nibh tortor id aliquet lectus. Bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida. In ornare quam viverra orci sagittis eu volutpat odio. Ac ut consequat semper viverra nam libero. Orci a scelerisque purus semper eget. Vivamus arcu felis bibendum ut tristique et egestas quis ipsum. At auctor urna nunc id cursus. Tempor orci eu lobortis elementum nibh. Bibendum arcu vitae elementum curabitur vitae nunc.</p>
+        <h3>Eget nunc scelerisque viverra mauris</h3>
+        <p>Placerat vestibulum lectus mauris ultrices eros. Sodales ut eu sem integer vitae. Adipiscing commodo elit at imperdiet dui accumsan sit amet nulla. Nec tincidunt praesent semper feugiat nibh sed. Vitae aliquet nec ullamcorper sit amet risus. Aliquam ut porttitor leo a diam sollicitudin tempor. Massa massa ultricies mi quis hendrerit dolor. Ullamcorper morbi tincidunt ornare massa eget egestas. Donec ultrices tincidunt arcu non sodales neque sodales ut etiam. Posuere ac ut consequat semper viverra nam libero justo laoreet. Sed sed risus pretium quam vulputate dignissim suspendisse. Auctor augue mauris augue neque gravida in. In hac habitasse platea dictumst.</p>
+      </div>
+    </div>
+
+    
+    
+    <div class="paragraph-widget paragraph-widget--article-category-tags">
+        <h4 class="category-title">Category 1</h4>
+        <ul class="category-tags">
+          <li><a href="#">Tag Name 1</a></li>
+          <li><a href="#">Tag Name 2</a></li>
+          <li><a href="#">Tag Name 3 Lorem Ipsum</a></li>
+        </ul>
+        <h4 class="category-title">Category 2</h4>
+        <ul class="category-tags">
+          <li><a href="#">Tag Name 1</a></li>
+          <li><a href="#">Tag Name 2</a></li>
+          <li><a href="#">Tag Name 3 Lorem Ipsum</a></li>
+          <li><a href="#">Tag Name 4</a></li>
+          <li><a href="#">Tag Name 5 Lorem Ipsum</a></li>
+          <li><a href="#">Tag Name 6</a></li>
+          <li><a href="#">Tag Name 7</a></li>
+          <li><a href="#">Tag Name 8 Lorem Ipsum</a></li>
+        </ul>
+      </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {% include "@site-footer--ecosystem" %}
+{% endblock %}

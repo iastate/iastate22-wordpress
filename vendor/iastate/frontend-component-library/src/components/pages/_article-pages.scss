@@ -1,0 +1,59 @@
+.iastate-article__back-btn {
+  @include media-breakpoint-up(md) {
+    margin-left: rem(-30);
+  }
+  @include media-breakpoint-up(xl) {
+    margin-left: rem(-160);
+  }
+  @include media-breakpoint-up(xxl) {
+    margin-left: rem(-100);
+  }
+  padding-top: rem(50);
+  position: relative;
+  &:before {
+    content: "";
+    width: rem(10);
+    height: rem(10);
+    position: absolute;
+    border-left: solid rem(3) $iastate-maroon;
+    border-bottom: solid rem(3) $iastate-maroon;
+    transform: rotate(45deg);
+    top: rem(60);
+    left: rem(-15);
+  }
+  a {
+    color: $iastate-maroon;
+    font-size: rem(18);
+    font-weight: 600;
+  }
+}
+
+.article-overview {
+  font-weight: 600;
+}
+
+.paragraph-widget--article-category-tags {
+  .category-title {
+    color: $grey;
+  }
+  .category-tags {
+    padding-left: 0;
+    li {
+      display: inline;
+      padding: 0 rem(20) 0 0;
+      &:before {
+        content: "";
+        padding: 0;
+      }
+      a {
+        color: $iastate-red;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.25s linear;
+        &:hover {
+          color: $iastate-maroon;
+        }
+      }
+    }
+  }
+}

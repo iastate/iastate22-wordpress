@@ -1,6 +1,7 @@
 {
   "context": {
     "id": "0",
+    "first_accordion_open": true,
     "sections": [
       {
         "title": "Accordion Short Title",

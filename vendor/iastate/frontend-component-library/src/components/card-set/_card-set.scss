@@ -57,6 +57,24 @@
       display: none;
     }
   }
+  .recent-articles & {
+    ul {
+      display: block;
+      gap: rem(20);
+      @include media-breakpoint-up(lg) {
+        display: flex;
+      }
+      li {
+        width: 100%;
+        margin-bottom: rem(25);
+        @include media-breakpoint-up(lg) {
+          padding: 0;
+          width: 31%;
+          margin: 0;
+        }
+      }
+    }
+  }
   &:after {
     content: "";
     background-color: $off-white;

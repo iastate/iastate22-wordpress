@@ -1,0 +1,12 @@
+{
+  "context": {
+    "tags": ["Lorem ipsum", "dolor sit"],
+    "url": "#",
+    "image": {
+      "src": "../../img/Component-Feature-News-Story-Image.jpg",
+      "alt": "Lorem ipsum dolor sit"
+    },
+    "title": "Lorem ipsum dolor sit",
+    "date": "September 12, 2023"
+  }
+}

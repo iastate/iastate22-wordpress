@@ -1,0 +1,28 @@
+<div class="faculty-staff-feed-item">
+  <div class="faculty-staff-feed-item__media">
+    <div class="faculty-staff-feed-item__media-container">
+      <img class="faculty-staff-feed-item__media-image" src="{{ image.src }}" alt="{{ image.alt }}" loading="lazy">
+    </div>
+  </div>
+  <div class="faculty-staff-feed-item__content text-content">
+    <h2 class="faculty-staff-feed-item__content-name">{{ title }}</h2>
+    <p class="faculty-staff-feed-item__content-body">{{ body }}</p>
+    {% if url %}
+    <p><a href="{{ url }}" class="iastate22-link-secondary">About <span class="arrow"></span></a></p>
+    {% endif %}
+    <ul class="faculty-staff-feed-item__content-contact">
+      {% if email %}
+      <li>
+        <div class="faculty-staff-feed-item__content-icon"><a href="mailto:{{ email }}"><i class="fa-regular fa-circle-envelope"></i></a></div>
+        <div class="faculty-staff-feed-item__contact-field"><a href="mailto:{{ email }}">{{ email }}</a></div>
+      </li>
+      {% endif %}
+      {% if phone %}
+      <li>
+        <div class="faculty-staff-feed-item__content-icon"><i class="fa-regular fa-circle-phone"></i></div>
+        <div class="faculty-staff-feed-item__contact-field">{{ phone }}</div>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+</div>

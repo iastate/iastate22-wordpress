@@ -24,6 +24,11 @@
       flex-wrap: wrap;
     }
   }
+  &.iastate22-card--news-article {
+    gap: rem(35);
+    display: flex;
+    box-shadow: none;
+  }
   &.clickable {
     cursor: pointer;
     &:hover {
@@ -162,6 +167,58 @@
       padding: rem(23);
     }
   }
+  .iastate22-card--recent-article &,
+  .iastate22-card--news-article & {
+    text-align: left;
+    .iastate22-card__content-tags {
+      .iastate22-card__content-tags__list {
+        margin: 0;
+        display: block;
+        .iastate22-card__content-tags__list-item {
+          color: $iastate-red;
+          font-size: rem(16);
+          font-weight: 600;
+          display: inline;
+          padding-right: rem(15);
+          line-height: rem(20);
+        }
+      }
+    }
+    .iastate22-card__title {
+      margin: 0;
+      padding: 0;
+      .iastate22-link-secondary {
+        font-size: rem(22);
+        color: $iastate-maroon;
+        text-decoration: underline;
+        line-height: rem(26);
+      }
+    }
+  }
+  .iastate22-card--recent-article & {
+    padding: rem(15) rem(25);
+  }
+  .iastate22-card--news-article & {
+    border-left: solid rem(2) #f1be48;
+  }
+  .iastate22-card__date,
+  .iastate22-card__content-date {
+    font-style: italic;
+    margin: 0;
+    color: $grey;
+  }
+  .iastate22-card--news-article & {
+    text-align: left;
+  }
+}
+
+.recent-articles {
+  .card-set {
+    margin: rem(50) 0;
+    &:after {
+      background-color: $white;
+    }
+  }
 }
 
 .iastate22-card__media {
@@ -173,7 +230,7 @@
   }
   .iastate22-card--linked-image & {
     &:before {
-      padding-top: 86.47%;
+      padding-top: 100%;
     }
   }
 
@@ -182,7 +239,8 @@
       padding-top: 94.67%;
     }
   }
-  .iastate22-card--teaser & {
+  .iastate22-card--teaser &,
+  .iastate22-card--news-article & {
     @include media-breakpoint-up(sm) {
       flex: 0 1 auto;
       width: 50%;
@@ -194,6 +252,11 @@
       padding-top: 66.45%;
     }
   }
+  .iastate22-card--recent-article & {
+    &:before {
+      padding-top: 75%;
+    }
+  }
   .iastate22-card--teaser-profile & {
     @include media-breakpoint-up(md) {
       max-width: rem(196);
@@ -202,7 +265,6 @@
       padding-top: 100%;
     }
   }
-
   img {
     transition: 0.2s transform ease-in-out;
   }

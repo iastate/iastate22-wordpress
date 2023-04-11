@@ -1,0 +1,44 @@
+{% extends "@page" %}
+
+{% block header %}
+  {% include "@site-header--ecosystem" %}
+{% endblock %}
+
+{% block content %}
+<div class="outer-pad">
+  <div class="faculty-staff-directory-header">
+  {% include "@ecosystem-home-hero--no-image" %}
+  
+    <div class="paragraph-widget paragraph-widget--filter-form">
+      <div class="filter-form a-z-index-header-container">
+        <h2 class="filter-form__label">A-Z Index</h2>
+      </div>
+    </div>
+    <div class="a-z-index-letter-list">
+      <ul>
+        {% for letter in letter_list %}
+        <li>
+          {% if letter.url %}
+          <a {% if letter.current_page == true  %}class="a-z-index-letter-list__active"{% endif %} href="{{ letter.url }}">{{ letter.letter }}</a>
+          {% else %}
+          <span>{{ letter.letter }}</span>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="paragraph-widget paragraph-widget--faculty-staff-feed-item">
+    {% include "@faculty-staff-feed-item-set" with faculty_staff_feed_item_set %}
+  </div>
+  
+  <div class="paragraph-widget paragraph-widget--pagination">
+    {% include "@pagination" %}
+  </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+  {% include "@site-footer--ecosystem" %}
+{% endblock %}

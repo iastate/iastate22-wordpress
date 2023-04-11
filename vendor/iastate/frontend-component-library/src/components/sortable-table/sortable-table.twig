@@ -1,0 +1,24 @@
+<div class="iastate22-table" role="region" aria-labelledby="{{ caption_ID }}" tabindex="0">
+  <table class="sortable-table" >
+    <caption id="{{ caption_ID }}">{{table_caption}}</caption>
+      <thead>
+          <tr>
+              {% for s_header in sortableHeaders %}
+                  <th class="sortable">{{ s_header }}</th>
+              {% endfor %}
+              {% for header in headers %}
+                  <th>{{ header }}</th>
+              {% endfor %}
+          </tr>
+      </thead>
+      <tbody>
+          {% for row in rows %}
+              <tr>
+                  {% for column in row %}
+                      <td>{{ column }}</td>
+                  {% endfor %}
+              </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+</div>

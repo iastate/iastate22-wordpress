@@ -1,0 +1,25 @@
+{
+  "context": {
+    "hero": {
+      "title": "Faculty & Staff Directory",
+      "button_set": {
+        "items": []
+      }
+    },
+    "staff_directory": {
+      "caption_ID": "caption1",
+      "table_caption": "Table Caption Example",
+      "sortableHeaders": ["First Name", "Last Name", "Role"],
+      "headers": ["Email", "Phone"],
+      "rows": [
+        ["Heather", "Paris", "Associate Vice President", "hlelkin@iastate.edu", "(515) 294-0016"],
+        ["Karen", "Cline", "Finance Manager", "kcline@iastate.edu", "(515) 294-5132"],
+        ["Jenni", "Winter", "Finance Manager", "jwinter@iastate.edu", "(515) 294-5277"],
+        ["Rachael", "Gross", "Operations Manager", "rlgross@iastate.edu", "(515) 294-4927"],
+        ["Stephanie", "Schoeller", "Operations Specialist", "sschoell@iastate.edu", "(515) 294-1342"],
+        ["Morgan", "Ricke", "Assistant Manager of Operations", "mbricke@iastate.edu", ""],
+        ["Jordan", "Tietz", "Assistant Manager of Operations", "jtietz@iastate.edu", "515-294-5181"]
+      ]
+    }
+  }
+}

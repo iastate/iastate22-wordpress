@@ -1,0 +1,37 @@
+{
+  "context": {
+    "image": {
+      "url": "../../img/Component-Feature-Image-Small.jpg",
+      "alt": ""
+    },
+    "url": "#",
+    "title": "Lorem ipsum dolor sit amet",
+    "excerpt": "Ut aliquam purus sit amet luctus venenatis lectus magna fringilla. Vel pharetra vel turpis nunc eget lorem. Sed augue lacus viverra vitae.",
+    "tags": ["Lorem ipsum", "dolor sit amet", "consectetur adipiscing elit"],
+    "date": "September 12, 2023",
+    "small_articles": [
+      {
+        "image": {
+          "url": "../../img/Component-Feature-Image-Small.jpg",
+          "alt": "Lorem ipsum dolor sit amet"
+        },
+        "url": "#",
+        "title": "Lorem ipsum dolor sit amet",
+        "excerpt": "Ut aliquam purus sit amet luctus venenatis lectus magna fringilla. Vel pharetra vel turpis nunc eget lorem. Sed augue lacus viverra vitae.",
+        "tags": ["consectetur adipiscing elit"],
+        "date": "September 12, 2023"
+      },
+      {
+        "image": {
+          "url": "../../img/Component-Feature-Image-Small.jpg",
+          "alt": "Lorem ipsum dolor sit amet"
+        },
+        "url": "#",
+        "title": "Lorem ipsum dolor sit amet",
+        "excerpt": "Ut aliquam purus sit amet luctus venenatis lectus magna fringilla. Vel pharetra vel turpis nunc eget lorem. Sed augue lacus viverra vitae.",
+        "tags": ["Lorem ipsum", "dolor sit amet"],
+        "date": "September 12, 2023"
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+.news-items {
+  display: flex;
+  flex-direction: column;
+  gap: rem(50);
+  margin-bottom: rem(50);
+  @include media-breakpoint-up(lg) {
+    flex-direction: row;
+  }
+  .news-item {
+    .news-item__tags {
+      ul {
+        margin: rem(20) 0 0;
+        li {
+          color: $iastate-red;
+          font-size: rem(16);
+          font-weight: 600;
+          padding-right: rem(15);
+          display: none;
+          &:first-child {
+            display: inline;
+          }
+          @include media-breakpoint-up(lg) {
+            display: inline;
+          }
+        }
+      }
+    }
+    .news-item__article-title .link-set__link.iastate22-link-external {
+      font-size: rem(22);
+    }
+  }
+}

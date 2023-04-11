@@ -1,0 +1,56 @@
+.faculty-staff-feed-item {
+  display: flex;
+  flex-direction: column;
+  gap: rem(20);
+  @include media-breakpoint-up(lg) {
+    flex-direction: row;
+    gap: rem(80);
+  }
+  .faculty-staff-feed-item__media {
+    .faculty-staff-feed-item__media-container {
+      @extend %responsive-img;
+      position: relative;
+      width: rem(325);
+      img.faculty-staff-feed-item__media-image {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+      }
+      &:before {
+        padding-top: 100%;
+      }
+    }
+  }
+  .faculty-staff-feed-item__content {
+    margin: auto 0;
+    .faculty-staff-feed-item__content-contact {
+      padding-left: 0;
+      li {
+        color: $iastate-maroon;
+        margin-bottom: rem(20);
+        font-weight: 700;
+        display: flex;
+        svg {
+          color: $iastate-maroon;
+          font-size: rem(30);
+        }
+        a {
+          color: $iastate-maroon;
+        }
+        .faculty-staff-feed-item__contact-field {
+          padding-left: rem(35);
+        }
+        &:before {
+          content: "";
+          padding: 0;
+          margin-top: rem(5);
+        }
+      }
+    }
+  }
+}

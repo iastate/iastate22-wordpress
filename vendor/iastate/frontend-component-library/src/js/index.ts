@@ -11,6 +11,7 @@ import modalsInit from "./components/modal";
 import siteHeaderInit from "./components/site-header";
 import cardsInit from "./components/card";
 import subnavInit from "./components/subnav";
+import sortableTableInit from "./components/sortable-table";
 import privacyConsentInit from "../components/privacy-consent/privacy-consent";
 import accordionsInit from "./components/accordion";
 import videoEmbedInit from "./components/video-embed";
@@ -19,6 +20,7 @@ import carouselsInit from "./components/carousel";
 import homeInit from "./pages/home";
 import initCollegeHeroes from "./pages/college-template";
 import AccessibilityUtilities from "./utilities/accessibility";
+import scrollPaddingTopInit from "./utilities/scroll-padding-top";
 
 /**
  * Init
@@ -39,3 +41,5 @@ ecosystemHeroBackgroundVideo();
 homeInit();
 initCollegeHeroes();
 carouselsInit();
+scrollPaddingTopInit();
+sortableTableInit();

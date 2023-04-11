@@ -1,0 +1,72 @@
+{% extends "@page" %}
+
+{% block header %}
+  {% include "@site-header--ecosystem" %}
+{% endblock %}
+
+{% block content %}
+<script>
+  document.body.classList.add("personal-profile");
+</script>
+
+<div class="outer-pad">
+  <div class="faculty-staff-back-button"><a href="#">Faculty &amp; Staff Directory</a></div>
+  <div class="personal-profile-info-card_wrap">
+    {% include "@personal-profile-info-card" %}
+  </div>
+  <div class="text-content">
+    <h2>Bio</h2>
+    <p>Sarah Ryan's research examines the planning and operation of manufacturing and service systems under uncertainty. Currently, she is focusing on electric power systems and assembly systems. Issues under study by her research group include short term power system scheduling to accommodate renewable generation; analysis of the impact of gas system uncertainty on power system operations; and assessment of input reliability and solution quality in stochastic programming. Her work has been supported by the National Science Foundation, including a CAREER award, an AT&amp;T Industrial Ecology Faculty Fellowship, the Department of Energy, and electric power systems consortia.</p>
+  </div>
+  <div class="paragraph-widget paragraph-widget--button-set">
+    {% include "@button-set" with button_set %}
+  </div>
+  <div class="paragraph-widget paragraph-widget--multicolumn-content">
+    {% include "@multi-column-content" with two_column_text %}
+  </div>
+  <div class="paragraph-widget paragraph-widget--text-html">
+    <div class="text-content">
+      <h2>Selected Publications</h2>
+      <ul>
+        <li>Didem Sari and Sarah M. Ryan, "Observational Data-based Quality Assessment of Scenario Generation for Stochastic Programs," Computational Management Science (2018). <a href="#">DOI: 10.1007/s10287-019-00349-1</a></li>
+        <li>Dan Hu and Sarah M. Ryan, Stochastic vs. deterministic scheduling of a combined natural gas and power system with uncertain wind energy, International Journal of Electric Power and Energy Systems 108, 303-313 (2019). <a href="#">DOI: 10.1016/j.ijepes.2018.12.047</a>.</li>
+        <li>A. Arif, S. Ma, Z. Wang, J. Wang, S. M. Ryan, and C. Chen, "Optimizing Service Restoration in Distribution Systems with Uncertain Repair Time and Demand," IEEE Transactions on Power Systems, 33(6), 6828-6838 (2018). DOI: <a href="#">10.1109/tpwrs.2018.2855102</a>.</li>
+        <li>Ali Haddadsisakht and Sarah M. Ryan, "Closed-loop supply chain network design with multiple transportation modes under stochastic demand and uncertain carbon tax," International Journal of Production Economics 195, 118-131 (2018). <a href="#">DOI: /10.1016/j.ijpe.2017.09.009</a>.</li>
+        <li>Narges Kazemzadeh, Sarah M. Ryan and Mahdi Hamzeei, "Robust optimization vs. stochastic programming incorporating risk measures for unit commitment with uncertain variable renewable generation," Energy Systems, published online 2017. DOI: 10.1007/s12667-017-0265-5.</li>
+        <li>Didem Sari and Sarah M. Ryan, "Reliability of wind power scenarios and stochastic unit commitment cost," Energy Systems published online 2017. DOI: 10.1007/s12667-017-0255-7.</li>
+        <li>Dinakar Gade, Gabriel Hackebeil, Sarah M. Ryan, Jean-Paul Watson, Roger J-B Wets, and David L. Woodruff, "Obtaining Lower Bounds from the Progressive Hedging Algorithm for Stochastic Mixed-Integer Programs", Mathematical Programming 157(1), 47-57 (2016). DOI: 10.1007/s10107-016-1000-z</li>
+        <li>Keyvanshokooh ,E. S. M. Ryan and E. Kabir, "Hybrid Robust and Stochastic Optimization for Closed-Loop Supply Chain Network Design using Accelerated Benders Decomposition," European Journal of Operational Research, 249(1), 76-92 (2016). DOI: 10.1016/j.ejor.2015.08.028</li>
+        <li>Feng, Y. and S. M. Ryan, "Solution Sensitivity-Based Scenario Reduction for Stochastic Unit Commitment," Computational Management Science, 13(1), 29-62 (2016). DOI: 10.1007/s10287-014-0220-z</li>
+        <li>Guo, G., G. Hackebiel, S. M. Ryan, J-P Watson, and D. L. Woodruff, "Integration of Progressive Hedging and Dual Decomposition in Stochastic Integer Programs," Operations Research Letters 43(3), 311-316 (2015). DOI: 10.1016/j.orl.2015.03.008</li>
+        <li>Feng, Y., I. Rios, S. Ryan, K. Spurkel, J-P Watson, R. Wets, and D. Woodruff. "Toward Scalable Stochastic Unit Commitment - Part I: Load Scenario Generation," Energy Systems (2015). DOI: 10.1007/s12667-015-0146-8</li>
+        <li>Cheung, K., D. Gade, C. Silva-Monroy, S. Ryan, J-P Watson, R. Wets, and D. Woodruff. "Toward Scalable Stochastic Unit Commitment - Part II: Assessing Solver Performance," Energy Systems (2015). DOI: 10.1007/s12667-015-0148-6</li>
+      </ul>
+    </div>
+  </div>
+  <div class="paragraph-widget paragraph-widget--category-tags">
+    <div class="text-content">
+      <h4 class="category-title">Category 1</h4>
+      <ul class="category-tags">
+        <li><a href="#">Tag Name 1</a></li>
+        <li><a href="#">Tag Name 2</a></li>
+        <li><a href="#">Tag Name 3 Lorem Ipsum</a></li>
+      </ul>
+      <h4 class="category-title">Category 2</h4>
+      <ul class="category-tags">
+        <li><a href="#">Tag Name 1</a></li>
+        <li><a href="#">Tag Name 2</a></li>
+        <li><a href="#">Tag Name 3 Lorem Ipsum</a></li>
+        <li><a href="#">Tag Name 4</a></li>
+        <li><a href="#">Tag Name 5 Lorem Ipsum</a></li>
+        <li><a href="#">Tag Name 6</a></li>
+        <li><a href="#">Tag Name 7</a></li>
+        <li><a href="#">Tag Name 8 Lorem Ipsum</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+  {% include "@site-footer--ecosystem" %}
+{% endblock %}

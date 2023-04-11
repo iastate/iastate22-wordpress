@@ -1,0 +1,69 @@
+{% extends "@page" %}
+
+{% block header %}
+  {% include "@site-header--ecosystem" %}
+{% endblock %}
+
+{% block content %}
+<div class="outer-pad">
+  <div class="faculty-staff-directory-header">
+  {% include "@ecosystem-home-hero--no-image" %}
+  
+    <div class="paragraph-widget paragraph-widget--filter-form">
+      <div class="filter-form">
+        <form class="iastate22-form iastate22-form--inline" id="InlineForm" action="#" method="post">
+          <div class="form-item">
+            <label for="name">Name</label>
+            <input class="iastate22-form--search" type="text" name="name" id="name" value="" tabindex="1">
+          </div>
+          <div class="form-item">
+            <label for="select-choice">Team</label>
+            <select class="iastate22-form--select"  name="select-choice" id="select-choice">
+              <option value="Choice 1">Choice 1</option>
+              <option value="Choice 2">Choice 2</option>
+              <option value="Choice 3">Choice 3</option>
+            </select>
+          </div>
+          <div class="form-item">
+            <label for="select-choice">Role</label>
+            <select class="iastate22-form--select"  name="select-choice" id="select-choice">
+              <option value="Choice 1">Choice 1</option>
+              <option value="Choice 2">Choice 2</option>
+              <option value="Choice 3">Choice 3</option>
+            </select>
+          </div>
+          <div class="form-item">
+            <button type="submit">Search<span class="arrow"></span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-content">
+    <h2>Lorem ipsum dolor sit</h2>
+  </div>
+  <div class="paragraph-widget paragraph-widget--directory-form">
+      <div class="directory-form">
+        <form class="iastate22-form iastate22-form--inline" id="InlineForm2" action="#" method="post">
+          <div class="form-item">
+            <select class="iastate22-form--select"  name="select-choice" id="select-choice">
+              <option value="Choice 1">Choice 1</option>
+              <option value="Choice 2">Choice 2</option>
+              <option value="Choice 3">Choice 3</option>
+            </select>
+          </div>
+        </form>
+      </div>
+  </div>
+  <div class="paragraph-widget paragraph-widget--sortable-table">
+    {% include "@sortable-table" with staff_directory %}
+  </div>
+
+</div>
+{% endblock %}
+
+{% block footer %}
+  {% include "@site-footer--ecosystem" %}
+{% endblock %}

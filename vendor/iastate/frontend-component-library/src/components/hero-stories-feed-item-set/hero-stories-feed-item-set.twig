@@ -1,0 +1,9 @@
+<div class="hero-stories-feed-item-set">
+  <ul>
+    {% for item in items %}
+      <li>
+        {% include "@hero-stories-feed-item" with item %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>

@@ -1,0 +1,52 @@
+.filter-form {
+  background-color: $iastate-red;
+  @extend %outer-pad-x;
+  padding-top: rem(55);
+  position: relative;
+  padding-bottom: rem(35);
+  @include media-breakpoint-up(md) {
+    padding-bottom: rem(65);
+  }
+  @include media-breakpoint-up(xl) {
+    padding-right: rem(184);
+  }
+  main & {
+    margin-left: rem(-36);
+    margin-right: rem(-36);
+    @include media-breakpoint-up(md) {
+      margin-left: rem(-70);
+      margin-right: rem(-70);
+    }
+    @include media-breakpoint-up(xl) {
+      margin-left: rem(-190);
+      margin-right: rem(-298);
+    }
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    background-color: $iastate-red;
+    left: -50vw;
+    width: 150vw;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+  .form-item {
+    label,
+    .label {
+      color: $white;
+    }
+    input[type="text"],
+    select {
+      border: none;
+    }
+    button[type="submit"] {
+      @extend %iastate22-button--reverse;
+    }
+  }
+}
+
+.filter-form__label {
+  color: $white;
+}

@@ -1,0 +1,36 @@
+.sortable-table {
+  thead {
+    tr {
+      th {
+        &.sortable {
+          position: relative;
+          cursor: pointer;
+          &:after {
+            content: "";
+            position: absolute;
+            width: rem(10);
+            height: rem(10);
+            right: rem(5);
+            top: rem(30);
+            border-right: solid rem(3) $white;
+            border-bottom: solid rem(3) $white;
+            transform: rotate(45deg);
+          }
+        }
+        &:last-child {
+          width: rem(200);
+        }
+      }
+    }
+  }
+  tbody {
+    tr {
+      td {
+        &:first-child {
+          color: $black;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}

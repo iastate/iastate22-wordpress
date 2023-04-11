@@ -1,0 +1,9 @@
+<div class="faculty-staff-feed-item-set">
+  <ul>
+    {% for item in faculty_staff_items %}
+      <li>
+        {% include "@faculty-staff-feed-item" with item %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>

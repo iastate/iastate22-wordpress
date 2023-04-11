@@ -1,0 +1,20 @@
+<div class="iastate22-card iastate22-card--recent-article" {% if clickable is defined %} data-clickable="{{ clickable }}" {% endif %}>
+  {% if image %}
+    <div class="iastate22-card__media">
+      <img src="{{ image|path }}" alt="" loading="lazy" width="600" height="600">
+    </div>
+  {% endif %}
+  <div class="iastate22-card__content">
+    <div class="iastate22-card__content-tags">
+      <ul class="iastate22-card__content-tags__list">
+        {% for item in tags %}
+          <li class="iastate22-card__content-tags__list-item">{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <h2 class="iastate22-card__title">
+      <a class="iastate22-link-secondary" href="{{url}}" {% if external == true %} target="_blank" {% endif %}>{{ title }}</a>
+    </h2>
+    <p class="iastate22-card__date">{{ date }}</p>
+  </div>
+</div>

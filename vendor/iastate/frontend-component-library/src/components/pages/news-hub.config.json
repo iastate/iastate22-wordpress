@@ -1,0 +1,214 @@
+{
+  "context": {
+    "hero": {
+      "breadcrumbs": {
+        "links": [
+          {
+            "url": "https://www.iastate.edu/",
+            "name": "Home"
+          },
+          {
+            "url": "https://www.iastate.edu/",
+            "name": "The News Hub"
+          }
+        ]
+      },
+      "title": "The News Hub",
+      "image": "../../img/college-template-hero-fpo-desktop.jpg",
+      "subnav": {
+        "items": []
+      }
+    },
+    "featured_news": {
+      "image": {
+        "url": "../../img/Component-Feature-Image-Small.jpg",
+        "alt": ""
+      },
+      "url": "#",
+      "title": "Website Title Lorem Ipsum Even Longer Lorem Ipsum",
+      "excerpt": "Ut aliquam purus sit amet luctus venenatis lectus magna fringilla. Vel pharetra vel turpis nunc eget lorem. Sed augue lacus viverra vitae.",
+      "tags": ["Lorem ipsum", "dolor sit amet", "consectetur adipiscing elit"],
+      "date": "September 12, 2023",
+      "small_articles": [
+        {
+          "image": {
+            "url": "../../img/Component-Feature-Image-Small.jpg",
+            "alt": "Lorem ipsum dolor sit amet"
+          },
+          "url": "#",
+          "title": "Lorem ipsum dolor sit amet",
+          "excerpt": "Ut aliquam purus sit amet luctus venenatis lectus magna fringilla. Vel pharetra vel turpis nunc eget lorem. Sed augue lacus viverra vitae.",
+          "tags": ["consectetur adipiscing elit"],
+          "date": "September 12, 2023"
+        },
+        {
+          "image": {
+            "url": "../../img/Component-Feature-Image-Small.jpg",
+            "alt": "Lorem ipsum dolor sit amet"
+          },
+          "url": "#",
+          "title": "Website Title Lorem Ipsum Even Longer Lorem Ipsum",
+          "excerpt": "Ut aliquam purus sit amet luctus venenatis lectus magna fringilla. Vel pharetra vel turpis nunc eget lorem. Sed augue lacus viverra vitae.",
+          "tags": ["Lorem ipsum", "dolor sit amet"],
+          "date": "September 12, 2023"
+        }
+      ]
+    },
+    "recent_articles": {
+      "recent_articles": true,
+      "cards": [
+        {
+          "image": "../../img/Component-Feature-News-Story-Image.jpg",
+          "url": "#",
+          "tags": ["Lorem ipsum", "dolor sit"],
+          "title": "Headline Nemo enim irure dolor in reprehenderit in voluptate.",
+          "date": "June 16, 2022"
+        },
+        {
+          "image": "../../img/Component-Feature-News-Story-Image.jpg",
+          "url": "#",
+          "tags": ["Lorem ipsum", "dolor sit"],
+          "title": "Headline Nemo enim irure dolor in reprehenderit in voluptate.",
+          "date": "June 16, 2022"
+        },
+        {
+          "image": "../../img/Component-Feature-News-Story-Image.jpg",
+          "url": "#",
+          "tags": ["Lorem ipsum", "dolor sit"],
+          "title": "Headline Nemo enim irure dolor in reprehenderit in voluptate.",
+          "date": "June 16, 2022"
+        }
+      ]
+    },
+    "article1": {
+      "tags": ["Lorem ipsum", "dolor sit"],
+      "article_title": "Lorem ipsum dolor sit",
+      "article_excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisi scelerisque eu ultrices vitae auctor eu augue ut lectus."
+    },
+    "article2": {
+      "tags": ["Lorem ipsum"],
+      "article_title": "Website Title Lorem Ipsum Even Longer Lorem Ipsum",
+      "article_excerpt": "At in tellus integer feugiat scelerisque varius morbi enim nunc. Varius sit amet mattis vulputate enim. Non tellus orci ac auctor augue. Vivamus at augue eget arcu dictum varius duis at consectetur."
+    },
+    "news_articles": {
+      "items": [
+        {
+          "tags": ["Lorem ipsum", "dolor sit"],
+          "url": "https://www.iastate.edu/",
+          "image": {
+            "src": "../../img/Component-Feature-News-Story-Image.jpg",
+            "alt": "Lorem ipsum dolor sit"
+          },
+          "title": "Website Title Lorem Ipsum Even Longer Lorem Ipsum",
+          "date": "September 12, 2023"
+        },
+        {
+          "tags": ["amet mattis vulputate"],
+          "url": "https://www.iastate.edu/",
+          "image": {
+            "src": "../../img/Component-Feature-News-Story-Image.jpg",
+            "alt": "Interdum varius sit"
+          },
+          "title": "Interdum varius sit",
+          "date": "September 18, 2023"
+        },
+        {
+          "tags": ["condimentum"],
+          "url": "https://www.iastate.edu/",
+          "image": {
+            "src": "../../img/Component-Feature-News-Story-Image.jpg",
+            "alt": "Turpis cursus in hac"
+          },
+          "title": "Turpis cursus in hac",
+          "date": "September 24, 2023"
+        },
+        {
+          "tags": ["Lorem ipsum", "dolor sit"],
+          "url": "https://www.iastate.edu/",
+          "image": {
+            "src": "../../img/Component-Feature-News-Story-Image.jpg",
+            "alt": "Lorem ipsum dolor sit"
+          },
+          "title": "Lorem ipsum dolor sit Website Title Lorem Ipsum Even Longer Lorem Ipsum Website Title Lorem Ipsum Even Longer Lorem Ipsum",
+          "date": "September 12, 2023"
+        },
+        {
+          "tags": ["amet mattis vulputate"],
+          "url": "https://www.iastate.edu/",
+          "image": {
+            "src": "../../img/Component-Feature-News-Story-Image.jpg",
+            "alt": "Interdum varius sit"
+          },
+          "title": "Website Title Lorem Ipsum Even Longer Lorem Ipsum Website Title Lorem Ipsum Even Longer Lorem Ipsum",
+          "date": "September 18, 2023"
+        }
+      ]
+    }
+  },
+  "variants": [
+    {
+      "name": "no-hero",
+      "context": {
+        "hero": {
+          "image": ""
+        }
+      }
+    },
+    {
+      "name": "no-hero-text-feature",
+      "context": {
+        "hero": {
+          "image": ""
+        },
+        "featured_news": {
+          "small_articles": [
+            {
+              "image": {
+                "url": "",
+                "alt": "Lorem ipsum dolor sit amet"
+              },
+              "url": "#",
+              "title": "Lorem ipsum dolor sit amet",
+              "excerpt": "Ut aliquam purus sit amet luctus venenatis lectus magna fringilla. Vel pharetra vel turpis nunc eget lorem. Sed augue lacus viverra vitae.",
+              "tags": ["consectetur adipiscing elit"],
+              "date": "September 12, 2023"
+            },
+            {
+              "image": {
+                "url": "",
+                "alt": "Lorem ipsum dolor sit amet"
+              },
+              "url": "#",
+              "title": "Lorem ipsum dolor sit amet",
+              "excerpt": "Ut aliquam purus sit amet luctus venenatis lectus magna fringilla. Vel pharetra vel turpis nunc eget lorem. Sed augue lacus viverra vitae.",
+              "tags": ["consectetur adipiscing elit"],
+              "date": "September 12, 2023"
+            },
+            {
+              "image": {
+                "url": "",
+                "alt": "Lorem ipsum dolor sit amet"
+              },
+              "url": "#",
+              "title": "Lorem ipsum dolor sit amet",
+              "excerpt": "Ut aliquam purus sit amet luctus venenatis lectus magna fringilla. Vel pharetra vel turpis nunc eget lorem. Sed augue lacus viverra vitae.",
+              "tags": ["consectetur adipiscing elit"],
+              "date": "September 12, 2023"
+            },
+            {
+              "image": {
+                "url": "",
+                "alt": "Lorem ipsum dolor sit amet"
+              },
+              "url": "#",
+              "title": "Website Title Lorem Ipsum Even Longer Lorem Ipsum",
+              "excerpt": "Ut aliquam purus sit amet luctus venenatis lectus magna fringilla. Vel pharetra vel turpis nunc eget lorem. Sed augue lacus viverra vitae.",
+              "tags": ["Lorem ipsum", "dolor sit amet"],
+              "date": "September 12, 2023"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

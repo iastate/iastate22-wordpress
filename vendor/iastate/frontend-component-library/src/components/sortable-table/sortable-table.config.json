@@ -1,0 +1,30 @@
+{
+  "context": {
+    "caption_ID": "caption1",
+    "table_caption": "Table Caption Example",
+    "sortableHeaders": ["Long Header Lorem Ipsum Dolor Sit Amet", "Short Header"],
+    "headers": ["Medium Header Lorem Ipsum"],
+    "rows": [
+      [
+        "Donec pede justo, fringilla vel, aliquet nec, vulputate",
+        "Donec pede justo, fringilla vel, aliquet nec, vulputate",
+        "Donec pede justo, fringilla vel, aliquet nec, vulputate"
+      ],
+      [
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+        "Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.",
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+      ],
+      [
+        "Aenean massa nulla.",
+        "Nulla consequat massa quis enim.",
+        "Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem."
+      ],
+      [
+        "Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "Aenean commodo ligula eget dolor.",
+        "Nulla consequat massa quis enim."
+      ]
+    ]
+  }
+}

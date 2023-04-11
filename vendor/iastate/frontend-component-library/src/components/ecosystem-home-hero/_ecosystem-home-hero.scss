@@ -223,6 +223,19 @@
     .iastate22-button-set {
       margin-bottom: 0;
     }
+    // breadcrumb color
+    .iastate22-breadcrumb {
+      .iastate22-breadcrumb__list {
+        li {
+          a {
+            color: $white;
+          }
+          &:after {
+            border-color: $white;
+          }
+        }
+      }
+    }
   }
 
   .ecosystem-home-hero--supporting-image & {

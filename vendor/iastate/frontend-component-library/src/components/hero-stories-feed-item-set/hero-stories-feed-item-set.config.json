@@ -1,0 +1,36 @@
+{
+  "context": {
+    "items": [
+      {
+        "tags": ["Lorem ipsum", "dolor sit"],
+        "url": "https://www.iastate.edu/",
+        "image": {
+          "src": "../../img/Component-Feature-News-Story-Image.jpg",
+          "alt": "Lorem ipsum dolor sit"
+        },
+        "title": "Lorem ipsum dolor sit",
+        "date": "September 12, 2023"
+      },
+      {
+        "tags": ["amet mattis vulputate"],
+        "url": "https://www.iastate.edu/",
+        "image": {
+          "src": "../../img/Component-Feature-News-Story-Image.jpg",
+          "alt": "Interdum varius sit"
+        },
+        "title": "Interdum varius sit",
+        "date": "September 18, 2023"
+      },
+      {
+        "tags": ["condimentum"],
+        "url": "https://www.iastate.edu/",
+        "image": {
+          "src": "../../img/Component-Feature-News-Story-Image.jpg",
+          "alt": "Turpis cursus in hac"
+        },
+        "title": "Turpis cursus in hac",
+        "date": "September 24, 2023"
+      }
+    ]
+  }
+}

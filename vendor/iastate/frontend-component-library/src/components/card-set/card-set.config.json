@@ -1,5 +1,6 @@
 {
   "context": {
+    "news_articles": true,
     "cards": [
       {
         "title": "Card Title Lorem Ipsum Dolor Sit Amet ",

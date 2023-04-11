@@ -1,0 +1,50 @@
+{
+  "context": {
+    "faculty_staff_items": [
+      {
+        "image": {
+          "src": "../../img/emmanuel_agba.png",
+          "alt": "test"
+        },
+        "url": "#",
+        "title": "Lorem ipsum",
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut consequat semper viverra nam libero justo laoreet.",
+        "email": "test@test.com",
+        "phone": "(444) 444-4444"
+      },
+      {
+        "image": {
+          "src": "../../img/emmanuel_agba.png",
+          "alt": "test"
+        },
+        "url": "#",
+        "title": "Lorem ipsum",
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut consequat semper viverra nam libero justo laoreet.",
+        "email": "",
+        "phone": "(444) 444-4444"
+      },
+      {
+        "image": {
+          "src": "../../img/emmanuel_agba.png",
+          "alt": "test"
+        },
+        "url": "#",
+        "title": "Lorem ipsum",
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut consequat semper viverra nam libero justo laoreet.",
+        "email": "test@test.com",
+        "phone": ""
+      },
+      {
+        "image": {
+          "src": "../../img/emmanuel_agba.png",
+          "alt": "test"
+        },
+        "url": "#",
+        "title": "Lorem ipsum",
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut consequat semper viverra nam libero justo laoreet.",
+        "email": "",
+        "phone": ""
+      }
+    ]
+  }
+}

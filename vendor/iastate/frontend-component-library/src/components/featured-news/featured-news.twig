@@ -1,0 +1,44 @@
+<div class="featured-news">
+  <div class="featured-news-container">
+    <div class="featured-news__large-article">
+      <div class="featured-news__large-article__container">
+        <div class="featured-news__featured-block">
+          <p>Featured</p>
+        </div>
+        <div class="featured-news__large-article__image-container">
+          <img class="featured-news__large-article__image" src="{{ image.url }}" alt="{{ image.alt }}" />
+        </div>
+        <div class="featured-news__large-article__tags">
+          <ul>
+            {% for item in tags %}
+              <li> {{ item }} </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <h2 class="featured-news__large-article__title"><a href="{{ url }}" class="iastate22-link-secondary">{{ title }}<span class="arrow"></span></a></h2>
+        <p class="featured-news__large-article__excerpt">{{ excerpt }}</p>
+        <p class="featured-news__date">{{ date }}</p>
+      </div>
+    </div>
+    <div class="featured-news__small-article">
+      {% for article in small_articles %}
+      <div class="featured-news__small-article__container">
+        {% if article.image.url %} 
+        <div class="featured-news__small-article__image-container">
+          <img class="featured-news__small-article__image" src="{{ article.image.url }}" alt="{{ article.image.alt }}" />
+        </div>
+        {% endif %}
+        <div class="featured-news__small-article__tags">
+          <ul>
+            {% for item in article.tags %}
+              <li> {{ item }} </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <h2 class="featured-news__small-article__title"><a href="{{ article.url }}" class="iastate22-link-secondary">{{ article.title }}<span class="arrow"></span></a></h2>
+        <p class="featured-news__date">{{ article.date }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

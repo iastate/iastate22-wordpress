@@ -1,0 +1,47 @@
+.share {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: rem(20);
+  padding-block: rem(40);
+  border-bottom: rem(1) solid $off-white;
+  margin-bottom: rem(40);
+
+  .a2a_kit {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: rem(10);
+
+    a {
+      border: rem(2) solid $iastate-maroon;
+      border-radius: 50%;
+      width: rem(52);
+      height: rem(52);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $white;
+      transition: 0.3s background-color ease-in-out;
+      &:hover {
+        background-color: $iastate-maroon;
+        svg {
+          color: $white;
+        }
+      }
+      svg {
+        color: $iastate-maroon;
+        font-size: rem(25);
+        transition: 0.3s color ease-in-out;
+      }
+    }
+  }
+}
+
+.share__title {
+  font-family: $typeface-sans-serif;
+  color: $grey;
+  font-weight: 700;
+  font-size: rem(21);
+  line-height: (25 / 21);
+}

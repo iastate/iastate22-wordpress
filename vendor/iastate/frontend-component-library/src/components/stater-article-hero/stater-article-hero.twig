@@ -1,0 +1,8 @@
+<div class="stater-article-hero{% if cyclone_story %} stater-article-hero--cyclone-story{% endif %} text-content">
+    <h1 class="stater-article-hero__headline">{{ headline }}</h1>
+    {% if subhead %}<h2 class="stater-article-hero__subhead">{{ subhead }}</h2>{% endif %}
+    {% if attribution %}<div class="stater-article-hero__attribution">{{ attribution|raw }}</div>{% endif %}
+    <div class="stater-article-hero__media">
+      <img src="{{ image.src }}" alt="{{ image.alt }}">
+    </div>
+</div>

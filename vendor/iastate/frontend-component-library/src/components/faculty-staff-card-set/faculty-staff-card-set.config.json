@@ -1,0 +1,42 @@
+{
+  "context": {
+    "faculty_staff_category1": [
+      {
+        "image": {
+          "src": "../../img/emmanuel_agba.png",
+          "alt": "test"
+        },
+        "url": "#",
+        "title": "Lorem ipsum",
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut consequat semper viverra nam libero justo laoreet."
+      },
+      {
+        "image": {
+          "src": "../../img/emmanuel_agba.png",
+          "alt": "test"
+        },
+        "url": "#",
+        "title": "Lorem ipsum",
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut consequat semper viverra nam libero justo laoreet."
+      },
+      {
+        "image": {
+          "src": "../../img/emmanuel_agba.png",
+          "alt": "test"
+        },
+        "url": "#",
+        "title": "Lorem ipsum",
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut consequat semper viverra nam libero justo laoreet."
+      },
+      {
+        "image": {
+          "src": "../../img/emmanuel_agba.png",
+          "alt": "test"
+        },
+        "url": "#",
+        "title": "Lorem ipsum",
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut consequat semper viverra nam libero justo laoreet."
+      }
+    ]
+  }
+}

@@ -32,7 +32,7 @@
   transition: 0.2s color ease-in-out;
   width: 100%;
   margin-right: rem(13);
-  @include media-breakpoint-up(lg) {
+  @include media-breakpoint-up(xl) {
     display: none;
   }
   &:before {
@@ -89,7 +89,7 @@
   }
   html:not(.js) & {
     height: 0;
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(xl) {
       height: auto;
     }
   }
@@ -150,7 +150,7 @@
         position: relative;
         z-index: 1;
         transition: 0.2s background-color ease-in-out, 0.2s color ease-in-out;
-        @include media-breakpoint-up(lg) {
+        @include media-breakpoint-up(xl) {
           font-size: rem(16);
           line-height: (19 / 16);
           padding-right: rem(25);
@@ -160,14 +160,14 @@
         &[aria-current="page"] {
           background-color: $off-white;
           color: $iastate-red;
-          @include media-breakpoint-up(lg) {
+          @include media-breakpoint-up(xl) {
             background-color: $white;
           }
           &:after {
             opacity: 0;
           }
           &:before {
-            @include media-breakpoint-up(lg) {
+            @include media-breakpoint-up(xl) {
               opacity: 1;
             }
           }
@@ -184,13 +184,13 @@
           right: 0;
           border-bottom: rem(1) solid $grey2;
           transition: 0.2s opacity ease-in-out;
-          @include media-breakpoint-up(lg) {
+          @include media-breakpoint-up(xl) {
             right: rem(20);
           }
         }
         // background color for desktop items
         &:before {
-          @include media-breakpoint-up(lg) {
+          @include media-breakpoint-up(xl) {
             content: "";
             background-color: $off-white;
             position: absolute;
@@ -215,11 +215,11 @@
       }
       // first child parent page
       &:first-child {
-        @include media-breakpoint-up(lg) {
+        @include media-breakpoint-up(xl) {
           background-color: $iastate-red;
         }
         a {
-          @include media-breakpoint-up(lg) {
+          @include media-breakpoint-up(xl) {
             padding: rem(21) rem(15);
             color: $white;
             font-size: rem(18);
@@ -237,7 +237,7 @@
             transform: rotate(135deg);
             transform-origin: center;
             transition: 0.2s left ease-in-out;
-            @include media-breakpoint-up(lg) {
+            @include media-breakpoint-up(xl) {
               border-color: $iastate-gold;
               top: rem(29);
               opacity: 1;
@@ -245,16 +245,16 @@
             }
           }
           &::after {
-            @include media-breakpoint-up(lg) {
+            @include media-breakpoint-up(xl) {
               display: none;
             }
           }
           &:hover {
-            @include media-breakpoint-up(lg) {
+            @include media-breakpoint-up(xl) {
               background-color: $iastate-red;
             }
             &:before {
-              @include media-breakpoint-up(lg) {
+              @include media-breakpoint-up(xl) {
                 left: rem(-8);
               }
             }

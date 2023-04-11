@@ -3,7 +3,6 @@
   position: fixed;
   top: 0;
   right: 0;
-  bottom: 0;
   left: 0;
   z-index: 11;
   width: 100vw;
@@ -11,7 +10,6 @@
   margin: 0 auto;
   @include media-breakpoint-up(xl) {
     width: auto;
-    bottom: auto;
   }
   > * {
     pointer-events: initial;

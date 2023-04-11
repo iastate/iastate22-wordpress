@@ -89,6 +89,26 @@
         "title": "FirstName LastName",
         "body": "Short Title Lorem Ipsum"
       }
+    },
+    {
+      "name": "recent-article",
+      "context": {
+        "image": "../../img/Component-Feature-News-Story-Image.jpg",
+        "url": "#",
+        "tags": ["Lorem ipsum", "dolor sit"],
+        "title": "Headline Nemo enim irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
+        "date": "June 16, 2022"
+      }
+    },
+    {
+      "name": "news-article",
+      "context": {
+        "image": "../../img/Component-Feature-News-Story-Image.jpg",
+        "url": "#",
+        "tags": ["Lorem ipsum", "dolor sit"],
+        "title": "Headline Nemo enim irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
+        "date": "June 16, 2022"
+      }
     }
   ]
 }

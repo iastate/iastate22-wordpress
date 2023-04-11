@@ -1,16 +1,16 @@
-<div class="accordion accordion-flush" id="accordionFlush{{id}}">
-{% set counter = 0 %}
-{% for section in sections %}
-{% set counter = counter + 1 %}
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-heading{{id}}-{{ counter }}">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{id}}-{{ counter }}" aria-expanded="false" aria-controls="flush-collapse{{id}}-{{ counter }}">
-        {{ section.title }}
-      </button>
-    </h2>
-    <div id="flush-collapse{{id}}-{{ counter }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{id}}-{{ counter }}" data-bs-parent="#accordionFlush{{id}}">
-      <div class="accordion-body text-content">{{ section.content|raw }}</div>
+<div class="accordion accordion-flush{% if first_accordion_open %} accordion--first-open{% endif %}" id="accordionFlush{{id}}">
+  {% set counter = 0 %}
+  {% for section in sections %}
+    {% set counter = counter + 1 %}
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-heading{{id}}-{{ counter }}">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{id}}-{{ counter }}" aria-expanded="false" aria-controls="flush-collapse{{id}}-{{ counter }}">
+          {{ section.title }}
+        </button>
+      </h2>
+      <div id="flush-collapse{{id}}-{{ counter }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{id}}-{{ counter }}" data-bs-parent="#accordionFlush{{id}}">
+        <div class="accordion-body text-content">{{ section.content|raw }}</div>
+      </div>
     </div>
-  </div>
   {% endfor %}
 </div>
