@@ -115,6 +115,50 @@
             "ui": 1
         },
         {
+            "key": "field_6438342b49ac4",
+            "label": "Utility Nav Button",
+            "name": "utility_nav_button",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Set this to true to add a button link on the far right hand side of the utility nav menu",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_6438346049ac5",
+            "label": "Utility Button",
+            "name": "utility_button",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6438342b49ac4",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
             "key": "field_62a39c2918f3c",
             "label": "Footer Options",
             "name": "",
@@ -385,5 +429,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675358544
+    "modified": 1681405160
 }

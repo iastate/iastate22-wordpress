@@ -62,7 +62,7 @@
                       </li>
                     {% endfor %}
                   </ul>
-                  {% if utility_button %}<a class="site-header__utility-button" href="{{ utility_button.url }}">{{ utility_button.title }}<span></span></a>{% endif %}
+                  {% if options.utility_button %}<a class="site-header__utility-button" href="{{ options.utility_button.url }}">{{ options.utility_button.title }}<span></span></a>{% endif %}
                   {% if search_visible == true %}
                   <form class="site-header__search-form-mobile" method="get" action="/">
                     {{ function('get_search_form') }}
