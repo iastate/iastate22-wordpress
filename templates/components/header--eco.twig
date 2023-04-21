@@ -50,7 +50,7 @@
         </form>
       </div>
       {% endif %}
-      {% if options.utility_button %}<a class="site-header__utility-button" href="{{ options.utility_button.url }}"{% if options.utility_button.target == "_blank"%} target="_blank"{% endif %}>{{ options.utility_button.title }}<span></span></a>{% endif %}
+      {% if options.utility_button == true %}<a class="site-header__utility-button" href="{{ options.utility_button.url }}"{% if options.utility_button.target == "_blank"%} target="_blank"{% endif %}>{{ options.utility_button.title }}<span></span></a>{% endif %}
     </div>
   </div>
   <div class="site-header__main">
@@ -104,7 +104,7 @@
                       </li>
                     {% endfor %}
                   </ul>
-                  {% if utility_button %}<a class="site-header__utility-button" href="{{ utility_button.url }}">{{ utility_button.title }}<span></span></a>{% endif %}
+                  {% if utility_nav_button == "true" and utility_button.url %}<a class="site-header__utility-button" href="{{ utility_button.url }}">{{ utility_button.title }}<span></span></a>{% endif %}
                   <form class="site-header__search-form-mobile" method="get" action="/">
                     {{ function('get_search_form') }}
                   </form>
