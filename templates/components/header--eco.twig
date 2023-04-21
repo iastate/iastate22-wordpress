@@ -50,7 +50,7 @@
         </form>
       </div>
       {% endif %}
-      {% if options.utility_nav_button == true and options.utility_button.url %}<a class="site-header__utility-button" href="{{ options.utility_button.url }}" {%%}>{{ options.utility_button.title }}<span></span></a>{% endif %}
+      {% if options.utility_nav_button == true and options.utility_button.url|length > 0 and options.utility_button.title|length > 0 %}<a class="site-header__utility-button" href="{{ options.utility_button.url }}"{% if options.utility_button.target == "_blank"%} target="_blank"{% endif %}>{{ options.utility_button.title }}<span></span></a>{% endif %}
     </div>
   </div>
   <div class="site-header__main">
