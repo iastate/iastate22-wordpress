@@ -1,0 +1,114 @@
+.grid-list {
+  margin-top: rem(55);
+  @include media-breakpoint-up(lg) {
+    margin-bottom: rem(70);
+  }
+  ul {
+    @include media-breakpoint-up(lg) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: rem(20) rem(30);
+    }
+    li {
+      border-bottom: rem(2) solid $iastate-gold;
+      padding: rem(11) rem(36);
+      @include media-breakpoint-up(lg) {
+        border: none;
+        flex: 0 1 auto;
+        width: calc(33.3% - #{rem(20)});
+      }
+      &:first-child {
+        border-top: rem(2) solid $iastate-gold;
+        @include media-breakpoint-up(lg) {
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+.grid-list__label {
+  padding: 0;
+}
+.grid-list__sublabel {
+  color: $black;
+  margin-bottom: rem(40);
+}
+
+.grid-list__link {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+  max-width: rem(450);
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+  text-underline-offset: rem(1);
+  color: $iastate-maroon;
+  transition: 0.3s text-decoration-color ease-in-out;
+  @include media-breakpoint-up(lg) {
+    max-width: none;
+    flex-direction: column;
+    gap: rem(20);
+  }
+  &:hover {
+    text-decoration-color: transparent;
+    .arrow {
+      opacity: 1;
+    }
+  }
+}
+
+.grid-list__image {
+  flex: 0 0 auto;
+  width: rem(65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @extend %responsive-img;
+
+  @include media-breakpoint-up(lg) {
+    width: rem(130);
+  }
+
+  &:before {
+    padding-top: 100%;
+  }
+}
+
+.grid-list__text {
+  flex: 1 1 0px;
+  font-family: $typeface-sans-serif;
+  font-weight: 700;
+  color: currentColor;
+  font-size: rem(21);
+  line-height: (30 / 21);
+  padding: 0 rem(20);
+  transition: 0.2s color ease-in-out;
+  position: relative;
+  text-align: left;
+  @include media-breakpoint-up(lg) {
+    text-align: center;
+  }
+  &.grid-list--no-text {
+    position: relative;
+    left: rem(65);
+    @include media-breakpoint-up(lg) {
+      margin-top: rem(150);
+      left: initial;
+    }
+  }
+  .arrow {
+    right: initial;
+    top: initial;
+    bottom: 14px;
+    margin-left: rem(10);
+    opacity: 0;
+    transition: 0.3s opacity ease-in-out;
+  }
+}

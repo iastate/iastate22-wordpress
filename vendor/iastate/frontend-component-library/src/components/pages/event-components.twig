@@ -1,0 +1,23 @@
+{% extends "@page" %}
+
+{% block header %}
+  {% include "@site-header--ecosystem" %}
+{% endblock %}
+
+{% block content %}
+  <div class="outer-pad">
+    <p class="iastate-article__back-btn"><a href="#" class="link-set__link link-tertiary">View All Events</a></p>
+    {% include "@stater-article-hero--event-components" with hero %}
+    <div class="paragraph-widget paragraph-widget--card-set">
+      {% include "@card-set--title" with card_set_three_links %}
+    </div>
+    {% include "@upcoming-events" %}
+    
+    {% include "@featured-events" %}
+
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {% include "@site-footer--ecosystem" %}
+{% endblock %}

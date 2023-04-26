@@ -1,0 +1,53 @@
+{
+  "context": {
+    "title": "Featured Events Section Title",
+    "link": {
+      "url": "#",
+      "label": "View All Events"
+    },
+    "feature_card": {
+      "title": "Card Title Lorem Ipsum Dolor Sit Amet",
+      "content": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.",
+      "time": {
+        "datetime": "2023-01-04",
+        "display": "Jan 4, 2023"
+      },
+      "image": "../../img/Component-Card-Image-1.jpg",
+      "url": "https://www.iastate.edu/"
+    },
+    "feature_listing": [
+      {
+        "title": "Longer Title Fore Feature Lorem Ipsum Dolor Sit",
+        "link": "#",
+        "date": {
+          "datetime": "2023-01-04",
+          "display": "Jan 4, 2023"
+        }
+      },
+      {
+        "title": "Title Lorem Ipsum Dolor Sit",
+        "link": "#",
+        "date": {
+          "datetime": "2023-01-04",
+          "display": "Jan 4, 2023"
+        }
+      },
+      {
+        "title": "Very Long Title Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor dolore magna aliqua.",
+        "link": "#",
+        "date": {
+          "datetime": "2023-01-04",
+          "display": "Jan 4, 2023"
+        }
+      },
+      {
+        "title": "Longer Title Fore Feature Lorem Ipsum Dolor Sit",
+        "link": "#",
+        "date": {
+          "datetime": "2023-01-04",
+          "display": "Jan 4, 2023"
+        }
+      }
+    ]
+  }
+}

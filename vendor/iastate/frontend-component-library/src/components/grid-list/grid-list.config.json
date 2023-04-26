@@ -1,0 +1,53 @@
+{
+  "context": {
+    "label": "Optional Label",
+    "sublabel": "Lorem ipsum eiusmod proident duis dolore proident officia adipiscing sunt proident tempor enim aliquip commodo eiusmod enim ex quis dolor",
+    "grid_list": [
+      {
+        "image": "https://placehold.co/500x400",
+        "url": "https://iastate.edu",
+        "text": "Undergraduate Student"
+      },
+      {
+        "image": "https://placehold.co/500x400",
+        "url": "https://iastate.edu",
+        "text": ""
+      },
+      {
+        "image": "",
+        "url": "https://iastate.edu",
+        "text": "Lorem ipsum eiusmod proident duis dolore"
+      },
+      {
+        "image": "https://cdn.theme.iastate.edu/img/iastate22/icons/multicolor-icon-undergraduate.svg",
+        "url": "https://iastate.edu",
+        "text": "Undergraduate Student"
+      },
+      {
+        "image": "https://cdn.theme.iastate.edu/img/iastate22/icons/multicolor-icon-graduate.svg",
+        "url": "https://iastate.edu",
+        "text": "Graduate Student"
+      },
+      {
+        "image": "https://cdn.theme.iastate.edu/img/iastate22/icons/multicolor-icon-transfer.svg",
+        "url": "https://iastate.edu",
+        "text": "Transfer Student"
+      },
+      {
+        "image": "https://cdn.theme.iastate.edu/img/iastate22/icons/multicolor-icon-non-degree.svg",
+        "url": "https://iastate.edu",
+        "text": "Non-Degree Student"
+      },
+      {
+        "image": "https://cdn.theme.iastate.edu/img/iastate22/icons/multicolor-icon-military-non-traditional.svg",
+        "url": "https://iastate.edu",
+        "text": "Military or Nontraditional Student"
+      },
+      {
+        "image": "https://cdn.theme.iastate.edu/img/iastate22/icons/multicolor-icon-international.svg",
+        "url": "https://iastate.edu",
+        "text": "International Student"
+      }
+    ]
+  }
+}

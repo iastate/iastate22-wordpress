@@ -9,7 +9,7 @@
     li {
       font-family: $typeface-sans-serif;
       font-weight: 700;
-      font-size: rem(16);
+      font-size: rem(40);
       line-height: (30 / 16);
       color: $iastate-maroon;
       min-width: rem(21);
@@ -18,10 +18,10 @@
       justify-content: center;
       text-decoration: none;
       position: relative;
-      padding-inline: rem(3);
+      padding-inline: rem(15);
       @include media-breakpoint-up(sm) {
         padding-inline: rem(10);
-        font-size: rem(21);
+        font-size: rem(30);
         line-height: (40 / 21);
       }
       @include media-breakpoint-up(lg) {

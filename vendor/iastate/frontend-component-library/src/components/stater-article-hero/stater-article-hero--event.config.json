@@ -1,0 +1,9 @@
+{
+  "context": {
+    "headline": "Event Title Lorem Ipsum Dolor Sit",
+    "image": {
+      "src": "../../img/Article_Hero.jpg",
+      "alt": ""
+    }
+  }
+}

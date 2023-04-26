@@ -1,0 +1,22 @@
+<div class="paragraph-widget paragraph-widget--upcoming-events">
+  <div class="upcoming-events">
+    <h2>{{ title }}</h2>
+    <dl class="upcoming-events__wrap">
+      {% for event in events %}
+        <dt class="upcoming-events__date">
+          <time datetime="{{ event.date.datetime }}">
+            <span class="month">{{ event.date.month }}</span>
+            <span class="day">{{ event.date.day }}</span>
+          </time>
+        </dt>
+        <dd class="upcoming-events__details">
+          <h4 class="upcoming-events__title">
+            <a href="{{ event.link.url }}" class="link-set__link iastate22-link-secondary">{{ event.title }}<span class="arrow"></span></a>
+          </h4>
+          <div class="upcoming-events__time">{{ event.date.time }}</div>
+        </dd>
+      {% endfor %}
+    </dl>
+    <div class="upcoming-events__cta"><a href="{{ cta.url }}" class="iastate22-button">{{ cta.label }}<span class="arrow"></span></a></div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+{% extends "@page" %}
+
+{% block header %}
+  {% include "@site-header--ecosystem" %}
+{% endblock %}
+
+{% block content %}
+  <div class="outer-pad">
+    <p class="iastate-article__back-btn"><a href="#">View All Events</a></p>
+    {% include "@stater-article-hero--event" with hero %}
+    <div class="paragraph-widget paragraph-widget--event-details">
+      <div class="event-details">
+        <dl class="event-details__wrap">
+          {% for detail in event_details %}
+            <dt>
+              {% if detail.icon|length > 0 %}
+              {% else %}
+                <span class="icon-spec"></span>
+              {% endif %}
+              <span class="visible-for-screen-readers">{{ detail.title }}</span>
+            </dt>
+            <dd>
+              {% if detail.contact %}
+                {% for contact in detail.contact %}  
+                  {% if contact.email %}
+                    <a href="mailto:{{contact.email.address}}" class="link-set__link iastate22-link-secondary">{{contact.email.label}}<span class="arrow"></span></a>
+                  {% elseif contact.link %}
+                    <a href="{{contact.link.url}}" class="link-set__link iastate22-link-external">{{contact.link.label}}<span class="arrow"></span></a>
+                  {% elseif contact.phone %}
+                    <span class="event-details__phone-number">{{contact.phone}}</span>
+                  {% elseif contact.tags %}
+                    <div class="event-details__tags">
+                      {% for tag in contact.tags %}
+                        <a href="{{tag.url}}">{{tag.label}}</a>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              {% else %}
+                <p>{{ detail.content }}<p>
+              {% endif %}
+            </dd>
+          {% endfor %}
+        </dl>
+      </div>
+      <div class="paragraph-widget paragraph-widget--text-content">
+        <div class="text-content">
+          <p><a href="#">Download iCal/vCal</a> | <a href="#">Email Reminder</a></p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <hr>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <a href="#">Ut enim ad minim veniam</a></p>
+          <h2>Register Online</h2>
+          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium <a href="#">doloremque laudantium</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {% include "@site-footer--ecosystem" %}
+{% endblock %}

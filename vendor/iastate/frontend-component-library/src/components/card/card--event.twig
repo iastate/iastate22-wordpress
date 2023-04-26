@@ -1,0 +1,16 @@
+<div class="iastate22-card iastate22-card--event" {% if clickable is defined %} data-clickable="{{ clickable }}" {% endif %}>
+  {% if image %}
+    <div class="iastate22-card__media">
+      <img src="{{ image|path }}" alt="" loading="lazy" width="600" height="600">
+    </div>
+  {% endif %}
+  <div class="iastate22-card__content">
+    <h2 class="iastate22-card__title">
+      <a href="{{url}}" {% if external == true %} target="_blank" {% endif %}>{{ title }}</a>
+    </h2>
+    <div class="iastate22-card__body">
+      <time class="iastate22-card__time" datetime="{{ time.datetime }}">{{ time.display }}</time>
+      <div class="iastate22-card__location">{{ location }}</div>
+    </div>
+  </div>
+</div>

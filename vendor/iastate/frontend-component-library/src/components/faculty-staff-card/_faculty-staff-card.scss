@@ -1,9 +1,13 @@
 .faculty-staff-card {
-  display: flex;
-  flex-direction: row;
-  gap: rem(20);
-  max-width: rem(488);
+  display: block;
+  @include media-breakpoint-up(sm) {
+    display: flex;
+    flex-direction: row;
+    gap: rem(20);
+    max-width: rem(488);
+  }
   .faculty-staff-card__media {
+    margin-bottom: rem(15);
     .faculty-staff-card__media-container {
       @extend %responsive-img;
       position: relative;
@@ -36,7 +40,38 @@
     .faculty-staff-card__content-body {
       color: $grey;
       font-size: rem(16);
-      margin: 0;
+      margin: 0 0 rem(15);
+    }
+    .faculty-staff-card__content-contact {
+      padding-left: 0;
+      li {
+        color: $iastate-maroon;
+        margin: 0 0 rem(10);
+        font-weight: 700;
+        display: flex;
+        .fa-iastate22-email,
+        .fa-iastate22-phone {
+          color: $iastate-maroon;
+          font-size: rem(30);
+        }
+        a {
+          color: $iastate-maroon;
+        }
+        .faculty-staff-card__content-key {
+          font-weight: 700;
+        }
+        .faculty-staff-card__contact-field {
+          padding-left: rem(20);
+        }
+        .faculty-staff-card__contact-value {
+          padding-left: rem(5);
+        }
+        &:before {
+          content: "";
+          padding: 0;
+          margin-top: rem(5);
+        }
+      }
     }
   }
 }

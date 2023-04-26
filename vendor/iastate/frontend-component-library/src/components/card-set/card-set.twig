@@ -11,6 +11,8 @@
         <li>{% include "@card--recent-article" with card %}</li>
       {% elseif news_articles %}
         <li>{% include "@card--news-article" with card %}</li>
+      {% elseif teaser_event %}
+        <li>{% include "@card--event" with card %}</li>
       {% else %}
         <li>{% include "@card" with card %}</li>
       {% endif %}

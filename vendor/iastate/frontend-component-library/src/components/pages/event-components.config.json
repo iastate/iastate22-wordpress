@@ -1,0 +1,42 @@
+{
+  "context": {
+    "hero": {
+      "headline": "Event Components"
+    },
+    "card_set_three_links": {
+      "teaser_event": true,
+      "cards": [
+        {
+          "title": "Card Title Lorem Ipsum Dolor Sit Amet",
+          "time": {
+            "datetime": "20223-01-04",
+            "display": "Wednesday, Jan 04 2023 from 1:00 pm to 2:00 pm"
+          },
+          "location": "Dundalk, MD",
+          "image": "../../img/Component-Card-Image-1.jpg",
+          "url": "https://www.iastate.edu/"
+        },
+        {
+          "title": "Card Title Lorem Ipsum Dolor Sit Amet",
+          "time": {
+            "datetime": "20223-02-06",
+            "display": "Friday, 06 Feb 2023 from 1:00 pm to 2:00 pm"
+          },
+          "location": "Waldorf, MD",
+          "image": "../../img/Component-Card-Image-2.jpg",
+          "url": "https://www.iastate.edu/"
+        },
+        {
+          "title": "Card Title Lorem Ipsum Dolor Sit Amet",
+          "time": {
+            "datetime": "20223-02-13",
+            "display": "Friday, 13 Feb 2023 from 1:00 pm to 2:00 pm"
+          },
+          "location": "Lisbon, MD",
+          "image": "../../img/Component-Card-Image-3.jpg",
+          "url": "https://www.iastate.edu/"
+        }
+      ]
+    }
+  }
+}

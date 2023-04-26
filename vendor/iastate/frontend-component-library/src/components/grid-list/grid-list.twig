@@ -1,0 +1,21 @@
+<div class="grid-list">
+  {% if label %}<h2 class="grid-list__label">{{ label }}</h2>{% endif %}
+  {% if sublabel %}<h3 class="grid-list__sublabel">{{ sublabel }}</h3>{% endif %}
+  <ul>
+    {% for link in grid_list %}
+      <li>
+        <a href="#" class="grid-list__link">
+          {% if link.image %}
+          <div class="grid-list__image">
+            <img src="{{ link.image|path }}" alt="" loading="lazy" width="130" height="130">
+          </div>
+          {% endif %}
+          {% if link.text %}
+          <span class="grid-list__text{% if not link.image %} grid-list--no-text{% endif %}" href="{{ link.url }}">{{ link.text }}<span class="arrow"></span>
+          </span>
+          {% endif %}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

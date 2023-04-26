@@ -807,6 +807,7 @@
       @include media-breakpoint-up(xl) {
         width: 100%;
         flex-wrap: wrap;
+        margin-right: rem(-40);
       }
     }
     > li {
@@ -838,7 +839,7 @@
       }
       .site-header--ecosystem & {
         @include media-breakpoint-up(xl) {
-          padding: rem(7) 0 rem(7) rem(40);
+          padding: rem(7) rem(40) rem(7) 0;
         }
       }
 
@@ -1105,6 +1106,11 @@
             @include media-breakpoint-up(xl) {
               margin-right: 0;
             }
+          }
+        }
+        .site-header--ecosystem & {
+          @include media-breakpoint-up(xl) {
+            padding-right: rem(40);
           }
         }
       }

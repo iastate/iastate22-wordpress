@@ -13,16 +13,22 @@
     <ul class="faculty-staff-feed-item__content-contact">
       {% if email %}
       <li>
-        <div class="faculty-staff-feed-item__content-icon"><a href="mailto:{{ email }}"><i class="fa-regular fa-circle-envelope"></i></a></div>
+        <div class="faculty-staff-feed-item__content-icon"><a href="mailto:{{ email }}"><i class="fak fa-iastate22-email"></i></a></div>
         <div class="faculty-staff-feed-item__contact-field"><a href="mailto:{{ email }}">{{ email }}</a></div>
       </li>
       {% endif %}
       {% if phone %}
       <li>
-        <div class="faculty-staff-feed-item__content-icon"><i class="fa-regular fa-circle-phone"></i></div>
+        <div class="faculty-staff-feed-item__content-icon"><i class="fak fa-iastate22-phone"></i></div>
         <div class="faculty-staff-feed-item__contact-field">{{ phone }}</div>
       </li>
       {% endif %}
+      {% for fact in facts %}
+      <li>
+        <div class="faculty-staff-feed-item__content-key"><strong>{{ fact.key }}:</strong></div>
+        <div class="faculty-staff-feed-item__contact-value">{{ fact.value|raw }}</div>
+      </li>
+      {% endfor %}
     </ul>
   </div>
 </div>

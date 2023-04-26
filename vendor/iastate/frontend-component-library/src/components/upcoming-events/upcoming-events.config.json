@@ -1,0 +1,59 @@
+{
+  "context": {
+    "title": "Upcoming Events",
+    "events": [
+      {
+        "date": {
+          "datetime": "2023-01-10",
+          "month": "Jan",
+          "day": "10",
+          "time": "1:00 pm to 2:00 pm"
+        },
+        "title": "Long Event Title Fore Feature Lorem Ipsum Dolor Sit",
+        "link": {
+          "url": "#"
+        }
+      },
+      {
+        "date": {
+          "datetime": "2023-01-13",
+          "month": "Jan",
+          "day": "13",
+          "time": "1:00 pm to 2:00 pm"
+        },
+        "title": "Event Title Lorem Ipsum Dolor Sit",
+        "link": {
+          "url": "#"
+        }
+      },
+      {
+        "date": {
+          "datetime": "2023-01-15",
+          "month": "Jan",
+          "day": "15",
+          "time": "2:00 pm to 4:00 pm"
+        },
+        "title": "The First Annual Montgomery Burns Award for Outstanding Achievement in the Field of Excellence",
+        "link": {
+          "url": "#"
+        }
+      },
+      {
+        "date": {
+          "datetime": "2023-01-17",
+          "month": "Jan",
+          "day": "17",
+          "time": "1:00 pm to 2:00 pm"
+        },
+        "title": "Long Event Title Fore Feature Lorem Ipsum Dolor Sit",
+        "link": {
+          "url": "#"
+        }
+      }
+    ],
+    "cta": {
+      "url": "#",
+      "label": "Browse All Events"
+    }
+  }
+}

@@ -6,6 +6,9 @@
     flex-direction: row;
     gap: rem(80);
   }
+  @include media-breakpoint-up(xl) {
+    margin-right: rem(-50);
+  }
   .faculty-staff-feed-item__media {
     .faculty-staff-feed-item__media-container {
       @extend %responsive-img;
@@ -29,19 +32,33 @@
   .faculty-staff-feed-item__content {
     margin: auto 0;
     .faculty-staff-feed-item__content-contact {
+      height: rem(200);
       padding-left: 0;
+      padding-right: 0;
+      display: block;
+      @include media-breakpoint-up(sm) {
+        display: flex;
+        flex-flow: column wrap;
+        gap: rem(10);
+      }
       li {
         color: $iastate-maroon;
-        margin-bottom: rem(20);
+        margin: 0;
         font-weight: 700;
+        width: 50%;
         display: flex;
-        svg {
+        .fa-iastate22-email,
+        .fa-iastate22-phone {
           color: $iastate-maroon;
           font-size: rem(30);
         }
         a {
           color: $iastate-maroon;
         }
+        .faculty-staff-feed-item__content-key {
+          font-weight: 700;
+        }
+        .faculty-staff-feed-item__contact-value,
         .faculty-staff-feed-item__contact-field {
           padding-left: rem(35);
         }

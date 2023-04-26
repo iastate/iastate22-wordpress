@@ -74,6 +74,23 @@
       color: $iastate-maroon;
     }
   }
+
+  &.iastate22-card--event {
+    padding-bottom: 40px;
+    .iastate22-card__title {
+      text-align: left;
+    }
+  }
+
+  &.iastate22-card--feature-event {
+    .iastate22-card__time {
+      text-align: center;
+    }
+
+    .iastate22-card__body {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .iastate22-card__cta {
@@ -187,11 +204,13 @@
     .iastate22-card__title {
       margin: 0;
       padding: 0;
+      line-height: rem(18);
       .iastate22-link-secondary {
         font-size: rem(22);
         color: $iastate-maroon;
         text-decoration: underline;
         line-height: rem(26);
+        margin-top: 0;
       }
     }
   }
@@ -410,4 +429,20 @@
 .iastate22-card__content-date {
   text-align: left;
   color: $iastate-maroon;
+}
+
+// Event Card Styles
+
+.iastate22-card__time {
+  display: block;
+  text-align: left;
+  color: $grey;
+  font-weight: 700;
+  line-height: rem(26);
+  margin: 16px 0;
+}
+
+.iastate22-card__location {
+  font-style: italic;
+  text-align: left;
 }

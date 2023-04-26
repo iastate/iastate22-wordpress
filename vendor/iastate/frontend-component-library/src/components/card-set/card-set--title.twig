@@ -1,0 +1,22 @@
+<div class="card-set{% if teaser_news %} card-set--teaser{% elseif teaser_profile %} card-set--teaser {% elseif teaser_profile %} card-set--teaser{% endif %}">
+  <h2 class="card-set__title">Featured Events</h2>
+  <ul>
+    {% for card in cards %}
+      {% if with_modal %}
+        <li>{% include "@card--with-modal" with card %}</li>
+      {% elseif teaser_news %}
+        <li>{% include "@card--teaser-news" with card %}</li>
+      {% elseif teaser_profile %}
+        <li>{% include "@card--teaser-profile" with card %}</li>
+      {% elseif recent_articles %}
+        <li>{% include "@card--recent-article" with card %}</li>
+      {% elseif news_articles %}
+        <li>{% include "@card--news-article" with card %}</li>
+      {% elseif teaser_event %}
+        <li>{% include "@card--event" with card %}</li>
+      {% else %}
+        <li>{% include "@card" with card %}</li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>

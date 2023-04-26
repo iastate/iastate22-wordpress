@@ -1,7 +1,7 @@
 .news-items {
   display: flex;
   flex-direction: column;
-  gap: rem(50);
+  gap: rem(15);
   margin-bottom: rem(50);
   @include media-breakpoint-up(lg) {
     flex-direction: row;

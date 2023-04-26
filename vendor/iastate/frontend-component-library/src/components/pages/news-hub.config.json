@@ -27,7 +27,7 @@
       "url": "#",
       "title": "Website Title Lorem Ipsum Even Longer Lorem Ipsum",
       "excerpt": "Ut aliquam purus sit amet luctus venenatis lectus magna fringilla. Vel pharetra vel turpis nunc eget lorem. Sed augue lacus viverra vitae.",
-      "tags": ["Lorem ipsum", "dolor sit amet", "consectetur adipiscing elit"],
+      "tags": ["Category", "Lorem Category", "Dolore Ipsum Category"],
       "date": "September 12, 2023",
       "small_articles": [
         {
@@ -38,7 +38,7 @@
           "url": "#",
           "title": "Lorem ipsum dolor sit amet",
           "excerpt": "Ut aliquam purus sit amet luctus venenatis lectus magna fringilla. Vel pharetra vel turpis nunc eget lorem. Sed augue lacus viverra vitae.",
-          "tags": ["consectetur adipiscing elit"],
+          "tags": ["Dolore Ipsum Category"],
           "date": "September 12, 2023"
         },
         {
@@ -49,7 +49,7 @@
           "url": "#",
           "title": "Website Title Lorem Ipsum Even Longer Lorem Ipsum",
           "excerpt": "Ut aliquam purus sit amet luctus venenatis lectus magna fringilla. Vel pharetra vel turpis nunc eget lorem. Sed augue lacus viverra vitae.",
-          "tags": ["Lorem ipsum", "dolor sit amet"],
+          "tags": ["Lorem category"],
           "date": "September 12, 2023"
         }
       ]
@@ -60,40 +60,40 @@
         {
           "image": "../../img/Component-Feature-News-Story-Image.jpg",
           "url": "#",
-          "tags": ["Lorem ipsum", "dolor sit"],
+          "tags": ["Dolore Ipsum Category"],
           "title": "Headline Nemo enim irure dolor in reprehenderit in voluptate.",
           "date": "June 16, 2022"
         },
         {
           "image": "../../img/Component-Feature-News-Story-Image.jpg",
           "url": "#",
-          "tags": ["Lorem ipsum", "dolor sit"],
+          "tags": ["Category"],
           "title": "Headline Nemo enim irure dolor in reprehenderit in voluptate.",
           "date": "June 16, 2022"
         },
         {
           "image": "../../img/Component-Feature-News-Story-Image.jpg",
           "url": "#",
-          "tags": ["Lorem ipsum", "dolor sit"],
+          "tags": ["Lorem Category"],
           "title": "Headline Nemo enim irure dolor in reprehenderit in voluptate.",
           "date": "June 16, 2022"
         }
       ]
     },
     "article1": {
-      "tags": ["Lorem ipsum", "dolor sit"],
+      "tags": ["ABC News", "Lorem Category", "Dolore Ipsum Category"],
       "article_title": "Lorem ipsum dolor sit",
       "article_excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisi scelerisque eu ultrices vitae auctor eu augue ut lectus."
     },
     "article2": {
-      "tags": ["Lorem ipsum"],
+      "tags": ["New York Times"],
       "article_title": "Website Title Lorem Ipsum Even Longer Lorem Ipsum",
       "article_excerpt": "At in tellus integer feugiat scelerisque varius morbi enim nunc. Varius sit amet mattis vulputate enim. Non tellus orci ac auctor augue. Vivamus at augue eget arcu dictum varius duis at consectetur."
     },
     "news_articles": {
       "items": [
         {
-          "tags": ["Lorem ipsum", "dolor sit"],
+          "tags": ["Category", "Lorem Category", "Dolore Ipsum Category"],
           "url": "https://www.iastate.edu/",
           "image": {
             "src": "../../img/Component-Feature-News-Story-Image.jpg",
@@ -103,7 +103,7 @@
           "date": "September 12, 2023"
         },
         {
-          "tags": ["amet mattis vulputate"],
+          "tags": ["Category"],
           "url": "https://www.iastate.edu/",
           "image": {
             "src": "../../img/Component-Feature-News-Story-Image.jpg",
@@ -113,7 +113,7 @@
           "date": "September 18, 2023"
         },
         {
-          "tags": ["condimentum"],
+          "tags": ["Category"],
           "url": "https://www.iastate.edu/",
           "image": {
             "src": "../../img/Component-Feature-News-Story-Image.jpg",
@@ -123,7 +123,7 @@
           "date": "September 24, 2023"
         },
         {
-          "tags": ["Lorem ipsum", "dolor sit"],
+          "tags": ["Category", "Category Lorem"],
           "url": "https://www.iastate.edu/",
           "image": {
             "src": "../../img/Component-Feature-News-Story-Image.jpg",
@@ -133,7 +133,7 @@
           "date": "September 12, 2023"
         },
         {
-          "tags": ["amet mattis vulputate"],
+          "tags": ["Category"],
           "url": "https://www.iastate.edu/",
           "image": {
             "src": "../../img/Component-Feature-News-Story-Image.jpg",
@@ -168,7 +168,7 @@
                 "alt": "Lorem ipsum dolor sit amet"
               },
               "url": "#",
-              "title": "Lorem ipsum dolor sit amet",
+              "title": "MLK Jr. events include lecture by civil rights leader, carillon concert and city program",
               "excerpt": "Ut aliquam purus sit amet luctus venenatis lectus magna fringilla. Vel pharetra vel turpis nunc eget lorem. Sed augue lacus viverra vitae.",
               "tags": ["consectetur adipiscing elit"],
               "date": "September 12, 2023"
@@ -179,7 +179,7 @@
                 "alt": "Lorem ipsum dolor sit amet"
               },
               "url": "#",
-              "title": "Lorem ipsum dolor sit amet",
+              "title": "Gold Star Hall Ceremony to honor five fallen heroes who attended Iowa State",
               "excerpt": "Ut aliquam purus sit amet luctus venenatis lectus magna fringilla. Vel pharetra vel turpis nunc eget lorem. Sed augue lacus viverra vitae.",
               "tags": ["consectetur adipiscing elit"],
               "date": "September 12, 2023"
@@ -190,7 +190,7 @@
                 "alt": "Lorem ipsum dolor sit amet"
               },
               "url": "#",
-              "title": "Lorem ipsum dolor sit amet",
+              "title": "Cyclone researchers: Warming climate means more and stronger Atlantic tropical storms",
               "excerpt": "Ut aliquam purus sit amet luctus venenatis lectus magna fringilla. Vel pharetra vel turpis nunc eget lorem. Sed augue lacus viverra vitae.",
               "tags": ["consectetur adipiscing elit"],
               "date": "September 12, 2023"
@@ -201,7 +201,7 @@
                 "alt": "Lorem ipsum dolor sit amet"
               },
               "url": "#",
-              "title": "Website Title Lorem Ipsum Even Longer Lorem Ipsum",
+              "title": "Climate forecast troubling, but there’s hope",
               "excerpt": "Ut aliquam purus sit amet luctus venenatis lectus magna fringilla. Vel pharetra vel turpis nunc eget lorem. Sed augue lacus viverra vitae.",
               "tags": ["Lorem ipsum", "dolor sit amet"],
               "date": "September 12, 2023"

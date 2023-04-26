@@ -58,10 +58,10 @@
 
 .iastate22-blockquote__portrait {
   @extend %responsive-img;
-  max-width: rem(166);
+  max-width: rem(332);
   margin: rem(-80) auto rem(28);
   @include media-breakpoint-up(md) {
-    max-width: rem(230);
+    max-width: rem(332);
   }
   @include media-breakpoint-up(xl) {
     flex: 0 0 auto;
@@ -107,7 +107,7 @@
     z-index: 1;
   }
   &:before {
-    top: rem(-80);
+    top: rem(-330);
     @include media-breakpoint-up(xl) {
       top: rem(-9);
       margin-left: rem(-115);

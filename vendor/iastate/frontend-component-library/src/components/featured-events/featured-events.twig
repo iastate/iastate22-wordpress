@@ -1,0 +1,25 @@
+<div class="paragraph-widget paragraph-widget--upcoming-events">
+  <div class="featured-events">
+    <header class="featured-events__header">
+      <h2>Featured Events Section Title</h2><a href="#" class="link-set__link link-tertiary">View All Events<span class="arrow"></span></a>
+    </header>
+    <div class="featured-events__wrap">
+
+      <div class="featured-events__card">
+        {% include "@card--feature-event" with feature_card %}
+      </div>
+      <nav class="featured-events__listing">
+        <ul class="featured-events__listing-wrap">
+          {% for item in feature_listing %}
+            <li class="featured-events__item">
+              <h4 class="featured-events__title">
+                <a href="{{ item.link }}" class="link-set__link iastate22-link-secondary">{{ item.title }}<span class="arrow"></span></a>
+              </h4>
+              <time datetime="{{ item.date.datetime }}">{{ item.date.display }}</time>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

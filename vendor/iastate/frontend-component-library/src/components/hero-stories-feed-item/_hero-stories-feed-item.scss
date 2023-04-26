@@ -29,7 +29,7 @@
   .hero-stories-feed-item__content {
     margin: auto 0;
     width: 100%;
-    padding: rem(20) rem(35);
+    padding: rem(13) rem(20);
     border-left: solid rem(2) #f1be48;
     .hero-stories-feed-item__content-tags {
       ul {
@@ -46,6 +46,10 @@
     .hero-stories-feed-item__title {
       padding: 0;
       margin: 0;
+      line-height: rem(16);
+      .iastate22-link-secondary {
+        margin-top: 0;
+      }
     }
     .hero-stories-feed-item__content-date {
       margin: 0;

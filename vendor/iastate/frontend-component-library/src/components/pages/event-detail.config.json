@@ -1,0 +1,73 @@
+{
+  "context": {
+    "hero": {
+      "headline": "Event Title Lorem Ipsum Dolor Sit",
+      "image": {
+        "src": "../../img/Article_Hero.jpg",
+        "alt": ""
+      }
+    },
+    "event_details": [
+      {
+        "title": "Time",
+        "icon": "",
+        "content": "Wednesday, 04 Jan 2023 from 1:00 pm to 2:00 pm"
+      },
+      {
+        "title": "Location",
+        "icon": "",
+        "content": "Location sint occaecat cupidatat"
+      },
+      {
+        "title": "Price",
+        "icon": "",
+        "content": "Free"
+      },
+      {
+        "title": "Info",
+        "icon": "",
+        "contact": [
+          {
+            "link": {
+              "url": "loremipsum.com/calendar/this-event",
+              "label": "loremipsum.com/calendar/this-event"
+            }
+          },
+          {
+            "email": {
+              "address": "person@contactforthisevent.org",
+              "label": "person@contactforthisevent.org"
+            }
+          },
+          {
+            "phone": "(888) KL5-1234"
+          },
+          {
+            "tags": [
+              {
+                "url": "#",
+                "label": "Tag Name"
+              },
+              {
+                "url": "#",
+                "label": "Tag Name 2"
+              },
+              {
+                "url": "#",
+                "label": "Tag Name 3"
+              },
+              {
+                "url": "#",
+                "label": "Tag Name 4"
+              },
+              {
+                "url": "#",
+                "label": "Tag Name 5"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
