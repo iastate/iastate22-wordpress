@@ -1,0 +1,11 @@
+<div class="hero{% if not image %} hero--no-media{% endif %}">
+  <div class="hero__text-wrap">
+    {% include "@breadcrumb" with breadcrumbs %}
+    <h1 class="hero__title">{{title}}</h1>
+  </div>
+  {% if image %}
+  <div class="hero__media">
+    <img src="{{image}}" alt="" loading="lazy" width="1770" height="662">
+  </div>
+  {% endif %}
+</div>

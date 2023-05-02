@@ -45,6 +45,15 @@
   }
 }
 
+.fc .fc-button-group {
+  z-index: 1;
+
+  + .fc-button {
+    z-index: 1;
+    position: relative;
+  }
+}
+
 .fc .fc-button-group > .fc-button.fc-button-active {
   color: var(--fc-button-active-text-color);
 }
@@ -74,6 +83,7 @@
 
   @include media-breakpoint-up(lg) {
     display: inherit;
+    font-weight: 400;
   }
 }
 
@@ -112,10 +122,12 @@
 }
 
 .fc .fc-header-toolbar {
+  position: relative;
+
   @include media-breakpoint-down(md) {
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
   }
 }
 
@@ -123,10 +135,23 @@
   padding-bottom: 0;
 }
 
-.fc-scrollgrid-sync-table tbody tr:nth-child(even) {
-  @include media-breakpoint-up(lg) {
-    background-color: $off-white;
+.fc .fc-toolbar-chunk .fc-toolbar-title {
+  @include media-breakpoint-down(md) {
+    margin-top: 20px;
   }
+
+  @include media-breakpoint-up(md) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 100px;
+    text-align: center;
+  }
+}
+
+.fc-scrollgrid-sync-table tbody tr:nth-child(even) {
+  background-color: $off-white;
 }
 
 .fc-scrollgrid-sync-table tbody tr td {
@@ -144,8 +169,15 @@
   border: none;
 }
 
-.fc .fc-daygrid-day-events {
+.fc .fc-daygrid-day-events,
+.fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events {
   padding: 0 10px;
+
+  @include media-breakpoint-down(md) {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
 }
 
 .fc .fc-view-harness-active > .fc-view {
@@ -213,7 +245,7 @@
     display: block;
     background-color: $iastate-red;
     border-radius: 100%;
-    bottom: -5px;
+    bottom: 0;
     left: calc(50% - 6px);
 
     @include media-breakpoint-up(lg) {
@@ -225,7 +257,6 @@
 .fc .fc-event .fc-event-title {
   color: $iastate-maroon;
   font-weight: 700;
-  opacity: 0.6;
   display: none;
 
   @include media-breakpoint-up(lg) {
@@ -253,6 +284,33 @@
 
 .fc .fc-col-header-cell-cushion {
   font-size: rem(20);
+
+  @include media-breakpoint-down(md) {
+    font-size: 0;
+
+    &:first-letter {
+      font-size: rem(20);
+    }
+  }
+}
+
+.fc .fc-daygrid-event-harness {
+  position: relative;
+
+  @include media-breakpoint-down(lg) {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 45%;
+  }
+
+  @include media-breakpoint-down(md) {
+    bottom: 15%;
+  }
+
+  + .fc-daygrid-event-harness {
+    margin-top: 4px;
+  }
 }
 
 .fc .fc-daygrid-day-number {
@@ -307,7 +365,8 @@
   display: none;
 }
 .fc .fc-listWeek-view .fc-list-event-title {
-  padding: 24px 20px;
+  padding: 24px 0;
+  border-width: 0 0 1px;
 }
 
 .fc-listWeek-view .fc-list-event-time,
@@ -318,7 +377,7 @@
 .fc-listWeek-view .event-listing {
   background: $white;
 
-  @include media-breakpoint-up(lg) {
+  @include media-breakpoint-up(md) {
     display: flex;
     gap: 20px;
   }
@@ -330,7 +389,7 @@
   height: 0;
   padding-bottom: 66%;
 
-  @include media-breakpoint-up(lg) {
+  @include media-breakpoint-up(md) {
     width: 200px;
     padding-bottom: 130px;
   }
@@ -354,14 +413,54 @@
 .fc-listWeek-view .event-listing__image + .event-listing__content {
   margin-top: 30px;
 
-  @include media-breakpoint-up(lg) {
+  @include media-breakpoint-up(md) {
     margin-top: 0;
   }
 }
+
+.event-listing {
+  &:hover,
+  &:focus-within {
+    .event-listing__title a {
+      text-decoration-color: currentColor;
+      transition: text-decoration-color 0.2s ease-out;
+
+      svg {
+        margin-left: 15px;
+        transition: margin 0.2s ease-out;
+      }
+    }
+  }
+}
+
+.fc-list-event-title {
+  &:hover,
+  &:focus-within {
+    .event-listing__title a svg {
+      margin-left: 15px;
+      transition: margin 0.2s ease-out;
+    }
+  }
+}
+
 .event-listing__title {
   margin-bottom: 6px;
   font-size: rem(22);
   line-height: rem(31);
+  order: 1;
+}
+
+.fc .event-listing__title a {
+  color: $iastate-maroon;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.3s ease-out;
+
+  svg {
+    margin-left: 10px;
+    margin-bottom: 1px;
+    transition: margin 0.3s ease-out;
+  }
 }
 
 .event-listing__date {
@@ -369,6 +468,7 @@
   font-size: 1rem;
   line-height: rem(26);
   color: $grey;
+  order: 0;
 }
 
 .event-listing__location {
@@ -410,6 +510,19 @@
   }
 }
 
+.fc-dayGridMonth-view .event-listing__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.fc-dayGridMonth-view .event-listing__location {
+  display: none;
+}
+
+.fc-dayGridMonth-view .event-listing__desc {
+  order: 2;
+}
+
 /*---===/ Calendar Header \===---*/
 
 .calendar__header {
@@ -432,7 +545,11 @@
 
 .calendar__search {
   position: relative;
-  @include media-breakpoint-up(md) {
+
+  @include media-breakpoint-down(lg) {
+    flex: 1 0 100%;
+  }
+  @include media-breakpoint-up(lg) {
     flex: 1 0 auto;
   }
   form {
@@ -441,7 +558,7 @@
     align-items: flex-start;
     position: relative;
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
       flex-direction: row;
     }
   }
@@ -449,9 +566,12 @@
     border: solid 1px $grey4;
     // padding: 13px 20px 14px 40px;
     padding-left: 40px;
-    max-width: 549px;
     width: 100%;
     font-size: 1rem;
+
+    @include media-breakpoint-up(lg) {
+      max-width: 549px;
+    }
   }
 
   label {
@@ -468,6 +588,10 @@
   input[type="text"] + button {
     margin: 20px 0 0;
 
+    @include media-breakpoint-down(md) {
+      width: 100%;
+    }
+
     @include media-breakpoint-up(lg) {
       margin: 0 0 0 21px;
       flex: 1 0 auto;
@@ -476,10 +600,18 @@
 }
 
 .calendar__views {
-  display: flex;
   justify-content: center;
+  display: none;
+
+  @include media-breakpoint-down(md) {
+    flex: 1 0 100%;
+  }
   @include media-breakpoint-up(md) {
     justify-content: flex-end;
+  }
+
+  @include media-breakpoint-up(lg) {
+    display: flex;
   }
 }
 
@@ -496,6 +628,11 @@
   align-items: center;
   gap: 10px;
   transition: all 0.3s ease-out;
+
+  @include media-breakpoint-down(md) {
+    flex: 1 0 50%;
+    justify-content: center;
+  }
 
   &:hover,
   &:focus,
@@ -536,11 +673,16 @@
 }
 
 .calendar__categories-wrap label {
-  display: table;
+  display: flex;
+  align-items: center;
   font-size: rem(18);
   line-height: rem(25);
   color: $iastate-maroon;
   font-weight: 700;
+
+  svg {
+    margin-right: 6px;
+  }
 }
 
 .calendar__categories-toggle {
@@ -548,6 +690,10 @@
   @include media-breakpoint-up(md) {
     margin: 0 0 10px 20px;
   }
+}
+
+.fc .fc-day-past .fc-daygrid-day-top {
+  opacity: 0.3;
 }
 
 .calendar__categories-wrap select {
@@ -563,4 +709,23 @@
   // &:-ms-expand {
   //   display: none;
   // }
+}
+.fc .fc-event + .fc-list-day > th {
+  padding-top: 40px;
+}
+
+.fc.fc-theme-standard .fc-list-day-cushion {
+  background-color: transparent;
+  display: flex;
+  gap: 10px;
+  padding-left: 0;
+}
+
+.fc-theme-standard .fc-list {
+  border: none;
+}
+
+.fc .fc-list-empty {
+  font-size: rem(24);
+  background-color: transparent;
 }

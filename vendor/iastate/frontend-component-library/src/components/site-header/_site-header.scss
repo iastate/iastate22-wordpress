@@ -796,6 +796,9 @@
 }
 
 .site-header__mega-menu-main-nav {
+  @include media-breakpoint-up(xl) {
+    flex: 1 0 auto;
+  }
   > ul {
     @include media-breakpoint-up(xl) {
       display: flex;

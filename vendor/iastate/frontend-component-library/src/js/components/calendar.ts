@@ -4,6 +4,8 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
 import { formatDate } from "@fullcalendar/core";
 
+const mobileMQ = window.matchMedia("(max-width: 990px)");
+
 export class EventCalendar {
   private element: HTMLElement;
   private eventCalendar: HTMLElement;
@@ -11,6 +13,7 @@ export class EventCalendar {
   private monthButton: HTMLButtonElement;
   private listButton: HTMLButtonElement;
   private calendar: any;
+  private desktopView: string;
 
   constructor(element: HTMLElement) {
     if (!!element) {
@@ -19,6 +22,7 @@ export class EventCalendar {
       this.calendarHeader = this.element.querySelector(".calendar__header");
       this.listButton = this.calendarHeader.querySelector(".calendar__views #list-btn");
       this.monthButton = this.calendarHeader.querySelector(".calendar__views #month-btn");
+      this.desktopView = "dayGridMonth";
       this.init();
     }
   }
@@ -62,10 +66,7 @@ export class EventCalendar {
         let arrayOfDomNodes = [this.buildEventDOM(arg)];
         return { domNodes: arrayOfDomNodes };
       },
-      viewDidMount: (arg) => {
-        console.log("// View Change");
-        console.log(arg.view.type);
-      },
+      viewDidMount: (arg) => {},
     });
     this.calendar.render();
     this.calendar.addEvent({
@@ -92,17 +93,24 @@ export class EventCalendar {
       interactive: true,
     });
     this.calendar.addEvent({
-      title: "Orioles Tickets! Orioles Tickets! Orioles Tickets!",
+      title: "Orioles Tickets!",
       resourceId: "4",
-      start: "2023-04-19",
+      start: "2023-05-19",
       location: "Oriole Park at Camden Yards",
       interactive: true,
     });
     this.calendar.addEvent({
+      title: "Aquarium Tickets!",
+      resourceId: "4",
+      start: "2023-05-19 16:00",
+      location: "Baltimore Aquarium",
+      interactive: true,
+    });
+    this.calendar.addEvent({
       title: "Floating Holiday",
-      start: "2023-04-21",
+      start: "2023-05-21",
       resourceId: "5",
-      description: "I'm off. What? There ain't no more to it!",
+      description: "I've got a day off! I've got a day off!",
       location: "Unknown",
       interactive: true,
     });
@@ -113,13 +121,31 @@ export class EventCalendar {
     this.monthButton.addEventListener("click", (e) => {
       this.changeCalendar(e.target, "dayGridMonth");
     });
+
+    window.addEventListener("resize", () => {
+      this.breakpointCheck();
+    });
+    this.breakpointCheck();
+  }
+
+  private breakpointCheck() {
+    if (mobileMQ.matches) {
+      this.calendar.changeView("listWeek");
+      // this.calendar.destroy();
+      // this.calendar.render();
+      // The above code works! But isn't necessary at the moment.
+    } else {
+      this.calendar.dayMaxEventRows = true;
+      this.calendar.changeView(this.desktopView);
+    }
   }
 
   private changeCalendar(btn, view) {
     this.calendar.changeView(view);
-    console.log(btn);
     let rent = btn.parentElement,
       activ = rent.querySelector("button[aria-pressed=true]");
+
+    this.desktopView = view;
     if (activ) {
       activ.setAttribute("aria-pressed", "false");
     }
@@ -135,7 +161,16 @@ export class EventCalendar {
       "<div class='event-listing__image'><img src='http://placekitten.com/200/300' alt='placekitteh'/></div>";
     contentArea.innerHTML += "<div class='event-listing__content'></div>";
     let contentBlock = contentArea.querySelector(".event-listing__content");
-    contentBlock.innerHTML += "<h4 class='event-listing__title'>" + arg.event.title + "</h4>";
+    if (arg.event.url) {
+      contentBlock.innerHTML +=
+        "<h4 class='event-listing__title'><a href='" +
+        arg.event.url +
+        "'>" +
+        arg.event.title +
+        "<svg xmlns='http://www.w3.org/2000/svg' width='13.338' height='12.273' viewBox='0 0 13.338 12.273'><g id='CTA_Secondary_Arrow' transform='translate(0 0.707)'><path id='Path_52' data-name='Path 52' d='M-13572.044-6709.884l-1.414-1.414,4.723-4.723-4.723-4.722,1.414-1.414,6.137,6.136Z' transform='translate(13579.245 6721.45)' fill='#7c2529'/><path id='Path_1510' data-name='Path 1510' d='M-15709.244-3614.516h-11.514v-2h11.514Z' transform='translate(15720.758 3620.946)' fill='#732b2c'/></g></svg></a></h4>";
+    } else {
+      contentBlock.innerHTML += "<h4 class='event-listing__title'>" + arg.event.title + "</h4>";
+    }
     contentBlock.innerHTML +=
       "<time datetime ='" +
       arg.event.startStr +
@@ -148,7 +183,7 @@ export class EventCalendar {
       contentBlock.innerHTML += "<div class='event-listing__location'>" + arg.event.extendedProps.location + "</div>";
     }
     if (arg.event.extendedProps.description) {
-      contentBlock.innerHTML += "<div class=''>" + arg.event.extendedProps.description + "</div>";
+      contentBlock.innerHTML += "<div class='event-listing__desc'>" + arg.event.extendedProps.description + "</div>";
     }
 
     // Event Link Markup:
