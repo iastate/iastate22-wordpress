@@ -8,22 +8,34 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: stretch;
       flex-wrap: wrap;
-      gap: rem(20) rem(30);
+      gap: rem(30);
     }
     li {
-      border-bottom: rem(2) solid $iastate-gold;
-      padding: rem(11) rem(36);
+      padding: rem(11) rem(50) rem(11) rem(36);
+      position: relative;
       @include media-breakpoint-up(lg) {
-        border: none;
-        flex: 0 1 auto;
-        width: calc(33.3% - #{rem(20)});
+        flex: 1 1 0;
+        padding: 0;
       }
-      &:first-child {
-        border-top: rem(2) solid $iastate-gold;
+      &:last-child {
+        &:after {
+          display: none;
+        }
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        inset: auto rem(35) 0;
+        border-bottom: rem(2) solid $off-white;
+        @include media-breakpoint-up(sm) {
+          inset: auto auto 0 50%;
+          width: rem(500);
+          transform: translateX(-50%);
+        }
         @include media-breakpoint-up(lg) {
-          border: none;
+          display: none;
         }
       }
     }
@@ -38,7 +50,7 @@
   margin-bottom: rem(40);
 }
 
-.grid-list__link {
+.grid-list__item {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -46,21 +58,24 @@
   max-width: rem(450);
   margin-left: auto;
   margin-right: auto;
-  text-decoration: underline;
-  text-decoration-color: currentColor;
-  text-underline-offset: rem(1);
+
   color: $iastate-maroon;
-  transition: 0.3s text-decoration-color ease-in-out;
+
   @include media-breakpoint-up(lg) {
     max-width: none;
     flex-direction: column;
     gap: rem(20);
   }
+}
+
+a.grid-list__item {
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+  text-underline-offset: rem(1);
+  transition: 0.3s text-decoration-color ease-in-out;
+  &:focus,
   &:hover {
     text-decoration-color: transparent;
-    .arrow {
-      opacity: 1;
-    }
   }
 }
 
@@ -102,13 +117,5 @@
       margin-top: rem(150);
       left: initial;
     }
-  }
-  .arrow {
-    right: initial;
-    top: initial;
-    bottom: 14px;
-    margin-left: rem(10);
-    opacity: 0;
-    transition: 0.3s opacity ease-in-out;
   }
 }

@@ -17,7 +17,7 @@
 .upcoming-events__wrap {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
 
   @include media-breakpoint-up(lg) {
     width: 80%;

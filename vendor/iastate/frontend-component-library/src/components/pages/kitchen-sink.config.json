@@ -148,6 +148,11 @@
           "text": "Undergraduate Student"
         },
         {
+          "image": "https://cdn.theme.iastate.edu/img/iastate22/icons/multicolor-icon-undergraduate.svg",
+          "url": "",
+          "text": "Non-Link Example"
+        },
+        {
           "image": "https://cdn.theme.iastate.edu/img/iastate22/icons/multicolor-icon-graduate.svg",
           "url": "https://iastate.edu",
           "text": "Graduate Student"
