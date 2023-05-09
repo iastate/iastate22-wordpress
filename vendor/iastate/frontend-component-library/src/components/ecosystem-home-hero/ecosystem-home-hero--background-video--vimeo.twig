@@ -1,6 +1,10 @@
 <div class="ecosystem-home-hero ecosystem-home-hero--background-video ecosystem-home-hero--featured-image">
   <div class="ecosystem-home-hero__media">
-    <img src="{{ hero.image }}" alt="" loading="lazy" width="2002" height="1065" >
+    {% if hero.image %}
+      <img src="{{ hero.image }}" alt="" loading="lazy" width="2002" height="1065">
+    {% else %}
+      <img src="https://vumbnail.com/{{ hero.vimeo_id }}_large.jpg" alt="Video Poster">
+    {% endif %}
     <div class="ecosystem-home-hero__video" aria-label="Vimeo Video: {{ title }}" data-vimeo-muted="true" data-vimeo-loop="true" data-vimeo-background="true" data-vimeo-autoplay="true" data-vimeo-id="{{ hero.vimeo_id|striptags }}"></div>
   </div>
   <div class="ecosystem-home-hero__content">

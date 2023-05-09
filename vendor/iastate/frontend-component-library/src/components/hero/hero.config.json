@@ -95,5 +95,29 @@
         }
       ]
     }
-  }
+  },
+  "variants": [
+    {
+      "name": "news-article",
+      "context": {
+        "headline": "Under Pressure",
+        "subhead": "How ISU researchers solved one of the 20th century’s biggest scientific mysteries and helped end WWII.",
+        "attribution": "<p><strong>Author: Firstname Lastname</strong> | Image: Firstname Lastname</p>",
+        "image": {
+          "src": "../../img/Article_Hero.jpg",
+          "alt": ""
+        }
+      }
+    },
+    {
+      "name": "event-details",
+      "context": {
+        "headline": "Event Title Lorem Ipsum Dolor Sit",
+        "image": {
+          "src": "../../img/Article_Hero.jpg",
+          "alt": ""
+        }
+      }
+    }
+  ]
 }

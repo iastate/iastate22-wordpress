@@ -1,6 +1,10 @@
 <div class="ecosystem-home-hero ecosystem-home-hero--background-video ecosystem-home-hero--featured-image">
   <div class="ecosystem-home-hero__media">
-    <img src="{{ hero.image }}" alt="" loading="lazy" width="2002" height="1065" >
+    {% if hero.image %}
+      <img src="{{ hero.image }}" alt="" loading="lazy" width="2002" height="1065">
+    {% else %}
+      <img src="https://img.youtube.com/vi/{{ hero.video_id }}/maxresdefault.jpg" alt="Video Poster" width="2002" height="1065">
+    {% endif %}
     <div class="ecosystem-home-hero__video" aria-label="YouTube Video: {{ title }}" data-vid="{{ hero.video_id }}"></div>
   </div>
   <div class="ecosystem-home-hero__content">

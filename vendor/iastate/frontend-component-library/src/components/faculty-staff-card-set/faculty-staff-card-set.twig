@@ -1,7 +1,7 @@
 <div class="faculty-staff-card-set">
-    {% for item in faculty_staff_category1 %}
-      <div>
-        {% include "@faculty-staff-card" with item %}
-      </div>
-    {% endfor %}
+  {% for card in cards %}
+    <div>
+      {% include "@faculty-staff-card" with card %}
+    </div>
+  {% endfor %}
 </div>

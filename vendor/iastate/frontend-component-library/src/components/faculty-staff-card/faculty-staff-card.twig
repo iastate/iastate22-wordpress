@@ -1,32 +1,48 @@
 <div class="faculty-staff-card">
   <div class="faculty-staff-card__media">
     <div class="faculty-staff-card__media-container">
-      <img class="faculty-staff-card__media-image" src="{{ image.src }}" alt="{{ image.alt }}" loading="lazy" />
+      <img src="{{ image.src }}" alt="{{ image.alt }}" loading="lazy"/>
     </div>
   </div>
   <div class="faculty-staff-card__content">
     <p class="faculty-staff-card__content-title">
-      <a href="{{ url }}" class="iastate22-link-secondary">{{ title }}  <span class="arrow"></span></a>
+      {% if url %}
+        <a href="{{ url }}" class="iastate22-link-secondary">{{ title }}
+          <span class="arrow"></span>
+        </a>
+      {% else %}
+        {{ title }}
+      {% endif %}
     </p>
     <p class="faculty-staff-card__content-body">{{ body }}</p>
     <ul class="faculty-staff-card__content-contact">
       {% if email %}
-      <li>
-        <div class="faculty-staff-card__content-icon"><a href="mailto:{{ email }}"><i class="fak fa-iastate22-email"></i></a></div>
-        <div class="faculty-staff-card__contact-field"><a href="mailto:{{ email }}">{{ email }}</a></div>
-      </li>
+        <li>
+          <div class="faculty-staff-card__content-icon">
+            <a href="mailto:{{ email }}">
+              <i class="fak fa-iastate22-email"></i>
+            </a>
+          </div>
+          <div class="faculty-staff-card__contact-field">
+            <a href="mailto:{{ email }}">{{ email }}</a>
+          </div>
+        </li>
       {% endif %}
       {% if phone %}
-      <li>
-        <div class="faculty-staff-card__content-icon"><i class="fak fa-iastate22-phone"></i></div>
-        <div class="faculty-staff-card__contact-field">{{ phone }}</div>
-      </li>
+        <li>
+          <div class="faculty-staff-card__content-icon">
+            <i class="fak fa-iastate22-phone"></i>
+          </div>
+          <div class="faculty-staff-card__contact-field">{{ phone }}</div>
+        </li>
       {% endif %}
       {% for fact in facts %}
-      <li>
-        <div class="faculty-staff-card__content-key"><strong>{{ fact.key }}:</strong></div>
-        <div class="faculty-staff-card__contact-value">{{ fact.value|raw }}</div>
-      </li>
+        <li>
+          <div class="faculty-staff-card__content-key">
+            <strong>{{ fact.key }}:</strong>
+          </div>
+          <div class="faculty-staff-card__contact-value">{{ fact.value|raw }}</div>
+        </li>
       {% endfor %}
     </ul>
   </div>

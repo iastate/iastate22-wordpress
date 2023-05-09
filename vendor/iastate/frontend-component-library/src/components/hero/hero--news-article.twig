@@ -1,0 +1,8 @@
+<div class="hero--news-article text-content">
+    <h1 class="hero--news-article__headline">{{ headline }}</h1>
+    {% if subhead %}<h2 class="hero--news-article__subhead">{{ subhead }}</h2>{% endif %}
+    {% if attribution %}<div class="hero--news-article__attribution">{{ attribution|raw }}</div>{% endif %}
+    <div class="hero--news-article__media">
+      <img src="{{ image.src }}" alt="{{ image.alt }}">
+    </div>
+</div>
