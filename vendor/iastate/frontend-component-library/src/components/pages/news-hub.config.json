@@ -14,10 +14,7 @@
         ]
       },
       "title": "The News Hub",
-      "image": "../../img/college-template-hero-fpo-desktop.jpg",
-      "subnav": {
-        "items": []
-      }
+      "image": "../../img/college-template-hero-fpo-desktop.jpg"
     },
     "featured_news": {
       "image": {

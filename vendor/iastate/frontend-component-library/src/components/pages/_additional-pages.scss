@@ -378,10 +378,12 @@
       z-index: -1;
     }
   }
-  ul {
+  ul,
+  .facetwp-facet {
     display: flex;
     flex-wrap: wrap;
-    li {
+    li,
+    .facetwp-alpha {
       flex: 0 1 auto;
       width: 14%;
       margin-bottom: rem(10);
@@ -409,7 +411,9 @@
           line-height: (40 / 30);
         }
         &.a-z-index-letter-list__active,
-        &:hover {
+        &:hover,
+        &:focus,
+        &.selected {
           color: $iastate-red;
           text-decoration-color: $iastate-red;
           &:after {
@@ -442,6 +446,32 @@
         &:hover {
           text-decoration: none;
           color: rgba($grey, 0.5);
+        }
+      }
+    }
+    .facetwp-alpha {
+      text-decoration: none;
+      color: $iastate-maroon;
+      text-decoration: none;
+      font-family: $typeface-sans-serif;
+      font-weight: 700;
+      font-size: rem(21);
+      line-height: (40 / 21);
+      transition: 0.2 color ease-in-out;
+      width: rem(44);
+      display: inline-block;
+      @include media-breakpoint-up(lg) {
+        font-size: rem(30);
+        line-height: (40 / 30);
+      }
+
+      &:hover,
+      &:focus,
+      &.selected {
+        color: $iastate-red;
+        text-decoration-color: $iastate-red;
+        &:after {
+          opacity: 1;
         }
       }
     }

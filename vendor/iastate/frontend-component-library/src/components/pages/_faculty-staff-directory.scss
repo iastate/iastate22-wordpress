@@ -56,10 +56,20 @@
   }
   .filter-form-results {
     color: $white;
-    a {
+    a,
+    button {
       color: $white;
       font-style: italic;
     }
+    button {
+      text-decoration: underline;
+      background-color: transparent;
+      border: none;
+    }
+  }
+
+  .filter-form-results .facetwp-counts {
+    display: inline;
   }
 }
 

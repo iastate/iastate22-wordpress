@@ -5,7 +5,7 @@
         'type' => 'wordpress-theme',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '3ae48e08c43961ed7d62edc5fd4a3afdbe62a869',
+        'reference' => '1dabfe60b64347d31a59f0c7e3c322645ffdb425',
         'name' => 'iastate/wordpress-theme',
         'dev' => true,
     ),
@@ -36,7 +36,7 @@
             'aliases' => array(
                 0 => '9999999-dev',
             ),
-            'reference' => '2c7577e586f3193f66be3f7c2467682cf54e7fe7',
+            'reference' => '1b8629fb5f7c1e900fb3e7de02d1b7b9aaea5e27',
             'dev_requirement' => true,
         ),
         'iastate/wordpress-theme' => array(
@@ -45,7 +45,7 @@
             'type' => 'wordpress-theme',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '3ae48e08c43961ed7d62edc5fd4a3afdbe62a869',
+            'reference' => '1dabfe60b64347d31a59f0c7e3c322645ffdb425',
             'dev_requirement' => false,
         ),
         'symfony/polyfill-ctype' => array(
@@ -94,12 +94,12 @@
             'dev_requirement' => true,
         ),
         'twig/twig' => array(
-            'pretty_version' => 'v2.15.4',
-            'version' => '2.15.4.0',
+            'pretty_version' => 'v2.15.5',
+            'version' => '2.15.5.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../twig/twig',
             'aliases' => array(),
-            'reference' => '3e059001d6d597dd50ea7c74dd2464b4adea48d3',
+            'reference' => 'fc02a6af3eeb97c4bf5650debc76c2eda85ac22e',
             'dev_requirement' => true,
         ),
         'upstatement/routes' => array(

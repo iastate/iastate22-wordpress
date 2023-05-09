@@ -6,8 +6,8 @@
         "items": []
       }
     },
-    "faculty_staff_card_set": {
-      "faculty_staff_items": [
+    "faculty_staff_card_set_one": {
+      "cards": [
         {
           "image": {
             "src": "../../img/emmanuel_agba.png",
@@ -53,8 +53,10 @@
           "title": "Lorem Ipsum",
           "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut consequat semper viverra nam libero justo laoreet."
         }
-      ],
-      "faculty_staff_items2": [
+      ]
+    },
+    "faculty_staff_card_set_two": {
+      "cards": [
         {
           "image": {
             "src": "../../img/emmanuel_agba.png",
@@ -100,8 +102,10 @@
           "title": "Lorem Ipsum",
           "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut consequat semper viverra nam libero justo laoreet."
         }
-      ],
-      "faculty_staff_items3": [
+      ]
+    },
+    "faculty_staff_card_set_three": {
+      "cards": [
         {
           "image": {
             "src": "../../img/emmanuel_agba.png",

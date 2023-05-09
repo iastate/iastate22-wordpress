@@ -1,7 +1,11 @@
 {
   "context": {
     "hero": {
-      "headline": "Event Components"
+      "breadcrumbs": {
+        "links": []
+      },
+      "title": "Event Components",
+      "image": ""
     },
     "card_set_three_links": {
       "teaser_event": true,

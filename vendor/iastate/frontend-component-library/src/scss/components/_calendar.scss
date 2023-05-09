@@ -37,6 +37,12 @@
 
 // Overrides
 
+.hero--no-media + .calendar {
+  @include media-breakpoint-down(xl) {
+    margin-top: -100px;
+  }
+}
+
 .calendar {
   margin-bottom: 60px;
 
@@ -128,6 +134,12 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+  }
+}
+
+.fc .fc-header-toolbar .fc-toolbar-chunk:first-of-type {
+  @include media-breakpoint-down(md) {
+    margin-left: -20px;
   }
 }
 
