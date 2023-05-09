@@ -1,0 +1,22 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="outer-pad">
+		{{post.content}}
+            {% if post.meta('feed_display_type').value == 'single' %}
+            <div class="paragraph-widget paragraph-widget--faculty-staff-feed-item">
+                <div class="faculty-staff-feed-item-set">
+                    {% filter shortcodes %}[facetwp template="faculty_single"]{% endfilter %}
+                </div>
+            </div>
+            {% elseif post.meta('feed_display_type').value == 'two_column' %}
+                <div class="paragraph-widget paragraph-widget--faculty-staff-card-set">
+                    <div class="faculty-staff-card-set">
+                        {% filter shortcodes %}[facetwp template="faculty_two_col"]{% endfilter %}
+                    </div>
+                </div>
+            {% elseif post.meta('feed_display_type').value == 'table' %}
+                {% filter shortcodes %}[facetwp template="faculty_tabular"]{% endfilter %}
+            {% endif %}
+	</div>
+{% endblock %}

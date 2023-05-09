@@ -291,7 +291,6 @@ function idf_acf_init() {
         'icon' => 'align-wide',
         'mode' => 'edit',
         'keywords' => array('Feature', 'Inset', 'Image'),
-        
     ));
 
     if ( $activated_profile_plugin ) {
@@ -319,7 +318,19 @@ function idf_acf_init() {
         'icon' => 'format-image',
         'mode' => 'edit',
         'keywords' => array('Image', 'Full'),
-        
+    ));
+
+    acf_register_block_type( array(
+        'name'  => 'faculty-hero',
+        'title' => __( 'Hero -- Faculty and Staff'),
+        'description' => __( 'A plain ecosystem hero with search filtering options'),
+        'render_callback' => 'idf_acf_block_render_faculty_hero',
+        'supports' => array('align' => array('wide','full' ),'multiple' => false),
+        'category' => 'isu-blocks',
+        'align' => 'wide',
+        'icon' => 'align-wide',
+        'mode' => 'edit',
+        'keywords' => array('Faculty', 'Staff', 'Hero'),
     ));
 }
 
@@ -543,82 +554,100 @@ function idf_acf_block_render_directory( $block, $content = '', $is_preview = fa
     Timber::render('templates/blocks/directory.twig', $context);
 }
 
+function idf_acf_block_render_faculty_hero( $block, $content = '', $is_preview = false ) {
+    $context = Timber::context();
+    $context['block'] = $block;
+    $context['fields'] = get_fields();
+    $context['is_preview'] = $is_preview;
+    Timber::render('templates/blocks/faculty-hero.twig', $context);
+}
+
 // Block Reset/Whitelist
 
-// add_filter('allowed_block_types_all', function($block_types, $editor_context) {
-//     // global $post;
-//     // $rents = get_post_ancestors( $post );
+add_filter('allowed_block_types_all', function($block_types, $editor_context) {
+    // global $post;
+    // $rents = get_post_ancestors( $post );
 
-//     $home_id = get_option( 'page_on_front');
-//     $id = $editor_context->post->ID;
+    $home_id = get_option( 'page_on_front');
+    $id = $editor_context->post->ID;
+    $type = $editor_context->post->post_type;
+    $name = $editor_context->post->post_name;
+    $rent = $editor_context->post->post_parent;
 
-//     $landingblocks = [
-//         'acf/landing-hero',
-//         'acf/text-content',
-//         'acf/button-set',
-//         'acf/link-set',
-//         'acf/multi-column-content',
-//         'acf/carousel',
-//         'acf/full-width-image',
-//         'acf/tables',
-//         'acf/accordion',
-//         'acf/statistic-with-text',
-//         'acf/callout-with-image',
-//         'acf/callout-set',
-//         'acf/image-grid-with-text',
-//         'acf/video',
-//         'acf/link-block',
-//         'acf/external-news-story',
-//         'acf/blockquote',
-//         'acf/cards',
-//         'acf/feature-with-large-image',
-//         'acf/callout-inset',
-//         'acf/cta-small',
-//         'acf/cta-large',
-//         'acf/directory',
-//         'core/table'
-//     ];
-//     $interiorblocks = [
-//         'acf/interior-hero',
-//         'acf/text-content',
-//         'acf/button-set',
-//         'acf/link-set',
-//         'acf/multi-column-content',
-//         'acf/carousel',
-//         'acf/full-width-image',
-//         'acf/tables',
-//         'acf/accordion',
-//         'acf/statistic-with-text',
-//         'acf/callout-with-image',
-//         'acf/callout-set',
-//         'acf/image-grid-with-text',
-//         'acf/video',
-//         'acf/link-block',
-//         'acf/external-news-story',
-//         'acf/blockquote',
-//         'acf/cards',
-//         'acf/feature-with-large-image',
-//         'acf/callout-inset',
-//         'acf/cta-small',
-//         'acf/cta-large',
-//         'acf/directory',
-//         'core/table'
-//     ];
-//     if($home_id == $id) {
-//         return $landingblocks;
-//     } else {
-//         return $interiorblocks;
-//     }
-//    return $block_types;
-// }, 10, 2);
+    $landingblocks = [
+        'acf/landing-hero',
+        'acf/text-content',
+        'acf/button-set',
+        'acf/link-set',
+        'acf/multi-column-content',
+        'acf/carousel',
+        'acf/full-width-image',
+        'acf/tables',
+        'acf/accordion',
+        'acf/statistic-with-text',
+        'acf/callout-with-image',
+        'acf/callout-set',
+        'acf/image-grid-with-text',
+        'acf/video',
+        'acf/link-block',
+        'acf/external-news-story',
+        'acf/blockquote',
+        'acf/cards',
+        'acf/feature-with-large-image',
+        'acf/callout-inset',
+        'acf/cta-small',
+        'acf/cta-large',
+        'acf/directory',
+        'core/table'
+    ];
+    $interiorblocks = [
+        'acf/interior-hero',
+        'acf/text-content',
+        'acf/button-set',
+        'acf/link-set',
+        'acf/multi-column-content',
+        'acf/carousel',
+        'acf/full-width-image',
+        'acf/tables',
+        'acf/accordion',
+        'acf/statistic-with-text',
+        'acf/callout-with-image',
+        'acf/callout-set',
+        'acf/image-grid-with-text',
+        'acf/video',
+        'acf/link-block',
+        'acf/external-news-story',
+        'acf/blockquote',
+        'acf/cards',
+        'acf/feature-with-large-image',
+        'acf/callout-inset',
+        'acf/cta-small',
+        'acf/cta-large',
+        'acf/directory',
+        'core/table'
+    ];
+    $facultyblocks = [
+        'acf/faculty-hero'
+    ];
+    if($name === 'faculty') {
+        return $facultyblocks;
+    }
+    
+    // if($home_id == $id) {
+    //     return $landingblocks;
+    // } else {
+    //     return $interiorblocks;
+    // }
+   return $block_types;
+}, 10, 2);
 
 add_filter( 'render_block', 'wrap_gb_block', 10, 2 );
 
 function wrap_gb_block( $block_content, $block ) {
-  if ( 'core/paragraph' === $block['blockName'] || 'core/heading' === $block['blockName']) {
-    $block_content = '<div class="paragraph-widget paragraph-widget--text-html"><div class="text-content">' . $block_content . '</div></div>';
-  } elseif ( 'core/table' === $block['blockName'] ) {
-    $block_content = '<div class="paragraph-widget paragraph-widget--table"><div class="iastate22-table" role="region" aria-labelledby="caption_one" tabindex="0">' . $block_content . '</div></div>';
-  }
-  return $block_content;
+    if ( 'core/paragraph' === $block['blockName'] || 'core/heading' === $block['blockName']) {
+        $block_content = '<div class="paragraph-widget paragraph-widget--text-html"><div class="text-content">' . $block_content . '</div></div>';
+    } elseif ( 'core/table' === $block['blockName'] ) {
+        $block_content = '<div class="paragraph-widget paragraph-widget--table"><div class="iastate22-table" role="region" aria-labelledby="caption_one" tabindex="0">' . $block_content . '</div></div>';
+    }
+    return $block_content;
 }

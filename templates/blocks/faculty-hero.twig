@@ -1,0 +1,128 @@
+<div class="faculty-staff-directory-header">
+    <div class="ecosystem-home-hero ecosystem-home-hero--no-image">
+        <div class="ecosystem-home-hero__content">
+            {% include ['templates/partial/breadcrumbs.twig'] %}
+            {% if fields.hero_title|length > 0 %}
+                <h1 class="ecosystem-home-hero__title">{{ fields.hero_title}}</h1>
+            {% else %}
+                <h1 class="ecosystem-home-hero__title">{{ posts[0].post_title }}</h1>
+            {% endif %}
+        </div>
+    </div>
+    {% for fltr in fields.search_filters.filters %}
+        {% if fltr == "standard"  %}
+            <div class="paragraph-widget paragraph-widget--filter-form">
+                <div class="filter-form">
+                    <h2 class="filter-form__label">{{ fields.search_filters.filter_label }}</h2>
+                    <div class="iastate22-form iastate22-form--inline" id="InlineForm">
+                        <div class="form-item">
+                            <label for="s">Search</label>
+                            {% filter shortcodes %}[facetwp facet="faculty_search"]{% endfilter %}
+                        </div>
+                        {# <div class="form-item">
+                            <label for="select-choice">Taxonomy</label>
+                            {% filter shortcodes %}[facetwp facet="faculty_category"]{% endfilter %}
+                        </div> #}
+                        <div class="form-item">
+                            <button onclick="FWP.refresh()" type="submit" type="submit" for="facetwp-search">Search<span class="arrow"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="filter-form-results">About {% filter shortcodes %}[facetwp counts="true"]{% endfilter %} Results &bull; {% filter shortcodes %}[facetwp facet="faculty_reset"]{% endfilter %}</div>
+                </div>
+            </div>
+        {% elseif fltr == "a-z" %}
+            {% if fields.search_filters.filters|length == 1 %}
+            <div class="paragraph-widget paragraph-widget--filter-form">
+                <div class="filter-form a-z-index-header-container">
+                    <h2 class="filter-form__label">{{ fields.search_filters.filter_label }}</h2>
+                </div>
+            </div>
+            {% endif %}
+            <div class="a-z-index-letter-list">
+{#             
+                <ul>
+                    <li>
+                        <a class="a-z-index-letter-list__active" href="https://www.iastate.edu/">A</a>
+                    </li>
+                    <li>
+                        <a href="https://www.iastate.edu/">B</a>
+                    </li>
+                    <li>
+                        <a href="https://www.iastate.edu/">C</a>
+                    </li>
+                    <li>
+                        <a href="https://www.iastate.edu/">D</a>
+                    </li>
+                    <li>
+                        <a href="https://www.iastate.edu/">E</a>
+                    </li>
+                    <li>
+                        <a href="https://www.iastate.edu/">F</a>
+                    </li>
+                    <li>
+                        <a href="https://www.iastate.edu/">G</a>
+                    </li>
+                    <li>
+                        <a href="https://www.iastate.edu/">H</a>
+                    </li>
+                    <li>
+                        <a href="https://www.iastate.edu/">I</a>
+                    </li>
+                    <li>
+                        <a href="https://www.iastate.edu/">J</a>
+                    </li>
+                    <li>
+                        <a href="https://www.iastate.edu/">K</a>
+                    </li>
+                    <li>
+                        <a href="https://www.iastate.edu/">L</a>
+                    </li>
+                    <li>
+                        <a href="https://www.iastate.edu/">M</a>
+                    </li>
+                    <li>
+                        <a href="https://www.iastate.edu/">N</a>
+                    </li>
+                    <li>
+                        <a href="https://www.iastate.edu/">O</a>
+                    </li>
+                    <li>
+                        <a href="https://www.iastate.edu/">P</a>
+                    </li>
+                    <li>
+                        <a href="https://www.iastate.edu/">Q</a>
+                    </li>
+                    <li>
+                        <a href="https://www.iastate.edu/">R</a>
+                    </li>
+                    <li>
+                        <a href="https://www.iastate.edu/">S</a>
+                    </li>
+                    <li>
+                        <a href="https://www.iastate.edu/">T</a>
+                    </li>
+                    <li>
+                        <a href="https://www.iastate.edu/">U</a>
+                    </li>
+                    <li>
+                        <a href="https://www.iastate.edu/">V</a>
+                    </li>
+                    <li>
+                        <a href="https://www.iastate.edu/">W</a>
+                    </li>
+                    <li>
+                        <span>X</span>
+                    </li>
+                    <li>
+                        <a href="https://www.iastate.edu/">Y</a>
+                    </li>
+                    <li>
+                        <a href="https://www.iastate.edu/">Z</a>
+                    </li>
+                </ul> #}
+                {% filter shortcodes %}[facetwp facet="faculty_a_z"]{% endfilter %}
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
