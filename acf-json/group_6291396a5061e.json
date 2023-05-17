@@ -159,6 +159,67 @@
             "return_format": "array"
         },
         {
+            "key": "field_64626d9b8fff0",
+            "label": "Faculty Search Page",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_6462737e73030",
+            "label": "Search Filters",
+            "name": "search_filters",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_64593e5d889b3"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_64626f448fff1",
+            "label": "Listing Display",
+            "name": "listing_display",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_645a7bc3cf4d9"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
             "key": "field_62a39c2918f3c",
             "label": "Footer Options",
             "name": "",
@@ -429,5 +490,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1681405160
+    "modified": 1684173738
 }

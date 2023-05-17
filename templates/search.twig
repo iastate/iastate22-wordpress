@@ -3,7 +3,11 @@
 
 {% block content %}
   {# see `base.twig:27` for where this block's content will be inserted #}
+    
   <div class="outer-pad">
+    {% if function('get_query_var', 'post_type') == 'profiles' %}
+      {% include ['partial/profile-search.twig'] %}
+    {% else %}
     <div class="hero">
       <div class="hero__text-wrap">
         <h1 class="hero__title">{{ title }}</h1>
@@ -41,5 +45,6 @@
     </div>
     
     {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+    {% endif %}
   </div>
 {% endblock %}

@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_64593e5d8b5e1",
-            "label": "Hero Title",
+            "label": "Faculty Search Hero Title",
             "name": "hero_title",
             "aria-label": "",
             "type": "text",
@@ -17,10 +17,10 @@
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "append": ""
         },
         {
             "key": "field_64593e82a5e4d",
@@ -111,5 +111,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1683671811
+    "modified": 1684175283
 }

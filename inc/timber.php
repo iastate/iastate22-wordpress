@@ -88,6 +88,8 @@ class StarterSite extends Timber\Site {
 		}
 		$context['options'] = get_fields('options');
 		$context['site']  = $this;
+		$context['tax_a'] = Timber::get_terms('taxonomy_a');
+		$context['tax_b'] = Timber::get_terms('taxonomy_b');
 		if (function_exists('bcn_display')) {
 			$context['breadcrumbs'] = bcn_display(true);
 		}
