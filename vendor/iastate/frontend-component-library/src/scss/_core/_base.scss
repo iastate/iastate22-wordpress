@@ -182,3 +182,22 @@ ol {
     }
   }
 }
+
+// placeholder image style
+.bg-placeholder {
+  background-color: lightgrey;
+  background-image: linear-gradient(
+      to right bottom,
+      transparent calc(50% - 0.5px),
+      rgba(0, 0, 0, 0.2) calc(50% - 0.5px),
+      rgba(0, 0, 0, 0.2) calc(50% + 0.5px),
+      transparent calc(50% + 0.5px)
+    ),
+    linear-gradient(
+      to left bottom,
+      transparent calc(50% - 0.5px),
+      rgba(0, 0, 0, 0.2) calc(50% - 0.5px),
+      rgba(0, 0, 0, 0.2) calc(50% + 0.5px),
+      transparent calc(50% + 0.5px)
+    );
+}

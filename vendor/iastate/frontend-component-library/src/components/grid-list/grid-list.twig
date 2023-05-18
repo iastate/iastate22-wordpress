@@ -13,13 +13,17 @@
           {% else %}
             <div class="grid-list__item">
             {% endif %}
-            {% if list_item.image %}
+            {% if list_item.media.image or list_item.media.icon_id %}
               <div class="grid-list__image">
-                <img src="{{ list_item.image|path }}" alt="" loading="lazy" width="130" height="130">
+                {% if list_item.media.image %}
+                  <img src="{{ list_item.media.image|path }}" alt="" loading="lazy" width="130" height="130">
+                {% elseif list_item.media.icon_id %}
+                  <i class="{{ list_item.media.icon_id }}"></i>
+                {% endif %}
               </div>
             {% endif %}
             {% if list_item.text %}
-              <span class="grid-list__text{% if not list_item.image %} grid-list--no-text{% endif %}">{{ list_item.text }}
+              <span class="grid-list__text{% if not (list_item.media.image or list_item.media.icon_id) %} grid-list--no-text{% endif %}">{{ list_item.text }}
               </span>
             {% endif %}
             {% if list_item.url %}

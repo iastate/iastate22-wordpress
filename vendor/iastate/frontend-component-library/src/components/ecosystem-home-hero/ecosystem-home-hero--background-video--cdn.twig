@@ -1,6 +1,10 @@
 <div class="ecosystem-home-hero ecosystem-home-hero--background-video ecosystem-home-hero--featured-image">
   <div class="ecosystem-home-hero__media">
-    <img src="{{ hero.image }}" alt="" loading="lazy" width="2002" height="1065">
+    {% if hero.image %}
+      <img src="{{ hero.image }}" alt="" loading="lazy" width="2002" height="1065">
+    {% else %}
+      <img src="https://cdn.theme.iastate.edu/img/placeholder.png" class="bg-placeholder" alt="placeholder">
+    {% endif %}
     <video class="ecosystem-home-hero__video" autoplay muted loop>
       <source src="{{ hero.video.url }}" type="{{ hero.video.mime_type }}">
     </video>
