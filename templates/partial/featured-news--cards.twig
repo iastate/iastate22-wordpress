@@ -1,6 +1,6 @@
 {% set featuredStory = Post(options.news_page_options.main_featured_story[0]) %}
-{% if Image(featuredStory._thumbnail_id) %}
-    {% set thumbNail = Image(featuredStory._thumbnail_id) %}
+{% if Image(featuredStory.custom._thumbnail_id) %}
+    {% set thumbNail = Image(featuredStory.custom._thumbnail_id) %}
 {% endif %}
 <div class="featured-news">
     <div class="featured-news-container">
@@ -11,7 +11,7 @@
                 </div>
                 <div class="featured-news__large-article__image-container">
                     {% if thumbNail %}
-                        <img class="featured-news__large-article__image" src="{{ thumbnNail.src|striptags }}" alt="{{ thumbnNail.alt|striptags }}">
+                        <img class="featured-news__large-article__image" src="{{ thumbNail.src|striptags }}" alt="{{ thumbNail.alt|striptags }}">
                     {% endif %}
                 </div>
                 <div class="featured-news__large-article__tags">
@@ -36,8 +36,8 @@
             {% endif %}
             <div class="featured-news__small-article__container">    
                 <div class="featured-news__small-article__image-container">
+                        <img class="featured-news__small-article__image" src="{{ thumbNail.src|striptags }}" alt="{{ thumbNail.alt|striptags }}">
                     {% if thumbNail %}
-                        <img class="featured-news__small-article__image" src="{{ thumbnail.src|striptags }}" alt="{{ thumbnail.alt|striptags }}">
                     {% endif %}
                 </div>
                 <div class="featured-news__small-article__tags">
