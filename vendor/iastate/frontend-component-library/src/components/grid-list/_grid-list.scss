@@ -94,6 +94,13 @@ a.grid-list__item {
   &:before {
     padding-top: 100%;
   }
+
+  .svg-inline--fa {
+    display: block;
+    height: 100%;
+    max-height: rem(70);
+    width: auto !important;
+  }
 }
 
 .grid-list__text {

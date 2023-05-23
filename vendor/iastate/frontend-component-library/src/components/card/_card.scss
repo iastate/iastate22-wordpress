@@ -118,9 +118,8 @@
     min-width: rem(249);
     text-align: left;
     .arrow {
-      transform: translateX(#{rem(13)});
-      right: initial;
-      top: 49%;
+      inset: auto;
+      transform: translate(#{rem(13)}, #{rem(13)});
       width: 0;
       background-color: $iastate-gold;
 
