@@ -1,0 +1,54 @@
+{% set featuredStory = Post(options.news_page_options.main_featured_story[0]) %}
+{% if Image(featuredStory._thumbnail_id) %}
+    {% set thumbNail = Image(featuredStory._thumbnail_id) %}
+{% endif %}
+<div class="featured-news">
+    <div class="featured-news-container">
+        <div class="featured-news__large-article">
+            <div class="featured-news__large-article__container">
+                <div class="featured-news__featured-block">
+                    <p>Featured</p>
+                </div>
+                <div class="featured-news__large-article__image-container">
+                    {% if thumbNail %}
+                        <img class="featured-news__large-article__image" src="{{ thumbnNail.src|striptags }}" alt="{{ thumbnNail.alt|striptags }}">
+                    {% endif %}
+                </div>
+                <div class="featured-news__large-article__tags">
+                    <ul>
+                        <li> Category </li>
+                        <li> Lorem Category </li>
+                        <li> Dolore Ipsum Category </li>
+                    </ul>
+                </div>
+                <h2 class="featured-news__large-article__title"><a href="{{ featuredStory.link }}" class="iastate22-link-secondary">{{ featuredStory.post_title }}<span class="arrow"></span></a></h2>
+                <p class="featured-news__large-article__excerpt">{{ featuredStory.post_excerpt }}</p>
+                <p class="featured-news__date">{{ featuredStory.post_date|date("F, d Y") }}</p>
+            </div>
+        </div>
+        <div class="featured-news__small-article">
+        {% for card in options.news_page_options.featured_card_stories %}
+            {% set story = Post(card) %}
+            {% if Image(story._thumbnail_id) %}
+                {% set thumbNail = Image(story._thumbnail_id) %}
+            {% elseif Image(story._hero_image)%}
+                {% set thumbNail = Image(story._hero_image) %}
+            {% endif %}
+            <div class="featured-news__small-article__container">    
+                <div class="featured-news__small-article__image-container">
+                    {% if thumbNail %}
+                        <img class="featured-news__small-article__image" src="{{ thumbnail.src|striptags }}" alt="{{ thumbnail.alt|striptags }}">
+                    {% endif %}
+                </div>
+                <div class="featured-news__small-article__tags">
+                    <ul>
+                        <li> Dolore Ipsum Category </li>
+                    </ul>
+                </div>
+                <h2 class="featured-news__small-article__title"><a href="{{ story.link }}" class="iastate22-link-secondary">{{ story.post_title }}<span class="arrow"></span></a></h2>
+                <p class="featured-news__date">{{ story.post_date|date("F, d Y") }}</p>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>

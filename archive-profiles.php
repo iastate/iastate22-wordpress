@@ -17,12 +17,12 @@
 $templates = array( 'archive-profiles.twig', 'index.twig' );
 
 $context = Timber::context();
-$search_letter = get_query_var("starts_with");
+$search_letter = get_query_var("search_letter");
 $arr = array(
     'post_type' => 'profiles',
-    'posts_per_page' => -1,
     'order' => 'DESC',
     'orderby' => 'menu_order',
+    'paged' => $paged,
     'meta_query' => array(
         array(
             'key' => 'first_name',

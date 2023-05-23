@@ -1,0 +1,36 @@
+{% if options.news_page_options.recent_news_active == true %}
+  <div class="recent-articles">
+    <div class="text-content">
+      <h2>Recent Articles</h2>
+    </div>
+    <div class="card-set">
+      <ul>
+        {% for article in recent_articles %}
+          {% if Image(article._thumbnail_id) %}
+              {% set thumbNail = Image(article._thumbnail_id) %}
+            {% elseif Image(article._hero_image) %}
+              {% set thumbNail = Image(article._hero_image) %}
+          {% endif %}
+          <li>
+            <div class="iastate22-card iastate22-card--recent-article clickable">
+              <div class="iastate22-card__media">
+                <img src="{{ thumbNail.url }}" alt="{{ thumbNail.alt }}" loading="lazy" width="600" height="600">
+              </div>
+              <div class="iastate22-card__content">
+                <div class="iastate22-card__content-tags">
+                  <ul class="iastate22-card__content-tags__list">
+                      <li class="iastate22-card__content-tags__list-item">Dolore Ipsum Category</li>
+                  </ul>
+                </div>
+                <h2 class="iastate22-card__title">
+                  <a class="iastate22-link-secondary" href="#" target="_blank">{{ article.post_title }}</a>
+                </h2>
+                <p class="iastate22-card__date">{{ article.post_date|date("F, d Y") }}</p>
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>    
+  </div>
+{% endif %}

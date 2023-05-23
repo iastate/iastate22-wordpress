@@ -1,0 +1,140 @@
+{# <div class="paragraph-widget paragraph-widget--hero-stories-feed-item-set">
+        <div class="hero-stories-feed-item-set">
+  <ul>
+          <li>
+        <div class="hero-stories-feed-item">
+    <div class="hero-stories-feed-item__media">
+    <div class="hero-stories-feed-item__media-container">
+      <a href="https://www.iastate.edu/"><img class="hero-stories-feed-item__media-image" src="../../img/Component-Feature-News-Story-Image.jpg" alt="Lorem ipsum dolor sit" loading="lazy"></a>
+    </div>
+  </div>
+    <div class="hero-stories-feed-item__content">
+    <div class="hero-stories-feed-item__content-tags">
+      <ul>
+                  <li>Category</li>
+                  <li>Lorem Category</li>
+                  <li>Dolore Ipsum Category</li>
+              </ul>
+    </div>
+    <h2 class="hero-stories-feed-item__title">
+      <a class="iastate22-link-secondary" href="https://www.iastate.edu/">Website Title Lorem Ipsum Even Longer Lorem Ipsum<span class="arrow"></span></a>
+    </h2>
+    <p class="hero-stories-feed-item__content-date">September 12, 2023</p>
+  </div>
+</div>      </li>
+          <li>
+        <div class="hero-stories-feed-item">
+    <div class="hero-stories-feed-item__media">
+    <div class="hero-stories-feed-item__media-container">
+      <a href="https://www.iastate.edu/"><img class="hero-stories-feed-item__media-image" src="../../img/Component-Feature-News-Story-Image.jpg" alt="Interdum varius sit" loading="lazy"></a>
+    </div>
+  </div>
+    <div class="hero-stories-feed-item__content">
+    <div class="hero-stories-feed-item__content-tags">
+      <ul>
+                  <li>Category</li>
+              </ul>
+    </div>
+    <h2 class="hero-stories-feed-item__title">
+      <a class="iastate22-link-secondary" href="https://www.iastate.edu/">Interdum varius sit<span class="arrow"></span></a>
+    </h2>
+    <p class="hero-stories-feed-item__content-date">September 18, 2023</p>
+  </div>
+</div>      </li>
+          <li>
+        <div class="hero-stories-feed-item">
+    <div class="hero-stories-feed-item__media">
+    <div class="hero-stories-feed-item__media-container">
+      <a href="https://www.iastate.edu/"><img class="hero-stories-feed-item__media-image" src="../../img/Component-Feature-News-Story-Image.jpg" alt="Turpis cursus in hac" loading="lazy"></a>
+    </div>
+  </div>
+    <div class="hero-stories-feed-item__content">
+    <div class="hero-stories-feed-item__content-tags">
+      <ul>
+                  <li>Category</li>
+              </ul>
+    </div>
+    <h2 class="hero-stories-feed-item__title">
+      <a class="iastate22-link-secondary" href="https://www.iastate.edu/">Turpis cursus in hac<span class="arrow"></span></a>
+    </h2>
+    <p class="hero-stories-feed-item__content-date">September 24, 2023</p>
+  </div>
+</div>      </li>
+          <li>
+        <div class="hero-stories-feed-item">
+    <div class="hero-stories-feed-item__media">
+    <div class="hero-stories-feed-item__media-container">
+      <a href="https://www.iastate.edu/"><img class="hero-stories-feed-item__media-image" src="../../img/Component-Feature-News-Story-Image.jpg" alt="Lorem ipsum dolor sit" loading="lazy"></a>
+    </div>
+  </div>
+    <div class="hero-stories-feed-item__content">
+    <div class="hero-stories-feed-item__content-tags">
+      <ul>
+                  <li>Category</li>
+                  <li>Category Lorem</li>
+              </ul>
+    </div>
+    <h2 class="hero-stories-feed-item__title">
+      <a class="iastate22-link-secondary" href="https://www.iastate.edu/">Lorem ipsum dolor sit Website Title Lorem Ipsum Even Longer Lorem Ipsum Website Title Lorem Ipsum Even Longer Lorem Ipsum<span class="arrow"></span></a>
+    </h2>
+    <p class="hero-stories-feed-item__content-date">September 12, 2023</p>
+  </div>
+</div>      </li>
+          <li>
+        <div class="hero-stories-feed-item">
+    <div class="hero-stories-feed-item__media">
+    <div class="hero-stories-feed-item__media-container">
+      <a href="https://www.iastate.edu/"><img class="hero-stories-feed-item__media-image" src="../../img/Component-Feature-News-Story-Image.jpg" alt="Interdum varius sit" loading="lazy"></a>
+    </div>
+  </div>
+    <div class="hero-stories-feed-item__content">
+    <div class="hero-stories-feed-item__content-tags">
+      <ul>
+                  <li>Category</li>
+              </ul>
+    </div>
+    <h2 class="hero-stories-feed-item__title">
+      <a class="iastate22-link-secondary" href="https://www.iastate.edu/">Website Title Lorem Ipsum Even Longer Lorem Ipsum Website Title Lorem Ipsum Even Longer Lorem Ipsum<span class="arrow"></span></a>
+    </h2>
+    <p class="hero-stories-feed-item__content-date">September 18, 2023</p>
+  </div>
+</div>      </li>
+      </ul> #}
+
+{% if posts|length %}
+<div class="paragraph-widget paragraph-widget--hero-stories-feed-item-set">
+    <div class="hero-stories-feed-item-set">
+        <ul>
+            {% for post in posts %}
+                {% if Image(post._thumbnail_id) %}
+                    {% set thumbNail = Image(post._thumbnail_id) %}
+                {% elseif Image(post._hero_image) %}
+                    {% set thumbNail = Image(post._hero_image) %}
+                {% endif %}
+                <div class="hero-stories-feed-item">
+                    <div class="hero-stories-feed-item__media">
+                        <div class="hero-stories-feed-item__media-container">
+                            <a href="{{ post.link }}">
+                                <img class="hero-stories-feed-item__media-image" src="{{ thumbNail.url }}" alt="{{ thumbNail.alt }}" loading="lazy">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-stories-feed-item__content">
+                        <div class="hero-stories-feed-item__content-tags">
+                            <ul>
+                                <li>Category</li>
+                                <li>Lorem Category</li>
+                                <li>Dolore Ipsum Category</li>
+                            </ul>
+                        </div>
+                        <h2 class="hero-stories-feed-item__title">
+                            <a class="iastate22-link-secondary" href="{{ post.link }}">{{ post.post_title }}<span class="arrow"></span></a>
+                        </h2>
+                        <p class="hero-stories-feed-item__content-date">September 12, 2023</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endif %}

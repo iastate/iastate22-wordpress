@@ -1,0 +1,26 @@
+
+
+
+<div class="paragraph-widget paragraph-widget--news-items">
+    <div class="text-content">
+        <h2>{{ options.news_page_options.in_the_news_title}}</h2>
+    </div>
+    <div class="news-items">
+        {% for item in options.news_page_options.news_cards %}
+        <div class="news-item">
+            <div class="news-item">
+                <div class="news-item__tags">
+                    <ul>
+                        {% for tag in item.news_tags %}    
+                            <li>{{ tag.tag }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="news-item__article-title">
+                    <a href="{{ item.link }}" class="link-set__link iastate22-link-external" target="_blank">{{ item.news_story_title }}<span class="arrow"></span></a>
+                </div>
+                <p class="news-item__article-excerpt">{{ item.news_story_excerpt }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>

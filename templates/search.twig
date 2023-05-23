@@ -8,18 +8,9 @@
     {% if function('get_query_var', 'post_type') == 'profiles' %}
       {% include ['partial/profile-search.twig'] %}
     {% else %}
-    <div class="hero">
-      <div class="hero__text-wrap">
-        <h1 class="hero__title">{{ title }}</h1>
-      </div>
-      {% if fields.hero_image %}
-      <div class="hero__media">
-        <img src="{{fields.hero_image.url}}" alt="{{fields.hero_image.description}}" width="{{ fields.hero_image.width }}" height="{{ fields.hero_image.height }}">
-      </div>
-      {% endif %}
-    </div>
+    {% include ['blocks/news-hero.twig'] %}
 
-    <div class="card-set card-set--teaser">
+    {# <div class="card-set card-set--teaser">
     {% if posts|length %}
 		  <ul>
         {% for post in posts %}
@@ -42,8 +33,9 @@
     {% else %}
       <h2>No posts found</h2>
     {% endif %}
-    </div>
-    
+    </div> #}
+    {% include ['templates/partial/news-filter.twig'] %}
+    {% include ['templates/loops/loop-posts.twig'] %}
     {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
     {% endif %}
   </div>
