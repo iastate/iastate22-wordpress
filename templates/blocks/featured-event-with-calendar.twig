@@ -1,0 +1,50 @@
+<div class="paragraph-widget paragraph-widget--upcoming-events">
+  <div class="featured-events">
+    <header class="featured-events__header">
+      <h2>{{ fields.title }}</h2><a href="{{ site.theme.link }}/events" class="link-set__link link-tertiary">View All Events<span class="arrow"></span></a>
+    </header>
+    <div class="featured-events__wrap">
+      <div class="featured-events__card">
+        <div class="iastate22-card iastate22-card--feature-event clickable">
+          {% set featured_event = Post(fields.featured_event[0]) %}
+          {% if featured_event._thumbnail_id %}
+              {% set thumbnail = Image(featured_event._thumbnail_id) %}
+          {% endif %}
+          {% if thumbnail %}
+            <div class="iastate22-card__media">
+                <img src="{{ thumbnail.src }}" alt="{{ thumbnail.alt }}" loading="lazy" width="{{ thumbnail.width }}" height="{{ thumbnail.height }}">
+            </div>
+          {% endif %}
+          <div class="iastate22-card__content">
+            <h2 class="iastate22-card__title">
+              <a href="{{ featured_event.link }}" target="_blank">{{ featured_event.post_title }}</a>
+            </h2>
+            <div class="iastate22-card__body text-content">
+              {{ featured_event.excerpt }}
+              <time class="iastate22-card__time" datetime="{{ featured_event.event_date|date("M-d-Y") }}">{{ featured_event.event_date|date("M, d Y") }}</time>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="featured-events__listing">
+        <ul class="featured-events__listing-wrap">
+          {% set s = 0 %}
+          {% for event in upcoming_events %}
+            {% if s < 4 and event.id != featured_event.id %}
+              {# <pre>
+                {{ dump(event) }}
+              </pre> #}
+              {% set s = s+1 %}
+            <li class="featured-events__item">
+              <h4 class="featured-events__title">
+                <a href="{{ event.link }}" class="link-set__link iastate22-link-secondary">{{ event.post_title }}<span class="arrow"></span></a>
+              </h4>
+              <time datetime="{{ event.event_date|date("Y-m-d") }}">{{ event.event_date|date("M d, Y") }}</time>
+            </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

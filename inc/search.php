@@ -105,3 +105,19 @@ function add_my_var($public_query_vars) {
     $public_query_vars[] = 'starts_with';
     return $public_query_vars;
 }
+
+add_filter( 'rest_event_query', function( $args ) {
+
+    $ignore = array('page', 'per_page', 'search', 'order', 'orderby', 'slug');
+
+    foreach ( $_GET as $key => $value ) {
+      if (!in_array($key, $ignore)) {
+        $args['meta_query'][] = array(
+          'key'   => $key,
+          'value' => $value,
+        );
+      }
+    }
+
+    return $args;
+  });

@@ -1,0 +1,40 @@
+<div class="paragraph-widget paragraph-widget--card-set">
+    <div class="card-set">
+        <h2 class="card-set__title">{{ fields.title }}</h2>
+        <ul>
+            {% for evt in fields.featured_events %}
+                {% set event = Post(evt) %}
+                {% if event._thumbnail_id %}
+                    {% set thumbnail = Image(event._thumbnail_id) %}
+                {% endif %}
+            <li>
+                <div class="iastate22-card iastate22-card--event clickable">
+                    {% if thumbnail %}
+                        <div class="iastate22-card__media">
+                            <img src="{{ thumbnail.src }}" alt="{{ thumbnail.alt }}" loading="lazy" width="{{ thumbnail.width }}" height="{{ thumbnail.height }}">
+                        </div>
+                    {% endif %}
+                    <div class="iastate22-card__content">
+                        <h2 class="iastate22-card__title">
+                            <a href="{{ event.link }}}" target="_blank">{{ event.post_title }}</a>
+                        </h2>
+                        <div class="iastate22-card__body">
+                            <time class="iastate22-card__time" datetime="{{ event.event_date|date("Y-m-d") }}">
+                                {{ event.event_date|date("l, M d Y") }} at {{ event.event_date|date("g:ia") }}
+                                {# Wednesday, Jan 04 2023 from 1:00 pm to 2:00 pm #}
+                            </time>
+                            {% if event.terms('locations')|length > 0 %}
+                                <div class="iastate22-card__location">
+                                    {% for location in event.terms('locations') %}
+                                        {{ location.name }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>    
+</div>

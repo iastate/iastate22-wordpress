@@ -1,0 +1,81 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<div class="outer-pad">
+    {% include ['blocks/event-hero.twig'] %}
+    <div class="paragraph-widget paragraph-widget--event-details">
+        <div class="event-details">
+            <dl class="event-details__wrap">
+                {% if post.meta('event_date') %}
+                    {% set event_date = post.meta('event_date') %}
+                    <dt>
+                        <span class="icon-spec"></span>
+                        <span class="visible-for-screen-readers"></span>
+                    </dt>
+                    <dd>
+                        <p>{{ event_date|date('l, d M Y') }} at {{ event_date|date('g:ia') }}</p>
+                    </dd>
+                {% endif %}
+                {% if post.terms('locations')|length > 0 %}
+                    <dt>
+                        <span class="icon-spec"></span>
+                        <span class="visible-for-screen-readers"></span>
+                    </dt>
+                    <dd>
+                        {% for location in post.terms('locations') %}
+                            <p>{{ location.name }}</p>
+                        {% endfor %}
+                    </dd>
+                {% endif %}
+                {% if post.meta('cost') %}
+                    {% set cost = post.meta('cost') %}
+                    {% if cost.free == true %}
+                        {% set price = "Free" %}
+                    {% else %}
+                        {% set price = "$"~cost.cost %}
+                    {% endif %}
+                    <dt>
+                        <span class="icon-spec"></span>
+                        <span class="visible-for-screen-readers"></span>
+                    </dt>
+                    <dd>
+                        <p>{{ price }}</p>
+                    </dd>
+                {% endif %}
+                {% if post.meta('links') %}
+                    <dt>
+                        <span class="icon-spec"></span>
+                        <span class="visible-for-screen-readers"></span>
+                    </dt>
+                    <dd>
+                    {% for link in post.meta('links') %}
+                        {% if link.acf_fc_layout == "link" %}
+                            {% if link.link.target == "_blank" %}
+                                {% set classList = "link-set__link iastate22-link-external" %}
+                            {% else %}
+                                {% set classList = "link-set__link iastate22-link-secondary" %}
+                            {% endif %}
+                            
+                            <a href="{{ link.link.url }}" class="{{ classList }}">{{ link.link.title }}<span class="arrow"></span></a>
+                        {% elseif link.acf_fc_layout == "phone_number" %}
+                            <span class="event-details__phone-number">{{ link.phone_number }}</span>
+                        {% elseif link.acf_fc_layout == "tags" %}
+                            <div class="event-details__tags">
+                                {% for tag in tags %}
+                                    <a href="/event_tags/{{ tag.slug }}">{{ tag.name }}</a>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    </dd>
+                {% endif %}
+            </dl>
+        </div>
+        <div class="paragraph-widget paragraph-widget--text-content">
+            <div class="text-content">
+                {{ post.meta("event_content") }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

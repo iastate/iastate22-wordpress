@@ -332,7 +332,46 @@ function idf_acf_init() {
         'mode' => 'edit',
         'keywords' => array('Faculty', 'Staff', 'Hero'),
     ));
+
+    acf_register_block_type( array(
+        'name'  => 'featured-events',
+        'title' => __( 'Featured Event Cards'),
+        'description' => __( 'A curated block of events'),
+        'render_callback' => 'idf_acf_block_render_featured_events',
+        'supports' => array('align' => array('wide','full' )),
+        'category' => 'isu-blocks',
+        'align' => 'wide',
+        'icon' => 'align-wide',
+        'mode' => 'edit',
+        'keywords' => array('Events', 'Featured', 'Calendar', 'Dates'),
+    ));
+    acf_register_block_type( array(
+        'name'  => 'upcoming-events',
+        'title' => __( 'Upcoming Events'),
+        'description' => __( 'A listing of the next four upcoming events'),
+        'render_callback' => 'idf_acf_block_render_upcoming_events',
+        'supports' => array('align' => array('wide','full' )),
+        'category' => 'isu-blocks',
+        'align' => 'wide',
+        'icon' => 'align-wide',
+        'mode' => 'edit',
+        'keywords' => array('Events', 'Featured', 'Calendar', 'Dates'),
+    ));
+    acf_register_block_type( array(
+        'name'  => 'featured-event-with-calendar',
+        'title' => __( 'Featured Event with Calendar'),
+        'description' => __( 'A featured event card with a listing of the next four events'),
+        'render_callback' => 'idf_acf_block_render_featured_event_with_calendar',
+        'supports' => array('align' => array('wide','full' )),
+        'category' => 'isu-blocks',
+        'align' => 'wide',
+        'icon' => 'align-wide',
+        'mode' => 'edit',
+        'keywords' => array('Events', 'Featured', 'Calendar', 'Dates'),
+    ));
 }
+
+
 
 function idf_acf_block_render_landing_hero( $block, $content = '', $is_preview = false ) {
     $context = Timber::context();
@@ -561,6 +600,32 @@ function idf_acf_block_render_faculty_hero( $block, $content = '', $is_preview =
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/faculty-hero.twig', $context);
 }
+
+function idf_acf_block_render_featured_events( $block, $content = '', $is_preview = false ) {
+    $context = Timber::context();
+    $context['block'] = $block;
+    $context['fields'] = get_fields();
+    $context['is_preview'] = $is_preview;
+    Timber::render('templates/blocks/featured-events.twig', $context);
+}
+
+function idf_acf_block_render_upcoming_events( $block, $content = '', $is_preview = false ) {
+    $context = Timber::context();
+    $context['block'] = $block;
+    $context['fields'] = get_fields();
+    $context['is_preview'] = $is_preview;
+    Timber::render('templates/blocks/upcoming-events.twig', $context);
+}
+
+function idf_acf_block_render_featured_event_with_calendar( $block, $content = '', $is_preview = false ) {
+    $context = Timber::context();
+    $context['block'] = $block;
+    $context['fields'] = get_fields();
+    $context['is_preview'] = $is_preview;
+    Timber::render('templates/blocks/featured-event-with-calendar.twig', $context);
+}
+
+
 
 // Block Reset/Whitelist
 

@@ -95,6 +95,38 @@ class StarterSite extends Timber\Site {
 		if (function_exists('bcn_display')) {
 			$context['breadcrumbs'] = bcn_display(true);
 		}
+		$next_four = array(
+			'post_type' => 'events',
+			'meta_key' => 'event_date',
+			'posts_per_page' => 4,
+			'orderby' => 'meta_value',
+			'order' => 'ASC',
+			'meta_query'=> array(
+				array(
+				'key' => 'event_date',
+				'compare' => '>=',
+				'value' => date("Ymd"),
+				'type' => 'DATE'
+				)
+			)
+		);
+		$upcoming_events = array(
+			'post_type' => 'events',
+			'meta_key' => 'event_date',
+			'posts_per_page' => -1,
+			'orderby' => 'meta_value',
+			'order' => 'ASC',
+			'meta_query'=> array(
+				array(
+				'key' => 'event_date',
+				'compare' => '>=',
+				'value' => date("Ymd"),
+				'type' => 'DATE'
+				)
+			)
+		);
+		$context['next_four'] = new Timber\PostQuery($next_four);
+		$context['upcoming_events'] = new Timber\PostQuery($upcoming_events);
 		return $context;
 	}
 
