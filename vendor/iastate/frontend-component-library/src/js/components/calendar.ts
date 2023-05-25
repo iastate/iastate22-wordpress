@@ -10,10 +10,17 @@ export class EventCalendar {
   private element: HTMLElement;
   private eventCalendar: HTMLElement;
   private calendarHeader: HTMLElement;
+  private calendarSearch: HTMLInputElement;
+  private calendarCategories: HTMLSelectElement;
+  private calendarSearchButton: HTMLElement;
+  private featuredCheck: HTMLInputElement;
   private monthButton: HTMLButtonElement;
   private listButton: HTMLButtonElement;
   private calendar: any;
   private desktopView: string;
+  private pageUrl: string;
+  private apiRoot: string;
+  private searchTerms: Array<string>;
 
   constructor(element: HTMLElement) {
     if (!!element) {
@@ -23,6 +30,11 @@ export class EventCalendar {
       this.listButton = this.calendarHeader.querySelector(".calendar__views #list-btn");
       this.monthButton = this.calendarHeader.querySelector(".calendar__views #month-btn");
       this.desktopView = "dayGridMonth";
+      this.calendarSearch = this.element.querySelector(".calendar__search form #event-search");
+      this.calendarCategories = this.element.querySelector(".calendar__categories #event-categories");
+      this.calendarSearchButton = this.element.querySelector(".calendar__search form button[type=submit]");
+      this.featuredCheck = this.element.querySelector(".calendar__categories-toggle #featured-events");
+      this.searchTerms = ["", ""];
       this.init();
     }
   }
@@ -69,51 +81,20 @@ export class EventCalendar {
       viewDidMount: (arg) => {},
     });
     this.calendar.render();
-    this.calendar.addEvent({
-      title: "March 9th Event",
-      start: "2023-03-09 15:00",
-      resourceId: "1",
-      location: "University Library front lobby",
-      interactive: true,
-    });
-    this.calendar.addEvent({
-      title: "March 16 Event",
-      start: "2023-03-16",
-      resourceId: "2",
-      location: "Memorial Union Art Gallery",
-      interactive: true,
-      url: "https://idfive.com",
-    });
-    this.calendar.addEvent({
-      title: "April 12 Event",
-      start: "2023-04-12 20:30",
-      resourceId: "3",
-      url: "https://idfive.com",
-      location: "Parts Unknown",
-      interactive: true,
-    });
-    this.calendar.addEvent({
-      title: "Orioles Tickets!",
-      resourceId: "4",
-      start: "2023-05-19",
-      location: "Oriole Park at Camden Yards",
-      interactive: true,
-    });
-    this.calendar.addEvent({
-      title: "Aquarium Tickets!",
-      resourceId: "4",
-      start: "2023-05-19 16:00",
-      location: "Baltimore Aquarium",
-      interactive: true,
-    });
-    this.calendar.addEvent({
-      title: "Floating Holiday",
-      start: "2023-05-21",
-      resourceId: "5",
-      description: "I've got a day off! I've got a day off!",
-      location: "Unknown",
-      interactive: true,
-    });
+
+    // Api Settings
+    (this.pageUrl = window.location.protocol + "//" + window.location.host), (this.apiRoot = "/wp-json/wp/v2/");
+
+    // Forces the API location to look for the lando site if editing in Fractal
+    if (window.location.host.startsWith("localhost")) {
+      this.pageUrl = window.location.protocol + "//isu-wp-composer.lndo.site";
+    }
+    // console.log(this.pageUrl+this.apiRoot+'events');
+
+    fetch(this.pageUrl + this.apiRoot + "events")
+      .then((response) => response.json())
+      .then((json) => this.initCalendar(json))
+      .catch((err) => console.log(err));
     this.listButton.addEventListener("click", (e) => {
       this.changeCalendar(e.target, "listWeek");
     });
@@ -122,10 +103,88 @@ export class EventCalendar {
       this.changeCalendar(e.target, "dayGridMonth");
     });
 
+    this.calendarSearchButton.addEventListener("click", (e) => {
+      this.runSearch(e);
+    });
+    this.calendarCategories.addEventListener("change", (e) => {
+      this.runSearch(e);
+    });
+    this.featuredCheck.addEventListener("change", (e) => {
+      this.runSearch(e);
+    });
+
     window.addEventListener("resize", () => {
       this.breakpointCheck();
     });
     this.breakpointCheck();
+  }
+
+  private initCalendar(json) {
+    json.forEach((el, i) => {
+      if (this.featuredCheck.checked === true && el.acf.featured === true) {
+        this.addItem(el);
+      } else if (this.featuredCheck.checked === false) {
+        this.addItem(el);
+      }
+    });
+  }
+
+  private addItem(item) {
+    let imgUrl: string, loc: string, featureImg: Object;
+    if (item.featured_media) {
+      fetch(this.pageUrl + this.apiRoot + "media/" + item.featured_media)
+        .then((response) => response.json())
+        .then((json) => {
+          featureImg = json;
+        })
+        .catch((err) => console.log(err));
+    }
+
+    fetch(this.pageUrl + this.apiRoot + "locations/" + item.acf.location)
+      .then((response) => response.json())
+      .then((json) => this.aggregateEntry(item, json.name, featureImg))
+      .catch((err) => console.log(err));
+  }
+
+  private aggregateEntry(item, loc, fImg) {
+    let imgUrl: string = fImg !== undefined ? fImg.media_details.sizes.medium.source_url : undefined;
+
+    this.calendar.addEvent({
+      title: item.title.rendered,
+      start: item.acf.event_date,
+      resourceId: item.id,
+      description: item.excerpt.rendered,
+      location: loc,
+      interactive: true,
+      url: item.link,
+      thumbnail: imgUrl,
+    });
+  }
+
+  private runSearch(e) {
+    e.preventDefault();
+    let searchString: string = "";
+    this.searchTerms[0] = this.calendarSearch.value;
+    this.searchTerms[1] = this.calendarCategories.value;
+    // This feels dirty
+    if (this.searchTerms[0] !== "") {
+      searchString += "?search=" + this.searchTerms[0];
+    } else if (this.searchTerms[1] !== "") {
+      if (this.searchTerms[0] !== "") {
+        searchString += "&locations=" + this.searchTerms[1];
+      } else {
+        searchString += "?locations=" + this.searchTerms[1];
+      }
+    }
+    // console.log(this.pageUrl+this.apiRoot+'events'+searchString);
+    this.calendar.removeAllEvents();
+    fetch(this.pageUrl + this.apiRoot + "events" + searchString)
+      .then((response) => response.json())
+      .then((json) => this.initCalendar(json))
+      .catch((err) => console.log(err));
+    this.listButton.addEventListener("click", (e) => {
+      this.changeCalendar(e.target, "listWeek");
+    });
   }
 
   private breakpointCheck() {
@@ -157,8 +216,14 @@ export class EventCalendar {
       ct = document.createElement("div");
 
     contentArea.classList.add("event-listing");
-    contentArea.innerHTML +=
-      "<div class='event-listing__image'><img src='http://placekitten.com/200/300' alt='placekitteh'/></div>";
+    if (arg.event.extendedProps.thumbnail !== undefined) {
+      contentArea.innerHTML +=
+        "<div class='event-listing__image'><img src='" +
+        arg.event.extendedProps.thumbnail +
+        "' alt='" +
+        "alt" +
+        "'/></div>";
+    }
     contentArea.innerHTML += "<div class='event-listing__content'></div>";
     let contentBlock = contentArea.querySelector(".event-listing__content");
     if (arg.event.url) {

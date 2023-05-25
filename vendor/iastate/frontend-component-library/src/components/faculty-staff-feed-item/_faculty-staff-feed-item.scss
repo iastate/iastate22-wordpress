@@ -31,12 +31,14 @@
   }
   .faculty-staff-feed-item__content {
     margin: auto 0;
+    width: 100%;
     .faculty-staff-feed-item__content-contact {
-      height: rem(200);
+      min-height: rem(200);
       padding-left: 0;
       padding-right: 0;
       display: block;
       @include media-breakpoint-up(sm) {
+        height: rem(200);
         display: flex;
         flex-flow: column wrap;
         gap: rem(10);
@@ -45,8 +47,11 @@
         color: $iastate-maroon;
         margin: 0;
         font-weight: 700;
-        width: 50%;
+        width: 100%;
         display: flex;
+        @include media-breakpoint-up(sm) {
+          width: 50%;
+        }
         .fa-iastate22-email,
         .fa-iastate22-phone {
           color: $iastate-maroon;
