@@ -29,7 +29,13 @@ function the_breadcrumb()
             }
             echo $before . single_cat_title('', false) . $after;
         } elseif (is_search()) {
-            echo $before . 'Search results for "' . get_search_query() . '"' . $after;
+            if($post->post_type === 'profiles' && get_search_query() === "") {
+                echo $before . 'Profiles' . $after;
+            } else if($post->post_type === 'post' && get_search_query() === "") {
+                echo $before . 'News' . $after;
+            } else {
+                echo $before . 'Search results for "' . get_search_query() . '"' . $after;
+            }
         } elseif (is_day()) {
             echo '<li><a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a></li> ';
             echo '<li><a href="' . get_month_link(get_the_time('Y'), get_the_time('m')) . '">' . get_the_time('F') . '</a></li>';

@@ -84,9 +84,32 @@
             </div>
         </div>
     {% endif %}
-
     <div class="personal-profile-body">
-        {{post.content}}
+        <div class="text-content">
+            {{post.content}}
+        </div>
     </div>
+    <div class="paragraph-widget paragraph-widget--text-html">
+        <div class="text-content">
+            <h3>Taxonomy A</h3>
+            <div>
+                {% for term in post.terms %}
+                    {% if term.slug == tax_a[0].slug %}
+                        <a href="{{ term.link }}">{{ term.name }}</a>   
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <h3>Taxonomy B</h3>
+            <div>
+                {% for term in post.terms %}
+                    {% if term.slug == tax_b[0].slug %}
+                        <a href="{{ term.link }}">{{ term.name }}</a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    
 </div>
 {% endblock %}

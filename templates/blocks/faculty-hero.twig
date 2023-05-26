@@ -1,6 +1,6 @@
 {% set bits = range('A','Z') %}
 {% set activeLetters = [] %}
-{% for post in posts %}
+{% for post in allposts %}
     {% set activeLetters = activeLetters|merge([post.meta('first_name')|first|lower]) %}
 {% endfor %}
 <div class="faculty-staff-directory-header">
@@ -22,8 +22,8 @@
                     <form class="iastate22-form iastate22-form--inline" id="searchform" action="{{ site.link }}/profiles/" method="get">
                         <input type="hidden" name="post_type" value="profiles" tabindex="-1"/>
                         {% if "a-z" in options.search_filters.search_filters.filters %}
-                            {% set activLtr = function('get_query_var', 'starts_with') %}
-                            <input type="hidden" name="starts_with" id="starts_with" value="{{ activLtr }}" tabindex="-1"/>
+                            {% set activLtr = function('get_query_var', 'search_letter') %}
+                            <input type="hidden" name="search_letter" id="search_letter" value="{{ activLtr }}" tabindex="-1"/>
                         {% endif %}
                     <div class="form-item">
                         <label for="s">Search</label>
@@ -64,7 +64,8 @@
                         </button>
                     </div>
                     </form>
-                    <div class="filter-form-results">About {{ posts.found_posts }} Results &bull;</div>
+                    <div class="filter-form-results">About {{ posts.found_posts }} Results &bull;<button type="reset">Reset</button></div>
+
                 </div>
             </div>
         {% elseif fltr == "a-z" %}
@@ -92,92 +93,15 @@
                            {% endif %}
                         </li>
                     {% endfor %}
-                    {# <li>
-                        <a class="a-z-index-letter-list__active" href="https://www.iastate.edu/">A</a>
-                    </li>
-                    <li>
-                        <a href="https://www.iastate.edu/">B</a>
-                    </li>
-                    <li>
-                        <a href="https://www.iastate.edu/">C</a>
-                    </li>
-                    <li>
-                        <a href="https://www.iastate.edu/">D</a>
-                    </li>
-                    <li>
-                        <a href="https://www.iastate.edu/">E</a>
-                    </li>
-                    <li>
-                        <a href="https://www.iastate.edu/">F</a>
-                    </li>
-                    <li>
-                        <a href="https://www.iastate.edu/">G</a>
-                    </li>
-                    <li>
-                        <a href="https://www.iastate.edu/">H</a>
-                    </li>
-                    <li>
-                        <a href="https://www.iastate.edu/">I</a>
-                    </li>
-                    <li>
-                        <a href="https://www.iastate.edu/">J</a>
-                    </li>
-                    <li>
-                        <a href="https://www.iastate.edu/">K</a>
-                    </li>
-                    <li>
-                        <a href="https://www.iastate.edu/">L</a>
-                    </li>
-                    <li>
-                        <a href="https://www.iastate.edu/">M</a>
-                    </li>
-                    <li>
-                        <a href="https://www.iastate.edu/">N</a>
-                    </li>
-                    <li>
-                        <a href="https://www.iastate.edu/">O</a>
-                    </li>
-                    <li>
-                        <a href="https://www.iastate.edu/">P</a>
-                    </li>
-                    <li>
-                        <a href="https://www.iastate.edu/">Q</a>
-                    </li>
-                    <li>
-                        <a href="https://www.iastate.edu/">R</a>
-                    </li>
-                    <li>
-                        <a href="https://www.iastate.edu/">S</a>
-                    </li>
-                    <li>
-                        <a href="https://www.iastate.edu/">T</a>
-                    </li>
-                    <li>
-                        <a href="https://www.iastate.edu/">U</a>
-                    </li>
-                    <li>
-                        <a href="https://www.iastate.edu/">V</a>
-                    </li>
-                    <li>
-                        <a href="https://www.iastate.edu/">W</a>
-                    </li>
-                    <li>
-                        <span>X</span>
-                    </li>
-                    <li>
-                        <a href="https://www.iastate.edu/">Y</a>
-                    </li>
-                    <li>
-                        <a href="https://www.iastate.edu/">Z</a>
-                    </li> #}
                 </ul>
             </div>
 
             <script type="text/javascript">
                 console.log("If you see this, it needs to be moved to the front end library");
                 let frm = document.querySelector('#searchform'),
-                    activLetter = frm.querySelector('input[name=starts_with]'),
-                    btn = document.querySelectorAll('.a-z-index-letter-list a');
+                    activLetter = frm.querySelector('input[name=search_letter]'),
+                    btn = document.querySelectorAll('.a-z-index-letter-list a'),
+                    reset = document.querySelector('.filter-form-results button[type=reset]');
 
                 btn.forEach(function(el, i) {
                     el.addEventListener('click', function(e) {
@@ -185,6 +109,23 @@
                         activLetter.setAttribute('value', e.target.textContent);
                         frm.submit();
                     });
+                });
+
+                reset.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    let srch = frm.querySelector('input#s'),
+                        selct = frm.querySelectorAll('select');
+                    srch.setAttribute('value', '');
+                    activLetter.setAttribute('value', '');
+                    selct.forEach((el, i)=> {
+                        el.querySelectorAll('option').forEach((o, i)=> {
+                            o.removeAttribute('selected');
+                        });
+                        el.value = "";
+                        el.selectedIndex = 0;
+                    });
+                    frm.reset();
+                    frm.submit();
                 });
             </script>
         {% endif %}
