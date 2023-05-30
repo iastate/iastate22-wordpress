@@ -89,25 +89,27 @@
             {{post.content}}
         </div>
     </div>
-    <div class="paragraph-widget paragraph-widget--text-html">
-        <div class="text-content">
-            <h3>Taxonomy A</h3>
-            <div>
-                {% for term in post.terms %}
-                    {% if term.slug == tax_a[0].slug %}
-                        <a href="{{ term.link }}">{{ term.name }}</a>   
+    <div class="paragraph-widget paragraph-widget--article-category-tags">
+        <h4 class="category-title">{{ tax_a[0].name }}</h4>
+        <ul class="category-tags">
+            {% for term in post.terms %}
+                    {% if term.taxonomy == tax_a[0].taxonomy %}
+                        <li>
+                            <a href="{{ term.link }}">{{ term.name }}</a>
+                        </li>   
                     {% endif %}
-                {% endfor %}
-            </div>
-            <h3>Taxonomy B</h3>
-            <div>
-                {% for term in post.terms %}
-                    {% if term.slug == tax_b[0].slug %}
+            {% endfor %}
+        </ul>
+        <h4 class="category-title">{{ tax_b[0].name }}</h4>
+        <ul class="category-tags">
+            {% for term in post.terms %}
+                {% if term.taxonomy == tax_b[0].taxonomy %}
+                    <li>
                         <a href="{{ term.link }}">{{ term.name }}</a>
-                    {% endif %}
-                {% endfor %}
-            </div>
-        </div>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
     </div>
 
     

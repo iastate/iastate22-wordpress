@@ -1,46 +1,31 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<div class="content-wrapper">
-		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
-			<div class="outer-pad">
-				<section class="article-content">
-					<div class="article-header hero">
-						<div class="hero__text-wrap">
-							{% include ['templates/partial/breadcrumbs.twig'] %}
-							<h1 class="hero__title">{{ post.title }}</h1>
-						</div>
-						
-						{% if post.meta("use_featured_image_as_hero") == "false" %}
-							{% if post.hero_image %}
-							<div class="hero__media">
-								<img src="{{ Image(post.hero_image).src|resize(2000, 500) }}" alt="{{ Image(post.hero_image).alt }}">
-							</div>
-							{% endif %}
-						{% else %}
-							<div class="hero__media">
-								<img src="{{ post.thumbnail.src|resize(2000, 500) }}">
-							</div>
-						{% endif %}
-						
-						<div class="blog-author">
-							<i>
-								{% if show_author == true %}
-									<span>By </span><a href="{{post.author.path}}" class="link-set__link link-tertiary"> {{ post.author.name }} </a><span> &bull;</span> 
-								{% endif %}
-								{{ post.date }}
-							</i>
-						</div>
-					</div>
-					<div class="article-body">
-						{{post.content}}
-					</div>
+	<div class="outer-pad">
+		<p class="iastate-article__back-btn"><a href="#">All Articles</a></p>
+		<div class="hero--news-article text-content">
+			<h1 class="hero--news-article__headline">{{ post.title }}</h1>
+			{% if post.excerpt %}
+				<h2 class="hero--news-article__subhead">{{ post.excerpt }}</h2>
+			{% endif %}
+			<div class="hero--news-article__attribution"><p><strong>Author: {{ post.author.name }}</strong> | Image: {{ post.author.name }}</p></div>
+			{% if post.meta("use_featured_image_as_hero") == "false" %}
+			{% if post.hero_image %}
+				<div class="hero--news-article__media">
+					<img src="{{ Image(post.hero_image).src|resize(2000, 500) }}" alt="{{ Image(post.hero_image).alt }}">
+				</div>
+				{% endif %}
+			{% else %}
+				<div class="hero--news-article__media">
+					<img src="{{ post.thumbnail.src|resize(2000, 500) }}">
+				</div>
+			{% endif %}
+		</div>
+		{% include "partial/share.twig" %}
+		{{post.content}}
 
-					<div class="article-category-tag">
-						{% include ['templates/partial/post-category-tag.twig'] %}
-					</div>
-				</section>
-			</div>
-		</article>
-	</div><!-- /content-wrapper -->
+		<div class="paragraph-widget paragraph-widget--article-category-tags">
+			{% include ['templates/partial/post-category-tag.twig'] %}
+		</div>
+	</div><!-- /outer pad -->
 {% endblock %}

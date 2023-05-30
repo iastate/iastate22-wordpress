@@ -6,6 +6,7 @@
     
   <div class="outer-pad">
     {% if function('get_query_var', 'post_type') == 'profiles' %}
+      {% include ['blocks/faculty-hero.twig'] with { reset: true } %}
       {% include ['partial/profile-search.twig'] %}
     {% else %}
     {% include ['blocks/news-hero.twig'] %}
@@ -34,7 +35,7 @@
       <h2>No posts found</h2>
     {% endif %}
     </div> #}
-    {% include ['templates/partial/news-filter.twig'] %}
+    {% include ['templates/partial/news-filter.twig'] with { reset: true } %}
     {% include ['templates/loops/loop-posts.twig'] %}
     {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
     {% endif %}
