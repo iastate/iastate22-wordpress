@@ -56,10 +56,12 @@
   }
   .filter-form-results {
     color: $white;
+    flex: 1 0 100%;
     a,
     button {
       color: $white;
       font-style: italic;
+      font-size: 1rem;
     }
     button {
       text-decoration: underline;

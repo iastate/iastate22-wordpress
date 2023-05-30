@@ -22,6 +22,7 @@ import initCollegeHeroes from "./pages/college-template";
 import AccessibilityUtilities from "./utilities/accessibility";
 import scrollPaddingTopInit from "./utilities/scroll-padding-top";
 import calendarInit from "./components/calendar";
+import searchInit from "./components/search";
 
 /**
  * Init
@@ -45,3 +46,4 @@ carouselsInit();
 scrollPaddingTopInit();
 sortableTableInit();
 calendarInit();
+searchInit();

@@ -43,28 +43,7 @@
                 <button type="submit">Search<span class="arrow"></span>
                 </button>
             </div>
-            <p class="filter-form-results">About {{ posts.found_posts }} Results • <button type="reset">Reset</button></p>
+            <p class="filter-form-results">About {{ posts.found_posts }} Results •{% if reset == true %} <button type="reset">Reset</button>{% endif %}</p>
         </form>
-        <script type="text/javascript">
-                console.log("If you see this, it needs to be moved to the front end library");
-                let frm = document.querySelector('#searchform'),
-                    reset = document.querySelector('.filter-form-results button[type=reset]');
-
-                reset.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    let srch = frm.querySelector('input#s'),
-                        selct = frm.querySelectorAll('select');
-                    srch.setAttribute('value', '');
-                    selct.forEach((el, i)=> {
-                        el.querySelectorAll('option').forEach((o, i)=> {
-                            o.removeAttribute('selected');
-                        });
-                        el.value = "";
-                        el.selectedIndex = 0;
-                    });
-                    frm.reset();
-                    frm.submit();
-                });
-            </script>
     </div>
 </div>

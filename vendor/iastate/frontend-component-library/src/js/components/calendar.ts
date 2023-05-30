@@ -148,7 +148,7 @@ export class EventCalendar {
 
   private aggregateEntry(item, loc, fImg) {
     let imgUrl: string = fImg !== undefined ? fImg.media_details.sizes.medium.source_url : undefined;
-
+    console.log(imgUrl);
     this.calendar.addEvent({
       title: item.title.rendered,
       start: item.acf.event_date,

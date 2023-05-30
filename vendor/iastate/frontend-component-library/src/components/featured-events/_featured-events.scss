@@ -55,6 +55,7 @@
 .featured-events__listing {
   @include media-breakpoint-up(lg) {
     margin-left: 7%;
+    flex: 1 0 auto;
   }
 }
 

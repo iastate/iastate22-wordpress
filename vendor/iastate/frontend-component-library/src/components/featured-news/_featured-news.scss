@@ -24,6 +24,7 @@
         border-bottom: none;
         padding-right: rem(50);
         border-right: solid rem(3) $light-grey;
+        flex: 1 0 auto;
       }
       .featured-news__large-article__container {
         position: relative;

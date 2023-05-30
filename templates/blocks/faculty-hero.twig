@@ -64,8 +64,7 @@
                         </button>
                     </div>
                     </form>
-                    <div class="filter-form-results">About {{ posts.found_posts }} Results &bull;<button type="reset">Reset</button></div>
-
+                    <div class="filter-form-results">About {{ posts.found_posts }} Results &bull;{% if reset == true %} <button type="reset">Reset</button>{% endif %}</div>
                 </div>
             </div>
         {% elseif fltr == "a-z" %}
@@ -95,39 +94,6 @@
                     {% endfor %}
                 </ul>
             </div>
-
-            <script type="text/javascript">
-                console.log("If you see this, it needs to be moved to the front end library");
-                let frm = document.querySelector('#searchform'),
-                    activLetter = frm.querySelector('input[name=search_letter]'),
-                    btn = document.querySelectorAll('.a-z-index-letter-list a'),
-                    reset = document.querySelector('.filter-form-results button[type=reset]');
-
-                btn.forEach(function(el, i) {
-                    el.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        activLetter.setAttribute('value', e.target.textContent);
-                        frm.submit();
-                    });
-                });
-
-                reset.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    let srch = frm.querySelector('input#s'),
-                        selct = frm.querySelectorAll('select');
-                    srch.setAttribute('value', '');
-                    activLetter.setAttribute('value', '');
-                    selct.forEach((el, i)=> {
-                        el.querySelectorAll('option').forEach((o, i)=> {
-                            o.removeAttribute('selected');
-                        });
-                        el.value = "";
-                        el.selectedIndex = 0;
-                    });
-                    frm.reset();
-                    frm.submit();
-                });
-            </script>
         {% endif %}
     {% endfor %}
 </div>
