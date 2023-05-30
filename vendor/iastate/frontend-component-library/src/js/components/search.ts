@@ -18,8 +18,6 @@ export class Search {
   }
 
   private init() {
-    console.log("Elephant:");
-    console.log(this.element);
     if (!!this.alphaBar) {
       this.letterButtons = this.alphaBar.querySelectorAll("a");
       this.letterButtons.forEach((el, i) => {

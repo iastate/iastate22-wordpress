@@ -9229,6 +9229,9 @@ a.grid-list__item {
 .event-listing__location {
   font-style: italic; }
 
+.event-listing__desc {
+  color: #7c2529; }
+
 /*---===/ Month View \===---*/
 .fc-dayGridMonth-view .event-listing {
   position: absolute;

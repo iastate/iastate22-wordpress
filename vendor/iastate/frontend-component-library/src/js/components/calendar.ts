@@ -89,7 +89,7 @@ export class EventCalendar {
     if (window.location.host.startsWith("localhost")) {
       this.pageUrl = window.location.protocol + "//isu-wp-composer.lndo.site";
     }
-    // console.log(this.pageUrl+this.apiRoot+'events');
+    console.log(this.pageUrl + this.apiRoot + "events");
 
     fetch(this.pageUrl + this.apiRoot + "events")
       .then((response) => response.json())

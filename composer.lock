@@ -218,12 +218,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:iastate/iastate22-frontend.git",
-                "reference": "377540cc63ef04968f202fd1b06f6cba4104035f"
+                "reference": "76a43033e5b648837fc5a97323fc7da3983dc0f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/iastate/iastate22-frontend/zipball/377540cc63ef04968f202fd1b06f6cba4104035f",
-                "reference": "377540cc63ef04968f202fd1b06f6cba4104035f",
+                "url": "https://api.github.com/repos/iastate/iastate22-frontend/zipball/76a43033e5b648837fc5a97323fc7da3983dc0f1",
+                "reference": "76a43033e5b648837fc5a97323fc7da3983dc0f1",
                 "shasum": ""
             },
             "default-branch": true,
@@ -244,7 +244,7 @@
                 }
             ],
             "description": "Frontend component library for Iowa State University.",
-            "time": "2023-05-30T20:15:54+00:00"
+            "time": "2023-05-30T20:54:37+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
