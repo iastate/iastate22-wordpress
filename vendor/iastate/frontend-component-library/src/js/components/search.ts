@@ -18,6 +18,8 @@ export class Search {
   }
 
   private init() {
+    console.log(this.element);
+    console.log(this.form);
     if (!!this.alphaBar) {
       this.letterButtons = this.alphaBar.querySelectorAll("a");
       this.letterButtons.forEach((el, i) => {
@@ -28,7 +30,9 @@ export class Search {
     }
 
     if (!!this.resetButton) {
+      console.log("Reset Button Exists");
       this.resetButton.addEventListener("click", (e) => {
+        console.log("Clicky!");
         this.reset(e);
       });
     }
