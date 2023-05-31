@@ -20,6 +20,7 @@ export class Search {
   private init() {
     console.log(this.element);
     console.log(this.form);
+    console.log(this.resetButton);
     if (!!this.alphaBar) {
       this.letterButtons = this.alphaBar.querySelectorAll("a");
       this.letterButtons.forEach((el, i) => {

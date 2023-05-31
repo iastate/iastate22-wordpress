@@ -13362,7 +13362,8 @@ form.gsc-search-box {
     .paragraph-widget--filter-form .filter-form-results button {
       text-decoration: underline;
       background-color: transparent;
-      border: none; }
+      border: none;
+      cursor: pointer; }
   .faculty-staff-directory-header .filter-form-results .facetwp-counts,
   .paragraph-widget--filter-form .filter-form-results .facetwp-counts {
     display: inline; }
