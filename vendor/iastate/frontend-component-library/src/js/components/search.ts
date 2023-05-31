@@ -12,15 +12,12 @@ export class Search {
       this.form = this.element as HTMLFormElement;
       this.activeLetter = this.element.querySelector("input[name=search_letter]");
       this.alphaBar = document.querySelector(".a-z-index-letter-list");
-      this.resetButton = this.element.querySelector(".filter-form-results button[type=reset]");
+      this.resetButton = this.element.parentElement.querySelector(".filter-form-results button[type=reset]");
       this.init();
     }
   }
 
   private init() {
-    console.log(this.element);
-    console.log(this.form);
-    console.log(this.resetButton);
     if (!!this.alphaBar) {
       this.letterButtons = this.alphaBar.querySelectorAll("a");
       this.letterButtons.forEach((el, i) => {
@@ -31,9 +28,7 @@ export class Search {
     }
 
     if (!!this.resetButton) {
-      console.log("Reset Button Exists");
       this.resetButton.addEventListener("click", (e) => {
-        console.log("Clicky!");
         this.reset(e);
       });
     }
