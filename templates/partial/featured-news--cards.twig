@@ -29,22 +29,30 @@
         <div class="featured-news__small-article">
         {% for card in options.news_page_options.featured_card_stories %}
             {% set story = Post(card) %}
-            {% if Image(story._thumbnail_id) %}
+            {% if story._thumbnail_id != false %}
                 {% set thumbNail = Image(story._thumbnail_id) %}
-            {% elseif Image(story._hero_image)%}
-                {% set thumbNail = Image(story._hero_image) %}
+            {% elseif story.meta('hero_image') != false %}
+                {% set thumbNail = Image(story.meta('hero_image')) %}
+            {% else %}
+                {% set thumbNail = false %}
             {% endif %}
             <div class="featured-news__small-article__container">    
-                <div class="featured-news__small-article__image-container">
+                {% if thumbNail != false %}
+                    <div class="featured-news__small-article__image-container">
                         <img class="featured-news__small-article__image" src="{{ thumbNail.src|striptags }}" alt="{{ thumbNail.alt|striptags }}">
-                    {% if thumbNail %}
-                    {% endif %}
-                </div>
-                <div class="featured-news__small-article__tags">
-                    <ul>
-                        <li> Dolore Ipsum Category </li>
-                    </ul>
-                </div>
+                    </div>
+                {% endif %}
+                {% if story.terms|length > 0 %}
+                    <div class="featured-news__small-article__tags">
+                        <ul>
+                            {% for term in story.terms %}
+                                {% if term.taxonomy == "category" %}
+                                    <li>{{ term.name }}</li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
                 <h2 class="featured-news__small-article__title"><a href="{{ story.link }}" class="iastate22-link-secondary">{{ story.post_title }}<span class="arrow"></span></a></h2>
                 <p class="featured-news__date">{{ story.post_date|date("F, d Y") }}</p>
             </div>
