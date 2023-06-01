@@ -1501,6 +1501,7 @@ a.site-header__mega-menu-main-nav-dropdown-parent {
   max-width: rem(275);
   display: inline-block;
   text-decoration: none;
+  pointer-events: none;
 
   @include media-breakpoint-up(xl) {
     position: static;
@@ -1509,6 +1510,7 @@ a.site-header__mega-menu-main-nav-dropdown-parent {
     line-height: (23 / 16);
     font-weight: 700;
     margin-top: rem(6);
+    pointer-events: all;
   }
 
   .headroom--unpinned & {
@@ -1524,6 +1526,7 @@ a.site-header__mega-menu-main-nav-dropdown-parent {
   .site-header-open & {
     opacity: 1;
     z-index: 1;
+    pointer-events: all;
   }
 }
 .site-header__website-title {
@@ -1558,6 +1561,11 @@ a.site-header__mega-menu-main-nav-dropdown-parent {
       display: block;
       margin: 0;
     }
+    a {
+      .site-header-open & {
+        pointer-events: all;
+      }
+    }
   }
   a {
     color: currentColor;
@@ -1569,6 +1577,9 @@ a.site-header__mega-menu-main-nav-dropdown-parent {
         color: $iastate-red;
         text-decoration: none;
       }
+    }
+    .site-header-open & {
+      pointer-events: none;
     }
   }
 }
