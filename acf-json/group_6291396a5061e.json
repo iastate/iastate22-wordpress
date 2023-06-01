@@ -217,7 +217,7 @@
         },
         {
             "key": "field_64626d9b8fff0",
-            "label": "Faculty Search Page",
+            "label": "Directory Search",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -547,5 +547,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1684518361
+    "modified": 1685636232
 }

@@ -23,6 +23,7 @@ $taxB = get_query_var("taxonomy_b");
 $tax_query = array();
 $meta_query = array();
 
+
 if(strlen($taxB) > 0) {
     $tax_query = array( 
         'relation' => 'AND',

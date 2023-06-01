@@ -12,55 +12,77 @@
 $templates = array( 'search.twig' );
 $context          = Timber::context();
 $context['title'] = 'Search results for: ' . get_search_query();
+$paramArray = array();
+$tq = array();
+foreach($_GET as $key => $value){
+    if($key !== "post_type" && $key !== "search_letter" && $key !== "s" && strlen($value)) {
+        array_push($paramArray, [$key, $value]);
+    }
+}
 if(get_query_var("post_type") == "profiles") {
     $search_letter = $_GET["search_letter"];
-    $taxA = get_query_var("taxonomy_a");
-    $taxB = get_query_var("taxonomy_b");
+    // $taxA = get_query_var("taxonomy_a");
+    // $taxB = get_query_var("taxonomy_b");
     $tax_query = array();
     $meta_query = array();
+
+    foreach($paramArray as $tax) {
+        array_push($tq, array(
+            'taxonomy' => $tax[0],
+            'field' => 'slug',
+            'terms' => $tax[1],
+        ));
+    }
+ 
+    // if(strlen($taxB) > 0) {
+    //     $tax_query = array( 
+    //         'relation' => 'AND',
+    //         array(
+    //             'taxonomy' => 'taxonomy_b',
+    //             'field' => 'slug',
+    //             'terms' => $taxB,
+    //         )
+    //     );
+    // }
     
-    if(strlen($taxB) > 0) {
+    // if(strlen($taxA) > 0) {
+    //     if(strlen($taxB) > 0) {
+    //         $tax_query = array( 
+    //             'relation' => 'AND',
+    //             array(
+    //                 'taxonomy' => 'taxonomy_a',
+    //                 'field' => 'slug',
+    //                 'terms' => $taxA,
+    //             ),
+    //             array(
+    //                 'taxonomy' => 'taxonomy_b',
+    //                 'field' => 'slug',
+    //                 'terms' => $taxB,
+    //             )
+    //             );
+    //     } else {
+    //         $tax_query = array( 
+    //             'relation' => 'AND',
+    //             array(
+    //                 'taxonomy' => 'taxonomy_a',
+    //                 'field' => 'slug',
+    //                 'terms' => $taxA,
+    //             )
+    //             );
+    //     }
+    // }
+
+    if(count($paramArray) > 0) {
         $tax_query = array( 
             'relation' => 'AND',
-            array(
-                'taxonomy' => 'taxonomy_b',
-                'field' => 'slug',
-                'terms' => $taxB,
-            )
+            $tq
         );
-    }
-    
-    if(strlen($taxA) > 0) {
-        if(strlen($taxB) > 0) {
-            $tax_query = array( 
-                'relation' => 'AND',
-                array(
-                    'taxonomy' => 'taxonomy_a',
-                    'field' => 'slug',
-                    'terms' => $taxA,
-                ),
-                array(
-                    'taxonomy' => 'taxonomy_b',
-                    'field' => 'slug',
-                    'terms' => $taxB,
-                )
-                );
-        } else {
-            $tax_query = array( 
-                'relation' => 'AND',
-                array(
-                    'taxonomy' => 'taxonomy_a',
-                    'field' => 'slug',
-                    'terms' => $taxA,
-                )
-                );
-        }
     }
 
     if(strlen($search_letter) > 0) {
         $meta_query = array(
             array(
-                'key' => 'first_name',
+                'key' => 'last_name',
                 'value' => "^[".$search_letter."]",
                 'compare' => 'REGEXP'
             )
@@ -87,7 +109,7 @@ if(get_query_var("post_type") == "profiles") {
         'meta_query' => $meta_query
     );
     $context['posts'] = new Timber\PostQuery($arr);
-    $context['allposts'] = new Timber\PostQuery($arr);
+    $context['allposts'] = new Timber\PostQuery($argh);
     // This works for the search filter, but not the search query or Taxonomies. 
 } else {
     $context['posts'] = new Timber\PostQuery();

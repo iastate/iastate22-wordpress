@@ -90,6 +90,19 @@ class StarterSite extends Timber\Site {
 		$context['site']  = $this;
 		$context['tax_a'] = Timber::get_terms('taxonomy_a');
 		$context['tax_b'] = Timber::get_terms('taxonomy_b');
+		$profileTax = get_object_taxonomies(array('post_type' => 'profiles'), 'objects');
+		$profileTerms = array();
+		foreach($profileTax as $item) {
+			$slug = $item->name;
+			$terms = get_terms( array(
+				'taxonomy' => $item->name,
+				'hide_empty' => $slug,
+			) );
+			array_push($profileTerms, $terms);
+		}
+		$context['profile_tax'] = $profileTax;
+		$context['profile_terms'] = $profileTerms;
+		$context['post_tax'] = get_object_taxonomies(array('post_type' => 'post'), 'objects');
 		$context['categories'] = Timber::get_terms('categories');
 		$context['tags'] = Timber::get_terms('tags');
 		if (function_exists('bcn_display')) {
