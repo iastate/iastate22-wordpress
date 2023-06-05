@@ -1,0 +1,151 @@
+{
+    "key": "group_647e2d417c4ab",
+    "title": "Featured News",
+    "fields": [
+        {
+            "key": "field_647e2d417f608",
+            "label": "Feature Type",
+            "name": "feature_type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Use this field to set the display type of the featured images sidebar. Cards display 2 stories while Lists show 4.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "cards": "Cards",
+                "list": "List"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_647e2d417f665",
+            "label": "Main Featured Story",
+            "name": "main_featured_story",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type",
+                "taxonomy"
+            ],
+            "return_format": "object",
+            "min": 1,
+            "max": 1,
+            "elements": ""
+        },
+        {
+            "key": "field_647e2d417f6ba",
+            "label": "Featured Stories",
+            "name": "featured_card_stories",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "Select up to 2 featured stories",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_647e2d417f608",
+                        "operator": "==",
+                        "value": "cards"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type",
+                "taxonomy"
+            ],
+            "return_format": "object",
+            "min": 1,
+            "max": 2,
+            "elements": ""
+        },
+        {
+            "key": "field_647e2d417f700",
+            "label": "Featured Stories",
+            "name": "featured_list_stories",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "Select up to 4 featured stories",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_647e2d417f608",
+                        "operator": "==",
+                        "value": "list"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type",
+                "taxonomy"
+            ],
+            "return_format": "object",
+            "min": 2,
+            "max": 4,
+            "elements": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/featured-news"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1685991493
+}

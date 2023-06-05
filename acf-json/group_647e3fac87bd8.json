@@ -1,11 +1,11 @@
 {
-    "key": "group_6467976843360",
-    "title": "News Page",
+    "key": "group_647e3fac87bd8",
+    "title": "Recent Articles Block",
     "fields": [
         {
-            "key": "field_6467a0fdd0303",
-            "label": "News Hero Title",
-            "name": "hero_title",
+            "key": "field_647e3fac8a139",
+            "label": "Recent Articles Title",
+            "name": "section_title",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -23,12 +23,12 @@
             "append": ""
         },
         {
-            "key": "field_64679768da670",
-            "label": "News Hero Image",
-            "name": "hero_image",
+            "key": "field_647e4166f2513",
+            "label": "",
+            "name": "",
             "aria-label": "",
-            "type": "image",
-            "instructions": "Optional. Add a hero image to the news listing page using the field below.",
+            "type": "message",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -36,24 +36,17 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "preview_size": "medium"
+            "message": "This block will display the three most recent news stories. No additional settings are required at this time.",
+            "new_lines": "wpautop",
+            "esc_html": 0
         }
     ],
     "location": [
         [
             {
-                "param": "page_type",
+                "param": "block",
                 "operator": "==",
-                "value": "posts_page"
+                "value": "acf\/recent-articles"
             }
         ]
     ],
@@ -66,5 +59,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1685997710
+    "modified": 1685996410
 }

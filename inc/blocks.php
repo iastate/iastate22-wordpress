@@ -369,6 +369,42 @@ function idf_acf_init() {
         'mode' => 'edit',
         'keywords' => array('Events', 'Featured', 'Calendar', 'Dates'),
     ));
+    acf_register_block_type( array(
+        'name'  => 'featured-news',
+        'title' => __( 'Featured News'),
+        'description' => __( 'A featured news block with the option to switch between a two and form item side feed.'),
+        'render_callback' => 'idf_acf_block_render_featured_news',
+        'supports' => array('align' => array('wide','full' )),
+        'category' => 'isu-blocks',
+        'align' => 'wide',
+        'icon' => 'align-wide',
+        'mode' => 'edit',
+        'keywords' => array('News', 'Featured'),
+    ));
+    acf_register_block_type( array(
+        'name'  => 'recent-articles',
+        'title' => __( 'Recent News Cards'),
+        'description' => __( 'A set of up to three cards of the latest News Posts'),
+        'render_callback' => 'idf_acf_block_render_recent_articles',
+        'supports' => array('align' => array('wide','full' )),
+        'category' => 'isu-blocks',
+        'align' => 'wide',
+        'icon' => 'align-wide',
+        'mode' => 'edit',
+        'keywords' => array('News', 'Recent', 'Feed', 'Newsfeed'),
+    ));
+    acf_register_block_type( array(
+        'name'  => 'news-items',
+        'title' => __( 'In The News'),
+        'description' => __( 'A stylized source-able block intended to highlight news stories'),
+        'render_callback' => 'idf_acf_block_render_news_stories',
+        'supports' => array('align' => array('wide','full' )),
+        'category' => 'isu-blocks',
+        'align' => 'wide',
+        'icon' => 'align-wide',
+        'mode' => 'edit',
+        'keywords' => array('News', 'Stories', 'Story'),
+    ));
 }
 
 
@@ -397,12 +433,16 @@ function idf_acf_block_render_interior_hero( $block, $content = '', $is_preview 
     $rent = $timber_post->post_parent;
     $parent_title = get_the_title($rent);
     $arg = (array(
-        'parent' => $rent
+        'parent' => $rent,
+        'sort_order'=> 'ASC',
+        'sort_column' => 'menu_order'
     ));
     $childrens = array();
     foreach(get_pages($arg) as $d) {
         $arr = (array(
-            'parent' => $d->ID
+            'parent' => $d->ID,
+            'sort_order'=> 'ASC',
+            'sort_column' => 'menu_order'
         ));
         array_push($childrens, get_pages($arr));
     }
@@ -623,6 +663,36 @@ function idf_acf_block_render_featured_event_with_calendar( $block, $content = '
     $context['fields'] = get_fields();
     $context['is_preview'] = $is_preview;
     Timber::render('templates/blocks/featured-event-with-calendar.twig', $context);
+}
+
+function idf_acf_block_render_featured_news( $block, $content = '', $is_preview = false ) {
+    $context = Timber::context();
+    $context['block'] = $block;
+    $context['fields'] = get_fields();
+    $context['is_preview'] = $is_preview;
+    Timber::render('templates/blocks/featured-news.twig', $context);
+}
+
+function idf_acf_block_render_recent_articles( $block, $content = '', $is_preview = false ) {
+    $context = Timber::context();
+    $context['block'] = $block;
+    $context['fields'] = get_fields();
+    $context['is_preview'] = $is_preview;
+    $arr = array(
+        'post_type' => 'post',
+        'posts_per_page' => 3,
+        'order' => 'DESC'
+    );
+    $context['recent_articles'] = new Timber\PostQuery($arr);
+    Timber::render('templates/blocks/recent-articles.twig', $context);
+}
+
+function idf_acf_block_render_news_stories( $block, $content = '', $is_preview = false ) {
+    $context = Timber::context();
+    $context['block'] = $block;
+    $context['fields'] = get_fields();
+    $context['is_preview'] = $is_preview;
+    Timber::render('templates/blocks/news-stories.twig', $context);
 }
 
 

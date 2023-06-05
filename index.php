@@ -14,16 +14,13 @@
  */
 
 $context          = Timber::context();
-$context['foo']   = 'bar';
+$timber_post     = new Timber\Post();
+$context['post'] = $timber_post;
 $context['title'] = wp_title('', false);
 $s = get_query_var('s');
 $cat = get_query_var('category_name');
 $tag = get_query_var('tag');
-$arr = array(
-	'post_type' => 'post',
-	'posts_per_page' => 3,
-	'order' => 'DESC'
-);
+
 $rarr = array(
 	'post_type' => 'post',
 	'order' => 'DESC',
@@ -33,7 +30,6 @@ $rarr = array(
 	's' => $s,
 	'paged' => $paged
 );
-$context['recent_articles'] = new Timber\PostQuery($arr);
 $context['posts'] = new Timber\PostQuery();
 $templates        = array( 'index.twig' );
 if ( is_home() ) {

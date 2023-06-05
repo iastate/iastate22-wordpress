@@ -1,6 +1,3 @@
-
-
-
 <div class="paragraph-widget paragraph-widget--news-items">
     <div class="text-content">
         <h2>{{ options.news_page_options.in_the_news_title}}</h2>
@@ -11,9 +8,11 @@
             <div class="news-item">
                 <div class="news-item__tags">
                     <ul>
-                        {% for tag in item.news_tags %}    
-                            <li>{{ tag.tag }}</li>
-                        {% endfor %}
+                        {% if item.news_tags|length > 0 %}
+                            {% for tag in item.news_tags %}    
+                                <li>{{ tag.tag }}</li>
+                            {% endfor %}
+                        {% endif %}
                     </ul>
                 </div>
                 <div class="news-item__article-title">

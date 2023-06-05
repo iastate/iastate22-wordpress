@@ -5,7 +5,12 @@
             <ul>
             {% for link in fields.links %}
                 <li>
-                    <a href="{{ link.url.url }}" class="link-set__link iastate22-link-secondary"{% if link.url.target|length > 0 %} target="{{ link.url.target }}"{% endif %}>{{ link.label }}<span class="arrow"></span></a>
+                    {% if link.label %}
+                        {% set link_text = link.label %}
+                    {% else %}
+                        {% set link_text = link.url.title %}
+                    {% endif %}
+                    <a href="{{ link.url.url }}" class="link-set__link iastate22-link-secondary"{% if link.url.target|length > 0 %} target="{{ link.url.target }}"{% endif %}>{{ link_text }}<span class="arrow"></span></a>
                 </li>
             {% endfor %}
             </ul>

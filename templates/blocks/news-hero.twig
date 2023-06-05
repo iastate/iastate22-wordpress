@@ -2,16 +2,16 @@
   <div class="hero__text-wrap">
     {% include ['templates/partial/breadcrumbs.twig'] %}
     <h1 class="hero__title">
-      {% if options.news_page_options.hero_title %}
-        {{options.news_page_options.hero_title }}
+      {% if post.meta('hero_title') %}
+        {{ post.meta('hero_title') }}
       {% else %}
         {{ wp_title }}
       {% endif %}
     </h1>
   </div>
-  {% if options.news_page_options.hero_image %}
+  {% if post.meta('hero_image') %}
   <div class="hero__media">
-    <img src="{{options.news_page_options.hero_image.url}}" alt="{{options.news_page_options.hero_image.alt}}" width="{{ options.news_page_options.hero_image.width }}" height="{{ options.news_page_options.hero_image.height }}">
+    <img src="{{ post.meta('hero_image').url }}" alt="{{ post.meta('hero_image').alt }}" width="{{ post.meta('hero_image').width }}" height="{{ post.meta('hero_image').height }}">
   </div>
   {% endif %}
 </div>

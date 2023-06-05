@@ -5,16 +5,16 @@
 
 {% block content %}
 <div class="outer-pad">
-  {# {{ post.content }} #}
     {% include ['blocks/news-hero.twig'] %}
     {% if posts.pagination.current == 1 and function('get_query_var', 'post_type') != 'post' %}
-        {% if options.news_page_options.feature_type == "cards" %}
+        {{ post.content }}
+        {# {% if options.news_page_options.feature_type == "cards" %}
             {% include ['templates/partial/featured-news--cards.twig'] %}
         {% elseif options.news_page_options.feature_type == "list" %}
             {% include ['templates/partial/featured-news--list.twig'] %}
         {% endif %}
         {% include ['templates/partial/recent-articles.twig'] with recent_articles %}
-        {% include ['templates/partial/news-items.twig'] %}
+        {% include ['templates/partial/news-items.twig'] %} #}
     {% endif %}
     {% include ['templates/partial/news-filter.twig'] %}
     {% include ['templates/loops/loop-posts.twig'] %}

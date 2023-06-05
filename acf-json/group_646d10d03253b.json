@@ -113,8 +113,8 @@
         },
         {
             "key": "field_646d156048155",
-            "label": "Links",
-            "name": "links",
+            "label": "Contact",
+            "name": "contact",
             "aria-label": "",
             "type": "flexible_content",
             "instructions": "",
@@ -136,6 +136,32 @@
                             "key": "field_646d170d48156",
                             "label": "Link",
                             "name": "link",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array"
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_647e25120cd93": {
+                    "key": "layout_647e25120cd93",
+                    "name": "email",
+                    "label": "Email",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_647e25120cd94",
+                            "label": "Email Address",
+                            "name": "email",
                             "aria-label": "",
                             "type": "link",
                             "instructions": "",
@@ -190,7 +216,7 @@
                     "sub_fields": [
                         {
                             "key": "field_646d17834815a",
-                            "label": "Taxonomy",
+                            "label": "Taxonomies",
                             "name": "",
                             "aria-label": "",
                             "type": "message",
@@ -213,7 +239,7 @@
             },
             "min": "",
             "max": "",
-            "button_label": "Add Row"
+            "button_label": "Add New Contact Item"
         },
         {
             "key": "field_646f8b56e4229",
@@ -276,5 +302,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1685046675
+    "modified": 1685988648
 }
