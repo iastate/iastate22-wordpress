@@ -3,11 +3,11 @@
     "title": "Events Calendar",
     "fields": [
         {
-            "key": "field_646d10d0d9497",
-            "label": "Event Date",
-            "name": "event_date",
+            "key": "field_647f7d2411277",
+            "label": "Recurring Event",
+            "name": "recurring_event",
             "aria-label": "",
-            "type": "date_time_picker",
+            "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,9 +16,316 @@
                 "class": "",
                 "id": ""
             },
-            "display_format": "F j, Y g:i a",
-            "return_format": "d\/m\/Y g:i a",
-            "first_day": 0
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_646d10d0d9497",
+            "label": "Event Start Date",
+            "name": "event_start_date",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_647f7d2411277",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_647f3e0b93248",
+                    "label": "Start Date",
+                    "name": "start_date",
+                    "aria-label": "",
+                    "type": "date_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "F j, Y",
+                    "return_format": "d\/m\/Y",
+                    "first_day": 0
+                },
+                {
+                    "key": "field_647f3eda93249",
+                    "label": "Start Time",
+                    "name": "start_time",
+                    "aria-label": "",
+                    "type": "time_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_647f3f1b9324a",
+                                "operator": "!=",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "g:i a",
+                    "return_format": "g:i a"
+                },
+                {
+                    "key": "field_647f3f1b9324a",
+                    "label": "Full Day",
+                    "name": "full_day",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "ui": 1
+                }
+            ]
+        },
+        {
+            "key": "field_647f42a25235d",
+            "label": "Event End Date",
+            "name": "event_end_date",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_647f7d2411277",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_647f42a25235e",
+                    "label": "End Date",
+                    "name": "end_date",
+                    "aria-label": "",
+                    "type": "date_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "F j, Y",
+                    "return_format": "d\/m\/Y",
+                    "first_day": 0
+                },
+                {
+                    "key": "field_647f42a252360",
+                    "label": "End Time",
+                    "name": "end_time",
+                    "aria-label": "",
+                    "type": "time_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_647f42a252361",
+                                "operator": "!=",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "g:i a",
+                    "return_format": "g:i a"
+                },
+                {
+                    "key": "field_647f42a252361",
+                    "label": "Full Day",
+                    "name": "full_day",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "ui": 1
+                }
+            ]
+        },
+        {
+            "key": "field_647f7dd5e0780",
+            "label": "Recurring Event Date",
+            "name": "recurring_event_date",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_647f7d2411277",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_647f7e4de0781",
+                    "label": "Event Start Date",
+                    "name": "event_start_date",
+                    "aria-label": "",
+                    "type": "date_picker",
+                    "instructions": "First instance of the recurring event.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "F j, Y",
+                    "return_format": "d\/m\/Y",
+                    "first_day": 0
+                },
+                {
+                    "key": "field_647f85a0ffacb",
+                    "label": "Event End Date",
+                    "name": "event_end_date",
+                    "aria-label": "",
+                    "type": "date_picker",
+                    "instructions": "Last day of the recurring event. Leave blank to allow the date to recur indefinitely.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "F j, Y",
+                    "return_format": "d\/m\/Y",
+                    "first_day": 0
+                },
+                {
+                    "key": "field_647f7ef2e0782",
+                    "label": "Start Time",
+                    "name": "start_time",
+                    "aria-label": "",
+                    "type": "time_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "g:i a",
+                    "return_format": "g:i a"
+                },
+                {
+                    "key": "field_647f7f08e0783",
+                    "label": "End Time",
+                    "name": "end_time",
+                    "aria-label": "",
+                    "type": "time_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "g:i a",
+                    "return_format": "g:i a"
+                },
+                {
+                    "key": "field_647f84da01ff3",
+                    "label": "Recurrence Days",
+                    "name": "recurrence_days",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Select the days of the week that you would like the event to recur on.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": [
+                        "Sunday",
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday",
+                        "Saturday"
+                    ],
+                    "default_value": [],
+                    "return_format": "array",
+                    "multiple": 1,
+                    "allow_null": 1,
+                    "ui": 1,
+                    "ajax": 1,
+                    "placeholder": ""
+                }
+            ]
         },
         {
             "key": "field_646d11c89b89d",
@@ -164,7 +471,7 @@
                             "name": "email",
                             "aria-label": "",
                             "type": "link",
-                            "instructions": "",
+                            "instructions": "'mailto:' will be automatically prepended.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -243,7 +550,7 @@
         },
         {
             "key": "field_646f8b56e4229",
-            "label": "Featured",
+            "label": "Featured Event",
             "name": "featured",
             "aria-label": "",
             "type": "true_false",
@@ -302,5 +609,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1685988648
+    "modified": 1686165613
 }

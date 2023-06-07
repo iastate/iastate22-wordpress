@@ -53,6 +53,7 @@ export class EventCalendar {
         center: "title",
         right: "",
       },
+      nextDayThreshold: "00:00:00",
       eventMouseEnter: function(nfo) {
         if (nfo.view.type === "dayGridMonth") {
           nfo.el.classList.add("event-active");
@@ -147,18 +148,55 @@ export class EventCalendar {
   }
 
   private aggregateEntry(item, loc, fImg) {
-    let imgUrl: string = fImg !== undefined ? fImg.media_details.sizes.medium.source_url : undefined;
-    console.log(imgUrl);
-    this.calendar.addEvent({
-      title: item.title.rendered,
-      start: item.acf.event_date,
-      resourceId: item.id,
-      description: item.excerpt.rendered,
-      location: loc,
-      interactive: true,
-      url: item.link,
-      thumbnail: imgUrl,
-    });
+    let imgUrl: string = fImg !== undefined ? fImg.media_details.sizes.medium.source_url : undefined,
+      eventStartTime: string =
+        item.acf.event_start_date.start_time !== null
+          ? item.acf.event_start_date.start_date + " " + item.acf.event_start_date.start_time
+          : item.acf.event_start_date.start_date,
+      eventEndTime: string =
+        item.acf.event_end_date.end_time !== null
+          ? item.acf.event_end_date.end_date + " " + item.acf.event_end_date.end_time
+          : item.acf.event_end_date.end_date,
+      fullDay: boolean = item.acf.event_start_date.full_day;
+
+    console.log(item.acf.full_day);
+    console.log(item.acf.recurring_event);
+    console.log("endTime: " + eventEndTime);
+    if (item.acf.recurring_event === true) {
+      console.log(item.acf.recurring_event_date.recurrence_days);
+      this.calendar.addEvent({
+        title: item.title.rendered,
+        startTime: item.acf.recurring_event_date.start_time,
+        endTime: item.acf.recurring_event_date.end_time,
+        startRecur: item.acf.recurring_event_date.event_start_date,
+        endRecur: item.acf.recurring_event_date.event_end_date,
+        daysOfWeek: item.acf.recurring_event_date.recurrence_days,
+        resourceId: item.id,
+        description: item.excerpt.rendered,
+        location: loc,
+        interactive: true,
+        url: item.link,
+        thumbnail: imgUrl,
+        allDay: fullDay,
+        overlap: true,
+      });
+    } else {
+      console.log(item.acf.event_start_date);
+      console.log(item.acf.event_end_date);
+      this.calendar.addEvent({
+        title: item.title.rendered,
+        start: eventStartTime,
+        end: item.acf.event_end_date.end_date + " " + item.acf.event_end_date.end_time,
+        resourceId: item.id,
+        description: item.excerpt.rendered,
+        location: loc,
+        interactive: true,
+        url: item.link,
+        thumbnail: imgUrl,
+        allDay: fullDay,
+        overlap: true,
+      });
+    }
   }
 
   private runSearch(e) {
@@ -215,7 +253,10 @@ export class EventCalendar {
     let contentArea = document.createElement("div"),
       ct = document.createElement("div");
 
+    ct.classList.add("event-wrap");
     contentArea.classList.add("event-listing");
+    // console.log("Arrrrgh event....");
+    // console.log(arg.event);
     if (arg.event.extendedProps.thumbnail !== undefined) {
       contentArea.innerHTML +=
         "<div class='event-listing__image'><img src='" +
@@ -228,11 +269,9 @@ export class EventCalendar {
     let contentBlock = contentArea.querySelector(".event-listing__content");
     if (arg.event.url) {
       contentBlock.innerHTML +=
-        "<h4 class='event-listing__title'><a href='" +
-        arg.event.url +
-        "'>" +
+        "<h4 class='event-listing__title'><span>" +
         arg.event.title +
-        "<svg xmlns='http://www.w3.org/2000/svg' width='13.338' height='12.273' viewBox='0 0 13.338 12.273'><g id='CTA_Secondary_Arrow' transform='translate(0 0.707)'><path id='Path_52' data-name='Path 52' d='M-13572.044-6709.884l-1.414-1.414,4.723-4.723-4.723-4.722,1.414-1.414,6.137,6.136Z' transform='translate(13579.245 6721.45)' fill='#7c2529'/><path id='Path_1510' data-name='Path 1510' d='M-15709.244-3614.516h-11.514v-2h11.514Z' transform='translate(15720.758 3620.946)' fill='#732b2c'/></g></svg></a></h4>";
+        "<svg xmlns='http://www.w3.org/2000/svg' width='13.338' height='12.273' viewBox='0 0 13.338 12.273'><g id='CTA_Secondary_Arrow' transform='translate(0 0.707)'><path id='Path_52' data-name='Path 52' d='M-13572.044-6709.884l-1.414-1.414,4.723-4.723-4.723-4.722,1.414-1.414,6.137,6.136Z' transform='translate(13579.245 6721.45)' fill='#7c2529'/><path id='Path_1510' data-name='Path 1510' d='M-15709.244-3614.516h-11.514v-2h11.514Z' transform='translate(15720.758 3620.946)' fill='#732b2c'/></g></svg></span></h4>";
     } else {
       contentBlock.innerHTML += "<h4 class='event-listing__title'>" + arg.event.title + "</h4>";
     }
@@ -241,9 +280,20 @@ export class EventCalendar {
       arg.event.startStr +
       "' class='event-listing__date'><div class='event-listing__full-date'>" +
       this.buildDate(arg.event.startStr) +
-      "</div><div class='event-listing__time'>" +
-      this.buildTime(arg.event.startStr) +
-      "</div></time>";
+      "</div>";
+
+    if (arg.event.allDay !== true) {
+      let timeString: string;
+      if (arg.event.endStr !== "") {
+        timeString = this.buildTime(arg.event.startStr) + " to " + this.buildTime(arg.event.endStr);
+      } else {
+        timeString = this.buildTime(arg.event.startStr);
+      }
+      contentBlock.querySelector("time").innerHTML +=
+        "<div class='event-listing__time'>" + timeString + "</div></time>";
+    }
+    contentBlock.innerHTML += "</time>";
+
     if (arg.event.extendedProps.location) {
       contentBlock.innerHTML += "<div class='event-listing__location'>" + arg.event.extendedProps.location + "</div>";
     }
@@ -253,9 +303,16 @@ export class EventCalendar {
 
     // Event Link Markup:
 
-    let contentLink = document.createElement("div");
+    let contentLink = document.createElement("div"),
+      endDate = arg.event.endStr.substring(0, 10).replace(/[^0-9]+/g, "") as Number,
+      startDate = arg.event.startStr.substring(0, 10).replace(/[^0-9]+/g, "") as Number;
     contentLink.classList.add("event-link");
-    contentLink.innerHTML += "<div class='fc-event-time'>" + this.buildTime(arg.event.startStr) + "</div>";
+    console.log("All day: " + arg.event.allDay);
+    console.log(startDate + " --- " + endDate);
+    console.log("Larger Enddate? " + (endDate > startDate));
+    if (arg.event.allDay !== true && endDate > startDate !== true) {
+      contentLink.innerHTML += "<div class='fc-event-time'>" + this.buildTime(arg.event.startStr) + "</div>";
+    }
     contentLink.innerHTML += "<div class='fc-event-title'>" + arg.event.title + "</div>";
     ct.appendChild(contentArea);
     ct.appendChild(contentLink);

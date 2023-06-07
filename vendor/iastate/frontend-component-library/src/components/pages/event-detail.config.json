@@ -10,22 +10,22 @@
     "event_details": [
       {
         "title": "Time",
-        "icon": "",
+        "icon": "../../img/icons/SVG_Time_Icon.svg",
         "content": "Wednesday, 04 Jan 2023 from 1:00 pm to 2:00 pm"
       },
       {
         "title": "Location",
-        "icon": "",
+        "icon": "../../img/icons/SVG_Location_Icon.svg",
         "content": "Location sint occaecat cupidatat"
       },
       {
         "title": "Price",
-        "icon": "",
+        "icon": "../../img/icons/SVG_Cost_Icon.svg",
         "content": "Free"
       },
       {
         "title": "Info",
-        "icon": "",
+        "icon": "../../img/icons/SVG_Call_Icon.svg",
         "contact": [
           {
             "link": {

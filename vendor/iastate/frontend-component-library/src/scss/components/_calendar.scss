@@ -307,7 +307,7 @@
 }
 
 .fc .fc-daygrid-event-harness {
-  position: relative;
+  //position: relative;
 
   @include media-breakpoint-down(lg) {
     position: absolute;
@@ -322,6 +322,16 @@
 
   + .fc-daygrid-event-harness {
     margin-top: 4px;
+  }
+}
+
+.fc .fc-daygrid-event-harness-abs {
+  background: $iastate-maroon;
+  padding-left: 10px;
+
+  .fc-event-time,
+  .fc-event-title {
+    color: $white;
   }
 }
 
@@ -433,7 +443,7 @@
 .event-listing {
   &:hover,
   &:focus-within {
-    .event-listing__title a {
+    .event-listing__title span {
       text-decoration-color: currentColor;
       transition: text-decoration-color 0.2s ease-out;
 
@@ -448,7 +458,7 @@
 .fc-list-event-title {
   &:hover,
   &:focus-within {
-    .event-listing__title a svg {
+    .event-listing__title span svg {
       margin-left: 15px;
       transition: margin 0.2s ease-out;
     }
@@ -462,7 +472,7 @@
   order: 1;
 }
 
-.fc .event-listing__title a {
+.fc .event-listing__title span {
   color: $iastate-maroon;
   text-decoration: underline;
   text-decoration-color: transparent;
@@ -473,6 +483,16 @@
     margin-bottom: 1px;
     transition: margin 0.3s ease-out;
   }
+}
+
+.fc .event-wrap {
+  display: flex;
+  width: auto;
+}
+
+.fc .event-link {
+  flex-grow: 1;
+  flex-shrink: 1;
 }
 
 .event-listing__date {
@@ -517,6 +537,12 @@
     opacity: 1;
     bottom: 0;
   }
+}
+
+.fc-dayGridMonth-view .fc-daygrid-event-harness-abs .event-listing {
+  right: unset;
+  left: 0;
+  transform: translateX(0);
 }
 
 .fc-dayGridMonth-view .event-listing__image {

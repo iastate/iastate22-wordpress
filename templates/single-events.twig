@@ -6,20 +6,50 @@
     <div class="paragraph-widget paragraph-widget--event-details">
         <div class="event-details">
             <dl class="event-details__wrap">
-                {% if post.meta('event_date') %}
-                    {% set event_date = post.meta('event_date') %}
-                    <dt>
-                        <span class="icon-spec"></span>
-                        <span class="visible-for-screen-readers"></span>
-                    </dt>
-                    <dd>
-                        <p>{{ event_date|date('l, d M Y') }} at {{ event_date|date('g:ia') }}</p>
-                    </dd>
+                {% if post.meta('event_end_date_end_date')|length > 0 and post.meta('event_start_date_start_date')|length > 0 %}
+                    {% set start_date = post.meta('event_start_date_start_date') %}
+                    {% set end_date = post.meta('event_end_date_end_date') %}
+                    {% set event_date = start_date|date('l, d M Y')~" to "~end_date|date('l, d M Y') %}
+                {% elseif post.meta('event_start_date_start_date')|length > 0 %}
+                    {% set start_date = post.meta('event_start_date_start_date') %}
+                    {% set event_date = start_date|date('l, d M Y') %}
                 {% endif %}
+                {% if post.meta('event_end_date_end_time')|length > 0 and post.meta('event_start_date_start_time')|length > 0 %}
+                    {% set start_time = post.meta('event_start_date_start_time') %}
+                    {% set end_time = post.meta('event_end_date_end_time') %}
+                    {% set event_time = "from " ~ start_time|date('g:ia') ~ " to " ~ end_time|date('g:ia') %}
+                {% elseif post.meta('event_start_date_start_time')|length > 0 %}
+                    {% set start_time = post.meta('event_start_date_start_time') %}
+                    {% set event_time = "at " ~ start_time|date('g:ia') %}
+                {% endif %}
+                {% if event_date|length > 0 and event_time|length > 0 %}
+                    {% set event_string = event_date ~ " " ~ event_time %}
+                {% elseif event_date|length > 0 %}
+                    {% set event_string = event_date %}
+                {% endif %}
+                
+                <dt>
+                    <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="42.262" height="42.304" viewBox="0 0 42.262 42.304">
+  <path data-name="Oval 27 - Outline" d="M21.131,2A19.156,19.156,0,0,0,7.6,34.695,19.141,19.141,0,0,0,34.658,7.609,19,19,0,0,0,21.131,2m0-2A21.152,21.152,0,1,1,0,21.152,21.141,21.141,0,0,1,21.131,0Z" transform="translate(0)" fill="#b82b35"/>
+  <path data-name="Path 3472" d="M5756.131,1591.968a1,1,0,0,1-1-1v-13.16a1,1,0,1,1,2,0V1589.5l8.839-3.465a1,1,0,1,1,.729,1.862l-10.2,4A1,1,0,0,1,5756.131,1591.968Z" transform="translate(-5735 -1567.816)" fill="#b82b35"/>
+</svg></span>
+                    <span class="visible-for-screen-readers">Time</span>
+                </dt>
+                <dd>
+                    <p>{{ event_string }}</p>
+                </dd>
                 {% if post.terms('locations')|length > 0 %}
                     <dt>
-                        <span class="icon-spec"></span>
-                        <span class="visible-for-screen-readers"></span>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="42.262" height="42.304" viewBox="0 0 42.262 42.304">
+                                <g transform="translate(7.5 8.5)">
+                                    <path data-name="Oval 27 - Outline" d="M21.131,2A19.156,19.156,0,0,0,7.6,34.695,19.141,19.141,0,0,0,34.658,7.609,19,19,0,0,0,21.131,2m0-2A21.152,21.152,0,1,1,0,21.152,21.141,21.141,0,0,1,21.131,0Z" transform="translate(-7.5 -8.5)" fill="#b82b35"/>
+                                    <path data-name="Path 3472" d="M13.5.7a9.811,9.811,0,0,1,9.8,9.8,12.133,12.133,0,0,1-1.495,5.507,24.387,24.387,0,0,1-3.2,4.639,35.36,35.36,0,0,1-4.616,4.486.8.8,0,0,1-.982,0,35.36,35.36,0,0,1-4.616-4.486,24.387,24.387,0,0,1-3.2-4.639A12.133,12.133,0,0,1,3.7,10.5,9.811,9.811,0,0,1,13.5.7Zm0,22.764c1.838-1.557,8.2-7.354,8.2-12.964a8.2,8.2,0,1,0-16.4,0C5.3,16.117,11.661,21.908,13.5,23.464Z" fill="#b82b35"/>
+                                    <path data-name="Path 3473" d="M16.5,9.7a3.8,3.8,0,1,1-3.8,3.8A3.8,3.8,0,0,1,16.5,9.7Zm0,6a2.2,2.2,0,1,0-2.2-2.2A2.2,2.2,0,0,0,16.5,15.7Z" transform="translate(-3 -3)" fill="#b82b35"/>
+                                </g>
+                            </svg>
+                        </span>
+                        <span class="visible-for-screen-readers">Location</span>
                     </dt>
                     <dd>
                         {% for location in post.terms('locations') %}
@@ -35,28 +65,64 @@
                         {% set price = "$"~cost.cost %}
                     {% endif %}
                     <dt>
-                        <span class="icon-spec"></span>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="42.262" height="42.304" viewBox="0 0 42.262 42.304">
+                                <g transform="translate(-298 -1613.348)">
+                                    <path data-name="Oval 27 - Outline" d="M21.131,2A19.156,19.156,0,0,0,7.6,34.695,19.141,19.141,0,0,0,34.658,7.609,19,19,0,0,0,21.131,2m0-2A21.152,21.152,0,1,1,0,21.152,21.141,21.141,0,0,1,21.131,0Z" transform="translate(298 1613.348)" fill="#b82b35"/>
+                                    <g data-name="Group 5276" transform="translate(-32.555 26.576)">
+                                    <path data-name="Path 3471" d="M12.74,20.571a7.247,7.247,0,0,1-2.729-.533,5.429,5.429,0,0,1-3.374-3.82A.8.8,0,0,1,8.2,15.856a3.854,3.854,0,0,0,2.423,2.7,5.032,5.032,0,0,0,4.314-.136,2.815,2.815,0,0,0,1.238-2.848,2.7,2.7,0,0,0-1.3-1.62,9.137,9.137,0,0,0-3.995-1.1A4.488,4.488,0,0,1,8.3,11.821,3.84,3.84,0,0,1,7.047,9.71,3.963,3.963,0,0,1,9.1,5.387a6.2,6.2,0,0,1,4.8-.449,5.568,5.568,0,0,1,3.316,3.223.8.8,0,1,1-1.468.636,3.963,3.963,0,0,0-2.359-2.343,4.59,4.59,0,0,0-3.5.328A2.358,2.358,0,0,0,8.611,9.373a2.535,2.535,0,0,0,2.4,1.888,10.663,10.663,0,0,1,4.7,1.336,4.287,4.287,0,0,1,2.007,2.6,4.382,4.382,0,0,1-1.939,4.578A5.757,5.757,0,0,1,12.74,20.571Z" transform="translate(339.461 1595.315)" fill="#b82b35"/>
+                                    <path data-name="Line 166" d="M0,18.978a.8.8,0,0,1-.8-.8V0A.8.8,0,0,1,0-.8.8.8,0,0,1,.8,0V18.178A.8.8,0,0,1,0,18.978Z" transform="translate(351.686 1598.835)" fill="#b82b35"/>
+                                    </g>
+                                </g>
+                            </svg>
+                        </span>
                         <span class="visible-for-screen-readers"></span>
                     </dt>
                     <dd>
                         <p>{{ price }}</p>
                     </dd>
                 {% endif %}
-                {% if post.meta('links') %}
-                    <dt>
-                        <span class="icon-spec"></span>
-                        <span class="visible-for-screen-readers"></span>
-                    </dt>
-                    <dd>
-                    {% for link in post.meta('links') %}
+                {% if post.meta('contact') %}
+                    {% for link in post.meta('contact') %}
+                        <dt>
+                            {% if link.acf_fc_layout == "link" %}
+                            <span class="icon-spec"></span>
+                            {% elseif link.acf_fc_layout == "email" %}
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="42.262" height="42.304" viewBox="0 0 42.262 42.304">
+                                    <ellipse data-name="Oval 27" cx="21.131" cy="21.152" rx="21.131" ry="21.152" transform="translate(0)" fill="none"/>
+                                    <path  data-name="Oval 27 - Outline" d="M21.131,2A19.156,19.156,0,0,0,7.6,34.695,19.141,19.141,0,0,0,34.658,7.609,19,19,0,0,0,21.131,2m0-2A21.152,21.152,0,1,1,0,21.152,21.141,21.141,0,0,1,21.131,0Z" transform="translate(0)" fill="#b82b35"/>
+                                    <path data-name="Path 3229" d="M9.239,9.1a.748.748,0,0,1-.5-.188L1,2.062A.75.75,0,1,1,2,.938L9.239,7.345,16.482.938a.75.75,0,1,1,.994,1.123L9.736,8.908A.748.748,0,0,1,9.239,9.1Z" transform="translate(11.527 13.102)" fill="#b82b35"/>
+                                    <path data-name="Line 28" d="M0,5.756a.748.748,0,0,1-.53-.22.75.75,0,0,1,0-1.061L4.476-.53a.75.75,0,0,1,1.061,0,.75.75,0,0,1,0,1.061L.53,5.537A.748.748,0,0,1,0,5.756Z" transform="translate(28.506 21.512) rotate(45)" fill="#b82b35"/>
+                                    <path data-name="Path 3231" d="M3.894,4.644a.75.75,0,0,1-.75-.75V.75H0A.75.75,0,0,1-.75,0,.75.75,0,0,1,0-.75H3.894a.75.75,0,0,1,.53.22.75.75,0,0,1,.22.53V3.894A.75.75,0,0,1,3.894,4.644Z" transform="translate(29.292 22.3) rotate(45)" fill="#b82b35"/>
+                                    <path data-name="Path 3232" d="M14.316,16.383H3.09A3.114,3.114,0,0,1,0,13.252V3.131A3.114,3.114,0,0,1,3.09,0H15.374a3.114,3.114,0,0,1,3.09,3.131V5.964a.75.75,0,0,1-1.5,0V3.131A1.613,1.613,0,0,0,15.374,1.5H3.09A1.613,1.613,0,0,0,1.5,3.131v10.12a1.613,1.613,0,0,0,1.59,1.631H14.316a.75.75,0,1,1,0,1.5Z" transform="translate(11.385 12.958)" fill="#b82b35"/>
+                                </svg>
+                            </span>
+                            <span class="visible-for-screen-readers">Email</span>
+                            {% elseif link.acf_fc_layout == "phone_number" %}
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="42.262" height="42.304" viewBox="0 0 42.262 42.304">
+                                    <path data-name="Oval 27 - Outline" d="M21.131,2A19.156,19.156,0,0,0,7.6,34.695,19.141,19.141,0,0,0,34.658,7.609,19,19,0,0,0,21.131,2m0-2A21.152,21.152,0,1,1,0,21.152,21.141,21.141,0,0,1,21.131,0Z" transform="translate(0)" fill="#b82b35"/>
+                                    <g data-name="Group 5273" transform="translate(-252 -1224)">
+                                        <path data-name="Path 3468" d="M4.25.082c.759,0,1.469.006,1.476.006a.8.8,0,0,1,.64.329L8.9,3.891a.8.8,0,0,1,.136.638c-.166.781-.958,1.24-1.723,1.684-.471.273-1.26.73-1.3,1.036a3.889,3.889,0,0,0,1.3,2.623,7.8,7.8,0,0,0,3.331,2.145,4.213,4.213,0,0,0,1.239-.987c.515-.519.921-1.019.925-1.024a.8.8,0,0,1,.958-.222l3.576,1.657a.8.8,0,0,1,.464.727c0,.021,0,2.137,0,2.7a2.561,2.561,0,0,1-1.094,2.447,5.391,5.391,0,0,1-2.515.365l-.2,0h-.161C6.205,17.68.691,12.027.116,3.615.009,2.059.155,1.245.637.713A2.5,2.5,0,0,1,2.581.1l.1,0C3,.087,3.529.082,4.25.082Zm1.06,1.6c-.275,0-.661,0-1.06,0-.7,0-1.217,0-1.523.014l-.1,0a2.742,2.742,0,0,0-.807.087c-.009.008-.214.222-.111,1.718a14.28,14.28,0,0,0,3.744,9.153,11.406,11.406,0,0,0,8.525,3.421l.2,0a5.124,5.124,0,0,0,1.763-.17c.065-.036.264-.144.26-1.037,0-.391,0-1.525,0-2.194L13.644,11.49c-.191.215-.435.48-.7.746-.97.962-1.68,1.391-2.3,1.391a1.258,1.258,0,0,1-.332-.044,9.268,9.268,0,0,1-4.16-2.621A5.244,5.244,0,0,1,4.423,7.053c.134-1.1,1.215-1.722,2.083-2.225.219-.127.537-.311.752-.468Z" transform="translate(263 1237)" fill="#b82b35"/>
+                                        <path data-name="Path 3469" d="M17.614,1.044h0a.745.745,0,0,0-.53-.235L13.2.688a.75.75,0,0,0-.047,1.5l2.081.065L11.4,5.858h0a.75.75,0,0,0,1.027,1.094l3.841-3.609L16.2,5.428a.75.75,0,0,0,1.5.046l.12-3.892h0a.744.744,0,0,0-.048-.287c-.006-.015-.019-.027-.025-.041a.738.738,0,0,0-.13-.209" transform="translate(263 1237)" fill="#b82b35"/>
+                                    </g>
+                                </svg>
+                            </span>
+                            <span class="visible-for-screen-readers">Phone Number</span>
+                            {% endif %}    
+                        </dt>
+                        <dd>
                         {% if link.acf_fc_layout == "link" %}
                             {% if link.link.target == "_blank" %}
                                 {% set classList = "link-set__link iastate22-link-external" %}
                             {% else %}
                                 {% set classList = "link-set__link iastate22-link-secondary" %}
                             {% endif %}
-                            
                             <a href="{{ link.link.url }}" class="{{ classList }}">{{ link.link.title }}<span class="arrow"></span></a>
+                        {% elseif link.acf_fc_layout == "email" %}
+                            {% set classList = "link-set__link iastate22-link-secondary" %}
+                            <a href="mailto:{{ link.email.url }}" class="{{ classList }}">{{ link.email.title }}<span class="arrow"></span></a>
                         {% elseif link.acf_fc_layout == "phone_number" %}
                             <span class="event-details__phone-number">{{ link.phone_number }}</span>
                         {% elseif link.acf_fc_layout == "tags" %}
