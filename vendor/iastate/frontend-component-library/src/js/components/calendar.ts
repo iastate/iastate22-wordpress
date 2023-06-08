@@ -90,7 +90,6 @@ export class EventCalendar {
     if (window.location.host.startsWith("localhost")) {
       this.pageUrl = window.location.protocol + "//isu-wp-composer.lndo.site";
     }
-    console.log(this.pageUrl + this.apiRoot + "events");
 
     fetch(this.pageUrl + this.apiRoot + "events")
       .then((response) => response.json())
@@ -159,11 +158,7 @@ export class EventCalendar {
           : item.acf.event_end_date.end_date,
       fullDay: boolean = item.acf.event_start_date.full_day;
 
-    console.log(item.acf.full_day);
-    console.log(item.acf.recurring_event);
-    console.log("endTime: " + eventEndTime);
     if (item.acf.recurring_event === true) {
-      console.log(item.acf.recurring_event_date.recurrence_days);
       this.calendar.addEvent({
         title: item.title.rendered,
         startTime: item.acf.recurring_event_date.start_time,
@@ -181,12 +176,10 @@ export class EventCalendar {
         overlap: true,
       });
     } else {
-      console.log(item.acf.event_start_date);
-      console.log(item.acf.event_end_date);
       this.calendar.addEvent({
         title: item.title.rendered,
         start: eventStartTime,
-        end: item.acf.event_end_date.end_date + " " + item.acf.event_end_date.end_time,
+        end: eventEndTime,
         resourceId: item.id,
         description: item.excerpt.rendered,
         location: loc,
@@ -214,7 +207,6 @@ export class EventCalendar {
         searchString += "?locations=" + this.searchTerms[1];
       }
     }
-    // console.log(this.pageUrl+this.apiRoot+'events'+searchString);
     this.calendar.removeAllEvents();
     fetch(this.pageUrl + this.apiRoot + "events" + searchString)
       .then((response) => response.json())
@@ -255,8 +247,6 @@ export class EventCalendar {
 
     ct.classList.add("event-wrap");
     contentArea.classList.add("event-listing");
-    // console.log("Arrrrgh event....");
-    // console.log(arg.event);
     if (arg.event.extendedProps.thumbnail !== undefined) {
       contentArea.innerHTML +=
         "<div class='event-listing__image'><img src='" +
@@ -307,9 +297,6 @@ export class EventCalendar {
       endDate = arg.event.endStr.substring(0, 10).replace(/[^0-9]+/g, "") as Number,
       startDate = arg.event.startStr.substring(0, 10).replace(/[^0-9]+/g, "") as Number;
     contentLink.classList.add("event-link");
-    console.log("All day: " + arg.event.allDay);
-    console.log(startDate + " --- " + endDate);
-    console.log("Larger Enddate? " + (endDate > startDate));
     if (arg.event.allDay !== true && endDate > startDate !== true) {
       contentLink.innerHTML += "<div class='fc-event-time'>" + this.buildTime(arg.event.startStr) + "</div>";
     }

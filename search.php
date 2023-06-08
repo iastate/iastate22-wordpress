@@ -21,8 +21,6 @@ foreach($_GET as $key => $value){
 }
 if(get_query_var("post_type") == "profiles") {
     $search_letter = $_GET["search_letter"];
-    // $taxA = get_query_var("taxonomy_a");
-    // $taxB = get_query_var("taxonomy_b");
     $tax_query = array();
     $meta_query = array();
 
@@ -33,44 +31,6 @@ if(get_query_var("post_type") == "profiles") {
             'terms' => $tax[1],
         ));
     }
- 
-    // if(strlen($taxB) > 0) {
-    //     $tax_query = array( 
-    //         'relation' => 'AND',
-    //         array(
-    //             'taxonomy' => 'taxonomy_b',
-    //             'field' => 'slug',
-    //             'terms' => $taxB,
-    //         )
-    //     );
-    // }
-    
-    // if(strlen($taxA) > 0) {
-    //     if(strlen($taxB) > 0) {
-    //         $tax_query = array( 
-    //             'relation' => 'AND',
-    //             array(
-    //                 'taxonomy' => 'taxonomy_a',
-    //                 'field' => 'slug',
-    //                 'terms' => $taxA,
-    //             ),
-    //             array(
-    //                 'taxonomy' => 'taxonomy_b',
-    //                 'field' => 'slug',
-    //                 'terms' => $taxB,
-    //             )
-    //             );
-    //     } else {
-    //         $tax_query = array( 
-    //             'relation' => 'AND',
-    //             array(
-    //                 'taxonomy' => 'taxonomy_a',
-    //                 'field' => 'slug',
-    //                 'terms' => $taxA,
-    //             )
-    //             );
-    //     }
-    // }
 
     if(count($paramArray) > 0) {
         $tax_query = array( 
@@ -114,5 +74,4 @@ if(get_query_var("post_type") == "profiles") {
 } else {
     $context['posts'] = new Timber\PostQuery();
 }
-
 Timber::render( $templates, $context );

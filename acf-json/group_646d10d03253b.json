@@ -61,7 +61,7 @@
                         "id": ""
                     },
                     "display_format": "F j, Y",
-                    "return_format": "d\/m\/Y",
+                    "return_format": "m\/d\/Y",
                     "first_day": 0
                 },
                 {
@@ -150,7 +150,7 @@
                         "id": ""
                     },
                     "display_format": "F j, Y",
-                    "return_format": "d\/m\/Y",
+                    "return_format": "m\/d\/Y",
                     "first_day": 0
                 },
                 {
@@ -239,7 +239,7 @@
                         "id": ""
                     },
                     "display_format": "F j, Y",
-                    "return_format": "d\/m\/Y",
+                    "return_format": "m\/d\/Y",
                     "first_day": 0
                 },
                 {
@@ -257,7 +257,7 @@
                         "id": ""
                     },
                     "display_format": "F j, Y",
-                    "return_format": "d\/m\/Y",
+                    "return_format": "m\/d\/Y",
                     "first_day": 0
                 },
                 {
@@ -609,5 +609,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1686165613
+    "modified": 1686240540
 }

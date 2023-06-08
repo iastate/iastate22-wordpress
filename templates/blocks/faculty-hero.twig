@@ -29,36 +29,6 @@
                         <label for="s">Search</label>
                         <input class="iastate22-form--search" type="text" name="s" id="s" value="{{ function('get_search_query') }}" tabindex="1">
                     </div>
-                    {# {% if tax_a|length > 0 %}
-                    <div class="form-item">
-                        <label for="select-choice">Taxonomy A</label>
-                        <select class="iastate22-form--select" name="taxonomy_a" id="taxonomy_a">
-                        <option value=""></option>
-                        {% for term in tax_a %}    
-                            <option value="{{ term.slug }}"
-                            {% if function('get_query_var', 'taxonomy_a') == term.slug %}
-                            selected
-                            {% endif %}
-                            >{{ term.name }}</option>
-                        {% endfor %}
-                        </select>
-                    </div>
-                    {% endif %}
-                   {% if tax_b|length > 0 %}
-                    <div class="form-item">
-                        <label for="select-choice">Taxonomy B</label>
-                        <select class="iastate22-form--select" name="taxonomy_b" id="taxonomy_b">
-                        <option value=""></option>
-                        {% for term in tax_b %}    
-                            <option value="{{ term.slug }}"
-                            {% if function('get_query_var', 'taxonomy_b') == term.slug %}
-                            selected
-                            {% endif %}
-                            >{{ term.name }}</option>
-                        {% endfor %}
-                        </select>
-                    </div>
-                    {% endif %} #}
                     {% for item in profile_tax %}
                         {% set lp = loop.index - 1 %}
                         {% if profile_terms[lp]|length > 0 %}

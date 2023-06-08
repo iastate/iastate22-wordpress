@@ -36,6 +36,6 @@ if ( is_day() ) {
 
 $context['tags'] = Timber::get_terms("event_tags");
 $context['locations'] = Timber::get_terms("locations");
-$context['posts'] = new Timber\PostQuery($arr);
+$context['posts'] = new Timber\PostQuery();
 
 Timber::render( $templates, $context );
