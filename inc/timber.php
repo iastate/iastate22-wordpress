@@ -88,8 +88,6 @@ class StarterSite extends Timber\Site {
 		}
 		$context['options'] = get_fields('options');
 		$context['site']  = $this;
-		$context['tax_a'] = Timber::get_terms('taxonomy_a');
-		$context['tax_b'] = Timber::get_terms('taxonomy_b');
 		$profileTax = get_object_taxonomies(array('post_type' => 'profiles'), 'objects');
 		$profileTerms = array();
 		foreach($profileTax as $item) {
