@@ -61,7 +61,7 @@
                 <dd>
                     <p>{{ event_string }}</p>
                 </dd>
-                {% if post.terms('locations')|length > 0 %}
+                {% if post.terms('locations')|length > 0 or post.meta('location').name|length > 0 %}
                     <dt>
                         <span class="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="42.262" height="42.304" viewBox="0 0 42.262 42.304">
@@ -75,9 +75,13 @@
                         <span class="visible-for-screen-readers">Location</span>
                     </dt>
                     <dd>
-                        {% for location in post.terms('locations') %}
-                            <p>{{ location.name }}</p>
-                        {% endfor %}
+                        {% if post.meta('location').name|length > 0 %}
+                            <p>{{ post.meta('location').name }}</p>
+                        {% elseif post.terms('locations')|length > 0 %}
+                            {% for location in post.terms('locations') %}
+                                <p>{{ location.name }}</p>
+                            {% endfor %}
+                        {% endif %}
                     </dd>
                 {% endif %}
                 {% if post.meta('cost') %}

@@ -24,7 +24,7 @@ include('inc/menus.php');
 include('inc/overrides.php');
 include('inc/validation.php');
 include('inc/breadcrumbs.php');
-// include('inc/search.php');
+include('inc/search.php');
 
 
 // Won't work as an include

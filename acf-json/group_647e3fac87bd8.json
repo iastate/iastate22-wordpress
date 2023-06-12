@@ -23,11 +23,11 @@
             "append": ""
         },
         {
-            "key": "field_647e4166f2513",
-            "label": "",
-            "name": "",
+            "key": "field_648379e43e4ae",
+            "label": "News Stories",
+            "name": "news_stories",
             "aria-label": "",
-            "type": "message",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -36,9 +36,114 @@
                 "class": "",
                 "id": ""
             },
-            "message": "This block will display the three most recent news stories. No additional settings are required at this time.",
-            "new_lines": "wpautop",
-            "esc_html": 0
+            "choices": {
+                "3": "up to Three",
+                "6": "Six",
+                "9": "Nine"
+            },
+            "default_value": 3,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_64837fcccb6e6",
+            "label": "Feed Style",
+            "name": "feed_style",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "syndicated": "Syndicated Feed",
+                "curated": "Curated Selection"
+            },
+            "default_value": "syndicated",
+            "return_format": "array",
+            "allow_null": 0,
+            "other_choice": 0,
+            "save_other_choice": 0,
+            "layout": "vertical"
+        },
+        {
+            "key": "field_64838006cb6e7",
+            "label": "Feed Category",
+            "name": "feed_category",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "select",
+            "allow_null": 1,
+            "multiple": 0
+        },
+        {
+            "key": "field_6483840294c7a",
+            "label": "Feed Tags",
+            "name": "feed_tags",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "post_tag",
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "select",
+            "allow_null": 1,
+            "multiple": 0
+        },
+        {
+            "key": "field_64838378cb6e8",
+            "label": "Feed Order",
+            "name": "feed_order",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "ASC": "Ascending",
+                "DESC": "Descending"
+            },
+            "default_value": "",
+            "return_format": "array",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
         }
     ],
     "location": [
@@ -59,5 +164,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1685996410
+    "modified": 1686346902
 }
