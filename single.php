@@ -11,7 +11,11 @@
 
 $context         = Timber::context();
 $timber_post     = Timber::query_post();
+global $post, $page, $pages, $multipage;
 $context['post'] = $timber_post;
+if ( $multipage ) {
+    $context['post'] -> post_content = $pages[ $page - 1 ];
+}
 
 $author_info = get_post_meta( $timber_post->ID, '_meta_info', true) ? get_post_meta( $timber_post->ID, '_meta_info', true) : 1;
 

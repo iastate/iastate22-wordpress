@@ -22,7 +22,12 @@
 			{% endif %}
 		</div>
 		{% include "partial/share.twig" %}
-		{{post.content}}
+		{% if post.pagination %}
+			{{ post.paged_content }}
+			{% include 'partial/pagination--interior.twig' with { pagination: post.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+		{% else %}
+			{{post.content}}
+		{% endif %}
 
 		<div class="paragraph-widget paragraph-widget--article-category-tags">
 			{% include ['templates/partial/post-category-tag.twig'] %}

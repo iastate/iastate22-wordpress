@@ -1,0 +1,78 @@
+{% if post.pagination.pages is not empty %}
+	<nav class="pagination-block">
+		<ul class="pagination">
+			{# First #}
+			{% if post.pagination.pages|first and post.pagination.pages|first.current != true %}
+				<li class="first btn">
+					<a href="{{ post.pagination.pages|first.link }}">
+						<span class="visible-for-screen-readers">First</span>
+					</a>
+				</li>
+			{% else %}
+				<li class="first btn disabled">
+					<button disabled>
+						<span class="visible-for-screen-readers">First</span>
+					</button>
+				</li>
+			{% endif %}
+
+			{# Previous #}
+			{% if post.pagination.prev %}
+				<li class="prev btn">
+					<a href="{{ post.pagination.prev.link }}">
+						<span class="visible-for-screen-readers">Previous</span>
+					</a>
+				</li>
+			{% else %}
+				<li class="prev btn disabled">
+					<button disabled>
+						<span class="visible-for-screen-readers">Previous</span>
+					</button>
+				</li>
+			{% endif %}
+
+			{# Pages #}
+			{% for page in post.pagination.pages %}
+				{% if page.current %}
+					<li class="current">
+						<span class="{{ page.class }}">{{ page.title }}</span>
+					</li>
+				{% else %}
+					<li>
+						<a href="{{ page.link }}" class="{{ page.class }}">{{ page.title }}</a>
+					</li>
+				{% endif %}
+			{% endfor %}
+
+			{# Next #}
+			{% if post.pagination.next %}
+				<li class="next btn">
+					<a href="{{ post.pagination.next.link }}">
+						<span class="visible-for-screen-readers">Next</span>
+					</a>
+				</li>
+			{% else %}
+				<li class="next btn disabled">
+					<button disabled>
+						<span class="visible-for-screen-readers">Next</span>
+					</button>
+				</li>
+			{% endif %}
+
+			{# Last #}
+			{% if post.pagination.pages|last and post.pagination.pages|last.current != true %}
+				<li class="last btn">
+					<a href="{{ post.pagination.pages|last.link }}">
+						<span class="visible-for-screen-readers">Last</span>
+					</a>
+				</li>
+			{% else %}
+				<li class="last btn disabled">
+					<button disabled>
+						<span class="visible-for-screen-readers">Last</span>
+					</button>
+				</li>
+			{% endif %}
+		</ul>
+	</nav>
+{% endif %}

@@ -45,7 +45,7 @@
           <span class="visible-for-screen-readers">Close Search</span>
           <span class="fa-light fa-xmark"></span>
         </a>
-        <form class="site-header__search-form-desktop" method="get" action="/">
+        <form class="site-header__search-form-desktop" method="get" action="{{ site.link }}">
             {{ function('get_search_form') }}
         </form>
       </div>
@@ -104,7 +104,7 @@
                       </li>
                     {% endfor %}
                   </ul>
-                  <form class="site-header__search-form-mobile" method="get" action="/">
+                  <form class="site-header__search-form-mobile" method="get" action="{{ site.link }}">
                     {{ function('get_search_form') }}
                   </form>
                 </nav>

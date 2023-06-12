@@ -2,6 +2,11 @@
 
 {% block content %}
 	<div class="outer-pad">
+	{% if post.pagination %}
+		{{ post.paged_content }}
+		{% include 'partial/pagination--interior.twig' with { pagination: post.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+	{% else %}
 		{{post.content}}
+	{% endif %}
 	</div>
 {% endblock %}

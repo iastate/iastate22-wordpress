@@ -113,7 +113,6 @@
                     {% for link in post.meta('contact') %}
                         <dt>
                             {% if link.acf_fc_layout == "link" %}
-                            <span class="icon-spec"></span>
                             {% elseif link.acf_fc_layout == "email" %}
                             <span class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="42.262" height="42.304" viewBox="0 0 42.262 42.304">
@@ -146,7 +145,7 @@
                             {% else %}
                                 {% set classList = "link-set__link iastate22-link-secondary" %}
                             {% endif %}
-                            <a href="{{ link.link.url }}" class="{{ classList }}">{{ link.link.title }}<span class="arrow"></span></a>
+                            <a href="{{ link.link.url }}" class="{{ classList }}"{% if link.link.target|length > 0 %} target="{{ link.link.target }}"{% endif %}>{{ link.link.title }}<span class="arrow"></span></a>
                         {% elseif link.acf_fc_layout == "email" %}
                             {% set classList = "link-set__link iastate22-link-secondary" %}
                             <a href="mailto:{{ link.email.url }}" class="{{ classList }}">{{ link.email.title }}<span class="arrow"></span></a>
@@ -154,7 +153,7 @@
                             <span class="event-details__phone-number">{{ link.phone_number }}</span>
                         {% elseif link.acf_fc_layout == "tags" %}
                             <div class="event-details__tags">
-                                {% for tag in tags %}
+                                {% for tag in post.terms('event_tags') %}
                                     <a href="/event_tags/{{ tag.slug }}">{{ tag.name }}</a>
                                 {% endfor %}
                             </div>
@@ -164,11 +163,13 @@
                 {% endif %}
             </dl>
         </div>
-        <div class="paragraph-widget paragraph-widget--text-content">
-            <div class="text-content">
-                {{ post.meta("event_content") }}
+        {% if post.terms('category')|length > 0 and post.terms('tags')|length > 0 %}
+            <div class="paragraph-widget paragraph-widget--text-content">
+                <div class="text-content">
+                    {{ post.meta("event_content") }}
+                </div>
             </div>
-        </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
