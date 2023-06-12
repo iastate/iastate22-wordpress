@@ -82,7 +82,15 @@
             "type": "taxonomy",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64837fcccb6e6",
+                        "operator": "==",
+                        "value": "syndicated"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -105,7 +113,15 @@
             "type": "taxonomy",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64837fcccb6e6",
+                        "operator": "==",
+                        "value": "syndicated"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -128,7 +144,15 @@
             "type": "radio",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64837fcccb6e6",
+                        "operator": "==",
+                        "value": "syndicated"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -144,6 +168,129 @@
             "other_choice": 0,
             "layout": "vertical",
             "save_other_choice": 0
+        },
+        {
+            "key": "field_64873fa72c35b",
+            "label": "News Feed",
+            "name": "pick_three",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_648379e43e4ae",
+                        "operator": "==",
+                        "value": "3"
+                    },
+                    {
+                        "field": "field_64837fcccb6e6",
+                        "operator": "==",
+                        "value": "curated"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type",
+                "taxonomy"
+            ],
+            "return_format": "object",
+            "min": 1,
+            "max": 3,
+            "elements": ""
+        },
+        {
+            "key": "field_648746072c35c",
+            "label": "News Feed",
+            "name": "pick_six",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_648379e43e4ae",
+                        "operator": "==",
+                        "value": "6"
+                    },
+                    {
+                        "field": "field_64837fcccb6e6",
+                        "operator": "==",
+                        "value": "curated"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type",
+                "taxonomy"
+            ],
+            "return_format": "object",
+            "min": 1,
+            "max": 6,
+            "elements": ""
+        },
+        {
+            "key": "field_648746092c35d",
+            "label": "News Feed",
+            "name": "pick_nine",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_648379e43e4ae",
+                        "operator": "==",
+                        "value": "9"
+                    },
+                    {
+                        "field": "field_64837fcccb6e6",
+                        "operator": "==",
+                        "value": "curated"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type",
+                "taxonomy"
+            ],
+            "return_format": "object",
+            "min": 1,
+            "max": 9,
+            "elements": ""
         }
     ],
     "location": [
@@ -164,5 +311,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1686346902
+    "modified": 1686587326
 }

@@ -679,19 +679,14 @@ function idf_acf_block_render_recent_articles( $block, $content = '', $is_previe
     $context['fields'] = get_fields();
     $context['is_preview'] = $is_preview;
     $postCount = $context['fields']['news_stories'];
-    $order = $context['fields']['feed_order']['value'];
-    $cat = $context['fields']['feed_category'];
-    $tag = $context['fields']['feed_tags'];
     if ($context['fields']['feed_style']['value'] == "syndicated") {
+        $order = $context['fields']['feed_order']['value'];
+        $cat = $context['fields']['feed_category'];
+        $tag = $context['fields']['feed_tags'];
 		$argh = 'post_type=post&numberposts='.$postCount.'&category='.$cat.'&tag_id='.$tag.'&orderby=date&order='.$order.'';
 		$context['recent_articles'] = Timber::get_posts($argh); // uses wp_query format.
 	}
-    // $arr = array(
-    //     'post_type' => 'post',
-    //     'posts_per_page' => 3,
-    //     'order' => 'DESC'
-    // );
-    // $context['recent_articles'] = new Timber\PostQuery($arr);
+
     Timber::render('templates/blocks/recent-articles.twig', $context);
 }
 
