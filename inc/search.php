@@ -48,6 +48,7 @@ function list_searcheable_acf(){
 function advanced_custom_search( $where, $wp_query ) {
 
     global $wpdb;
+    $prefix = $wpdb->prefix;
  
     if ( empty( $where ))
         return $where;
@@ -69,11 +70,11 @@ function advanced_custom_search( $where, $wp_query ) {
     foreach( $exploded as $tag ) :
         $where .= " 
           AND (
-            (wp_posts.post_title LIKE '%$tag%')
-            OR (wp_posts.post_content LIKE '%$tag%')
+            (".$prefix."posts.post_title LIKE '%$tag%')
+            OR (".$prefix."posts.post_content LIKE '%$tag%')
             OR EXISTS (
-              SELECT * FROM wp_postmeta
-	              WHERE post_id = wp_posts.ID
+              SELECT * FROM ".$prefix."postmeta
+	              WHERE post_id = ".$prefix."posts.ID
 	                AND (";
 
         foreach ($list_searcheable_acf as $searcheable_acf) :
@@ -87,23 +88,23 @@ function advanced_custom_search( $where, $wp_query ) {
 	        $where .= ")
             )
             OR EXISTS (
-              SELECT * FROM wp_comments
-              WHERE comment_post_ID = wp_posts.ID
+              SELECT * FROM ".$prefix."comments
+              WHERE comment_post_ID = ".$prefix."posts.ID
                 AND comment_content LIKE '%$tag%'
             )
             OR EXISTS (
-              SELECT * FROM wp_terms
-              INNER JOIN wp_term_taxonomy
-                ON wp_term_taxonomy.term_id = wp_terms.term_id
-              INNER JOIN wp_term_relationships
-                ON wp_term_relationships.term_taxonomy_id = wp_term_taxonomy.term_taxonomy_id
+              SELECT * FROM ".$prefix."terms
+              INNER JOIN ".$prefix."term_taxonomy
+                ON ".$prefix."term_taxonomy.term_id = ".$prefix."terms.term_id
+              INNER JOIN ".$prefix."term_relationships
+                ON ".$prefix."term_relationships.term_taxonomy_id = ".$prefix."term_taxonomy.term_taxonomy_id
               WHERE (
           		taxonomy = 'post_tag'
             		OR taxonomy = 'category'          		
             		OR taxonomy = 'myCustomTax'
           		)
-              	AND object_id = wp_posts.ID
-              	AND wp_terms.name LIKE '%$tag%'
+              	AND object_id = ".$prefix."posts.ID
+              	AND ".$prefix."terms.name LIKE '%$tag%'
             )
         )";
     endforeach;

@@ -1,7 +1,9 @@
 <div class="recent-articles">
-    <div class="text-content">
-        <h2>{{ fields.section_title }}</h2>
-    </div>
+    {% if fields.section_title|length > 0 %}
+        <div class="text-content">
+            <h2>{{ fields.section_title }}</h2>
+        </div>
+    {% endif %}
     <div class="card-set">
         <ul>
         {% if recent_articles %}
