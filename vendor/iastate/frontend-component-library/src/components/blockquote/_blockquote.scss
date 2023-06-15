@@ -35,6 +35,12 @@
   @include media-breakpoint-up(xl) {
     padding: rem(60) rem(36) rem(90);
   }
+  &.iastate22-blockquote--no-author {
+    padding-bottom: rem(140);
+    @include media-breakpoint-up(xl) {
+      padding-bottom: rem(125);
+    }
+  }
 }
 
 .iastate22-blockquote__inner-wrap {
@@ -111,6 +117,12 @@
     @include media-breakpoint-up(xl) {
       top: rem(-9);
       margin-left: rem(-115);
+    }
+    .iastate22-blockquote--with-no-image & {
+      top: rem(-80);
+      @include media-breakpoint-up(xl) {
+        top: rem(-9);
+      }
     }
   }
   &:after {
