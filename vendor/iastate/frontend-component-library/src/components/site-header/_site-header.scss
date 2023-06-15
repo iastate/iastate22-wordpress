@@ -1045,10 +1045,11 @@
           @include media-breakpoint-up(xl) {
             min-width: rem(727);
             left: rem(-243);
+            gap: 0 rem(40);
           }
           li {
             @include media-breakpoint-up(xl) {
-              width: 50%;
+              width: calc(50% - #{rem(20)});
             }
           }
         }
@@ -1090,11 +1091,6 @@
           }
           &:last-child {
             margin-bottom: 0;
-          }
-          .link-tertiary {
-            .arrow {
-              right: rem(-23);
-            }
           }
         }
       }
