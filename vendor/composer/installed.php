@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => 'dev-master',
-        'version' => 'dev-master',
+        'pretty_version' => 'dev-develop',
+        'version' => 'dev-develop',
         'type' => 'wordpress-theme',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '1e3e8a080e51b8e022fcddb837793e5c7743631b',
+        'reference' => '8d20cda1b0236c121399b315783f1780735de11d',
         'name' => 'iastate/wordpress-theme',
         'dev' => true,
     ),
@@ -36,16 +36,16 @@
             'aliases' => array(
                 0 => '9999999-dev',
             ),
-            'reference' => '734af426754a95ebc399b760b7c5d70eb5fc61c5',
+            'reference' => 'd56bc843bc31a881cc5538955c94d0828f5c388f',
             'dev_requirement' => true,
         ),
         'iastate/wordpress-theme' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
+            'pretty_version' => 'dev-develop',
+            'version' => 'dev-develop',
             'type' => 'wordpress-theme',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '1e3e8a080e51b8e022fcddb837793e5c7743631b',
+            'reference' => '8d20cda1b0236c121399b315783f1780735de11d',
             'dev_requirement' => false,
         ),
         'symfony/polyfill-ctype' => array(

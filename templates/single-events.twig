@@ -157,6 +157,8 @@
                                     <a href="/event_tags/{{ tag.slug }}">{{ tag.name }}</a>
                                 {% endfor %}
                             </div>
+                        {% elseif link.acf_fc_layout == "text_label" %}
+                            <span class="event-details__text-label">{{ link.label }}</span>
                         {% endif %}
                     {% endfor %}
                     </dd>
