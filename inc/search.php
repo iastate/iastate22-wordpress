@@ -60,6 +60,10 @@ function advanced_custom_search( $where, $wp_query ) {
     $exploded = explode( ' ', $terms );
     if( $exploded === FALSE || count( $exploded ) == 0 )
         $exploded = array( 0 => $terms );
+    
+    array_walk($exploded,function (&$value){
+      $value = esc_sql($value);
+    });
          
     // reset search in order to rebuilt it as we whish
     $where = '';
