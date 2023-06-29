@@ -3,7 +3,7 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 add_action('acf/init', 'idf_acf_init');
 
-// Register new custom block category, and add ass first item in list.
+// Register new custom block category, and add as first item in list.
 function idf_plugin_block_categories( $categories ) {
     $custom_isu_category = array(
         'slug' => 'isu-blocks',
@@ -12,7 +12,7 @@ function idf_plugin_block_categories( $categories ) {
     array_unshift( $categories, $custom_isu_category );
     return $categories;
 }
-add_action( 'block_categories', 'idf_plugin_block_categories', 10, 2 );
+add_action( 'block_categories_all', 'idf_plugin_block_categories', 10, 2 );
 
 function idf_acf_init() {
     // if(! function_exists(" acf_register_block_type" )) {

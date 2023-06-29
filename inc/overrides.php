@@ -14,3 +14,8 @@ if (!function_exists('acf_register_block_type')){
 		return false;
 	}
 }
+
+
+add_filter('acf/settings/show_admin',function (){
+  return 'production' !== wp_get_environment_type();
+});
