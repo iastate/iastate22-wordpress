@@ -73,4 +73,13 @@
   font-weight: 700;
   font-size: rem(18);
   line-height: (30 / 18);
+
+  a {
+    color: $white;
+
+    &:hover,
+    &:focus {
+      color: $yellow;
+    }
+  }
 }
