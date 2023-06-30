@@ -11,15 +11,17 @@
                     {% set thumbNail = NULL %}
                 {% endif %}
                 <div class="hero-stories-feed-item">
-                  {% if thumbNail != NULL %}
                     <div class="hero-stories-feed-item__media">
                         <div class="hero-stories-feed-item__media-container">
                             <a href="{{ post.link }}">
+                            {% if thumbNail != NULL %}
                                 <img class="hero-stories-feed-item__media-image" src="{{ thumbNail.src }}" alt="{{ thumbNail.alt }}" loading="lazy">
+                            {% else %}
+                                <img class="hero-stories-feed-item__media-image" src="{{ site.link }}/wp-content/themes/wordpress-theme/vendor/iastate/frontend-component-library/build/img/News_Default_FeaturedImage.jpg" alt="No Thumbnail Available" loading="lazy">
+                            {% endif %}
                             </a>
                         </div>
                     </div>
-                  {% endif %}
                     <div class="hero-stories-feed-item__content">
                         <div class="hero-stories-feed-item__content-tags">
                             <ul>

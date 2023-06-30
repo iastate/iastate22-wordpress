@@ -7,7 +7,7 @@
     <div class="card-set">
         <ul>
         {% if recent_articles %}
-            {% for article in recent_articles %}
+            {% for key, article in recent_articles %}
                 {% if Image(article._thumbnail_id) %}
                     {% set thumbNail = Image(article._thumbnail_id) %}
                 {% elseif Image(article._hero_image) %}
@@ -19,7 +19,7 @@
                         {% if thumbNail.id != NULL %}
                             <img src="{{ thumbNail.src }}" alt="{{ thumbNail.alt }}" loading="lazy" width="{{ thumbnail.width }}" height="{{ thumbnail.height }}">
                         {% else %}
-                            <img src="http://via.placeholder.com/400x400" alt="No Thumbnail Available" loading="lazy" width="600" height="600">
+                            <img src="{{ site.link }}/wp-content/themes/wordpress-theme/vendor/iastate/frontend-component-library/build/img/News_Default_FeaturedImage.jpg" alt="No Thumbnail Available" loading="lazy" width="600" height="600">
                         {% endif %}
                     </div>
                     

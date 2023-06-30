@@ -681,7 +681,7 @@ function idf_acf_block_render_recent_articles( $block, $content = '', $is_previe
     $postCount = $context['fields']['news_stories'];
     if ($context['fields']['feed_style']['value'] == "syndicated") {
         $order = $context['fields']['feed_order']['value'];
-        $cat = $context['fields']['feed_category'];
+        $cat = $context['fields']['feed_category'] - 1;
         $tag = $context['fields']['feed_tags'];
 		$argh = 'post_type=post&numberposts='.$postCount.'&category='.$cat.'&tag_id='.$tag.'&orderby=date&order='.$order.'';
 		$context['recent_articles'] = Timber::get_posts($argh); // uses wp_query format.
