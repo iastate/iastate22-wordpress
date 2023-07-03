@@ -3,10 +3,16 @@
   flex-direction: column;
   gap: rem(15);
   margin-bottom: rem(50);
+
   @include media-breakpoint-up(lg) {
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
   .news-item {
+    @include media-breakpoint-up(lg) {
+      flex: 0 0 48.5%;
+    }
     .news-item__tags {
       ul {
         margin: rem(20) 0 0;
@@ -25,7 +31,7 @@
         }
       }
     }
-    .news-item__article-title .link-set__link.iastate22-link-external {
+    .news-item__article-title {
       font-size: rem(22);
     }
   }
