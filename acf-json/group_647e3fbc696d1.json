@@ -3,6 +3,26 @@
     "title": "In The News Block",
     "fields": [
         {
+            "key": "field_64a315ae87472",
+            "label": "In The News Title",
+            "name": "in_the_news_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 255,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_647e3fbc6c1e4",
             "label": "In The News",
             "name": "news_cards",
@@ -135,5 +155,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1687981742
+    "modified": 1688409539
 }

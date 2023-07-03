@@ -321,16 +321,16 @@ function idf_acf_init() {
     ));
 
     acf_register_block_type( array(
-        'name'  => 'faculty-hero',
-        'title' => __( 'Hero -- Faculty and Staff'),
+        'name'  => 'directory-hero',
+        'title' => __( 'Hero -- Directory'),
         'description' => __( 'A plain ecosystem hero with search filtering options'),
-        'render_callback' => 'idf_acf_block_render_faculty_hero',
+        'render_callback' => 'idf_acf_block_render_directory_hero',
         'supports' => array('align' => array('wide','full' ),'multiple' => false),
         'category' => 'isu-blocks',
         'align' => 'wide',
         'icon' => 'align-wide',
         'mode' => 'edit',
-        'keywords' => array('Faculty', 'Staff', 'Hero'),
+        'keywords' => array('Faculty', 'Staff', 'Hero', 'Directory', 'People', "Profiles"),
     ));
 
     acf_register_block_type( array(
@@ -633,12 +633,12 @@ function idf_acf_block_render_directory( $block, $content = '', $is_preview = fa
     Timber::render('templates/blocks/directory.twig', $context);
 }
 
-function idf_acf_block_render_faculty_hero( $block, $content = '', $is_preview = false ) {
+function idf_acf_block_render_directory_hero( $block, $content = '', $is_preview = false ) {
     $context = Timber::context();
     $context['block'] = $block;
     $context['fields'] = get_fields();
     $context['is_preview'] = $is_preview;
-    Timber::render('templates/blocks/faculty-hero.twig', $context);
+    Timber::render('templates/blocks/directory-hero.twig', $context);
 }
 
 function idf_acf_block_render_featured_events( $block, $content = '', $is_preview = false ) {
@@ -765,11 +765,11 @@ add_filter('allowed_block_types_all', function($block_types, $editor_context) {
         'acf/directory',
         'core/table'
     ];
-    $facultyblocks = [
-        'acf/faculty-hero'
+    $directoryblocks = [
+        'acf/directory-hero'
     ];
     if($name === 'faculty') {
-        return $facultyblocks;
+        return $directoryblocks;
     }
     
     // if($home_id == $id) {

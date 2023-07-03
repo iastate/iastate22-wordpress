@@ -6,35 +6,10 @@
     
   <div class="outer-pad">
     {% if function('get_query_var', 'post_type') == 'profiles' %}
-      {% include ['blocks/faculty-hero.twig'] with { reset: true } %}
+      {% include ['blocks/directory-hero.twig'] with { reset: true } %}
       {% include ['partial/profile-search.twig'] %}
     {% else %}
     {% include ['blocks/news-hero.twig'] %}
-
-    {# <div class="card-set card-set--teaser">
-    {% if posts|length %}
-		  <ul>
-        {% for post in posts %}
-          <li>
-            <div class="tease tease-{{post.post_type}} iastate22-card iastate22-card--teaser iastate22-card--teaser-profile clickable" id="tease-{{post.ID}}">
-                {% if post.thumbnail.src %}
-                  <div class="iastate22-card__media">
-                   <img src="{{post.thumbnail.src}}" />
-                  </div>
-                {% endif %}
-                <div class="iastate22-card__content">
-                  <a href="{{post.link}}" class="iastate22-card__cta">{{post.post_title }}</a>
-                  <p class="iastate22-card__content-body">{{ post.preview.length(25) }}</p>
-                  <p class="iastate22-card__content-date">{{ post.date }}</p>
-                </div>
-            </div>
-          </li>
-        {% endfor %}
-      </ul>
-    {% else %}
-      <h2>No posts found</h2>
-    {% endif %}
-    </div> #}
     {% include ['templates/partial/news-filter.twig'] with { reset: true } %}
     {% include ['templates/loops/loop-posts.twig'] %}
     {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}

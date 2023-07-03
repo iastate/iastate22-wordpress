@@ -18,7 +18,9 @@
         {% if fltr == "standard"  %}
             <div class="paragraph-widget paragraph-widget--filter-form">
                 <div class="filter-form">
-                    <h2 class="filter-form__label">{{ options.search_filters.search_filters.filter_label }}</h2>
+                    {% if options.search_filters.search_filters.filter_label|length > 0 %}
+                        <h2 class="filter-form__label">{{ options.search_filters.search_filters.filter_label }}</h2>
+                    {% endif %}
                     <form class="iastate22-form iastate22-form--inline" id="searchform" action="{{ site.link }}/profiles/" method="get">
                         <input type="hidden" name="post_type" value="profiles" tabindex="-1"/>
                         {% if "a-z" in options.search_filters.search_filters.filters %}
