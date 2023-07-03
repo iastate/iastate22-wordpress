@@ -15,6 +15,9 @@
         {% set degrees = post.meta('degrees') %}
         {% set affiliations = post.meta('affiliations') %}
         {% set publications = post.meta('publication') %}
+        {% if biography|length > 128 %}
+            {% set biography = biography|truncate(128) ~ ' ... ' %}
+        {% endif %}
         <li>
             <div class="faculty-staff-feed-item">
                 <div class="faculty-staff-feed-item__media">
@@ -34,7 +37,7 @@
                 <div class="faculty-staff-feed-item__content text-content">
                 <h2 class="faculty-staff-feed-item__content-name">{{ firstName }} {{ lastName }}</h2>
                 {% if biography %}
-                    <p class="faculty-staff-feed-item__content-body">{{ biography }}</p>
+                    <div class="faculty-staff-feed-item__content-body">{{ biography }}</div>
                 {% endif %}
                     <p>
                         <a href="{{ post.link }}" class="iastate22-link-secondary">About <span class="arrow"></span></a>

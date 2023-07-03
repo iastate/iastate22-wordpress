@@ -2847,6 +2847,8 @@ main {
     @media (min-width: 992px) {
       .link-block h2 {
         width: 60%; } }
+    .link-block h2:after {
+      display: none; }
   @media (min-width: 992px) {
     .link-block .link-set ul {
       -webkit-column-count: 2;
@@ -4939,6 +4941,9 @@ main {
       font-weight: 700; }
   .call-to-action--large .iastate22-button-set {
     margin-top: 1.5625rem; }
+
+.call-to-action__headline:after {
+  display: none; }
 
 .call-to-action__copy-wrap .text-content {
   margin-bottom: 1.25rem; }
@@ -8459,7 +8464,8 @@ html:not(.js) .nojs-close-menu {
       @media (min-width: 992px) {
         .news-items .news-item .news-item__tags ul li {
           display: inline; } }
-  .news-items .news-item .news-item__article-title, .news-items .news-item .news-item__article-title .iastate22-link-external {
+  .news-items .news-item .news-item__article-title,
+  .news-items .news-item .news-item__article-title .iastate22-link-external {
     font-size: 1.375rem; }
 
 .grid-list {
