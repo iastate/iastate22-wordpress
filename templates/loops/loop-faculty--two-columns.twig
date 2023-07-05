@@ -16,6 +16,10 @@
         {% set degrees = post.meta('degrees') %}
         {% set affiliations = post.meta('affiliations') %}
         {% set publications = post.meta('publication') %}
+        {% if biography|length > 96 %}
+            {% set biography = biography|truncate(96) ~ ' ... ' %}
+        {% endif %}
+
         <div>
             <div class="faculty-staff-card">
                 <div class="faculty-staff-card__media">

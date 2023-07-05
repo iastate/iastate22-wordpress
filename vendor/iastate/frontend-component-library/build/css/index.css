@@ -2039,7 +2039,9 @@ textarea.form-control-lg {
     -webkit-transform: rotate(-45deg);
             transform: rotate(-45deg); }
 
-.text-content h2:after, .text-content .h2:after, .text-content .home-community__headline:after, .text-content .admission-aid-links__intro-title:after, .text-content .admission-aid-connect__section-title:after, .featured-events__header h2:after, .personal-profile-info-card__name:after, .upcoming-events h2:after, .home-community__callout-headline:after, .home-academics__headline:after, .home-solutions__headline:after, .home-events-news__headline:after, .home-resources__headline:after, .home-resources__questions-subhead:after, .admission-aid-explore__title:after, .admission-aid-why__callouts-label:after, .admission-aid-afford__intro-title:after, .admission-aid-connect__title:after, .personal-profile__content h2:after, .college-overview__title:after, .college-in-page-nav_title:after, .college-maj-min-certs__title:after, .college-research__title:after, .college-innovation__title:after, .college-success__title:after {
+.text-content h2:after,
+.wp-block-table h2:after, .text-content .h2:after,
+.wp-block-table .h2:after, .text-content .home-community__headline:after, .text-content .admission-aid-links__intro-title:after, .text-content .admission-aid-connect__section-title:after, .wp-block-table .home-community__headline:after, .wp-block-table .admission-aid-links__intro-title:after, .wp-block-table .admission-aid-connect__section-title:after, .featured-events__header h2:after, .personal-profile-info-card__name:after, .upcoming-events h2:after, .home-community__callout-headline:after, .home-academics__headline:after, .home-solutions__headline:after, .home-events-news__headline:after, .home-resources__headline:after, .home-resources__questions-subhead:after, .admission-aid-explore__title:after, .admission-aid-why__callouts-label:after, .admission-aid-afford__intro-title:after, .admission-aid-connect__title:after, .personal-profile__content h2:after, .college-overview__title:after, .college-in-page-nav_title:after, .college-maj-min-certs__title:after, .college-research__title:after, .college-innovation__title:after, .college-success__title:after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -2268,13 +2270,15 @@ body {
       font-size: 1rem;
       line-height: 1.75; } }
 
-.text-content a:not(.iastate22-button):not(.iastate22-link-secondary):not(.iastate22-link-external):not(.link-tertiary) {
+.text-content a:not(.iastate22-button):not(.iastate22-link-secondary):not(.iastate22-link-external):not(.link-tertiary),
+.wp-block-table a:not(.iastate22-button):not(.iastate22-link-secondary):not(.iastate22-link-external):not(.link-tertiary) {
   color: #7c2529;
   font-weight: 700;
   font-family: "Nimbus Sans", sans-serif;
   -webkit-transition: 0.2s color ease-in-out;
   transition: 0.2s color ease-in-out; }
-  .text-content a:not(.iastate22-button):not(.iastate22-link-secondary):not(.iastate22-link-external):not(.link-tertiary):hover {
+  .text-content a:not(.iastate22-button):not(.iastate22-link-secondary):not(.iastate22-link-external):not(.link-tertiary):hover,
+  .wp-block-table a:not(.iastate22-button):not(.iastate22-link-secondary):not(.iastate22-link-external):not(.link-tertiary):hover {
     color: #c8102e; }
 
 p {
@@ -2290,80 +2294,132 @@ p {
     p a:hover {
       color: #c8102e; }
 
-.text-content ul, .text-content
+.text-content ul,
+.wp-block-table ul, .text-content
+ol,
+.wp-block-table
 ol {
   margin: 1rem 0;
   padding: 0 1.5rem; }
-  .text-content ul li, .text-content
+  .text-content ul li,
+  .wp-block-table ul li, .text-content
+  ol li,
+  .wp-block-table
   ol li {
     font-size: 1.125rem;
     line-height: 1.77778;
     margin: 0.25rem 0; }
     @media (min-width: 768px) {
-      .text-content ul li, .text-content
+      .text-content ul li,
+      .wp-block-table ul li, .text-content
+      ol li,
+      .wp-block-table
       ol li {
         font-size: 1rem;
         line-height: 1.8125; } }
-    .text-content ul li:first-child, .text-content
+    .text-content ul li:first-child,
+    .wp-block-table ul li:first-child, .text-content
+    ol li:first-child,
+    .wp-block-table
     ol li:first-child {
       margin-top: 0; }
-    .text-content ul li:last-child, .text-content
+    .text-content ul li:last-child,
+    .wp-block-table ul li:last-child, .text-content
+    ol li:last-child,
+    .wp-block-table
     ol li:last-child {
       margin-bottom: 0; }
   .text-content ul ul,
-  .text-content ul ol, .text-content
+  .text-content ul ol,
+  .wp-block-table ul ul,
+  .wp-block-table ul ol, .text-content
   ol ul,
   .text-content
+  ol ol,
+  .wp-block-table
+  ol ul,
+  .wp-block-table
   ol ol {
     margin: 0.25rem 0; }
 
-.text-content > ul:first-child, .text-content >
+.text-content > ul:first-child,
+.wp-block-table > ul:first-child, .text-content >
+ol:first-child,
+.wp-block-table >
 ol:first-child {
   margin-top: 0; }
   .text-content > ul:first-child ul:first-child,
   .text-content > ul:first-child ol:first-child,
-  .text-content > ul:first-child li:first-child, .text-content >
+  .text-content > ul:first-child li:first-child,
+  .wp-block-table > ul:first-child ul:first-child,
+  .wp-block-table > ul:first-child ol:first-child,
+  .wp-block-table > ul:first-child li:first-child, .text-content >
   ol:first-child ul:first-child,
   .text-content >
   ol:first-child ol:first-child,
   .text-content >
+  ol:first-child li:first-child,
+  .wp-block-table >
+  ol:first-child ul:first-child,
+  .wp-block-table >
+  ol:first-child ol:first-child,
+  .wp-block-table >
   ol:first-child li:first-child {
     margin-top: 0; }
 
-.text-content > ul:last-child, .text-content >
+.text-content > ul:last-child,
+.wp-block-table > ul:last-child, .text-content >
+ol:last-child,
+.wp-block-table >
 ol:last-child {
   margin-bottom: 0; }
   .text-content > ul:last-child ul:last-child,
   .text-content > ul:last-child ol:last-child,
-  .text-content > ul:last-child li:last-child, .text-content >
+  .text-content > ul:last-child li:last-child,
+  .wp-block-table > ul:last-child ul:last-child,
+  .wp-block-table > ul:last-child ol:last-child,
+  .wp-block-table > ul:last-child li:last-child, .text-content >
   ol:last-child ul:last-child,
   .text-content >
   ol:last-child ol:last-child,
   .text-content >
+  ol:last-child li:last-child,
+  .wp-block-table >
+  ol:last-child ul:last-child,
+  .wp-block-table >
+  ol:last-child ol:last-child,
+  .wp-block-table >
   ol:last-child li:last-child {
     margin-bottom: 0; }
 
-.text-content ul {
+.text-content ul,
+.wp-block-table ul {
   list-style-type: none; }
-  .text-content ul li {
+  .text-content ul li,
+  .wp-block-table ul li {
     padding-left: 1.25rem;
     text-indent: -1.25rem; }
-    .text-content ul li:before {
+    .text-content ul li:before,
+    .wp-block-table ul li:before {
       content: "•";
       padding-right: 0.8125rem;
       color: #7c2529; }
-    .text-content ul li ul li:before {
+    .text-content ul li ul li:before,
+    .wp-block-table ul li ul li:before {
       content: "–";
       padding-right: 0.625rem;
       color: #7c2529; }
 
-.text-content ol {
+.text-content ol,
+.wp-block-table ol {
   list-style-type: none;
   counter-reset: item; }
-  .text-content ol > li {
+  .text-content ol > li,
+  .wp-block-table ol > li {
     padding-left: 1.25rem;
     text-indent: -1.25rem; }
-    .text-content ol > li:before {
+    .text-content ol > li:before,
+    .wp-block-table ol > li:before {
       content: counter(item) ". ";
       counter-increment: item;
       color: #7c2529; }
@@ -2791,6 +2847,8 @@ main {
     @media (min-width: 992px) {
       .link-block h2 {
         width: 60%; } }
+    .link-block h2:after {
+      display: none; }
   @media (min-width: 992px) {
     .link-block .link-set ul {
       -webkit-column-count: 2;
@@ -3619,6 +3677,12 @@ main {
     margin-right: 30px;
     margin-bottom: 20px; }
 
+.event-details__text-label {
+  font-size: 1.25rem;
+  line-height: 1.5625rem;
+  color: #7c2529;
+  font-weight: 700; }
+
 @media (min-width: 992px) {
   .paragraph-widget--feature-with-large-image {
     margin-top: 7.5rem; } }
@@ -3814,7 +3878,7 @@ main {
           padding-right: 3.125rem;
           border-right: solid 0.1875rem #ebebeb;
           -webkit-box-flex: 1;
-                  flex: 1 0 auto; } }
+                  flex: 1 0 66.667%; } }
       .featured-news .featured-news-container .featured-news__large-article .featured-news__large-article__container {
         position: relative; }
         .featured-news .featured-news-container .featured-news__large-article .featured-news__large-article__container p {
@@ -3878,7 +3942,8 @@ main {
           margin: 0; }
     @media (min-width: 992px) {
       .featured-news .featured-news-container .featured-news__small-article {
-        width: 31.25rem;
+        -webkit-box-flex: 0;
+                flex: 0 0 33.333%;
         padding-right: 3.125rem; } }
     .featured-news .featured-news-container .featured-news__small-article .featured-news__small-article__container {
       margin-bottom: 2.1875rem; }
@@ -4293,6 +4358,13 @@ main {
         font-family: "Nimbus Sans", sans-serif;
         font-weight: 700;
         color: #c8102e; }
+      .iastate22-table tbody td a {
+        color: #000000;
+        -webkit-text-decoration-color: rgba(0, 0, 0, 0);
+                text-decoration-color: rgba(0, 0, 0, 0); }
+        .iastate22-table tbody td a:hover, .iastate22-table tbody td a:focus {
+          -webkit-text-decoration-color: black;
+                  text-decoration-color: black; }
 
 .sortable-table thead tr th.sortable {
   position: relative;
@@ -4870,6 +4942,9 @@ main {
   .call-to-action--large .iastate22-button-set {
     margin-top: 1.5625rem; }
 
+.call-to-action__headline:after {
+  display: none; }
+
 .call-to-action__copy-wrap .text-content {
   margin-bottom: 1.25rem; }
   .call-to-action__copy-wrap .text-content p a {
@@ -5013,6 +5088,10 @@ main {
   font-weight: 700;
   font-size: 1.125rem;
   line-height: 1.66667; }
+  .statistic__text a {
+    color: #ffffff; }
+    .statistic__text a:hover, .statistic__text a:focus {
+      color: #ffc107; }
 
 @media (min-width: 768px) {
   .statistic-with-text {
@@ -8364,7 +8443,14 @@ html:not(.js) .nojs-close-menu {
     .news-items {
       -webkit-box-orient: horizontal;
       -webkit-box-direction: normal;
-              flex-direction: row; } }
+              flex-direction: row;
+      flex-wrap: wrap;
+      -webkit-box-pack: justify;
+              justify-content: space-between; } }
+  @media (min-width: 992px) {
+    .news-items .news-item {
+      -webkit-box-flex: 0;
+              flex: 0 0 48.5%; } }
   .news-items .news-item .news-item__tags ul {
     margin: 1.25rem 0 0; }
     .news-items .news-item .news-item__tags ul li {
@@ -8378,7 +8464,8 @@ html:not(.js) .nojs-close-menu {
       @media (min-width: 992px) {
         .news-items .news-item .news-item__tags ul li {
           display: inline; } }
-  .news-items .news-item .news-item__article-title .link-set__link.iastate22-link-external {
+  .news-items .news-item .news-item__article-title,
+  .news-items .news-item .news-item__article-title .iastate22-link-external {
     font-size: 1.375rem; }
 
 .grid-list {

@@ -30,7 +30,7 @@ function the_breadcrumb()
             echo $before . single_cat_title('', false) . $after;
         } elseif (is_search()) {
             if($post->post_type === 'profiles' && get_search_query() === "") {
-                echo $before . 'Profiles' . $after;
+                echo $before . 'Directory' . $after;
             } else if($post->post_type === 'post' && get_search_query() === "") {
                 echo $before . 'News' . $after;
             } else {
@@ -66,8 +66,12 @@ function the_breadcrumb()
                 }
             }
         } elseif (!is_single() && !is_page() && get_post_type() != 'post' && !is_404()) {
-            $post_type = get_post_type_object(get_post_type());
-            echo $before . $post_type->labels->singular_name . $after;
+            if(get_post_type() === 'profiles') {
+                echo $before . 'Directory' . $after;
+            } else {
+                $post_type = get_post_type_object(get_post_type());
+                echo $before . $post_type->labels->singular_name . $after;
+            }
         } elseif (is_attachment()) {
             $parent = get_post($post->post_parent);
             $cat = get_the_category($parent->ID);

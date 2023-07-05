@@ -3,8 +3,28 @@
     "title": "In The News Block",
     "fields": [
         {
+            "key": "field_64a315ae87472",
+            "label": "In The News Title",
+            "name": "in_the_news_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 255,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_647e3fbc6c1e4",
-            "label": "News Cards",
+            "label": "In The News",
             "name": "news_cards",
             "aria-label": "",
             "type": "repeater",
@@ -13,9 +33,8 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_647e3fbc6c1a3",
-                        "operator": "==",
-                        "value": "1"
+                        "field": "field_647e3fbc75d4c",
+                        "operator": "!=empty"
                     }
                 ]
             ],
@@ -34,7 +53,7 @@
             "sub_fields": [
                 {
                     "key": "field_647e3fbc75d4c",
-                    "label": "News Tags",
+                    "label": "Sources",
                     "name": "news_tags",
                     "aria-label": "",
                     "type": "repeater",
@@ -55,7 +74,7 @@
                     "sub_fields": [
                         {
                             "key": "field_647e3fbc76857",
-                            "label": "Tag Name",
+                            "label": "News Source",
                             "name": "tag",
                             "aria-label": "",
                             "type": "text",
@@ -78,33 +97,12 @@
                     "parent_repeater": "field_647e3fbc6c1e4"
                 },
                 {
-                    "key": "field_647e3fbc75d8b",
-                    "label": "News Story Title",
-                    "name": "news_story_title",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": 255,
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_647e3fbc6c1e4"
-                },
-                {
                     "key": "field_647e3fbc75dca",
                     "label": "News Story Link",
                     "name": "news_story_link",
                     "aria-label": "",
-                    "type": "url",
-                    "instructions": "",
+                    "type": "link",
+                    "instructions": "Story title is set in the Link Interface",
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -112,8 +110,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "placeholder": "",
+                    "return_format": "array",
                     "parent_repeater": "field_647e3fbc6c1e4"
                 },
                 {
@@ -158,5 +155,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1685996773
+    "modified": 1688409539
 }

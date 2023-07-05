@@ -6,7 +6,7 @@
                     <tr>
                         <th class="sortable">First Name</th>
                         <th class="sortable">Last Name</th>
-                        <th class="sortable">Role</th>
+                        <th class="sortable">Title</th>
                         <th>Email</th>
                         <th>Phone</th>
                     </tr>
@@ -29,8 +29,8 @@
                     {% set affiliations = post.meta('affiliations') %}
                     {% set publications = post.meta('publication') %}
                     <tr>
-                        <td>{{ firstName }}</td>
-                        <td>{{ lastName }}</td>
+                        <td><a href="{{ post.link }}">{{ firstName }}</a></td>
+                        <td><a href="{{ post.link }}">{{ lastName }}</a></td>
                         <td>{{ titles[0].title }}</td>
                         <td><a href="mailto:{{ email }}">{{ email }}</a></td>
                         <td>{{ phone }}</td>

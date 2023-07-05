@@ -49,7 +49,8 @@ body {
 }
 
 a:not(.iastate22-button):not(.iastate22-link-secondary):not(.iastate22-link-external):not(.link-tertiary) {
-  .text-content & {
+  .text-content &,
+  .wp-block-table & {
     color: $iastate-maroon;
     font-weight: 700;
     font-family: $typeface-sans-serif;
@@ -79,7 +80,8 @@ p {
 
 ul,
 ol {
-  .text-content & {
+  .text-content &,
+  .wp-block-table & {
     margin: $list-margin;
     padding: $list-padding;
     li {
@@ -102,7 +104,8 @@ ol {
       margin: $list-list-margin;
     }
   }
-  .text-content > & {
+  .text-content > &,
+  .wp-block-table > & {
     &:first-child {
       margin-top: 0;
       ul,
@@ -127,7 +130,8 @@ ol {
 }
 
 ul {
-  .text-content & {
+  .text-content &,
+  .wp-block-table & {
     list-style-type: none;
     li {
       padding-left: rem(20);
@@ -151,7 +155,8 @@ ul {
 }
 
 ol {
-  .text-content & {
+  .text-content &,
+  .wp-block-table & {
     list-style-type: none;
     counter-reset: item;
     > li {
@@ -225,7 +230,8 @@ h2,
   padding-bottom: rem(28);
   margin-bottom: rem(22);
   position: relative;
-  .text-content & {
+  .text-content &,
+  .wp-block-table & {
     @extend %h2-yellow-border;
   }
   & + h3,

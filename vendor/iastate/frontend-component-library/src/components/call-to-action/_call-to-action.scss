@@ -153,6 +153,10 @@
   }
 }
 
+.call-to-action__headline:after {
+  display: none;
+}
+
 .call-to-action__copy-wrap {
   .text-content {
     margin-bottom: rem(20);

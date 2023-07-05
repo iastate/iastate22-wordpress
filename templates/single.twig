@@ -5,8 +5,8 @@
 		<p class="iastate-article__back-btn"><a href="#">All Articles</a></p>
 		<div class="hero--news-article text-content">
 			<h1 class="hero--news-article__headline">{{ post.title }}</h1>
-			{% if post.excerpt %}
-				<h2 class="hero--news-article__subhead">{{ post.excerpt }}</h2>
+			{% if post.meta('byline') %}
+				<h2 class="hero--news-article__subhead">{{ post.meta('byline') }}</h2>
 			{% endif %}
 			<div class="hero--news-article__attribution"><p><strong>Author: {{ post.author.name }}</strong> | Image: {{ post.author.name }}</p></div>
 			{% if post.meta("use_featured_image_as_hero") == "false" %}

@@ -1,6 +1,8 @@
 {% set featuredStory = Post(fields.main_featured_story[0]) %}
 {% if Image(featuredStory.custom._thumbnail_id) %}
-    {% set thumbNail = Image(featuredStory.custom._thumbnail_id) %}
+    {% set thumbNail = Image(featuredStory._thumbnail_id) %}
+{% elseif Image(featuredStory.custom.hero_image) %}
+    {% set thumbNail = Image(featuredStory.custom.hero_image) %}
 {% endif %}
 <div class="featured-news">
     <div class="featured-news-container">
@@ -12,6 +14,8 @@
                 <div class="featured-news__large-article__image-container">
                     {% if thumbNail %}
                         <img class="featured-news__large-article__image" src="{{ thumbNail.src|striptags }}" alt="{{ thumbNail.alt|striptags }}">
+                    {% else %}
+                        <img class="featured-news__large-article__image" src="http://via.placeholder.com/400x400" alt="No Thumbnail Available">
                     {% endif %}
                 </div>
                 <div class="featured-news__large-article__tags">
@@ -25,7 +29,7 @@
                 </div>
                 <h2 class="featured-news__large-article__title"><a href="{{ featuredStory.link }}" class="iastate22-link-secondary">{{ featuredStory.post_title }}<span class="arrow"></span></a></h2>
                 <p class="featured-news__large-article__excerpt">{{ featuredStory.post_excerpt }}</p>
-                <p class="featured-news__date">{{ featuredStory.post_date|date("F, d Y") }}</p>
+                <p class="featured-news__date">{{ featuredStory.post_date|date("F d, Y") }}</p>
             </div>
         </div>
         <div class="featured-news__small-article">
@@ -40,11 +44,13 @@
                     {% set thumbNail = false %}
                 {% endif %}
                 <div class="featured-news__small-article__container">    
-                    {% if thumbNail != false %}
                         <div class="featured-news__small-article__image-container">
-                            <img class="featured-news__small-article__image" src="{{ thumbNail.src|striptags }}" alt="{{ thumbNail.alt|striptags }}">
+                            {% if thumbNail != false %}
+                                <img class="featured-news__small-article__image" src="{{ thumbNail.src|striptags }}" alt="{{ thumbNail.alt|striptags }}">
+                            {% else %}
+                                <img class="featured-news__small-article__image" src="http://via.placeholder.com/100x100" alt="No Thumbnail Available">
+                            {% endif %} 
                         </div>
-                    {% endif %}
                     {% if story.terms|length > 0 %}
                         <div class="featured-news__small-article__tags">
                             <ul>
@@ -57,7 +63,7 @@
                         </div>
                     {% endif %}
                     <h2 class="featured-news__small-article__title"><a href="{{ story.link }}" class="iastate22-link-secondary">{{ story.post_title }}<span class="arrow"></span></a></h2>
-                    <p class="featured-news__date">{{ story.post_date|date("F, d Y") }}</p>
+                    <p class="featured-news__date">{{ story.post_date|date("F d, Y") }}</p>
                 </div>
             {% endfor %}
         {% elseif fields.feature_type == "list" %}
@@ -74,7 +80,7 @@
                         </ul>
                     </div>
                     <h2 class="featured-news__small-article__title"><a href="{{ story.link }}" class="iastate22-link-secondary">{{ story.post_title }}<span class="arrow"></span></a></h2>
-                    <p class="featured-news__date">{{ story.post_date|date("F, d Y") }}</p>
+                    <p class="featured-news__date">{{ story.post_date|date("F d, Y") }}</p>
                 </div>
             {% endfor %}
         {% endif %}

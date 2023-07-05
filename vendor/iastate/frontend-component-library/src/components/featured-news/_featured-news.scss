@@ -24,7 +24,7 @@
         border-bottom: none;
         padding-right: rem(50);
         border-right: solid rem(3) $light-grey;
-        flex: 1 0 auto;
+        flex: 1 0 66.667%;
       }
       .featured-news__large-article__container {
         position: relative;
@@ -102,7 +102,8 @@
     }
     .featured-news__small-article {
       @include media-breakpoint-up(lg) {
-        width: rem(500);
+        // width: rem(500);
+        flex: 0 0 33.333%;
         padding-right: rem(50);
       }
       .featured-news__small-article__container {

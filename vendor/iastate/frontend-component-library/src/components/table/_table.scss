@@ -75,6 +75,16 @@
         font-weight: 700;
         color: $iastate-red;
       }
+
+      a {
+        color: $black;
+        text-decoration-color: rgba($black, 0);
+
+        &:hover,
+        &:focus {
+          text-decoration-color: rgba($black, 1);
+        }
+      }
     }
   }
 }
