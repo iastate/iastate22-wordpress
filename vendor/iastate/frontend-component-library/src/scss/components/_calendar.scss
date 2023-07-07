@@ -428,6 +428,11 @@
   }
 }
 
+// Date header in list view. Disabled
+.fc-list-table .fc-list-day {
+  display: none;
+}
+
 .fc-listWeek-view .event-link {
   display: none;
 }
@@ -443,7 +448,8 @@
 .event-listing {
   &:hover,
   &:focus-within {
-    .event-listing__title span {
+    .event-listing__title span,
+    .event-listing__title a {
       text-decoration-color: currentColor;
       transition: text-decoration-color 0.2s ease-out;
 
@@ -458,7 +464,8 @@
 .fc-list-event-title {
   &:hover,
   &:focus-within {
-    .event-listing__title span svg {
+    .event-listing__title span svg,
+    .event-listing__title a svg {
       margin-left: 15px;
       transition: margin 0.2s ease-out;
     }
@@ -472,7 +479,8 @@
   order: 1;
 }
 
-.fc .event-listing__title span {
+.fc .event-listing__title span,
+.fc .event-listing__title a {
   color: $iastate-maroon;
   text-decoration: underline;
   text-decoration-color: transparent;

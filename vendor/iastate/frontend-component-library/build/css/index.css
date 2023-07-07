@@ -9263,6 +9263,9 @@ a.grid-list__item {
        object-fit: cover;
     display: block; }
 
+.fc-list-table .fc-list-day {
+  display: none; }
+
 .fc-listWeek-view .event-link {
   display: none; }
 
@@ -9272,7 +9275,7 @@ a.grid-list__item {
     .fc-listWeek-view .event-listing__image + .event-listing__content {
       margin-top: 0; } }
 
-.event-listing:hover .event-listing__title span, .event-listing[focus-within] .event-listing__title span {
+.event-listing:hover .event-listing__title span, .event-listing:hover .event-listing__title a, .event-listing[focus-within] .event-listing__title span, .event-listing[focus-within] .event-listing__title a {
   -webkit-text-decoration-color: currentColor;
           text-decoration-color: currentColor;
   -webkit-transition: -webkit-text-decoration-color 0.2s ease-out;
@@ -9280,28 +9283,28 @@ a.grid-list__item {
   transition: text-decoration-color 0.2s ease-out;
   transition: text-decoration-color 0.2s ease-out, -webkit-text-decoration-color 0.2s ease-out; }
 
-.event-listing:hover .event-listing__title span, .event-listing:focus-within .event-listing__title span {
+.event-listing:hover .event-listing__title span, .event-listing:hover .event-listing__title a, .event-listing:focus-within .event-listing__title span, .event-listing:focus-within .event-listing__title a {
   -webkit-text-decoration-color: currentColor;
           text-decoration-color: currentColor;
   -webkit-transition: -webkit-text-decoration-color 0.2s ease-out;
   transition: -webkit-text-decoration-color 0.2s ease-out;
   transition: text-decoration-color 0.2s ease-out;
   transition: text-decoration-color 0.2s ease-out, -webkit-text-decoration-color 0.2s ease-out; }
-  .event-listing:hover .event-listing__title span svg, .event-listing[focus-within] .event-listing__title span svg {
+  .event-listing:hover .event-listing__title span svg, .event-listing:hover .event-listing__title a svg, .event-listing[focus-within] .event-listing__title span svg, .event-listing[focus-within] .event-listing__title a svg {
     margin-left: 15px;
     -webkit-transition: margin 0.2s ease-out;
     transition: margin 0.2s ease-out; }
-  .event-listing:hover .event-listing__title span svg, .event-listing:focus-within .event-listing__title span svg {
+  .event-listing:hover .event-listing__title span svg, .event-listing:hover .event-listing__title a svg, .event-listing:focus-within .event-listing__title span svg, .event-listing:focus-within .event-listing__title a svg {
     margin-left: 15px;
     -webkit-transition: margin 0.2s ease-out;
     transition: margin 0.2s ease-out; }
 
-.fc-list-event-title:hover .event-listing__title span svg, .fc-list-event-title[focus-within] .event-listing__title span svg {
+.fc-list-event-title:hover .event-listing__title span svg, .fc-list-event-title:hover .event-listing__title a svg, .fc-list-event-title[focus-within] .event-listing__title span svg, .fc-list-event-title[focus-within] .event-listing__title a svg {
   margin-left: 15px;
   -webkit-transition: margin 0.2s ease-out;
   transition: margin 0.2s ease-out; }
 
-.fc-list-event-title:hover .event-listing__title span svg, .fc-list-event-title:focus-within .event-listing__title span svg {
+.fc-list-event-title:hover .event-listing__title span svg, .fc-list-event-title:hover .event-listing__title a svg, .fc-list-event-title:focus-within .event-listing__title span svg, .fc-list-event-title:focus-within .event-listing__title a svg {
   margin-left: 15px;
   -webkit-transition: margin 0.2s ease-out;
   transition: margin 0.2s ease-out; }
@@ -9313,7 +9316,7 @@ a.grid-list__item {
   -webkit-box-ordinal-group: 2;
           order: 1; }
 
-.fc .event-listing__title span {
+.fc .event-listing__title span, .fc .event-listing__title a {
   color: #7c2529;
   text-decoration: underline;
   -webkit-text-decoration-color: transparent;
@@ -9322,7 +9325,7 @@ a.grid-list__item {
   transition: -webkit-text-decoration-color 0.3s ease-out;
   transition: text-decoration-color 0.3s ease-out;
   transition: text-decoration-color 0.3s ease-out, -webkit-text-decoration-color 0.3s ease-out; }
-  .fc .event-listing__title span svg {
+  .fc .event-listing__title span svg, .fc .event-listing__title a svg {
     margin-left: 10px;
     margin-bottom: 1px;
     -webkit-transition: margin 0.3s ease-out;

@@ -20,6 +20,9 @@ export class EventCalendar {
   private desktopView: string;
   private pageUrl: string;
   private apiRoot: string;
+  private totalCount: number;
+  private totalPages: number;
+  private currentPage: number;
   private searchTerms: Array<string>;
 
   constructor(element: HTMLElement) {
@@ -35,6 +38,7 @@ export class EventCalendar {
       this.calendarSearchButton = this.element.querySelector(".calendar__search form button[type=submit]");
       this.featuredCheck = this.element.querySelector(".calendar__categories-toggle #featured-events");
       this.searchTerms = ["", ""];
+      this.currentPage = 1;
       this.init();
     }
   }
@@ -91,9 +95,8 @@ export class EventCalendar {
       this.pageUrl = window.location.protocol + "//isu-wp-composer.lndo.site";
     }
 
-    fetch(this.pageUrl + this.apiRoot + "events")
-      .then((response) => response.json())
-      .then((json) => this.initCalendar(json))
+    fetch(this.pageUrl + this.apiRoot + "events?filter[posts_per_page]=-1")
+      .then((response) => this.initCalendar(response, null))
       .catch((err) => console.log(err));
     this.listButton.addEventListener("click", (e) => {
       this.changeCalendar(e.target, "listWeek");
@@ -119,11 +122,29 @@ export class EventCalendar {
     this.breakpointCheck();
   }
 
-  private initCalendar(json) {
+  private initCalendar(dta: any, sstr: string) {
+    this.totalCount = dta.headers.get("X-WP-Total");
+    this.totalPages = dta.headers.get("X-WP-TotalPages");
+    for (var p = 1; p <= this.totalPages; p++) {
+      if (sstr !== null) {
+        fetch(this.pageUrl + this.apiRoot + "events" + sstr + "&page=" + p + "")
+          .then((response) => response.json())
+          .then((json) => this.tallyItems(json));
+      } else {
+        fetch(this.pageUrl + this.apiRoot + "events?page=" + p + "")
+          .then((response) => response.json())
+          .then((json) => this.tallyItems(json));
+      }
+    }
+  }
+
+  private tallyItems(json) {
     json.forEach((el, i) => {
-      if (this.featuredCheck.checked === true && el.acf.featured === true) {
-        this.addItem(el);
-      } else if (this.featuredCheck.checked === false) {
+      if (this.featuredCheck.checked === true) {
+        if (el.acf.featured === true) {
+          this.addItem(el);
+        }
+      } else {
         this.addItem(el);
       }
     });
@@ -131,6 +152,7 @@ export class EventCalendar {
 
   private addItem(item) {
     let imgUrl: string, loc: string, featureImg: Object;
+
     if (item.featured_media) {
       fetch(this.pageUrl + this.apiRoot + "media/" + item.featured_media)
         .then((response) => response.json())
@@ -139,11 +161,14 @@ export class EventCalendar {
         })
         .catch((err) => console.log(err));
     }
-
-    fetch(this.pageUrl + this.apiRoot + "locations/" + item.acf.location)
-      .then((response) => response.json())
-      .then((json) => this.aggregateEntry(item, json.name, featureImg))
-      .catch((err) => console.log(err));
+    if (item.locations.length > 0) {
+      fetch(this.pageUrl + this.apiRoot + "locations/" + item.locations[0])
+        .then((response) => response.json())
+        .then((json) => this.aggregateEntry(item, json.name, featureImg))
+        .catch((err) => console.log(err));
+    } else {
+      this.aggregateEntry(item, "", featureImg);
+    }
   }
 
   private aggregateEntry(item, loc, fImg) {
@@ -157,7 +182,6 @@ export class EventCalendar {
           ? item.acf.event_end_date.end_date + " " + item.acf.event_end_date.end_time
           : item.acf.event_end_date.end_date,
       fullDay: boolean = item.acf.event_start_date.full_day;
-
     if (item.acf.recurring_event === true) {
       this.calendar.addEvent({
         title: item.title.rendered,
@@ -208,10 +232,15 @@ export class EventCalendar {
       }
     }
     this.calendar.removeAllEvents();
-    fetch(this.pageUrl + this.apiRoot + "events" + searchString)
-      .then((response) => response.json())
-      .then((json) => this.initCalendar(json))
-      .catch((err) => console.log(err));
+    if (searchString.length > 0) {
+      fetch(this.pageUrl + this.apiRoot + "events" + searchString + "&filter[posts_per_page]=-1")
+        .then((response) => this.initCalendar(response, searchString))
+        .catch((err) => console.log(err));
+    } else {
+      fetch(this.pageUrl + this.apiRoot + "events?filter[posts_per_page]=-1")
+        .then((response) => this.initCalendar(response, null))
+        .catch((err) => console.log(err));
+    }
     this.listButton.addEventListener("click", (e) => {
       this.changeCalendar(e.target, "listWeek");
     });
@@ -231,6 +260,32 @@ export class EventCalendar {
 
   private changeCalendar(btn, view) {
     this.calendar.changeView(view);
+    let titls = this.eventCalendar.querySelectorAll(".event-listing__title");
+    if (view === "listWeek") {
+      titls.forEach((el, i) => {
+        let titleLink = el.querySelector("span").getAttribute("data-href");
+        let titl = el.textContent;
+        el.innerHTML =
+          "<a href='" +
+          titleLink +
+          "'>" +
+          titl +
+          "<svg xmlns='http://www.w3.org/2000/svg' width='13.338' height='12.273' viewBox='0 0 13.338 12.273'><g id='CTA_Secondary_Arrow' transform='translate(0 0.707)'><path id='Path_52' data-name='Path 52' d='M-13572.044-6709.884l-1.414-1.414,4.723-4.723-4.723-4.722,1.414-1.414,6.137,6.136Z' transform='translate(13579.245 6721.45)' fill='#7c2529'/><path id='Path_1510' data-name='Path 1510' d='M-15709.244-3614.516h-11.514v-2h11.514Z' transform='translate(15720.758 3620.946)' fill='#732b2c'/></g></svg></a>";
+      });
+    } else {
+      let titls = this.eventCalendar.querySelectorAll(".event-listing__title");
+
+      titls.forEach((el, i) => {
+        let titleLink = el.querySelector("a").getAttribute("href");
+        let titl = el.textContent;
+        el.innerHTML =
+          "<span data-href='" +
+          titleLink +
+          ">" +
+          titl +
+          "<svg xmlns='http://www.w3.org/2000/svg' width='13.338' height='12.273' viewBox='0 0 13.338 12.273'><g id='CTA_Secondary_Arrow' transform='translate(0 0.707)'><path id='Path_52' data-name='Path 52' d='M-13572.044-6709.884l-1.414-1.414,4.723-4.723-4.723-4.722,1.414-1.414,6.137,6.136Z' transform='translate(13579.245 6721.45)' fill='#7c2529'/><path id='Path_1510' data-name='Path 1510' d='M-15709.244-3614.516h-11.514v-2h11.514Z' transform='translate(15720.758 3620.946)' fill='#732b2c'/></g></svg></span>";
+      });
+    }
     let rent = btn.parentElement,
       activ = rent.querySelector("button[aria-pressed=true]");
 
@@ -259,7 +314,9 @@ export class EventCalendar {
     let contentBlock = contentArea.querySelector(".event-listing__content");
     if (arg.event.url) {
       contentBlock.innerHTML +=
-        "<h4 class='event-listing__title'><span>" +
+        "<h4 class='event-listing__title'><span data-href='" +
+        arg.event.url +
+        "'>" +
         arg.event.title +
         "<svg xmlns='http://www.w3.org/2000/svg' width='13.338' height='12.273' viewBox='0 0 13.338 12.273'><g id='CTA_Secondary_Arrow' transform='translate(0 0.707)'><path id='Path_52' data-name='Path 52' d='M-13572.044-6709.884l-1.414-1.414,4.723-4.723-4.723-4.722,1.414-1.414,6.137,6.136Z' transform='translate(13579.245 6721.45)' fill='#7c2529'/><path id='Path_1510' data-name='Path 1510' d='M-15709.244-3614.516h-11.514v-2h11.514Z' transform='translate(15720.758 3620.946)' fill='#732b2c'/></g></svg></span></h4>";
     } else {

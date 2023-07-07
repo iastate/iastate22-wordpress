@@ -3,22 +3,24 @@
     "title": "Upcoming Events Block",
     "fields": [
         {
-            "key": "field_646faff891151",
+            "key": "field_64a723248fd90",
             "label": "Upcoming Events",
-            "name": "",
+            "name": "title",
             "aria-label": "",
-            "type": "message",
-            "instructions": "",
-            "required": 0,
+            "type": "text",
+            "instructions": "No additional values are required at this time. The most recent three stories will display in this block.",
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "message": "There are no settings for the Upcoming Events block. This will display the most recent upcoming events.",
-            "new_lines": "wpautop",
-            "esc_html": 0
+            "default_value": "",
+            "maxlength": 255,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -39,5 +41,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1685041387
+    "modified": 1688675241
 }

@@ -20,8 +20,7 @@
                         </h2>
                         <div class="iastate22-card__body">
                             <time class="iastate22-card__time" datetime="{{ event.event_date|date("Y-m-d") }}">
-                                {{ event.event_date|date("l, M d Y") }} at {{ event.event_date|date("g:ia") }}
-                                {# Wednesday, Jan 04 2023 from 1:00 pm to 2:00 pm #}
+                                {{ event.event_start_date_start_date|date("l, F d Y") }} at {{ event.event_start_date_start_time|date("g:ia") }}
                             </time>
                             {% if event.terms('locations')|length > 0 %}
                                 <div class="iastate22-card__location">
@@ -29,6 +28,11 @@
                                         {{ location.name }}
                                     {% endfor %}
                                 </div>
+                            {% endif %}
+                            {% if event.event_content|length > 0 %}
+                            <div class="iastate22-card__details text-content">
+                                <p>{{ event.event_content|truncate(96) }}</p>
+                            </div>
                             {% endif %}
                         </div>
                     </div>

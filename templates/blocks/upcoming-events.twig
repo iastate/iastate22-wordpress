@@ -1,22 +1,28 @@
+{% set todaysDate = "now"|date('Ymd') %}
+{% set count = 0 %}
 <div class="paragraph-widget paragraph-widget--upcoming-events">
     <div class="upcoming-events">
-        <h2>Upcoming Events</h2>
+        <h2>{{ fields.title }}</h2>
             <dl class="upcoming-events__wrap">
                 {% for event in next_four %}
-                    <dt class="upcoming-events__date">
-                        <time datetime="{{ event.event_date|date('Y-m-d') }}">
-                            <span class="month">{{ event.event_date|date('M') }}</span>
-                            <span class="day">{{ event.event_date|date('d') }}</span>
-                        </time>
-                    </dt>
-                    <dd class="upcoming-events__details">
-                        <h4 class="upcoming-events__title">
-                            <a href="{{ event.link }}" class="link-set__link iastate22-link-secondary">{{ event.post_title }}<span class="arrow"></span></a>
-                        </h4>
-                        <div class="upcoming-events__time">{{ event.event_date|date('g:ia')}}</div>
-                    </dd>
+                    {% set evtDate = event.event_start_date_start_date|date('Ymd') %}
+                    {% if evtDate >= todaysDate and count < 4 %}
+                        <dt class="upcoming-events__date">
+                            <time datetime="{{ event.event_start_date_start_date|date('Y-m-d') }}">
+                                <span class="month">{{ event.event_start_date_start_date|date('M') }}</span>
+                                <span class="day">{{ event.event_start_date_start_date|date('d') }}</span>
+                            </time>
+                        </dt>
+                        <dd class="upcoming-events__details">
+                            <h4 class="upcoming-events__title">
+                                <a href="{{ event.link }}" class="link-set__link iastate22-link-secondary">{{ event.post_title }}<span class="arrow"></span></a>
+                            </h4>
+                            <div class="upcoming-events__time">{{ event.event_start_date_start_time|date('g:ia')}}</div>
+                        </dd>
+                        {% set count = count + 1 %}
+                    {% endif %}
                 {% endfor %}
           </dl>
-    <div class="upcoming-events__cta"><a href="{{ site.theme.link }}/events" class="iastate22-button">Browse All Events<span class="arrow"></span></a></div>
+    <div class="upcoming-events__cta"><a href="{{ site.home }}/events" class="iastate22-button">Browse All Events<span class="arrow"></span></a></div>
   </div>
 </div>
