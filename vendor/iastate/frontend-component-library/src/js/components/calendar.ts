@@ -79,6 +79,9 @@ export class EventCalendar {
           }, 300);
         }
       },
+      eventDidMount: (nfo) => {
+        this.fixHeaders(nfo.view.type);
+      },
       eventContent: (arg) => {
         let arrayOfDomNodes = [this.buildEventDOM(arg)];
         return { domNodes: arrayOfDomNodes };
@@ -151,6 +154,7 @@ export class EventCalendar {
   }
 
   private addItem(item) {
+    console.log(item.event_tags);
     let imgUrl: string, loc: string, featureImg: Object;
 
     if (item.featured_media) {
@@ -181,7 +185,18 @@ export class EventCalendar {
         item.acf.event_end_date.end_time !== null
           ? item.acf.event_end_date.end_date + " " + item.acf.event_end_date.end_time
           : item.acf.event_end_date.end_date,
-      fullDay: boolean = item.acf.event_start_date.full_day;
+      fullDay: boolean = item.acf.event_start_date.full_day,
+      evtTags: Array<string> = [];
+    if (item.event_tags.length > 0) {
+      item.event_tags.forEach((el, i) => {
+        console.log(el);
+        fetch(this.pageUrl + this.apiRoot + "event_tags/" + el)
+          .then((response) => response.json())
+          .then((json) => evtTags.push(json));
+      });
+      console.log("evtTags:");
+      console.log(evtTags);
+    }
     if (item.acf.recurring_event === true) {
       this.calendar.addEvent({
         title: item.title.rendered,
@@ -197,6 +212,7 @@ export class EventCalendar {
         url: item.link,
         thumbnail: imgUrl,
         allDay: fullDay,
+        eventTags: evtTags,
         overlap: true,
       });
     } else {
@@ -211,6 +227,7 @@ export class EventCalendar {
         url: item.link,
         thumbnail: imgUrl,
         allDay: fullDay,
+        eventTags: evtTags,
         overlap: true,
       });
     }
@@ -260,32 +277,8 @@ export class EventCalendar {
 
   private changeCalendar(btn, view) {
     this.calendar.changeView(view);
+    console.log(view);
     let titls = this.eventCalendar.querySelectorAll(".event-listing__title");
-    if (view === "listWeek") {
-      titls.forEach((el, i) => {
-        let titleLink = el.querySelector("span").getAttribute("data-href");
-        let titl = el.textContent;
-        el.innerHTML =
-          "<a href='" +
-          titleLink +
-          "'>" +
-          titl +
-          "<svg xmlns='http://www.w3.org/2000/svg' width='13.338' height='12.273' viewBox='0 0 13.338 12.273'><g id='CTA_Secondary_Arrow' transform='translate(0 0.707)'><path id='Path_52' data-name='Path 52' d='M-13572.044-6709.884l-1.414-1.414,4.723-4.723-4.723-4.722,1.414-1.414,6.137,6.136Z' transform='translate(13579.245 6721.45)' fill='#7c2529'/><path id='Path_1510' data-name='Path 1510' d='M-15709.244-3614.516h-11.514v-2h11.514Z' transform='translate(15720.758 3620.946)' fill='#732b2c'/></g></svg></a>";
-      });
-    } else {
-      let titls = this.eventCalendar.querySelectorAll(".event-listing__title");
-
-      titls.forEach((el, i) => {
-        let titleLink = el.querySelector("a").getAttribute("href");
-        let titl = el.textContent;
-        el.innerHTML =
-          "<span data-href='" +
-          titleLink +
-          ">" +
-          titl +
-          "<svg xmlns='http://www.w3.org/2000/svg' width='13.338' height='12.273' viewBox='0 0 13.338 12.273'><g id='CTA_Secondary_Arrow' transform='translate(0 0.707)'><path id='Path_52' data-name='Path 52' d='M-13572.044-6709.884l-1.414-1.414,4.723-4.723-4.723-4.722,1.414-1.414,6.137,6.136Z' transform='translate(13579.245 6721.45)' fill='#7c2529'/><path id='Path_1510' data-name='Path 1510' d='M-15709.244-3614.516h-11.514v-2h11.514Z' transform='translate(15720.758 3620.946)' fill='#732b2c'/></g></svg></span>";
-      });
-    }
     let rent = btn.parentElement,
       activ = rent.querySelector("button[aria-pressed=true]");
 
@@ -294,6 +287,38 @@ export class EventCalendar {
       activ.setAttribute("aria-pressed", "false");
     }
     btn.setAttribute("aria-pressed", "true");
+  }
+
+  private fixHeaders(view) {
+    let titls = this.eventCalendar.querySelectorAll(".event-listing__title");
+    if (view === "listWeek") {
+      titls.forEach((el, i) => {
+        if (el.querySelector("span") !== null) {
+          let titleLink = el.querySelector("span").getAttribute("data-href");
+          let titl = el.textContent;
+          el.innerHTML =
+            "<a href='" +
+            titleLink +
+            "'>" +
+            titl +
+            "<svg xmlns='http://www.w3.org/2000/svg' width='13.338' height='12.273' viewBox='0 0 13.338 12.273'><g id='CTA_Secondary_Arrow' transform='translate(0 0.707)'><path id='Path_52' data-name='Path 52' d='M-13572.044-6709.884l-1.414-1.414,4.723-4.723-4.723-4.722,1.414-1.414,6.137,6.136Z' transform='translate(13579.245 6721.45)' fill='#7c2529'/><path id='Path_1510' data-name='Path 1510' d='M-15709.244-3614.516h-11.514v-2h11.514Z' transform='translate(15720.758 3620.946)' fill='#732b2c'/></g></svg></a>";
+        }
+      });
+    } else {
+      let titls = this.eventCalendar.querySelectorAll(".event-listing__title");
+      titls.forEach((el, i) => {
+        if (el.querySelector("a") !== null) {
+          let titleLink = el.querySelector("a").getAttribute("href");
+          let titl = el.textContent;
+          el.innerHTML =
+            "<span data-href='" +
+            titleLink +
+            ">" +
+            titl +
+            "<svg xmlns='http://www.w3.org/2000/svg' width='13.338' height='12.273' viewBox='0 0 13.338 12.273'><g id='CTA_Secondary_Arrow' transform='translate(0 0.707)'><path id='Path_52' data-name='Path 52' d='M-13572.044-6709.884l-1.414-1.414,4.723-4.723-4.723-4.722,1.414-1.414,6.137,6.136Z' transform='translate(13579.245 6721.45)' fill='#7c2529'/><path id='Path_1510' data-name='Path 1510' d='M-15709.244-3614.516h-11.514v-2h11.514Z' transform='translate(15720.758 3620.946)' fill='#732b2c'/></g></svg></span>";
+        }
+      });
+    }
   }
 
   private buildEventDOM(arg) {
@@ -344,9 +369,6 @@ export class EventCalendar {
     if (arg.event.extendedProps.location) {
       contentBlock.innerHTML += "<div class='event-listing__location'>" + arg.event.extendedProps.location + "</div>";
     }
-    if (arg.event.extendedProps.description) {
-      contentBlock.innerHTML += "<div class='event-listing__desc'>" + arg.event.extendedProps.description + "</div>";
-    }
 
     // Event Link Markup:
 
@@ -358,6 +380,20 @@ export class EventCalendar {
       contentLink.innerHTML += "<div class='fc-event-time'>" + this.buildTime(arg.event.startStr) + "</div>";
     }
     contentLink.innerHTML += "<div class='fc-event-title'>" + arg.event.title + "</div>";
+
+    if (arg.event.extendedProps.eventTags && arg.view.type === "listWeek") {
+      contentBlock.innerHTML += "<div class='event-listing__tags'></div>";
+      let tagBlock = contentBlock.querySelector(".event-listing__tags");
+      console.log("Event Tags");
+      console.log(arg.event.extendedProps);
+      arg.event.extendedProps.eventTags.forEach((el, i) => {
+        tagBlock.innerHTML += "<a href=" + el.link + " class='tag'>" + el.name + "</span>";
+      });
+    }
+    if (arg.event.extendedProps.description) {
+      contentBlock.innerHTML += "<div class='event-listing__desc'>" + arg.event.extendedProps.description + "</div>";
+    }
+
     ct.appendChild(contentArea);
     ct.appendChild(contentLink);
     return ct;

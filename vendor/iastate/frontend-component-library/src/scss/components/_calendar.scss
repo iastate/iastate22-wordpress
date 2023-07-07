@@ -479,6 +479,40 @@
   order: 1;
 }
 
+.event-listing__tags {
+  display: none;
+
+  .fc-list-table & {
+    margin-top: 10px;
+    display: flex;
+    gap: 30px;
+  }
+}
+
+.fc .fc-list-event.fc-event-forced-url {
+  &:hover,
+  &:focus {
+    .event-listing__tags a.tag {
+    }
+  }
+}
+
+.fc .fc-list-event-title .event-listing__tags a.tag {
+  transition: all 0.3s ease-out;
+  text-decoration: underline;
+  text-decoration-color: $iastate-maroon;
+  color: $iastate-maroon;
+  font-weight: 700;
+  position: relative;
+  z-index: 3;
+
+  &:hover,
+  &:focus {
+    transition: all 0.2s ease-out;
+    text-decoration-color: $iastate-gold;
+  }
+}
+
 .fc .event-listing__title span,
 .fc .event-listing__title a {
   color: $iastate-maroon;
