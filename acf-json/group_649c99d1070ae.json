@@ -1,11 +1,11 @@
 {
     "key": "group_649c99d1070ae",
-    "title": "Post Byline",
+    "title": "Post Subhead",
     "fields": [
         {
             "key": "field_649c99d17f834",
-            "label": "Byline",
-            "name": "byline",
+            "label": "Story Subheading",
+            "name": "subhead",
             "aria-label": "",
             "type": "textarea",
             "instructions": "",
@@ -41,5 +41,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1687984781
+    "modified": 1689014331
 }

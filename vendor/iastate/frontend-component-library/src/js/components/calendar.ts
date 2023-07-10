@@ -154,47 +154,29 @@ export class EventCalendar {
   }
 
   private addItem(item) {
-    console.log("-- addItem --");
-    console.log(item);
-    console.log(item.event_tags);
-    let imgUrl: string, loc: string, featureImg: Object;
-
-    this.addMediaCheck(item);
-  }
-
-  private addMediaCheck(item) {
+    // Media Check
     if (item.featured_media) {
-      console.log("-- addItem featured media check --");
       fetch(this.pageUrl + this.apiRoot + "media/" + item.featured_media)
         .then((response) => response.json())
         .then((json) => this.addLocationCheck(item, json))
         .catch((err) => console.log(err));
     } else {
-      console.log(" - No Featured Media - ");
       this.addLocationCheck(item, "");
     }
   }
 
   private addLocationCheck(item, featureImg) {
     if (item.locations.length > 0) {
-      console.log(" -- additem Locations check -- ");
-      console.log(featureImg);
       fetch(this.pageUrl + this.apiRoot + "locations/" + item.locations[0])
         .then((response) => response.json())
         .then((json) => this.aggregateEntry(item, json.name, featureImg))
         .catch((err) => console.log(err));
     } else {
-      console.log(" - No Locations - ");
-      console.log(featureImg);
       this.aggregateEntry(item, "", featureImg);
     }
   }
 
   private aggregateEntry(item, loc, fImg) {
-    console.log("---===[ Aggregate Entry ]===--- ");
-    console.log(item);
-    console.log(loc);
-    console.log(fImg);
     let imgUrl: string = fImg !== "" ? fImg.media_details.sizes.medium.source_url : undefined,
       eventStartTime: string =
         item.acf.event_start_date.start_time !== null
@@ -208,13 +190,10 @@ export class EventCalendar {
       evtTags: Array<string> = [];
     if (item.event_tags.length > 0) {
       item.event_tags.forEach((el, i) => {
-        console.log(el);
         fetch(this.pageUrl + this.apiRoot + "event_tags/" + el)
           .then((response) => response.json())
           .then((json) => evtTags.push(json));
       });
-      console.log("evtTags:");
-      console.log(evtTags);
     }
     if (item.acf.recurring_event === true) {
       this.calendar.addEvent({
@@ -296,7 +275,6 @@ export class EventCalendar {
 
   private changeCalendar(btn, view) {
     this.calendar.changeView(view);
-    console.log(view);
     let titls = this.eventCalendar.querySelectorAll(".event-listing__title");
     let rent = btn.parentElement,
       activ = rent.querySelector("button[aria-pressed=true]");
@@ -403,8 +381,6 @@ export class EventCalendar {
     if (arg.event.extendedProps.eventTags && arg.view.type === "listWeek") {
       contentBlock.innerHTML += "<div class='event-listing__tags'></div>";
       let tagBlock = contentBlock.querySelector(".event-listing__tags");
-      console.log("Event Tags");
-      console.log(arg.event.extendedProps);
       arg.event.extendedProps.eventTags.forEach((el, i) => {
         tagBlock.innerHTML += "<a href=" + el.link + " class='tag'>" + el.name + "</span>";
       });
