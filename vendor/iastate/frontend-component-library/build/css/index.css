@@ -9337,8 +9337,8 @@ a.grid-list__item {
     gap: 30px; }
 
 .fc .fc-list-event-title .event-listing__tags a.tag {
-  -webkit-transition: all .3s ease-out;
-  transition: all .3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
   text-decoration: underline;
   -webkit-text-decoration-color: #7c2529;
           text-decoration-color: #7c2529;
@@ -9347,8 +9347,8 @@ a.grid-list__item {
   position: relative;
   z-index: 3; }
   .fc .fc-list-event-title .event-listing__tags a.tag:hover, .fc .fc-list-event-title .event-listing__tags a.tag:focus {
-    -webkit-transition: all .2s ease-out;
-    transition: all .2s ease-out;
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
     -webkit-text-decoration-color: #f1be48;
             text-decoration-color: #f1be48; }
 
