@@ -154,6 +154,8 @@ export class EventCalendar {
   }
 
   private addItem(item) {
+    console.log("-- addItem --");
+    console.log(item);
     console.log(item.event_tags);
     let imgUrl: string, loc: string, featureImg: Object;
 
@@ -166,11 +168,15 @@ export class EventCalendar {
         .catch((err) => console.log(err));
     }
     if (item.locations.length > 0) {
+      console.log("Locations FeatureImg");
+      console.log(featureImg);
       fetch(this.pageUrl + this.apiRoot + "locations/" + item.locations[0])
         .then((response) => response.json())
         .then((json) => this.aggregateEntry(item, json.name, featureImg))
         .catch((err) => console.log(err));
     } else {
+      console.log("No Locations FeatureImg");
+      console.log(featureImg);
       this.aggregateEntry(item, "", featureImg);
     }
   }
