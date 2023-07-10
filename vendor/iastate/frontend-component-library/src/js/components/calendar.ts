@@ -159,32 +159,43 @@ export class EventCalendar {
     console.log(item.event_tags);
     let imgUrl: string, loc: string, featureImg: Object;
 
+    this.addMediaCheck(item);
+  }
+
+  private addMediaCheck(item) {
     if (item.featured_media) {
+      console.log("-- addItem featured media check --");
       fetch(this.pageUrl + this.apiRoot + "media/" + item.featured_media)
         .then((response) => response.json())
-        .then((json) => {
-          featureImg = json;
-        })
+        .then((json) => this.addLocationCheck(item, json))
         .catch((err) => console.log(err));
+    } else {
+      console.log(" - No Featured Media - ");
+      this.addLocationCheck(item, "");
     }
+  }
+
+  private addLocationCheck(item, featureImg) {
     if (item.locations.length > 0) {
-      console.log("Locations FeatureImg");
+      console.log(" -- additem Locations check -- ");
       console.log(featureImg);
       fetch(this.pageUrl + this.apiRoot + "locations/" + item.locations[0])
         .then((response) => response.json())
         .then((json) => this.aggregateEntry(item, json.name, featureImg))
         .catch((err) => console.log(err));
     } else {
-      console.log("No Locations FeatureImg");
+      console.log(" - No Locations - ");
       console.log(featureImg);
       this.aggregateEntry(item, "", featureImg);
     }
   }
 
   private aggregateEntry(item, loc, fImg) {
-    console.log("fImg: ");
+    console.log("---===[ Aggregate Entry ]===--- ");
+    console.log(item);
+    console.log(loc);
     console.log(fImg);
-    let imgUrl: string = fImg !== undefined ? fImg.media_details.sizes.medium.source_url : undefined,
+    let imgUrl: string = fImg !== "" ? fImg.media_details.sizes.medium.source_url : undefined,
       eventStartTime: string =
         item.acf.event_start_date.start_time !== null
           ? item.acf.event_start_date.start_date + " " + item.acf.event_start_date.start_time
