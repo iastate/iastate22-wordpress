@@ -36,8 +36,12 @@
                 </div>
                 <div class="faculty-staff-feed-item__content text-content">
                 <h2 class="faculty-staff-feed-item__content-name">{{ firstName }} {{ lastName }}</h2>
-                {% if biography %}
-                    <div class="faculty-staff-feed-item__content-body">{{ biography }}</div>
+                {% if titles|length > 0 %}
+                    <div class="faculty-staff-feed-item__content-body">
+                    {% for i, title in titles %}
+                        {{ title.title }}{% if i > titles|length %}, {% endif %}
+                    {% endfor %}
+                    </div>
                 {% endif %}
                     <p>
                         <a href="{{ post.link }}" class="iastate22-link-secondary">About <span class="arrow"></span></a>
