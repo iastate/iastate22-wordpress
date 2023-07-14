@@ -8469,7 +8469,7 @@ html:not(.js) .nojs-close-menu {
 .paragraph-widget--news-items {
   margin-top: 0;
   margin-bottom: 0; }
-  .paragraph-widget--news-items + .paragraph-widget {
+  .paragraph-widget--news-items + .paragraph-widget--filter-form {
     margin-top: 0; }
 
 main .news-items__wrap {
@@ -8477,7 +8477,7 @@ main .news-items__wrap {
   padding-bottom: 2.5rem;
   position: relative; }
   main .news-items__wrap:after {
-    content: '';
+    content: "";
     background: #f5f5f5;
     left: -50vw;
     width: 150vw;
@@ -8491,12 +8491,9 @@ main .news-items__wrap {
       padding-bottom: 4.375rem; } }
   main .news-items__wrap > * {
     max-width: 1112px;
-    padding: 0 30px;
+    padding: 0;
     position: relative;
     z-index: 1; }
-    @media (min-width: 1200px) {
-      main .news-items__wrap > * {
-        padding: 0 60px; } }
 
 .grid-list {
   margin-top: 3.4375rem; }
