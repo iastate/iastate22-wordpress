@@ -41,23 +41,44 @@
 .paragraph-widget--news-items {
   margin-top: 0;
   margin-bottom: 0;
+
+  + .paragraph-widget {
+    margin-top: 0;
+  }
 }
 
 .news-items__wrap {
-  background: $off-white;
   main & {
     padding-top: rem(30);
     padding-bottom: rem(40);
-    margin-left: rem(-36);
-    margin-right: rem(-36);
+    position: relative;
+
+    &:after {
+      content: "";
+      background: $off-white;
+      left: -50vw;
+      width: 150vw;
+      top: 0;
+      bottom: 0;
+      z-index: 0;
+      position: absolute;
+    }
     @include media-breakpoint-up(md) {
-      margin-left: rem(-70);
-      margin-right: rem(-70);
     }
     @include media-breakpoint-up(xl) {
-      margin-left: rem(-190);
-      margin-right: rem(-298);
-      padding-bottom: rem(60);
+      padding-top: rem(70);
+      padding-bottom: rem(70);
+    }
+
+    > * {
+      max-width: 1112px;
+      padding: 0 30px;
+      position: relative;
+      z-index: 1;
+
+      @include media-breakpoint-up(xl) {
+        padding: 0 60px;
+      }
     }
   }
 }

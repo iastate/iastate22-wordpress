@@ -1,17 +1,33 @@
 <div class="paragraph-widget paragraph-widget--news-items">
   <div class="news-items__wrap">
-    <div class="news-item">
-      <div class="news-item__tags">
-        <ul>
-          {% for item in tags %}
-            <li> {{ item }} </li>
-          {% endfor %}
-        </ul>
-      </div>
-      <div class="news-item__article-title">
-        <a href="#" class="link-set__link iastate22-link-external">{{ article_title }}<span class="arrow"></span></a>
-      </div>
-      <p class="news-item__article-excerpt">{{ article_excerpt }}</p>
+    <div class="text-content">
+        <h2>In the News</h2>
+    </div>
+    <div class="news-items">
+        <div class="news-item">
+          <div class="news-item__tags">
+            <ul>
+              <li>The Onion</li>
+            </ul>
+          </div>
+          <div class="news-item__article-title">
+            <a href="http://example.com" class="link-set__link iastate22-link-secondary">News Title<span class="arrow"></span></a>
+          </div>
+            <p class="news-item__article-excerpt">News title story excerpt</p>
+        </div>
+        <div class="news-item">
+          <div class="news-item">
+            <div class="news-item__tags">
+              <ul>                                                
+                <li>4chan</li>
+              </ul>
+            </div>
+            <div class="news-item__article-title">
+              <a href="http://example.com" class="link-set__link iastate22-link-external" target="_blank">News Story with External Link<span class="arrow"></span></a>
+            </div>
+            <p class="news-item__article-excerpt">News title story excerpt</p>
+          </div>
+        </div>
     </div>
   </div>
 </div>
