@@ -37,3 +37,27 @@
     }
   }
 }
+
+.paragraph-widget--news-items {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.news-items__wrap {
+  background: $off-white;
+  main & {
+    padding-top: rem(30);
+    padding-bottom: rem(40);
+    margin-left: rem(-36);
+    margin-right: rem(-36);
+    @include media-breakpoint-up(md) {
+      margin-left: rem(-70);
+      margin-right: rem(-70);
+    }
+    @include media-breakpoint-up(xl) {
+      margin-left: rem(-190);
+      margin-right: rem(-298);
+      padding-bottom: rem(60);
+    }
+  }
+}

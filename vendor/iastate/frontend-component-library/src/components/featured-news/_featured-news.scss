@@ -91,9 +91,9 @@
         }
         .featured-news__large-article__excerpt {
           margin: 0;
-          &:after {
-            content: "...";
-          }
+          // &:after {
+          //   content: "...";
+          // }
         }
         .featured-news__date {
           font-style: italic;

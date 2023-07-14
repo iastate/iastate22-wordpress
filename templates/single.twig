@@ -2,11 +2,11 @@
 
 {% block content %}
 	<div class="outer-pad">
-		<p class="iastate-article__back-btn"><a href="#">All Articles</a></p>
+		<p class="iastate-article__back-btn"><a href="{{ function('get_post_type_archive_link', 'post' ) }}">All Articles</a></p>
 		<div class="hero--news-article text-content">
 			<h1 class="hero--news-article__headline">{{ post.title }}</h1>
-			{% if post.meta('byline') %}
-				<h2 class="hero--news-article__subhead">{{ post.meta('byline') }}</h2>
+			{% if post.meta('subhead') %}
+				<h2 class="hero--news-article__subhead">{{ post.meta('subhead') }}</h2>
 			{% endif %}
 			<div class="hero--news-article__attribution"><p><strong>Author: {{ post.author.name }}</strong> | Image: {{ post.author.name }}</p></div>
 			{% if post.meta("use_featured_image_as_hero") == "false" %}
@@ -21,7 +21,9 @@
 				</div>
 			{% endif %}
 		</div>
-		{% include "partial/share.twig" %}
+		{% if post.meta("share_this") == true %}
+			{% include "partial/share.twig" %}
+		{% endif %}
 		{% if post.pagination %}
 			{{ post.paged_content }}
 			{% include 'partial/pagination--interior.twig' with { pagination: post.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}

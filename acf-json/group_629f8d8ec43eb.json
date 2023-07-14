@@ -1,11 +1,12 @@
 {
     "key": "group_629f8d8ec43eb",
-    "title": "Callout Set",
+    "title": "Feature Set",
     "fields": [
         {
             "key": "field_629f8d8ec6c93",
-            "label": "Callout Set",
+            "label": "Feature Set",
             "name": "callout_set",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -27,6 +28,7 @@
                     "key": "field_629f8d8ec7d6b",
                     "label": "Callout Image",
                     "name": "callout_image",
+                    "aria-label": "",
                     "type": "image",
                     "instructions": "Optional: Callout card will display without it.",
                     "required": 0,
@@ -52,6 +54,7 @@
                     "key": "field_629f8d8ec7daa",
                     "label": "Callout Content",
                     "name": "callout_content",
+                    "aria-label": "",
                     "type": "group",
                     "instructions": "",
                     "required": 0,
@@ -67,6 +70,7 @@
                             "key": "field_629f8d8ec9482",
                             "label": "Callout Title",
                             "name": "title",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 1,
@@ -86,6 +90,7 @@
                             "key": "field_629f8d8ec94c4",
                             "label": "Callout Content",
                             "name": "content",
+                            "aria-label": "",
                             "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
@@ -105,6 +110,7 @@
                             "key": "field_629f8d8ec9506",
                             "label": "Callout CTAs",
                             "name": "callout_ctas",
+                            "aria-label": "",
                             "type": "repeater",
                             "instructions": "",
                             "required": 0,
@@ -125,6 +131,7 @@
                                     "key": "field_629f8d8ecbf24",
                                     "label": "CTA",
                                     "name": "",
+                                    "aria-label": "",
                                     "type": "accordion",
                                     "instructions": "",
                                     "required": 0,
@@ -143,6 +150,7 @@
                                     "key": "field_629f8d8ecbf63",
                                     "label": "CTAs",
                                     "name": "ctas",
+                                    "aria-label": "",
                                     "type": "clone",
                                     "instructions": "",
                                     "required": 0,
@@ -187,5 +195,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1666056899
+    "modified": 1689348833
 }

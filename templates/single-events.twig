@@ -90,7 +90,7 @@
                         {% if cost.free == true %}
                             {% set price = "Free" %}
                         {% else %}
-                            {% set price = "$"~cost.cost %}
+                            {% set price = cost.cost %}
                         {% endif %}
                         <dt>
                             <span class="icon">

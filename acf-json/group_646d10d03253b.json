@@ -328,29 +328,6 @@
             ]
         },
         {
-            "key": "field_646d11c89b89d",
-            "label": "Location",
-            "name": "location",
-            "aria-label": "",
-            "type": "taxonomy",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "taxonomy": "locations",
-            "add_term": 1,
-            "save_terms": 0,
-            "load_terms": 0,
-            "return_format": "object",
-            "field_type": "select",
-            "allow_null": 0,
-            "multiple": 0
-        },
-        {
             "key": "field_646d1226a898b",
             "label": "Cost",
             "name": "cost",
@@ -391,9 +368,9 @@
                     "label": "Cost",
                     "name": "cost",
                     "aria-label": "",
-                    "type": "number",
+                    "type": "text",
                     "instructions": "",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": [
                         [
                             {
@@ -409,10 +386,8 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "min": "0.01",
-                    "max": "",
+                    "maxlength": 255,
                     "placeholder": "",
-                    "step": "",
                     "prepend": "",
                     "append": ""
                 }
@@ -639,5 +614,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1686864209
+    "modified": 1689344749
 }

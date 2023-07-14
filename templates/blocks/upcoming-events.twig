@@ -17,7 +17,11 @@
                             <h4 class="upcoming-events__title">
                                 <a href="{{ event.link }}" class="link-set__link iastate22-link-secondary">{{ event.post_title }}<span class="arrow"></span></a>
                             </h4>
-                            <div class="upcoming-events__time">{{ event.event_start_date_start_time|date('g:ia')}}</div>
+                            {% if event.event_start_date_full_day != true %}
+                                <div class="upcoming-events__time">{{ event.event_start_date_start_time|date('g:i a')}}</div>
+                            {% else %}
+                                <div class="upcoming-events__time">All Day</div>
+                            {% endif %}
                         </dd>
                         {% set count = count + 1 %}
                     {% endif %}

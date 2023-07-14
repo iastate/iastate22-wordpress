@@ -21,7 +21,17 @@
             </h2>
             <div class="iastate22-card__body text-content">
               {{ featured_event.excerpt }}
-              <time class="iastate22-card__time" datetime="{{ featured_event.event_start_date_start_date|date("M-d-Y") }}">{{ featured_event.event_start_date_start_date|date("M d, Y") }}</time>
+              {% if event.excerpt|length > 0 %}
+                <div class="iastate22-card__content">
+                    {{ event.post_excerpt }}
+                </div>
+              {% elseif featured_event.meta('event_content')|length > 0 %}
+                {% set content = featured_event.meta('event_content')|truncate(20) %}
+                <div class="iastate22-card__content">
+                    {{ content|striptags }}
+                </div>
+              {% endif %}
+              <time class="iastate22-card__time" datetime="{{ featured_event.event_start_date_start_date|date("M-d-Y") }}">{{ featured_event.event_start_date_start_date|date("F d, Y") }}</time>
             </div>
           </div>
         </div>
