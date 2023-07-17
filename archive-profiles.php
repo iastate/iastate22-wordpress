@@ -41,7 +41,7 @@ if(count($paramArray) > 0) {
 if(strlen($search_letter) > 0) {
     $meta_query = array(
         array(
-            'key' => 'first_name',
+            'key' => 'last_name',
             'value' => "^[".$search_letter."]",
             'compare' => 'REGEXP'
         )

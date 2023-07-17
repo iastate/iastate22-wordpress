@@ -26,7 +26,7 @@
             "sub_fields": [
                 {
                     "key": "field_629f8d8ec7d6b",
-                    "label": "Callout Image",
+                    "label": "Feature Image",
                     "name": "callout_image",
                     "aria-label": "",
                     "type": "image",
@@ -39,7 +39,6 @@
                         "id": ""
                     },
                     "return_format": "array",
-                    "preview_size": "medium",
                     "library": "all",
                     "min_width": "",
                     "min_height": "",
@@ -48,11 +47,12 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": "jpg, jpeg, png",
+                    "preview_size": "medium",
                     "parent_repeater": "field_629f8d8ec6c93"
                 },
                 {
                     "key": "field_629f8d8ec7daa",
-                    "label": "Callout Content",
+                    "label": "Feature Content",
                     "name": "callout_content",
                     "aria-label": "",
                     "type": "group",
@@ -195,5 +195,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1689348833
+    "modified": 1689619104
 }

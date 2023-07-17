@@ -15,6 +15,7 @@
     padding-bottom: 0;
     .ecosystem-home-hero__title {
       margin-top: 0;
+      padding-bottom: 50px;
     }
   }
   .a-z-index-header-container {
@@ -84,27 +85,32 @@
 }
 
 .faculty-staff-back-button {
-  margin-top: rem(30);
+  @include media-breakpoint-up(md) {
+    margin-left: rem(-30);
+  }
   @include media-breakpoint-up(xl) {
-    margin-left: rem(-145);
+    margin-left: rem(-160);
   }
   @include media-breakpoint-up(xxl) {
     margin-left: rem(-100);
   }
+  padding-top: rem(50);
   position: relative;
   a {
     color: $iastate-maroon;
+    font-size: rem(18);
+    font-weight: 600;
   }
   &:before {
     content: "";
-    position: absolute;
-    top: rem(10);
-    left: rem(-10);
     width: rem(10);
     height: rem(10);
-    border-left: solid rem(2) $iastate-maroon;
-    border-bottom: solid rem(2) $iastate-maroon;
+    position: absolute;
+    border-left: solid rem(3) $iastate-maroon;
+    border-bottom: solid rem(3) $iastate-maroon;
     transform: rotate(45deg);
+    top: rem(60);
+    left: rem(-15);
   }
 }
 
