@@ -5,7 +5,7 @@
         'type' => 'wordpress-theme',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '1b3f6ba05098dc3ad3e090467b24850e083d9d42',
+        'reference' => '763dc906ce716cf9e9b28e39761c03490aeb29ba',
         'name' => 'iastate/wordpress-theme',
         'dev' => true,
     ),
@@ -36,7 +36,7 @@
             'aliases' => array(
                 0 => '9999999-dev',
             ),
-            'reference' => '8c8cb7e7e46f24a226a32481507386a4ccbdf365',
+            'reference' => '9ddd293ffabdf2dddd3596af76c26c01ea943cb1',
             'dev_requirement' => true,
         ),
         'iastate/wordpress-theme' => array(
@@ -45,7 +45,7 @@
             'type' => 'wordpress-theme',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '1b3f6ba05098dc3ad3e090467b24850e083d9d42',
+            'reference' => '763dc906ce716cf9e9b28e39761c03490aeb29ba',
             'dev_requirement' => false,
         ),
         'symfony/polyfill-ctype' => array(

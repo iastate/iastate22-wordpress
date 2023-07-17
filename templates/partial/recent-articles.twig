@@ -22,7 +22,11 @@
               <div class="iastate22-card__content">
                 <div class="iastate22-card__content-tags">
                   <ul class="iastate22-card__content-tags__list">
-                      <li class="iastate22-card__content-tags__list-item">Dolore Ipsum Category</li>
+                    {% for term in article.terms %}
+                        {% if term.taxonomy == "category" %}
+                            <li class="iastate22-card__content-tags__list-item">{{ term.name }}</li>
+                        {% endif %}
+                    {% endfor %}
                   </ul>
                 </div>
                 <h2 class="iastate22-card__title">

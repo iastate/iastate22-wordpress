@@ -13,12 +13,14 @@
                     <label for="select-choice">Category</label>
                     <select class="iastate22-form--select" name="category_name" id="category_name">
                         <option value=""></option>
-                        {% for term in categories %}    
-                            <option value="{{ term.slug }}"
-                            {% if function('get_query_var', 'category_name') == term.slug %}
-                            selected
+                        {% for term in categories %} 
+                            {% if term.count > 0 %}
+                                <option value="{{ term.slug }}"
+                                {% if function('get_query_var', 'category_name') == term.slug %}
+                                selected
+                                {% endif %}
+                                >{{ term.name }}</option>
                             {% endif %}
-                            >{{ term.name }}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -29,13 +31,15 @@
                 <label for="select-choice">Tag</label>
                 <select class="iastate22-form--select" name="tag" id="tag">
                     <option value=""></option>
-                    {% for term in tags %}    
+                    {% for term in tags %}
+                        {% if term.count > 0 %}
                             <option value="{{ term.slug }}"
                             {% if function('get_query_var', 'tag') == term.slug %}
                             selected
                             {% endif %}
                             >{{ term.name }}</option>
-                        {% endfor %}
+                        {% endif %}
+                    {% endfor %}
                 </select>
             </div>
             {% endif %}

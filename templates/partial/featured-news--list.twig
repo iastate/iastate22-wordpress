@@ -16,9 +16,11 @@
                 </div>
                 <div class="featured-news__large-article__tags">
                     <ul>
-                        <li> Category </li>
-                        <li> Lorem Category </li>
-                        <li> Dolore Ipsum Category </li>
+                        {% for term in featuredStory.terms %}
+                            {% if term.taxonomy == "category" %}
+                                <li>{{ term.name }}</li>
+                            {% endif %}
+                        {% endfor %}
                     </ul>
                 </div>
                 <h2 class="featured-news__large-article__title"><a href="{{ featuredStory.link }}" class="iastate22-link-secondary">{{ featuredStory.post_title }}<span class="arrow"></span></a></h2>
@@ -32,7 +34,11 @@
             <div class="featured-news__small-article__container">    
                 <div class="featured-news__small-article__tags">
                     <ul>
-                        <li> Dolore Ipsum Category </li>
+                        {% for term in story.terms %}
+                            {% if term.taxonomy == "category" %}
+                                <li class="iastate22-card__content-tags__list-item">{{ term.name }}</li>
+                            {% endif %}
+                        {% endfor %}
                     </ul>
                 </div>
                 <h2 class="featured-news__small-article__title"><a href="{{ story.link }}" class="iastate22-link-secondary">{{ story.post_title }}<span class="arrow"></span></a></h2>

@@ -1,7 +1,7 @@
 .filter-form {
   background-color: $iastate-red;
   @extend %outer-pad-x;
-  padding-top: 0;
+  padding-top: 60px;
   position: relative;
   padding-bottom: rem(35);
   @include media-breakpoint-up(md) {

@@ -8,7 +8,9 @@
 			{% if post.meta('subhead') %}
 				<h2 class="hero--news-article__subhead">{{ post.meta('subhead') }}</h2>
 			{% endif %}
-			<div class="hero--news-article__attribution"><p><strong>Author: {{ post.author.name }}</strong> | Image: {{ post.author.name }}</p></div>
+			{% if post._meta_info != 'hide_author' %}
+				<div class="hero--news-article__attribution"><p><strong>Author: {{ post.author.name }}</strong> | Image: {{ post.author.name }}</p></div>
+			{% endif %}
 			{% if post.meta("use_featured_image_as_hero") == "false" %}
 			{% if post.hero_image %}
 				<div class="hero--news-article__media">

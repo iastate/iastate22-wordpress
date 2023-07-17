@@ -25,9 +25,11 @@
                     <div class="hero-stories-feed-item__content">
                         <div class="hero-stories-feed-item__content-tags">
                             <ul>
-                                <li>Category</li>
-                                <li>Lorem Category</li>
-                                <li>Dolore Ipsum Category</li>
+                                {% for term in post.terms %}
+                                    {% if term.taxonomy == "category" %}
+                                        <li>{{ term.name }}</li>
+                                    {% endif %}
+                                {% endfor %}
                             </ul>
                         </div>
                         <h2 class="hero-stories-feed-item__title">

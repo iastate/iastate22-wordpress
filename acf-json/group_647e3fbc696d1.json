@@ -46,7 +46,7 @@
             "sub_fields": [
                 {
                     "key": "field_647e3fbc75d4c",
-                    "label": "Sources",
+                    "label": "Labels",
                     "name": "news_tags",
                     "aria-label": "",
                     "type": "repeater",
@@ -67,7 +67,7 @@
                     "sub_fields": [
                         {
                             "key": "field_647e3fbc76857",
-                            "label": "News Source",
+                            "label": "Label",
                             "name": "tag",
                             "aria-label": "",
                             "type": "text",
@@ -148,5 +148,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1689014020
+    "modified": 1689628401
 }
