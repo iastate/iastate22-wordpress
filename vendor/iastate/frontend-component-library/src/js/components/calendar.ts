@@ -24,6 +24,7 @@ export class EventCalendar {
   private totalPages: number;
   private currentPage: number;
   private searchTerms: Array<string>;
+  private searchReset: HTMLButtonElement;
 
   constructor(element: HTMLElement) {
     if (!!element) {
@@ -39,6 +40,7 @@ export class EventCalendar {
       this.featuredCheck = this.element.querySelector(".calendar__categories-toggle #featured-events");
       this.searchTerms = ["", ""];
       this.currentPage = 1;
+      this.searchReset = this.element.querySelector(".calendar-reset");
       this.init();
     }
   }
@@ -118,6 +120,9 @@ export class EventCalendar {
     this.featuredCheck.addEventListener("change", (e) => {
       this.runSearch(e);
     });
+    this.searchReset.addEventListener("click", (e) => {
+      this.resetSearch(e);
+    });
 
     window.addEventListener("resize", () => {
       this.breakpointCheck();
@@ -166,11 +171,8 @@ export class EventCalendar {
   }
 
   private addLocationCheck(item, featureImg) {
-    if (item.locations.length > 0) {
-      fetch(this.pageUrl + this.apiRoot + "locations/" + item.locations[0])
-        .then((response) => response.json())
-        .then((json) => this.aggregateEntry(item, json.name, featureImg))
-        .catch((err) => console.log(err));
+    if (item.acf.location.length > 0) {
+      this.aggregateEntry(item, item.acf.location, featureImg);
     } else {
       this.aggregateEntry(item, "", featureImg);
     }
@@ -237,14 +239,14 @@ export class EventCalendar {
     this.searchTerms[0] = this.calendarSearch.value;
     this.searchTerms[1] = this.calendarCategories.value;
     // This feels dirty
-    if (this.searchTerms[0] !== "") {
-      searchString += "?search=" + this.searchTerms[0];
-    } else if (this.searchTerms[1] !== "") {
+    if (this.searchTerms[1] !== "") {
       if (this.searchTerms[0] !== "") {
-        searchString += "&locations=" + this.searchTerms[1];
+        searchString += "&event_tags=" + this.searchTerms[1];
       } else {
-        searchString += "?locations=" + this.searchTerms[1];
+        searchString += "?event_tags=" + this.searchTerms[1];
       }
+    } else if (this.searchTerms[0] !== "") {
+      searchString += "?search=" + this.searchTerms[0];
     }
     this.calendar.removeAllEvents();
     if (searchString.length > 0) {
@@ -382,7 +384,7 @@ export class EventCalendar {
       contentBlock.innerHTML += "<div class='event-listing__tags'></div>";
       let tagBlock = contentBlock.querySelector(".event-listing__tags");
       arg.event.extendedProps.eventTags.forEach((el, i) => {
-        tagBlock.innerHTML += "<a href=" + el.link + " class='tag'>" + el.name + "</span>";
+        tagBlock.innerHTML += "<span>" + el.name + "</span>";
       });
     }
     if (arg.event.extendedProps.description) {
@@ -411,6 +413,12 @@ export class EventCalendar {
       minute: "2-digit",
     });
     return formattedTime;
+  }
+
+  private resetSearch(e) {
+    this.calendarSearch.value = "";
+    this.calendarCategories.value = "";
+    this.runSearch(e);
   }
 }
 

@@ -49,6 +49,11 @@
   @include media-breakpoint-up(lg) {
     margin-bottom: 80px;
   }
+
+  .link-tertiary {
+    background-color: transparent;
+    border: none;
+  }
 }
 
 .fc .fc-button-group {
@@ -501,7 +506,8 @@
   }
 }
 
-.fc .fc-list-event-title .event-listing__tags a.tag {
+.fc .fc-list-event-title .event-listing__tags a.tag,
+.fc .fc-list-event-title .event-listing__tags span {
   transition: all 0.3s ease-out;
   text-decoration: underline;
   text-decoration-color: $iastate-maroon;
@@ -510,11 +516,11 @@
   position: relative;
   z-index: 3;
 
-  &:hover,
-  &:focus {
-    transition: all 0.2s ease-out;
-    text-decoration-color: $iastate-gold;
-  }
+  // &:hover,
+  // &:focus {
+  //   transition: all 0.2s ease-out;
+  //   text-decoration-color: $iastate-gold;
+  // }
 }
 
 .fc .event-listing__title span,

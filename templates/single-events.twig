@@ -1,11 +1,13 @@
 {% extends "base.twig" %}
 
 {% block content %}
+
 <div class="outer-pad">
     {% include ['blocks/event-hero.twig'] %}
     <div class="paragraph-widget paragraph-widget--event-details">
         <div class="event-details">
             <dl class="event-details__wrap">
+                {% set full_day = post.meta("event_start_date_full_day") %}
                 {% if post.meta('event_end_date_end_date')|length > 0 and post.meta('event_start_date_start_date')|length > 0 %}
                     {% set start_date = post.meta('event_start_date_start_date') %}
                     {% set end_date = post.meta('event_end_date_end_date') %}
@@ -22,7 +24,11 @@
                     {% set start_time = post.meta('event_start_date_start_time') %}
                     {% set event_time = "at " ~ start_time|date('g:ia') %}
                 {% endif %}
-                {% if event_date|length > 0 and event_time|length > 0 %}
+                {% if event_date|length > 0 and end_date > start_date %}
+                    {% set event_string = event_date %}
+                {% elseif event_date|length > 0 and full_day == true %}
+                    {% set event_string = event_date %}
+                {% elseif event_date|length > 0 and event_time|length > 0 %}
                     {% set event_string = event_date ~ " " ~ event_time %}
                 {% elseif event_date|length > 0 %}
                     {% set event_string = event_date %}
@@ -61,7 +67,7 @@
                 <dd>
                     <p>{{ event_string }}</p>
                 </dd>
-                {% if post.terms('locations')|length > 0 or post.meta('location').name|length > 0 %}
+                {% if post.meta('location')|length > 0 %}
                     <dt>
                         <span class="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="42.262" height="42.304" viewBox="0 0 42.262 42.304">
@@ -74,15 +80,7 @@
                         </span>
                         <span class="visible-for-screen-readers">Location</span>
                     </dt>
-                    <dd>
-                        {% if post.meta('location').name|length > 0 %}
-                            <p>{{ post.meta('location').name }}</p>
-                        {% elseif post.terms('locations')|length > 0 %}
-                            {% for location in post.terms('locations') %}
-                                <p>{{ location.name }}</p>
-                            {% endfor %}
-                        {% endif %}
-                    </dd>
+                    <dd><p>{{ post.meta('location') }}</p></dd>
                 {% endif %}
                 {% if post.meta('cost') %}
                     {% set cost = post.meta('cost') %}
@@ -161,7 +159,7 @@
                         {% elseif link.acf_fc_layout == "tags" %}
                             <div class="event-details__tags">
                                 {% for tag in post.terms('event_tags') %}
-                                    <a href="/event_tags/{{ tag.slug }}">{{ tag.name }}</a>
+                                    <a href="/events/?tag={{ tag.slug }}">{{ tag.name }}</a>
                                 {% endfor %}
                             </div>
                         {% elseif link.acf_fc_layout == "text_label" %}
@@ -180,5 +178,6 @@
             </div>
         {% endif %}
     </div>
+    {{ post.content }}
 </div>
 {% endblock %}

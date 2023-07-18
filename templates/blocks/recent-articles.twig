@@ -5,8 +5,8 @@
         </div>
     {% endif %}
     <div class="card-set">
+        {% if fields.feed_style.value == "syndicated" and recent_articles %}
         <ul>
-        {% if recent_articles %}
             {% for key, article in recent_articles %}
                 {% if key < post_count %}
                     {% if Image(article._thumbnail_id) %}
@@ -43,7 +43,114 @@
                     </li>
                 {% endif %}
             {% endfor %}
-        {% endif %}
         </ul>
+        {% elseif fields.feed_style.value == "curated" %}
+            <ul>
+            {% if post_count == 3 %}
+                {% for key, article in fields.pick_three %}
+                {% if Image(article._thumbnail_id) %}
+                        {% set thumbNail = Image(article._thumbnail_id) %}
+                    {% elseif Image(article._hero_image) %}
+                        {% set thumbNail = Image(article._hero_image) %}
+                    {% endif %}
+                    <li>
+                        <div class="iastate22-card iastate22-card--recent-article clickable">
+                            <div class="iastate22-card__media">
+                                {% if thumbNail.id != NULL %}
+                                    <img src="{{ thumbNail.src }}" alt="{{ thumbNail.alt }}" loading="lazy" width="{{ thumbnail.width }}" height="{{ thumbnail.height }}">
+                                {% else %}
+                                    <img src="{{ site.link }}/wp-content/themes/wordpress-theme/vendor/iastate/frontend-component-library/build/img/News_Default_FeaturedImage.jpg" alt="No Thumbnail Available" loading="lazy" width="600" height="600">
+                                {% endif %}
+                            </div>
+                            
+                            <div class="iastate22-card__content">
+                            <div class="iastate22-card__content-tags">
+                                <ul class="iastate22-card__content-tags__list">
+                                    {% for term in Post(article).terms %}
+                                        {% if term.taxonomy == "category" %}
+                                            <li class="iastate22-card__content-tags__list-item">{{ term.name }}</li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <h2 class="iastate22-card__title">
+                                <a class="iastate22-link-secondary" href="{{ article.link }}" target="_blank">{{ article.post_title }}</a>
+                            </h2>
+                            <p class="iastate22-card__date">{{ article.post_date|date("F d, Y") }}</p>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            {% elseif post_count == 6 %}
+                {% for key, article in fields.pick_six %}
+                {% if Image(article._thumbnail_id) %}
+                        {% set thumbNail = Image(article._thumbnail_id) %}
+                    {% elseif Image(article._hero_image) %}
+                        {% set thumbNail = Image(article._hero_image) %}
+                    {% endif %}
+                    <li>
+                        <div class="iastate22-card iastate22-card--recent-article clickable">
+                            <div class="iastate22-card__media">
+                                {% if thumbNail.id != NULL %}
+                                    <img src="{{ thumbNail.src }}" alt="{{ thumbNail.alt }}" loading="lazy" width="{{ thumbnail.width }}" height="{{ thumbnail.height }}">
+                                {% else %}
+                                    <img src="{{ site.link }}/wp-content/themes/wordpress-theme/vendor/iastate/frontend-component-library/build/img/News_Default_FeaturedImage.jpg" alt="No Thumbnail Available" loading="lazy" width="600" height="600">
+                                {% endif %}
+                            </div>
+                            <div class="iastate22-card__content">
+                            <div class="iastate22-card__content-tags">
+                                <ul class="iastate22-card__content-tags__list">
+                                    {% for term in Post(article).terms %}
+                                        {% if term.taxonomy == "category" %}
+                                            <li class="iastate22-card__content-tags__list-item">{{ term.name }}</li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <h2 class="iastate22-card__title">
+                                <a class="iastate22-link-secondary" href="{{ article.link }}" target="_blank">{{ article.post_title }}</a>
+                            </h2>
+                            <p class="iastate22-card__date">{{ article.post_date|date("F d, Y") }}</p>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            {% elseif post_count == 9 %}
+                {% for key, article in fields.pick_nine %}
+                {% if Image(article._thumbnail_id) %}
+                        {% set thumbNail = Image(article._thumbnail_id) %}
+                    {% elseif Image(article._hero_image) %}
+                        {% set thumbNail = Image(article._hero_image) %}
+                    {% endif %}
+                    <li>
+                        <div class="iastate22-card iastate22-card--recent-article clickable">
+                            <div class="iastate22-card__media">
+                                {% if thumbNail.id != NULL %}
+                                    <img src="{{ thumbNail.src }}" alt="{{ thumbNail.alt }}" loading="lazy" width="{{ thumbnail.width }}" height="{{ thumbnail.height }}">
+                                {% else %}
+                                    <img src="{{ site.link }}/wp-content/themes/wordpress-theme/vendor/iastate/frontend-component-library/build/img/News_Default_FeaturedImage.jpg" alt="No Thumbnail Available" loading="lazy" width="600" height="600">
+                                {% endif %}
+                            </div>
+                            <div class="iastate22-card__content">
+                            <div class="iastate22-card__content-tags">
+                                <ul class="iastate22-card__content-tags__list">
+                                    {% for term in Post(article).terms %}
+                                        {% if term.taxonomy == "category" %}
+                                            <li class="iastate22-card__content-tags__list-item">{{ term.name }}</li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <h2 class="iastate22-card__title">
+                                <a class="iastate22-link-secondary" href="{{ article.link }}" target="_blank">{{ article.post_title }}</a>
+                            </h2>
+                            <p class="iastate22-card__date">{{ article.post_date|date("F d, Y") }}</p>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        {% endif %}
     </div>    
 </div>

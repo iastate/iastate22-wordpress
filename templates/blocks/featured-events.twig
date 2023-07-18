@@ -20,7 +20,7 @@
                             </h2>
                             <div class="iastate22-card__body">
                                 <time class="iastate22-card__time" datetime="{{ event.event_date|date("Y-m-d") }}">
-                                    {{ event.event_start_date_start_date|date("l, F d Y") }} at {{ event.event_start_date_start_time|date("g:ia") }}
+                                    {{ event.event_start_date_start_date|date("l, F d Y") }}{% if event.event_start_date_full_day != true %} at {{ event.event_start_date_start_time|date("g:ia") }}{% endif %}
                                 </time>
                                 {% if event.terms('locations')|length > 0 %}
                                     <div class="iastate22-card__location">
