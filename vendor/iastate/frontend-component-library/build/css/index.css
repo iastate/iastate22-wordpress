@@ -4356,13 +4356,14 @@ main {
         font-family: "Nimbus Sans", sans-serif;
         font-weight: 700;
         color: #c8102e; }
-      .iastate22-table tbody td a {
-        color: #000000;
-        -webkit-text-decoration-color: rgba(0, 0, 0, 0);
-                text-decoration-color: rgba(0, 0, 0, 0); }
-        .iastate22-table tbody td a:hover, .iastate22-table tbody td a:focus {
-          -webkit-text-decoration-color: black;
-                  text-decoration-color: black; }
+      .iastate22-table tbody td a, .iastate22-table tbody td .tel {
+        color: #c8102e;
+        font-weight: 600;
+        -webkit-text-decoration-color: rgba(200, 16, 46, 0);
+                text-decoration-color: rgba(200, 16, 46, 0); }
+        .iastate22-table tbody td a:hover, .iastate22-table tbody td a:focus, .iastate22-table tbody td .tel:hover, .iastate22-table tbody td .tel:focus {
+          -webkit-text-decoration-color: #c8102e;
+                  text-decoration-color: #c8102e; }
 
 .sortable-table thead tr th.sortable {
   position: relative;
@@ -8462,8 +8463,7 @@ html:not(.js) .nojs-close-menu {
       @media (min-width: 992px) {
         .news-items .news-item .news-item__tags ul li {
           display: inline; } }
-  .news-items .news-item .news-item__article-title,
-  .news-items .news-item .news-item__article-title .iastate22-link-external {
+  .news-items .news-item .news-item__article-title {
     font-size: 1.375rem; }
 
 .paragraph-widget--news-items {
@@ -9373,7 +9373,8 @@ a.grid-list__item {
     display: flex;
     gap: 30px; }
 
-.fc .fc-list-event-title .event-listing__tags a.tag, .fc .fc-list-event-title .event-listing__tags span {
+.fc .fc-list-event-title .event-listing__tags a.tag,
+.fc .fc-list-event-title .event-listing__tags span {
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
   text-decoration: underline;
@@ -13595,6 +13596,8 @@ form.gsc-search-box {
     color: #7c2529;
     font-size: 1.125rem;
     font-weight: 600; }
+    .faculty-staff-back-button a:hover, .faculty-staff-back-button a:focus {
+      color: #c8102e; }
   .faculty-staff-back-button:before {
     content: "";
     width: 0.625rem;

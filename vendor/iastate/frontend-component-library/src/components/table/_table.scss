@@ -76,13 +76,15 @@
         color: $iastate-red;
       }
 
-      a {
-        color: $black;
-        text-decoration-color: rgba($black, 0);
+      a,
+      .tel {
+        color: $iastate-red;
+        font-weight: 600;
+        text-decoration-color: rgba($iastate-red, 0);
 
         &:hover,
         &:focus {
-          text-decoration-color: rgba($black, 1);
+          text-decoration-color: rgba($iastate-red, 1);
         }
       }
     }
