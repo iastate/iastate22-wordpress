@@ -31,7 +31,12 @@
                     <tr>
                         <td><a href="{{ post.link }}">{{ firstName }}</a></td>
                         <td><a href="{{ post.link }}">{{ lastName }}</a></td>
-                        <td>{{ titles[0].title }}</td>
+                        {# <td>{{ titles[0].title }}</td> #}
+                        <td>
+                            {% for i, title in titles %}
+                                {{ title.title }}{% if i < titles|length - 1 %}, {% endif %}
+                            {% endfor %}
+                        </td>
                         <td><a href="mailto:{{ email }}">{{ email }}</a></td>
                         <td><span class="tel">{{ phone }}</span></td>
                 </tr>
