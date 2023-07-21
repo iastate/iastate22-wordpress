@@ -133,6 +133,18 @@ export class EventCalendar {
   private initCalendar(dta: any, sstr: string) {
     this.totalCount = dta.headers.get("X-WP-Total");
     this.totalPages = dta.headers.get("X-WP-TotalPages");
+    // Tag check from URL Parameter
+    const qString = window.location.search;
+    const urlParams = new URLSearchParams(qString);
+    let paramCount = 0;
+    urlParams.forEach((el, i) => {
+      if (paramCount === 0 && sstr === null) {
+        sstr = "?" + i + "=" + el;
+      } else {
+        sstr += "&" + i + "=" + el;
+      }
+    });
+
     for (var p = 1; p <= this.totalPages; p++) {
       if (sstr !== null) {
         fetch(this.pageUrl + this.apiRoot + "events" + sstr + "&page=" + p + "")
@@ -241,6 +253,7 @@ export class EventCalendar {
     // This feels dirty
     if (this.searchTerms[1] !== "") {
       if (this.searchTerms[0] !== "") {
+        searchString += "?search=" + this.searchTerms[0];
         searchString += "&event_tags=" + this.searchTerms[1];
       } else {
         searchString += "?event_tags=" + this.searchTerms[1];

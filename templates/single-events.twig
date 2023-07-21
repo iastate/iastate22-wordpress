@@ -159,7 +159,7 @@
                         {% elseif link.acf_fc_layout == "tags" %}
                             <div class="event-details__tags">
                                 {% for tag in post.terms('event_tags') %}
-                                    <a href="/events/?tag={{ tag.slug }}">{{ tag.name }}</a>
+                                    <a href="{{ site.home }}/events/?event_tags={{ tag.id }}">{{ tag.name }}</a>
                                 {% endfor %}
                             </div>
                         {% elseif link.acf_fc_layout == "text_label" %}

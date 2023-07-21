@@ -78,15 +78,31 @@
 
       a,
       .tel {
-        color: $iastate-red;
-        font-weight: 600;
-        text-decoration-color: rgba($iastate-red, 0);
+        color: $iastate-maroon;
+        text-decoration: underline;
+        transition: all 0.3s ease-out;
+      }
 
+      .tel {
+        font-weight: 600;
+      }
+
+      a {
+        font-weight: 700;
         &:hover,
         &:focus {
+          transition: all 0.2s ease-out;
           text-decoration-color: rgba($iastate-red, 1);
+          color: $iastate-red;
         }
       }
     }
+  }
+}
+
+a {
+  transition: $link-transition;
+  &:hover {
+    color: $iastate-red;
   }
 }

@@ -4356,14 +4356,28 @@ main {
         font-family: "Nimbus Sans", sans-serif;
         font-weight: 700;
         color: #c8102e; }
-      .iastate22-table tbody td a, .iastate22-table tbody td .tel {
-        color: #c8102e;
-        font-weight: 600;
-        -webkit-text-decoration-color: rgba(200, 16, 46, 0);
-                text-decoration-color: rgba(200, 16, 46, 0); }
-        .iastate22-table tbody td a:hover, .iastate22-table tbody td a:focus, .iastate22-table tbody td .tel:hover, .iastate22-table tbody td .tel:focus {
+      .iastate22-table tbody td a,
+      .iastate22-table tbody td .tel {
+        color: #7c2529;
+        text-decoration: underline;
+        -webkit-transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out; }
+      .iastate22-table tbody td .tel {
+        font-weight: 600; }
+      .iastate22-table tbody td a {
+        font-weight: 700; }
+        .iastate22-table tbody td a:hover, .iastate22-table tbody td a:focus {
+          -webkit-transition: all 0.2s ease-out;
+          transition: all 0.2s ease-out;
           -webkit-text-decoration-color: #c8102e;
-                  text-decoration-color: #c8102e; }
+                  text-decoration-color: #c8102e;
+          color: #c8102e; }
+
+a {
+  -webkit-transition: 0.25s color ease-in-out;
+  transition: 0.25s color ease-in-out; }
+  a:hover {
+    color: #c8102e; }
 
 .sortable-table thead tr th.sortable {
   position: relative;

@@ -41,7 +41,7 @@
                 {% if titles|length > 0 %}
                     <div class="faculty-staff-feed-item__content-body">
                     {% for i, title in titles %}
-                        {{ title.title }}{% if i > titles|length %}, {% endif %}
+                        {{ title.title }}{% if i < titles|length - 1 %},<br> {% endif %}
                     {% endfor %}
                     </div>
                 {% endif %}
