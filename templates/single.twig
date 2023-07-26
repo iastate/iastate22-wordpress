@@ -14,12 +14,12 @@
 			{% if post.meta("use_featured_image_as_hero") == "false" %}
 			{% if post.hero_image %}
 				<div class="hero--news-article__media">
-					<img src="{{ Image(post.hero_image).src|resize(2000, 500) }}" alt="{{ Image(post.hero_image).alt }}">
+					<img src="{{ Image(post.hero_image).src }}" alt="{{ Image(post.hero_image).alt }}">
 				</div>
 				{% endif %}
 			{% else %}
 				<div class="hero--news-article__media">
-					<img src="{{ post.thumbnail.src|resize(2000, 500) }}">
+					<img src="{{ post.thumbnail.src }}">
 				</div>
 			{% endif %}
 		</div>

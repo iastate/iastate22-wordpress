@@ -41,9 +41,6 @@
           {% set s = 0 %}
           {% for event in upcoming_events %}
             {% if s < 3 and event.id != featured_event.id %}
-              {# <pre>
-                {{ dump(event) }}
-              </pre> #}
               {% set s = s+1 %}
             <li class="featured-events__item">
               <h4 class="featured-events__title">

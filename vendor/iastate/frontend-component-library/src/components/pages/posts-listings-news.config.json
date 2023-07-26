@@ -1,0 +1,35 @@
+{
+  "context": {
+    "hero": {
+      "title": "News Index Page",
+      "image": "",
+      "subnav_horizontal": ""
+    },
+    "card_set": {
+      "teaser_news": true
+    },
+    "cards": [
+      {
+        "image": "../../img/Component-Feature-News-Story-Image.jpg",
+        "url": "#",
+        "title": "Headline Nemo enim irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non lectus a lectus hendrerit facilisis quis ac augue. Sed quis sem eget felis venenatis aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor nibh feugiat magna dictum, malesuada euismod lectus pulvinar.",
+        "date": "June 16, 2022"
+      },
+      {
+        "image": "../../img/Component-Feature-News-Story-Image.jpg",
+        "url": "#",
+        "title": "Headline Nemo enim irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non lectus a lectus hendrerit facilisis quis ac augue. Sed quis sem eget felis venenatis aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor nibh feugiat magna dictum, malesuada euismod lectus pulvinar.",
+        "date": "June 16, 2022"
+      },
+      {
+        "image": "../../img/Component-Feature-News-Story-Image.jpg",
+        "url": "#",
+        "title": "Headline Nemo enim irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non lectus a lectus hendrerit facilisis quis ac augue. Sed quis sem eget felis venenatis aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor nibh feugiat magna dictum, malesuada euismod lectus pulvinar.",
+        "date": "June 16, 2022"
+      }
+    ]
+  }
+}
