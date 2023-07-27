@@ -86,3 +86,12 @@ function event_taxonomies() {
 
   }
   add_action( 'init', 'event_taxonomies', 0 );
+
+  function remove_events_menu() {
+	$global_options = get_fields('options');
+	$eventsToggle = $global_options["events_options"]["enabled"];
+	if($eventsToggle === false) {
+		remove_menu_page( 'edit.php?post_type=events' );
+	}
+}
+add_action( 'admin_menu', 'remove_events_menu' );

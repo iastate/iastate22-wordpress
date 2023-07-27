@@ -22,6 +22,7 @@ $tq = array();
 $search_letter = "";
 $tax_query = array();
 $meta_query = array();
+$profileToggle = $context["options"]["profiles_enabled"];
 
 foreach($paramArray as $tax) {
     array_push($tq, array(
@@ -86,4 +87,8 @@ if ( is_day() ) {
 
 $context['posts'] = new Timber\PostQuery($arr);
 $context['allposts'] = new Timber\PostQuery($argh);
-Timber::render( $templates, $context );
+if($profileToggle === false) {
+    Timber::render( '404.twig', $context );
+} else {
+    Timber::render( $templates, $context );
+}

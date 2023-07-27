@@ -36,5 +36,10 @@ if ( is_day() ) {
 
 $context['tags'] = Timber::get_terms("event_tags");
 $context['posts'] = new Timber\PostQuery();
+$eventsToggle = $context["options"]["events_options"]["enabled"];
+if($eventsToggle === false) {
+	Timber::render( '404.twig', $context );
+} else {
+	Timber::render( $templates, $context );
+}
 
-Timber::render( $templates, $context );
