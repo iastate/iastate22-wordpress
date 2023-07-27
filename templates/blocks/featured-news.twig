@@ -29,7 +29,7 @@
                 </div>
                 <h2 class="featured-news__large-article__title"><a href="{{ featuredStory.link }}" class="iastate22-link-secondary">{{ featuredStory.post_title }}<span class="arrow"></span></a></h2>
                 <p class="featured-news__large-article__excerpt">{{ featuredStory.post_excerpt }}</p>
-                <p class="featured-news__date">{{ featuredStory.post_date|date("F d, Y") }}</p>
+                <p class="featured-news__date">{{ featuredStory.post_date|date() }}</p>
             </div>
         </div>
         <div class="featured-news__small-article">
@@ -63,7 +63,7 @@
                         </div>
                     {% endif %}
                     <h2 class="featured-news__small-article__title"><a href="{{ story.link }}" class="iastate22-link-secondary">{{ story.post_title }}<span class="arrow"></span></a></h2>
-                    <p class="featured-news__date">{{ story.post_date|date("F d, Y") }}</p>
+                    <p class="featured-news__date">{{ story.post_date|date() }}</p>
                 </div>
             {% endfor %}
         {% elseif fields.feature_type == "list" %}
@@ -80,7 +80,7 @@
                         </ul>
                     </div>
                     <h2 class="featured-news__small-article__title"><a href="{{ story.link }}" class="iastate22-link-secondary">{{ story.post_title }}<span class="arrow"></span></a></h2>
-                    <p class="featured-news__date">{{ story.post_date|date("F d, Y") }}</p>
+                    <p class="featured-news__date">{{ story.post_date|date() }}</p>
                 </div>
             {% endfor %}
         {% endif %}

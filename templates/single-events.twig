@@ -11,10 +11,10 @@
                 {% if post.meta('event_end_date_end_date')|length > 0 and post.meta('event_start_date_start_date')|length > 0 %}
                     {% set start_date = post.meta('event_start_date_start_date') %}
                     {% set end_date = post.meta('event_end_date_end_date') %}
-                    {% set event_date = start_date|date('l, d M Y')~" to "~ end_date|date('l, d M Y') %}
+                    {% set event_date = start_date|date('l, F d Y')~" to "~ end_date|date('l, F d Y') %}
                 {% elseif post.meta('event_start_date_start_date')|length > 0 %}
                     {% set start_date = post.meta('event_start_date_start_date') %}
-                    {% set event_date = start_date|date('l, d M Y') %}
+                    {% set event_date = start_date|date('l, F d Y') %}
                 {% endif %}
                 {% if post.meta('event_end_date_end_time')|length > 0 and post.meta('event_start_date_start_time')|length > 0 %}
                     {% set start_time = post.meta('event_start_date_start_time') %}
@@ -37,10 +37,10 @@
                     {% if post.meta('recurring_event_date_event_end_date')|length > 0 and post.meta('recurring_event_date_event_start_date')|length > 0 %}
                         {% set start_date = post.meta('recurring_event_date_event_start_date') %}
                         {% set end_date = post.meta('recurring_event_date_event_end_date') %}
-                        {% set event_date = "from "~start_date|date('l, d M Y')~" until "~ end_date|date('l, d M Y') %}
+                        {% set event_date = "from "~start_date|date('l, F d Y')~" until "~ end_date|date('l, F d Y') %}
                     {% elseif post.meta('recurring_event_date_event_start_date')|length > 0 %}
                         {% set start_date = post.meta('recurring_event_date_event_start_date') %}
-                        {% set event_date = "starting "~start_date|date('l, d M Y') %}
+                        {% set event_date = "starting "~start_date|date('l, F d Y') %}
                     {% endif %}
 
                     {% if post.meta('recurring_event_date_end_time')|length > 0 and post.meta('recurring_event_date_start_time')|length > 0 %}

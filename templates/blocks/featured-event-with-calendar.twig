@@ -31,7 +31,7 @@
                     {{ content|striptags }}
                 </div>
               {% endif %}
-              <time class="iastate22-card__time" datetime="{{ featured_event.event_start_date_start_date|date("M-d-Y") }}">{{ featured_event.event_start_date_start_date|date("F d, Y") }}</time>
+              <time class="iastate22-card__time" datetime="{{ featured_event.event_start_date_start_date|date("M-d-Y") }}">{{ featured_event.event_start_date_start_date|date() }}</time>
             </div>
           </div>
         </div>
@@ -46,7 +46,7 @@
               <h4 class="featured-events__title">
                 <a href="{{ event.link }}" class="link-set__link iastate22-link-secondary">{{ event.post_title }}<span class="arrow"></span></a>
               </h4>
-              <time datetime="{{ event.event_start_date_start_date|date("Y-m-d") }}">{{ event.event_start_date_start_date|date("F d, Y") }}</time>
+              <time datetime="{{ event.event_start_date_start_date|date("Y-m-d") }}">{{ event.event_start_date_start_date|date() }}</time>
             </li>
             {% endif %}
           {% endfor %}
