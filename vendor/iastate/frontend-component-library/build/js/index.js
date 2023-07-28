@@ -76,7 +76,7 @@
   }
   /******/
   /******/ var hotApplyOnUpdate = true; // eslint-disable-next-line no-unused-vars
-  /******/ /******/ var hotCurrentHash = "f13e1ecbb2a68aa33453";
+  /******/ /******/ var hotCurrentHash = "e63c2df2788a7ccfb411";
   /******/ var hotRequestTimeout = 10000;
   /******/ var hotCurrentModuleData = {};
   /******/ var hotCurrentChildModule; // eslint-disable-next-line no-unused-vars
@@ -8798,6 +8798,19 @@
         /***/
       },
 
+    /***/ "./src/scss/editor-styles.scss":
+      /*!*************************************!*\
+  !*** ./src/scss/editor-styles.scss ***!
+  \*************************************/
+      /*! no static exports found */
+      /***/ function(module, exports, __webpack_require__) {
+        eval(
+          'module.exports = __webpack_require__.p + "css/editor-styles.css";\n\n//# sourceURL=webpack:///./src/scss/editor-styles.scss?'
+        );
+
+        /***/
+      },
+
     /***/ "./src/scss/index.scss":
       /*!*****************************!*\
   !*** ./src/scss/index.scss ***!
@@ -8823,13 +8836,13 @@
       },
 
     /***/ 0:
-      /*!***************************************************************************!*\
-  !*** multi ./src/scss/index.scss ./src/scss/print.scss ./src/js/index.ts ***!
-  \***************************************************************************/
+      /*!*********************************************************************************************************!*\
+  !*** multi ./src/scss/index.scss ./src/scss/print.scss ./src/scss/editor-styles.scss ./src/js/index.ts ***!
+  \*********************************************************************************************************/
       /*! no static exports found */
       /***/ function(module, exports, __webpack_require__) {
         eval(
-          '__webpack_require__(/*! ./src/scss/index.scss */"./src/scss/index.scss");\n__webpack_require__(/*! ./src/scss/print.scss */"./src/scss/print.scss");\nmodule.exports = __webpack_require__(/*! ./src/js/index.ts */"./src/js/index.ts");\n\n\n//# sourceURL=webpack:///multi_./src/scss/index.scss_./src/scss/print.scss_./src/js/index.ts?'
+          '__webpack_require__(/*! ./src/scss/index.scss */"./src/scss/index.scss");\n__webpack_require__(/*! ./src/scss/print.scss */"./src/scss/print.scss");\n__webpack_require__(/*! ./src/scss/editor-styles.scss */"./src/scss/editor-styles.scss");\nmodule.exports = __webpack_require__(/*! ./src/js/index.ts */"./src/js/index.ts");\n\n\n//# sourceURL=webpack:///multi_./src/scss/index.scss_./src/scss/print.scss_./src/scss/editor-styles.scss_./src/js/index.ts?'
         );
 
         /***/

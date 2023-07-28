@@ -34,6 +34,23 @@ add_filter(
     'this_tinymce_buttons'
 );
 
+/**
+  * @param $options
+  *
+  * @return array
+ */
+function iastate22_theme_tinymce_options( $options ) {
+    if ( isset( $options['body_class'] ) ) {
+        $options['body_class'] .= ' text-content';
+    } else {
+        $options['body_class'] = 'text-content';
+    }
+
+    return $options;
+}
+
+add_filter( 'tiny_mce_before_init', 'iastate22_theme_tinymce_options' );
+
 add_action( 'init', 'wpse325327_add_excerpts_to_pages' );
 function wpse325327_add_excerpts_to_pages() {
     add_post_type_support( 'page', 'excerpt' );
