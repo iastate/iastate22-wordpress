@@ -1,13 +1,13 @@
 webpackHotUpdate("main", {
-  /***/ "./src/scss/editor-styles.scss":
-    /*!*************************************!*\
-  !*** ./src/scss/editor-styles.scss ***!
-  \*************************************/
+  /***/ "": false,
+
+  /***/ "./src/scss/index.scss":
+    /*!*****************************!*\
+  !*** ./src/scss/index.scss ***!
+  \*****************************/
     /*! no static exports found */
     /***/ function(module, exports, __webpack_require__) {
-      eval(
-        'module.exports = __webpack_require__.p + "css/editor-styles.css";\n\n//# sourceURL=webpack:///./src/scss/editor-styles.scss?'
-      );
+      eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/scss/index.scss?");
 
       /***/
     },

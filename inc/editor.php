@@ -4,7 +4,8 @@ add_action( 'after_setup_theme', '_gutenberg_css' );
 function _gutenberg_css(){
 
 	add_theme_support( 'editor-styles' ); // if you don't add this line, your stylesheet won't be added
-	add_editor_style( '/wp_components/build/css/editor-styles.css' ); // tries to include style-editor.css directly from your theme folder
+	add_editor_style( '/wp_components/build/css/editor.css' ); // tries to include style-editor.css directly from your theme folder
+    add_editor_style( '/wp_components/build/css/editor-styles.css' ); // tries to include style-editor.css directly from your theme folder
 }
 
 //add_action('enqueue_block_editor_assets', '_gutenberg_js');
