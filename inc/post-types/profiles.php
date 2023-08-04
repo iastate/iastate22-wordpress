@@ -2,7 +2,10 @@
 
 // Register Custom Post Type
 function custom_post_type() {
-
+	if ( true !== get_field( 'profiles_enabled', 'options' ) ) {
+		return;
+	}
+	
 	$labels = array(
 		'name'                  => _x( 'Profiles', 'Personal Profiles General Name' ),
 		'singular_name'         => _x( 'Profile', 'Profile Singular Name' ),
@@ -54,3 +57,31 @@ function custom_post_type() {
 
 }
 add_action( 'init', 'custom_post_type', 0 );
+
+add_action( 'init', 'custom_post_type', 0 );
+
+function acf_custom_post_type_changed_check( $value, $post_id, $field, $original ) {
+	if ( 'options' !== $post_id ) {
+		return $value;
+	}
+	$current_value    = intval( get_field( 'profiles_enabled', 'options' ) );
+	$normalized_value = intval( $value );
+
+	if ( $current_value !== $normalized_value ) {
+		// option changed, flush needed.
+		add_action( 'acf/options_page/save', function () {
+			$_nonce = wp_create_nonce( 'refresh_rewrite_after_post_type_change' );
+
+			wp_redirect( add_query_arg( array(
+				'message'               => '1',
+				'acf_post_type_refresh' => 'yes',
+				'refresh_nonce'         => $_nonce
+			) ) );
+			exit;
+		}, 0 );
+	}
+
+	return $value;
+}
+
+add_action( 'acf/update_value/key=field_64c2aa1e5879d', 'acf_custom_post_type_changed_check', 10, 4 );

@@ -3,7 +3,11 @@
 
 function custom_event() {
 
-	$labels = array(
+	if ( true !== get_field( 'events_options_enabled', 'options' ) ) {
+		return;
+	}
+	
+	$events_labels = array(
 		'name'                  => _x( 'Events', 'Events General Name' ),
 		'singular_name'         => _x( 'Event', 'Event Singular Name' ),
 		'menu_name'             => __( 'Events' ),
@@ -32,66 +36,78 @@ function custom_event() {
 		'items_list_navigation' => __( 'Events list navigation' ),
 		'filter_items_list'     => __( 'Filter personal events list' ),
 	);
-	$args = array(
-		'label'                 => __( 'Events' ),
-		'description'           => __( 'Events Calendar' ),
-		'labels'                => $labels,
-		'supports'      	  => array( 'title', 'editor', 'excerpt', 'thumbnail' ),
-		'show_in_rest'			=> true,
-		'hierarchical'          => true,
-		'public'                => true,
-		'show_ui'               => true,
-		'show_in_menu'          => true,
-		'menu_position'         => 5,
-		'show_in_admin_bar'     => true,
-		'show_in_nav_menus'     => true,
-		'can_export'            => true,
-		'has_archive'           => true,
-		'exclude_from_search'   => false,
-		'publicly_queryable'    => true,
-		'capability_type'       => 'post',
+	register_post_type( 'events', array(
+		'label'               => __( 'Events' ),
+		'description'         => __( 'Events Calendar' ),
+		'labels'              => $events_labels,
+		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail' ),
+		'show_in_rest'        => true,
+		'hierarchical'        => true,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'menu_position'       => 5,
+		'show_in_admin_bar'   => true,
+		'show_in_nav_menus'   => true,
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'post',
+	) );
+
+	$event_tag_labels = array(
+		'name'              => _x( 'Tags', 'taxonomy general name' ),
+		'singular_name'     => _x( 'Tag', 'taxonomy singular name' ),
+		'search_items'      => __( 'Search Tags' ),
+		'all_items'         => __( 'All Tags' ),
+		'parent_item'       => __( 'Parent Tag' ),
+		'parent_item_colon' => __( 'Parent Tag:' ),
+		'edit_item'         => __( 'Edit Tag' ),
+		'update_item'       => __( 'Update Tag' ),
+		'add_new_item'      => __( 'Add New Tag' ),
+		'new_item_name'     => __( 'New Tag Name' ),
+		'menu_name'         => __( 'Tags' ),
 	);
-	register_post_type( 'events', $args );
-
-}
-add_action( 'init', 'custom_event', 0 );
-
-function event_taxonomies() {
-
-	register_taxonomy('event_tags', 'events', array(
+	
+	register_taxonomy( 'event_tags', 'events', array(
 		// Hierarchical taxonomy (like categories)
 		'hierarchical' => true,
 		'show_in_rest' => true,
 		// This array of options controls the labels displayed in the WordPress Admin UI
-		'labels' => array(
-		  'name' => _x( 'Tags', 'taxonomy general name' ),
-		  'singular_name' => _x( 'Tag', 'taxonomy singular name' ),
-		  'search_items' =>  __( 'Search Tags' ),
-		  'all_items' => __( 'All Tags' ),
-		  'parent_item' => __( 'Parent Tag' ),
-		  'parent_item_colon' => __( 'Parent Tag:' ),
-		  'edit_item' => __( 'Edit Tag' ),
-		  'update_item' => __( 'Update Tag' ),
-		  'add_new_item' => __( 'Add New Tag' ),
-		  'new_item_name' => __( 'New Tag Name' ),
-		  'menu_name' => __( 'Tags' ),
-		),
+		'labels'       => $event_tag_labels,
 		// Control the slugs used for this taxonomy
-		'rewrite' => array(
-		  'slug' => 'event_tags', // This controls the base slug that will display before each term
-		  'with_front' => false, // Don't display the category base before "/locations/"
-		  'hierarchical' => true // This will allow URL's like "/locations/boston/cambridge/"
+		'rewrite'      => array(
+			'slug'         => 'event_tags', // This controls the base slug that will display before each term
+			'with_front'   => false, // Don't display the category base before "/locations/"
+			'hierarchical' => true // This will allow URL's like "/locations/boston/cambridge/"
 		),
-	  ));
-
-  }
-  add_action( 'init', 'event_taxonomies', 0 );
-
-  function remove_events_menu() {
-	$global_options = get_fields('options');
-	$eventsToggle = $global_options["events_options"]["enabled"];
-	if($eventsToggle === false) {
-		remove_menu_page( 'edit.php?post_type=events' );
-	}
+		) 
+	);
 }
-add_action( 'admin_menu', 'remove_events_menu' );
+	
+add_action( 'init', 'custom_event', 0 );
+
+function acf_custom_event_changed_check( $value, $post_id, $field, $original ) {
+	if ( 'options' !== $post_id ) {
+		return $value;
+	}
+	$current_value    = intval( get_field( 'events_options_enabled', 'options' ) );
+	$normalized_value = intval( $value );
+	
+	if ( $current_value !== $normalized_value ) {
+		// option changed, flush needed.
+		add_action( 'acf/options_page/save', function () {
+			$_nonce = wp_create_nonce( 'refresh_rewrite_after_post_type_change' );
+			wp_redirect( add_query_arg( array(
+				'message'               => '1',
+				'acf_post_type_refresh' => 'yes',
+				'refresh_nonce'         => $_nonce
+			) ) );
+			exit;
+		}, 0 );
+	}
+	return $value;
+}
+
+add_action( 'acf/update_value/key=field_64c2a145cab1f', 'acf_custom_event_changed_check', 10, 4 );

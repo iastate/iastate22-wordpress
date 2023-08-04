@@ -209,40 +209,20 @@ export class EventCalendar {
           .then((json) => evtTags.push(json));
       });
     }
-    if (item.acf.recurring_event === true) {
-      this.calendar.addEvent({
-        title: item.title.rendered,
-        startTime: item.acf.recurring_event_date.start_time,
-        endTime: item.acf.recurring_event_date.end_time,
-        startRecur: item.acf.recurring_event_date.event_start_date,
-        endRecur: item.acf.recurring_event_date.event_end_date,
-        daysOfWeek: item.acf.recurring_event_date.recurrence_days,
-        resourceId: item.id,
-        description: item.excerpt.rendered,
-        location: loc,
-        interactive: true,
-        url: item.link,
-        thumbnail: imgUrl,
-        allDay: fullDay,
-        eventTags: evtTags,
-        overlap: true,
-      });
-    } else {
-      this.calendar.addEvent({
-        title: item.title.rendered,
-        start: eventStartTime,
-        end: eventEndTime,
-        resourceId: item.id,
-        description: item.excerpt.rendered,
-        location: loc,
-        interactive: true,
-        url: item.link,
-        thumbnail: imgUrl,
-        allDay: fullDay,
-        eventTags: evtTags,
-        overlap: true,
-      });
-    }
+    this.calendar.addEvent({
+      title: item.title.rendered,
+      start: eventStartTime,
+      end: eventEndTime,
+      resourceId: item.id,
+      description: item.excerpt.rendered,
+      location: loc,
+      interactive: true,
+      url: item.link,
+      thumbnail: imgUrl,
+      allDay: fullDay,
+      eventTags: evtTags,
+      overlap: true,
+    });
   }
 
   private runSearch(e) {
