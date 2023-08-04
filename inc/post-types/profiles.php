@@ -1,7 +1,7 @@
 <?php
 
-// Register Custom Post Type
-function custom_post_type() {
+// Register Custom Profiles
+function custom_profiles() {
 	if ( true !== get_field( 'profiles_enabled', 'options' ) ) {
 		return;
 	}
@@ -56,9 +56,7 @@ function custom_post_type() {
 	register_post_type( 'profiles', $args );
 
 }
-add_action( 'init', 'custom_post_type', 0 );
-
-add_action( 'init', 'custom_post_type', 0 );
+add_action( 'init', 'custom_profiles', 0 );
 
 function acf_custom_post_type_changed_check( $value, $post_id, $field, $original ) {
 	if ( 'options' !== $post_id ) {
