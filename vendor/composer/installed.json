@@ -218,15 +218,15 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:iastate/iastate22-frontend.git",
-                "reference": "62a9f1cd97e3b217835b7d3158e818a7f83fd427"
+                "reference": "6405877bd94cfeb4fe891e103a02b6f7e5daacf0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/iastate/iastate22-frontend/zipball/62a9f1cd97e3b217835b7d3158e818a7f83fd427",
-                "reference": "62a9f1cd97e3b217835b7d3158e818a7f83fd427",
+                "url": "https://api.github.com/repos/iastate/iastate22-frontend/zipball/6405877bd94cfeb4fe891e103a02b6f7e5daacf0",
+                "reference": "6405877bd94cfeb4fe891e103a02b6f7e5daacf0",
                 "shasum": ""
             },
-            "time": "2023-08-04T16:08:02+00:00",
+            "time": "2023-08-04T17:36:39+00:00",
             "default-branch": true,
             "type": "library",
             "installation-source": "dist",

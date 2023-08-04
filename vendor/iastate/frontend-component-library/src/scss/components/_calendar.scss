@@ -103,6 +103,15 @@
   text-decoration: none;
   text-decoration-color: transparent;
 }
+
+.fc th .fc-col-header-cell-cushion {
+  color: $white;
+
+  &:hover,
+  &:focus {
+    color: $white;
+  }
+}
 .fc {
   .fc-next-button,
   .fc-prev-button {

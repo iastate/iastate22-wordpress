@@ -9042,6 +9042,11 @@ a.grid-list__item {
   -webkit-text-decoration-color: transparent;
           text-decoration-color: transparent; }
 
+.fc th .fc-col-header-cell-cushion {
+  color: #ffffff; }
+  .fc th .fc-col-header-cell-cushion:hover, .fc th .fc-col-header-cell-cushion:focus {
+    color: #ffffff; }
+
 .fc .fc-next-button,
 .fc .fc-prev-button {
   border: none; }
