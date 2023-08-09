@@ -1,4 +1,4 @@
-<p class="iastate-article__back-btn"><a href="/events/">View All Events</a></p>
+<p class="iastate-article__back-btn"><a href="{{ function('get_post_type_archive_link','events') }}">View All Events</a></p>
 <div class="hero--event-detail">
     <h1 class="hero--event-detail__headline">
       {% if post.title %}

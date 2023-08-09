@@ -27,6 +27,6 @@
                     {% endif %}
                 {% endfor %}
           </dl>
-    <div class="upcoming-events__cta"><a href="{{ site.home }}/events" class="iastate22-button">Browse All Events<span class="arrow"></span></a></div>
-  </div>
+        <div class="upcoming-events__cta"><a href="{{ function('get_post_type_archive_link','events') }}" class="iastate22-button">Browse All Events<span class="arrow"></span></a></div>
+    </div>
 </div>
