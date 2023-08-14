@@ -15,7 +15,7 @@
           },
           "url": "#",
           "title": "Lorem Ipsum",
-          "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut consequat semper viverra nam libero justo laoreet.",
+          "body": "Sample Title",
           "email": "test@test.com",
           "phone": "(444) 444-4444",
           "facts": [
@@ -44,7 +44,7 @@
           },
           "url": "#",
           "title": "Website Title Lorem Ipsum Even Longer Lorem Ipsum",
-          "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut consequat semper viverra nam libero justo laoreet.",
+          "body": "Sample Title",
           "email": "",
           "phone": "(444) 444-4444",
           "facts": [
@@ -65,7 +65,7 @@
           },
           "url": "#",
           "title": "Lorem Ipsum",
-          "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut consequat semper viverra nam libero justo laoreet.",
+          "body": "Sample Title",
           "email": "test@test.com",
           "phone": "",
           "facts": [
@@ -82,7 +82,7 @@
           },
           "url": "#",
           "title": "Website Title Lorem Ipsum Even Longer Lorem Ipsum",
-          "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut consequat semper viverra nam libero justo laoreet.",
+          "body": "Sample Title",
           "email": "",
           "phone": "",
           "facts": [
@@ -107,7 +107,7 @@
           },
           "url": "",
           "title": "Lorem Ipsum",
-          "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut consequat semper viverra nam libero justo laoreet.",
+          "body": "Sample Title",
           "email": "",
           "phone": "",
           "facts": [

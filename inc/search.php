@@ -30,7 +30,7 @@ add_filter( 'rest_event_query', function( $args ) {
  * @return [array] [list of custom fields]
  */
 function list_searcheable_acf(){
-  $list_searcheable_acf = array("title", "sub_title", "excerpt_short", "excerpt_long", "first_name", "last_name");
+  $list_searcheable_acf = array("title", "sub_title", "excerpt_short", "excerpt_long", "first_name", "last_name", "location");
   return $list_searcheable_acf;
 }
 

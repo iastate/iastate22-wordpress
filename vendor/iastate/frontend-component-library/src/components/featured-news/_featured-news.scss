@@ -4,6 +4,7 @@
     margin-left: rem(-108);
     margin-right: rem(-108);
   }
+
   .featured-news-container {
     display: flex;
     gap: rem(20);
@@ -90,9 +91,9 @@
         }
         .featured-news__large-article__excerpt {
           margin: 0;
-          &:after {
-            content: "...";
-          }
+          // &:after {
+          //   content: "...";
+          // }
         }
         .featured-news__date {
           font-style: italic;

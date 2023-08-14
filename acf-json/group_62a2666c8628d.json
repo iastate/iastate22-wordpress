@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_62a2666c89f35",
-            "label": "Callout Content",
+            "label": "Call to Action",
             "name": "callout_content",
             "type": "group",
             "instructions": "",
@@ -19,7 +19,7 @@
             "sub_fields": [
                 {
                     "key": "field_62a2666c8b7f6",
-                    "label": "Callout Title",
+                    "label": "Title",
                     "name": "title",
                     "type": "text",
                     "instructions": "",
@@ -38,7 +38,7 @@
                 },
                 {
                     "key": "field_62a2666c8b853",
-                    "label": "Callout Content",
+                    "label": "Content",
                     "name": "content",
                     "type": "wysiwyg",
                     "instructions": "",
@@ -57,7 +57,7 @@
                 },
                 {
                     "key": "field_62a2666c8b895",
-                    "label": "Callout CTAs",
+                    "label": "CTAs",
                     "name": "callout_ctas",
                     "type": "repeater",
                     "instructions": "",

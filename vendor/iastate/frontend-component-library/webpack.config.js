@@ -8,7 +8,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const babelLoaderExcludeNodeModulesExcept = require("babel-loader-exclude-node-modules-except");
 
 const config = {
-  entry: ["./src/scss/index.scss", "./src/scss/print.scss", "./src/js/index.ts"],
+  entry: ["./src/scss/index.scss", "./src/scss/print.scss", "./src/scss/editor-styles.scss", "./src/js/index.ts"],
   output: {
     filename: "js/index.js",
     path: path.resolve(__dirname, "build"),
@@ -64,7 +64,10 @@ const config = {
         test: /\.scss$/,
         oneOf: [
           {
-            exclude: [path.resolve(__dirname, "src/scss/print.scss")],
+            exclude: [
+              path.resolve(__dirname, "src/scss/print.scss"),
+              path.resolve(__dirname, "src/scss/editor-styles.scss"),
+            ],
             use: [
               MiniCssExtractPlugin.loader,
               "css-loader",

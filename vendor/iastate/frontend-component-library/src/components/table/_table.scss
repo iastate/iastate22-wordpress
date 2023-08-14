@@ -76,15 +76,33 @@
         color: $iastate-red;
       }
 
-      a {
-        color: $black;
-        text-decoration-color: rgba($black, 0);
+      a,
+      .tel {
+        color: $iastate-maroon;
+        text-decoration: underline;
+        transition: all 0.3s ease-out;
+      }
 
+      .tel {
+        font-weight: 600;
+      }
+
+      a {
+        font-weight: 700;
         &:hover,
         &:focus {
-          text-decoration-color: rgba($black, 1);
+          transition: all 0.2s ease-out;
+          text-decoration-color: rgba($iastate-red, 1);
+          color: $iastate-red;
         }
       }
     }
+  }
+}
+
+a {
+  transition: $link-transition;
+  &:hover {
+    color: $iastate-red;
   }
 }

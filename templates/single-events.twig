@@ -1,18 +1,20 @@
 {% extends "base.twig" %}
 
 {% block content %}
+
 <div class="outer-pad">
     {% include ['blocks/event-hero.twig'] %}
     <div class="paragraph-widget paragraph-widget--event-details">
         <div class="event-details">
             <dl class="event-details__wrap">
+                {% set full_day = post.meta("event_start_date_full_day") %}
                 {% if post.meta('event_end_date_end_date')|length > 0 and post.meta('event_start_date_start_date')|length > 0 %}
                     {% set start_date = post.meta('event_start_date_start_date') %}
                     {% set end_date = post.meta('event_end_date_end_date') %}
-                    {% set event_date = start_date|date('l, d M Y')~" to "~ end_date|date('l, d M Y') %}
+                    {% set event_date = start_date|date('l, F d Y')~" to "~ end_date|date('l, F d Y') %}
                 {% elseif post.meta('event_start_date_start_date')|length > 0 %}
                     {% set start_date = post.meta('event_start_date_start_date') %}
-                    {% set event_date = start_date|date('l, d M Y') %}
+                    {% set event_date = start_date|date('l, F d Y') %}
                 {% endif %}
                 {% if post.meta('event_end_date_end_time')|length > 0 and post.meta('event_start_date_start_time')|length > 0 %}
                     {% set start_time = post.meta('event_start_date_start_time') %}
@@ -22,7 +24,11 @@
                     {% set start_time = post.meta('event_start_date_start_time') %}
                     {% set event_time = "at " ~ start_time|date('g:ia') %}
                 {% endif %}
-                {% if event_date|length > 0 and event_time|length > 0 %}
+                {% if event_date|length > 0 and end_date > start_date %}
+                    {% set event_string = event_date %}
+                {% elseif event_date|length > 0 and full_day == true %}
+                    {% set event_string = event_date %}
+                {% elseif event_date|length > 0 and event_time|length > 0 %}
                     {% set event_string = event_date ~ " " ~ event_time %}
                 {% elseif event_date|length > 0 %}
                     {% set event_string = event_date %}
@@ -31,10 +37,10 @@
                     {% if post.meta('recurring_event_date_event_end_date')|length > 0 and post.meta('recurring_event_date_event_start_date')|length > 0 %}
                         {% set start_date = post.meta('recurring_event_date_event_start_date') %}
                         {% set end_date = post.meta('recurring_event_date_event_end_date') %}
-                        {% set event_date = "from "~start_date|date('l, d M Y')~" until "~ end_date|date('l, d M Y') %}
+                        {% set event_date = "from "~start_date|date('l, F d Y')~" until "~ end_date|date('l, F d Y') %}
                     {% elseif post.meta('recurring_event_date_event_start_date')|length > 0 %}
                         {% set start_date = post.meta('recurring_event_date_event_start_date') %}
-                        {% set event_date = "starting "~start_date|date('l, d M Y') %}
+                        {% set event_date = "starting "~start_date|date('l, F d Y') %}
                     {% endif %}
 
                     {% if post.meta('recurring_event_date_end_time')|length > 0 and post.meta('recurring_event_date_start_time')|length > 0 %}
@@ -61,7 +67,7 @@
                 <dd>
                     <p>{{ event_string }}</p>
                 </dd>
-                {% if post.terms('locations')|length > 0 or post.meta('location').name|length > 0 %}
+                {% if post.meta('location')|length > 0 %}
                     <dt>
                         <span class="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="42.262" height="42.304" viewBox="0 0 42.262 42.304">
@@ -74,40 +80,34 @@
                         </span>
                         <span class="visible-for-screen-readers">Location</span>
                     </dt>
-                    <dd>
-                        {% if post.meta('location').name|length > 0 %}
-                            <p>{{ post.meta('location').name }}</p>
-                        {% elseif post.terms('locations')|length > 0 %}
-                            {% for location in post.terms('locations') %}
-                                <p>{{ location.name }}</p>
-                            {% endfor %}
-                        {% endif %}
-                    </dd>
+                    <dd><p>{{ post.meta('location') }}</p></dd>
                 {% endif %}
                 {% if post.meta('cost') %}
                     {% set cost = post.meta('cost') %}
-                    {% if cost.free == true %}
-                        {% set price = "Free" %}
-                    {% else %}
-                        {% set price = "$"~cost.cost %}
-                    {% endif %}
-                    <dt>
-                        <span class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="42.262" height="42.304" viewBox="0 0 42.262 42.304">
-                                <g transform="translate(-298 -1613.348)">
-                                    <path data-name="Oval 27 - Outline" d="M21.131,2A19.156,19.156,0,0,0,7.6,34.695,19.141,19.141,0,0,0,34.658,7.609,19,19,0,0,0,21.131,2m0-2A21.152,21.152,0,1,1,0,21.152,21.141,21.141,0,0,1,21.131,0Z" transform="translate(298 1613.348)" fill="#b82b35"/>
-                                    <g data-name="Group 5276" transform="translate(-32.555 26.576)">
-                                    <path data-name="Path 3471" d="M12.74,20.571a7.247,7.247,0,0,1-2.729-.533,5.429,5.429,0,0,1-3.374-3.82A.8.8,0,0,1,8.2,15.856a3.854,3.854,0,0,0,2.423,2.7,5.032,5.032,0,0,0,4.314-.136,2.815,2.815,0,0,0,1.238-2.848,2.7,2.7,0,0,0-1.3-1.62,9.137,9.137,0,0,0-3.995-1.1A4.488,4.488,0,0,1,8.3,11.821,3.84,3.84,0,0,1,7.047,9.71,3.963,3.963,0,0,1,9.1,5.387a6.2,6.2,0,0,1,4.8-.449,5.568,5.568,0,0,1,3.316,3.223.8.8,0,1,1-1.468.636,3.963,3.963,0,0,0-2.359-2.343,4.59,4.59,0,0,0-3.5.328A2.358,2.358,0,0,0,8.611,9.373a2.535,2.535,0,0,0,2.4,1.888,10.663,10.663,0,0,1,4.7,1.336,4.287,4.287,0,0,1,2.007,2.6,4.382,4.382,0,0,1-1.939,4.578A5.757,5.757,0,0,1,12.74,20.571Z" transform="translate(339.461 1595.315)" fill="#b82b35"/>
-                                    <path data-name="Line 166" d="M0,18.978a.8.8,0,0,1-.8-.8V0A.8.8,0,0,1,0-.8.8.8,0,0,1,.8,0V18.178A.8.8,0,0,1,0,18.978Z" transform="translate(351.686 1598.835)" fill="#b82b35"/>
+                    {% if cost.free == true or cost.cost|length > 0 %}
+                        {% if cost.free == true %}
+                            {% set price = "Free" %}
+                        {% else %}
+                            {% set price = cost.cost %}
+                        {% endif %}
+                        <dt>
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="42.262" height="42.304" viewBox="0 0 42.262 42.304">
+                                    <g transform="translate(-298 -1613.348)">
+                                        <path data-name="Oval 27 - Outline" d="M21.131,2A19.156,19.156,0,0,0,7.6,34.695,19.141,19.141,0,0,0,34.658,7.609,19,19,0,0,0,21.131,2m0-2A21.152,21.152,0,1,1,0,21.152,21.141,21.141,0,0,1,21.131,0Z" transform="translate(298 1613.348)" fill="#b82b35"/>
+                                        <g data-name="Group 5276" transform="translate(-32.555 26.576)">
+                                        <path data-name="Path 3471" d="M12.74,20.571a7.247,7.247,0,0,1-2.729-.533,5.429,5.429,0,0,1-3.374-3.82A.8.8,0,0,1,8.2,15.856a3.854,3.854,0,0,0,2.423,2.7,5.032,5.032,0,0,0,4.314-.136,2.815,2.815,0,0,0,1.238-2.848,2.7,2.7,0,0,0-1.3-1.62,9.137,9.137,0,0,0-3.995-1.1A4.488,4.488,0,0,1,8.3,11.821,3.84,3.84,0,0,1,7.047,9.71,3.963,3.963,0,0,1,9.1,5.387a6.2,6.2,0,0,1,4.8-.449,5.568,5.568,0,0,1,3.316,3.223.8.8,0,1,1-1.468.636,3.963,3.963,0,0,0-2.359-2.343,4.59,4.59,0,0,0-3.5.328A2.358,2.358,0,0,0,8.611,9.373a2.535,2.535,0,0,0,2.4,1.888,10.663,10.663,0,0,1,4.7,1.336,4.287,4.287,0,0,1,2.007,2.6,4.382,4.382,0,0,1-1.939,4.578A5.757,5.757,0,0,1,12.74,20.571Z" transform="translate(339.461 1595.315)" fill="#b82b35"/>
+                                        <path data-name="Line 166" d="M0,18.978a.8.8,0,0,1-.8-.8V0A.8.8,0,0,1,0-.8.8.8,0,0,1,.8,0V18.178A.8.8,0,0,1,0,18.978Z" transform="translate(351.686 1598.835)" fill="#b82b35"/>
+                                        </g>
                                     </g>
-                                </g>
-                            </svg>
-                        </span>
-                        <span class="visible-for-screen-readers"></span>
-                    </dt>
-                    <dd>
-                        <p>{{ price }}</p>
-                    </dd>
+                                </svg>
+                            </span>
+                            <span class="visible-for-screen-readers"></span>
+                        </dt>
+                        <dd>
+                            <p>{{ price }}</p>
+                        </dd>
+                    {% endif %}
                 {% endif %}
                 {% if post.meta('contact') %}
                     {% for link in post.meta('contact') %}
@@ -148,13 +148,18 @@
                             <a href="{{ link.link.url }}" class="{{ classList }}"{% if link.link.target|length > 0 %} target="{{ link.link.target }}"{% endif %}>{{ link.link.title }}<span class="arrow"></span></a>
                         {% elseif link.acf_fc_layout == "email" %}
                             {% set classList = "link-set__link iastate22-link-secondary" %}
-                            <a href="mailto:{{ link.email.url }}" class="{{ classList }}">{{ link.email.title }}<span class="arrow"></span></a>
+                            {% if link.email.title|length > 0 %}
+                                {% set emailTitle = link.email.title %}
+                            {% else %}
+                                {% set emailTitle = link.email.url %}
+                            {% endif %}
+                            <a href="mailto:{{ link.email.url }}" class="{{ classList }}">{{ emailTitle }}<span class="arrow"></span></a>
                         {% elseif link.acf_fc_layout == "phone_number" %}
                             <span class="event-details__phone-number">{{ link.phone_number }}</span>
                         {% elseif link.acf_fc_layout == "tags" %}
                             <div class="event-details__tags">
                                 {% for tag in post.terms('event_tags') %}
-                                    <a href="/event_tags/{{ tag.slug }}">{{ tag.name }}</a>
+                                    <a href="{{ site.home }}/events/?event_tags={{ tag.id }}">{{ tag.name }}</a>
                                 {% endfor %}
                             </div>
                         {% elseif link.acf_fc_layout == "text_label" %}
@@ -165,7 +170,7 @@
                 {% endif %}
             </dl>
         </div>
-        {% if post.terms('category')|length > 0 and post.terms('tags')|length > 0 %}
+        {% if post.meta('event_content')|length > 0 %}
             <div class="paragraph-widget paragraph-widget--text-content">
                 <div class="text-content">
                     {{ post.meta("event_content") }}
@@ -173,5 +178,6 @@
             </div>
         {% endif %}
     </div>
+    {{ post.content }}
 </div>
 {% endblock %}

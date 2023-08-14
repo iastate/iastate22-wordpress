@@ -293,21 +293,6 @@ function idf_acf_init() {
         'keywords' => array('Feature', 'Inset', 'Image'),
     ));
 
-    if ( $activated_profile_plugin ) {
-        acf_register_block_type( array(
-            'name'  => 'directory',
-            'title' => __( 'Directory'),
-            'description' => __( 'Create custom listings of ISU Personal Profiles content.'),
-            'render_callback' => 'idf_acf_block_render_directory',
-            'category' => 'isu-blocks',
-            'align' => 'wide',
-            'icon' => 'align-wide',
-            'mode' => 'edit',
-            'keywords' => array('Feature', 'Inset', 'Image'),
-            
-        ));
-    }
-
     acf_register_block_type( array(
         'name'  => 'full_width_image',
         'title' => __( 'Full Width Image'),
@@ -633,14 +618,6 @@ function idf_acf_block_render_directory( $block, $content = '', $is_preview = fa
     Timber::render('templates/blocks/directory.twig', $context);
 }
 
-function idf_acf_block_render_directory_hero( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
-    Timber::render('templates/blocks/directory-hero.twig', $context);
-}
-
 function idf_acf_block_render_featured_events( $block, $content = '', $is_preview = false ) {
     $context = Timber::context();
     $context['block'] = $block;
@@ -679,12 +656,12 @@ function idf_acf_block_render_recent_articles( $block, $content = '', $is_previe
     $context['fields'] = get_fields();
     $context['is_preview'] = $is_preview;
     $postCount = $context['fields']['news_stories'];
+    $context['post_count'] = intval($postCount);
     if ($context['fields']['feed_style']['value'] == "syndicated") {
         $order = $context['fields']['feed_order']['value'];
         $cat = $context['fields']['feed_category'];
         $tag = $context['fields']['feed_tags'];
 		$argh = 'post_type=post&numberposts='.$postCount.'&category='.$cat.'&tag_id='.$tag.'&orderby=date&order='.$order.'';
-        $context['post_count'] = intval($postCount);
 		$context['recent_articles'] = Timber::get_posts($argh); // uses wp_query format.
 	}
 
@@ -765,12 +742,12 @@ add_filter('allowed_block_types_all', function($block_types, $editor_context) {
         'acf/directory',
         'core/table'
     ];
-    $directoryblocks = [
-        'acf/directory-hero'
-    ];
-    if($name === 'faculty') {
-        return $directoryblocks;
-    }
+    // $directoryblocks = [
+    //     'acf/directory-hero'
+    // ];
+    // if($name === 'faculty') {
+    //     return $directoryblocks;
+    // }
     
     // if($home_id == $id) {
     //     return $landingblocks;

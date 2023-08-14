@@ -17,19 +17,7 @@
       {% include "@card-set" with recent_articles %}
     </div>
 
-    <div class="paragraph-widget paragraph-widget--news-items">
-      <div class="text-content">
-        <h2>In The News</h2>
-      </div>
-      <div class="news-items">
-        <div class="news-item">
-          {% include "@news-item" with article1 %}
-        </div>
-        <div class="news-item">
-          {% include "@news-item" with article2 %}
-        </div>
-      </div>
-    </div>
+    {% include "@news-item" %}
 
     <div class="paragraph-widget paragraph-widget--filter-form">
       <div class="filter-form">

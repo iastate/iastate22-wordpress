@@ -49,6 +49,11 @@
   @include media-breakpoint-up(lg) {
     margin-bottom: 80px;
   }
+
+  .link-tertiary {
+    background-color: transparent;
+    border: none;
+  }
 }
 
 .fc .fc-button-group {
@@ -86,7 +91,7 @@
 .fc .fc-event-time {
   color: $iastate-maroon;
   display: none;
-
+  color: $grey;
   @include media-breakpoint-up(lg) {
     display: inherit;
     font-weight: 400;
@@ -95,6 +100,17 @@
 
 .fc .fc-col-header-cell-cushion {
   padding: 0;
+  text-decoration: none;
+  text-decoration-color: transparent;
+}
+
+.fc th .fc-col-header-cell-cushion {
+  color: $white;
+
+  &:hover,
+  &:focus {
+    color: $white;
+  }
 }
 .fc {
   .fc-next-button,
@@ -339,6 +355,8 @@
   color: $iastate-red;
   font-size: rem(20);
   font-weight: 700;
+  text-decoration: none;
+  text-decoration-color: transparent;
   @include media-breakpoint-up(lg) {
     padding: 10px 15px;
   }
@@ -428,6 +446,11 @@
   }
 }
 
+// Date header in list view. Disabled
+.fc-list-table .fc-list-day {
+  display: none;
+}
+
 .fc-listWeek-view .event-link {
   display: none;
 }
@@ -443,7 +466,8 @@
 .event-listing {
   &:hover,
   &:focus-within {
-    .event-listing__title span {
+    .event-listing__title span,
+    .event-listing__title a {
       text-decoration-color: currentColor;
       transition: text-decoration-color 0.2s ease-out;
 
@@ -458,7 +482,8 @@
 .fc-list-event-title {
   &:hover,
   &:focus-within {
-    .event-listing__title span svg {
+    .event-listing__title span svg,
+    .event-listing__title a svg {
       margin-left: 15px;
       transition: margin 0.2s ease-out;
     }
@@ -472,7 +497,43 @@
   order: 1;
 }
 
-.fc .event-listing__title span {
+.event-listing__tags {
+  display: none;
+
+  .fc-list-table & {
+    margin-top: 10px;
+    display: flex;
+    gap: 30px;
+  }
+}
+
+.fc .fc-list-event.fc-event-forced-url {
+  &:hover,
+  &:focus {
+    .event-listing__tags a.tag {
+    }
+  }
+}
+
+.fc .fc-list-event-title .event-listing__tags a.tag,
+.fc .fc-list-event-title .event-listing__tags span {
+  transition: all 0.3s ease-out;
+  text-decoration: underline;
+  text-decoration-color: $iastate-maroon;
+  color: $iastate-maroon;
+  font-weight: 700;
+  position: relative;
+  z-index: 3;
+
+  // &:hover,
+  // &:focus {
+  //   transition: all 0.2s ease-out;
+  //   text-decoration-color: $iastate-gold;
+  // }
+}
+
+.fc .event-listing__title span,
+.fc .event-listing__title a {
   color: $iastate-maroon;
   text-decoration: underline;
   text-decoration-color: transparent;
@@ -501,6 +562,14 @@
   line-height: rem(26);
   color: $grey;
   order: 0;
+
+  .event-listing__full-date {
+    color: $grey;
+  }
+
+  .event-listing__time {
+    color: $grey;
+  }
 }
 
 .event-listing__location {
@@ -508,7 +577,7 @@
 }
 
 .event-listing__desc {
-  color: $iastate-maroon;
+  color: $grey;
 }
 
 /*---===/ Month View \===---*/

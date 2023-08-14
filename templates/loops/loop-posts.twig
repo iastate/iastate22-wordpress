@@ -25,15 +25,17 @@
                     <div class="hero-stories-feed-item__content">
                         <div class="hero-stories-feed-item__content-tags">
                             <ul>
-                                <li>Category</li>
-                                <li>Lorem Category</li>
-                                <li>Dolore Ipsum Category</li>
+                                {% for term in post.terms %}
+                                    {% if term.taxonomy == "category" %}
+                                        <li>{{ term.name }}</li>
+                                    {% endif %}
+                                {% endfor %}
                             </ul>
                         </div>
                         <h2 class="hero-stories-feed-item__title">
                             <a class="iastate22-link-secondary" href="{{ post.link }}">{{ post.post_title }}<span class="arrow"></span></a>
                         </h2>
-                        <p class="hero-stories-feed-item__content-date">September 12, 2023</p>
+                        <p class="hero-stories-feed-item__content-date">{{ post.date }}</p>
                     </div>
                 </div>
             {% endfor %}

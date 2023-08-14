@@ -20,7 +20,7 @@
             "sub_fields": [
                 {
                     "key": "field_62fd652a805a4",
-                    "label": "TItle",
+                    "label": "Title",
                     "name": "title",
                     "aria-label": "",
                     "type": "text",

@@ -1,11 +1,12 @@
 {
     "key": "group_629f8d8ec43eb",
-    "title": "Callout Set",
+    "title": "Feature Set",
     "fields": [
         {
             "key": "field_629f8d8ec6c93",
-            "label": "Callout Set",
+            "label": "Feature Set",
             "name": "callout_set",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -20,15 +21,16 @@
             "min": 0,
             "max": 0,
             "collapsed": "",
-            "button_label": "Add Row",
+            "button_label": "Add Feature",
             "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_629f8d8ec7d6b",
-                    "label": "Callout Image",
+                    "label": "Feature Image",
                     "name": "callout_image",
+                    "aria-label": "",
                     "type": "image",
-                    "instructions": "Optional: Callout card will display without it.",
+                    "instructions": "Optional: card will display without it.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -37,7 +39,6 @@
                         "id": ""
                     },
                     "return_format": "array",
-                    "preview_size": "medium",
                     "library": "all",
                     "min_width": "",
                     "min_height": "",
@@ -46,12 +47,14 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": "jpg, jpeg, png",
+                    "preview_size": "medium",
                     "parent_repeater": "field_629f8d8ec6c93"
                 },
                 {
                     "key": "field_629f8d8ec7daa",
-                    "label": "Callout Content",
+                    "label": "Feature Content",
                     "name": "callout_content",
+                    "aria-label": "",
                     "type": "group",
                     "instructions": "",
                     "required": 0,
@@ -65,8 +68,9 @@
                     "sub_fields": [
                         {
                             "key": "field_629f8d8ec9482",
-                            "label": "Callout Title",
+                            "label": "Title",
                             "name": "title",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 1,
@@ -77,15 +81,16 @@
                                 "id": ""
                             },
                             "default_value": "",
+                            "maxlength": "",
                             "placeholder": "",
                             "prepend": "",
-                            "append": "",
-                            "maxlength": ""
+                            "append": ""
                         },
                         {
                             "key": "field_629f8d8ec94c4",
-                            "label": "Callout Content",
+                            "label": "Content",
                             "name": "content",
+                            "aria-label": "",
                             "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
@@ -96,15 +101,16 @@
                                 "id": ""
                             },
                             "default_value": "",
-                            "delay": 0,
                             "tabs": "all",
                             "toolbar": "full",
-                            "media_upload": 1
+                            "media_upload": 1,
+                            "delay": 0
                         },
                         {
                             "key": "field_629f8d8ec9506",
-                            "label": "Callout CTAs",
+                            "label": "CTAs",
                             "name": "callout_ctas",
+                            "aria-label": "",
                             "type": "repeater",
                             "instructions": "",
                             "required": 0,
@@ -114,17 +120,19 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "collapsed": "field_629f778f6e70d",
+                            "layout": "block",
+                            "pagination": 0,
                             "min": 1,
                             "max": 0,
-                            "layout": "block",
-                            "button_label": "Add Row",
+                            "collapsed": "field_629f778f6e70d",
+                            "button_label": "Add CTA",
                             "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_629f8d8ecbf24",
                                     "label": "CTA",
                                     "name": "",
+                                    "aria-label": "",
                                     "type": "accordion",
                                     "instructions": "",
                                     "required": 0,
@@ -143,6 +151,7 @@
                                     "key": "field_629f8d8ecbf63",
                                     "label": "CTAs",
                                     "name": "ctas",
+                                    "aria-label": "",
                                     "type": "clone",
                                     "instructions": "",
                                     "required": 0,
@@ -187,5 +196,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1666056899
+    "modified": 1689691474
 }

@@ -108,13 +108,13 @@ class StarterSite extends Timber\Site {
 		}
 		$next_four = array(
 			'post_type' => 'events',
-			'meta_key' => 'event_date',
-			'posts_per_page' => 4,
+			'meta_key' => 'event_start_date_start_date',
+			'posts_per_page' => -1,
 			'orderby' => 'meta_value',
 			'order' => 'ASC',
 			'meta_query'=> array(
 				array(
-				'key' => 'event_date',
+				'key' => 'event_start_date_start_date',
 				'compare' => '>=',
 				'value' => date("Ymd"),
 				'type' => 'DATE'
@@ -123,13 +123,13 @@ class StarterSite extends Timber\Site {
 		);
 		$upcoming_events = array(
 			'post_type' => 'events',
-			'meta_key' => 'event_date',
+			'meta_key' => 'event_start_date_start_date',
 			'posts_per_page' => -1,
 			'orderby' => 'meta_value',
 			'order' => 'ASC',
 			'meta_query'=> array(
 				array(
-				'key' => 'event_date',
+				'key' => 'event_start_date_start_date',
 				'compare' => '>=',
 				'value' => date("Ymd"),
 				'type' => 'DATE'

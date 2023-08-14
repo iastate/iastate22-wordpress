@@ -2,26 +2,30 @@
 
 {% block content %}
 	<div class="outer-pad">
-		<p class="iastate-article__back-btn"><a href="#">All Articles</a></p>
+		<p class="iastate-article__back-btn"><a href="{{ function('get_post_type_archive_link', 'post' ) }}">All Articles</a></p>
 		<div class="hero--news-article text-content">
 			<h1 class="hero--news-article__headline">{{ post.title }}</h1>
-			{% if post.meta('byline') %}
-				<h2 class="hero--news-article__subhead">{{ post.meta('byline') }}</h2>
+			{% if post.meta('subhead') %}
+				<h2 class="hero--news-article__subhead">{{ post.meta('subhead') }}</h2>
 			{% endif %}
-			<div class="hero--news-article__attribution"><p><strong>Author: {{ post.author.name }}</strong> | Image: {{ post.author.name }}</p></div>
+			{% if post._meta_info != 'hide_author' %}
+				<div class="hero--news-article__attribution"><p><strong>Author: {{ post.author.name }}</strong> | Image: {{ post.author.name }}</p></div>
+			{% endif %}
 			{% if post.meta("use_featured_image_as_hero") == "false" %}
 			{% if post.hero_image %}
 				<div class="hero--news-article__media">
-					<img src="{{ Image(post.hero_image).src|resize(2000, 500) }}" alt="{{ Image(post.hero_image).alt }}">
+					<img src="{{ Image(post.hero_image).src }}" alt="{{ Image(post.hero_image).alt }}">
 				</div>
 				{% endif %}
 			{% else %}
 				<div class="hero--news-article__media">
-					<img src="{{ post.thumbnail.src|resize(2000, 500) }}">
+					<img src="{{ post.thumbnail.src }}">
 				</div>
 			{% endif %}
 		</div>
-		{% include "partial/share.twig" %}
+		{% if post.meta("share_this") == true %}
+			{% include "partial/share.twig" %}
+		{% endif %}
 		{% if post.pagination %}
 			{{ post.paged_content }}
 			{% include 'partial/pagination--interior.twig' with { pagination: post.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}

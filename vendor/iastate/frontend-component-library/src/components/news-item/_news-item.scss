@@ -31,9 +31,49 @@
         }
       }
     }
-    .news-item__article-title,
-    .news-item__article-title .iastate22-link-external {
+    .news-item__article-title {
       font-size: rem(22);
+    }
+  }
+}
+
+.paragraph-widget--news-items {
+  margin-top: 0;
+  margin-bottom: 0;
+
+  + .paragraph-widget--filter-form {
+    margin-top: 0;
+  }
+}
+
+.news-items__wrap {
+  main & {
+    padding-top: rem(30);
+    padding-bottom: rem(40);
+    position: relative;
+
+    &:after {
+      content: "";
+      background: $off-white;
+      left: -50vw;
+      width: 150vw;
+      top: 0;
+      bottom: 0;
+      z-index: 0;
+      position: absolute;
+    }
+    @include media-breakpoint-up(md) {
+    }
+    @include media-breakpoint-up(xl) {
+      padding-top: rem(70);
+      padding-bottom: rem(70);
+    }
+
+    > * {
+      max-width: 1112px;
+      padding: 0;
+      position: relative;
+      z-index: 1;
     }
   }
 }

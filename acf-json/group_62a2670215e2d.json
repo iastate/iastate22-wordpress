@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_62a2670219412",
-            "label": "Callout Image",
+            "label": "Image",
             "name": "callout_image",
             "aria-label": "",
             "type": "image",
@@ -29,7 +29,7 @@
         },
         {
             "key": "field_62a2670219454",
-            "label": "Callout Content",
+            "label": "Content",
             "name": "callout_content",
             "aria-label": "",
             "type": "group",
@@ -45,7 +45,7 @@
             "sub_fields": [
                 {
                     "key": "field_62a267021b381",
-                    "label": "Callout Title",
+                    "label": "Title",
                     "name": "title",
                     "aria-label": "",
                     "type": "text",
@@ -65,7 +65,7 @@
                 },
                 {
                     "key": "field_62a267021b3c8",
-                    "label": "Callout Content",
+                    "label": "Content",
                     "name": "content",
                     "aria-label": "",
                     "type": "wysiwyg",
@@ -85,7 +85,7 @@
                 },
                 {
                     "key": "field_6363d571e8d8f",
-                    "label": "Callout Cta",
+                    "label": "Cta",
                     "name": "callout_cta",
                     "aria-label": "",
                     "type": "repeater",

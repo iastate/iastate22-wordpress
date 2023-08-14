@@ -1,11 +1,61 @@
 {
     "key": "group_649c99d1070ae",
-    "title": "Post Byline",
+    "title": "Post Hero",
     "fields": [
         {
+            "key": "field_64b1811be6048",
+            "label": "Hero Image",
+            "name": "hero_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_64b18187e6049",
+            "label": "Use Featured Image as Hero",
+            "name": "use_featured_image_as_hero",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "true": "True",
+                "false": "False"
+            },
+            "default_value": "false",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        },
+        {
             "key": "field_649c99d17f834",
-            "label": "Byline",
-            "name": "byline",
+            "label": "Story Subheading",
+            "name": "subhead",
             "aria-label": "",
             "type": "textarea",
             "instructions": "",
@@ -21,6 +71,26 @@
             "rows": 3,
             "placeholder": "",
             "new_lines": ""
+        },
+        {
+            "key": "field_64b180d11ee13",
+            "label": "Share This",
+            "name": "share_this",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
         }
     ],
     "location": [
@@ -41,5 +111,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1687984781
+    "modified": 1689354692
 }
