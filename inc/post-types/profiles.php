@@ -54,6 +54,57 @@ function custom_profiles() {
 		'capability_type'       => 'page',
 	);
 	register_post_type( 'profiles', $args );
+	register_taxonomy('department', 'profiles', array(
+		// Hierarchical taxonomy (like categories)
+		'hierarchical' => true,
+		'show_in_rest' => true,
+		// This array of options controls the labels displayed in the WordPress Admin UI
+		'labels' => array(
+		  'name' => _x( 'Department or Unit', 'taxonomy general name' ),
+		  'singular_name' => _x( 'Department or Unit', 'taxonomy singular name' ),
+		  'search_items' =>  __( 'Search Departments' ),
+		  'all_items' => __( 'All Departments' ),
+		  'parent_item' => __( 'Parent Department or Unit' ),
+		  'parent_item_colon' => __( 'Parent Department or Unit:' ),
+		  'edit_item' => __( 'Edit Department or Unit' ),
+		  'update_item' => __( 'Update Department or Unit' ),
+		  'add_new_item' => __( 'Add New Department or Unit' ),
+		  'new_item_name' => __( 'New Department or Unit' ),
+		  'menu_name' => __( 'Department or Unit' ),
+		),
+		// Control the slugs used for this taxonomy
+		'rewrite' => array(
+		  'slug' => 'locations', // This controls the base slug that will display before each term
+		  'with_front' => false, // Don't display the category base before "/locations/"
+		  'hierarchical' => true // This will allow URL's like "/locations/boston/cambridge/"
+		),
+	  ));
+
+	register_taxonomy('affiliation', 'profiles', array(
+		// Hierarchical taxonomy (like categories)
+		'hierarchical' => true,
+		'show_in_rest' => true,
+		// This array of options controls the labels displayed in the WordPress Admin UI
+		'labels' => array(
+		  'name' => _x( 'Affiliation', 'taxonomy general name' ),
+		  'singular_name' => _x( 'Affiliation', 'taxonomy singular name' ),
+		  'search_items' =>  __( 'Search Affiliations' ),
+		  'all_items' => __( 'All Affiliations' ),
+		  'parent_item' => __( 'Parent Affiliation' ),
+		  'parent_item_colon' => __( 'Parent Affiliation:' ),
+		  'edit_item' => __( 'Edit Affiliation' ),
+		  'update_item' => __( 'Update Affiliation' ),
+		  'add_new_item' => __( 'Add New Affiliation' ),
+		  'new_item_name' => __( 'New Affiliation Name' ),
+		  'menu_name' => __( 'Affiliation' ),
+		),
+		// Control the slugs used for this taxonomy
+		'rewrite' => array(
+		  'slug' => 'division', // This controls the base slug that will display before each term
+		  'with_front' => false, // Don't display the category base before "/locations/"
+		  'hierarchical' => true // This will allow URL's like "/locations/boston/cambridge/"
+		),
+	  ));
 
 }
 add_action( 'init', 'custom_profiles', 0 );
