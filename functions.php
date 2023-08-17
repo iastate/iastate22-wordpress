@@ -25,8 +25,8 @@ include('inc/overrides.php');
 include('inc/validation.php');
 include('inc/breadcrumbs.php');
 include('inc/search.php');
-include('inc/post-types/events.php');
-include('inc/post-types/profiles.php');
+// include('inc/post-types/events.php');
+// include('inc/post-types/profiles.php');
 
 
 // Won't work as an include
