@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--button-set">
+<div class="paragraph-widget paragraph-widget--button-set"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
     <div class="iastate22-button-set">
         <ul>
             {% for item in fields.buttons %}

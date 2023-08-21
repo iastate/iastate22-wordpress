@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--video-embed">
+<div class="paragraph-widget paragraph-widget--video-embed"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
 	<div class="video-embed">
 		<div class="video-embed__media-wrap">
 			{% if fields.video.video.poster_image.url %}

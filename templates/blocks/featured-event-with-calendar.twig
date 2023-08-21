@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--upcoming-events">
+<div class="paragraph-widget paragraph-widget--upcoming-events"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
   <div class="featured-events">
     <header class="featured-events__header">
       <h2>{{ fields.title }}</h2><a href="{{ function('get_post_type_archive_link','events') }}" class="link-set__link link-tertiary">View All Events<span class="arrow"></span></a>

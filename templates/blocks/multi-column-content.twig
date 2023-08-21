@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--multicolumn-content">
+<div class="paragraph-widget paragraph-widget--multicolumn-content"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
   <div class="multi-column-content{% if fields.columns|length < 3 %} multi-column-content-two-col{% endif %}">
     {% for column in fields.columns %}
     <div class="multi-column-content__column">

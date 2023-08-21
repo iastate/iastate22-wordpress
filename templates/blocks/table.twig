@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--table">
+<div class="paragraph-widget paragraph-widget--table"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
     <div class="iastate22-table" role="region" aria-labelledby="{{ fields.table_caption.caption_id }}" tabindex="0">
     <table>
         <caption id="{{ fields.table_caption.caption_id }}">{{ fields.table_caption.caption }}</caption>

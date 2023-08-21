@@ -1,4 +1,4 @@
-<div class="recent-articles">
+<div class="recent-articles"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
     {% if fields.section_title|length > 0 %}
         <div class="text-content">
             <h2>{{ fields.section_title }}</h2>

@@ -1,6 +1,6 @@
 {% set todaysDate = "now"|date('Ymd') %}
 {% set count = 0 %}
-<div class="paragraph-widget paragraph-widget--upcoming-events">
+<div class="paragraph-widget paragraph-widget--upcoming-events"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
     <div class="upcoming-events">
         <h2>{{ fields.title }}</h2>
             <dl class="upcoming-events__wrap">

@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--callout-set">
+<div class="paragraph-widget paragraph-widget--callout-set"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
 	<div class="callout-set">
 		<ul>
 			{% for callout in fields.callout_set %}

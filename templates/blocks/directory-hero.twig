@@ -3,7 +3,7 @@
 {% for post in allposts %}
     {% set activeLetters = activeLetters|merge([post.meta('last_name')|first|lower]) %}
 {% endfor %}
-<div class="faculty-staff-directory-header">
+<div class="faculty-staff-directory-header"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
     <div class="ecosystem-home-hero ecosystem-home-hero--no-image">
         <div class="ecosystem-home-hero__content">
             {% include ['templates/partial/breadcrumbs.twig'] %}

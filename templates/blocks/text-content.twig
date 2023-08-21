@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--text-html">
+<div class="paragraph-widget paragraph-widget--text-html"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
     <div class="text-content">
         {{ fields.text_content }}
     </div>

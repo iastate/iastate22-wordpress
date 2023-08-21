@@ -4,7 +4,7 @@
 {% elseif Image(featuredStory.custom.hero_image) %}
     {% set thumbNail = Image(featuredStory.custom.hero_image) %}
 {% endif %}
-<div class="featured-news">
+<div class="featured-news"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
     <div class="featured-news-container">
         <div class="featured-news__large-article">
             <div class="featured-news__large-article__container">

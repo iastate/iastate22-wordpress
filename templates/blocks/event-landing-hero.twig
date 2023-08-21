@@ -1,5 +1,5 @@
 <p class="iastate-article__back-btn"><a href="{{ site.home }}">Home</a></p>
-<div class="hero--event-detail">
+<div class="hero--event-detail"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
     <h1 class="hero--event-detail__headline">
       {% if post.title %}
         {{ post.title }}

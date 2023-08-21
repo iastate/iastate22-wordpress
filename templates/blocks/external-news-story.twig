@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--external-news-story">
+<div class="paragraph-widget paragraph-widget--external-news-story"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
 	<div class="external-news-story">
 		{% if fields.title %}
 			<h2>{{ fields.title }}</h2>

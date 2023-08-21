@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--card-set">
+<div class="paragraph-widget paragraph-widget--card-set"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
 	<div class="card-set">
 		<ul>
 			{% for card in fields.cards %}
