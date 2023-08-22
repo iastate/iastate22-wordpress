@@ -82,7 +82,6 @@
                                 "id": ""
                             },
                             "return_format": "array",
-                            "preview_size": "medium",
                             "library": "all",
                             "min_width": "",
                             "min_height": "",
@@ -90,7 +89,8 @@
                             "max_width": "",
                             "max_height": "",
                             "max_size": "",
-                            "mime_types": ""
+                            "mime_types": "",
+                            "preview_size": "medium"
                         },
                         {
                             "key": "field_62a2510790113",
@@ -212,29 +212,13 @@
                             "media_upload": 1
                         },
                         {
-                            "key": "field_62a251b190117",
-                            "label": "Card Link",
-                            "name": "card_link",
-                            "aria-label": "",
-                            "type": "link",
-                            "instructions": "",
-                            "required": 1,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array"
-                        },
-                        {
                             "key": "field_63069ca62548a",
                             "label": "Modal CTA",
                             "name": "modal_cta",
                             "aria-label": "",
                             "type": "text",
                             "instructions": "",
-                            "required": 1,
+                            "required": 0,
                             "conditional_logic": [
                                 [
                                     {
@@ -250,10 +234,10 @@
                                 "id": ""
                             },
                             "default_value": "",
+                            "maxlength": "",
                             "placeholder": "",
                             "prepend": "",
-                            "append": "",
-                            "maxlength": ""
+                            "append": ""
                         },
                         {
                             "key": "field_6306972a77dd8",
@@ -423,5 +407,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1671117364
+    "modified": 1692720906
 }

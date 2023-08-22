@@ -6,6 +6,7 @@
             "key": "field_62979ade5000e",
             "label": "Columns",
             "name": "columns",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 1,
@@ -26,9 +27,10 @@
                     "key": "field_62979ce55000f",
                     "label": "Title",
                     "name": "title",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -36,16 +38,17 @@
                         "id": ""
                     },
                     "default_value": "",
+                    "maxlength": "",
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": "",
                     "parent_repeater": "field_62979ade5000e"
                 },
                 {
                     "key": "field_62979cfb50010",
                     "label": "Content",
                     "name": "content",
+                    "aria-label": "",
                     "type": "repeater",
                     "instructions": "",
                     "required": 0,
@@ -61,11 +64,13 @@
                     "layout": "block",
                     "button_label": "Add Content Item",
                     "rows_per_page": 20,
+                    "parent_repeater": "field_62979ade5000e",
                     "sub_fields": [
                         {
                             "key": "field_62979f1a50011",
                             "label": "Content Type",
                             "name": "content_type",
+                            "aria-label": "",
                             "type": "flexible_content",
                             "instructions": "",
                             "required": 0,
@@ -86,6 +91,7 @@
                                             "key": "field_6297a52150012",
                                             "label": "Text Content",
                                             "name": "text_content",
+                                            "aria-label": "",
                                             "type": "wysiwyg",
                                             "instructions": "",
                                             "required": 1,
@@ -115,6 +121,7 @@
                                             "key": "field_6297a5a550016",
                                             "label": "Image",
                                             "name": "image",
+                                            "aria-label": "",
                                             "type": "image",
                                             "instructions": "",
                                             "required": 0,
@@ -145,8 +152,7 @@
                             "max": 2,
                             "parent_repeater": "field_62979cfb50010"
                         }
-                    ],
-                    "parent_repeater": "field_62979ade5000e"
+                    ]
                 }
             ]
         }
@@ -169,5 +175,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1665717404
+    "modified": 1692720800
 }
