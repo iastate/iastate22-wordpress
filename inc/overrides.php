@@ -6,14 +6,6 @@ function remove_body_classes( $wp_classes ) {
 }
 add_filter( 'body_class', 'remove_body_classes', 10, 2 );
 
-/**
-  * This protects the free version of ACF from white-screening the site.
- */
-if (!function_exists('acf_register_block_type')){
-	function acf_register_block_type($block){
-		return false;
-	}
-}
 
 /**
  * Look for $_GET variable set if a post type was toggled.
