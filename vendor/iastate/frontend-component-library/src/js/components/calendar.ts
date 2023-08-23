@@ -7,7 +7,6 @@ import { formatDate } from "@fullcalendar/core";
 const mobileMQ = window.matchMedia("(max-width: 990px)");
 
 declare const MYSCRIPT: any;
-console.log(MYSCRIPT);
 
 export class EventCalendar {
   private element: HTMLElement;
@@ -95,10 +94,10 @@ export class EventCalendar {
     });
     this.calendar.render();
 
-    console.log("Myscript test: ");
     console.log(MYSCRIPT);
     // Api Settings
-    (this.pageUrl = window.location.protocol + "//" + window.location.host), (this.apiRoot = "/wp-json/wp/v2/");
+    // (this.pageUrl = window.location.protocol + "//" + window.location.host), (this.apiRoot = "/wp-json/wp/v2/");
+    this.pageUrl = MYSCRIPT.eventsURL;
 
     // Forces the API location to look for the lando site if editing in Fractal
     if (window.location.host.startsWith("localhost")) {
