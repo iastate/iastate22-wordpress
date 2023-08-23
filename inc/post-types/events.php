@@ -108,12 +108,12 @@ function acf_custom_event_changed_check( $value, $post_id, $field, $original ) {
 		}, 0 );
 	}
 	return $value;
+	
+	wp_enqueue_script( 'main', get_template_directory_uri() . '/vendor/iastate/frontend-component-library/build/js/index.js', array(), '1.0.0', true );
+	wp_add_inline_script( 'main', 'let _events = ' . wp_json_encode( array(
+		'eventsURL' => rest_get_route_for_post_type_items( 'events' ),
+	) ), 'before' );
 }
 
 add_action( 'acf/update_value/key=field_64c2a145cab1f', 'acf_custom_event_changed_check', 10, 4 );
 
-
-wp_enqueue_script( 'main', get_template_directory_uri() . '/vendor/iastate/frontend-component-library/build/js/index.js', array(), '1.0.0', true );
-wp_add_inline_script( 'main', 'const _events = ' . wp_json_encode( array(
-    'eventsURL' => rest_get_route_for_post_type_items( 'events' ),
-) ), 'before' );

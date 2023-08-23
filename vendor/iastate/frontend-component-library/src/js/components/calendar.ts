@@ -95,9 +95,7 @@ export class EventCalendar {
 
     // Api Settings
     console.log("Embedded Script");
-    if (_events) {
-      console.log(_events.eventsURL);
-    }
+    console.log(_events.eventsURL);
     (this.pageUrl = window.location.protocol + "//" + window.location.host), (this.apiRoot = "/wp-json/wp/v2/");
 
     // Forces the API location to look for the lando site if editing in Fractal
