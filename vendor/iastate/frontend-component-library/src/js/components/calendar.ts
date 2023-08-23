@@ -5,6 +5,7 @@ import listPlugin from "@fullcalendar/list";
 import { formatDate } from "@fullcalendar/core";
 
 const mobileMQ = window.matchMedia("(max-width: 990px)");
+let _events: any;
 
 export class EventCalendar {
   private element: HTMLElement;
@@ -93,6 +94,10 @@ export class EventCalendar {
     this.calendar.render();
 
     // Api Settings
+    console.log("Embedded Script");
+    if (_events) {
+      console.log(_events.eventsURL);
+    }
     (this.pageUrl = window.location.protocol + "//" + window.location.host), (this.apiRoot = "/wp-json/wp/v2/");
 
     // Forces the API location to look for the lando site if editing in Fractal
