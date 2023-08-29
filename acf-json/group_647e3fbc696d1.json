@@ -96,7 +96,7 @@
                     "aria-label": "",
                     "type": "link",
                     "instructions": "Story title is set in the Link Interface",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -177,5 +177,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1693322022
+    "modified": 1693341044
 }
