@@ -89,6 +89,7 @@ function custom_event() {
 
 	wp_add_inline_script( 'main', 'const MYSCRIPT = ' . wp_json_encode( array(
 		'eventsURL' => rest_get_route_for_post_type_items( 'events' ),
+		'rootURL' => get_rest_url(),
 	) ), 'before' );
 }
 	
