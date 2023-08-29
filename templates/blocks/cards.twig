@@ -81,7 +81,9 @@
 												<div class="iastate22-modal__body-content text-content">{{ modal.modal_content|raw }}</div>
 												<div class="iastate22-modal__content-cta">
 													<p>{{ modal.modal_cta.cta_intro }}</p>
-													<a href="{{ modal.modal_cta.link.url }}"{% if modal.modal_cta.link.target == "_blank"%} target="_blank"{% endif %}>{{ modal.modal_cta.link.title }}</a>
+													{% if modal.modal_cta.link.url and modal.modal_cta.link.title %}
+														<a href="{{ modal.modal_cta.link.url }}"{% if modal.modal_cta.link.target == "_blank"%} target="_blank"{% endif %}>{{ modal.modal_cta.link.title }}</a>
+													{% endif %}
 												</div>
 											</div>
 										</div>
