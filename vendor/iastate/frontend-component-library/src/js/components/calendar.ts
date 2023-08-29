@@ -94,16 +94,16 @@ export class EventCalendar {
     });
     this.calendar.render();
 
-    console.log(MYSCRIPT);
+    // console.log(MYSCRIPT);
     // Api Settings
-    // (this.pageUrl = window.location.protocol + "//" + window.location.host), (this.apiRoot = "/wp-json/wp/v2/");
-    this.pageUrl = MYSCRIPT.eventsURL;
-
+    this.apiRoot = "wp/v2/";
     // Forces the API location to look for the lando site if editing in Fractal
     if (window.location.host.startsWith("localhost")) {
-      this.pageUrl = window.location.protocol + "//isu-wp-composer.lndo.site";
+      this.pageUrl = window.location.protocol + "//isu-wp-composer.lndo.site/wp-json/";
+    } else {
+      this.pageUrl = MYSCRIPT.rootURL;
     }
-
+    console.log(this.pageUrl);
     fetch(this.pageUrl + this.apiRoot + "events?filter[posts_per_page]=-1")
       .then((response) => this.initCalendar(response, null))
       .catch((err) => console.log(err));
