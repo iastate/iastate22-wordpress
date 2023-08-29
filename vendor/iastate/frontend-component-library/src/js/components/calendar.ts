@@ -103,6 +103,7 @@ export class EventCalendar {
     } else {
       this.pageUrl = MYSCRIPT.rootURL;
     }
+    console.log("pageURL: ");
     console.log(this.pageUrl);
     fetch(this.pageUrl + this.apiRoot + "events?filter[posts_per_page]=-1")
       .then((response) => this.initCalendar(response, null))
