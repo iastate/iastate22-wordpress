@@ -16,11 +16,11 @@
 								<li>
 									{% if item.link_style == "button" %}
 										{% set linkClass = "link-set__link iastate22-button" %}
-									{% else if item.link_style == "standard" %}
+									{% elseif item.link_style == "standard" %}
 										{% set linkClass = "link-set__link iastate22-link-secondary" %}
-									{% else if item.link_style == "external" %}
+									{% elseif item.link_style == "external" %}
 										{% set linkClass = "link-set__link iastate22-link-external" %}
-									{% else if item.link_style == "minimal" %}
+									{% elseif item.link_style == "minimal" %}
 										{% set linkClass = "link-set__link link-tertiary" %}
 									{% endif %}
 									<a class="{{ linkClass }}" href="{{ item.link_url }}" {% if item.link_style == "external" %} target="_blank" {% endif %}>
