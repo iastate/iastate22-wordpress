@@ -14,9 +14,20 @@
 				{% if fields.story.excerpt %}
 					<div>{{fields.story.excerpt }}</div>
 				{% endif %}
+				{% if fields.story.link.link_style == "external" %}
+					{% set classes = "link-set__link iastate22-link-external" %}
+				{% elseif fields.story.link.link_style == "standard" %}
+					{% set classes = "link-set__link iastate22-link-secondary" %}
+				{% elseif fields.story.link.link_style == "button" %}
+					{% set classes = "link-set__link iastate22-button" %}
+				{% elseif fields.story.link.link_style == "minimal" %}
+					{% set classes = "link-set__link link-tertiary" %}
+				{% endif %}
 				<div class="link-set">
 					<ul>
-						<li><a class="link-set__link iastate22-link-external"href="{{ fields.story.link.url }}" target="_blank">{{ fields.story.link.label }}<span class="arrow"></span></a></li>
+						<li>
+							<a class="{{ classes }}" href="{{ fields.story.link.url }}" target="_blank">{{ fields.story.link.label }}<span class="arrow"></span></a>
+						</li>
 					</ul>
 				</div>
 			</div>
