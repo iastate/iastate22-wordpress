@@ -6,6 +6,7 @@
             "key": "field_62a3ac557d557",
             "label": "Social Network",
             "name": "network",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -19,7 +20,8 @@
                 "instagram": "Instagram",
                 "youtube": "YouTube",
                 "facebook": "Facebook",
-                "twitter": "Twitter",
+                "x-twitter": "X-Twitter",
+                "threads": "Threads",
                 "linkedin": "LinkedIn",
                 "tiktok": "TikTok",
                 "vimeo": "Vimeo",
@@ -30,10 +32,10 @@
                 "address-book": "Directory"
             },
             "default_value": false,
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
             "return_format": "label",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
             "ajax": 0,
             "placeholder": ""
         }
@@ -44,6 +46,13 @@
                 "param": "nav_menu_item",
                 "operator": "==",
                 "value": "location\/social-menu"
+            }
+        ],
+        [
+            {
+                "param": "nav_menu_item",
+                "operator": "==",
+                "value": "7"
             }
         ]
     ],
@@ -56,5 +65,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1665647410
+    "modified": 1693420203
 }
