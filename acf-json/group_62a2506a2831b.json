@@ -212,6 +212,35 @@
                             "media_upload": 1
                         },
                         {
+                            "key": "acfcloneindex",
+                            "label": "Card Link",
+                            "name": "card_link",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_630644842e684",
+                                        "operator": "!=",
+                                        "value": "profile_with_modal"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "return_format": "array"
+                        },
+                        {
                             "key": "field_63069ca62548a",
                             "label": "Modal CTA",
                             "name": "modal_cta",
@@ -407,5 +436,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1693320624
+    "modified": 1694017851
 }
