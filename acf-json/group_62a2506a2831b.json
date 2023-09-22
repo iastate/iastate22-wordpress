@@ -99,7 +99,7 @@
                             "aria-label": "",
                             "type": "text",
                             "instructions": "",
-                            "required": 0,
+                            "required": 1,
                             "conditional_logic": [
                                 [
                                     {
@@ -134,7 +134,7 @@
                             "aria-label": "",
                             "type": "text",
                             "instructions": "",
-                            "required": 1,
+                            "required": 0,
                             "conditional_logic": [
                                 [
                                     {
@@ -150,10 +150,26 @@
                                 "id": ""
                             },
                             "default_value": "",
+                            "maxlength": 125,
                             "placeholder": "",
                             "prepend": "",
-                            "append": "",
-                            "maxlength": 125
+                            "append": ""
+                        },
+                        {
+                            "key": "field_650def1eed3d6",
+                            "label": "Card Link",
+                            "name": "card_link",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array"
                         },
                         {
                             "key": "field_630696f677dd7",
@@ -190,7 +206,7 @@
                             "aria-label": "",
                             "type": "wysiwyg",
                             "instructions": "",
-                            "required": 0,
+                            "required": 1,
                             "conditional_logic": [
                                 [
                                     {
@@ -206,39 +222,10 @@
                                 "id": ""
                             },
                             "default_value": "",
-                            "delay": 0,
                             "tabs": "all",
                             "toolbar": "full",
-                            "media_upload": 1
-                        },
-                        {
-                            "key": "acfcloneindex",
-                            "label": "Card Link",
-                            "name": "card_link",
-                            "aria-label": "",
-                            "type": "link",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_630644842e684",
-                                        "operator": "!=",
-                                        "value": "profile_with_modal"
-                                    }
-                                ]
-                            ],
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "return_format": "array"
+                            "media_upload": 1,
+                            "delay": 0
                         },
                         {
                             "key": "field_63069ca62548a",
@@ -293,33 +280,13 @@
                             "layout": "block",
                             "sub_fields": [
                                 {
-                                    "key": "field_6306973c77dd9",
-                                    "label": "Modal ID",
-                                    "name": "id",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "A unique name for this card's modal. Must be a single word, no spaces.",
-                                    "required": 1,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": 60
-                                },
-                                {
                                     "key": "field_63069d0c95f5b",
                                     "label": "Modal Image",
                                     "name": "modal_image",
                                     "aria-label": "",
                                     "type": "image",
                                     "instructions": "",
-                                    "required": 1,
+                                    "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
                                         "width": "",
@@ -327,7 +294,6 @@
                                         "id": ""
                                     },
                                     "return_format": "array",
-                                    "preview_size": "medium",
                                     "library": "all",
                                     "min_width": "",
                                     "min_height": "",
@@ -335,7 +301,8 @@
                                     "max_width": "",
                                     "max_height": "",
                                     "max_size": "",
-                                    "mime_types": ""
+                                    "mime_types": "",
+                                    "preview_size": "medium"
                                 },
                                 {
                                     "key": "field_630697a777dda",
@@ -400,7 +367,7 @@
                                             "aria-label": "",
                                             "type": "link",
                                             "instructions": "",
-                                            "required": 1,
+                                            "required": 0,
                                             "conditional_logic": 0,
                                             "wrapper": {
                                                 "width": "",
@@ -436,5 +403,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1694017851
+    "modified": 1695413098
 }

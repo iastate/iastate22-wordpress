@@ -48,25 +48,32 @@
 								{% if card.card.title %}
 									<h2 class="iastate22-card__title">{{ card.card.title }}</h2>
 								{% endif %}
-								<div class="iastate22-card__name">
-									<p>{{ card.card.name }}</p>
-								</div>
+								{% if card.card.name %}
+									<div class="iastate22-card__name">
+										<p>{{ card.card.name }}</p>
+									</div>
+								{% endif %}
 								<div class="iastate22-card__role">
 									<p>{{ card.card.role }}</p>
 								</div>
-								<button class="iastate22-card__cta" data-micromodal-trigger="{{ modal.id }}">{{ card.card.modal_cta }}</button>
-								<div class="iastate22-modal iastate22-card--profile-with-modal" id="{{ modal.id }}" aria-hidden="false">
+								{% set modalID = [] %}
+								{% set alpha = 'abcdefghijklmnopqrstuvwxyz' %}
+								{% for i in 1..6 %}
+									{% set rando = random(alpha|upper) %}
+									{% set modalID = modalID|merge([rando]) %}
+								{% endfor %}
+								{% set modalID = modalID|join %}
+								<button class="iastate22-card__cta" data-micromodal-trigger="{{ modalID }}">{{ card.card.modal_cta }}</button>
+								<div class="iastate22-modal iastate22-card--profile-with-modal" id="{{ modalID }}" aria-hidden="false">
 									<div class="iastate22-modal__overlay" tabindex="-1" data-micromodal-close>
-										<div class="iastate22-modal__container iastate22-modal__container-with-media" id="{{ modal.id }}-content" role="dialog" aria-modal="true" aria-labelledby="{{ modal.id }}-title">
+										<div class="iastate22-modal__container iastate22-modal__container-with-media" id="{{ modalID }}-content" role="dialog" aria-modal="true" aria-labelledby="{{ modalID }}-title">
 											<button class="iastate22-modal__close" aria-label="Close modal" data-micromodal-close>
 												<i class="fa-light fa-xmark" aria-hidden="true"></i>
 											</button>
 											<div class="iastate22-modal__media-name-wrap">
-												{% if modal.modal_image.url %}
-													<div class="iastate22-modal__media">
-														<img src="{{ modal.modal_image.url }}" alt="" loading="lazy" width="207" height="197">
-													</div>
-												{% endif %}
+												<div class="iastate22-modal__media">
+													<img src="{{ modal.modal_image.url }}" alt="" loading="lazy" width="207" height="197">
+												</div>
 												<div class="iastate22-modal__name-role-wrap">
 													<div class="iastate22-card__name">
 														<p>{{ card.card.name }}</p>
@@ -79,7 +86,7 @@
 												</div>
 											</div>
 											<div class="iastate22-modal__content">
-												<h2 class="iastate22-modal__title" id="{{ modal.id }}-title">{{ card.card.title }}</h2>
+												<h2 class="iastate22-modal__title" id="{{ modalID }}-title">{{ card.card.title }}</h2>
 												<div class="iastate22-modal__body-content text-content">{{ modal.modal_content|raw }}</div>
 												<div class="iastate22-modal__content-cta">
 													<p>{{ modal.modal_cta.cta_intro }}</p>
