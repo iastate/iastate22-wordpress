@@ -229,7 +229,7 @@
                         },
                         {
                             "key": "field_63069ca62548a",
-                            "label": "Modal CTA",
+                            "label": "Optional modal button text",
                             "name": "modal_cta",
                             "aria-label": "",
                             "type": "text",
@@ -257,7 +257,7 @@
                         },
                         {
                             "key": "field_6306972a77dd8",
-                            "label": "Card Modal",
+                            "label": "Card Modal Popup",
                             "name": "card_modal",
                             "aria-label": "",
                             "type": "group",
@@ -403,5 +403,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695413098
+    "modified": 1695747147
 }
