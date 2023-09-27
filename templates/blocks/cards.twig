@@ -66,7 +66,7 @@
 								<button class="iastate22-card__cta" data-micromodal-trigger="{{ modalID }}">{{ card.card.modal_cta }}</button>
 								<div class="iastate22-modal iastate22-card--profile-with-modal" id="{{ modalID }}" aria-hidden="false">
 									<div class="iastate22-modal__overlay" tabindex="-1" data-micromodal-close>
-										<div class="iastate22-modal__container iastate22-modal__container-with-media" id="{{ modalID }}-content" role="dialog" aria-modal="true" aria-labelledby="{{ modalID }}-title">
+										<div class="iastate22-modal__container{% if modal.modal_image.url|length > 0 %} iastate22-modal__container-with-media"{% endif %} id="{{ modalID }}-content" role="dialog" aria-modal="true" aria-labelledby="{{ modalID }}-title">
 											<button class="iastate22-modal__close" aria-label="Close modal" data-micromodal-close>
 												<i class="fa-light fa-xmark" aria-hidden="true"></i>
 											</button>
