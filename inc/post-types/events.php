@@ -6,7 +6,7 @@ function custom_event() {
 	if ( true !== get_field( 'events_options_enabled', 'options' ) ) {
 		return;
 	}
-	
+
 	$events_labels = array(
 		'name'                  => _x( 'Events', 'Events General Name' ),
 		'singular_name'         => _x( 'Event', 'Event Singular Name' ),
@@ -69,7 +69,7 @@ function custom_event() {
 		'new_item_name'     => __( 'New Tag Name' ),
 		'menu_name'         => __( 'Tags' ),
 	);
-	
+
 	register_taxonomy( 'event_tags', 'events', array(
 		// Hierarchical taxonomy (like categories)
 		'hierarchical' => true,
@@ -82,12 +82,12 @@ function custom_event() {
 			'with_front'   => false, // Don't display the category base before "/locations/"
 			'hierarchical' => true // This will allow URL's like "/locations/boston/cambridge/"
 		),
-		) 
+		)
 	);
 
 	add_action( 'wp_enqueue_scripts', 'acf_custom_events_api_path_override', 11);
 }
-	
+
 add_action( 'init', 'custom_event', 0 );
 
 function acf_custom_events_api_path_override(){
@@ -102,7 +102,7 @@ function acf_custom_event_changed_check( $value, $post_id, $field, $original ) {
 	}
 	$current_value    = intval( get_field( 'events_options_enabled', 'options' ) );
 	$normalized_value = intval( $value );
-	
+
 	if ( $current_value !== $normalized_value ) {
 		// option changed, flush needed.
 		add_action( 'acf/options_page/save', function () {
@@ -119,3 +119,43 @@ function acf_custom_event_changed_check( $value, $post_id, $field, $original ) {
 }
 
 add_action( 'acf/update_value/key=field_64c2a145cab1f', 'acf_custom_event_changed_check', 10, 4 );
+
+function admin_event_table_listings() {
+	add_filter( 'manage_events_posts_columns', 'add_event_table_columns' );
+	add_action( 'manage_pages_custom_column', 'add_event_table_column_data', 10, 2 );
+}
+add_action( 'admin_init', 'admin_event_table_listings' );
+
+function add_event_table_columns( $columns ) {
+	return array_merge(
+		array_slice( $columns, 0, 2 ),
+		array(
+			'event_start_date' => esc_html__( 'Event Start' ),
+			'event_end_date'   => esc_html__( 'Event End' ),
+		),
+		array_slice( $columns, 2 )
+	);
+}
+
+function add_event_table_column_data( $column_name, $post_id ) {
+	if ( in_array( $column_name, array( 'event_start_date', 'event_end_date' ), true ) ) {
+		$full_day = 1;
+		$date     = null;
+		$time     = null;
+		if ( 'event_start_date' === $column_name ) {
+			$full_day = get_post_meta( $post_id, 'event_start_date_full_day', true );
+			$date     = get_post_meta( $post_id, 'event_start_date_start_date', true );
+			$time     = get_post_meta( $post_id, 'event_start_date_start_time', true );
+		}
+		if ( 'event_end_date' === $column_name ) {
+			$full_day = get_post_meta( $post_id, 'event_end_date_full_day', true );
+			$date     = get_post_meta( $post_id, 'event_end_date_end_date', true );
+			$time     = get_post_meta( $post_id, 'event_end_date_end_time', true );
+		}
+		$format    = $full_day ? get_option( 'date_format' ) : get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
+		$timestamp = $full_day ? $date : $date . ' ' . $time;
+
+		echo esc_html( gmdate( $format, strtotime( $timestamp ) ) );
+	}
+
+}
