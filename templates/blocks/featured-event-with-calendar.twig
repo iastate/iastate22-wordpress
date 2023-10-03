@@ -12,7 +12,7 @@
           {% endif %}
           {% if thumbnail %}
             <div class="iastate22-card__media">
-                <img src="{{ thumbnail.src }}" alt="{{ thumbnail.alt }}" loading="lazy" width="{{ thumbnail.width }}" height="{{ thumbnail.height }}">
+                <img src="{{ thumbnail.src|e('esc_url') }}" alt="{{ thumbnail.alt|e('esc_attr') }}" loading="lazy" width="{{ thumbnail.width }}" height="{{ thumbnail.height }}">
             </div>
           {% endif %}
           <div class="iastate22-card__content">
@@ -44,7 +44,7 @@
               {% set s = s+1 %}
             <li class="featured-events__item">
               <h4 class="featured-events__title">
-                <a href="{{ event.link }}" class="link-set__link iastate22-link-secondary">{{ event.post_title }}<span class="arrow"></span></a>
+                <a href="{{ event.link|e('esc_url') }}" class="link-set__link iastate22-link-secondary">{{ event.post_title }}<span class="arrow"></span></a>
               </h4>
               <time datetime="{{ event.event_start_date_start_date|date("Y-m-d") }}">{{ event.event_start_date_start_date|date() }}</time>
             </li>

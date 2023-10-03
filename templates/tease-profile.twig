@@ -2,11 +2,11 @@
 	{% block content %}
 		{% if post.photo %}
 			<div class="iastate22-card__media">
-				<img src="{{ Image(post.photo).src }}" alt="{{ Image(post.photo).alt }}" />
+				<img src="{{ Image(post.photo).src|e('esc_url') }}" alt="{{ Image(post.photo).alt|e('esc_attr') }}" />
 			</div>
 		{% endif %}
 		<div class="iastate22-card__content">
-			<a href="{{post.link}}" class="iastate22-card__cta">{{post.first_name}} {{ post.last_name }}</a>
+			<a href="{{post.link|e('esc_url')}}" class="iastate22-card__cta">{{post.first_name}} {{ post.last_name }}</a>
 			<p class="iastate22-card__content-body">{{ post.titles_0_title|striptags }}</p>
 		</div>
 	{% endblock %}

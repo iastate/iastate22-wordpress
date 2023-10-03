@@ -6,7 +6,7 @@
 					<div class="iastate22-callout{% if callout.callout_image %}{% else %} iastate22-callout--no-image{% endif %}">
 						{% if callout.callout_image %}
 							<div class="iastate22-callout__media">
-								<img src="{{ callout.callout_image.url }}" alt="{{ callout.callout_image.title }}" width="622" height="414"/>
+								<img src="{{ callout.callout_image.url|e('esc_url') }}" alt="{{ callout.callout_image.title|e('esc_attr') }}" width="622" height="414"/>
 							</div>
 						{% endif %}
 						<div class="iastate22-callout__content text-content">

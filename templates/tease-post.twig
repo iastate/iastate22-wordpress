@@ -1,12 +1,12 @@
-<div class="tease tease-{{post.post_type}} iastate22-card iastate22-card--teaser iastate22-card--teaser-news clickable" id="tease-{{post.ID}}">
+<div class="tease tease-{{post.post_type|e('esc_attr')}} iastate22-card iastate22-card--teaser iastate22-card--teaser-news clickable" id="tease-{{post.ID}}">
 	{% block content %}
 		{% if post.thumbnail.src %}
 			<div class="iastate22-card__media">
-				<img src="{{post.thumbnail.src}}" alt="{{post.thumbnail.alt}}" />
+				<img src="{{post.thumbnail.src|e('esc_url')}}" alt="{{post.thumbnail.alt|e('esc_attr')}}" />
 			</div>
 		{% endif %}
 		<div class="iastate22-card__content">
-			<a href="{{post.link}}" class="iastate22-card__cta">{{post.title}}</a>
+			<a href="{{post.link|e('esc_url')}}" class="iastate22-card__cta">{{post.title}}</a>
 			<p class="iastate22-card__content-body">{{post.preview.length(25)}}</p>
 			<p class="iastate22-card__content-date">{{ post.date }}</p>
 		</div>

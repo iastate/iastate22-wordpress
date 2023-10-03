@@ -23,7 +23,7 @@
 									{% elseif item.link_style == "minimal" %}
 										{% set linkClass = "link-set__link link-tertiary" %}
 									{% endif %}
-									<a class="{{ linkClass }}" href="{{ item.link_url }}" {% if item.link_style == "external" %} target="_blank" {% endif %}>
+									<a class="{{ linkClass }}" href="{{ item.link_url|e('esc_url') }}" {% if item.link_style == "external" %} target="_blank" {% endif %}>
 										{{ item.label }}
 										<span class="arrow"></span>
 									</a>
