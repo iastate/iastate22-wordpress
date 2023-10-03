@@ -2,9 +2,9 @@
     <h3>Add comment</h3>
     <form class="comment-form" method="post" action="{{ site.site_url~'/wp-comments-post.php' }}">
         {% if  user %}
-            <input type="hidden" name="email" value="{{ user.email }}">
-            <input type="hidden" name="author" value="{{ user.name }}">
-            <input type="hidden" name="url" value="{{ user.link }}">
+            <input type="hidden" name="email" value="{{ user.email|e('esc_attr') }}">
+            <input type="hidden" name="author" value="{{ user.name|e('esc_attr') }}">
+            <input type="hidden" name="url" value="{{ user.link|e('esc_attr') }}">
         {% else %}
             <label>Email<br>
                 <input required name="email" type="email" id="email">
@@ -19,7 +19,7 @@
         <label>Comment<br>
             <textarea placeholder="Leave a comment..." name="comment" cols="60" rows="3"></textarea>
         </label>
-        <input name="comment_post_ID" value="{{ post.id }}" type="hidden">
+        <input name="comment_post_ID" value="{{ post.id|e('esc_attr') }}" type="hidden">
         <input name="comment_parent"  value="{{ comment.ID|default('0') }}" type="hidden">
         <button type="submit" name="Submit" class="btn iastate22-button">Send<span class="arrow"></span></button>
         <button type="reset" class="iastate22-button">Cancel<span class="arrow"></span></button>

@@ -2,7 +2,7 @@
 	<ul>
 	{% for item in items %}
 		<li class="{{ item.classes | join(' ') }}">
-			<a target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
+			<a target="{{ item.target|e('esc_attr') }}" href="{{ item.link|e('esc_url') }}">{{ item.title }}</a>
 			{% include "menu.twig" with {'items': item.children} %}
 		</li>
 	{% endfor %}

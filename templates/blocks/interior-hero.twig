@@ -1,4 +1,4 @@
-<div class="hero"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
+<div class="hero"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
   <div class="hero__text-wrap">
     {% include ['templates/partial/breadcrumbs.twig'] %}
     <h1 class="hero__title">
@@ -11,10 +11,10 @@
   </div>
   {% if fields.hero_image %}
   <div class="hero__media">
-    <img src="{{fields.hero_image.url}}" alt="{{fields.hero_image.alt}}" width="{{ fields.hero_image.width }}" height="{{ fields.hero_image.height }}">
+    <img src="{{ fields.hero_image.url|e('esc_url') }}" alt="{{ fields.hero_image.alt|e('esc_attr') }}" width="{{ fields.hero_image.width|e('esc_attr') }}" height="{{ fields.hero_image.height|e('esc_attr') }}">
   </div>
   {% endif %}
-  
+
   {% if fields.subnav_toggle == true %}
     <div class="hero__subnav-wrap">
         {% include ['templates/partial/subnav.twig'] %}

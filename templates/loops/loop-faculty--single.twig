@@ -26,11 +26,11 @@
                     {% endif %}
                     {% if Image(post._thumbnail_id).src %}
                         <div class="faculty-staff-feed-item__media-container">
-                            <img class="faculty-staff-feed-item__media-image" src="{{ thumb.src }}" alt="{{ thumb.alt }}" loading="lazy">
+                            <img class="faculty-staff-feed-item__media-image" src="{{ thumb.src|e('esc_url') }}" alt="{{ thumb.alt|e('esc_attr') }}" loading="lazy">
                         </div>
                     {% elseif photo != null %}
                         <div class="faculty-staff-feed-item__media-container">
-                            <img class="faculty-staff-feed-item__media-image" src="{{ photo.url }}" alt="{{ photo.alt }}" loading="lazy">
+                            <img class="faculty-staff-feed-item__media-image" src="{{ photo.url|e('esc_url') }}" alt="{{ photo.alt|e('esc_attr') }}" loading="lazy">
                         </div>
                     {% endif %}
                 </div>
@@ -44,7 +44,7 @@
                     </div>
                 {% endif %}
                     <p>
-                        <a href="{{ post.link }}" class="iastate22-link-secondary">About <span class="arrow"></span></a>
+                        <a href="{{ post.link|e('esc_url') }}" class="iastate22-link-secondary">About <span class="arrow"></span></a>
                     </p>
                     <ul class="faculty-staff-feed-item__content-contact">
                     {% if email|length > 0 %}

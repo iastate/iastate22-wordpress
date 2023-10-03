@@ -4,16 +4,16 @@
       <a href="https://www.iastate.edu/" class="site-header__logo{% if not options.parent_unit.name %} site-header__logo-no-parent-unit{% endif %}">
         <img src="{{ "https://cdn.theme.iastate.edu/img/iastate22/iowa-state-university-logo-no-tagline-red.svg" }}" alt="Iowa State University">
       </a>
-      {% if options.parent_unit.name %}<a class="site-header__parent-unit-name" href="{{ options.parent_unit.url }}">{{ options.parent_unit.name }}</a>{% endif %}
+      {% if options.parent_unit.name %}<a class="site-header__parent-unit-name" href="{{ options.parent_unit.url|e('esc_url') }}">{{ options.parent_unit.name }}</a>{% endif %}
     </div>
-    <div class="site-header__website-title"><a href="{{ site.url }}">{{ site.title }}</a></div>
+    <div class="site-header__website-title"><a href="{{ site.url|e('esc_url') }}">{{ site.title }}</a></div>
     <div class="site-header__utility-search-wrap">
       {% if utility_menu %}
       <nav class="site-header__utility" aria-label="Utility">
         <ul>
           {% for link in utility_menu.items %}
             <li>
-                <a href="{{ link.url }}">{{ link.title }}</a>
+                <a href="{{ link.url|e('esc_url') }}">{{ link.title }}</a>
             </li>
           {% endfor %}
           {% if options.info_for == true %}
@@ -45,12 +45,12 @@
           <span class="visible-for-screen-readers">Close Search</span>
           <span class="fa-light fa-xmark"></span>
         </a>
-        <form class="site-header__search-form-desktop" method="get" action="{{ site.link }}">
+        <form class="site-header__search-form-desktop" method="get" action="{{ site.link|e('esc_url') }}">
             {{ function('get_search_form') }}
         </form>
       </div>
       {% endif %}
-      {% if options.utility_nav_button == true and options.utility_button.url|length > 0 and options.utility_button.title|length > 0 %}<a class="site-header__utility-button" href="{{ options.utility_button.url }}"{% if options.utility_button.target == "_blank"%} target="_blank"{% endif %}>{{ options.utility_button.title }}<span></span></a>{% endif %}
+      {% if options.utility_nav_button == true and options.utility_button.url|length > 0 and options.utility_button.title|length > 0 %}<a class="site-header__utility-button" href="{{ options.utility_button.url|e('esc_url') }}"{% if options.utility_button.target == "_blank"%} target="_blank"{% endif %}>{{ options.utility_button.title }}<span></span></a>{% endif %}
     </div>
   </div>
   <div class="site-header__main">
@@ -71,18 +71,18 @@
           <div>
             <div class="site-header__mega-menu-main">
               <div class="site-header__mega-menu-max-bound">
-                <div class="site-header__website-title"><a href="{{ site.url }}">{{ site.title }}</a></div>
+                <div class="site-header__website-title"><a href="{{ site.url|e('esc_url') }}">{{ site.title }}</a></div>
                 {% if main_menu %}
                 <nav class="site-header__mega-menu-main-nav" aria-label="Main">
                   <ul>
                     {% for key, link in main_menu.items %}
                       <li {% if not link.children %}class="site-header__parent-link-no-subnav-wrap" {% endif %}>
-                        <a {% if not link.children %}class="site-header__parent-link-no-subnav" {% endif %}href="{{ link.url }}" {% if link.newtab %}target="_blank"{% endif %}>{{ link.title }}</a>
+                        <a {% if not link.children %}class="site-header__parent-link-no-subnav" {% endif %}href="{{ link.url|e('esc_url') }}" {% if link.newtab %}target="_blank"{% endif %}>{{ link.title }}</a>
                         {% if link.children|length %}
                           <ul{% if link.children|length > 5 %} class="two-column-dropdown"{% endif %}>
                             {% for child in link.children %}
                               <li>
-                                <a class="link-tertiary" href="{{ child.url }}">{{ child.title }}<span class="arrow"></span></a>
+                                <a class="link-tertiary" href="{{ child.url|e('esc_url') }}">{{ child.title }}<span class="arrow"></span></a>
                               </li>
                             {% endfor %}
                           </ul>
@@ -100,11 +100,11 @@
                   <ul>
                     {% for link in utility_menu.items %}
                       <li>
-                        <a href="{{ link.url }}">{{ link.title }}</a>
+                        <a href="{{ link.url|e('esc_url') }}">{{ link.title }}</a>
                       </li>
                     {% endfor %}
                   </ul>
-                  <form class="site-header__search-form-mobile" method="get" action="{{ site.link }}">
+                  <form class="site-header__search-form-mobile" method="get" action="{{ site.link|e('esc_url') }}">
                     {{ function('get_search_form') }}
                   </form>
                 </nav>

@@ -9,7 +9,7 @@
                 <div class="news-item__tags">
                     <ul>
                         {% if item.news_tags|length > 0 %}
-                            {% for tag in item.news_tags %}    
+                            {% for tag in item.news_tags %}
                                 <li>{{ tag.tag }}</li>
                             {% endfor %}
                         {% endif %}
@@ -21,7 +21,7 @@
                     {% else %}
                         {% set classlist = 'link-set__link' %}
                     {% endif %}
-                    <a href="{{ item.news_story_link.url }}" class="{{ classlist }}"{% if item.news_story_link.target|length > 0 %} target="_blank"{% endif %}>{{ item.news_story_link.title }}<span class="arrow"></span></a>
+                    <a href="{{ item.news_story_link.url|e('esc_url') }}" class="{{ classlist|e('esc_attr') }}"{% if item.news_story_link.target|length > 0 %} target="_blank"{% endif %}>{{ item.news_story_link.title }}<span class="arrow"></span></a>
                 </div>
                 {% if item.news_story_excerpt %}
                     <p class="news-item__article-excerpt">{{ item.news_story_excerpt }}</p>

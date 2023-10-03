@@ -13,9 +13,9 @@
                 <div class="hero-stories-feed-item">
                     <div class="hero-stories-feed-item__media">
                         <div class="hero-stories-feed-item__media-container">
-                            <a href="{{ post.link }}">
+                            <a href="{{ post.link|e('esc_url') }}">
                             {% if thumbNail != NULL %}
-                                <img class="hero-stories-feed-item__media-image" src="{{ thumbNail.src }}" alt="{{ thumbNail.alt }}" loading="lazy">
+                                <img class="hero-stories-feed-item__media-image" src="{{ thumbNail.src|e('esc_url') }}" alt="{{ thumbNail.alt|e('esc_attr') }}" loading="lazy">
                             {% else %}
                                 <img class="hero-stories-feed-item__media-image" src="{{ site.link }}/wp-content/themes/wordpress-theme/vendor/iastate/frontend-component-library/build/img/News_Default_FeaturedImage.jpg" alt="No Thumbnail Available" loading="lazy">
                             {% endif %}
@@ -33,7 +33,7 @@
                             </ul>
                         </div>
                         <h2 class="hero-stories-feed-item__title">
-                            <a class="iastate22-link-secondary" href="{{ post.link }}">{{ post.post_title }}<span class="arrow"></span></a>
+                            <a class="iastate22-link-secondary" href="{{ post.link|e('esc_url') }}">{{ post.post_title }}<span class="arrow"></span></a>
                         </h2>
                         <p class="hero-stories-feed-item__content-date">{{ post.date }}</p>
                     </div>

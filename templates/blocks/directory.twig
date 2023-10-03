@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--card-set"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--card-set"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
     <div class="card-set">
         <ul>
             {% for item in Post(fields.directory) %}
@@ -12,14 +12,14 @@
                         <div class="iastate22-card__content">
                             {% if item.post_title %}
                                 <h2 class="iastate22-card__title">
-                                    <a href="{{ item.guid }}">{{ item.post_title }}</a>
+                                    <a href="{{ item.guid|e('esc_url') }}">{{ item.post_title }}</a>
                                 </h2>
                             {% endif %}
                             <div class="iastate22-card__body">
                                 {{ item.titles_0_title }}
                             </div>
                             {% if item.guid %}
-                                <a href="{{ item.guid }}" class="iastate22-card__cta">View More <span class="visible-for-screen-readers">about {{ item.post_title }}</span></a>
+                                <a href="{{ item.guid|e('esc_url') }}" class="iastate22-card__cta">View More <span class="visible-for-screen-readers">about {{ item.post_title }}</span></a>
                             {% endif %}
                         </div>
                     </div>

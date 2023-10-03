@@ -1,7 +1,7 @@
-<div class="paragraph-widget paragraph-widget--callout-with-image"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--callout-with-image"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
 	<div class="callout-with-image">
 		<div class="callout-with-image__media">
-			<img src="{{ fields.callout_with_image.callout_image.url }}" alt="{{ fields.callout_with_image.callout_image.title }}" width="622" height="414"/>
+			<img src="{{ fields.callout_with_image.callout_image.url|e('esc_url') }}" alt="{{ fields.callout_with_image.callout_image.title|e('esc_attr') }}" width="622" height="414"/>
 		</div>
 		<div class="callout-with-image__content text-content">
 			{% if fields.callout_with_image.callout_content.title %}
@@ -23,7 +23,7 @@
 									{% elseif item.link_style == "minimal" %}
 										{% set linkClass = "link-set__link link-tertiary" %}
 									{% endif %}
-									<a class="{{ linkClass }}" href="{{ item.link_url|e('esc_url') }}" {% if item.link_style == "external" %} target="_blank" {% endif %}>
+									<a class="{{ linkClass|e('esc_attr') }}" href="{{ item.link_url|e('esc_url') }}" {% if item.link_style == "external" %} target="_blank" {% endif %}>
 										{{ item.label }}
 										<span class="arrow"></span>
 									</a>

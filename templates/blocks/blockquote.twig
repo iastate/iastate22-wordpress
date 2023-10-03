@@ -1,9 +1,9 @@
-<div class="paragraph-widget paragraph-widget--blockquote"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--blockquote"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
   <div class="iastate22-blockquote{% if fields.blockquote_image %} iastate22-blockquote--with-image{% else %} iastate22-blockquote--with-no-image{% endif %}{% if not fields.blockquote_copy.attribution %} iastate22-blockquote--no-author{% endif %}">
     <div class="iastate22-blockquote__inner-wrap">
       {% if fields.blockquote_image %}
         <div class="iastate22-blockquote__portrait">
-          <img src="{{ fields.blockquote_image.url|e('esc_url') }}" alt="{{ fields.blockquote_image.alt|e('esc_attr') }}" width="{{ fields.blockquote_image.width }}" height="{{ fields.blockquote_image.height }}"/>
+          <img src="{{ fields.blockquote_image.url|e('esc_url') }}" alt="{{ fields.blockquote_image.alt|e('esc_attr') }}" width="{{ fields.blockquote_image.width|e('esc_attr') }}" height="{{ fields.blockquote_image.height|e('esc_attr') }}"/>
         </div>
       {% endif %}
       <div class="iastate22-blockquote__text-wrap">

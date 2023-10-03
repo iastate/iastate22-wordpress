@@ -1,7 +1,7 @@
 <div class="paragraph-widget paragraph-widget--filter-form">
     <div class="filter-form">
         <h2 class="filter-form__label">All Stories</h2>
-        <form class="iastate22-form iastate22-form--inline" id="searchform" action="{{ site.link }}" method="get">
+        <form class="iastate22-form iastate22-form--inline" id="searchform" action="{{ site.link|e('esc_url') }}" method="get">
             <input type="hidden" name="post_type" value="post" tabindex="-1"/>
             <div class="form-item">
                 <label for="name">Search</label>
@@ -13,9 +13,9 @@
                     <label for="select-choice">Category</label>
                     <select class="iastate22-form--select" name="category_name" id="category_name">
                         <option value=""></option>
-                        {% for term in categories %} 
+                        {% for term in categories %}
                             {% if term.count > 0 %}
-                                <option value="{{ term.slug }}"
+                                <option value="{{ term.slug|e('esc_attr') }}"
                                 {% if function('get_query_var', 'category_name') == term.slug %}
                                 selected
                                 {% endif %}
@@ -25,7 +25,7 @@
                     </select>
                 </div>
             {% endif %}
-            
+
             {% if tags|length > 0 %}
             <div class="form-item">
                 <label for="select-choice">Tag</label>
@@ -33,7 +33,7 @@
                     <option value=""></option>
                     {% for term in tags %}
                         {% if term.count > 0 %}
-                            <option value="{{ term.slug }}"
+                            <option value="{{ term.slug|e('esc_attr') }}"
                             {% if function('get_query_var', 'tag') == term.slug %}
                             selected
                             {% endif %}

@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--callout-inset"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--callout-inset"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
     <div class="callout-inset">
     <div class="callout-inset_inset">
         <h2 class="callout-inset_inset-headline">{{fields.callout.title}}</h2>
@@ -6,7 +6,7 @@
     </div>
     <div class="feature-with-large-image">
         <div class="feature-with-large-image__media">
-            <img src="{{ fields.image.url|e('esc_url') }}" alt="{{ fields.image.alt|e('esc_attr') }}" width="{{ fields.image.width }}" height="{{ fields.image.height }}"/>
+            <img src="{{ fields.image.url|e('esc_url') }}" alt="{{ fields.image.alt|e('esc_attr') }}" width="{{ fields.image.width|e('esc_attr') }}" height="{{ fields.image.height|e('esc_attr') }}"/>
         </div>
         <div class="feature-with-large-image__content">
             <h2>{{ fields.inset.title }}</h2>

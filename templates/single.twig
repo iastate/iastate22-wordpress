@@ -19,7 +19,7 @@
 				{% endif %}
 			{% else %}
 				<div class="hero--news-article__media">
-					<img src="{{ post.thumbnail.src|e('esc_url') }}">
+					<img src="{{ post.thumbnail.src|e('esc_url') }}" alt="{{ post.thumbnail.alt|e('esc_attr') }}">
 				</div>
 			{% endif %}
 		</div>

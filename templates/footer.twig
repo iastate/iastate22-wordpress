@@ -10,22 +10,22 @@
           {% for link in social_menu.items %}
             <li>
               {% if link.network == "instagram" %}
-                <a href="{{ link.url }}" target="_blank">
+                <a href="{{ link.url|e('esc_url') }}" target="_blank">
                   <i class="fak fa-iastate22-{{ link.network }}" aria-hidden="true"></i>
                   <span class="visible-for-screen-readers">{{ link.title }}</span>
                 </a>
               {% elseif link.network == "podcast" %}
-                <a href="{{ link.url }}" target="_blank">
+                <a href="{{ link.url|e('esc_url') }}" target="_blank">
                   <i class="web-social-icon fa-solid fa-{{ link.network }}" aria-hidden="true"></i>
                   <span class="visible-for-screen-readers">{{ link.title }}</span>
                 </a>
               {% elseif link.network == "comments" or link.network == "address-book" %}
-                <a href="{{ link.url }}" target="_blank">
+                <a href="{{ link.url|e('esc_url') }}" target="_blank">
                   <i class="fa-solid fa-{{ link.network }}" aria-hidden="true"></i>
                   <span class="visible-for-screen-readers">{{ link.title }}</span>
                 </a>
               {% else %}
-                <a href="{{ link.url }}" target="_blank">
+                <a href="{{ link.url|e('esc_url') }}" target="_blank">
                   <i class="fa-brands fa-{{ link.network }}" aria-hidden="true"></i>
                   <span class="visible-for-screen-readers">{{ link.title }}</span>
                 </a>
@@ -41,7 +41,7 @@
         <ul>
           {% for link in footer_primary_menu.items %}
             <li>
-              <a href="{{ link.url }}">{{ link.title }}</a>
+              <a href="{{ link.url|e('esc_url') }}">{{ link.title }}</a>
             </li>
           {% endfor %}
         </ul>
@@ -56,7 +56,7 @@
           {% for link in footer_secondary_menu.items %}
             {% if link.url %}
               <li>
-                <a href="{{ link.url }}">{{ link.title }}</a>
+                <a href="{{ link.url|e('esc_url') }}">{{ link.title }}</a>
               </li>
             {% endif %}
           {% endfor %}
@@ -89,7 +89,7 @@
               {% for item in options.emails %}
                 <p>
                 {% if item.label %}
-                  {{ item.label }}, 
+                  {{ item.label }},
                 {% endif %}
                   <a href="mailto:{{ item.email }}">{{ item.email }}</a>
                 </p>
@@ -117,7 +117,7 @@
       <ul>
         {% for link in footer_utility_menu.items %}
           <li>
-            <a href="{{ link.url }}">{{ link.title }}</a>
+            <a href="{{ link.url|e('esc_url') }}">{{ link.title }}</a>
           </li>
         {% endfor %}
       </ul>

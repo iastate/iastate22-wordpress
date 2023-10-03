@@ -4,8 +4,8 @@
     <ul class="category-tags">
         {% for term in post.terms('category') %}
             <li>
-                <a href="{{ term.link }}">{{ term.name }}</a>
-            </li>   
+                <a href="{{ term.link|e('esc_url') }}">{{ term.name }}</a>
+            </li>
         {% endfor %}
     </ul>
     {% endif %}
@@ -14,7 +14,7 @@
     <ul class="category-tags">
         {% for term in post.terms('tags') %}
             <li>
-                <a href="{{ term.link }}">{{ term.name }}</a>
+                <a href="{{ term.link|e('esc_url') }}">{{ term.name }}</a>
             </li>
         {% endfor %}
     </ul>

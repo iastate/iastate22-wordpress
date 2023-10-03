@@ -9,7 +9,7 @@
         <ul>
             {% for key, link in utility_menu.items %}
             <li>
-                <a href="{{ link.url }}">{{ link.title }}</a>
+                <a href="{{ link.url|e('esc_url') }}">{{ link.title }}</a>
             </li>
             {% endfor %}
         </ul>
@@ -54,12 +54,12 @@
                   <ul>
                     {% for key, link in main_menu.items %}
                       <li {% if not link.children %}class="site-header__parent-link-no-subnav-wrap" {% endif %}>
-                        <a {% if not link.children %}class="site-header__parent-link-no-subnav" {% endif %}href="{{ link.url }}" {% if link.newtab %}target="_blank"{% endif %}>{{ link.title }}</a>
+                        <a {% if not link.children %}class="site-header__parent-link-no-subnav" {% endif %}href="{{ link.url|e('esc_url') }}" {% if link.newtab %}target="_blank"{% endif %}>{{ link.title }}</a>
                         {% if link.children %}
                           <ul{% if link.children|length > 5 %} class="two-column-dropdown"{% endif %}>
                             {% for child in link.children %}
                               <li>
-                                <a class="link-tertiary" href="{{ child.url }}">{{ child.title }}<span class="arrow"></span></a>
+                                <a class="link-tertiary" href="{{ child.url|e('esc_url') }}">{{ child.title }}<span class="arrow"></span></a>
                               </li>
                             {% endfor %}
                           </ul>
@@ -77,7 +77,7 @@
                   <ul>
                     {% for link in utility_menu.items %}
                       <li>
-                        <a href="{{ link.url }}">{{ link.title }}</a>
+                        <a href="{{ link.url|e('esc_url') }}">{{ link.title }}</a>
                       </li>
                     {% endfor %}
                   </ul>

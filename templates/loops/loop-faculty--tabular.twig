@@ -29,8 +29,8 @@
                     {% set affiliations = post.meta('affiliations') %}
                     {% set publications = post.meta('publication') %}
                     <tr>
-                        <td><a href="{{ post.link }}">{{ firstName }}</a></td>
-                        <td><a href="{{ post.link }}">{{ lastName }}</a></td>
+                        <td><a href="{{ post.link|e('esc_url') }}">{{ firstName }}</a></td>
+                        <td><a href="{{ post.link|e('esc_url') }}">{{ lastName }}</a></td>
                         {# <td>{{ titles[0].title }}</td> #}
                         <td>
                             {% for i, title in titles %}

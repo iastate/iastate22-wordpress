@@ -19,7 +19,7 @@
 			{# Previous #}
 			{% if post.pagination.prev %}
 				<li class="prev btn">
-					<a href="{{ post.pagination.prev.link }}">
+					<a href="{{ post.pagination.prev.link|e('esc_url') }}">
 						<span class="visible-for-screen-readers">Previous</span>
 					</a>
 				</li>
@@ -35,11 +35,11 @@
 			{% for page in post.pagination.pages %}
 				{% if page.current %}
 					<li class="current">
-						<span class="{{ page.class }}">{{ page.title }}</span>
+						<span class="{{ page.class|e('esc_attr') }}">{{ page.title }}</span>
 					</li>
 				{% else %}
 					<li>
-						<a href="{{ page.link }}" class="{{ page.class }}">{{ page.title }}</a>
+						<a href="{{ page.link|e('esc_url') }}" class="{{ page.class|e('esc_attr') }}">{{ page.title }}</a>
 					</li>
 				{% endif %}
 			{% endfor %}
@@ -47,7 +47,7 @@
 			{# Next #}
 			{% if post.pagination.next %}
 				<li class="next btn">
-					<a href="{{ post.pagination.next.link }}">
+					<a href="{{ post.pagination.next.link|e('esc_url') }}">
 						<span class="visible-for-screen-readers">Next</span>
 					</a>
 				</li>

@@ -9,7 +9,7 @@
 {% elseif fields.ecosystem == "plain" %}
   {% set heroClass = "ecosystem-home-hero ecosystem-home-hero--no-image" %}
 {% endif %}
-<div class="{{ heroClass }}"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
+<div class="{{ heroClass|e('esc_attr') }}"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
   {% if fields.ecosystem == "supporting_image" or fields.ecosystem == "plain" %}
     <div class="ecosystem-home-hero__content">
       <h1 class="ecosystem-home-hero__title">
@@ -29,7 +29,7 @@
             {% for button in fields.buttons %}
               {% if button.link_url %}
                 <li>
-                  <a class="iastate22-button" href="{{ button.link_url }}">{{ button.label }}<span class="arrow"></span>
+                  <a class="iastate22-button" href="{{ button.link_url|e('esc_url') }}">{{ button.label }}<span class="arrow"></span>
                   </a>
                 </li>
               {% endif %}
@@ -43,19 +43,19 @@
 
     {% else %}
       <div class="ecosystem-home-hero__media">
-        <img src="{{ fields.hero_image.hero_image.url }}" alt="{{ fields.hero_image.hero_image.alt }}" width="{{ fields.hero_image.hero_image.width }}" height="{{ fields.hero_image.hero_image.height }}">
+        <img src="{{ fields.hero_image.hero_image.url|e('esc_url') }}" alt="{{ fields.hero_image.hero_image.alt|e('esc_attr') }}" width="{{ fields.hero_image.hero_image.width|e('esc_attr') }}" height="{{ fields.hero_image.hero_image.height|e('esc_attr') }}">
         {% if fields.ecosystem == "video" %}
           {% if fields.video.source == "youtube" %}
-            <div class="ecosystem-home-hero__video" aria-label="YouTube Video: {{ fields.video.video_title }}" data-vid="{{ fields.video.youtube_video_id }}"></div>
+            <div class="ecosystem-home-hero__video" aria-label="YouTube Video: {{ fields.video.video_title }}" data-vid="{{ fields.video.youtube_video_id|e('esc_attr') }}"></div>
           {% elseif fields.video.source == "vimeo" %}
             <div class="ecosystem-home-hero__video" aria-label="Vimeo Video: {{ fields.video.video_title }}" data-vimeo-muted="true" data-vimeo-loop="true" data-vimeo-background="true" data-vimeo-autoplay="true" data-vimeo-id="{{ fields.video.vimeo_video_id|striptags }}"></div>
           {% elseif fields.video.source == "media_gallery" %}
             <video class="ecosystem-home-hero__video" autoplay muted loop>
-              <source src="{{ fields.video.media_video.url }}" type="{{ fields.video.media_video.mime_type }}">
+              <source src="{{ fields.video.media_video.url|e('esc_url') }}" type="{{ fields.video.media_video.mime_type|e('esc_attr') }}">
             </video>
           {% elseif fields.video.source == "cdn" %}
             <video class="ecosystem-home-hero__video" autoplay muted loop>
-              <source src="{{ fields.video.cdn }}">
+              <source src="{{ fields.video.cdn|e('esc_url') }}">
             </video>
           {% endif %}
         {% endif %}
@@ -80,7 +80,7 @@
           {% for button in fields.buttons %}
             {% if button.link_url %}
               <li>
-                <a class="iastate22-button" href="{{ button.link_url }}">{{ button.label }}<span class="arrow"></span>
+                <a class="iastate22-button" href="{{ button.link_url|e('esc_url') }}">{{ button.label }}<span class="arrow"></span>
                 </a>
               </li>
             {% endif %}
