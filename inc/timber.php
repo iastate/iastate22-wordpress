@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * This ensures that Timber is loaded and available as a PHP class.
@@ -206,11 +206,19 @@ class StarterSite extends Timber\Site {
 
 	/** This is where you can add your own functions to twig.
 	 *
-	 * @param string $twig get extension.
+	 * @param \Twig\Environment $twig get extension.
 	 */
 	public function add_to_twig( $twig ) {
 		$twig->addExtension( new Twig\Extension\StringLoaderExtension() );
 		$twig->addFilter( new Twig\TwigFilter( 'myfoo', array( $this, 'myfoo' ) ) );
+		//$twig->addFilter( new Twig\TwigFilter( 'esc_attr', 'esc_attr') );
+
+		$esc_attr = function( \Twig\Environment $env, $string ) {
+			return esc_attr( $string );
+		};
+		$escaper_extension = $twig->getExtension('Twig\Extension\CoreExtension');
+		$escaper_extension->setEscaper('esc_attr', $esc_attr);
+
 		return $twig;
 	}
 
