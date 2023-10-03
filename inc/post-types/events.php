@@ -119,3 +119,22 @@ function acf_custom_event_changed_check( $value, $post_id, $field, $original ) {
 }
 
 add_action( 'acf/update_value/key=field_64c2a145cab1f', 'acf_custom_event_changed_check', 10, 4 );
+
+function add_event_start_date_to_listings() {
+        add_filter( 'manage_events_posts_columns', 'add_start_date_column' );
+        add_action( 'manage_pages_custom_column', 'add_start_date_value', 10, 2 );
+    }
+
+add_action( 'init', 'add_event_start_date_to_listings' );
+
+function add_start_date_column( $columns ) {
+    $columns['event_start_date'] = 'Event Start Date';
+    return $columns;
+}
+
+function add_start_date_value( $column_name, $post_id ) {
+    if ( $column_name == 'event_start_date' ) {
+       $the_start_date = get_post_meta($post_id, 'event_start_date_start_date');
+       echo date("m/d/Y",strtotime($the_start_date[0]));
+    }
+}
