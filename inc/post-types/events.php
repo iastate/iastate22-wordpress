@@ -152,6 +152,10 @@ function add_event_table_column_data( $column_name, $post_id ) {
 			$date     = get_post_meta( $post_id, 'event_end_date_end_date', true );
 			$time     = get_post_meta( $post_id, 'event_end_date_end_time', true );
 		}
+		if (empty($date)){
+			return;
+		}
+		
 		$format    = $full_day ? get_option( 'date_format' ) : get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
 		$timestamp = $full_day ? $date : $date . ' ' . $time;
 
