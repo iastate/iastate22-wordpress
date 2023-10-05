@@ -1,8 +1,8 @@
 {% set featuredStory = Post(fields.main_featured_story[0]) %}
-{% if Image(featuredStory.custom._thumbnail_id) %}
-    {% set thumbNail = Image(featuredStory._thumbnail_id) %}
-{% elseif Image(featuredStory.custom.hero_image) %}
-    {% set thumbNail = Image(featuredStory.custom.hero_image) %}
+{% if featuredStory.thumbnail %}
+    {% set thumbNail = featuredStory.thumbnail %}
+{% elseif featuredStory.hero_image %}
+    {% set thumbNail = Image(featuredStory.hero_image) %}
 {% endif %}
 <div class="featured-news"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
     <div class="featured-news-container">
@@ -15,7 +15,7 @@
                     {% if thumbNail %}
                         <img class="featured-news__large-article__image" src="{{ thumbNail.src|striptags }}" alt="{{ thumbNail.alt|striptags }}">
                     {% else %}
-                        <img class="featured-news__large-article__image" src="http://via.placeholder.com/400x400" alt="No Thumbnail Available">
+                        <img class="featured-news__large-article__image bg-placeholder" src="{{ theme.path()~'/img/placeholder.png' }}" alt="No Thumbnail Available">
                     {% endif %}
                 </div>
                 <div class="featured-news__large-article__tags">
@@ -48,7 +48,7 @@
                             {% if thumbNail != false %}
                                 <img class="featured-news__small-article__image" src="{{ thumbNail.src|striptags }}" alt="{{ thumbNail.alt|striptags }}">
                             {% else %}
-                                <img class="featured-news__small-article__image" src="http://via.placeholder.com/100x100" alt="No Thumbnail Available">
+                                <img class="featured-news__small-article__image bg-placeholder" src="{{ theme.path()~'/img/placeholder.png' }}" alt="No Thumbnail Available">
                             {% endif %}
                         </div>
                     {% if story.terms|length > 0 %}

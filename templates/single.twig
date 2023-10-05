@@ -1,6 +1,14 @@
 {% extends "base.twig" %}
 
 {% block content %}
+	{% set maybe_thumbnail = null %}
+	{% if post.use_featured_image_as_hero|boolval %}
+		{% set maybe_thumbnail = post.thumbnail %}
+	{% else %}
+		{% if post.meta('hero_image') %}
+			{% set maybe_thumbnail = Image(post.hero_image) %}
+		{% endif %}
+	{% endif %}
 	<div class="outer-pad">
 		<p class="iastate-article__back-btn"><a href="{{ function('get_post_type_archive_link', 'post' ) }}">All Articles</a></p>
 		<div class="hero--news-article text-content">
@@ -8,22 +16,16 @@
 			{% if post.meta('subhead') %}
 				<h2 class="hero--news-article__subhead">{{ post.meta('subhead') }}</h2>
 			{% endif %}
-			{% if post._meta_info != 'hide_author' %}
+			{% if post.meta('_meta_info')  != 'hide_author' %}
 				<div class="hero--news-article__attribution"><p><strong>Author: {{ post.author.name }}</strong> | Image: {{ post.author.name }}</p></div>
 			{% endif %}
-			{% if post.meta("use_featured_image_as_hero") == "false" %}
-			{% if post.hero_image %}
-				<div class="hero--news-article__media">
-					<img src="{{ Image(post.hero_image).src|e('esc_url') }}" alt="{{ Image(post.hero_image).alt|e('esc_attr') }}">
-				</div>
-				{% endif %}
-			{% else %}
+			{% if maybe_thumbnail %}
 				<div class="hero--news-article__media">
 					<img src="{{ post.thumbnail.src|e('esc_url') }}" alt="{{ post.thumbnail.alt|e('esc_attr') }}">
 				</div>
 			{% endif %}
 		</div>
-		{% if post.meta("share_this") == true %}
+		{% if post.share_this|boolval %}
 			{% include "partial/share.twig" %}
 		{% endif %}
 		{% if post.pagination %}
