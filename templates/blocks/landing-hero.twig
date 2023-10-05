@@ -43,8 +43,12 @@
 
     {% else %}
       <div class="ecosystem-home-hero__media">
-        <img src="{{ fields.hero_image.hero_image.url|e('esc_url') }}" alt="{{ fields.hero_image.hero_image.alt|e('esc_attr') }}" width="{{ fields.hero_image.hero_image.width|e('esc_attr') }}" height="{{ fields.hero_image.hero_image.height|e('esc_attr') }}">
-        {% if fields.ecosystem == "video" %}
+		{% if fields.hero_image.hero_image %}
+			<img src="{{ fields.hero_image.hero_image.url|e('esc_url') }}" alt="{{ fields.hero_image.hero_image.alt|e('esc_attr') }}" width="{{ fields.hero_image.hero_image.width|e('esc_attr') }}" height="{{ fields.hero_image.hero_image.height|e('esc_attr') }}">
+		{% else  %}
+			<img class="bg-placeholder" src="{{ theme.path()~'/img/placeholder.png' }}" alt="Placeholder">
+		{% endif %}
+		  {% if fields.ecosystem == "video" %}
           {% if fields.video.source == "youtube" %}
             <div class="ecosystem-home-hero__video" aria-label="YouTube Video: {{ fields.video.video_title }}" data-vid="{{ fields.video.youtube_video_id|e('esc_attr') }}"></div>
           {% elseif fields.video.source == "vimeo" %}

@@ -211,6 +211,7 @@ class StarterSite extends Timber\Site {
 	public function add_to_twig( $twig ) {
 		$twig->addExtension( new Twig\Extension\StringLoaderExtension() );
 		$twig->addFilter( new Twig\TwigFilter( 'myfoo', array( $this, 'myfoo' ) ) );
+		$twig->addFilter( new Timber\Twig_Filter( 'boolval', 'wp_validate_boolean') );
 
 		$esc_attr = function( \Twig\Environment $env, $string ) {
 			return esc_attr( $string );
