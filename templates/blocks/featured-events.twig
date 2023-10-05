@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--card-set"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--card-set"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
     <div class="card-set">
         <h2 class="card-set__title">{{ fields.title }}</h2>
         <ul>
@@ -11,7 +11,7 @@
                     <div class="iastate22-card iastate22-card--event clickable">
                         {% if thumbnail %}
                             <div class="iastate22-card__media">
-                                <img src="{{ thumbnail.src }}" alt="{{ thumbnail.alt }}" loading="lazy" width="{{ thumbnail.width }}" height="{{ thumbnail.height }}">
+                                <img src="{{ thumbnail.src|e('esc_url') }}" alt="{{ thumbnail.alt|e('esc_attr') }}" loading="lazy" width="{{ thumbnail.width|e('esc_attr') }}" height="{{ thumbnail.height|e('esc_attr') }}">
                             </div>
                         {% endif %}
                         <div class="iastate22-card__content">
@@ -35,5 +35,5 @@
                 </li>
             {% endfor %}
         </ul>
-    </div>    
+    </div>
 </div>

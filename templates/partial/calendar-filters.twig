@@ -67,7 +67,7 @@
               <option value="">All Tags</option>
               {% for tag in tags %}
                 {% if tag.count > 0 %}
-                    <option value="{{ tag.id }}">{{ tag.name }}</option>
+                    <option value="{{ tag.id|e('esc_attr') }}">{{ tag.name }}</option>
                 {% endif %}
               {% endfor %}
             </select>

@@ -1,4 +1,4 @@
-<div class="recent-articles"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
+<div class="recent-articles"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
     {% if fields.section_title|length > 0 %}
         <div class="text-content">
             <h2>{{ fields.section_title }}</h2>
@@ -18,12 +18,12 @@
                         <div class="iastate22-card iastate22-card--recent-article clickable">
                             <div class="iastate22-card__media">
                                 {% if thumbNail.id != NULL %}
-                                    <img src="{{ thumbNail.src }}" alt="{{ thumbNail.alt }}" loading="lazy" width="{{ thumbnail.width }}" height="{{ thumbnail.height }}">
+                                    <img src="{{ thumbNail.src|e('esc_url') }}" alt="{{ thumbNail.alt|e('esc_attr') }}" loading="lazy" width="{{ thumbnail.width|e('esc_attr') }}" height="{{ thumbnail.height|e('esc_attr') }}">
                                 {% else %}
                                     <img src="{{ site.link }}/wp-content/themes/wordpress-theme/vendor/iastate/frontend-component-library/build/img/News_Default_FeaturedImage.jpg" alt="No Thumbnail Available" loading="lazy" width="600" height="600">
                                 {% endif %}
                             </div>
-                            
+
                             <div class="iastate22-card__content">
                             <div class="iastate22-card__content-tags">
                                 <ul class="iastate22-card__content-tags__list">
@@ -35,7 +35,7 @@
                                 </ul>
                             </div>
                             <h2 class="iastate22-card__title">
-                                <a class="iastate22-link-secondary" href="{{ article.link }}" target="_blank">{{ article.post_title }}</a>
+                                <a class="iastate22-link-secondary" href="{{ article.link|e('esc_url') }}" target="_blank">{{ article.post_title }}</a>
                             </h2>
                             <p class="iastate22-card__date">{{ article.post_date|date("F d, Y") }}</p>
                             </div>
@@ -57,12 +57,12 @@
                         <div class="iastate22-card iastate22-card--recent-article clickable">
                             <div class="iastate22-card__media">
                                 {% if thumbNail.id != NULL %}
-                                    <img src="{{ thumbNail.src }}" alt="{{ thumbNail.alt }}" loading="lazy" width="{{ thumbnail.width }}" height="{{ thumbnail.height }}">
+                                    <img src="{{ thumbNail.src|e('esc_url') }}" alt="{{ thumbNail.alt|e('esc_attr') }}" loading="lazy" width="{{ thumbnail.width|e('esc_attr') }}" height="{{ thumbnail.height|e('esc_attr') }}">
                                 {% else %}
                                     <img src="{{ site.link }}/wp-content/themes/wordpress-theme/vendor/iastate/frontend-component-library/build/img/News_Default_FeaturedImage.jpg" alt="No Thumbnail Available" loading="lazy" width="600" height="600">
                                 {% endif %}
                             </div>
-                            
+
                             <div class="iastate22-card__content">
                             <div class="iastate22-card__content-tags">
                                 <ul class="iastate22-card__content-tags__list">
@@ -92,7 +92,7 @@
                         <div class="iastate22-card iastate22-card--recent-article clickable">
                             <div class="iastate22-card__media">
                                 {% if thumbNail.id != NULL %}
-                                    <img src="{{ thumbNail.src }}" alt="{{ thumbNail.alt }}" loading="lazy" width="{{ thumbnail.width }}" height="{{ thumbnail.height }}">
+                                    <img src="{{ thumbNail.src|e('esc_url') }}" alt="{{ thumbNail.alt|e('esc_attr') }}" loading="lazy" width="{{ thumbnail.width|e('esc_attr') }}" height="{{ thumbnail.height|e('esc_attr') }}">
                                 {% else %}
                                     <img src="{{ site.link }}/wp-content/themes/wordpress-theme/vendor/iastate/frontend-component-library/build/img/News_Default_FeaturedImage.jpg" alt="No Thumbnail Available" loading="lazy" width="600" height="600">
                                 {% endif %}
@@ -126,7 +126,7 @@
                         <div class="iastate22-card iastate22-card--recent-article clickable">
                             <div class="iastate22-card__media">
                                 {% if thumbNail.id != NULL %}
-                                    <img src="{{ thumbNail.src }}" alt="{{ thumbNail.alt }}" loading="lazy" width="{{ thumbnail.width }}" height="{{ thumbnail.height }}">
+                                    <img src="{{ thumbNail.src|e('esc_url') }}" alt="{{ thumbNail.alt|e('esc_attr') }}" loading="lazy" width="{{ thumbnail.width|e('esc_attr') }}" height="{{ thumbnail.height|e('esc_attr') }}">
                                 {% else %}
                                     <img src="{{ site.link }}/wp-content/themes/wordpress-theme/vendor/iastate/frontend-component-library/build/img/News_Default_FeaturedImage.jpg" alt="No Thumbnail Available" loading="lazy" width="600" height="600">
                                 {% endif %}
@@ -152,5 +152,5 @@
             </ul>
             {% endif %}
         {% endif %}
-    </div>    
+    </div>
 </div>

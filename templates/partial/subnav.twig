@@ -7,21 +7,21 @@
       <li>
         {% if rent != 0 %}
           <a href="{{ function('get_permalink', rent) }}">{{ parent_title }}</a>
-        {% else %}  
-          <a href="{{ site.url }}">Home</a>
+        {% else %}
+          <a href="{{ site.url|e('esc_url') }}">Home</a>
         {% endif %}
-        
+
       </li>
       {% if subnav_side_menu %}
         {% for link in subnav_side_menu.items %}
           <li>
-            <a href="{{ link.url }}">{{ link.title }}</a>
+            <a href="{{ link.url|e('esc_url') }}">{{ link.title }}</a>
 
             {% if link.children|length > 0 %}
             <ul>
               {% for child in link.children %}
               <li>
-                <a href="{{ child.url }}">{{ child.title }}</a>
+                <a href="{{ child.url|e('esc_url') }}">{{ child.title }}</a>
               </li>
               {% endfor %}
             </ul>
@@ -56,7 +56,7 @@
           {% endif %}
         {% endfor %}
       {% endif %}
-      
+
     </ul>
   </div>
 </nav>

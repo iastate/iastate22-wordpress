@@ -1,15 +1,15 @@
-<div class="paragraph-widget paragraph-widget--multicolumn-content"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--multicolumn-content"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
   <div class="multi-column-content{% if fields.columns|length < 3 %} multi-column-content-two-col{% endif %}">
     {% for column in fields.columns %}
     <div class="multi-column-content__column">
       <div class="text-content">
         {% if column.title %}<h3>{{ column.title }}</h3>{% endif %}
         {% for content in column.content %}
-          {% for ct in content.content_type %}  
+          {% for ct in content.content_type %}
             {% if ct.acf_fc_layout == "text_content" %}
               <div>{{ ct.text_content }}</div>
             {% elseif ct.acf_fc_layout == "image" %}
-              <img src="{{ ct.image.url }}" alt="{{ ct.image.alt }}" width="{{ ct.image.width }}" height="{{ ct.image.height }}">
+              <img src="{{ ct.image.url|e('esc_url') }}" alt="{{ ct.image.alt|e('esc_attr') }}" width="{{ ct.image.width|e('esc_attr') }}" height="{{ ct.image.height|e('esc_attr') }}">
             {% endif %}
           {% endfor %}
         {% endfor %}

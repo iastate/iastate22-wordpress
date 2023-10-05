@@ -1,7 +1,7 @@
-<div class="paragraph-widget paragraph-widget--table"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
-    <div class="iastate22-table" role="region" aria-labelledby="{{ fields.table_caption.caption_id }}" tabindex="0">
+<div class="paragraph-widget paragraph-widget--table"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
+    <div class="iastate22-table" role="region" aria-labelledby="{{ fields.table_caption.caption_id|e('esc_attr') }}" tabindex="0">
     <table>
-        <caption id="{{ fields.table_caption.caption_id }}">{{ fields.table_caption.caption }}</caption>
+        <caption id="{{ fields.table_caption.caption_id|e('esc_attr') }}">{{ fields.table_caption.caption }}</caption>
         <thead>
             <tr>
                 {% for header in fields.table_headers %}

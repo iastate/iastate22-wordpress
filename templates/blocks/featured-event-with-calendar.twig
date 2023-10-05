@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--upcoming-events"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--upcoming-events"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
   <div class="featured-events">
     <header class="featured-events__header">
       <h2>{{ fields.title }}</h2><a href="{{ function('get_post_type_archive_link','events') }}" class="link-set__link link-tertiary">View All Events<span class="arrow"></span></a>
@@ -12,12 +12,12 @@
           {% endif %}
           {% if thumbnail %}
             <div class="iastate22-card__media">
-                <img src="{{ thumbnail.src }}" alt="{{ thumbnail.alt }}" loading="lazy" width="{{ thumbnail.width }}" height="{{ thumbnail.height }}">
+                <img src="{{ thumbnail.src|e('esc_url') }}" alt="{{ thumbnail.alt|e('esc_attr') }}" loading="lazy" width="{{ thumbnail.width|e('esc_attr') }}" height="{{ thumbnail.height|e('esc_attr') }}">
             </div>
           {% endif %}
           <div class="iastate22-card__content">
             <h2 class="iastate22-card__title">
-              <a href="{{ featured_event.link }}" target="_blank">{{ featured_event.post_title }}</a>
+              <a href="{{ featured_event.link|e('esc_url') }}" target="_blank">{{ featured_event.post_title }}</a>
             </h2>
             <div class="iastate22-card__body text-content">
               {{ featured_event.excerpt }}
@@ -44,7 +44,7 @@
               {% set s = s+1 %}
             <li class="featured-events__item">
               <h4 class="featured-events__title">
-                <a href="{{ event.link }}" class="link-set__link iastate22-link-secondary">{{ event.post_title }}<span class="arrow"></span></a>
+                <a href="{{ event.link|e('esc_url') }}" class="link-set__link iastate22-link-secondary">{{ event.post_title }}<span class="arrow"></span></a>
               </h4>
               <time datetime="{{ event.event_start_date_start_date|date("Y-m-d") }}">{{ event.event_start_date_start_date|date() }}</time>
             </li>
