@@ -1,0 +1,115 @@
+{% if home_announcement_alert %}
+  {% include "@home-announcement--alert" with home_announcement_alert %}
+{% endif %}
+<header class="site-header">
+  <div class="site-header__top">
+    <a href="https://www.iastate.edu/" class="site-header__logo">
+      <img class="site-header__logo-mobile" src="{{ "https://cdn.theme.iastate.edu/img/iastate22/iowa-state-university-logo-no-tagline-red.svg"|path }}" alt="Iowa State University" loading="lazy" width="224" height="17">
+      <img class="site-header__logo-desktop" src="{{ "https://cdn.theme.iastate.edu/img/iastate22/iowa-state-university-logo-with-tagline-red.svg"|path }}" alt="Iowa State University of Science and Technology" loading="lazy" width="346" height="46">
+    </a>
+    <nav class="site-header__utility" aria-label="Utility">
+      <ul>
+        {% for link in utility_nav %}
+          <li>
+            {% if not link.info_for_dropdown %}
+            <a href="{{ link.url }}">{{ link.title }}</a>  
+            {% else %}
+            <button class="site-header__utility-dropdown-trigger">{{ link.title }}</button>
+            <ul class="site-header__utility-dropdown-menu">
+              {% for child in link.info_for_dropdown %}
+              <li>
+                <a href="{{ child.url }}">{{ child.title }}</a>
+              </li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <div class="site-header__search">
+      <a href="#site-search" class="site-header__search-toggle">
+        <span class="visible-for-screen-readers">Search</span>
+        <span class="fak fa-iastate22-magnifying-glass" aria-hidden="true"></span>
+      </a>
+      <a href="#" class="site-header__search-close">
+        <span class="visible-for-screen-readers">Close Search</span>
+        <span class="fa-light fa-xmark"></span>
+      </a>
+      <form class="site-header__search-form-desktop">
+        <label class="visible-for-screen-readers" for="searchDesktop">Search</label>
+        <input type="search" id="searchDesktop" name="search" placeholder="Search">
+        <button type="submit"><span class="fak fa-iastate22-magnifying-glass" aria-hidden="true"></span><span class="visible-for-screen-readers">Submit Search</span></button>
+      </form>
+    </div>
+  </div>
+  <div class="site-header__main">
+    <a href="#site-header-mega-menu" class="site-header__mega-menu-open" role="button" aria-controls="site-header-mega-menu">
+      <span class="visible-for-screen-readers">Toggle Menu</span>
+      <span class="site-header__mega-menu-open-line-wrap">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </a>
+    <div class="site-header__mega-menu" id="site-header-mega-menu">
+      <div class="site-header__mega-menu-inner">
+        <div class="site-header__mega-menu-scroller">
+          <noscript>
+            <a href="#" role="button" class="nojs-close-menu">Close Main Menu</a>
+          </noscript>
+          <div>
+            <div class="site-header__mega-menu-main">
+              <div class="site-header__mega-menu-max-bound">
+                <nav class="site-header__mega-menu-main-nav" aria-label="Main">
+                  <ul>
+                    {% for link in full_nav %}
+                      <li {% if not link.children %}class="site-header__parent-link-no-subnav-wrap" {% endif %}>
+                        <a {% if not link.children %}class="site-header__parent-link-no-subnav" {% endif %}href="{{ link.url }}" {% if link.newtab %}target="_blank"{% endif %}>{{ link.title }}</a>
+                        {% if link.children|length %}
+                          <ul{% if link.children|length > 5 %} class="two-column-dropdown"{% endif %}>
+                            {% for child in link.children %}
+                              <li>
+                                <a class="link-tertiary" href="{{ child.url }}">{{ child.title }}<span class="arrow"></span></a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </nav>
+              </div>
+            </div>
+            <div class="site-header__mega-menu-secondary">
+              <div class="site-header__mega-menu-max-bound">
+                <nav class="site-header__mega-menu-utility" aria-label="Utility">
+                  <ul>
+                    {% for link in utility_nav %}
+                      {% if not link.info_for_dropdown %}
+                        <li>
+                          <a href="{{ link.url }}">{{ link.title }}</a>
+                        </li>
+                        {% else %}
+                          {% for child in link.info_for_dropdown %}
+                          <li>
+                            <a href="{{ child.url }}">{{ child.title }}</a>
+                          </li>
+                          {% endfor %}
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                  <form class="site-header__search-form-mobile">
+                    <label class="visible-for-screen-readers" for="searchMobile">Search</label>
+                    <input type="search" id="searchMobile" name="search" placeholder="Search">
+                    <button type="submit"><span class="fak fa-iastate22-magnifying-glass" aria-hidden="true"></span><span class="visible-for-screen-readers">Submit Search</span></button>
+                  </form>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

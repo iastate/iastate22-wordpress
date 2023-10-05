@@ -25,12 +25,12 @@
       left: rem(-190);
     }
   }
-  ul {
+  > ul {
     @include media-breakpoint-up(lg) {
       padding-top: rem(60);
       padding-bottom: rem(10);
     }
-    li {
+    > li {
       margin-bottom: rem(51);
       @include media-breakpoint-up(xl) {
         margin-bottom: rem(35);

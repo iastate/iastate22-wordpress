@@ -23,6 +23,7 @@ import AccessibilityUtilities from "./utilities/accessibility";
 import scrollPaddingTopInit from "./utilities/scroll-padding-top";
 import calendarInit from "./components/calendar";
 import searchInit from "./components/search";
+import alertBarInit from "./components/alert-bar";
 
 /**
  * Init
@@ -47,3 +48,4 @@ scrollPaddingTopInit();
 sortableTableInit();
 calendarInit();
 searchInit();
+alertBarInit();

@@ -29,7 +29,9 @@ function the_breadcrumb()
             }
             echo $before . single_cat_title('', false) . $after;
         } elseif (is_search()) {
-            if($post->post_type === 'profiles' && get_search_query() === "") {
+			if (is_null($post)){
+				echo $before . 'Search results' . $after;
+			} else if($post->post_type === 'profiles' && get_search_query() === "") {
                 echo $before . 'Directory' . $after;
             } else if($post->post_type === 'post' && get_search_query() === "") {
                 echo $before . 'News' . $after;
