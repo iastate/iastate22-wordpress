@@ -93,6 +93,10 @@
     height: rem(8);
     position: absolute;
   }
+  h2 {
+    @extend %h3;
+    padding-bottom: 0;
+  }
   p {
     font-weight: 700;
     a {
