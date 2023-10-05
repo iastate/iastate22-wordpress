@@ -215,8 +215,10 @@ class StarterSite extends Timber\Site {
 		$esc_attr = function( \Twig\Environment $env, $string ) {
 			return esc_attr( $string );
 		};
-		$escaper_extension = $twig->getExtension('Twig\Extension\CoreExtension');
-		$escaper_extension->setEscaper('esc_attr', $esc_attr);
+		$escaper_extension = class_exists( 'Twig\Extension\EscaperExtension' ) ?
+			$twig->getExtension( 'Twig\Extension\EscaperExtension' ) :
+			$twig->getExtension( 'Twig\Extension\CoreExtension' );
+		$escaper_extension->setEscaper( 'esc_attr', $esc_attr );
 
 		return $twig;
 	}
