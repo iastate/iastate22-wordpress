@@ -218,15 +218,15 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:iastate/iastate22-frontend.git",
-                "reference": "b96a617556216c8abfd1d6a7eecb8de6242d0312"
+                "reference": "aad95768bd9f0dce4e2658345d51ea1cf036fb56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/iastate/iastate22-frontend/zipball/b96a617556216c8abfd1d6a7eecb8de6242d0312",
-                "reference": "b96a617556216c8abfd1d6a7eecb8de6242d0312",
+                "url": "https://api.github.com/repos/iastate/iastate22-frontend/zipball/aad95768bd9f0dce4e2658345d51ea1cf036fb56",
+                "reference": "aad95768bd9f0dce4e2658345d51ea1cf036fb56",
                 "shasum": ""
             },
-            "time": "2023-08-29T21:41:53+00:00",
+            "time": "2023-10-03T14:41:02+00:00",
             "default-branch": true,
             "type": "library",
             "installation-source": "dist",
@@ -785,17 +785,6 @@
             "install-path": "../upstatement/routes"
         }
     ],
-    "dev": true,
-    "dev-package-names": [
-        "altorouter/altorouter",
-        "composer/installers",
-        "iastate/frontend-component-library",
-        "symfony/polyfill-ctype",
-        "symfony/polyfill-mbstring",
-        "symfony/polyfill-php72",
-        "timber/timber",
-        "twig/cache-extension",
-        "twig/twig",
-        "upstatement/routes"
-    ]
+    "dev": false,
+    "dev-package-names": []
 }

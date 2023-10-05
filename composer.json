@@ -22,8 +22,11 @@
       "composer/installers": true
     }
   },
-  "require-dev": {
+  "require": {
     "timber/timber": "^1.20",
     "iastate/frontend-component-library": "dev-master"
+  },
+  "require-dev": {
+    "hellonico/timber-dump-extension": "^1.0"
   }
 }

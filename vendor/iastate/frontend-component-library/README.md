@@ -10,7 +10,7 @@ This is a frontent library designed and built for use in Iowa State University w
 
 ### Installing via composer
 
-Whenever possible, we reccomend using composer to instaall this library, to ensure all future updates can be pulled in to your project.
+Whenever possible, we reccomend using composer to install this library, to ensure all future updates can be pulled in to your project.
 
 `composer require iastate/frontend-component-library`
 
