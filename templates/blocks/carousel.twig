@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--carousel"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--carousel"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
 	<div class="iastate22-carousel-holder">
 		<div class="iastate22-carousel">
 			{% for slide in fields.carousel %}
@@ -9,7 +9,7 @@
 						<div class="video-embed">
 							<div class="video-embed__media-wrap">
 								{% if slide.carousel_video.video.poster_image.url %}
-									<img src="{{ slide.carousel_video.video.poster_image.url }}" alt="{{ slide.carousel_video.video.poster_image.alt }}" width="{{ slide.carousel_video.video.poster_image.width }}" height="{{ slide.carousel_video.video.poster_image.height }}"/>
+									<img src="{{ slide.carousel_video.video.poster_image.url|e('esc_url') }}" alt="{{ slide.carousel_video.video.poster_image.alt|e('esc_attr') }}" width="{{ slide.carousel_video.video.poster_image.width|e('esc_attr') }}" height="{{ slide.carousel_video.video.poster_image.height|e('esc_attr') }}"/>
 								{% else %}
 									{% if slide.carousel_video.video.source == "youtube" %}
 										<img src="https://img.youtube.com/vi/{{ slide.carousel_video.video.youtube_video_id }}/maxresdefault.jpg" alt="Video Poster">
@@ -18,9 +18,9 @@
 									{% endif %}
 								{% endif %}
 								{% if slide.carousel_video.video.source == "youtube" %}
-									<div class="video-embed__video" aria-label="YouTube Video: {{ slide.carousel_video.video.title }}" data-vid="{{ slide.carousel_video.video.youtube_video_id }}"></div>
+									<div class="video-embed__video" aria-label="YouTube Video: {{ slide.carousel_video.video.title }}" data-vid="{{ slide.carousel_video.video.youtube_video_id|e('esc_attr') }}"></div>
 								{% elseif slide.carousel_video.video.source == "vimeo" %}
-									<div data-vimeo-id="{{ slide.carousel_video.video.vimeo_video_id }}" class="video--vim"></div>
+									<div data-vimeo-id="{{ slide.carousel_video.video.vimeo_video_id|e('esc_attr') }}" class="video--vim"></div>
 								{% endif %}
 							</div>
 							{% if fields.media_caption_toggle == true %}

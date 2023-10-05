@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--callout-set"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--callout-set"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
 	<div class="callout-set">
 		<ul>
 			{% for callout in fields.callout_set %}
@@ -6,7 +6,7 @@
 					<div class="iastate22-callout{% if callout.callout_image %}{% else %} iastate22-callout--no-image{% endif %}">
 						{% if callout.callout_image %}
 							<div class="iastate22-callout__media">
-								<img src="{{ callout.callout_image.url }}" alt="{{ callout.callout_image.title }}" width="622" height="414"/>
+								<img src="{{ callout.callout_image.url|e('esc_url') }}" alt="{{ callout.callout_image.title|e('esc_attr') }}" width="622" height="414"/>
 							</div>
 						{% endif %}
 						<div class="iastate22-callout__content text-content">
@@ -30,7 +30,7 @@
 												{% elseif item.link_style == "minimal" %}
 													{% set linkClass = "link-set__link link-tertiary" %}
 												{% endif %}
-												<a class="{{ linkClass }}" href="{{ item.link_url }}" {% if item.link_style == "external" %} target="_blank" {% endif %}>
+												<a class="{{ linkClass|e('esc_attr') }}" href="{{ item.link_url|e('esc_url') }}" {% if item.link_style == "external" %} target="_blank" {% endif %}>
 													{{ item.label }}
 													<span class="arrow"></span>
 												</a>

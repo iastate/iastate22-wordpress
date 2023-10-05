@@ -136,7 +136,7 @@
                                 </svg>
                             </span>
                             <span class="visible-for-screen-readers">Phone Number</span>
-                            {% endif %}    
+                            {% endif %}
                         </dt>
                         <dd>
                         {% if link.acf_fc_layout == "link" %}
@@ -145,7 +145,7 @@
                             {% else %}
                                 {% set classList = "link-set__link iastate22-link-secondary" %}
                             {% endif %}
-                            <a href="{{ link.link.url }}" class="{{ classList }}"{% if link.link.target|length > 0 %} target="{{ link.link.target }}"{% endif %}>{{ link.link.title }}<span class="arrow"></span></a>
+                            <a href="{{ link.link.url|e('esc_url') }}" class="{{ classList|e('esc_attr') }}"{% if link.link.target|length > 0 %} target="{{ link.link.target|e('esc_attr') }}"{% endif %}>{{ link.link.title }}<span class="arrow"></span></a>
                         {% elseif link.acf_fc_layout == "email" %}
                             {% set classList = "link-set__link iastate22-link-secondary" %}
                             {% if link.email.title|length > 0 %}
@@ -153,7 +153,7 @@
                             {% else %}
                                 {% set emailTitle = link.email.url %}
                             {% endif %}
-                            <a href="mailto:{{ link.email.url }}" class="{{ classList }}">{{ emailTitle }}<span class="arrow"></span></a>
+                            <a href="mailto:{{ link.email.url }}" class="{{ classList|e('esc_attr') }}">{{ emailTitle }}<span class="arrow"></span></a>
                         {% elseif link.acf_fc_layout == "phone_number" %}
                             <span class="event-details__phone-number">{{ link.phone_number }}</span>
                         {% elseif link.acf_fc_layout == "tags" %}

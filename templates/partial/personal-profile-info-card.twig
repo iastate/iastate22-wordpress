@@ -1,10 +1,10 @@
 <div class="personal-profile-info-card{% if not photo %} personal-profile-info-card--no-image{% endif %}">
   {% if photo %}
   <div class="personal-profile-info-card__media">
-    <img src="{{ photo.url }}" alt="{{ photo.description }}">
+    <img src="{{ photo.url|e('esc_url') }}" alt="{{ photo.description|e('esc_attr') }}">
   </div>
   {% endif %}
-  
+
   <div class="personal-profile-info-card__content">
     <h1 class="personal-profile-info-card__name">{{ firstName }} {{ lastName }}</h1>
     {% if titles %}
@@ -28,7 +28,7 @@
 
           {% if link.link.url|length %}
           <li>
-            <a href="{{link.link.url}}" class="{{ linkClass }}"{% if link.link.target == "_blank" %} target="_blank"{% endif %}>{{link.link.title | default(link.link.url)}}<span class="arrow"></span></a>
+            <a href="{{ link.link.url|e('esc_url') }}" class="{{ linkClass|e('esc_attr') }}"{% if link.link.target == "_blank" %} target="_blank"{% endif %}>{{link.link.title | default(link.link.url)}}<span class="arrow"></span></a>
           </li>
           {% endif %}
         {% endfor %}
@@ -58,9 +58,9 @@
       {% for network in social_networks %}
         {% if network.link | length %}
         <li>
-          <a href="{{ network.link }}" target="_blank">
+          <a href="{{ network.link|e('esc_url') }}" target="_blank">
             {% if network.network.network == "Instagram" or network.network.network == "Flickr"  %}
-              <i class="fak fa-iastate22-{{ network.network.network|lower }}" aria-hidden="true"></i>      
+              <i class="fak fa-iastate22-{{ network.network.network|lower }}" aria-hidden="true"></i>
             {% elseif network.network.network == "Podcast" %}
               <i class="fas fa-podcast"></i>
             {% elseif network.network.network == "Blog" %}
@@ -71,7 +71,7 @@
               <i class="fa-brands fa-{{ network.network.network|lower }}" aria-hidden="true"></i>
             {% endif %}
             <span class="visible-for-screen-readers">{{ network.network.network }}</span>
-          </a>   
+          </a>
         </li>
         {% endif %}
       {% endfor %}

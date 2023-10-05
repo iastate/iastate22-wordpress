@@ -4,11 +4,11 @@
       <a href="https://www.iastate.edu/" class="site-header__logo">
         <img src="{{ "https://cdn.theme.iastate.edu/img/iastate22/iowa-state-university-logo-no-tagline-red.svg" }}" alt="Iowa State University">
       </a>
-      {% if options.parent_unit %}<a class="site-header__parent-unit-name" href="{{ options.parent_unit.url }}">{{ options.parent_unit.name }}</a>{% endif %}
+      {% if options.parent_unit %}<a class="site-header__parent-unit-name" href="{{ options.parent_unit.url|e('esc_url') }}">{{ options.parent_unit.name }}</a>{% endif %}
     </div>
     {% if options.website_title %}<div class="site-header__website-title">{{ options.website_title }}</div>{% endif %}
     <div class="site-header__utility-search-wrap">
-      {% if utility_button %}<a class="site-header__utility-button" href="{{ utility_button.url }}">{{ utility_button.title }}<span></span></a>{% endif %}
+      {% if utility_button %}<a class="site-header__utility-button" href="{{ utility_button.url|e('esc_url') }}">{{ utility_button.title }}<span></span></a>{% endif %}
     </div>
   </div>
   <div class="site-header__main">
@@ -35,12 +35,12 @@
                   <ul>
                     {% for key, link in main_menu.items %}
                       <li {% if not link.children %}class="site-header__parent-link-no-subnav-wrap" {% endif %}>
-                        <a {% if not link.children %}class="site-header__parent-link-no-subnav" {% endif %}href="{{ link.url }}" {% if link.newtab %}target="_blank"{% endif %}>{{ link.title }}</a>
+                        <a {% if not link.children %}class="site-header__parent-link-no-subnav" {% endif %}href="{{ link.url|e('esc_url') }}" {% if link.newtab %}target="_blank"{% endif %}>{{ link.title }}</a>
                         {% if link.children|length %}
                           <ul{% if link.children|length > 5 %} class="two-column-dropdown"{% endif %}>
                             {% for child in link.children %}
                               <li>
-                                <a class="link-tertiary" href="{{ child.url }}">{{ child.title }}<span class="arrow"></span></a>
+                                <a class="link-tertiary" href="{{ child.url|e('esc_url') }}">{{ child.title }}<span class="arrow"></span></a>
                               </li>
                             {% endfor %}
                           </ul>
@@ -58,11 +58,11 @@
                   <ul>
                     {% for link in utility_menu.items %}
                       <li>
-                        <a href="{{ link.url }}">{{ link.title }}</a>
+                        <a href="{{ link.url|e('esc_url') }}">{{ link.title }}</a>
                       </li>
                     {% endfor %}
                   </ul>
-                  {% if options.utility_button %}<a class="site-header__utility-button" href="{{ options.utility_button.url }}">{{ options.utility_button.title }}<span></span></a>{% endif %}
+                  {% if options.utility_button %}<a class="site-header__utility-button" href="{{ options.utility_button.url|e('esc_url') }}">{{ options.utility_button.title }}<span></span></a>{% endif %}
                   {% if search_visible == true %}
                   <form class="site-header__search-form-mobile" method="get" action="/">
                     {{ function('get_search_form') }}

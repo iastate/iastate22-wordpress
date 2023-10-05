@@ -38,7 +38,7 @@
                 <ul>
                     {% if resume.url %}
                     <li>
-                        <a class="iastate22-button" href="{{ resume.url }}">Download CV<span class="arrow"></span></a>
+                        <a class="iastate22-button" href="{{ resume.url|e('esc_url') }}">Download CV<span class="arrow"></span></a>
                     </li>
                     {% endif %}
                 </ul>
@@ -65,7 +65,7 @@
                             {% for affiliation in affiliations %}
                                 {% if affiliation.affiliation.url %}
                                 <p>
-                                    <a class="link-set__link iastate22-link-secondary" href="{{ affiliation.affiliation.url }}"{% if affiliation.affiliation.target == "_blank" %} target="_blank"{% endif %}>{{ affiliation.affiliation.title | default(affiliation.affiliation.url) }}<span class="arrow"></span></a>
+                                    <a class="link-set__link iastate22-link-secondary" href="{{ affiliation.affiliation.url|e('esc_url') }}"{% if affiliation.affiliation.target == "_blank" %} target="_blank"{% endif %}>{{ affiliation.affiliation.title | default(affiliation.affiliation.url) }}<span class="arrow"></span></a>
                                 </p>
                                 {% endif %}
                             {% endfor %}
@@ -81,7 +81,7 @@
                 <h2>Selected Publications</h2>
                 <ul>
                     {% for publication in publications %}
-                        <li>{{ publication.publication }}{% if publication.reference %}<a href="{{ publication.reference.url }}"{% if publication.reference.target == "_blank" %} target="_blank"{% endif %}>{{ publication.reference.title }}</a>{% endif %}</li>
+                        <li>{{ publication.publication }}{% if publication.reference %}<a href="{{ publication.reference.url|e('esc_url') }}"{% if publication.reference.target == "_blank" %} target="_blank"{% endif %}>{{ publication.reference.title }}</a>{% endif %}</li>
                     {% endfor %}
                 </ul>
             </div>
@@ -98,8 +98,8 @@
             {% for term in post.terms %}
                     {% if term.taxonomy == tax_a[0].taxonomy %}
                         <li>
-                            <a href="{{ term.link }}">{{ term.name }}</a>
-                        </li>   
+                            <a href="{{ term.link|e('esc_url') }}">{{ term.name }}</a>
+                        </li>
                     {% endif %}
             {% endfor %}
         </ul>
@@ -108,13 +108,13 @@
             {% for term in post.terms %}
                 {% if term.taxonomy == tax_b[0].taxonomy %}
                     <li>
-                        <a href="{{ term.link }}">{{ term.name }}</a>
+                        <a href="{{ term.link|e('esc_url') }}">{{ term.name }}</a>
                     </li>
                 {% endif %}
             {% endfor %}
         </ul>
     </div>
 
-    
+
 </div>
 {% endblock %}

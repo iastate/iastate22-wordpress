@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--call-to-action--small"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--call-to-action--small"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
     <div class="call-to-action call-to-action--small">
         <div class="call-to-action__copy-wrap">
             {% if fields.callout_content.title %}<h2 class="call-to-action__headline">{{ fields.callout_content.title}}</h2>{% endif %}
@@ -11,7 +11,7 @@
                 {% for item in fields.callout_content.callout_ctas %}
                 {% if item.link_url %}
                 <li>
-                    <a class="iastate22-button" href="{{ item.link_url }}"{% if item.external == true %} target="_blank"{% endif %}>{{ item.label }}<span class="arrow"></span></a>
+                    <a class="iastate22-button" href="{{ item.link_url|e('esc_url') }}"{% if item.external == true %} target="_blank"{% endif %}>{{ item.label }}<span class="arrow"></span></a>
                 </li>
                 {% endif %}
                 {% endfor %}

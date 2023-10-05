@@ -1,4 +1,4 @@
-<div class="hero"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
+<div class="hero"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
   <div class="hero__text-wrap">
     {% include ['templates/partial/breadcrumbs.twig'] %}
     <h1 class="hero__title">

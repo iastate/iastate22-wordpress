@@ -23,7 +23,7 @@
                         {% endfor %}
                     </ul>
                 </div>
-                <h2 class="featured-news__large-article__title"><a href="{{ featuredStory.link }}" class="iastate22-link-secondary">{{ featuredStory.post_title }}<span class="arrow"></span></a></h2>
+                <h2 class="featured-news__large-article__title"><a href="{{ featuredStory.link|e('esc_url') }}" class="iastate22-link-secondary">{{ featuredStory.post_title }}<span class="arrow"></span></a></h2>
                 <p class="featured-news__large-article__excerpt">{{ featuredStory.post_excerpt }}</p>
                 <p class="featured-news__date">{{ featuredStory.post_date|date("F d, Y") }}</p>
             </div>
@@ -31,7 +31,7 @@
         <div class="featured-news__small-article">
         {% for card in options.news_page_options.featured_list_stories %}
             {% set story = Post(card) %}
-            <div class="featured-news__small-article__container">    
+            <div class="featured-news__small-article__container">
                 <div class="featured-news__small-article__tags">
                     <ul>
                         {% for term in story.terms %}
@@ -41,7 +41,7 @@
                         {% endfor %}
                     </ul>
                 </div>
-                <h2 class="featured-news__small-article__title"><a href="{{ story.link }}" class="iastate22-link-secondary">{{ story.post_title }}<span class="arrow"></span></a></h2>
+                <h2 class="featured-news__small-article__title"><a href="{{ story.link|e('esc_url') }}" class="iastate22-link-secondary">{{ story.post_title }}<span class="arrow"></span></a></h2>
                 <p class="featured-news__date">{{ story.post_date|date("F d, Y") }}</p>
             </div>
         {% endfor %}

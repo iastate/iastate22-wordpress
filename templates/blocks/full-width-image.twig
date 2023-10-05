@@ -1,7 +1,7 @@
-<div class="paragraph-widget paragraph-widget--full-width-image"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--full-width-image"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
 	<figure class="full-width-image">
 		{% if fields.image.url %}
-			<img src="{{ fields.image.url }}" alt="{{ fields.image.alt }}">
+			<img src="{{ fields.image.url|e('esc_url') }}" alt="{{ fields.image.alt|e('esc_attr') }}">
 		{% endif %}
 		{% if fields.image_caption_toggle == true %}
 			<figcaption class="full-width-image__caption text-content">{{ fields.image_caption }}</figcaption>
