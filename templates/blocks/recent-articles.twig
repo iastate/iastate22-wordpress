@@ -9,20 +9,21 @@
         <ul>
             {% for key, article in recent_articles %}
                 {% if key < post_count %}
-                    {% if Image(article._thumbnail_id) %}
-                        {% set thumbNail = Image(article._thumbnail_id) %}
-                    {% elseif Image(article._hero_image) %}
-                        {% set thumbNail = Image(article._hero_image) %}
-                    {% endif %}
+					{% set maybe_thumbnail = null %}
+					{% if article.use_featured_image_as_hero|boolval %}
+						{% set maybe_thumbnail = article.thumbnail %}
+					{% else %}
+						{% if article.meta('hero_image') %}
+							{% set maybe_thumbnail = Image(article.hero_image) %}
+						{% endif %}
+					{% endif %}
                     <li>
                         <div class="iastate22-card iastate22-card--recent-article clickable">
+							{% if maybe_thumbnail %}
                             <div class="iastate22-card__media">
-                                {% if thumbNail.id != NULL %}
-                                    <img src="{{ thumbNail.src|e('esc_url') }}" alt="{{ thumbNail.alt|e('esc_attr') }}" loading="lazy" width="{{ thumbnail.width|e('esc_attr') }}" height="{{ thumbnail.height|e('esc_attr') }}">
-                                {% else %}
-                                    <img src="{{ site.link }}/wp-content/themes/wordpress-theme/vendor/iastate/frontend-component-library/build/img/News_Default_FeaturedImage.jpg" alt="No Thumbnail Available" loading="lazy" width="600" height="600">
-                                {% endif %}
+								<img src="{{ maybe_thumbnail.src|e('esc_url') }}" alt="{{ maybe_thumbnail.alt|e('esc_attr') }}" loading="lazy" width="{{ maybe_thumbnail.width|e('esc_attr') }}" height="{{ maybe_thumbnail.height|e('esc_attr') }}">
                             </div>
+							{% endif %}
 
                             <div class="iastate22-card__content">
                             <div class="iastate22-card__content-tags">
@@ -48,20 +49,21 @@
             <ul>
             {% if post_count == 3 %}
                 {% for key, article in fields.pick_three %}
-                {% if Image(article._thumbnail_id) %}
-                        {% set thumbNail = Image(article._thumbnail_id) %}
-                    {% elseif Image(article._hero_image) %}
-                        {% set thumbNail = Image(article._hero_image) %}
-                    {% endif %}
+					{% set maybe_thumbnail = null %}
+					{% if article.use_featured_image_as_hero|boolval %}
+						{% set maybe_thumbnail = article.thumbnail %}
+					{% else %}
+						{% if article.meta('hero_image') %}
+							{% set maybe_thumbnail = Image(article.hero_image) %}
+						{% endif %}
+					{% endif %}
                     <li>
                         <div class="iastate22-card iastate22-card--recent-article clickable">
-                            <div class="iastate22-card__media">
-                                {% if thumbNail.id != NULL %}
-                                    <img src="{{ thumbNail.src|e('esc_url') }}" alt="{{ thumbNail.alt|e('esc_attr') }}" loading="lazy" width="{{ thumbnail.width|e('esc_attr') }}" height="{{ thumbnail.height|e('esc_attr') }}">
-                                {% else %}
-                                    <img src="{{ site.link }}/wp-content/themes/wordpress-theme/vendor/iastate/frontend-component-library/build/img/News_Default_FeaturedImage.jpg" alt="No Thumbnail Available" loading="lazy" width="600" height="600">
-                                {% endif %}
-                            </div>
+							{% if maybe_thumbnail %}
+								<div class="iastate22-card__media">
+                                    <img src="{{ maybe_thumbnail.src|e('esc_url') }}" alt="{{ maybe_thumbnail.alt|e('esc_attr') }}" loading="lazy" width="{{ maybe_thumbnail.width|e('esc_attr') }}" height="{{ maybe_thumbnail.height|e('esc_attr') }}">
+                            	</div>
+							{% endif %}
 
                             <div class="iastate22-card__content">
                             <div class="iastate22-card__content-tags">
@@ -83,20 +85,21 @@
                 {% endfor %}
             {% elseif post_count == 6 %}
                 {% for key, article in fields.pick_six %}
-                {% if Image(article._thumbnail_id) %}
-                        {% set thumbNail = Image(article._thumbnail_id) %}
-                    {% elseif Image(article._hero_image) %}
-                        {% set thumbNail = Image(article._hero_image) %}
-                    {% endif %}
+					{% set maybe_thumbnail = null %}
+					{% if article.use_featured_image_as_hero|boolval %}
+						{% set maybe_thumbnail = article.thumbnail %}
+					{% else %}
+						{% if article.meta('hero_image') %}
+							{% set maybe_thumbnail = Image(article.hero_image) %}
+						{% endif %}
+					{% endif %}
                     <li>
                         <div class="iastate22-card iastate22-card--recent-article clickable">
-                            <div class="iastate22-card__media">
-                                {% if thumbNail.id != NULL %}
-                                    <img src="{{ thumbNail.src|e('esc_url') }}" alt="{{ thumbNail.alt|e('esc_attr') }}" loading="lazy" width="{{ thumbnail.width|e('esc_attr') }}" height="{{ thumbnail.height|e('esc_attr') }}">
-                                {% else %}
-                                    <img src="{{ site.link }}/wp-content/themes/wordpress-theme/vendor/iastate/frontend-component-library/build/img/News_Default_FeaturedImage.jpg" alt="No Thumbnail Available" loading="lazy" width="600" height="600">
-                                {% endif %}
-                            </div>
+							{% if maybe_thumbnail %}
+                            	<div class="iastate22-card__media">
+                                    <img src="{{ maybe_thumbnail.src|e('esc_url') }}" alt="{{ maybe_thumbnail.alt|e('esc_attr') }}" loading="lazy" width="{{ maybe_thumbnail.width|e('esc_attr') }}" height="{{ maybe_thumbnail.height|e('esc_attr') }}">
+								</div>
+							{% endif %}
                             <div class="iastate22-card__content">
                             <div class="iastate22-card__content-tags">
                                 <ul class="iastate22-card__content-tags__list">
@@ -117,21 +120,23 @@
                 {% endfor %}
             {% elseif post_count == 9 %}
                 {% for key, article in fields.pick_nine %}
-                {% if Image(article._thumbnail_id) %}
-                        {% set thumbNail = Image(article._thumbnail_id) %}
-                    {% elseif Image(article._hero_image) %}
-                        {% set thumbNail = Image(article._hero_image) %}
-                    {% endif %}
+					{% set maybe_thumbnail = null %}
+					{% if article.use_featured_image_as_hero|boolval %}
+						{% set maybe_thumbnail = article.thumbnail %}
+					{% else %}
+						{% if article.meta('hero_image') %}
+							{% set maybe_thumbnail = Image(article.hero_image) %}
+						{% endif %}
+					{% endif %}
                     <li>
                         <div class="iastate22-card iastate22-card--recent-article clickable">
-                            <div class="iastate22-card__media">
-                                {% if thumbNail.id != NULL %}
-                                    <img src="{{ thumbNail.src|e('esc_url') }}" alt="{{ thumbNail.alt|e('esc_attr') }}" loading="lazy" width="{{ thumbnail.width|e('esc_attr') }}" height="{{ thumbnail.height|e('esc_attr') }}">
-                                {% else %}
-                                    <img src="{{ site.link }}/wp-content/themes/wordpress-theme/vendor/iastate/frontend-component-library/build/img/News_Default_FeaturedImage.jpg" alt="No Thumbnail Available" loading="lazy" width="600" height="600">
-                                {% endif %}
-                            </div>
-                            <div class="iastate22-card__content">
+							{% if maybe_thumbnail %}
+								<div class="iastate22-card__media">
+                                    <img src="{{ maybe_thumbnail.src|e('esc_url') }}" alt="{{ maybe_thumbnail.alt|e('esc_attr') }}" loading="lazy" width="{{ maybe_thumbnail.width|e('esc_attr') }}" height="{{ maybe_thumbnail.height|e('esc_attr') }}">
+                            	</div>
+							{% endif %}
+
+							<div class="iastate22-card__content">
                             <div class="iastate22-card__content-tags">
                                 <ul class="iastate22-card__content-tags__list">
                                     {% for term in Post(article).terms %}
