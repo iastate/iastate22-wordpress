@@ -62,9 +62,6 @@ class StarterSite extends Timber\Site {
 		$defaults = array(
 			'menu'            => 'Main Menu'
 		);
-		$context['foo']   = 'bar';
-		$context['stuff'] = 'I am a value set in your functions.php file';
-		$context['notes'] = 'These values are available everytime you call Timber::context();';
 		if(has_nav_menu('main-menu')) {
 			$context['main_menu']  = new TimberMenu("main-menu");
 		}
@@ -195,22 +192,12 @@ class StarterSite extends Timber\Site {
 		add_theme_support( 'menus' );
 	}
 
-	/** This Would return 'foo bar!'.
-	 *
-	 * @param string $text being 'foo', then returned 'foo bar!'.
-	 */
-	public function myfoo( $text ) {
-		$text .= ' bar!';
-		return $text;
-	}
-
 	/** This is where you can add your own functions to twig.
 	 *
 	 * @param \Twig\Environment $twig get extension.
 	 */
 	public function add_to_twig( $twig ) {
 		$twig->addExtension( new Twig\Extension\StringLoaderExtension() );
-		$twig->addFilter( new Twig\TwigFilter( 'myfoo', array( $this, 'myfoo' ) ) );
 		$twig->addFilter( new Timber\Twig_Filter( 'boolval', 'wp_validate_boolean') );
 
 		$esc_attr = function( \Twig\Environment $env, $string ) {
