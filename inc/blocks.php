@@ -409,6 +409,7 @@ function idf_acf_block_render_landing_hero( $block, $content = '', $is_preview =
         return;
     }
     $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', $context, $block, $content, $is_preview);
 
     Timber::render('templates/blocks/landing-hero.twig', $context);
 }
@@ -441,243 +442,191 @@ function idf_acf_block_render_interior_hero( $block, $content = '', $is_preview 
     $context['rent'] = $rent;
     $context['parent_title'] = $parent_title;
     $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', $context, $block, $content, $is_preview);
 
     Timber::render('templates/blocks/interior-hero.twig', $context);
 }
 
 function idf_acf_block_render_text_content( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
     Timber::render('templates/blocks/text-content.twig', $context);
 }
 
 function idf_acf_block_render_button_set( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
     Timber::render('templates/blocks/button-set.twig', $context);
 }
 
 function idf_acf_block_render_link_set( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
     Timber::render('templates/blocks/link-set.twig', $context);
 }
 
 function idf_acf_block_render_multi_column_content( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
     Timber::render('templates/blocks/multi-column-content.twig', $context);
 }
 
 function idf_acf_block_render_carousel( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
     Timber::render('templates/blocks/carousel.twig', $context);
 }
 
 function idf_acf_block_render_table( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
     Timber::render('templates/blocks/table.twig', $context);
 }
 
 function idf_acf_block_render_accordion( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
     Timber::render('templates/blocks/accordion.twig', $context);
 }
 
 function idf_acf_block_render_full_width_image( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
     Timber::render('templates/blocks/full-width-image.twig', $context);
 }
 
 function idf_acf_block_render_statistic_with_text( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
+
     Timber::render('templates/blocks/statistic-with-text.twig', $context);
 }
 function idf_acf_block_render_callout_with_image( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
     Timber::render('templates/blocks/callout-with-image.twig', $context);
 }
 
 function idf_acf_block_render_callout_set( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
     Timber::render('templates/blocks/callout-set.twig', $context);
 }
 
 function idf_acf_block_render_image_grid_with_text( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
     Timber::render('templates/blocks/image-grid-with-text.twig', $context);
 }
 
 function idf_acf_block_render_video( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
     Timber::render('templates/blocks/video.twig', $context);
 }
 
 function idf_acf_block_render_link_block( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
     Timber::render('templates/blocks/link-block.twig', $context);
 }
 
 function idf_acf_block_render_external_news_story( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
     Timber::render('templates/blocks/external-news-story.twig', $context);
 }
 
 function idf_acf_block_render_blockquote( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
     Timber::render('templates/blocks/blockquote.twig', $context);
 }
 
 function idf_acf_block_render_cards( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
     Timber::render('templates/blocks/cards.twig', $context);
 }
 
 function idf_acf_block_render_feature_with_large_image( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
     Timber::render('templates/blocks/feature-with-large-image.twig', $context);
 }
 
 function idf_acf_block_render_callout_inset( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
     Timber::render('templates/blocks/callout-inset.twig', $context);
 }
 
 function idf_acf_block_render_cta_small( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
     Timber::render('templates/blocks/cta-small.twig', $context);
 }
 
 function idf_acf_block_render_cta_large( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
     Timber::render('templates/blocks/cta-large.twig', $context);
 }
 
 function idf_acf_block_render_directory( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
     Timber::render('templates/blocks/directory.twig', $context);
 }
 
 function idf_acf_block_render_featured_events( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
     Timber::render('templates/blocks/featured-events.twig', $context);
 }
 
 function idf_acf_block_render_upcoming_events( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
     Timber::render('templates/blocks/upcoming-events.twig', $context);
 }
 
 function idf_acf_block_render_featured_event_with_calendar( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
     Timber::render('templates/blocks/featured-event-with-calendar.twig', $context);
 }
 
 function idf_acf_block_render_featured_news( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
     Timber::render('templates/blocks/featured-news.twig', $context);
 }
 
 function idf_acf_block_render_recent_articles( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
-    $context['is_preview'] = $is_preview;
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
+
     $postCount = $context['fields']['news_stories'];
     $context['post_count'] = intval($postCount);
     if ($context['fields']['feed_style']['value'] == "syndicated") {
         $order = $context['fields']['feed_order']['value'];
         $cat = $context['fields']['feed_category'];
         $tag = $context['fields']['feed_tags'];
-		$argh = 'post_type=post&numberposts='.$postCount.'&category='.$cat.'&tag_id='.$tag.'&orderby=date&order='.$order.'';
-		$context['recent_articles'] = Timber::get_posts($argh); // uses wp_query format.
-	}
+        $argh = 'post_type=post&numberposts='.$postCount.'&category='.$cat.'&tag_id='.$tag.'&orderby=date&order='.$order.'';
+        $context['recent_articles'] = Timber::get_posts($argh); // uses wp_query format.
+    }
 
     Timber::render('templates/blocks/recent-articles.twig', $context);
 }
 
 function idf_acf_block_render_news_stories( $block, $content = '', $is_preview = false ) {
+    $context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
+    Timber::render('templates/blocks/news-stories.twig', $context);
+}
+
+function idf_acf_block_initial_context($context, $block, $content, $is_preview ){
     $context = Timber::context();
     $context['block'] = $block;
     $context['fields'] = get_fields();
     $context['is_preview'] = $is_preview;
-    Timber::render('templates/blocks/news-stories.twig', $context);
+    return $context;
 }
+add_filter('idf_acf_block_render_context', 'idf_acf_block_initial_context', 10, 4);
 
+/**
+ * support the old anchor. delete after some time.
+ * @param array $context
+ * @deprecated setting 'deprecated' to remember to remove sometime in the future.
+ */
+function idf_acf_block_support_new_anchor($context){
+    if(!isset($context['fields']) || !isset($context['block'])) {
+        return $context;
+    }
+    if ( !empty($context['block']['anchor']) ) {
+        return $context;
+    }
+    if ( !empty($context['fields']['anchor_target']) ) {
+        _deprecated_argument('idf_acf_block_support_new_anchor', '1.0.87',
+            sprintf('Old anchor is being used [%s]. Use "HTML Anchor" in sidebar instead.', esc_html($context['fields']['anchor_target'])));
+        $context['block']['anchor'] = $context['fields']['anchor_target'];
+    }
+    return $context;
+}
+add_filter('idf_acf_block_render_context', 'idf_acf_block_support_new_anchor', 99, 1);
 
 
 // Block Reset/Whitelist
