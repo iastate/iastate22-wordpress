@@ -3,11 +3,17 @@
   padding: rem(12) rem(60) rem(12) rem(40);
   display: flex;
   align-items: center;
-  max-width: rem(514);
-  position: relative;
-  z-index: 1;
+  max-width: 2000px;
+  width: 100vw;
+  z-index: 11;
+
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
   margin-left: auto;
-  margin-top: rem(-36);
+  margin-top: 0;
+  transition: transform 0.2s ease-in-out;
   @include media-breakpoint-up(sm) {
     padding-left: rem(20);
   }

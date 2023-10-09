@@ -49,15 +49,29 @@ if(get_query_var("post_type") == "profiles") {
         );
     }
 
-    $arr = array(
-        'post_type' => 'profiles',
-        'order' => 'DESC',
-        'orderby' => 'meta_value',
-        'paged' => $paged,
-        's' => $s,
-        'tax_query' => $tax_query,
-        'meta_query' => $meta_query
-    );
+  $arr = array(
+    'post_type' => 'profiles',
+    'order' => 'ASC',
+    'orderby' => array(
+        'last_name_clause' => 'ASC',
+        'first_name_clause' => 'ASC',
+    ),
+    'meta_key' => 'last_name',
+    'paged' => $paged,
+    's' => $s,
+    'tax_query' => $tax_query,
+    'meta_query' => array (
+        'relation' => 'AND',
+        'last_name_clause' => array(
+            'key' => 'last_name',
+            'compare' => 'EXISTS'
+        ),
+         'first_name_clause' => array(
+            'key' => 'first_name',
+            'compare' => 'EXISTS'
+        ),$meta_query
+       )
+);
     $argh = array(
         'post_type' => 'profiles',
         'posts_per_page' => -1,
