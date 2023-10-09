@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--card-set"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--card-set"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
     <div class="card-set">
         <h2 class="card-set__title">{{ fields.title }}</h2>
         <ul>

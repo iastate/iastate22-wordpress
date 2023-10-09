@@ -1,6 +1,6 @@
 {% set id = random(1111,9999) %}
 
-<div class="paragraph-widget paragraph-widget--accordion"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--accordion"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
 	<div class="accordion accordion-flush" id="accordionFlush{{id}}">
 		{% set counter = 0 %}
 		{% for item in fields.accordion %}

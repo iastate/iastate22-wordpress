@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--image-grid-with-text"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--image-grid-with-text"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
     <div class="image-grid-with-text">
     <div class="image-grid-with-text__content text-content">
         {% if fields.image_grid_with_text.grid_content.title %}<h2>{{ fields.image_grid_with_text.grid_content.title|striptags }}</h2>{% endif %}
