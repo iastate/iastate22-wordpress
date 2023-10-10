@@ -42,7 +42,7 @@ include('inc/post-types/events.php');
 include('inc/post-types/profiles.php');
 
 
-// Won't work as an include
+// Won't work as an `include`
 require 'plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	'https://github.com/idfive/Iowa_test',
