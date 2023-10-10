@@ -54,28 +54,28 @@
     </div>
   {% endif %}
     {% if social_networks %}
-    <ul class="personal-profile-info-card__contact-box-social">
-      {% for network in social_networks %}
-        {% if network.link | length %}
-        <li>
-          <a href="{{ network.link|e('esc_url') }}" target="_blank">
-            {% if network.network.network == "Instagram" or network.network.network == "Flickr"  %}
-              <i class="fak fa-iastate22-{{ network.network.network|lower }}" aria-hidden="true"></i>
-            {% elseif network.network.network == "Podcast" %}
-              <i class="fas fa-podcast"></i>
-            {% elseif network.network.network == "Blog" %}
-              <i class="fa-solid fa-blog"></i>
-            {% elseif network.network.network == "Directory" %}
-              <i class="fa-regular fa-folder-open"></i>
-            {% else %}
-              <i class="fa-brands fa-{{ network.network.network|lower }}" aria-hidden="true"></i>
+        <ul class="personal-profile-info-card__contact-box-social">
+          {% for network in social_networks %}
+            {% if network.link | length %}
+            <li>
+              <a href="{{ network.link|e('esc_url') }}" target="_blank">
+                {% if network.network == "Instagram" or network.network == "Flickr"  %}
+                  <i class="fak fa-iastate22-{{ network.network|lower|e('esc_attr') }}" aria-hidden="true"></i>
+                {% elseif network.network == "Podcast" %}
+                  <i class="fas fa-podcast"></i>
+                {% elseif network.network == "Blog" %}
+                  <i class="fa-solid fa-blog"></i>
+                {% elseif network.network == "Directory" %}
+                  <i class="fa-regular fa-folder-open"></i>
+                {% else %}
+                  <i class="fa-brands fa-{{ network.network|lower|e('esc_attr') }}" aria-hidden="true"></i>
+                {% endif %}
+                <span class="visible-for-screen-readers">{{ network.network }}</span>
+              </a>
+            </li>
             {% endif %}
-            <span class="visible-for-screen-readers">{{ network.network.network }}</span>
-          </a>
-        </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-    {% endif %}
+          {% endfor %}
+        </ul>
+      {% endif %}
   </div>
 </div>
