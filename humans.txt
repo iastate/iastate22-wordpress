@@ -7,4 +7,4 @@ https://webdev.its.iastate.edu/
 
 ## Site
 
-Software: Custom wordpress theme for Iowa State University.
+Software: Custom WordPress theme for Iowa State University.

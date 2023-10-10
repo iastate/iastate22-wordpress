@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--table"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--table"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
     <div class="iastate22-table" role="region" aria-labelledby="{{ fields.table_caption.caption_id|e('esc_attr') }}" tabindex="0">
     <table>
         <caption id="{{ fields.table_caption.caption_id|e('esc_attr') }}">{{ fields.table_caption.caption }}</caption>

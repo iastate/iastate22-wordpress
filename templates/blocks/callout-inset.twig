@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--callout-inset"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--callout-inset"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
     <div class="callout-inset">
     <div class="callout-inset_inset">
         <h2 class="callout-inset_inset-headline">{{fields.callout.title}}</h2>

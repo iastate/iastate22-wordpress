@@ -2,7 +2,7 @@
 /**
  * Search results page
  *
- * Methods for TimberHelper can be found in the /lib sub-directory
+ * Methods for TimberHelper can be found in the /lib subdirectory
  *
  * @package  WordPress
  * @subpackage  Timber
@@ -33,7 +33,7 @@ if(get_query_var("post_type") == "profiles") {
     }
 
     if(count($paramArray) > 0) {
-        $tax_query = array( 
+        $tax_query = array(
             'relation' => 'AND',
             $tq
         );
@@ -84,7 +84,7 @@ if(get_query_var("post_type") == "profiles") {
     );
     $context['posts'] = new Timber\PostQuery($arr);
     $context['allposts'] = new Timber\PostQuery($argh);
-    // This works for the search filter, but not the search query or Taxonomies. 
+    // This works for the search filter, but not the search query or Taxonomies.
 } else {
     $context['posts'] = new Timber\PostQuery();
 }

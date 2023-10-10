@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--call-to-action--large"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--call-to-action--large"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
 	<div class="call-to-action call-to-action--large">
 		<div class="call-to-action__media">
 			<img src="{{ fields.callout_image.url|e('esc_url') }}" alt="{{ fields.callout_image.alt|e('esc_attr') }}" width="{{ fields.callout_image.width|e('esc_attr') }}" height="{{ fields.callout_image.height|e('esc_attr') }}"/>
