@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--feature-with-large-image"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--feature-with-large-image"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
     <div class="feature-with-large-image">
     <div class="feature-with-large-image__media">
         <img src="{{ fields.image.url|e('esc_url') }}" alt="{{ fields.image.alt|e('esc_attr') }}" width="{{ fields.image.width|e('esc_attr') }}" height="{{ fields.image.height|e('esc_attr') }}" />

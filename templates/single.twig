@@ -16,7 +16,7 @@
 			{% if post.meta('subhead') %}
 				<h2 class="hero--news-article__subhead">{{ post.meta('subhead') }}</h2>
 			{% endif %}
-			{% if post.meta('_meta_info')  != 'hide_author' %}
+			{% if post.meta('_meta_info') != 'hide_author' or post.show_author %}
 				<div class="hero--news-article__attribution"><p><strong>Author: {{ post.author.name }}</strong> | Image: {{ post.author.name }}</p></div>
 			{% endif %}
 			{% if maybe_thumbnail %}

@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--call-to-action--small"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--call-to-action--small"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
     <div class="call-to-action call-to-action--small">
         <div class="call-to-action__copy-wrap">
             {% if fields.callout_content.title %}<h2 class="call-to-action__headline">{{ fields.callout_content.title}}</h2>{% endif %}

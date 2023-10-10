@@ -9,7 +9,7 @@
 {% elseif fields.ecosystem == "plain" %}
   {% set heroClass = "ecosystem-home-hero ecosystem-home-hero--no-image" %}
 {% endif %}
-<div class="{{ heroClass|e('esc_attr') }}"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
+<div class="{{ heroClass|e('esc_attr') }}"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
   {% if fields.ecosystem == "supporting_image" or fields.ecosystem == "plain" %}
     <div class="ecosystem-home-hero__content">
       <h1 class="ecosystem-home-hero__title">

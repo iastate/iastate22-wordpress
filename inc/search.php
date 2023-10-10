@@ -30,8 +30,7 @@ add_filter( 'rest_event_query', function( $args ) {
  * @return [array] [list of custom fields]
  */
 function list_searcheable_acf(){
-  $list_searcheable_acf = array("title", "sub_title", "excerpt_short", "excerpt_long", "first_name", "last_name", "location");
-  return $list_searcheable_acf;
+	return array("title", "sub_title", "excerpt_short", "excerpt_long", "first_name", "last_name", "location");
 }
 
 
@@ -49,30 +48,30 @@ function advanced_custom_search( $where, $wp_query ) {
 
     global $wpdb;
     $prefix = $wpdb->prefix;
- 
+
     if ( empty( $where ))
         return $where;
- 
+
     // get search expression
     $terms = $wp_query->query_vars[ 's' ];
-    
+
     // explode search expression to get search terms
     $exploded = explode( ' ', $terms );
     if( $exploded === FALSE || count( $exploded ) == 0 )
         $exploded = array( 0 => $terms );
-    
+
     array_walk($exploded,function (&$value){
       $value = esc_sql($value);
     });
-         
-    // reset search in order to rebuilt it as we whish
+
+    // reset search in order to rebuild it as we wish
     $where = '';
-    
-    // get searcheable_acf, a list of advanced custom fields you want to search content in
+
+    // get searchable_acf, a list of advanced custom fields you want to search content in
     $list_searcheable_acf = list_searcheable_acf();
 
     foreach( $exploded as $tag ) :
-        $where .= " 
+        $where .= "
           AND (
             (".$prefix."posts.post_title LIKE '%$tag%')
             OR (".$prefix."posts.post_content LIKE '%$tag%')
@@ -104,7 +103,7 @@ function advanced_custom_search( $where, $wp_query ) {
                 ON ".$prefix."term_relationships.term_taxonomy_id = ".$prefix."term_taxonomy.term_taxonomy_id
               WHERE (
           		taxonomy = 'post_tag'
-            		OR taxonomy = 'category'          		
+            		OR taxonomy = 'category'
             		OR taxonomy = 'myCustomTax'
           		)
               	AND object_id = ".$prefix."posts.ID
@@ -114,5 +113,5 @@ function advanced_custom_search( $where, $wp_query ) {
     endforeach;
     return $where;
 }
- 
+
 add_filter( 'posts_search', 'advanced_custom_search', 500, 2 );
