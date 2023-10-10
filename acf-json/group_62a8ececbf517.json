@@ -571,7 +571,7 @@
                     "label": "Publication",
                     "name": "publication",
                     "aria-label": "",
-                    "type": "wysiwyg",
+                    "type": "textarea",
                     "instructions": "",
                     "required": 1,
                     "conditional_logic": 0,
@@ -581,10 +581,10 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "tabs": "visual",
-                    "toolbar": "basic",
-                    "media_upload": 0,
-                    "delay": 1,
+                    "maxlength": "",
+                    "rows": 2,
+                    "placeholder": "",
+                    "new_lines": "",
                     "parent_repeater": "field_62a8f7fe67086"
                 },
                 {
@@ -625,5 +625,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1696883140
+    "modified": 1696944220
 }
