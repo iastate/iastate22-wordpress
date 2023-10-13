@@ -10,13 +10,17 @@
             {% for key, article in recent_articles %}
                 {% if key < post_count %}
 					{% set maybe_thumbnail = null %}
-					{% if article.use_featured_image_as_hero|boolval %}
-						{% set maybe_thumbnail = article.thumbnail %}
+                    {% if article.thumbnail %}
+                        {% set maybe_thumbnail = article.thumbnail %}
+                    {% else %}   
+					   {% if article.use_featured_image_as_hero|boolval %}
+					       {% set maybe_thumbnail = article.thumbnail %}
 					{% else %}
 						{% if article.meta('hero_image') %}
 							{% set maybe_thumbnail = Image(article.hero_image) %}
 						{% endif %}
 					{% endif %}
+                {% endif %}
                     <li>
                         <div class="iastate22-card iastate22-card--recent-article clickable">
 							{% if maybe_thumbnail %}
