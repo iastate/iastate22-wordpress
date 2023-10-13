@@ -21,7 +21,7 @@
 			{% endif %}
 			{% if maybe_thumbnail %}
 				<div class="hero--news-article__media">
-					<img src="{{ post.thumbnail.src|e('esc_url') }}" alt="{{ post.thumbnail.alt|e('esc_attr') }}">
+					<img src="{{ maybe_thumbnail.src|e('esc_url') }}" alt="{{ maybe_thumbnail.alt|e('esc_attr') }}">
 				</div>
 			{% endif %}
 		</div>
