@@ -1,6 +1,6 @@
 <div class="tease tease-{{post.post_type|e('esc_attr')}} iastate22-card iastate22-card--teaser iastate22-card--teaser-news clickable" id="tease-{{post.ID}}">
 	{% block content %}
-		{% if post.thumbnail.src %}
+		{% if post.thumbnail %}
 			<div class="iastate22-card__media">
 				<img src="{{ post.thumbnail.src|e('esc_url') }}" alt="{{ post.thumbnail.alt|e('esc_attr') }}" />
 			</div>
