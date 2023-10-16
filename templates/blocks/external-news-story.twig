@@ -4,9 +4,11 @@
 			<h2>{{ fields.title }}</h2>
 		{% endif %}
 		<div class="external-news-story__flex-wrap">
+			{% if fields.story.thumbnail %}
 			<div class="external-news-story__media">
 				<img src="{{ fields.story.thumbnail.url|e('esc_url') }}" alt="{{ fields.story.thumbnail.alt|e('esc_attr') }}" width="{{ fields.story.thumbnail.width|e('esc_attr') }}" height="{{ fields.story.thumbnail.height|e('esc_attr') }}"/>
 			</div>
+			{% endif %}
 			<div class="external-news-story__content text-content">
 				{% if fields.story.headline %}
 					<h3>{{ fields.story.headline }}</h3>

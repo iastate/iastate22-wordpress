@@ -1,8 +1,9 @@
 {% set featuredStory = Post(fields.main_featured_story[0]) %}
+{% set maybe_thumbnail = null %}
 {% if featuredStory.thumbnail %}
-    {% set thumbNail = featuredStory.thumbnail %}
+	{% set maybe_thumbnail = featuredStory.thumbnail %}
 {% elseif featuredStory.hero_image %}
-    {% set thumbNail = Image(featuredStory.hero_image) %}
+	{% set maybe_thumbnail = Image(featuredStory.meta('hero_image')) %}
 {% endif %}
 <div class="featured-news"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
     <div class="featured-news-container">
@@ -12,8 +13,8 @@
                     <p>Featured</p>
                 </div>
                 <div class="featured-news__large-article__image-container">
-                    {% if thumbNail %}
-                        <img class="featured-news__large-article__image" src="{{ thumbNail.src|striptags }}" alt="{{ thumbNail.alt|striptags }}">
+                    {% if maybe_thumbnail %}
+                        <img class="featured-news__large-article__image" src="{{ maybe_thumbnail.src|e('esc_url') }}" alt="{{ maybe_thumbnail.alt|e('esc_attr') }}">
                     {% else %}
                         <img class="featured-news__large-article__image bg-placeholder" src="{{ theme.path()~'/img/placeholder.png' }}" alt="No Thumbnail Available">
                     {% endif %}

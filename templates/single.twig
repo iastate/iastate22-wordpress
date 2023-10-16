@@ -1,12 +1,12 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	{% set maybe_thumbnail = null %}
+	{% set hero_image = null %}
 	{% if post.use_featured_image_as_hero|boolval %}
-		{% set maybe_thumbnail = post.thumbnail %}
+		{% set hero_image = post.thumbnail %}
 	{% else %}
 		{% if post.meta('hero_image') %}
-			{% set maybe_thumbnail = Image(post.hero_image) %}
+			{% set hero_image = Image(post.hero_image) %}
 		{% endif %}
 	{% endif %}
 	<div class="outer-pad">
@@ -19,9 +19,9 @@
 			{% if post.meta('_meta_info')  != 'hide_author' %}
 				<div class="hero--news-article__attribution"><p><strong>Author: {{ post.author.name }}</strong> | Image: {{ post.author.name }}</p></div>
 			{% endif %}
-			{% if maybe_thumbnail %}
+			{% if hero_image %}
 				<div class="hero--news-article__media">
-					<img src="{{ post.thumbnail.src|e('esc_url') }}" alt="{{ post.thumbnail.alt|e('esc_attr') }}">
+					<img src="{{ hero_image.src|e('esc_url') }}" alt="{{ hero_image.alt|e('esc_attr') }}">
 				</div>
 			{% endif %}
 		</div>
