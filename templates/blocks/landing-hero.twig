@@ -78,7 +78,7 @@
           {{ title }}
         {% endif %}
       </h1>
-
+     {% if fields.buttons %}
       <div class="iastate22-button-set">
         <ul>
           {% for button in fields.buttons %}
@@ -91,6 +91,7 @@
           {% endfor %}
         </ul>
       </div>
+     {% endif %}
     </div>
   {% endif %}
 </div>
