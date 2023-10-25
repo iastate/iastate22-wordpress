@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--full-width-image"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--full-width-image"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
 	<figure class="full-width-image">
 		{% if fields.image.url %}
 			<img src="{{ fields.image.url|e('esc_url') }}" alt="{{ fields.image.alt|e('esc_attr') }}">

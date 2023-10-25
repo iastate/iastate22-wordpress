@@ -117,9 +117,9 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "block",
+            "layout": "table",
             "pagination": 0,
-            "min": 1,
+            "min": 0,
             "max": 0,
             "collapsed": "",
             "button_label": "Add Title",
@@ -132,7 +132,7 @@
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -180,11 +180,12 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
-            "min": 1,
-            "max": 0,
             "layout": "table",
-            "button_label": "Add Row",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Link",
             "rows_per_page": 20,
             "sub_fields": [
                 {
@@ -194,7 +195,7 @@
                     "aria-label": "",
                     "type": "link",
                     "instructions": "",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -297,10 +298,11 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
-            "min": 1,
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
             "max": 0,
-            "layout": "block",
+            "collapsed": "",
             "button_label": "Add Network",
             "rows_per_page": 20,
             "sub_fields": [
@@ -309,40 +311,22 @@
                     "label": "Network",
                     "name": "network",
                     "aria-label": "",
-                    "type": "group",
+                    "type": "clone",
                     "instructions": "",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
                         "class": "",
                         "id": ""
                     },
-                    "layout": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_62a8f343107c7",
-                            "label": "Network",
-                            "name": "network",
-                            "aria-label": "",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "field_62a3ac557d557"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        }
+                    "clone": [
+                        "field_62a3ac557d557"
                     ],
+                    "display": "seamless",
+                    "layout": "table",
+                    "prefix_label": 0,
+                    "prefix_name": 0,
                     "parent_repeater": "field_62a8f2c7107c5"
                 },
                 {
@@ -352,7 +336,7 @@
                     "aria-label": "",
                     "type": "link",
                     "instructions": "",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -468,7 +452,7 @@
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -476,10 +460,10 @@
                         "id": ""
                     },
                     "default_value": "",
+                    "maxlength": "",
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": "",
                     "parent_repeater": "field_62a8f5d295198"
                 }
             ]
@@ -530,7 +514,7 @@
                     "aria-label": "",
                     "type": "link",
                     "instructions": "",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -574,7 +558,7 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "block",
+            "layout": "row",
             "pagination": 0,
             "min": 0,
             "max": 0,
@@ -589,7 +573,7 @@
                     "aria-label": "",
                     "type": "textarea",
                     "instructions": "",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -641,5 +625,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1671168708
+    "modified": 1696944220
 }

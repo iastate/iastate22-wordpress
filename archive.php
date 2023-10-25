@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * The template for displaying Archive pages.
  *
  * Used to display archive-type pages if nothing more specific matches a query.
@@ -8,7 +8,7 @@
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * Methods for TimberHelper can be found in the /lib sub-directory
+ * Methods for TimberHelper can be found in the /lib subdirectory
  *
  * @package  WordPress
  * @subpackage  Timber

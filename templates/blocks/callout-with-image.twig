@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--callout-with-image"{% if fields.anchor_target|length > 0 %} id="{{ fields.anchor_target|e('esc_attr') }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--callout-with-image"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
 	<div class="callout-with-image">
 		<div class="callout-with-image__media">
 			<img src="{{ fields.callout_with_image.callout_image.url|e('esc_url') }}" alt="{{ fields.callout_with_image.callout_image.title|e('esc_attr') }}" width="622" height="414"/>
