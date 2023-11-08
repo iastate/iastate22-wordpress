@@ -397,10 +397,8 @@ function idf_acf_init() {
 
 
 function idf_acf_block_render_landing_hero( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
+	$context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
 
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
     if ( $is_preview && ! empty( $block['data'] ) ) {
         echo '<img src="'. $block['data']['preview_image_help'] .'" style="width:100%; height:auto;">';
         return;
@@ -408,14 +406,12 @@ function idf_acf_block_render_landing_hero( $block, $content = '', $is_preview =
         echo 'Other condition';
         return;
     }
-    $context['is_preview'] = $is_preview;
-    $context = apply_filters('idf_acf_block_render_context', $context, $block, $content, $is_preview);
 
     Timber::render('templates/blocks/landing-hero.twig', $context);
 }
 
 function idf_acf_block_render_interior_hero( $block, $content = '', $is_preview = false ) {
-    $context = Timber::context();
+	$context = apply_filters('idf_acf_block_render_context', array(), $block, $content, $is_preview);
 
     $timber_post = new Timber\Post();
     $rent = $timber_post->post_parent;
@@ -434,15 +430,12 @@ function idf_acf_block_render_interior_hero( $block, $content = '', $is_preview 
         ));
         array_push($childrens, get_pages($arr));
     }
-    $context['block'] = $block;
-    $context['fields'] = get_fields();
+
     $context['siblings'] = get_pages($arg);
     $context['current'] = $timber_post->ID;
     $context['childrens'] = $childrens;
     $context['rent'] = $rent;
     $context['parent_title'] = $parent_title;
-    $context['is_preview'] = $is_preview;
-    $context = apply_filters('idf_acf_block_render_context', $context, $block, $content, $is_preview);
 
     Timber::render('templates/blocks/interior-hero.twig', $context);
 }
