@@ -83,8 +83,8 @@
             },
             "message": "This shows or hides the post author, in the front end template.",
             "default_value": 1,
-            "ui_on_text": "",
-            "ui_off_text": "",
+            "ui_on_text": "Show",
+            "ui_off_text": "Hide",
             "ui": 1
         },
         {
@@ -126,5 +126,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1696882478
+    "modified": 1699469597
 }

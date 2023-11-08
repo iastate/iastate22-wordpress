@@ -9,6 +9,9 @@
 			{% set hero_image = Image(post.hero_image) %}
 		{% endif %}
 	{% endif %}
+	{% set show_author =
+		post.meta('show_author') is null and post.meta('_meta_info') == 'hide_author' ? false :
+		post.show_author|default(true)|boolval %}
 	<div class="outer-pad">
 		<p class="iastate-article__back-btn"><a href="{{ function('get_post_type_archive_link', 'post' ) }}">All Articles</a></p>
 		<div class="hero--news-article text-content">
@@ -16,7 +19,7 @@
 			{% if post.meta('subhead') %}
 				<h2 class="hero--news-article__subhead">{{ post.meta('subhead') }}</h2>
 			{% endif %}
-			{% if post.meta('_meta_info') != 'hide_author' or post.show_author %}
+			{% if show_author %}
 				<div class="hero--news-article__attribution"><p><strong>Author: {{ post.author.name }}</strong> | Image: {{ post.author.name }}</p></div>
 			{% endif %}
 			{% if hero_image %}
