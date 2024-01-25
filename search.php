@@ -12,6 +12,7 @@
 $templates = array( 'search.twig' );
 $context          = Timber::context();
 $context['title'] = 'Search results for: ' . get_search_query();
+$context['searchtitle'] = $context['title']; // make sure this is only set if going through search.php by using new context var
 $paramArray = array();
 $tq = array();
 foreach($_GET as $key => $value){

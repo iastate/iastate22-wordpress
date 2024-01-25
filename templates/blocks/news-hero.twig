@@ -5,7 +5,11 @@
       {% if post.meta('hero_title') %}
         {{ post.meta('hero_title') }}
       {% else %}
-        {{ wp_title }}
+        {% if searchtitle%}
+          {{ searchtitle }}
+        {% else %}
+          {{ wp_title}}
+        {% endif %}
       {% endif %}
     </h1>
   </div>
