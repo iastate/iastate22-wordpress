@@ -325,6 +325,7 @@ return array(
     'Twig\\Sandbox\\SecurityNotAllowedTagError' => $vendorDir . '/twig/twig/src/Sandbox/SecurityNotAllowedTagError.php',
     'Twig\\Sandbox\\SecurityPolicy' => $vendorDir . '/twig/twig/src/Sandbox/SecurityPolicy.php',
     'Twig\\Sandbox\\SecurityPolicyInterface' => $vendorDir . '/twig/twig/src/Sandbox/SecurityPolicyInterface.php',
+    'Twig\\Sandbox\\SourcePolicyInterface' => $vendorDir . '/twig/twig/src/Sandbox/SourcePolicyInterface.php',
     'Twig\\Source' => $vendorDir . '/twig/twig/src/Source.php',
     'Twig\\Template' => $vendorDir . '/twig/twig/src/Template.php',
     'Twig\\TemplateWrapper' => $vendorDir . '/twig/twig/src/TemplateWrapper.php',

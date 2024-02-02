@@ -3,7 +3,7 @@
         'name' => 'iastate/wordpress-theme',
         'pretty_version' => 'dev-develop',
         'version' => 'dev-develop',
-        'reference' => 'c976d9be13c63deaffbe2067ca8358a41777d88e',
+        'reference' => 'b910dc818ff10587bcf5f49274eee1bf2ad4c52d',
         'type' => 'wordpress-theme',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -31,7 +31,7 @@
         'iastate/frontend-component-library' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'aad95768bd9f0dce4e2658345d51ea1cf036fb56',
+            'reference' => '1a8e0bc3953bbecadc3250edd84c41822ecf45ff',
             'type' => 'library',
             'install_path' => __DIR__ . '/../iastate/frontend-component-library',
             'aliases' => array(
@@ -42,7 +42,7 @@
         'iastate/wordpress-theme' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
-            'reference' => 'c976d9be13c63deaffbe2067ca8358a41777d88e',
+            'reference' => 'b910dc818ff10587bcf5f49274eee1bf2ad4c52d',
             'type' => 'wordpress-theme',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -76,9 +76,9 @@
             'dev_requirement' => false,
         ),
         'timber/timber' => array(
-            'pretty_version' => '1.22.1',
-            'version' => '1.22.1.0',
-            'reference' => '57fc582c42519f1b05fff5fb2ebf4291b5cd638f',
+            'pretty_version' => '1.23.0',
+            'version' => '1.23.0.0',
+            'reference' => 'b988e51e5bc9e9743745b4d3c6eba6e106fae83f',
             'type' => 'library',
             'install_path' => __DIR__ . '/../timber/timber',
             'aliases' => array(),
@@ -94,9 +94,9 @@
             'dev_requirement' => false,
         ),
         'twig/twig' => array(
-            'pretty_version' => 'v2.15.5',
-            'version' => '2.15.5.0',
-            'reference' => 'fc02a6af3eeb97c4bf5650debc76c2eda85ac22e',
+            'pretty_version' => 'v2.16.0',
+            'version' => '2.16.0.0',
+            'reference' => '0c9cc7ef2e0ec6d20c5af1200522a89ba101f623',
             'type' => 'library',
             'install_path' => __DIR__ . '/../twig/twig',
             'aliases' => array(),

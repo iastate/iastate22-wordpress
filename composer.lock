@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f7467d245f6960e1d32ccb101d79942f",
+    "content-hash": "e2204e029a3e23568fb7083f3d43532f",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -217,12 +217,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:iastate/iastate22-frontend.git",
-                "reference": "aad95768bd9f0dce4e2658345d51ea1cf036fb56"
+                "reference": "1a8e0bc3953bbecadc3250edd84c41822ecf45ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/iastate/iastate22-frontend/zipball/aad95768bd9f0dce4e2658345d51ea1cf036fb56",
-                "reference": "aad95768bd9f0dce4e2658345d51ea1cf036fb56",
+                "url": "https://api.github.com/repos/iastate/iastate22-frontend/zipball/1a8e0bc3953bbecadc3250edd84c41822ecf45ff",
+                "reference": "1a8e0bc3953bbecadc3250edd84c41822ecf45ff",
                 "shasum": ""
             },
             "default-branch": true,
@@ -243,7 +243,7 @@
                 }
             ],
             "description": "Frontend component library for Iowa State University.",
-            "time": "2023-10-03T14:41:02+00:00"
+            "time": "2024-01-09T20:59:45+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -488,16 +488,16 @@
         },
         {
             "name": "timber/timber",
-            "version": "1.22.1",
+            "version": "1.23.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/timber/timber.git",
-                "reference": "57fc582c42519f1b05fff5fb2ebf4291b5cd638f"
+                "reference": "b988e51e5bc9e9743745b4d3c6eba6e106fae83f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/timber/timber/zipball/57fc582c42519f1b05fff5fb2ebf4291b5cd638f",
-                "reference": "57fc582c42519f1b05fff5fb2ebf4291b5cd638f",
+                "url": "https://api.github.com/repos/timber/timber/zipball/b988e51e5bc9e9743745b4d3c6eba6e106fae83f",
+                "reference": "b988e51e5bc9e9743745b4d3c6eba6e106fae83f",
                 "shasum": ""
             },
             "require": {
@@ -550,7 +550,13 @@
                 "issues": "https://github.com/timber/timber/issues",
                 "source": "https://github.com/timber/timber"
             },
-            "time": "2022-11-24T03:42:29+00:00"
+            "funding": [
+                {
+                    "url": "https://opencollective.com/timber",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2023-10-20T19:05:07+00:00"
         },
         {
             "name": "twig/cache-extension",
@@ -626,16 +632,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v2.15.5",
+            "version": "v2.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "fc02a6af3eeb97c4bf5650debc76c2eda85ac22e"
+                "reference": "0c9cc7ef2e0ec6d20c5af1200522a89ba101f623"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/fc02a6af3eeb97c4bf5650debc76c2eda85ac22e",
-                "reference": "fc02a6af3eeb97c4bf5650debc76c2eda85ac22e",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/0c9cc7ef2e0ec6d20c5af1200522a89ba101f623",
+                "reference": "0c9cc7ef2e0ec6d20c5af1200522a89ba101f623",
                 "shasum": ""
             },
             "require": {
@@ -646,12 +652,12 @@
             },
             "require-dev": {
                 "psr/container": "^1.0",
-                "symfony/phpunit-bridge": "^4.4.9|^5.0.9|^6.0"
+                "symfony/phpunit-bridge": "^5.4.9|^6.3"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.15-dev"
+                    "dev-master": "2.16-dev"
                 }
             },
             "autoload": {
@@ -690,7 +696,7 @@
             ],
             "support": {
                 "issues": "https://github.com/twigphp/Twig/issues",
-                "source": "https://github.com/twigphp/Twig/tree/v2.15.5"
+                "source": "https://github.com/twigphp/Twig/tree/v2.16.0"
             },
             "funding": [
                 {
@@ -702,7 +708,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-05-03T17:49:41+00:00"
+            "time": "2023-12-22T07:22:15+00:00"
         },
         {
             "name": "upstatement/routes",
@@ -1032,5 +1038,8 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
+    "platform-overrides": {
+        "php": "7.4"
+    },
     "plugin-api-version": "2.6.0"
 }
