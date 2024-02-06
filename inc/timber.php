@@ -1,6 +1,23 @@
 <?php
 
 /**
+ * Initialize Timber.
+ */
+
+use Timber\Menu as TimberMenu;
+use Timber\PostQuery;
+use Timber\Site as TimberSite;
+use Timber\Timber;
+use Twig\Environment;
+use Twig\Extension\StringLoaderExtension;
+
+$composer_autoload = get_template_directory() . '/vendor/autoload.php';
+if ( file_exists( $composer_autoload ) ) {
+	require_once $composer_autoload;
+	$timber = new Timber();
+}
+
+/**
  * This ensures that Timber is loaded and available as a PHP class.
  * If not, it gives an error message to help direct developers on where to activate
  */
