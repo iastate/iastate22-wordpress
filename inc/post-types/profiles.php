@@ -5,7 +5,7 @@ function custom_profiles() {
 	if ( true !== get_field( 'profiles_enabled', 'options' ) ) {
 		return;
 	}
-	
+
 	$labels = array(
 		'name'                  => _x( 'Profiles', 'Personal Profiles General Name' ),
 		'singular_name'         => _x( 'Profile', 'Profile Singular Name' ),
@@ -35,78 +35,79 @@ function custom_profiles() {
 		'items_list_navigation' => __( 'Personal Profile Pages list navigation' ),
 		'filter_items_list'     => __( 'Filter personal profile pages list' ),
 	);
-	$args = array(
-		'label'                 => __( 'Profiles' ),
-		'description'           => __( 'Personal Profile Pages' ),
-		'labels'                => $labels,
-		'supports'      	  => array( 'title', 'page-attributes' ),
-		'hierarchical'          => true,
-		'public'                => true,
-		'show_ui'               => true,
-		'show_in_menu'          => true,
-		'menu_position'         => 5,
-		'show_in_admin_bar'     => true,
-		'show_in_nav_menus'     => true,
-		'can_export'            => true,
-		'has_archive'           => true,
-		'exclude_from_search'   => false,
-		'publicly_queryable'    => true,
-		'capability_type'       => 'page',
+	$args   = array(
+		'label'               => __( 'Profiles' ),
+		'description'         => __( 'Personal Profile Pages' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'page-attributes' ),
+		'hierarchical'        => true,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'menu_position'       => 5,
+		'show_in_admin_bar'   => true,
+		'show_in_nav_menus'   => true,
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'page',
 	);
 	register_post_type( 'profiles', $args );
-	register_taxonomy('department', 'profiles', array(
+	register_taxonomy( 'department', 'profiles', array(
 		// Hierarchical taxonomy (like categories)
 		'hierarchical' => true,
 		'show_in_rest' => true,
 		// This array of options controls the labels displayed in the WordPress Admin UI
-		'labels' => array(
-		  'name' => _x( 'Department or Unit', 'taxonomy general name' ),
-		  'singular_name' => _x( 'Department or Unit', 'taxonomy singular name' ),
-		  'search_items' =>  __( 'Search Departments' ),
-		  'all_items' => __( 'All Departments' ),
-		  'parent_item' => __( 'Parent Department or Unit' ),
-		  'parent_item_colon' => __( 'Parent Department or Unit:' ),
-		  'edit_item' => __( 'Edit Department or Unit' ),
-		  'update_item' => __( 'Update Department or Unit' ),
-		  'add_new_item' => __( 'Add New Department or Unit' ),
-		  'new_item_name' => __( 'New Department or Unit' ),
-		  'menu_name' => __( 'Department or Unit' ),
+		'labels'       => array(
+			'name'              => _x( 'Department or Unit', 'taxonomy general name' ),
+			'singular_name'     => _x( 'Department or Unit', 'taxonomy singular name' ),
+			'search_items'      => __( 'Search Departments' ),
+			'all_items'         => __( 'All Departments' ),
+			'parent_item'       => __( 'Parent Department or Unit' ),
+			'parent_item_colon' => __( 'Parent Department or Unit:' ),
+			'edit_item'         => __( 'Edit Department or Unit' ),
+			'update_item'       => __( 'Update Department or Unit' ),
+			'add_new_item'      => __( 'Add New Department or Unit' ),
+			'new_item_name'     => __( 'New Department or Unit' ),
+			'menu_name'         => __( 'Department or Unit' ),
 		),
 		// Control the slugs used for this taxonomy
-		'rewrite' => array(
-		  'slug' => 'locations', // This controls the base slug that will display before each term
-		  'with_front' => false, // Don't display the category base before "/locations/"
-		  'hierarchical' => true // This will allow URL's like "/locations/boston/cambridge/"
+		'rewrite'      => array(
+			'slug'         => 'locations', // This controls the base slug that will display before each term
+			'with_front'   => false, // Don't display the category base before "/locations/"
+			'hierarchical' => true // This will allow URL's like "/locations/boston/cambridge/"
 		),
-	  ));
+	) );
 
-	register_taxonomy('affiliation', 'profiles', array(
+	register_taxonomy( 'affiliation', 'profiles', array(
 		// Hierarchical taxonomy (like categories)
 		'hierarchical' => true,
 		'show_in_rest' => true,
 		// This array of options controls the labels displayed in the WordPress Admin UI
-		'labels' => array(
-		  'name' => _x( 'Affiliation', 'taxonomy general name' ),
-		  'singular_name' => _x( 'Affiliation', 'taxonomy singular name' ),
-		  'search_items' =>  __( 'Search Affiliations' ),
-		  'all_items' => __( 'All Affiliations' ),
-		  'parent_item' => __( 'Parent Affiliation' ),
-		  'parent_item_colon' => __( 'Parent Affiliation:' ),
-		  'edit_item' => __( 'Edit Affiliation' ),
-		  'update_item' => __( 'Update Affiliation' ),
-		  'add_new_item' => __( 'Add New Affiliation' ),
-		  'new_item_name' => __( 'New Affiliation Name' ),
-		  'menu_name' => __( 'Affiliation' ),
+		'labels'       => array(
+			'name'              => _x( 'Affiliation', 'taxonomy general name' ),
+			'singular_name'     => _x( 'Affiliation', 'taxonomy singular name' ),
+			'search_items'      => __( 'Search Affiliations' ),
+			'all_items'         => __( 'All Affiliations' ),
+			'parent_item'       => __( 'Parent Affiliation' ),
+			'parent_item_colon' => __( 'Parent Affiliation:' ),
+			'edit_item'         => __( 'Edit Affiliation' ),
+			'update_item'       => __( 'Update Affiliation' ),
+			'add_new_item'      => __( 'Add New Affiliation' ),
+			'new_item_name'     => __( 'New Affiliation Name' ),
+			'menu_name'         => __( 'Affiliation' ),
 		),
 		// Control the slugs used for this taxonomy
-		'rewrite' => array(
-		  'slug' => 'division', // This controls the base slug that will display before each term
-		  'with_front' => false, // Don't display the category base before "/locations/"
-		  'hierarchical' => true // This will allow URL's like "/locations/boston/cambridge/"
+		'rewrite'      => array(
+			'slug'         => 'division', // This controls the base slug that will display before each term
+			'with_front'   => false, // Don't display the category base before "/locations/"
+			'hierarchical' => true // This will allow URL's like "/locations/boston/cambridge/"
 		),
-	  ));
+	) );
 
 }
+
 add_action( 'init', 'custom_profiles', 0 );
 
 function acf_custom_post_type_changed_check( $value, $post_id, $field, $original ) {

@@ -6,4 +6,6 @@
  * @subpackage  Timber
  */
 
+use Timber\Timber;
+
 Timber::render( array( 'sidebar.twig' ), $data );

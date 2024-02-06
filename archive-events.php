@@ -14,9 +14,12 @@
  * @since   Timber 0.2
  */
 
+use Timber\PostQuery;
+use Timber\Timber;
+
 $templates = array( 'archive-events.twig', 'index.twig' );
 
-$context = Timber::context();
+$context          = Timber::context();
 $context['title'] = 'Archive';
 if ( is_day() ) {
 	$context['title'] = 'Archive: ' . get_the_date( 'D M Y' );
@@ -34,10 +37,10 @@ if ( is_day() ) {
 	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
 }
 
-$context['tags'] = Timber::get_terms("event_tags");
-$context['posts'] = new Timber\PostQuery();
-$eventsToggle = $context["options"]["events_options"]["enabled"];
-if($eventsToggle === false) {
+$context['tags']  = Timber::get_terms( "event_tags" );
+$context['posts'] = new PostQuery();
+$eventsToggle     = $context["options"]["events_options"]["enabled"];
+if ( $eventsToggle === false ) {
 	Timber::render( '404.twig', $context );
 } else {
 	Timber::render( $templates, $context );

@@ -21,15 +21,15 @@
  * @since    Timber 0.1
  */
 
-$context = Timber::context();
+use Timber\Post;
+use Timber\Timber;
 
-
-$timber_post = new Timber\Post();
-
+$context         = Timber::context();
+$timber_post     = new Post();
 $context['post'] = $timber_post;
 
 if ( post_password_required( $timber_post->ID ) ) {
 	Timber::render( 'single-password.twig', $context );
 } else {
-    Timber::render( array( 'archive-faculty.twig', 'archive.twig' ), $context );
+	Timber::render( array( 'archive-faculty.twig', 'archive.twig' ), $context );
 }

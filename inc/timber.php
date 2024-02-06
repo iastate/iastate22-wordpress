@@ -22,20 +22,20 @@ if ( file_exists( $composer_autoload ) ) {
  * If not, it gives an error message to help direct developers on where to activate
  */
 if ( ! class_exists( 'Timber' ) ) {
-
 	add_action(
 		'admin_notices',
-		function() {
+		function () {
 			echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url( admin_url( 'plugins.php#timber' ) ) . '">' . esc_url( admin_url( 'plugins.php' ) ) . '</a></p></div>';
 		}
 	);
 
 	add_filter(
 		'template_include',
-		function( $template ) {
+		function () {
 			return get_stylesheet_directory() . '/static/no-timber.html';
 		}
 	);
+
 	return;
 }
 
@@ -50,7 +50,7 @@ Timber::$dirname = array( 'templates', 'views' );
  */
 Timber::$autoescape = false;
 
-if( function_exists('acf_add_options_page') ) {
+if ( function_exists( 'acf_add_options_page' ) ) {
 	acf_add_options_page();
 }
 
@@ -58,7 +58,7 @@ if( function_exists('acf_add_options_page') ) {
  * We're going to configure our theme inside a subclass of Timber\Site
  * You can move this to its own file and include here via php's include("MySite.php")
  */
-class StarterSite extends Timber\Site {
+class StarterSite extends TimberSite {
 	/** Add timber support. */
 	public function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
@@ -77,81 +77,83 @@ class StarterSite extends Timber\Site {
 	 */
 	public function add_to_context( $context ) {
 		$defaults = array(
-			'menu'            => 'Main Menu'
+			'menu' => 'Main Menu'
 		);
-		if(has_nav_menu('main-menu')) {
-			$context['main_menu']  = new TimberMenu("main-menu");
+		if ( has_nav_menu( 'main-menu' ) ) {
+			$context['main_menu'] = new TimberMenu( "main-menu" );
 		}
-		if(has_nav_menu('utility-menu')) {
-			$context['utility_menu']  = new TimberMenu("utility-menu");
+		if ( has_nav_menu( 'utility-menu' ) ) {
+			$context['utility_menu'] = new TimberMenu( "utility-menu" );
 		}
-		if(has_nav_menu('social-menu')) {
-			$context['social_menu']  = new TimberMenu("social-menu");
+		if ( has_nav_menu( 'social-menu' ) ) {
+			$context['social_menu'] = new TimberMenu( "social-menu" );
 		}
-		if(has_nav_menu('footer-primary-menu')) {
-			$context['footer_primary_menu']  = new TimberMenu("footer-primary-menu");
+		if ( has_nav_menu( 'footer-primary-menu' ) ) {
+			$context['footer_primary_menu'] = new TimberMenu( "footer-primary-menu" );
 		}
-		if(has_nav_menu('footer-secondary-menu')) {
-			$context['footer_secondary_menu']  = new TimberMenu("footer-secondary-menu");
+		if ( has_nav_menu( 'footer-secondary-menu' ) ) {
+			$context['footer_secondary_menu'] = new TimberMenu( "footer-secondary-menu" );
 		}
-		if(has_nav_menu('footer-utility-menu')) {
-			$context['footer_utility_menu']  = new TimberMenu("footer-utility-menu");
+		if ( has_nav_menu( 'footer-utility-menu' ) ) {
+			$context['footer_utility_menu'] = new TimberMenu( "footer-utility-menu" );
 		}
-		if(has_nav_menu('subnav-side-menu')) {
-			$context['subnav_side_menu']  = new TimberMenu("subnav-side-menu");
+		if ( has_nav_menu( 'subnav-side-menu' ) ) {
+			$context['subnav_side_menu'] = new TimberMenu( "subnav-side-menu" );
 		}
-		$context['options'] = get_fields('options');
-		$context['site']  = $this;
-		$profileTax = get_object_taxonomies(array('post_type' => 'profiles'), 'objects');
-		$profileTerms = array();
-		foreach($profileTax as $item) {
-			$slug = $item->name;
+		$context['options'] = get_fields( 'options' );
+		$context['site']    = $this;
+		$profileTax         = get_object_taxonomies( array( 'post_type' => 'profiles' ), 'objects' );
+		$profileTerms       = array();
+		foreach ( $profileTax as $item ) {
+			$slug  = $item->name;
 			$terms = get_terms( array(
-				'taxonomy' => $item->name,
+				'taxonomy'   => $item->name,
 				'hide_empty' => $slug,
 			) );
-			array_push($profileTerms, $terms);
+			array_push( $profileTerms, $terms );
 		}
-		$context['profile_tax'] = $profileTax;
+		$context['profile_tax']   = $profileTax;
 		$context['profile_terms'] = $profileTerms;
-		$context['post_tax'] = get_object_taxonomies(array('post_type' => 'post'), 'objects');
-		$context['categories'] = Timber::get_terms('categories');
-		$context['tags'] = Timber::get_terms('tags');
-		if (function_exists('bcn_display')) {
-			$context['breadcrumbs'] = bcn_display(true);
+		$context['post_tax']      = get_object_taxonomies( array( 'post_type' => 'post' ), 'objects' );
+		$context['categories']    = Timber::get_terms( 'categories' );
+		$context['tags']          = Timber::get_terms( 'tags' );
+		if ( function_exists( 'bcn_display' ) ) {
+			$context['breadcrumbs'] = bcn_display( true );
 		}
-		$next_four = array(
-			'post_type' => 'events',
-			'meta_key' => 'event_start_date_start_date',
-			'posts_per_page' => -1,
-			'orderby' => 'meta_value',
-			'order' => 'ASC',
-			'meta_query'=> array(
+		$next_four       = array(
+			'post_type'      => 'events',
+			'meta_key'       => 'event_start_date_start_date',
+			'posts_per_page' => - 1,
+			'orderby'        => 'meta_value',
+			'order'          => 'ASC',
+			'meta_query'     => array(
 				array(
-				'key' => 'event_start_date_start_date',
-				'compare' => '>=',
-				'value' => date("Ymd"),
-				'type' => 'DATE'
+					'key'     => 'event_start_date_start_date',
+					'compare' => '>=',
+					'value'   => date( "Ymd" ),
+					'type'    => 'DATE'
 				)
 			)
 		);
 		$upcoming_events = array(
-			'post_type' => 'events',
-			'meta_key' => 'event_start_date_start_date',
-			'posts_per_page' => -1,
-			'orderby' => 'meta_value',
-			'order' => 'ASC',
-			'meta_query'=> array(
+			'post_type'      => 'events',
+			'meta_key'       => 'event_start_date_start_date',
+			'posts_per_page' => - 1,
+			'orderby'        => 'meta_value',
+			'order'          => 'ASC',
+			'meta_query'     => array(
 				array(
-				'key' => 'event_start_date_start_date',
-				'compare' => '>=',
-				'value' => date("Ymd"),
-				'type' => 'DATE'
+					'key'     => 'event_start_date_start_date',
+					'compare' => '>=',
+					'value'   => date( "Ymd" ),
+					'type'    => 'DATE'
 				)
 			)
 		);
-		$context['next_four'] = new Timber\PostQuery($next_four);
-		$context['upcoming_events'] = new Timber\PostQuery($upcoming_events);
+
+		$context['next_four']       = new PostQuery( $next_four );
+		$context['upcoming_events'] = new PostQuery( $upcoming_events );
+
 		return $context;
 	}
 
@@ -211,13 +213,13 @@ class StarterSite extends Timber\Site {
 
 	/** This is where you can add your own functions to twig.
 	 *
-	 * @param \Twig\Environment $twig get extension.
+	 * @param Environment $twig get extension.
 	 */
 	public function add_to_twig( $twig ) {
-		$twig->addExtension( new Twig\Extension\StringLoaderExtension() );
-		$twig->addFilter( new Timber\Twig_Filter( 'boolval', 'wp_validate_boolean') );
+		$twig->addExtension( new StringLoaderExtension() );
+		$twig->addFilter( new \Timber\Twig_Filter( 'boolval', 'wp_validate_boolean' ) );
 
-		$esc_attr = function( \Twig\Environment $env, $string ) {
+		$esc_attr          = function ( Environment $env, $string ) {
 			return esc_attr( $string );
 		};
 		$escaper_extension = class_exists( 'Twig\Extension\EscaperExtension' ) ?
@@ -234,10 +236,12 @@ class StarterSite extends Timber\Site {
 		wp_enqueue_style( 'printcss', get_template_directory_uri() . '/vendor/iastate/frontend-component-library/build/css/print.css', array(), '0.0.1', 'print' );
 		wp_enqueue_style( 'default', get_template_directory_uri() . '/style.css', array(), '' );
 	}
+
 	function load_scripts() {
 		wp_enqueue_script( 'main', get_template_directory_uri() . '/vendor/iastate/frontend-component-library/build/js/index.js', array(), '1.0.0', true );
 		wp_enqueue_script( 'fontawesome', 'https://kit.fontawesome.com/b658fac974.js', array(), '1.0.0', true );
 	}
 
 }
+
 new StarterSite();

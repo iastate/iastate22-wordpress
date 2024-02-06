@@ -11,10 +11,14 @@
 
 global $wp_query;
 
+
+use Timber\PostQuery;
+use Timber\Timber;
+
 $context          = Timber::context();
-$context['posts'] = new Timber\PostQuery();
+$context['posts'] = new PostQuery();
 if ( isset( $wp_query->query_vars['author'] ) ) {
-	$author            = new Timber\User( $wp_query->query_vars['author'] );
+	$author            = new \Timber\User( $wp_query->query_vars['author'] );
 	$context['author'] = $author;
 	$context['title']  = 'Author Archives: ' . $author->name();
 }
