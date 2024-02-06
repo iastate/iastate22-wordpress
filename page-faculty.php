@@ -24,8 +24,8 @@
 use Timber\Post;
 use Timber\Timber;
 
-$context         = Timber::context();
 $timber_post     = new Post();
+$context         = Timber::context();
 $context['post'] = $timber_post;
 
 if ( post_password_required( $timber_post->ID ) ) {

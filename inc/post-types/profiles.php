@@ -29,7 +29,7 @@ function custom_profiles() {
 		'set_featured_image'    => __( 'Set featured image' ),
 		'remove_featured_image' => __( 'Remove featured image' ),
 		'use_featured_image'    => __( 'Use as featured image' ),
-		'insert_into_item'      => __( 'Insert into personal profile page' ),
+		'insert_into_item'      => __( /** @lang text */ 'Insert into personal profile page' ),
 		'uploaded_to_this_item' => __( 'Uploaded to this personal profile page' ),
 		'items_list'            => __( 'Personal Profile Pages list' ),
 		'items_list_navigation' => __( 'Personal Profile Pages list navigation' ),

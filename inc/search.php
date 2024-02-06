@@ -12,6 +12,7 @@ add_filter( 'rest_event_query', function ( $args ) {
 
 	$ignore = array( 'page', 'per_page', 'search', 'order', 'orderby', 'slug' );
 
+
 	foreach ( $_GET as $key => $value ) {
 		if ( ! in_array( $key, $ignore ) ) {
 			$args['meta_query'][] = array(

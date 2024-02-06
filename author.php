@@ -17,6 +17,7 @@ use Timber\Timber;
 
 $context          = Timber::context();
 $context['posts'] = new PostQuery();
+
 if ( isset( $wp_query->query_vars['author'] ) ) {
 	$author            = new \Timber\User( $wp_query->query_vars['author'] );
 	$context['author'] = $author;

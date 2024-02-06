@@ -75,7 +75,7 @@ class StarterSite extends TimberSite {
 	 *
 	 * @param string $context context['this'] Being the Twig's {{ this }}.
 	 */
-	public function add_to_context( $context ) {
+	public function add_to_context( array $context ) {
 		$defaults = array(
 			'menu' => 'Main Menu'
 		);
@@ -214,7 +214,9 @@ class StarterSite extends TimberSite {
 	/** This is where you can add your own functions to twig.
 	 *
 	 * @param Environment $twig get extension.
-	 */
+	 *
+	 * @throws \Twig\Error\RuntimeError
+*/
 	public function add_to_twig( $twig ) {
 		$twig->addExtension( new StringLoaderExtension() );
 		$twig->addFilter( new \Timber\Twig_Filter( 'boolval', 'wp_validate_boolean' ) );

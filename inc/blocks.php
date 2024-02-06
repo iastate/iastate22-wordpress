@@ -21,16 +21,6 @@ function idf_plugin_block_categories( $categories ) {
 add_action( 'block_categories_all', 'idf_plugin_block_categories', 10, 2 );
 
 function idf_acf_init() {
-	// if(! function_exists(" acf_register_block_type" )) {
-	//     return;
-	// }
-
-	if ( is_plugin_active( 'isu-profile-cpt/isu-profile-cpt.php' ) ) {
-		$activated_profile_plugin = true;
-	} else {
-		$activated_profile_plugin = false;
-	}
-
 	$gtb_preview_image_path = get_template_directory_uri() . "/gtb-preview-images";
 
 	acf_register_block_type( array(

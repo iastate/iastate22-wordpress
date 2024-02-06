@@ -17,10 +17,12 @@
 use Timber\PostQuery;
 use Timber\Timber;
 
-$templates = array( 'archive-events.twig', 'index.twig' );
-
+$templates        = array( 'archive-events.twig', 'index.twig' );
 $context          = Timber::context();
+$context['tags']  = Timber::get_terms( "event_tags" );
+$context['posts'] = new PostQuery();
 $context['title'] = 'Archive';
+
 if ( is_day() ) {
 	$context['title'] = 'Archive: ' . get_the_date( 'D M Y' );
 } elseif ( is_month() ) {
@@ -37,9 +39,7 @@ if ( is_day() ) {
 	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
 }
 
-$context['tags']  = Timber::get_terms( "event_tags" );
-$context['posts'] = new PostQuery();
-$eventsToggle     = $context["options"]["events_options"]["enabled"];
+$eventsToggle = $context["options"]["events_options"]["enabled"];
 if ( $eventsToggle === false ) {
 	Timber::render( '404.twig', $context );
 } else {

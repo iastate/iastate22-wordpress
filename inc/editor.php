@@ -8,7 +8,6 @@ function _gutenberg_css() {
 }
 
 //add_action('enqueue_block_editor_assets', '_gutenberg_js');
-
 //function _gutenberg_js() {
 //    wp_register_script('editor-js', get_stylesheet_directory_uri() . '/vendor/iastate/frontend-component-library/build/js/editor.js', array(), '', true);
 //    wp_enqueue_script('editor-js');

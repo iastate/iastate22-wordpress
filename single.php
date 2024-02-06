@@ -11,10 +11,12 @@
 
 use Timber\Timber;
 
-$context = Timber::context();
-$timber_post = Timber::query_post();
 global $post, $page, $pages, $multipage;
+
+$timber_post     = Timber::query_post();
+$context         = Timber::context();
 $context['post'] = $timber_post;
+
 if ( $multipage ) {
 	$context['post']->post_content = $pages[ $page - 1 ];
 }

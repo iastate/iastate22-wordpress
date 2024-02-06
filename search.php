@@ -9,6 +9,7 @@
  * @since   Timber 0.1
  */
 
+use Timber\PostQuery;
 use Timber\Timber;
 
 $templates        = array( 'search.twig' );
@@ -16,6 +17,7 @@ $context          = Timber::context();
 $context['title'] = 'Search results for: ' . get_search_query();
 $paramArray       = array();
 $tq               = array();
+
 foreach ( $_GET as $key => $value ) {
 	if ( $key !== "post_type" && $key !== "search_letter" && $key !== "s" && strlen( $value ) ) {
 		array_push( $paramArray, [ $key, $value ] );
@@ -85,10 +87,10 @@ if ( get_query_var( "post_type" ) == "profiles" ) {
 		'tax_query'      => $tax_query,
 		'meta_query'     => $meta_query
 	);
-	$context['posts']    = new Timber\PostQuery( $arr );
-	$context['allposts'] = new Timber\PostQuery( $argh );
+	$context['posts']    = new PostQuery( $arr );
+	$context['allposts'] = new PostQuery( $argh );
 	// This works for the search filter, but not the search query or Taxonomies.
 } else {
-	$context['posts'] = new Timber\PostQuery();
+	$context['posts'] = new PostQuery();
 }
 Timber::render( $templates, $context );

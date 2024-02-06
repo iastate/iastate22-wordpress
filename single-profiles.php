@@ -11,8 +11,8 @@
 
 use Timber\Timber;
 
-$context         = Timber::context();
 $timber_post     = Timber::query_post();
+$context         = Timber::context();
 $context['post'] = $timber_post;
 $profileToggle   = $context["options"]["profiles_enabled"];
 
