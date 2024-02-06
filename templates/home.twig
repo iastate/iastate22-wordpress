@@ -1,23 +1,23 @@
-{# This file demonstrates using most of the index.twig template and modifying 
+{# This file demonstrates using most of the index.twig template and modifying
    just a small part. See `search.twig` for an example of another approach #}
 
 {% extends "base.twig" %}
 
 {% block content %}
-<div class="outer-pad">
-    {% include ['blocks/news-hero.twig'] %}
-    {% if posts.pagination.current == 1 and function('get_query_var', 'post_type') != 'post' %}
-        {{ post.content }}
-        {# {% if options.news_page_options.feature_type == "cards" %}
+	<div class="outer-pad">
+		{% include ['blocks/news-hero.twig'] %}
+		{% if posts.pagination.current == 1 and function('get_query_var', 'post_type') != 'post' %}
+			{{ post.content }}
+			{# {% if options.news_page_options.feature_type == "cards" %}
             {% include ['templates/partial/featured-news--cards.twig'] %}
         {% elseif options.news_page_options.feature_type == "list" %}
             {% include ['templates/partial/featured-news--list.twig'] %}
         {% endif %}
         {% include ['templates/partial/recent-articles.twig'] with recent_articles %}
         {% include ['templates/partial/news-items.twig'] %} #}
-    {% endif %}
-    {% include ['templates/partial/news-filter.twig'] %}
-    {% include ['templates/loops/loop-posts.twig'] %}
-    {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
-</div>
+		{% endif %}
+		{% include ['templates/partial/news-filter.twig'] %}
+		{% include ['templates/loops/loop-posts.twig'] %}
+		{% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+	</div>
 {% endblock %}

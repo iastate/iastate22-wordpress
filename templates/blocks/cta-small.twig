@@ -1,21 +1,25 @@
-<div class="paragraph-widget paragraph-widget--call-to-action--small"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
-    <div class="call-to-action call-to-action--small">
-        <div class="call-to-action__copy-wrap">
-            {% if fields.callout_content.title %}<h2 class="call-to-action__headline">{{ fields.callout_content.title}}</h2>{% endif %}
-            {% if fields.callout_content.content %}
-            <div>{{ fields.callout_content.content }}</div>
-            {% endif %}
-        </div>
-        <div class="iastate22-button-set">
-            <ul>
-                {% for item in fields.callout_content.callout_ctas %}
-                {% if item.link_url %}
-                <li>
-                    <a class="iastate22-button" href="{{ item.link_url|e('esc_url') }}"{% if item.external == true %} target="_blank"{% endif %}>{{ item.label }}<span class="arrow"></span></a>
-                </li>
-                {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
+<div
+	class="paragraph-widget paragraph-widget--call-to-action--small"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+	<div class="call-to-action call-to-action--small">
+		<div class="call-to-action__copy-wrap">
+			{% if fields.callout_content.title %}<h2
+				class="call-to-action__headline">{{ fields.callout_content.title }}</h2>{% endif %}
+			{% if fields.callout_content.content %}
+				<div>{{ fields.callout_content.content }}</div>
+			{% endif %}
+		</div>
+		<div class="iastate22-button-set">
+			<ul>
+				{% for item in fields.callout_content.callout_ctas %}
+					{% if item.link_url %}
+						<li>
+							<a class="iastate22-button"
+							   href="{{ item.link_url|e('esc_url') }}"{% if item.external == true %} target="_blank"{% endif %}>{{ item.label }}
+								<span class="arrow"></span></a>
+						</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
 </div>

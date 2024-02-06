@@ -2,17 +2,17 @@
 {% extends "base.twig" %}
 
 {% block content %}
-  {# see `base.twig:27` for where this block's content will be inserted #}
-    
-  <div class="outer-pad">
-    {% if function('get_query_var', 'post_type') == 'profiles' %}
-      {% include ['blocks/directory-hero.twig'] with { reset: true } %}
-      {% include ['partial/profile-search.twig'] %}
-    {% else %}
-    {% include ['blocks/news-hero.twig'] %}
-    {% include ['templates/partial/news-filter.twig'] with { reset: true } %}
-    {% include ['templates/loops/loop-posts.twig'] %}
-    {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
-    {% endif %}
-  </div>
+	{# see `base.twig:27` for where this block's content will be inserted #}
+
+	<div class="outer-pad">
+		{% if function('get_query_var', 'post_type') == 'profiles' %}
+			{% include ['blocks/directory-hero.twig'] with { reset: true } %}
+			{% include ['partial/profile-search.twig'] %}
+		{% else %}
+			{% include ['blocks/news-hero.twig'] %}
+			{% include ['templates/partial/news-filter.twig'] with { reset: true } %}
+			{% include ['templates/loops/loop-posts.twig'] %}
+			{% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+		{% endif %}
+	</div>
 {% endblock %}

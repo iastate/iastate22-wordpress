@@ -1,67 +1,87 @@
 {% if posts|length %}
-<div class="paragraph-widget paragraph-widget--faculty-staff-card-set">
-    <div class="faculty-staff-card-set">
-    {% for post in posts %}
-        {% set firstName = post.meta('first_name') %}
-        {% set lastName = post.meta('last_name') %}
-        {% set photo = post.meta('photo') %}
-        {% set titles = post.meta('titles') %}
-        {% set profileLinks = post.meta('profile_links') %}
-        {% set email = post.meta('email') %}
-        {% set phone = post.meta('phone') %}
-        {% set address = post.meta('address') %}
-        {% set social_networks = post.meta('social_networks') %}
-        {% set biography = post.meta('bio') %}
-        {% set resume = post.meta('resume') %}
-        {% set degrees = post.meta('degrees') %}
-        {% set affiliations = post.meta('affiliations') %}
-        {% set publications = post.meta('publication') %}
-        {% if biography|length > 96 %}
-            {% set biography = biography|truncate(96) ~ ' ... ' %}
-        {% endif %}
+	<div class="paragraph-widget paragraph-widget--faculty-staff-card-set">
+		<div class="faculty-staff-card-set">
+			{% for post in posts %}
+				{% set firstName = post.meta('first_name') %}
+				{% set lastName = post.meta('last_name') %}
+				{% set photo = post.meta('photo') %}
+				{% set titles = post.meta('titles') %}
+				{% set profileLinks = post.meta('profile_links') %}
+				{% set email = post.meta('email') %}
+				{% set phone = post.meta('phone') %}
+				{% set address = post.meta('address') %}
+				{% set social_networks = post.meta('social_networks') %}
+				{% set biography = post.meta('bio') %}
+				{% set resume = post.meta('resume') %}
+				{% set degrees = post.meta('degrees') %}
+				{% set affiliations = post.meta('affiliations') %}
+				{% set publications = post.meta('publication') %}
+				{% if biography|length > 96 %}
+					{% set biography = biography|truncate(96) ~ ' ... ' %}
+				{% endif %}
 
-        <div>
-            <div class="faculty-staff-card">
-                <div class="faculty-staff-card__media">
-                    {% if Image(post._thumbnail_id) %}
-                        {% set thumb = Image(post._thumbnail_id) %}
-                    {% endif %}
-                    {% if Image(post._thumbnail_id).src %}
-                        <div class="faculty-staff-card__media-container">
-                            <img class="faculty-staff-card__media-image" src="{{ thumb.src|e('esc_url') }}" alt="{{ thumb.alt|e('esc_attr') }}" loading="lazy">
-                        </div>
-                    {% elseif photo != null %}
-                        <div class="faculty-staff-card__media-container">
-                            <img class="faculty-staff-card__media-image" src="{{ photo.url|e('esc_url') }}" alt="{{ photo.alt|e('esc_attr') }}" loading="lazy">
-                        </div>
-                    {% endif %}
-                </div>
-                <div class="faculty-staff-card__content">
-                <h3 class="faculty-staff-card__content-name">{{ firstName }} {{ lastName }}</h3>
-                {% if titles|length > 0 %}
-                    <div class="faculty-staff-feed-item__content-body">
-                    {% for i, title in titles %}
-                        {{ title.title }}{% if i < titles|length - 1 %},<br> {% endif %}
-                    {% endfor %}
-                    </div>
-                {% endif %}
-                    <p>
-                        <a href="{{ post.link|e('esc_url') }}" class="iastate22-link-secondary">About <span class="arrow"></span></a>
-                    </p>
-                    <ul class="faculty-staff-card__content-contact">
-                    {% if email|length > 0 %}
-                        <li>
-                            <div class="faculty-staff-card__content-icon"><a href="mailto:{{ email }}"><svg alt="email" class="svg-inline--fa fa-iastate22-email" aria-hidden="true" focusable="false" data-prefix="fak" data-icon="iastate22-email" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="" style="width: 1em;"><path fill="currentColor" d="M251.5 35.3A214.9 214.9 0 1 0 404.3 98.7 216.5 216.5 0 0 0 251.5 35.3m0-35.3A251.7 251.7 0 1 1 0 252v-.2A251.6 251.6 0 0 1 251.5 0zm-4.3 268.5a13.2 13.2 0 0 1 -8.8-3.3l-92.1-81.5a13.3 13.3 0 0 1 17.7-19.8l83.3 73.7 83.3-73.7a13.2 13.2 0 1 1 17.9 19.4l-.4 .3-92.1 81.6a13.3 13.3 0 0 1 -8.8 3.3m40.6 39a13.3 13.3 0 0 1 9.4-22.6h84.2a13.2 13.2 0 1 1 0 26.5h-84.2a13.3 13.3 0 0 1 -9.4-3.9m51.5 32.8a13.2 13.2 0 0 1 0-18.7l23.4-23.4-23.4-23.4a13.2 13.2 0 0 1 18.7-18.7l32.8 32.8a13.2 13.2 0 0 1 0 18.7L358 340.3a13.2 13.2 0 0 1 -18.7 0M306 353.5H172.3A41.4 41.4 0 0 1 131.2 312V191.5a41.4 41.4 0 0 1 41.1-41.6h146.2a41.4 41.4 0 0 1 41.1 41.6v33.7a13.2 13.2 0 0 1 -26.5 0v-33.7a14.9 14.9 0 0 0 -14.6-15.1H172.3a14.9 14.9 0 0 0 -14.6 15.1V312a14.9 14.9 0 0 0 14.6 15.1H306a13.2 13.2 0 0 1 0 26.5"></path></svg><!-- <i class="fak fa-iastate22-email" ></i> --></a></div>
-                            <div class="faculty-staff-card__contact-field"><a href="mailto:{{ email }}">{{ email }}</a></div>
-                        </li>
-                    {% endif %}
-                    {% if phone|length > 0 %}
-                        <li>
-                            <div class="faculty-staff-card__content-icon"><svg alt="phone" class="svg-inline--fa fa-iastate22-phone" aria-hidden="true" focusable="false" data-prefix="fak" data-icon="iastate22-phone" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="" style="width: 1em;"><path fill="currentColor" d="M251.5 0A251.6 251.6 0 0 0 0 251.7v.2A251.7 251.7 0 1 0 251.5 0m153 401.4a214.8 214.8 0 1 1 -.2-302.7 216.3 216.3 0 0 1 .2 302.7M291.7 272.1a13.2 13.2 0 0 0 -16.7 1.7l-20.8 20.8a134.2 134.2 0 0 1 -29.2-21 102.7 102.7 0 0 1 -21-28.5l21.2-21.2a13.2 13.2 0 0 0 1.7-16.7l-27.4-41.1a13.2 13.2 0 0 0 -11-5.9H151a30.7 30.7 0 0 0 -30.7 30.7 188 188 0 0 0 187.8 187.8 30.7 30.7 0 0 0 30.7-30.7v-37.4a13.2 13.2 0 0 0 -5.9-11zm20.6 75.9a4.2 4.2 0 0 1 -4.2 4.2 161.5 161.5 0 0 1 -161.3-161.4 4.2 4.2 0 0 1 4.2-4.2h30.3l17.5 26.2-14 14a25 25 0 0 0 -5.3 28.2 129.3 129.3 0 0 0 27 37.5 160.1 160.1 0 0 0 36.4 26 24.9 24.9 0 0 0 11.3 2.7 25.8 25.8 0 0 0 18.1-7.6L286 300.1l26.2 17.5zm25.5-179.7a13 13 0 0 1 1 5.3v46.2a13.2 13.2 0 0 1 -26.5 0v-14.3l-37 37a13.2 13.2 0 0 1 -18.7-18.7l37.1-37.1h-14.4a13.2 13.2 0 1 1 0-26.5h46.3a12.8 12.8 0 0 1 2.2 .4 14.4 14.4 0 0 1 2.9 .6 13.3 13.3 0 0 1 4.3 2.9 11.7 11.7 0 0 1 .9 1.4 12.8 12.8 0 0 1 1.9 2.9"></path></svg><!-- <i class="fak fa-iastate22-phone"></i> --></div>
-                            <div class="faculty-staff-card__contact-field">{{ phone }}</div>
-                        </li>
-                    {% endif %}
-                        {# <li>
+				<div>
+					<div class="faculty-staff-card">
+						<div class="faculty-staff-card__media">
+							{% if Image(post._thumbnail_id) %}
+								{% set thumb = Image(post._thumbnail_id) %}
+							{% endif %}
+							{% if Image(post._thumbnail_id).src %}
+								<div class="faculty-staff-card__media-container">
+									<img class="faculty-staff-card__media-image" src="{{ thumb.src|e('esc_url') }}"
+										 alt="{{ thumb.alt|e('esc_attr') }}" loading="lazy">
+								</div>
+							{% elseif photo != null %}
+								<div class="faculty-staff-card__media-container">
+									<img class="faculty-staff-card__media-image" src="{{ photo.url|e('esc_url') }}"
+										 alt="{{ photo.alt|e('esc_attr') }}" loading="lazy">
+								</div>
+							{% endif %}
+						</div>
+						<div class="faculty-staff-card__content">
+							<h3 class="faculty-staff-card__content-name">{{ firstName }} {{ lastName }}</h3>
+							{% if titles|length > 0 %}
+								<div class="faculty-staff-feed-item__content-body">
+									{% for i, title in titles %}
+										{{ title.title }}{% if i < titles|length - 1 %},<br> {% endif %}
+									{% endfor %}
+								</div>
+							{% endif %}
+							<p>
+								<a href="{{ post.link|e('esc_url') }}" class="iastate22-link-secondary">About <span
+										class="arrow"></span></a>
+							</p>
+							<ul class="faculty-staff-card__content-contact">
+								{% if email|length > 0 %}
+									<li>
+										<div class="faculty-staff-card__content-icon"><a href="mailto:{{ email }}">
+												<svg alt="email" class="svg-inline--fa fa-iastate22-email"
+													 aria-hidden="true" focusable="false" data-prefix="fak"
+													 data-icon="iastate22-email" role="img"
+													 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+													 data-fa-i2svg="" style="width: 1em;">
+													<path fill="currentColor"
+														  d="M251.5 35.3A214.9 214.9 0 1 0 404.3 98.7 216.5 216.5 0 0 0 251.5 35.3m0-35.3A251.7 251.7 0 1 1 0 252v-.2A251.6 251.6 0 0 1 251.5 0zm-4.3 268.5a13.2 13.2 0 0 1 -8.8-3.3l-92.1-81.5a13.3 13.3 0 0 1 17.7-19.8l83.3 73.7 83.3-73.7a13.2 13.2 0 1 1 17.9 19.4l-.4 .3-92.1 81.6a13.3 13.3 0 0 1 -8.8 3.3m40.6 39a13.3 13.3 0 0 1 9.4-22.6h84.2a13.2 13.2 0 1 1 0 26.5h-84.2a13.3 13.3 0 0 1 -9.4-3.9m51.5 32.8a13.2 13.2 0 0 1 0-18.7l23.4-23.4-23.4-23.4a13.2 13.2 0 0 1 18.7-18.7l32.8 32.8a13.2 13.2 0 0 1 0 18.7L358 340.3a13.2 13.2 0 0 1 -18.7 0M306 353.5H172.3A41.4 41.4 0 0 1 131.2 312V191.5a41.4 41.4 0 0 1 41.1-41.6h146.2a41.4 41.4 0 0 1 41.1 41.6v33.7a13.2 13.2 0 0 1 -26.5 0v-33.7a14.9 14.9 0 0 0 -14.6-15.1H172.3a14.9 14.9 0 0 0 -14.6 15.1V312a14.9 14.9 0 0 0 14.6 15.1H306a13.2 13.2 0 0 1 0 26.5"></path>
+												</svg><!-- <i class="fak fa-iastate22-email" ></i> --></a></div>
+										<div class="faculty-staff-card__contact-field"><a
+												href="mailto:{{ email }}">{{ email }}</a></div>
+									</li>
+								{% endif %}
+								{% if phone|length > 0 %}
+									<li>
+										<div class="faculty-staff-card__content-icon">
+											<svg alt="phone" class="svg-inline--fa fa-iastate22-phone"
+												 aria-hidden="true" focusable="false" data-prefix="fak"
+												 data-icon="iastate22-phone" role="img"
+												 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+												 data-fa-i2svg="" style="width: 1em;">
+												<path fill="currentColor"
+													  d="M251.5 0A251.6 251.6 0 0 0 0 251.7v.2A251.7 251.7 0 1 0 251.5 0m153 401.4a214.8 214.8 0 1 1 -.2-302.7 216.3 216.3 0 0 1 .2 302.7M291.7 272.1a13.2 13.2 0 0 0 -16.7 1.7l-20.8 20.8a134.2 134.2 0 0 1 -29.2-21 102.7 102.7 0 0 1 -21-28.5l21.2-21.2a13.2 13.2 0 0 0 1.7-16.7l-27.4-41.1a13.2 13.2 0 0 0 -11-5.9H151a30.7 30.7 0 0 0 -30.7 30.7 188 188 0 0 0 187.8 187.8 30.7 30.7 0 0 0 30.7-30.7v-37.4a13.2 13.2 0 0 0 -5.9-11zm20.6 75.9a4.2 4.2 0 0 1 -4.2 4.2 161.5 161.5 0 0 1 -161.3-161.4 4.2 4.2 0 0 1 4.2-4.2h30.3l17.5 26.2-14 14a25 25 0 0 0 -5.3 28.2 129.3 129.3 0 0 0 27 37.5 160.1 160.1 0 0 0 36.4 26 24.9 24.9 0 0 0 11.3 2.7 25.8 25.8 0 0 0 18.1-7.6L286 300.1l26.2 17.5zm25.5-179.7a13 13 0 0 1 1 5.3v46.2a13.2 13.2 0 0 1 -26.5 0v-14.3l-37 37a13.2 13.2 0 0 1 -18.7-18.7l37.1-37.1h-14.4a13.2 13.2 0 1 1 0-26.5h46.3a12.8 12.8 0 0 1 2.2 .4 14.4 14.4 0 0 1 2.9 .6 13.3 13.3 0 0 1 4.3 2.9 11.7 11.7 0 0 1 .9 1.4 12.8 12.8 0 0 1 1.9 2.9"></path>
+											</svg><!-- <i class="fak fa-iastate22-phone"></i> --></div>
+										<div class="faculty-staff-card__contact-field">{{ phone }}</div>
+									</li>
+								{% endif %}
+								{# <li>
                             <div class="faculty-staff-card__content-key"><strong>Name:</strong></div>
                             <div class="faculty-staff-card__contact-value">Lorem ipsum</div>
                         </li>
@@ -77,12 +97,12 @@
                             <div class="faculty-staff-card__content-key"><strong>Name4:</strong></div>
                             <div class="faculty-staff-card__contact-value">Lorem ipsum</div>
                         </li> #}
-                        {# Degrees, Affiliations, Publications and Resume are presumed, but this area isn't well defined. #}
-                    </ul>
-            </div>
-            </div>
-        </div>
-    {% endfor %}
-    </div>
-</div>
+								{# Degrees, Affiliations, Publications and Resume are presumed, but this area isn't well defined. #}
+							</ul>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
 {% endif %}

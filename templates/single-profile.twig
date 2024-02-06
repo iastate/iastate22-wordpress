@@ -1,124 +1,132 @@
 {% extends "base.twig" %}
 
 {% block content %}
-    <script>
-    document.body.classList.add("faculty-bio");
-    </script>
-    {% set firstName = post.meta('first_name') %}
-    {% set lastName = post.meta('last_name') %}
-    {% set photo = post.meta('photo') %}
-    {% set titles = post.meta('titles') %}
-    {% set profileLinks = post.meta('profile_links') %}
-    {% set email = post.meta('email') %}
-    {% set phone = post.meta('phone') %}
-    {% set address = post.meta('address') %}
-    {% set social_networks = post.meta('social_networks') %}
-    {% set biography = post.meta('bio') %}
-    {% set resume = post.meta('resume') %}
-    {% set degrees = post.meta('degrees') %}
-    {% set affiliations = post.meta('affiliations') %}
-    {% set publications = post.meta('publication') %}
+	<script>
+		document.body.classList.add("faculty-bio");
+	</script>
+	{% set firstName = post.meta('first_name') %}
+	{% set lastName = post.meta('last_name') %}
+	{% set photo = post.meta('photo') %}
+	{% set titles = post.meta('titles') %}
+	{% set profileLinks = post.meta('profile_links') %}
+	{% set email = post.meta('email') %}
+	{% set phone = post.meta('phone') %}
+	{% set address = post.meta('address') %}
+	{% set social_networks = post.meta('social_networks') %}
+	{% set biography = post.meta('bio') %}
+	{% set resume = post.meta('resume') %}
+	{% set degrees = post.meta('degrees') %}
+	{% set affiliations = post.meta('affiliations') %}
+	{% set publications = post.meta('publication') %}
 
-<div class="outer-pad">
-    <div class="faculty-staff-back-button">
-        <a href="{{ function('get_post_type_archive_link','profiles') }}">{{ options.profile_back_button_label }}</a>
-    </div>
-    <div class="personal-profile-info-card_wrap">
-        {% include "partial/personal-profile-info-card.twig" %}
-    </div>
-    {% if biography %}
-        <div class="text-content">
-            <h2>Bio</h2>
-            {{ biography }}
-        </div>
-    {% endif %}
-    {% if resume %}
-        <div class="paragraph-widget paragraph-widget--button-set">
-            <div class="iastate22-button-set">
-                <ul>
-                    {% if resume.url %}
-                    <li>
-                        <a class="iastate22-button" href="{{ resume.url|e('esc_url') }}">Download CV<span class="arrow"></span></a>
-                    </li>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-    {% endif %}
-    <div class="paragraph-widget paragraph-widget--multicolumn-content">
-        <div class="multi-column-content multi-column-content-two-col">
-            {% if degrees or affiliations %}
-                {% if degrees %}
-                    <div class="multi-column-content__column">
-                        <div class="text-content">
-                            <h2>Education</h2>
-                            {% for degree in degrees %}
-                                <p>{{ degree.degree }}</p>
-                            {% endfor %}
-                        </div>
-                    </div>
-                {% endif %}
-                {% if affiliations %}
-                    <div class="multi-column-content__column">
-                        <div class="text-content">
-                            <h2>Affiliations</h2>
-                            {% for affiliation in affiliations %}
-                                {% if affiliation.affiliation.url %}
-                                <p>
-                                {% if affiliation.affiliation.target == "_blank" %}
-                                    <a class="link-set__link iastate22-link-external" href="{{ affiliation.affiliation.url|e('esc_url') }}" target="_blank">{{ affiliation.affiliation.title | default(affiliation.affiliation.url) }}<span class="arrow"></span></a>
-                                {% else %}
-                                    <a class="link-set__link iastate22-link-secondary" href="{{ affiliation.affiliation.url|e('esc_url') }}">{{ affiliation.affiliation.title | default(affiliation.affiliation.url) }}<span class="arrow"></span></a>
-                                {% endif %}
-                                </p>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                    </div>
-                {% endif %}
-            {% endif %}
-        </div>
-    </div>
-    {% if publications %}
-        <div class="paragraph-widget paragraph-widget--text-html">
-            <div class="text-content">
-                <h2>Selected Publications</h2>
-                <ul>
-                    {% for publication in publications %}
-                        <li>{{ publication.publication }}{% if publication.reference %}<a href="{{ publication.reference.url|e('esc_url') }}"{% if publication.reference.target == "_blank" %} target="_blank"{% endif %}>{{ publication.reference.title }}</a>{% endif %}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-    {% endif %}
-    <div class="personal-profile-body">
-        <div class="text-content">
-            {{post.content}}
-        </div>
-    </div>
-    {% if post.terms %}
-        <div class="paragraph-widget paragraph-widget--article-category-tags">
-            {% if post.terms('department') %}
-                <h4 class="category-title">{{ profile_tax.department.name|title }}</h4>
-                <ul class="category-tags">
-                {% for term in post.terms('department') %}
-                    <li>
-                        <a href="{{ term.link|e('esc_url') }}">{{ term.name }}</a>
-                    </li>
-                {% endfor %}
-                </ul>
-            {% endif %}
-            {% if post.terms('affiliation') %}
-                <h4 class="category-title">{{ profile_tax.affiliation.name|title }}</h4>
-                <ul class="category-tags">
-                {% for term in post.terms('affiliation') %}
-                    <li>
-                        <a href="{{ term.link|e('esc_url') }}">{{ term.name }}</a>
-                    </li>
-                {% endfor %}
-                </ul>
-            {% endif %}
-        </div>
-    {% endif %}
-</div>
+	<div class="outer-pad">
+		<div class="faculty-staff-back-button">
+			<a href="{{ function('get_post_type_archive_link','profiles') }}">{{ options.profile_back_button_label }}</a>
+		</div>
+		<div class="personal-profile-info-card_wrap">
+			{% include "partial/personal-profile-info-card.twig" %}
+		</div>
+		{% if biography %}
+			<div class="text-content">
+				<h2>Bio</h2>
+				{{ biography }}
+			</div>
+		{% endif %}
+		{% if resume %}
+			<div class="paragraph-widget paragraph-widget--button-set">
+				<div class="iastate22-button-set">
+					<ul>
+						{% if resume.url %}
+							<li>
+								<a class="iastate22-button" href="{{ resume.url|e('esc_url') }}">Download CV<span
+										class="arrow"></span></a>
+							</li>
+						{% endif %}
+					</ul>
+				</div>
+			</div>
+		{% endif %}
+		<div class="paragraph-widget paragraph-widget--multicolumn-content">
+			<div class="multi-column-content multi-column-content-two-col">
+				{% if degrees or affiliations %}
+					{% if degrees %}
+						<div class="multi-column-content__column">
+							<div class="text-content">
+								<h2>Education</h2>
+								{% for degree in degrees %}
+									<p>{{ degree.degree }}</p>
+								{% endfor %}
+							</div>
+						</div>
+					{% endif %}
+					{% if affiliations %}
+						<div class="multi-column-content__column">
+							<div class="text-content">
+								<h2>Affiliations</h2>
+								{% for affiliation in affiliations %}
+									{% if affiliation.affiliation.url %}
+										<p>
+											{% if affiliation.affiliation.target == "_blank" %}
+												<a class="link-set__link iastate22-link-external"
+												   href="{{ affiliation.affiliation.url|e('esc_url') }}"
+												   target="_blank">{{ affiliation.affiliation.title | default(affiliation.affiliation.url) }}
+													<span class="arrow"></span></a>
+											{% else %}
+												<a class="link-set__link iastate22-link-secondary"
+												   href="{{ affiliation.affiliation.url|e('esc_url') }}">{{ affiliation.affiliation.title | default(affiliation.affiliation.url) }}
+													<span class="arrow"></span></a>
+											{% endif %}
+										</p>
+									{% endif %}
+								{% endfor %}
+							</div>
+						</div>
+					{% endif %}
+				{% endif %}
+			</div>
+		</div>
+		{% if publications %}
+			<div class="paragraph-widget paragraph-widget--text-html">
+				<div class="text-content">
+					<h2>Selected Publications</h2>
+					<ul>
+						{% for publication in publications %}
+							<li>{{ publication.publication }}{% if publication.reference %}
+									<a href="{{ publication.reference.url|e('esc_url') }}"{% if publication.reference.target == "_blank" %} target="_blank"{% endif %}>{{ publication.reference.title }}</a>{% endif %}
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		{% endif %}
+		<div class="personal-profile-body">
+			<div class="text-content">
+				{{ post.content }}
+			</div>
+		</div>
+		{% if post.terms %}
+			<div class="paragraph-widget paragraph-widget--article-category-tags">
+				{% if post.terms('department') %}
+					<h4 class="category-title">{{ profile_tax.department.name|title }}</h4>
+					<ul class="category-tags">
+						{% for term in post.terms('department') %}
+							<li>
+								<a href="{{ term.link|e('esc_url') }}">{{ term.name }}</a>
+							</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+				{% if post.terms('affiliation') %}
+					<h4 class="category-title">{{ profile_tax.affiliation.name|title }}</h4>
+					<ul class="category-tags">
+						{% for term in post.terms('affiliation') %}
+							<li>
+								<a href="{{ term.link|e('esc_url') }}">{{ term.name }}</a>
+							</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</div>
+		{% endif %}
+	</div>
 {% endblock %}

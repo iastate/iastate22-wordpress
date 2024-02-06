@@ -1,7 +1,10 @@
-<div class="paragraph-widget paragraph-widget--call-to-action--large"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+<div
+	class="paragraph-widget paragraph-widget--call-to-action--large"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
 	<div class="call-to-action call-to-action--large">
 		<div class="call-to-action__media">
-			<img src="{{ fields.callout_image.url|e('esc_url') }}" alt="{{ fields.callout_image.alt|e('esc_attr') }}" width="{{ fields.callout_image.width|e('esc_attr') }}" height="{{ fields.callout_image.height|e('esc_attr') }}"/>
+			<img src="{{ fields.callout_image.url|e('esc_url') }}" alt="{{ fields.callout_image.alt|e('esc_attr') }}"
+				 width="{{ fields.callout_image.width|e('esc_attr') }}"
+				 height="{{ fields.callout_image.height|e('esc_attr') }}"/>
 		</div>
 		<div class="call-to-action__copy-wrap">
 			<h2 class="call-to-action__headline">{{ fields.callout_content.title|striptags }}</h2>
@@ -9,7 +12,8 @@
 			<div class="iastate22-button-set">
 				<ul>
 					{% for item in fields.callout_content.callout_cta %}
-					<li><a class="iastate22-button" href="{{ item.link_url|e('esc_url') }}">{{ item.link_text }}<span class="arrow"></span></a></li>
+						<li><a class="iastate22-button" href="{{ item.link_url|e('esc_url') }}">{{ item.link_text }}
+								<span class="arrow"></span></a></li>
 					{% endfor %}
 				</ul>
 			</div>

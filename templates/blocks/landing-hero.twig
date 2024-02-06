@@ -1,97 +1,109 @@
 {% if fields.ecosystem == "featured_image" %}
-  {% set heroClass = "ecosystem-home-hero ecosystem-home-hero--featured-image" %}
+	{% set heroClass = "ecosystem-home-hero ecosystem-home-hero--featured-image" %}
 {% elseif fields.ecosystem == "supporting_image" %}
-  {% set heroClass = "ecosystem-home-hero ecosystem-home-hero--supporting-image" %}
+	{% set heroClass = "ecosystem-home-hero ecosystem-home-hero--supporting-image" %}
 {% elseif fields.ecosystem == "atmospheric_image" %}
-  {% set heroClass = "ecosystem-home-hero ecosystem-home-hero--atmospheric-image" %}
+	{% set heroClass = "ecosystem-home-hero ecosystem-home-hero--atmospheric-image" %}
 {% elseif fields.ecosystem == "video" %}
-  {% set heroClass = "ecosystem-home-hero ecosystem-home-hero--background-video ecosystem-home-hero--featured-image" %}
+	{% set heroClass = "ecosystem-home-hero ecosystem-home-hero--background-video ecosystem-home-hero--featured-image" %}
 {% elseif fields.ecosystem == "plain" %}
-  {% set heroClass = "ecosystem-home-hero ecosystem-home-hero--no-image" %}
+	{% set heroClass = "ecosystem-home-hero ecosystem-home-hero--no-image" %}
 {% endif %}
-<div class="{{ heroClass|e('esc_attr') }}"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
-  {% if fields.ecosystem == "supporting_image" or fields.ecosystem == "plain" %}
-    <div class="ecosystem-home-hero__content">
-      <h1 class="ecosystem-home-hero__title">
-        {% if fields.hero_title|length > 0 %}
-          {{ fields.hero_title }}
-        {% else %}
-          {% set title = "" %}
-          {% for post in posts %}
-            {% set title = post.post_title %}
-          {% endfor %}
-          {{ title }}
-        {% endif %}
-      </h1>
-      {% if fields.buttons %}
-        <div class="iastate22-button-set">
-          <ul>
-            {% for button in fields.buttons %}
-              {% if button.link_url %}
-                <li>
-                  <a class="iastate22-button" href="{{ button.link_url|e('esc_url') }}">{{ button.label }}<span class="arrow"></span>
-                  </a>
-                </li>
-              {% endif %}
-            {% endfor %}
-          </ul>
-        </div>
-      {% endif %}
-    </div>
-  {% endif %}
-  {% if fields.ecosystem == "plain" %}
+<div
+	class="{{ heroClass|e('esc_attr') }}"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+	{% if fields.ecosystem == "supporting_image" or fields.ecosystem == "plain" %}
+		<div class="ecosystem-home-hero__content">
+			<h1 class="ecosystem-home-hero__title">
+				{% if fields.hero_title|length > 0 %}
+					{{ fields.hero_title }}
+				{% else %}
+					{% set title = "" %}
+					{% for post in posts %}
+						{% set title = post.post_title %}
+					{% endfor %}
+					{{ title }}
+				{% endif %}
+			</h1>
+			{% if fields.buttons %}
+				<div class="iastate22-button-set">
+					<ul>
+						{% for button in fields.buttons %}
+							{% if button.link_url %}
+								<li>
+									<a class="iastate22-button"
+									   href="{{ button.link_url|e('esc_url') }}">{{ button.label }}<span
+											class="arrow"></span>
+									</a>
+								</li>
+							{% endif %}
+						{% endfor %}
+					</ul>
+				</div>
+			{% endif %}
+		</div>
+	{% endif %}
+	{% if fields.ecosystem == "plain" %}
 
-    {% else %}
-      <div class="ecosystem-home-hero__media">
-		{% if fields.hero_image.hero_image %}
-			<img src="{{ fields.hero_image.hero_image.url|e('esc_url') }}" alt="{{ fields.hero_image.hero_image.alt|e('esc_attr') }}" width="{{ fields.hero_image.hero_image.width|e('esc_attr') }}" height="{{ fields.hero_image.hero_image.height|e('esc_attr') }}">
-		{% else  %}
-			<img class="bg-placeholder" src="{{ theme.path()~'/img/placeholder.png' }}" alt="Placeholder">
-		{% endif %}
-		  {% if fields.ecosystem == "video" %}
-          {% if fields.video.source == "youtube" %}
-            <div class="ecosystem-home-hero__video" aria-label="YouTube Video: {{ fields.video.video_title }}" data-vid="{{ fields.video.youtube_video_id|e('esc_attr') }}"></div>
-          {% elseif fields.video.source == "vimeo" %}
-            <div class="ecosystem-home-hero__video" aria-label="Vimeo Video: {{ fields.video.video_title }}" data-vimeo-muted="true" data-vimeo-loop="true" data-vimeo-background="true" data-vimeo-autoplay="true" data-vimeo-id="{{ fields.video.vimeo_video_id|striptags }}"></div>
-          {% elseif fields.video.source == "media_gallery" %}
-            <video class="ecosystem-home-hero__video" autoplay muted loop>
-              <source src="{{ fields.video.media_video.url|e('esc_url') }}" type="{{ fields.video.media_video.mime_type|e('esc_attr') }}">
-            </video>
-          {% elseif fields.video.source == "cdn" %}
-            <video class="ecosystem-home-hero__video" autoplay muted loop>
-              <source src="{{ fields.video.cdn|e('esc_url') }}">
-            </video>
-          {% endif %}
-        {% endif %}
-      </div>
-  {% endif %}
-  {% if fields.ecosystem == "featured_image" or fields.ecosystem == "atmospheric_image" or fields.ecosystem == "video" %}
-    <div class="ecosystem-home-hero__content">
-      <h1 class="ecosystem-home-hero__title">
-        {% if fields.hero_title|length > 0 %}
-          {{ fields.hero_title }}
-        {% else %}
-          {% set title = "" %}
-          {% for post in posts %}
-            {% set title = post.post_title %}
-          {% endfor %}
-          {{ title }}
-        {% endif %}
-      </h1>
-     {% if fields.buttons %}
-      <div class="iastate22-button-set">
-        <ul>
-          {% for button in fields.buttons %}
-            {% if button.link_url %}
-              <li>
-                <a class="iastate22-button" href="{{ button.link_url|e('esc_url') }}">{{ button.label }}<span class="arrow"></span>
-                </a>
-              </li>
-            {% endif %}
-          {% endfor %}
-        </ul>
-      </div>
-     {% endif %}
-    </div>
-  {% endif %}
+	{% else %}
+		<div class="ecosystem-home-hero__media">
+			{% if fields.hero_image.hero_image %}
+				<img src="{{ fields.hero_image.hero_image.url|e('esc_url') }}"
+					 alt="{{ fields.hero_image.hero_image.alt|e('esc_attr') }}"
+					 width="{{ fields.hero_image.hero_image.width|e('esc_attr') }}"
+					 height="{{ fields.hero_image.hero_image.height|e('esc_attr') }}">
+			{% else %}
+				<img class="bg-placeholder" src="{{ theme.path()~'/img/placeholder.png' }}" alt="Placeholder">
+			{% endif %}
+			{% if fields.ecosystem == "video" %}
+				{% if fields.video.source == "youtube" %}
+					<div class="ecosystem-home-hero__video" aria-label="YouTube Video: {{ fields.video.video_title }}"
+						 data-vid="{{ fields.video.youtube_video_id|e('esc_attr') }}"></div>
+				{% elseif fields.video.source == "vimeo" %}
+					<div class="ecosystem-home-hero__video" aria-label="Vimeo Video: {{ fields.video.video_title }}"
+						 data-vimeo-muted="true" data-vimeo-loop="true" data-vimeo-background="true"
+						 data-vimeo-autoplay="true" data-vimeo-id="{{ fields.video.vimeo_video_id|striptags }}"></div>
+				{% elseif fields.video.source == "media_gallery" %}
+					<video class="ecosystem-home-hero__video" autoplay muted loop>
+						<source src="{{ fields.video.media_video.url|e('esc_url') }}"
+								type="{{ fields.video.media_video.mime_type|e('esc_attr') }}">
+					</video>
+				{% elseif fields.video.source == "cdn" %}
+					<video class="ecosystem-home-hero__video" autoplay muted loop>
+						<source src="{{ fields.video.cdn|e('esc_url') }}">
+					</video>
+				{% endif %}
+			{% endif %}
+		</div>
+	{% endif %}
+	{% if fields.ecosystem == "featured_image" or fields.ecosystem == "atmospheric_image" or fields.ecosystem == "video" %}
+		<div class="ecosystem-home-hero__content">
+			<h1 class="ecosystem-home-hero__title">
+				{% if fields.hero_title|length > 0 %}
+					{{ fields.hero_title }}
+				{% else %}
+					{% set title = "" %}
+					{% for post in posts %}
+						{% set title = post.post_title %}
+					{% endfor %}
+					{{ title }}
+				{% endif %}
+			</h1>
+			{% if fields.buttons %}
+				<div class="iastate22-button-set">
+					<ul>
+						{% for button in fields.buttons %}
+							{% if button.link_url %}
+								<li>
+									<a class="iastate22-button"
+									   href="{{ button.link_url|e('esc_url') }}">{{ button.label }}<span
+											class="arrow"></span>
+									</a>
+								</li>
+							{% endif %}
+						{% endfor %}
+					</ul>
+				</div>
+			{% endif %}
+		</div>
+	{% endif %}
 </div>

@@ -1,19 +1,24 @@
-<div class="paragraph-widget paragraph-widget--blockquote"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
-  <div class="iastate22-blockquote{% if fields.blockquote_image %} iastate22-blockquote--with-image{% else %} iastate22-blockquote--with-no-image{% endif %}{% if not fields.blockquote_copy.attribution %} iastate22-blockquote--no-author{% endif %}">
-    <div class="iastate22-blockquote__inner-wrap">
-      {% if fields.blockquote_image %}
-        <div class="iastate22-blockquote__portrait">
-          <img src="{{ fields.blockquote_image.url|e('esc_url') }}" alt="{{ fields.blockquote_image.alt|e('esc_attr') }}" width="{{ fields.blockquote_image.width|e('esc_attr') }}" height="{{ fields.blockquote_image.height|e('esc_attr') }}"/>
-        </div>
-      {% endif %}
-      <div class="iastate22-blockquote__text-wrap">
-        {% if fields.blockquote_copy.quote %}
-          <h2 class="iastate22-blockquote__quote">{{ fields.blockquote_copy.quote }}</h2>
-        {% endif %}
-        {% if fields.blockquote_copy.attribution %}
-          <p class="iastate22-blockquote__author">{{ fields.blockquote_copy.attribution }}</p>
-        {% endif %}
-      </div>
-    </div>
-  </div>
+<div
+	class="paragraph-widget paragraph-widget--blockquote"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+	<div
+		class="iastate22-blockquote{% if fields.blockquote_image %} iastate22-blockquote--with-image{% else %} iastate22-blockquote--with-no-image{% endif %}{% if not fields.blockquote_copy.attribution %} iastate22-blockquote--no-author{% endif %}">
+		<div class="iastate22-blockquote__inner-wrap">
+			{% if fields.blockquote_image %}
+				<div class="iastate22-blockquote__portrait">
+					<img src="{{ fields.blockquote_image.url|e('esc_url') }}"
+						 alt="{{ fields.blockquote_image.alt|e('esc_attr') }}"
+						 width="{{ fields.blockquote_image.width|e('esc_attr') }}"
+						 height="{{ fields.blockquote_image.height|e('esc_attr') }}"/>
+				</div>
+			{% endif %}
+			<div class="iastate22-blockquote__text-wrap">
+				{% if fields.blockquote_copy.quote %}
+					<h2 class="iastate22-blockquote__quote">{{ fields.blockquote_copy.quote }}</h2>
+				{% endif %}
+				{% if fields.blockquote_copy.attribution %}
+					<p class="iastate22-blockquote__author">{{ fields.blockquote_copy.attribution }}</p>
+				{% endif %}
+			</div>
+		</div>
+	</div>
 </div>

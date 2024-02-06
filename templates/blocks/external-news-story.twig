@@ -1,20 +1,24 @@
-<div class="paragraph-widget paragraph-widget--external-news-story"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+<div
+	class="paragraph-widget paragraph-widget--external-news-story"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
 	<div class="external-news-story">
 		{% if fields.title %}
 			<h2>{{ fields.title }}</h2>
 		{% endif %}
 		<div class="external-news-story__flex-wrap">
 			{% if fields.story.thumbnail %}
-			<div class="external-news-story__media">
-				<img src="{{ fields.story.thumbnail.url|e('esc_url') }}" alt="{{ fields.story.thumbnail.alt|e('esc_attr') }}" width="{{ fields.story.thumbnail.width|e('esc_attr') }}" height="{{ fields.story.thumbnail.height|e('esc_attr') }}"/>
-			</div>
+				<div class="external-news-story__media">
+					<img src="{{ fields.story.thumbnail.url|e('esc_url') }}"
+						 alt="{{ fields.story.thumbnail.alt|e('esc_attr') }}"
+						 width="{{ fields.story.thumbnail.width|e('esc_attr') }}"
+						 height="{{ fields.story.thumbnail.height|e('esc_attr') }}"/>
+				</div>
 			{% endif %}
 			<div class="external-news-story__content text-content">
 				{% if fields.story.headline %}
 					<h3>{{ fields.story.headline }}</h3>
 				{% endif %}
 				{% if fields.story.excerpt %}
-					<div>{{fields.story.excerpt }}</div>
+					<div>{{ fields.story.excerpt }}</div>
 				{% endif %}
 				{% if fields.story.link.link_style == "external" %}
 					{% set classes = "link-set__link iastate22-link-external" %}
@@ -28,7 +32,8 @@
 				<div class="link-set">
 					<ul>
 						<li>
-							<a class="{{ classes|e('esc_attr') }}" href="{{ fields.story.link.url|e('esc_url') }}" target="_blank">{{ fields.story.link.label }}<span class="arrow"></span></a>
+							<a class="{{ classes|e('esc_attr') }}" href="{{ fields.story.link.url|e('esc_url') }}"
+							   target="_blank">{{ fields.story.link.label }}<span class="arrow"></span></a>
 						</li>
 					</ul>
 				</div>

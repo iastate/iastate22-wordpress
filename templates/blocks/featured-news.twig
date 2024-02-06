@@ -6,85 +6,95 @@
 	{% set maybe_thumbnail = Image(featuredStory.meta('hero_image')) %}
 {% endif %}
 <div class="featured-news"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
-    <div class="featured-news-container">
-        <div class="featured-news__large-article">
-            <div class="featured-news__large-article__container">
-                <div class="featured-news__featured-block">
-                    <p>Featured</p>
-                </div>
-                <div class="featured-news__large-article__image-container">
-                    {% if maybe_thumbnail %}
-                        <img class="featured-news__large-article__image" src="{{ maybe_thumbnail.src|e('esc_url') }}" alt="{{ maybe_thumbnail.alt|e('esc_attr') }}">
-                    {% else %}
-                        <img class="featured-news__large-article__image bg-placeholder" src="{{ theme.path()~'/img/placeholder.png' }}" alt="No Thumbnail Available">
-                    {% endif %}
-                </div>
-                <div class="featured-news__large-article__tags">
-                    <ul>
-                        {% for term in featuredStory.terms %}
-                            {% if term.taxonomy == "category" %}
-                                <li>{{ term.name }}</li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                </div>
-                <h2 class="featured-news__large-article__title"><a href="{{ featuredStory.link|e('esc_url') }}" class="iastate22-link-secondary">{{ featuredStory.post_title }}<span class="arrow"></span></a></h2>
-                <p class="featured-news__large-article__excerpt">{{ featuredStory.post_excerpt }}</p>
-                <p class="featured-news__date">{{ featuredStory.post_date|date() }}</p>
-            </div>
-        </div>
-        <div class="featured-news__small-article">
-        {% if fields.feature_type == "cards" %}
-            {% for card in fields.featured_card_stories %}
-                {% set story = Post(card) %}
-                {% if story._thumbnail_id != false %}
-                    {% set thumbNail = Image(story._thumbnail_id) %}
-                {% elseif story.meta('hero_image') != false %}
-                    {% set thumbNail = Image(story.meta('hero_image')) %}
-                {% else %}
-                    {% set thumbNail = false %}
-                {% endif %}
-                <div class="featured-news__small-article__container">
-                        <div class="featured-news__small-article__image-container">
-                            {% if thumbNail != false %}
-                                <img class="featured-news__small-article__image" src="{{ thumbNail.src|striptags }}" alt="{{ thumbNail.alt|striptags }}">
-                            {% else %}
-                                <img class="featured-news__small-article__image bg-placeholder" src="{{ theme.path()~'/img/placeholder.png' }}" alt="No Thumbnail Available">
-                            {% endif %}
-                        </div>
-                    {% if story.terms|length > 0 %}
-                        <div class="featured-news__small-article__tags">
-                            <ul>
-                                {% for term in story.terms %}
-                                    {% if term.taxonomy == "category" %}
-                                        <li>{{ term.name }}</li>
-                                    {% endif %}
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    {% endif %}
-                    <h2 class="featured-news__small-article__title"><a href="{{ story.link|e('esc_url') }}" class="iastate22-link-secondary">{{ story.post_title }}<span class="arrow"></span></a></h2>
-                    <p class="featured-news__date">{{ story.post_date|date() }}</p>
-                </div>
-            {% endfor %}
-        {% elseif fields.feature_type == "list" %}
-            {% for card in fields.featured_list_stories %}
-                {% set story = Post(card) %}
-                <div class="featured-news__small-article__container">
-                    <div class="featured-news__small-article__tags">
-                        <ul>
-                            {% for term in story.terms %}
-                                {% if term.taxonomy == "category" %}
-                                    <li>{{ term.name }}</li>
-                                {% endif %}
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    <h2 class="featured-news__small-article__title"><a href="{{ story.link|e('esc_url') }}" class="iastate22-link-secondary">{{ story.post_title }}<span class="arrow"></span></a></h2>
-                    <p class="featured-news__date">{{ story.post_date|date() }}</p>
-                </div>
-            {% endfor %}
-        {% endif %}
-        </div>
-    </div>
+	<div class="featured-news-container">
+		<div class="featured-news__large-article">
+			<div class="featured-news__large-article__container">
+				<div class="featured-news__featured-block">
+					<p>Featured</p>
+				</div>
+				<div class="featured-news__large-article__image-container">
+					{% if maybe_thumbnail %}
+						<img class="featured-news__large-article__image" src="{{ maybe_thumbnail.src|e('esc_url') }}"
+							 alt="{{ maybe_thumbnail.alt|e('esc_attr') }}">
+					{% else %}
+						<img class="featured-news__large-article__image bg-placeholder"
+							 src="{{ theme.path()~'/img/placeholder.png' }}" alt="No Thumbnail Available">
+					{% endif %}
+				</div>
+				<div class="featured-news__large-article__tags">
+					<ul>
+						{% for term in featuredStory.terms %}
+							{% if term.taxonomy == "category" %}
+								<li>{{ term.name }}</li>
+							{% endif %}
+						{% endfor %}
+					</ul>
+				</div>
+				<h2 class="featured-news__large-article__title"><a href="{{ featuredStory.link|e('esc_url') }}"
+																   class="iastate22-link-secondary">{{ featuredStory.post_title }}
+						<span class="arrow"></span></a></h2>
+				<p class="featured-news__large-article__excerpt">{{ featuredStory.post_excerpt }}</p>
+				<p class="featured-news__date">{{ featuredStory.post_date|date() }}</p>
+			</div>
+		</div>
+		<div class="featured-news__small-article">
+			{% if fields.feature_type == "cards" %}
+				{% for card in fields.featured_card_stories %}
+					{% set story = Post(card) %}
+					{% if story._thumbnail_id != false %}
+						{% set thumbNail = Image(story._thumbnail_id) %}
+					{% elseif story.meta('hero_image') != false %}
+						{% set thumbNail = Image(story.meta('hero_image')) %}
+					{% else %}
+						{% set thumbNail = false %}
+					{% endif %}
+					<div class="featured-news__small-article__container">
+						<div class="featured-news__small-article__image-container">
+							{% if thumbNail != false %}
+								<img class="featured-news__small-article__image" src="{{ thumbNail.src|striptags }}"
+									 alt="{{ thumbNail.alt|striptags }}">
+							{% else %}
+								<img class="featured-news__small-article__image bg-placeholder"
+									 src="{{ theme.path()~'/img/placeholder.png' }}" alt="No Thumbnail Available">
+							{% endif %}
+						</div>
+						{% if story.terms|length > 0 %}
+							<div class="featured-news__small-article__tags">
+								<ul>
+									{% for term in story.terms %}
+										{% if term.taxonomy == "category" %}
+											<li>{{ term.name }}</li>
+										{% endif %}
+									{% endfor %}
+								</ul>
+							</div>
+						{% endif %}
+						<h2 class="featured-news__small-article__title"><a href="{{ story.link|e('esc_url') }}"
+																		   class="iastate22-link-secondary">{{ story.post_title }}
+								<span class="arrow"></span></a></h2>
+						<p class="featured-news__date">{{ story.post_date|date() }}</p>
+					</div>
+				{% endfor %}
+			{% elseif fields.feature_type == "list" %}
+				{% for card in fields.featured_list_stories %}
+					{% set story = Post(card) %}
+					<div class="featured-news__small-article__container">
+						<div class="featured-news__small-article__tags">
+							<ul>
+								{% for term in story.terms %}
+									{% if term.taxonomy == "category" %}
+										<li>{{ term.name }}</li>
+									{% endif %}
+								{% endfor %}
+							</ul>
+						</div>
+						<h2 class="featured-news__small-article__title"><a href="{{ story.link|e('esc_url') }}"
+																		   class="iastate22-link-secondary">{{ story.post_title }}
+								<span class="arrow"></span></a></h2>
+						<p class="featured-news__date">{{ story.post_date|date() }}</p>
+					</div>
+				{% endfor %}
+			{% endif %}
+		</div>
+	</div>
 </div>

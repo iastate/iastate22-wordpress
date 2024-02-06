@@ -1,17 +1,17 @@
-{{post.content}}
+{{ post.content }}
     {% if options.feed_display_type.value == 'single' %}
-    <div class="paragraph-widget paragraph-widget--faculty-staff-feed-item">
-        <div class="faculty-staff-feed-item-set">
-            {% include ['loops/loop-faculty--single.twig'] %}
-        </div>
-    </div>
-    {% elseif options.feed_display_type.value == 'two_column' %}
-        <div class="paragraph-widget paragraph-widget--faculty-staff-card-set">
-            <div class="faculty-staff-card-set">
-                {% include ['loops/loop-faculty--two-columns.twig'] %}
-            </div>
-        </div>
-    {% elseif options.feed_display_type.value == 'table' %}
-        {% include ['loops/loop-faculty--tabular.twig'] %}
-    {% endif %}
+		<div class="paragraph-widget paragraph-widget--faculty-staff-feed-item">
+			<div class="faculty-staff-feed-item-set">
+				{% include ['loops/loop-faculty--single.twig'] %}
+			</div>
+		</div>
+	{% elseif options.feed_display_type.value == 'two_column' %}
+		<div class="paragraph-widget paragraph-widget--faculty-staff-card-set">
+			<div class="faculty-staff-card-set">
+				{% include ['loops/loop-faculty--two-columns.twig'] %}
+			</div>
+		</div>
+	{% elseif options.feed_display_type.value == 'table' %}
+		{% include ['loops/loop-faculty--tabular.twig'] %}
+	{% endif %}
 {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}

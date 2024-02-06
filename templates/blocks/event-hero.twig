@@ -1,20 +1,22 @@
-<p class="iastate-article__back-btn"><a href="{{ function('get_post_type_archive_link','events') }}">View All Events</a></p>
+<p class="iastate-article__back-btn"><a href="{{ function('get_post_type_archive_link','events') }}">View All Events</a>
+</p>
 <div class="hero--event-detail"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
-    <h1 class="hero--event-detail__headline">
-      {% if post.title %}
-        {{ post.title }}
-      {% else %}
-        {{ wp_title }}
-      {% endif %}
-    </h1>
-  {% if post._thumbnail_id != false %}
-    {% set thumbnail = Image(post._thumbnail_id) %}
-  {% else %}
-    {% set thumbnail = false %}
-  {% endif %}
-  {% if thumbnail != false %}
-  <div class="hero--event-detail__media">
-    <img src="{{ thumbnail.src|e('esc_url') }}" alt="{{ thumbnail.alt|e('esc_attr') }}" width="{{ thumbnail.width|e('esc_attr') }}" height="{{ thumbnail.height|e('esc_attr') }}">
-  </div>
-  {% endif %}
+	<h1 class="hero--event-detail__headline">
+		{% if post.title %}
+			{{ post.title }}
+		{% else %}
+			{{ wp_title }}
+		{% endif %}
+	</h1>
+	{% if post._thumbnail_id != false %}
+		{% set thumbnail = Image(post._thumbnail_id) %}
+	{% else %}
+		{% set thumbnail = false %}
+	{% endif %}
+	{% if thumbnail != false %}
+		<div class="hero--event-detail__media">
+			<img src="{{ thumbnail.src|e('esc_url') }}" alt="{{ thumbnail.alt|e('esc_attr') }}"
+				 width="{{ thumbnail.width|e('esc_attr') }}" height="{{ thumbnail.height|e('esc_attr') }}">
+		</div>
+	{% endif %}
 </div>

@@ -1,17 +1,21 @@
 {% set id = random(1111,9999) %}
 
-<div class="paragraph-widget paragraph-widget--accordion"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
-	<div class="accordion accordion-flush" id="accordionFlush{{id}}">
+<div
+	class="paragraph-widget paragraph-widget--accordion"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+	<div class="accordion accordion-flush" id="accordionFlush{{ id }}">
 		{% set counter = 0 %}
 		{% for item in fields.accordion %}
 			{% set counter = counter + 1 %}
 			<div class="accordion-item">
 				<h2 class="accordion-header" id="flush-heading_{{ id }}_{{ counter }}">
-					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse_{{ id }}_{{ counter }}" aria-expanded="false" aria-controls="flush-collapse_{{ id }}_{{ counter }}">
+					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+							data-bs-target="#flush-collapse_{{ id }}_{{ counter }}" aria-expanded="false"
+							aria-controls="flush-collapse_{{ id }}_{{ counter }}">
 						{{ item.title }}
 					</button>
 				</h2>
-				<div id="flush-collapse_{{ id }}_{{ counter }}" class="accordion-collapse collapse" aria-labelledby="flush-heading_{{ id }}_{{ counter }}" data-bs-parent="#accordionFlush{{id}}">
+				<div id="flush-collapse_{{ id }}_{{ counter }}" class="accordion-collapse collapse"
+					 aria-labelledby="flush-heading_{{ id }}_{{ counter }}" data-bs-parent="#accordionFlush{{ id }}">
 					<div class="accordion-body text-content">{{ item.content }}</div>
 				</div>
 			</div>

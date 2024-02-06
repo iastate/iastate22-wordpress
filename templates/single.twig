@@ -13,14 +13,16 @@
 		post.meta('show_author') is null and post.meta('_meta_info') == 'hide_author' ? false :
 		post.show_author|default(true)|boolval %}
 	<div class="outer-pad">
-		<p class="iastate-article__back-btn"><a href="{{ function('get_post_type_archive_link', 'post' ) }}">All Articles</a></p>
+		<p class="iastate-article__back-btn"><a href="{{ function('get_post_type_archive_link', 'post' ) }}">All
+				Articles</a></p>
 		<div class="hero--news-article text-content">
 			<h1 class="hero--news-article__headline">{{ post.title }}</h1>
 			{% if post.meta('subhead') %}
 				<h2 class="hero--news-article__subhead">{{ post.meta('subhead') }}</h2>
 			{% endif %}
 			{% if show_author %}
-				<div class="hero--news-article__attribution"><p><strong>Author: {{ post.author.name }}</strong></p></div>
+				<div class="hero--news-article__attribution"><p><strong>Author: {{ post.author.name }}</strong></p>
+				</div>
 			{% endif %}
 			{% if hero_image %}
 				<div class="hero--news-article__media">
@@ -35,7 +37,7 @@
 			{{ post.paged_content }}
 			{% include 'partial/pagination--interior.twig' with { pagination: post.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
 		{% else %}
-			{{post.content}}
+			{{ post.content }}
 		{% endif %}
 
 		<div class="paragraph-widget paragraph-widget--article-category-tags">
