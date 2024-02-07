@@ -35,6 +35,23 @@ function list_searcheable_acf() {
 	return array( "title", "sub_title", "excerpt_short", "excerpt_long", "first_name", "last_name", "location" );
 }
 
+/**
+ * Visually distinguish the search label from the search value.
+ * @wp-hook wp_title_parts
+ */
+function theme_search_filter_value_separator( array $title ): array {
+	if ( ! is_search() ) {
+		return $title;
+	}
+	$search_title_separator = ':';
+	if ( isset( $title[0] ) ) {
+		$title[0] = trim( $title[0] ) . $search_title_separator . ' ';
+	}
+
+	return $title;
+}
+
+add_filter( 'wp_title_parts', 'theme_search_filter_value_separator' );
 
 /**
  * [advanced_custom_search search that encompasses ACF/advanced custom fields and taxonomies and split expression before request]
