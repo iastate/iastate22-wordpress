@@ -39,7 +39,8 @@
 					</li>
 				{% else %}
 					<li>
-						<a href="{{ page.link|e('esc_url') }}" class="{{ page.class|e('esc_attr') }}">{{ page.title }}</a>
+						<a href="{{ page.link|e('esc_url') }}"
+						   class="{{ page.class|e('esc_attr') }}">{{ page.title }}</a>
 					</li>
 				{% endif %}
 			{% endfor %}

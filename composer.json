@@ -1,23 +1,26 @@
 {
   "name": "iastate/wordpress-theme",
   "description": "Wordpress theme for Iowa State University.",
-  "type":"wordpress-theme",
-  "minimum-stability" : "stable",
+  "type": "wordpress-theme",
+  "minimum-stability": "stable",
   "authors": [
     {
-        "name": "iastate Web Development Services",
-        "email": "webdev@iastate.edu",
-        "homepage": "https://webdev.its.iastate.edu/",
-        "role": "Developer"
+      "name": "iastate Web Development Services",
+      "email": "webdev@iastate.edu",
+      "homepage": "https://webdev.its.iastate.edu/",
+      "role": "Developer"
     },
     {
-        "name": "idfive",
-        "email": "code@idfive.com",
-        "homepage": "https://idfive.com/",
-        "role": "Developer"
+      "name": "idfive",
+      "email": "code@idfive.com",
+      "homepage": "https://idfive.com/",
+      "role": "Developer"
     }
-],
+  ],
   "config": {
+    "platform": {
+      "php": "7.4"
+    },
     "allow-plugins": {
       "composer/installers": true
     }

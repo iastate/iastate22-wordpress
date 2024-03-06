@@ -1,48 +1,48 @@
 {% if posts|length %}
-    <div class="paragraph-widget paragraph-widget--sortable-table">
-        <div class="iastate22-table" role="region" aria-labelledby="caption1" tabindex="0">
-            <table class="sortable-table">
-                <thead>
-                    <tr>
-                        <th class="sortable">First Name</th>
-                        <th class="sortable">Last Name</th>
-                        <th class="sortable">Title</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {% for post in posts %}
-                    {% set firstName = post.meta('first_name') %}
-                    {% set lastName = post.meta('last_name') %}
-                    {% set photo = post.meta('photo') %}
-                    {% set titles = post.meta('titles') %}
-                    {% set profileLinks = post.meta('profile_links') %}
-                    {% set email = post.meta('email') %}
-                    {% set phone = post.meta('phone') %}
-                    {% set address = post.meta('address') %}
-                    {% set social_networks = post.meta('social_networks') %}
-                    {% set biography = post.meta('bio') %}
-                    {% set resume = post.meta('resume') %}
-                    {% set degrees = post.meta('degrees') %}
+	<div class="paragraph-widget paragraph-widget--sortable-table">
+		<div class="iastate22-table" role="region" aria-labelledby="caption1" tabindex="0">
+			<table class="sortable-table">
+				<thead>
+				<tr>
+					<th class="sortable">First Name</th>
+					<th class="sortable">Last Name</th>
+					<th class="sortable">Title</th>
+					<th>Email</th>
+					<th>Phone</th>
+				</tr>
+				</thead>
+				<tbody>
+				{% for post in posts %}
+					{% set firstName = post.meta('first_name') %}
+					{% set lastName = post.meta('last_name') %}
+					{% set photo = post.meta('photo') %}
+					{% set titles = post.meta('titles') %}
+					{% set profileLinks = post.meta('profile_links') %}
+					{% set email = post.meta('email') %}
+					{% set phone = post.meta('phone') %}
+					{% set address = post.meta('address') %}
+					{% set social_networks = post.meta('social_networks') %}
+					{% set biography = post.meta('bio') %}
+					{% set resume = post.meta('resume') %}
+					{% set degrees = post.meta('degrees') %}
 
-                    {% set affiliations = post.meta('affiliations') %}
-                    {% set publications = post.meta('publication') %}
-                    <tr>
-                        <td><a href="{{ post.link|e('esc_url') }}">{{ firstName }}</a></td>
-                        <td><a href="{{ post.link|e('esc_url') }}">{{ lastName }}</a></td>
-                        {# <td>{{ titles[0].title }}</td> #}
-                        <td>
-                            {% for i, title in titles %}
-                                {{ title.title }}{% if i < titles|length - 1 %}, {% endif %}
-                            {% endfor %}
-                        </td>
-                        <td><a href="mailto:{{ email }}">{{ email }}</a></td>
-                        <td>{{ phone }}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
-</div>
+					{% set affiliations = post.meta('affiliations') %}
+					{% set publications = post.meta('publication') %}
+					<tr>
+						<td><a href="{{ post.link|e('esc_url') }}">{{ firstName }}</a></td>
+						<td><a href="{{ post.link|e('esc_url') }}">{{ lastName }}</a></td>
+						{# <td>{{ titles[0].title }}</td> #}
+						<td>
+							{% for i, title in titles %}
+								{{ title.title }}{% if i < titles|length - 1 %}, {% endif %}
+							{% endfor %}
+						</td>
+						<td><a href="mailto:{{ email }}">{{ email }}</a></td>
+						<td>{{ phone }}</td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
 {% endif %}

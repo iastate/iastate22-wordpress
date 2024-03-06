@@ -1,0 +1,12 @@
+{
+  "context": {
+    "social": {
+      "headline": "Connect with the ISU Alumni Association",
+      "images": {
+        "one": "../../img/HP_AlumniSocial_Photo_1.jpg",
+        "two": "../../img/HP_AlumniSocial_Photo_2.jpg",
+        "three": "../../img/HP_AlumniSocial_Photo_3.jpg"
+      }
+    }
+  }
+}

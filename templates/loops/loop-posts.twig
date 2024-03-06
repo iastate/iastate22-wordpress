@@ -1,42 +1,45 @@
 {% if posts|length %}
-<div class="paragraph-widget paragraph-widget--hero-stories-feed-item-set">
-    <div class="hero-stories-feed-item-set">
-        <ul>
-            {% for post in posts %}
-				{% set maybe_thumbnail = null %}
-				{% if post.thumbnail %}
-                    {% set maybe_thumbnail = post.thumbnail %}
-                {% elseif post.hero_image %}
-                    {% set maybe_thumbnail = Image(post.meta('hero_image')) %}
-                {% endif %}
-                <div class="hero-stories-feed-item">
-					{% if maybe_thumbnail %}
-                    <div class="hero-stories-feed-item__media">
-                        <div class="hero-stories-feed-item__media-container">
-                            <a href="{{ post.link|e('esc_url') }}">
-                                <img class="hero-stories-feed-item__media-image" src="{{ maybe_thumbnail.src|e('esc_url') }}" alt="{{ maybe_thumbnail.alt|e('esc_attr') }}" loading="lazy">
-                            </a>
-                        </div>
-                    </div>
+	<div class="paragraph-widget paragraph-widget--hero-stories-feed-item-set">
+		<div class="hero-stories-feed-item-set">
+			<ul>
+				{% for post in posts %}
+					{% set maybe_thumbnail = null %}
+					{% if post.thumbnail %}
+						{% set maybe_thumbnail = post.thumbnail %}
+					{% elseif post.hero_image %}
+						{% set maybe_thumbnail = Image(post.meta('hero_image')) %}
 					{% endif %}
-                    <div class="hero-stories-feed-item__content">
-                        <div class="hero-stories-feed-item__content-tags">
-                            <ul>
-                                {% for term in post.terms %}
-                                    {% if term.taxonomy == "category" %}
-                                        <li>{{ term.name }}</li>
-                                    {% endif %}
-                                {% endfor %}
-                            </ul>
-                        </div>
-                        <h2 class="hero-stories-feed-item__title">
-                            <a class="iastate22-link-secondary" href="{{ post.link|e('esc_url') }}">{{ post.post_title }}<span class="arrow"></span></a>
-                        </h2>
-                        <p class="hero-stories-feed-item__content-date">{{ post.date }}</p>
-                    </div>
-                </div>
-            {% endfor %}
-        </ul>
-    </div>
-</div>
+					<div class="hero-stories-feed-item">
+						{% if maybe_thumbnail %}
+							<div class="hero-stories-feed-item__media">
+								<div class="hero-stories-feed-item__media-container">
+									<a href="{{ post.link|e('esc_url') }}">
+										<img class="hero-stories-feed-item__media-image"
+											 src="{{ maybe_thumbnail.src|e('esc_url') }}"
+											 alt="{{ maybe_thumbnail.alt|e('esc_attr') }}" loading="lazy">
+									</a>
+								</div>
+							</div>
+						{% endif %}
+						<div class="hero-stories-feed-item__content">
+							<div class="hero-stories-feed-item__content-tags">
+								<ul>
+									{% for term in post.terms %}
+										{% if term.taxonomy == "category" %}
+											<li>{{ term.name }}</li>
+										{% endif %}
+									{% endfor %}
+								</ul>
+							</div>
+							<h2 class="hero-stories-feed-item__title">
+								<a class="iastate22-link-secondary"
+								   href="{{ post.link|e('esc_url') }}">{{ post.post_title }}<span class="arrow"></span></a>
+							</h2>
+							<p class="hero-stories-feed-item__content-date">{{ post.date }}</p>
+						</div>
+					</div>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
 {% endif %}

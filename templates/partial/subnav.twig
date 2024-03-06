@@ -1,62 +1,63 @@
 <nav class="subnav" aria-label="Sidebar">
-  <noscript>
-    <button class="subnav__toggle" id="subnav-toggle" aria-controls="subnav-list" aria-haspopup="true" aria-expanded="false"><span>Explore This Section</span></button>
-  </noscript>
-  <div class="subnav__list" id="subnav-list">
-    <ul>
-      <li>
-        {% if rent != 0 %}
-          <a href="{{ function('get_permalink', rent) }}">{{ parent_title }}</a>
-        {% else %}
-          <a href="{{ site.url|e('esc_url') }}">Home</a>
-        {% endif %}
+	<noscript>
+		<button class="subnav__toggle" id="subnav-toggle" aria-controls="subnav-list" aria-haspopup="true"
+				aria-expanded="false"><span>Explore This Section</span></button>
+	</noscript>
+	<div class="subnav__list" id="subnav-list">
+		<ul>
+			<li>
+				{% if rent != 0 %}
+					<a href="{{ function('get_permalink', rent) }}">{{ parent_title }}</a>
+				{% else %}
+					<a href="{{ site.url|e('esc_url') }}">Home</a>
+				{% endif %}
 
-      </li>
-      {% if subnav_side_menu %}
-        {% for link in subnav_side_menu.items %}
-          <li>
-            <a href="{{ link.url|e('esc_url') }}">{{ link.title }}</a>
+			</li>
+			{% if subnav_side_menu %}
+				{% for link in subnav_side_menu.items %}
+					<li>
+						<a href="{{ link.url|e('esc_url') }}">{{ link.title }}</a>
 
-            {% if link.children|length > 0 %}
-            <ul>
-              {% for child in link.children %}
-              <li>
-                <a href="{{ child.url|e('esc_url') }}">{{ child.title }}</a>
-              </li>
-              {% endfor %}
-            </ul>
-          {% endif %}
-          </li>
-        {% endfor %}
-      {% else %}
-        {% for key, item in siblings %}
-        {% set pst = Post(item.ID) %}
-          {% if pst.meta("hide_from_sidebar") != true %}
-            <li>
-              {% if item %}
-                <a href="{{ function('get_permalink', item.ID) }}"{% if item.ID == current %} aria-current="page"{% endif %}>{{ item.post_title }}</a>
-              {% else %}
-                <span class="lw_separator_title">{{ item.post_title }}</span>
-              {% endif %}
-              {% if item.ID == current %}
-                {% if childrens[key]|length > 0 %}
-                  <ul>
-                    {% for subitem in childrens[key] %}
-                    {% set subpst = Post(subitem.ID) %}
-                      {% if subpst.meta("hide_from_sidebar") != true %}
-                      <li>
-                        <a href="{{ function('get_permalink', subitem.ID) }}">{{ subitem.post_title }}</a>
-                      </li>
-                      {% endif %}
-                    {% endfor %}
-                  </ul>
-                {% endif %}
-              {% endif %}
-            </li>
-          {% endif %}
-        {% endfor %}
-      {% endif %}
+						{% if link.children|length > 0 %}
+							<ul>
+								{% for child in link.children %}
+									<li>
+										<a href="{{ child.url|e('esc_url') }}">{{ child.title }}</a>
+									</li>
+								{% endfor %}
+							</ul>
+						{% endif %}
+					</li>
+				{% endfor %}
+			{% else %}
+				{% for key, item in siblings %}
+					{% set pst = Post(item.ID) %}
+					{% if pst.meta("hide_from_sidebar") != true %}
+						<li>
+							{% if item %}
+								<a href="{{ function('get_permalink', item.ID) }}"{% if item.ID == current %} aria-current="page"{% endif %}>{{ item.post_title }}</a>
+							{% else %}
+								<span class="lw_separator_title">{{ item.post_title }}</span>
+							{% endif %}
+							{% if item.ID == current %}
+								{% if childrens[key]|length > 0 %}
+									<ul>
+										{% for subitem in childrens[key] %}
+											{% set subpst = Post(subitem.ID) %}
+											{% if subpst.meta("hide_from_sidebar") != true %}
+												<li>
+													<a href="{{ function('get_permalink', subitem.ID) }}">{{ subitem.post_title }}</a>
+												</li>
+											{% endif %}
+										{% endfor %}
+									</ul>
+								{% endif %}
+							{% endif %}
+						</li>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
 
-    </ul>
-  </div>
+		</ul>
+	</div>
 </nav>

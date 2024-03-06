@@ -1,235 +1,235 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/theme.json",
-	"version": 2,
-	"settings": {
-		"typography": {
-			"fontFamilies": [
-				{
-					"fontFamily": "\"Nimbus Sans\", sans-serif",
-					"slug": "nimbus-sans",
-					"name": "Nimbus Sans"
-				},
-				{
-					"fontFamily": "\"Merriweather\", serif",
-					"slug": "merriweather",
-					"name": "Merriweather"
-				}
-			],
-			"fontSizes": [
-				{
-					"slug": "small",
-					"size": "1rem",
-					"name": "Small"
-				},
-				{
-					"slug": "medium",
-					"size": "1.4rem",
-					"name": "Medium"
-				},
-				{
-					"slug": "large",
-					"size": "1.5rem",
-					"name": "Large"
-				},
-				{
-					"slug": "extra-large",
-					"size": "2rem",
-					"name": "Extra large"
-				}
-			]
-		},
-		"spacing": {
-			"padding": true,
-			"margin": true,
-			"units": [
-				"px",
-				"em",
-				"rem",
-				"vh",
-				"vw",
-				"%"
-			]
-		},
-		"layout": {
-			"contentSize": "1112px"
-		},
-		"color": {
-			"duotone": [
-				{
-					"colors": [
-						"#c8102e",
-						"#f1be48"
-					],
-					"slug": "iastate-red-and-gold-duotone",
-					"name": "Red and gold"
-				}
-			],
-			"gradients": [
-				{
-					"slug": "iastate-red-and-gold-gradient",
-					"gradient": "linear-gradient(135deg,rgba(200,16,46) 49.9%,rgb(241,190,72, 0.36) 50%)",
-					"name": "Diagonal Red and gold"
-				}
-			],
-			"palette": [
-				{
-					"slug": "iastate-cardinal",
-					"color": "#c8102e",
-					"name": "Primary: Cardinal"
-				},
-				{
-					"slug": "iastate-burgundy",
-					"color": "#7c2529",
-					"name": "Primary: Burgundy"
-				},
-				{
-					"slug": "iastate-dark-gray",
-					"color": "#4a4a4a",
-					"name": "Primary: Dark Gray"
-				},
-				{
-					"slug": "iastate-gold",
-					"color": "#f1be48",
-					"name": "Secondary: Gold"
-				},
-				{
-					"slug": "iastate-light-gray",
-					"color": "#f5f5f5",
-					"name": "Secondary: Light Gray"
-				},
-				{
-					"slug": "iastate-midnight",
-					"color": "#003d4c",
-					"name": "Tertiary: Midnight"
-				},
-				{
-					"slug": "iastate-medium-gray",
-					"color": "#ebebeb",
-					"name": "Tertiary: Medium Gray"
-				},
-				{
-					"slug": "off-white",
-					"color": "#f3f3f3",
-					"name": "Supplementary: Off White"
-				},
-				{
-					"slug": "gray2",
-					"color": "#e0e0e0",
-					"name": "Supplementary: Gray #e0"
-				},
-				{
-					"slug": "gray3",
-					"color": "#567078",
-					"name": "Supplementary: Gray #56"
-				},
-				{
-					"slug": "gray4",
-					"color": "#707070",
-					"name": "Supplementary: Gray #70"
-				},
-				{
-					"slug": "gray-blue",
-					"color": "#07333e",
-					"name": "Supplementary: Gray Blue"
-				},
-				{
-					"slug": "white",
-					"color": "#ffffff",
-					"name": "Supplementary: White"
-				},
-				{
-					"slug": "black",
-					"color": "#000000",
-					"name": "Supplementary: Black"
-				}
-			]
-		}
-	},
-	"styles": {
-		"color": {
-			"background": "var(--wp--preset--color--white)",
-			"text": "var(--wp--preset--color--iastate-dark-gray)"
-		},
-		"typography": {
-			"fontSize": "var(--wp--preset--font-size--extra-small)",
-			"fontFamily": "var(--wp--preset--font-family--nimbus-sans)",
-			"lineHeight": "1.5"
-		},
-		"elements": {
-			"link": {
-				"color": {
-					"text": "var(--wp--preset--color--iastate-burgundy)"
-				},
-				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--nimbus-sans)",
-					"fontWeight": "700",
-					"textTransform": "color .2s ease-in-out"
-				},
-				":hover": {
-					"color": {
-						"text": "var(--wp--preset--color--iastate-cardinal)"
-					}
-				}
-			},
-			"h1": {
-				"color": {
-					"text": "var(--wp--preset--color--iastate-cardinal)"
-				},
-				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--merriweather)"
-				}
-			},
-			"h2": {
-				"color": {
-					"text": "var(--wp--preset--color--iastate-cardinal)"
-				},
-				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--merriweather)"
-				}
-			},
-			"h3": {
-				"color": {
-					"text": "var(--wp--preset--color--iastate-cardinal)"
-				},
-				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--nimbus-sans)"
-				}
-			},
-			"h4": {
-				"color": {
-					"text": "var(--wp--preset--color--iastate-burgundy)"
-				},
-				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--nimbus-sans)"
-				}
-			},
-			"h5": {
-				"color": {
-					"text": "var(--wp--preset--color--iastate-burgundy)"
-				},
-				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--nimbus-sans)"
-				}
-			},
-			"h6": {
-				"color": {
-					"text": "var(--wp--preset--color--iastate-burgundy)"
-				},
-				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--nimbus-sans)"
-				}
-			}
-		},
-		"blocks": {
-			"core/buttons": {
-				"color": {
-					"background": "var(--wp--preset--color--white)",
-					"text": "var(--wp--preset--color--iastate-cardinal)"
-				},
-				"border": {
-					"radius": "1.875rem"
-				}
-			}
-		}
-	}
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "typography": {
+      "fontFamilies": [
+        {
+          "fontFamily": "\"Nimbus Sans\", sans-serif",
+          "slug": "nimbus-sans",
+          "name": "Nimbus Sans"
+        },
+        {
+          "fontFamily": "\"Merriweather\", serif",
+          "slug": "merriweather",
+          "name": "Merriweather"
+        }
+      ],
+      "fontSizes": [
+        {
+          "slug": "small",
+          "size": "1rem",
+          "name": "Small"
+        },
+        {
+          "slug": "medium",
+          "size": "1.4rem",
+          "name": "Medium"
+        },
+        {
+          "slug": "large",
+          "size": "1.5rem",
+          "name": "Large"
+        },
+        {
+          "slug": "extra-large",
+          "size": "2rem",
+          "name": "Extra large"
+        }
+      ]
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true,
+      "units": [
+        "px",
+        "em",
+        "rem",
+        "vh",
+        "vw",
+        "%"
+      ]
+    },
+    "layout": {
+      "contentSize": "1112px"
+    },
+    "color": {
+      "duotone": [
+        {
+          "colors": [
+            "#c8102e",
+            "#f1be48"
+          ],
+          "slug": "iastate-red-and-gold-duotone",
+          "name": "Red and gold"
+        }
+      ],
+      "gradients": [
+        {
+          "slug": "iastate-red-and-gold-gradient",
+          "gradient": "linear-gradient(135deg,rgba(200,16,46) 49.9%,rgb(241,190,72, 0.36) 50%)",
+          "name": "Diagonal Red and gold"
+        }
+      ],
+      "palette": [
+        {
+          "slug": "iastate-cardinal",
+          "color": "#c8102e",
+          "name": "Primary: Cardinal"
+        },
+        {
+          "slug": "iastate-burgundy",
+          "color": "#7c2529",
+          "name": "Primary: Burgundy"
+        },
+        {
+          "slug": "iastate-dark-gray",
+          "color": "#4a4a4a",
+          "name": "Primary: Dark Gray"
+        },
+        {
+          "slug": "iastate-gold",
+          "color": "#f1be48",
+          "name": "Secondary: Gold"
+        },
+        {
+          "slug": "iastate-light-gray",
+          "color": "#f5f5f5",
+          "name": "Secondary: Light Gray"
+        },
+        {
+          "slug": "iastate-midnight",
+          "color": "#003d4c",
+          "name": "Tertiary: Midnight"
+        },
+        {
+          "slug": "iastate-medium-gray",
+          "color": "#ebebeb",
+          "name": "Tertiary: Medium Gray"
+        },
+        {
+          "slug": "off-white",
+          "color": "#f3f3f3",
+          "name": "Supplementary: Off White"
+        },
+        {
+          "slug": "gray2",
+          "color": "#e0e0e0",
+          "name": "Supplementary: Gray #e0"
+        },
+        {
+          "slug": "gray3",
+          "color": "#567078",
+          "name": "Supplementary: Gray #56"
+        },
+        {
+          "slug": "gray4",
+          "color": "#707070",
+          "name": "Supplementary: Gray #70"
+        },
+        {
+          "slug": "gray-blue",
+          "color": "#07333e",
+          "name": "Supplementary: Gray Blue"
+        },
+        {
+          "slug": "white",
+          "color": "#ffffff",
+          "name": "Supplementary: White"
+        },
+        {
+          "slug": "black",
+          "color": "#000000",
+          "name": "Supplementary: Black"
+        }
+      ]
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var(--wp--preset--color--white)",
+      "text": "var(--wp--preset--color--iastate-dark-gray)"
+    },
+    "typography": {
+      "fontSize": "var(--wp--preset--font-size--extra-small)",
+      "fontFamily": "var(--wp--preset--font-family--nimbus-sans)",
+      "lineHeight": "1.5"
+    },
+    "elements": {
+      "link": {
+        "color": {
+          "text": "var(--wp--preset--color--iastate-burgundy)"
+        },
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--nimbus-sans)",
+          "fontWeight": "700",
+          "textTransform": "color .2s ease-in-out"
+        },
+        ":hover": {
+          "color": {
+            "text": "var(--wp--preset--color--iastate-cardinal)"
+          }
+        }
+      },
+      "h1": {
+        "color": {
+          "text": "var(--wp--preset--color--iastate-cardinal)"
+        },
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--merriweather)"
+        }
+      },
+      "h2": {
+        "color": {
+          "text": "var(--wp--preset--color--iastate-cardinal)"
+        },
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--merriweather)"
+        }
+      },
+      "h3": {
+        "color": {
+          "text": "var(--wp--preset--color--iastate-cardinal)"
+        },
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--nimbus-sans)"
+        }
+      },
+      "h4": {
+        "color": {
+          "text": "var(--wp--preset--color--iastate-burgundy)"
+        },
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--nimbus-sans)"
+        }
+      },
+      "h5": {
+        "color": {
+          "text": "var(--wp--preset--color--iastate-burgundy)"
+        },
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--nimbus-sans)"
+        }
+      },
+      "h6": {
+        "color": {
+          "text": "var(--wp--preset--color--iastate-burgundy)"
+        },
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--nimbus-sans)"
+        }
+      }
+    },
+    "blocks": {
+      "core/buttons": {
+        "color": {
+          "background": "var(--wp--preset--color--white)",
+          "text": "var(--wp--preset--color--iastate-cardinal)"
+        },
+        "border": {
+          "radius": "1.875rem"
+        }
+      }
+    }
+  }
 }

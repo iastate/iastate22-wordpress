@@ -1,32 +1,38 @@
 {% set todaysDate = "now"|date('Ymd') %}
 {% set count = 0 %}
-<div class="paragraph-widget paragraph-widget--upcoming-events"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
-    <div class="upcoming-events">
-        <h2>{{ fields.title }}</h2>
-            <dl class="upcoming-events__wrap">
-                {% for event in next_four %}
-                    {% set evtDate = event.event_start_date_start_date|date('Ymd') %}
-                    {% if evtDate >= todaysDate and count < 4 %}
-                        <dt class="upcoming-events__date">
-                            <time datetime="{{ event.event_start_date_start_date|date('Y-m-d') }}">
-                                <span class="month">{{ event.event_start_date_start_date|date('M') }}</span>
-                                <span class="day">{{ event.event_start_date_start_date|date('d') }}</span>
-                            </time>
-                        </dt>
-                        <dd class="upcoming-events__details">
-                            <h4 class="upcoming-events__title">
-                                <a href="{{ event.link|e('esc_url') }}" class="link-set__link iastate22-link-secondary">{{ event.post_title }}<span class="arrow"></span></a>
-                            </h4>
-                            {% if event.event_start_date_full_day != true %}
-                                <div class="upcoming-events__time">{{ event.event_start_date_start_time|date('g:i a')}}</div>
-                            {% else %}
-                                <div class="upcoming-events__time">All Day</div>
-                            {% endif %}
-                        </dd>
-                        {% set count = count + 1 %}
-                    {% endif %}
-                {% endfor %}
-          </dl>
-        <div class="upcoming-events__cta"><a href="{{ function('get_post_type_archive_link','events') }}" class="iastate22-button">Browse All Events<span class="arrow"></span></a></div>
-    </div>
+<div
+	class="paragraph-widget paragraph-widget--upcoming-events"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+	<div class="upcoming-events">
+		<h2>{{ fields.title }}</h2>
+		<dl class="upcoming-events__wrap">
+			{% for event in next_four %}
+				{% set evtDate = event.event_start_date_start_date|date('Ymd') %}
+				{% if evtDate >= todaysDate and count < 4 %}
+					<dt class="upcoming-events__date">
+						<time datetime="{{ event.event_start_date_start_date|date('Y-m-d') }}">
+							<span class="month">{{ event.event_start_date_start_date|date('M') }}</span>
+							<span class="day">{{ event.event_start_date_start_date|date('d') }}</span>
+						</time>
+					</dt>
+					<dd class="upcoming-events__details">
+						<h4 class="upcoming-events__title">
+							<a href="{{ event.link|e('esc_url') }}"
+							   class="link-set__link iastate22-link-secondary">{{ event.post_title }}<span
+									class="arrow"></span></a>
+						</h4>
+						{% if event.event_start_date_full_day != true %}
+							<div
+								class="upcoming-events__time">{{ event.event_start_date_start_time|date('g:i a') }}</div>
+						{% else %}
+							<div class="upcoming-events__time">All Day</div>
+						{% endif %}
+					</dd>
+					{% set count = count + 1 %}
+				{% endif %}
+			{% endfor %}
+		</dl>
+		<div class="upcoming-events__cta"><a href="{{ function('get_post_type_archive_link','events') }}"
+											 class="iastate22-button">Browse All Events<span class="arrow"></span></a>
+		</div>
+	</div>
 </div>

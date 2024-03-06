@@ -1,17 +1,18 @@
 <div class="hero"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
-  <div class="hero__text-wrap">
-    {% include ['templates/partial/breadcrumbs.twig'] %}
-    <h1 class="hero__title">
-      {% if post.meta('hero_title') %}
-        {{ post.meta('hero_title') }}
-      {% else %}
-        {{ wp_title }}
-      {% endif %}
-    </h1>
-  </div>
-  {% if post.meta('hero_image') %}
-  <div class="hero__media">
-    <img src="{{ post.meta('hero_image').url }}" alt="{{ post.meta('hero_image').alt }}" width="{{ post.meta('hero_image').width }}" height="{{ post.meta('hero_image').height }}">
-  </div>
-  {% endif %}
+	<div class="hero__text-wrap">
+		{% include ['templates/partial/breadcrumbs.twig'] %}
+		<h1 class="hero__title">
+			{% if post.meta('hero_title') %}
+				{{ post.meta('hero_title') }}
+			{% else %}
+				{{ wp_title }}
+			{% endif %}
+		</h1>
+	</div>
+	{% if post.meta('hero_image') %}
+		<div class="hero__media">
+			<img src="{{ post.meta('hero_image').url }}" alt="{{ post.meta('hero_image').alt }}"
+				 width="{{ post.meta('hero_image').width }}" height="{{ post.meta('hero_image').height }}">
+		</div>
+	{% endif %}
 </div>

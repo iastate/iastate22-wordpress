@@ -1,20 +1,25 @@
-<div class="paragraph-widget paragraph-widget--feature-with-large-image"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
-    <div class="feature-with-large-image">
-    <div class="feature-with-large-image__media">
-        <img src="{{ fields.image.url|e('esc_url') }}" alt="{{ fields.image.alt|e('esc_attr') }}" width="{{ fields.image.width|e('esc_attr') }}" height="{{ fields.image.height|e('esc_attr') }}" />
-    </div>
-    <div class="feature-with-large-image__content">
-        {% if fields.callout.title %}<h2>{{ fields.callout.title|striptags }}</h2>{% endif %}
-        {% if fields.callout.content %}<div class="feature-with-large-image__text">{{ fields.callout.content }}</div>{% endif %}
-        {% if fields.callout.link.url and fields.callout.link.label %}
-        <div class="iastate22-button-set">
-            <ul>
-                <li>
-                    <a class="iastate22-button" href="{{ fields.callout.link.url|e('esc_url') }}">{{ fields.callout.link.label }}<span class="arrow"></span></a>
-                </li>
-            </ul>
-        </div>
-        {% endif %}
-    </div>
-    </div>
+<div
+	class="paragraph-widget paragraph-widget--feature-with-large-image"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+	<div class="feature-with-large-image">
+		<div class="feature-with-large-image__media">
+			<img src="{{ fields.image.url|e('esc_url') }}" alt="{{ fields.image.alt|e('esc_attr') }}"
+				 width="{{ fields.image.width|e('esc_attr') }}" height="{{ fields.image.height|e('esc_attr') }}"/>
+		</div>
+		<div class="feature-with-large-image__content">
+			{% if fields.callout.title %}<h2>{{ fields.callout.title|striptags }}</h2>{% endif %}
+			{% if fields.callout.content %}
+				<div class="feature-with-large-image__text">{{ fields.callout.content }}</div>{% endif %}
+			{% if fields.callout.link.url and fields.callout.link.label %}
+				<div class="iastate22-button-set">
+					<ul>
+						<li>
+							<a class="iastate22-button"
+							   href="{{ fields.callout.link.url|e('esc_url') }}">{{ fields.callout.link.label }}<span
+									class="arrow"></span></a>
+						</li>
+					</ul>
+				</div>
+			{% endif %}
+		</div>
+	</div>
 </div>

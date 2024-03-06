@@ -21,21 +21,24 @@
  * @since    Timber 0.1
  */
 
-$context = Timber::context();
+use Timber\Post;
+use Timber\Timber;
+
 global $post, $page, $pages, $multipage;
+
 setup_postdata( $post );
 
-$timber_post = new Timber\Post();
-
+$timber_post = new Post();
+$context = Timber::context();
 $context['post'] = $timber_post;
-if ( $multipage ) {
-    $context['post'] -> post_content = $pages[ $page - 1 ];
-}
 
+if ( $multipage ) {
+	$context['post']->post_content = $pages[ $page - 1 ];
+}
 if ( post_password_required( $timber_post->ID ) ) {
 	Timber::render( 'single-password.twig', $context );
-} else if($timber_post->post_type === "profiles") {
-    Timber::render( array( 'single-profile.twig' ), $context );
+} else if ( $timber_post->post_type === "profiles" ) {
+	Timber::render( array( 'single-profile.twig' ), $context );
 } else {
-    Timber::render( array( 'page-' . $timber_post->post_name . '.twig', 'page.twig' ), $context );
+	Timber::render( array( 'page-' . $timber_post->post_name . '.twig', 'page.twig' ), $context );
 }

@@ -1,23 +1,25 @@
-<div class="paragraph-widget paragraph-widget--link-set"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
-    <div class="link-set">
-        <ul>
-            {% for item in fields.links %}
-                {% if item.link_url %}
-                    <li>
-                    {% if item.link_style == "standard" %}
-                        {% set linkClass = "link-set__link iastate22-link-secondary" %}
-                    {% elseif item.link_style == "external" %}
-                        {% set linkClass = "link-set__link iastate22-link-external" %}
-                    {% elseif item.link_style == "minimal" %}
-                        {% set linkClass = "link-set__link link-tertiary" %}
-                    {% endif %}
-                        <a class="{{ linkClass|e('esc_attr') }}" href="{{ item.link_url|e('esc_url') }}"{% if item.link_style == "external" %} target="_blank"{% endif %}>
-                            {{ item.label }}
-                            <span class="arrow"></span>
-                        </a>
-                    </li>
-                {% endif %}
-            {% endfor %}
-        </ul>
-    </div>
+<div
+	class="paragraph-widget paragraph-widget--link-set"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+	<div class="link-set">
+		<ul>
+			{% for item in fields.links %}
+				{% if item.link_url %}
+					<li>
+						{% if item.link_style == "standard" %}
+							{% set linkClass = "link-set__link iastate22-link-secondary" %}
+						{% elseif item.link_style == "external" %}
+							{% set linkClass = "link-set__link iastate22-link-external" %}
+						{% elseif item.link_style == "minimal" %}
+							{% set linkClass = "link-set__link link-tertiary" %}
+						{% endif %}
+						<a class="{{ linkClass|e('esc_attr') }}"
+						   href="{{ item.link_url|e('esc_url') }}"{% if item.link_style == "external" %} target="_blank"{% endif %}>
+							{{ item.label }}
+							<span class="arrow"></span>
+						</a>
+					</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	</div>
 </div>

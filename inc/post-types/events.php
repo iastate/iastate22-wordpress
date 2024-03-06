@@ -30,7 +30,7 @@ function custom_event() {
 		'set_featured_image'    => __( 'Set featured image' ),
 		'remove_featured_image' => __( 'Remove featured image' ),
 		'use_featured_image'    => __( 'Use as featured image' ),
-		'insert_into_item'      => __( 'Insert into personal event' ),
+		'insert_into_item'      => __( /** @lang text */ 'Insert into personal event' ),
 		'uploaded_to_this_item' => __( 'Uploaded to this personal event' ),
 		'items_list'            => __( 'Events list' ),
 		'items_list_navigation' => __( 'Events list navigation' ),
@@ -71,31 +71,35 @@ function custom_event() {
 	);
 
 	register_taxonomy( 'event_tags', 'events', array(
-		// Hierarchical taxonomy (like categories)
-		'hierarchical' => true,
-		'show_in_rest' => true,
-		// This array of options controls the labels displayed in the WordPress Admin UI
-		'labels'       => $event_tag_labels,
-		// Control the slugs used for this taxonomy
-		'rewrite'      => array(
-			'slug'         => 'event_tags', // This controls the base slug that will display before each term
-			'with_front'   => false, // Don't display the category base before "/locations/"
-			'hierarchical' => true // This will allow URL's like "/locations/boston/cambridge/"
-		),
+			// Hierarchical taxonomy (like categories)
+			'hierarchical' => true,
+			'show_in_rest' => true,
+			// This array of options controls the labels displayed in the WordPress Admin UI
+			'labels'       => $event_tag_labels,
+			// Control the slugs used for this taxonomy
+			'rewrite'      => array(
+				'slug'         => 'event_tags', // This controls the base slug that will display before each term
+				'with_front'   => false, // Don't display the category base before "/locations/"
+				'hierarchical' => true // This will allow URL's like "/locations/boston/cambridge/"
+			),
 		)
 	);
 
-	add_action( 'wp_enqueue_scripts', 'acf_custom_events_api_path_override', 11);
+	add_action( 'wp_enqueue_scripts', 'acf_custom_events_api_path_override', 11 );
 }
 
 add_action( 'init', 'custom_event', 0 );
 
-function acf_custom_events_api_path_override(){
-	wp_add_inline_script( 'main', 'const MYSCRIPT = ' . wp_json_encode( array(
+function acf_custom_events_api_path_override() {
+	$inline_script = 'const MYSCRIPT = ';
+	$inline_script .= wp_json_encode(
+		array(
 			'eventsURL' => rest_get_route_for_post_type_items( 'events' ),
-			'rootURL' => get_rest_url(),
-		) ), 'before' );
+			'rootURL'   => get_rest_url( null, '' ),
+		) );
+	wp_add_inline_script( 'main', $inline_script, 'before' );
 }
+
 function acf_custom_event_changed_check( $value, $post_id, $field, $original ) {
 	if ( 'options' !== $post_id ) {
 		return $value;
@@ -115,6 +119,7 @@ function acf_custom_event_changed_check( $value, $post_id, $field, $original ) {
 			exit;
 		}, 0 );
 	}
+
 	return $value;
 }
 
@@ -124,6 +129,7 @@ function admin_event_table_listings() {
 	add_filter( 'manage_events_posts_columns', 'add_event_table_columns' );
 	add_action( 'manage_pages_custom_column', 'add_event_table_column_data', 10, 2 );
 }
+
 add_action( 'admin_init', 'admin_event_table_listings' );
 
 function add_event_table_columns( $columns ) {
@@ -152,10 +158,10 @@ function add_event_table_column_data( $column_name, $post_id ) {
 			$date     = get_post_meta( $post_id, 'event_end_date_end_date', true );
 			$time     = get_post_meta( $post_id, 'event_end_date_end_time', true );
 		}
-		if (empty($date)){
+		if ( empty( $date ) ) {
 			return;
 		}
-		
+
 		$format    = $full_day ? get_option( 'date_format' ) : get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
 		$timestamp = $full_day ? $date : $date . ' ' . $time;
 
@@ -163,3 +169,22 @@ function add_event_table_column_data( $column_name, $post_id ) {
 	}
 
 }
+
+/**
+ * REST API Query parameters.
+ *
+ * @param array $args
+ * @param WP_REST_Request $request
+ *
+ * @return array
+ */
+function event_rest_query( array $args, WP_REST_Request $request ): array {
+	return array_merge( $args, array(
+		'meta_key'  => 'event_start_date_start_date',
+		'meta_type' => 'DATE',
+		'orderby'   => 'meta_value',
+		'order'     => 'ASC',
+	) );
+}
+
+add_filter( 'rest_events_query', 'event_rest_query', 10, 2 );

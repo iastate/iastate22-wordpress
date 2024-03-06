@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 const _kebabCase = require("lodash.kebabcase");
 const twigAdapter = require("@frctl/twig")({
-  importContext: true,
+	importContext: true,
 });
 
 /* Create a new Fractal instance and export it for use elsewhere if required */
@@ -33,23 +33,23 @@ fractal.web.set("builder.dest", __dirname + "/fractal");
 
 /* Add a custom command to the Fractal CLI to quickly scaffold components */
 fractal.cli.command("create-component <componentName>", (args, done) => {
-  const componentsRoot = fractal.components.get("path");
-  const componentExt = fractal.components.get("ext");
-  const componentName = _kebabCase(args.componentName);
-  const componentPath = path.resolve(componentsRoot, componentName);
+	const componentsRoot = fractal.components.get("path");
+	const componentExt = fractal.components.get("ext");
+	const componentName = _kebabCase(args.componentName);
+	const componentPath = path.resolve(componentsRoot, componentName);
 
-  console.log(`Creating component directory for "${args.componentName}"...`);
-  fs.mkdirSync(componentPath);
-  console.log(`Creating component template for "${args.componentName}"...`);
-  fs.writeFileSync(path.resolve(componentPath, `${componentName}${componentExt}`), "");
-  console.log(`Creating config.json for "${args.componentName}"...`);
-  fs.writeFileSync(
-    path.resolve(componentPath, `${componentName}.config.json`),
-    JSON.stringify({ context: {} }, null, "\t")
-  );
-  console.log(`Creating component stylesheet for "${args.componentName}"...`);
-  fs.writeFileSync(path.resolve(componentPath, `_${componentName}.scss`), "");
-  console.log(`Finished scaffolding "${args.componentName}"!`);
+	console.log(`Creating component directory for "${args.componentName}"...`);
+	fs.mkdirSync(componentPath);
+	console.log(`Creating component template for "${args.componentName}"...`);
+	fs.writeFileSync(path.resolve(componentPath, `${componentName}${componentExt}`), "");
+	console.log(`Creating config.json for "${args.componentName}"...`);
+	fs.writeFileSync(
+		path.resolve(componentPath, `${componentName}.config.json`),
+		JSON.stringify({context: {}}, null, "\t")
+	);
+	console.log(`Creating component stylesheet for "${args.componentName}"...`);
+	fs.writeFileSync(path.resolve(componentPath, `_${componentName}.scss`), "");
+	console.log(`Finished scaffolding "${args.componentName}"!`);
 
-  done();
+	done();
 });

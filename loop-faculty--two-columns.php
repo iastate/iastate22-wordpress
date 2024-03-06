@@ -1,7 +1,9 @@
 <?php
 
-$context = Timber::get_context();
+use Timber\PostQuery;
+use Timber\Timber;
 
-$context['posts'] = new Timber\PostQuery();
-Timber::render('loops/loop-faculty--two-columns.twig', $context);
+$context          = Timber::get_context();
+$context['posts'] = new PostQuery();
 
+Timber::render( 'loops/loop-faculty--two-columns.twig', $context );
