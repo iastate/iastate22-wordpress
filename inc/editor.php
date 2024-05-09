@@ -4,7 +4,7 @@ add_action( 'after_setup_theme', '_gutenberg_css' );
 function _gutenberg_css() {
 
 	add_theme_support( 'editor-styles' ); // if you don't add this line, your stylesheet won't be added
-	add_editor_style( '/wp_components/build/css/editor.css' ); // tries to include style-editor.css directly from your theme folder
+	add_editor_style( 'wp_components/build/css/editor.css' ); // tries to include style-editor.css directly from your theme folder
 }
 
 //add_action('enqueue_block_editor_assets', '_gutenberg_js');
@@ -13,23 +13,34 @@ function _gutenberg_css() {
 //    wp_enqueue_script('editor-js');
 //}
 
-function customWYSIWYG( $arr ) {
-	$arr['block_formats'] = 'Paragraph=p;Heading 2=h2;Heading 3=h3;Heading 4=h4';
-	// decode
-    $formats = preg_replace( '/(\w+)\s{0,1}:/', '"\1":', str_replace(array("\r\n", "\r", "\n", "\t"), "", $arr['formats'] ));
-    $formats = json_decode( $formats, true );
+function customWYSIWYG( $tinymce_settings ) {
+	$tinymce_settings['block_formats'] = 'Paragraph=p;Heading 2=h2;Heading 3=h3;Heading 4=h4';
 
-    // set correct values
-    $formats['alignleft'][0]['classes'] = 'text-align-left';
-    $formats['aligncenter'][0]['classes'] = 'text-align-center';
-    $formats['alignright'][0]['classes'] = 'text-align-right';
-
-    // remove inline styles
-    unset( $formats['alignleft'][0]['styles'] );
-    unset( $formats['aligncenter'][0]['styles'] );
-    unset( $formats['alignright'][0]['styles'] );
-	$arr['formats'] = json_encode($formats);
-	return $arr;
+	/**
+	 * @see _WP_Editors::default_settings() for default settings
+	 */
+	$theme_style_formats = array(
+		'alignleft'   => array(
+			array(
+				'selector' => 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,img,table,dl.wp-caption',
+				'classes'  => 'text-align-left'
+			)
+		),
+		'aligncenter' => array(
+			array(
+				'selector' => 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,img,table,dl.wp-caption',
+				'classes'  => 'text-align-left'
+			)
+		),
+		'alignright'  => array(
+			array(
+				'selector' => 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,img,table,dl.wp-caption',
+				'classes'  => 'text-align-left'
+			)
+		),
+	);
+	$tinymce_settings['formats'] = wp_json_encode( $theme_style_formats );
+	return $tinymce_settings;
 }
 
 add_filter( 'tiny_mce_before_init', 'customWYSIWYG' );
