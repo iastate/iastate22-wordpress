@@ -15,7 +15,20 @@ function _gutenberg_css() {
 
 function customWYSIWYG( $arr ) {
 	$arr['block_formats'] = 'Paragraph=p;Heading 2=h2;Heading 3=h3;Heading 4=h4';
+	// decode
+    $formats = preg_replace( '/(\w+)\s{0,1}:/', '"\1":', str_replace(array("\r\n", "\r", "\n", "\t"), "", $arr['formats'] ));
+    $formats = json_decode( $formats, true );
 
+    // set correct values
+    $formats['alignleft'][0]['classes'] = 'text-align-left';
+    $formats['aligncenter'][0]['classes'] = 'text-align-center';
+    $formats['alignright'][0]['classes'] = 'text-align-right';
+
+    // remove inline styles
+    unset( $formats['alignleft'][0]['styles'] );-
+    unset( $formats['aligncenter'][0]['styles'] );
+    unset( $formats['alignright'][0]['styles'] );
+	$arr['formats'] = json_encode($formats);
 	return $arr;
 }
 
