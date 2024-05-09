@@ -239,6 +239,20 @@ h2,
   & + %h3 {
     margin-top: 0;
   }
+
+  &.text-align-center {
+    &:after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &.text-align-right {
+    &:after {
+      left: unset;
+      right: 0;
+    }
+  }
 }
 
 h3,

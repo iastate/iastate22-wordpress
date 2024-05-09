@@ -212,21 +212,116 @@
             "install-path": "./installers"
         },
         {
+            "name": "hellonico/timber-dump-extension",
+            "version": "1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nlemoine/timber-dump-extension.git",
+                "reference": "05d0ea9e13c044a3b78926ab4695b28e739aa205"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nlemoine/timber-dump-extension/zipball/05d0ea9e13c044a3b78926ab4695b28e739aa205",
+                "reference": "05d0ea9e13c044a3b78926ab4695b28e739aa205",
+                "shasum": ""
+            },
+            "require": {
+                "hellonico/twig-dump-extension": "^1.0"
+            },
+            "time": "2019-03-05T10:25:36+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "functions.php"
+                ],
+                "psr-4": {
+                    "HelloNico\\Timber\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Lemoine",
+                    "email": "dev@helloni.co",
+                    "homepage": "https://github.com/nlemoine"
+                }
+            ],
+            "description": "Provides Symfony VarDumper component for Timber",
+            "homepage": "https://github.com/nlemoine/timber-dump-extension",
+            "support": {
+                "issues": "https://github.com/nlemoine/timber-dump-extension/issues",
+                "source": "https://github.com/nlemoine/timber-dump-extension/tree/master"
+            },
+            "install-path": "../hellonico/timber-dump-extension"
+        },
+        {
+            "name": "hellonico/twig-dump-extension",
+            "version": "1.2.0",
+            "version_normalized": "1.2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nlemoine/twig-dump-extension.git",
+                "reference": "fb5fbea20032254d32aaaba5fc1113a4a4877aaf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nlemoine/twig-dump-extension/zipball/fb5fbea20032254d32aaaba5fc1113a4a4877aaf",
+                "reference": "fb5fbea20032254d32aaaba5fc1113a4a4877aaf",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/var-dumper": "^4.2 || ^5.0 || ^6.0",
+                "twig/twig": "^2.4 || ^3.0"
+            },
+            "time": "2022-07-12T15:30:32+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "HelloNico\\Twig\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Lemoine",
+                    "email": "nico@niconico.fr",
+                    "homepage": "https://github.com/nlemoine"
+                }
+            ],
+            "description": "VarDumper Twig extension",
+            "homepage": "https://github.com/nlemoine/twig-dump-extension",
+            "support": {
+                "issues": "https://github.com/nlemoine/twig-dump-extension/issues",
+                "source": "https://github.com/nlemoine/twig-dump-extension/tree/1.2.0"
+            },
+            "abandoned": "symfony/twig-bridge",
+            "install-path": "../hellonico/twig-dump-extension"
+        },
+        {
             "name": "iastate/frontend-component-library",
             "version": "dev-master",
             "version_normalized": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:iastate/iastate22-frontend.git",
-                "reference": "1a8e0bc3953bbecadc3250edd84c41822ecf45ff"
+                "url": "https://github.com/iastate/iastate22-frontend.git",
+                "reference": "f26d3f4f27f124d13401b63b8c88a776739beb7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/iastate/iastate22-frontend/zipball/1a8e0bc3953bbecadc3250edd84c41822ecf45ff",
-                "reference": "1a8e0bc3953bbecadc3250edd84c41822ecf45ff",
+                "url": "https://api.github.com/repos/iastate/iastate22-frontend/zipball/f26d3f4f27f124d13401b63b8c88a776739beb7b",
+                "reference": "f26d3f4f27f124d13401b63b8c88a776739beb7b",
                 "shasum": ""
             },
-            "time": "2024-01-09T20:59:45+00:00",
+            "time": "2024-05-09T16:08:56+00:00",
             "default-branch": true,
             "type": "library",
             "installation-source": "dist",
@@ -246,6 +341,10 @@
                 }
             ],
             "description": "Frontend component library for Iowa State University.",
+            "support": {
+                "issues": "https://github.com/iastate/iastate22-frontend/issues",
+                "source": "https://github.com/iastate/iastate22-frontend/tree/1.0.64"
+            },
             "install-path": "../iastate/frontend-component-library"
         },
         {
@@ -490,18 +589,193 @@
             "install-path": "../symfony/polyfill-php72"
         },
         {
-            "name": "timber/timber",
-            "version": "1.24.0",
-            "version_normalized": "1.24.0.0",
+            "name": "symfony/polyfill-php80",
+            "version": "v1.29.0",
+            "version_normalized": "1.29.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/timber/timber.git",
-                "reference": "f7c94c6079a8a4c251caf6e3feb45ce5ad117c87"
+                "url": "https://github.com/symfony/polyfill-php80.git",
+                "reference": "87b68208d5c1188808dd7839ee1e6c8ec3b02f1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/timber/timber/zipball/f7c94c6079a8a4c251caf6e3feb45ce5ad117c87",
-                "reference": "f7c94c6079a8a4c251caf6e3feb45ce5ad117c87",
+                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/87b68208d5c1188808dd7839ee1e6c8ec3b02f1b",
+                "reference": "87b68208d5c1188808dd7839ee1e6c8ec3b02f1b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "time": "2024-01-29T20:11:03+00:00",
+            "type": "library",
+            "extra": {
+                "thanks": {
+                    "name": "symfony/polyfill",
+                    "url": "https://github.com/symfony/polyfill"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php80\\": ""
+                },
+                "classmap": [
+                    "Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ion Bazan",
+                    "email": "ion.bazan@gmail.com"
+                },
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 8.0+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.29.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "../symfony/polyfill-php80"
+        },
+        {
+            "name": "symfony/var-dumper",
+            "version": "v5.4.39",
+            "version_normalized": "5.4.39.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/var-dumper.git",
+                "reference": "1987f86ad7f339fe3d3e8e6cf3b7ce4d4b8e547e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/1987f86ad7f339fe3d3e8e6cf3b7ce4d4b8e547e",
+                "reference": "1987f86ad7f339fe3d3e8e6cf3b7ce4d4b8e547e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.5",
+                "symfony/polyfill-mbstring": "~1.0",
+                "symfony/polyfill-php80": "^1.16"
+            },
+            "conflict": {
+                "symfony/console": "<4.4"
+            },
+            "require-dev": {
+                "ext-iconv": "*",
+                "symfony/console": "^4.4|^5.0|^6.0",
+                "symfony/http-kernel": "^4.4|^5.0|^6.0",
+                "symfony/process": "^4.4|^5.0|^6.0",
+                "symfony/uid": "^5.1|^6.0",
+                "twig/twig": "^2.13|^3.0.4"
+            },
+            "suggest": {
+                "ext-iconv": "To convert non-UTF-8 strings to UTF-8 (or symfony/polyfill-iconv in case ext-iconv cannot be used).",
+                "ext-intl": "To show region name in time zone dump",
+                "symfony/console": "To use the ServerDumpCommand and/or the bin/var-dump-server script"
+            },
+            "time": "2024-04-18T08:26:06+00:00",
+            "bin": [
+                "Resources/bin/var-dump-server"
+            ],
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "Resources/functions/dump.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Component\\VarDumper\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Provides mechanisms for walking through any arbitrary PHP variable",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "debug",
+                "dump"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/var-dumper/tree/v5.4.39"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "../symfony/var-dumper"
+        },
+        {
+            "name": "timber/timber",
+            "version": "1.24.1",
+            "version_normalized": "1.24.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/timber/timber.git",
+                "reference": "f8f2e5a9f03eb67b7c20820e60aa8618f59aaf1d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/timber/timber/zipball/f8f2e5a9f03eb67b7c20820e60aa8618f59aaf1d",
+                "reference": "f8f2e5a9f03eb67b7c20820e60aa8618f59aaf1d",
                 "shasum": ""
             },
             "require": {
@@ -519,7 +793,7 @@
             "suggest": {
                 "satooshi/php-coveralls": "1.0.* for code coverage"
             },
-            "time": "2024-01-29T07:04:46+00:00",
+            "time": "2024-04-10T14:24:07+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -782,6 +1056,11 @@
             "install-path": "../upstatement/routes"
         }
     ],
-    "dev": false,
-    "dev-package-names": []
+    "dev": true,
+    "dev-package-names": [
+        "hellonico/timber-dump-extension",
+        "hellonico/twig-dump-extension",
+        "symfony/polyfill-php80",
+        "symfony/var-dumper"
+    ]
 }
