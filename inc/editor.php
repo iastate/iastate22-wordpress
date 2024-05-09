@@ -25,7 +25,7 @@ function customWYSIWYG( $arr ) {
     $formats['alignright'][0]['classes'] = 'text-align-right';
 
     // remove inline styles
-    unset( $formats['alignleft'][0]['styles'] );-
+    unset( $formats['alignleft'][0]['styles'] );
     unset( $formats['aligncenter'][0]['styles'] );
     unset( $formats['alignright'][0]['styles'] );
 	$arr['formats'] = json_encode($formats);
