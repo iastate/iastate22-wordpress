@@ -29,13 +29,13 @@ function customWYSIWYG( $tinymce_settings ) {
 		'aligncenter' => array(
 			array(
 				'selector' => 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,img,table,dl.wp-caption',
-				'classes'  => 'text-align-left'
+				'classes'  => 'text-align-center'
 			)
 		),
 		'alignright'  => array(
 			array(
 				'selector' => 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,img,table,dl.wp-caption',
-				'classes'  => 'text-align-left'
+				'classes'  => 'text-align-right'
 			)
 		),
 	);
