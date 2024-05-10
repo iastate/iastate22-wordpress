@@ -240,14 +240,16 @@ h2,
     margin-top: 0;
   }
 
-  &.text-align-center {
+  &.text-align-center,
+  &.has-text-align-center {
     &:after {
       left: 50%;
       transform: translateX(-50%);
     }
   }
 
-  &.text-align-right {
+  &.text-align-right,
+  &.has-text-align-right {
     &:after {
       left: unset;
       right: 0;

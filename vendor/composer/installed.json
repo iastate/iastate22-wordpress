@@ -313,15 +313,15 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/iastate/iastate22-frontend.git",
-                "reference": "f26d3f4f27f124d13401b63b8c88a776739beb7b"
+                "reference": "4a199e94cc74dbd4e02739d311f1dea9b0f0c3ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/iastate/iastate22-frontend/zipball/f26d3f4f27f124d13401b63b8c88a776739beb7b",
-                "reference": "f26d3f4f27f124d13401b63b8c88a776739beb7b",
+                "url": "https://api.github.com/repos/iastate/iastate22-frontend/zipball/4a199e94cc74dbd4e02739d311f1dea9b0f0c3ab",
+                "reference": "4a199e94cc74dbd4e02739d311f1dea9b0f0c3ab",
                 "shasum": ""
             },
-            "time": "2024-05-09T16:08:56+00:00",
+            "time": "2024-05-09T17:54:46+00:00",
             "default-branch": true,
             "type": "library",
             "installation-source": "dist",
@@ -343,7 +343,7 @@
             "description": "Frontend component library for Iowa State University.",
             "support": {
                 "issues": "https://github.com/iastate/iastate22-frontend/issues",
-                "source": "https://github.com/iastate/iastate22-frontend/tree/1.0.64"
+                "source": "https://github.com/iastate/iastate22-frontend/tree/1.0.65"
             },
             "install-path": "../iastate/frontend-component-library"
         },
