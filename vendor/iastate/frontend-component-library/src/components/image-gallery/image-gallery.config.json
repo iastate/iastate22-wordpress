@@ -1,0 +1,148 @@
+{
+  "context": {
+    "images": [
+      {
+        "src": "../../img/IMG-Campus-Location-Large-Image.jpg",
+        "alt": "Image One",
+        "additional_buttons": [
+          {
+            "url": "https://iastate.edu",
+            "text": "Extra Link"
+          },
+          {
+            "url": "https://iastate.edu",
+            "text": "Link Two"
+          }
+        ],
+        "modal": {
+          "id": "modal-image-gallery-1",
+          "image": "../../img/IMG-Campus-Location-Large-Image.jpg",
+          "title": "Optional Title Image One",
+          "content": "Optional caption nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores.",
+          "download": true
+        }
+      },
+      {
+        "src": "../../img/IMG-Campus-Location-Small-Image-2.jpg",
+        "alt": "Image Two",
+        "modal": {
+          "id": "modal-image-gallery-2",
+          "image": "../../img/IMG-Campus-Location-Small-Image-2.jpg",
+          "title": "Optional Title Image Two",
+          "content": "Optional caption nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores.",
+          "download": true
+        }
+      },
+      {
+        "src": "../../img/IMG_Inline_Left_FPO.jpg",
+        "alt": "Image Three",
+        "modal": {
+          "id": "modal-image-gallery-3",
+          "image": "../../img/IMG_Inline_Left_FPO.jpg",
+          "title": "Optional Title Image Three",
+          "content": "Optional caption nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores.",
+          "download": true
+        }
+      },
+      {
+        "src": "../../img/carousel-slide_fpo.jpg",
+        "alt": "Image Four",
+        "modal": {
+          "id": "modal-image-gallery-4",
+          "image": "../../img/carousel-slide_fpo.jpg",
+          "title": "Optional Title Image Four",
+          "content": "Optional caption nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores.",
+          "download": true
+        }
+      },
+      {
+        "src": "../../img/Component-Card-Image-1.jpg",
+        "alt": "Image Five",
+        "modal": {
+          "id": "modal-image-gallery-5",
+          "image": "../../img/Component-Card-Image-1.jpg",
+          "title": "Optional Title Image Five",
+          "content": "Optional caption nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores.",
+          "download": true
+        }
+      },
+      {
+        "src": "../../img/Component-Card-Image-3.jpg",
+        "alt": "Image Six",
+        "modal": {
+          "id": "modal-image-gallery-6",
+          "image": "../../img/Component-Card-Image-3.jpg",
+          "title": "Optional Title Image Six",
+          "content": "Optional caption nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores.",
+          "download": true
+        }
+      },
+      {
+        "src": "../../img/Component-Card-Image-2.jpg",
+        "alt": "Image Seven",
+        "modal": {
+          "id": "modal-image-gallery-7",
+          "image": "../../img/Component-Card-Image-2.jpg",
+          "title": "Optional Title Image Seven",
+          "content": "Optional caption nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores.",
+          "download": true
+        }
+      },
+      {
+        "src": "../../img/Component-Feature-Image-Small.jpg",
+        "alt": "Image 8",
+        "modal": {
+          "id": "modal-image-gallery-8",
+          "image": "../../img/Component-Feature-Image-Small.jpg",
+          "title": "Optional Title Image Eight",
+          "content": "Optional caption nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores.",
+          "download": true
+        }
+      },
+      {
+        "src": "../../img/Heroes-Kitchen_Sink.jpg",
+        "alt": "Image Nine",
+        "modal": {
+          "id": "modal-image-gallery-9",
+          "image": "../../img/Heroes-Kitchen_Sink.jpg",
+          "title": "Optional Title Image Nine",
+          "content": "Optional caption nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores.",
+          "download": true
+        }
+      },
+      {
+        "src": "../../img/IMG-Inline_Center_FPO.jpg",
+        "alt": "Image Ten",
+        "modal": {
+          "id": "modal-image-gallery-10",
+          "image": "../../img/IMG-Inline_Center_FPO.jpg",
+          "title": "Optional Title Image Ten",
+          "content": "Optional caption nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores.",
+          "download": true
+        }
+      },
+      {
+        "src": "../../img/HP_Finding_Solutions_Story_1_FPO.jpg",
+        "alt": "Image Eleven",
+        "modal": {
+          "id": "modal-image-gallery-11",
+          "image": "../../img/HP_Finding_Solutions_Story_1_FPO.jpg",
+          "title": "Optional Title Image Eleven",
+          "content": "Optional caption nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores.",
+          "download": true
+        }
+      },
+      {
+        "src": "../../img/ecosystem-hero-atmospheric_fpo.jpg",
+        "alt": "Image Twelve",
+        "modal": {
+          "id": "modal-image-gallery-12",
+          "image": "../../img/ecosystem-hero-atmospheric_fpo.jpg",
+          "title": "Optional Title Image Twelve",
+          "content": "Optional caption nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores.",
+          "download": true
+        }
+      }
+    ]
+  }
+}

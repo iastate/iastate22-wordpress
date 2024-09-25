@@ -24,6 +24,7 @@ import scrollPaddingTopInit from "./utilities/scroll-padding-top";
 import calendarInit from "./components/calendar";
 import searchInit from "./components/search";
 import alertBarInit from "./components/alert-bar";
+import imageGalleryInit from "./components/image-gallery";
 
 /**
  * Init
@@ -49,3 +50,4 @@ sortableTableInit();
 calendarInit();
 searchInit();
 alertBarInit();
+imageGalleryInit();

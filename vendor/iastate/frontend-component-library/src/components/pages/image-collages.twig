@@ -1,0 +1,38 @@
+{% extends "@page" %}
+
+{% block header %}
+  {% include "@site-header--ecosystem" %}
+{% endblock %}
+
+{% block content %}
+  <div class="outer-pad">
+    {% include "@hero" with hero %}
+    <div class="paragraph-widget paragraph-widget--text-html">
+      <div class="text-content">
+        <h2>Three Image Collage</h2>
+      </div>
+    </div>
+    <div class="paragraph-widget paragraph-widget--image-collage">
+      {% include "@image-collage" %}
+    </div>
+    <div class="paragraph-widget paragraph-widget--text-html">
+      <div class="text-content">
+        <h2>Four Image Collage</h2>
+      </div>
+    </div>
+    <div class="paragraph-widget paragraph-widget--image-collage">
+      {% include "@image-collage--four-column" %}
+    </div>
+    <div class="paragraph-widget paragraph-widget--text-html">
+      <div class="text-content">
+        <h2>Five Image Collage</h2>
+      </div>
+    </div>
+    <div class="paragraph-widget paragraph-widget--image-collage">
+      {% include "@image-collage--five-column" %}
+    </div>
+{% endblock %}
+
+{% block footer %}
+  {% include "@site-footer--ecosystem" %}
+{% endblock %}

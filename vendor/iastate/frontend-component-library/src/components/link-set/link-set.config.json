@@ -15,6 +15,22 @@
         "url": "https://iastate.edu",
         "text": "Tertiary Link Style",
         "variant": "link-tertiary"
+      },
+      {
+        "text": "Video Link Style",
+        "variant": "link-video",
+        "modal": {
+          "id": "Video-Modal-Set-Vid-Link",
+          "title": "Video Modal",
+          "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+          "video": {
+            "wallpaper": "../../img/IMG-Inline_Center_FPO.jpg",
+            "source": "youtube",
+            "title": "Your future starts now.",
+            "youtube_video_id": "LjOmcZkXVcU",
+            "vimeo_video_id": ""
+          }
+        }
       }
     ]
   }

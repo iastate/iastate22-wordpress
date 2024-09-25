@@ -5,7 +5,9 @@
   <div class="callout-with-image__content text-content">
     <h2>{{title}}</h2>
     <div>{{body_copy}}</div>
-    {% include "@button" with button %}
+    {% if button %}
+      {% include "@button" with button %}
+    {% endif %}
     {% if link_set %}
       {% include "@link-set" with link_set %}
     {% endif %}

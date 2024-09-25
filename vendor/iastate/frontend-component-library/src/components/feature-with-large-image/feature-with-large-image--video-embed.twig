@@ -1,0 +1,15 @@
+<div class="feature-with-large-image">
+  <div class="feature-with-large-image__media">
+    <img src="{{ image|path }}" alt="" loading="lazy" width="1176" height="662" >
+  </div>
+  <div class="feature-with-large-image__content">
+    <h2>{{title}}</h2>
+    <div class="feature-with-large-image__text text-content">{{text|raw}}</div>
+    {% if button_set %}
+      {% include "@button-set" with button_set %}
+    {% endif %}
+    {% if link_set %}
+      {% include "@link-set" with link_set %}
+    {% endif %}
+  </div>
+</div>

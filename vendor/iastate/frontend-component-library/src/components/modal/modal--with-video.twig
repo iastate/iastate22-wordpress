@@ -1,0 +1,16 @@
+<div class="iastate22-modal iastate22-modal--with-video" id="{{ id }}" aria-hidden="false">
+  <div class="iastate22-modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="iastate22-modal__container{% if image %} iastate22-modal__container-with-media{% endif %}" id="{{ id }}-content" role="dialog" aria-modal="true" aria-labelledby="{{ id }}-title">
+      <button class="iastate22-modal__close" aria-label="Close modal" data-micromodal-close><i class="fa-light fa-xmark" aria-hidden="true"></i></button>
+      {% if image %}
+      <div class="iastate22-modal__media">
+        {% include "@video-embed" with video %}
+      </div>
+      {% endif %}
+      <div class="iastate22-modal__content">
+        <h2 class="iastate22-modal__title" id="{{ id }}-title">{{ title }}</h2>
+        {{ content|raw }}
+      </div>
+    </div>
+  </div>
+</div>

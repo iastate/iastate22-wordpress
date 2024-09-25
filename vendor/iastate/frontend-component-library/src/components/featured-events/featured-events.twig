@@ -12,9 +12,9 @@
         <ul class="featured-events__listing-wrap">
           {% for item in feature_listing %}
             <li class="featured-events__item">
-              <h4 class="featured-events__title">
+              <h3 class="featured-events__title">
                 <a href="{{ item.link }}" class="link-set__link iastate22-link-secondary">{{ item.title }}<span class="arrow"></span></a>
-              </h4>
+              </h3>
               <time datetime="{{ item.date.datetime }}">{{ item.date.display }}</time>
             </li>
           {% endfor %}

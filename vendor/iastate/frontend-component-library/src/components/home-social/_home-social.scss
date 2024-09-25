@@ -24,6 +24,18 @@
       pointer-events: none;
     }
   }
+
+  .outer-pad & {
+    margin-inline: rem(-36);
+
+    @include media-breakpoint-up(md) {
+      margin-inline: rem(-70);
+    }
+
+    @include media-breakpoint-up(xl) {
+      margin-inline: rem(-190) rem(-298);
+    }
+  }
 }
 
 .home-social__headline-icons-wrap {

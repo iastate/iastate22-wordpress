@@ -2,5 +2,91 @@
   "context": {
     "text": "Primary CTA Style",
     "url": "#"
-  }
+  },
+  "variants": [
+    {
+      "name": "video",
+      "context": {
+        "text": "Video Button",
+        "video": {
+          "text": "Link Lorem Ipsum Dolor",
+          "modal": {
+            "id": "Video-Modal-1",
+            "title": "Video Modal",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+            "video": {
+              "wallpaper": "../../img/IMG-Inline_Center_FPO.jpg",
+              "source": "youtube",
+              "title": "Your future starts now.",
+              "youtube_video_id": "LjOmcZkXVcU",
+              "vimeo_video_id": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "reverse-video",
+      "context": {
+        "text": "Reverse Video Button",
+        "video": {
+          "text": "Link Lorem Ipsum Dolor",
+          "modal": {
+            "id": "Video-Modal-Rev",
+            "title": "Video Modal",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+            "video": {
+              "wallpaper": "../../img/IMG-Inline_Center_FPO.jpg",
+              "source": "youtube",
+              "title": "Your future starts now.",
+              "youtube_video_id": "LjOmcZkXVcU",
+              "vimeo_video_id": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "clear-video",
+      "context": {
+        "text": "Clear Video Button",
+        "video": {
+          "text": "Link Lorem Ipsum Dolor",
+          "modal": {
+            "id": "Video-Modal-Clear",
+            "title": "Video Modal",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+            "video": {
+              "wallpaper": "../../img/IMG-Inline_Center_FPO.jpg",
+              "source": "youtube",
+              "title": "Your future starts now.",
+              "youtube_video_id": "LjOmcZkXVcU",
+              "vimeo_video_id": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "clear-reverse-video",
+      "context": {
+        "text": "Clear Reverse Video Button",
+        "video": {
+          "text": "Link Lorem Ipsum Dolor",
+          "modal": {
+            "id": "Video-Modal-Clear-Reverse",
+            "title": "Video Modal",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+            "video": {
+              "wallpaper": "../../img/IMG-Inline_Center_FPO.jpg",
+              "source": "youtube",
+              "title": "Your future starts now.",
+              "youtube_video_id": "LjOmcZkXVcU",
+              "vimeo_video_id": ""
+            }
+          }
+        }
+      }
+    }
+  ]
 }

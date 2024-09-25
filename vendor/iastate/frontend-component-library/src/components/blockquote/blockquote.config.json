@@ -4,5 +4,31 @@
     "author": "FirstName LastName",
     "author_role": "Role",
     "portrait": "../../img/featured-quote.jpg"
-  }
+  },
+  "variants": [
+    {
+      "name": "video",
+      "context": {
+        "quote": "Lorem Ipsum Dolor Sit Amet duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur sit amet suis aut dolor.",
+        "author": "FirstName LastName",
+        "author_role": "Role",
+        "portrait": "../../img/featured-quote.jpg",
+        "video": {
+          "text": "Link Lorem Ipsum Dolor",
+          "modal": {
+            "id": "Video-Modal-Blockquote-1",
+            "title": "Video Modal",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+            "video": {
+              "wallpaper": "../../img/IMG-Inline_Center_FPO.jpg",
+              "source": "youtube",
+              "title": "Your future starts now.",
+              "youtube_video_id": "LjOmcZkXVcU",
+              "vimeo_video_id": ""
+            }
+          }
+        }
+      }
+    }
+  ]
 }

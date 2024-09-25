@@ -2,7 +2,12 @@
   <ul>
     {% for item in items %}
       <li>
-        <a class="iastate22-button" href="{{ item.url }}">{{ item.text }}<span class="arrow"></span></a>
+        {% if item.url %}
+          <a class="iastate22-button" href="{{ item.url }}">{{ item.text }}<span class="arrow"></span></a>
+        {% elseif item.video %}
+          {% set video = item.video %}
+            {% include "@button--video" with video %}
+        {% endif %}
       </li>
     {% endfor %}
   </ul>

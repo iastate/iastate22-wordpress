@@ -1,0 +1,20 @@
+<div class="image-collage--five-col">
+  <div class="image-collage__wrap">
+    <div class="image-collage__image-one">
+      <img src="{{ image_one.src|path }}" alt="{{ image_one.alt }}">
+    </div>
+    <div class="image-collage__image-two">
+      <img src="{{ image_two.src|path }}" alt="{{ image_two.alt }}">
+    </div>
+    <div class="image-collage__image-three">
+      <img src="{{ image_three.src|path }}" alt="{{ image_three.alt }}">
+    </div>
+    <div class="image-collage__image-four">
+      <img src="{{ image_four.src|path }}" alt="{{ image_four.alt }}">
+    </div>
+    <div class="image-collage__image-five">
+      <img src="{{ image_five.src|path }}" alt="{{ image_five.alt }}">
+    </div>
+  </div>
+  {% if caption %}<div class="image-collage__caption"><p>{{caption}}</p></div>{% endif %}
+</div>

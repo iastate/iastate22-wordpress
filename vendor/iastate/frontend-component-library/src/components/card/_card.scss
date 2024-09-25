@@ -31,7 +31,8 @@
   }
   &.clickable {
     cursor: pointer;
-    &:hover {
+    &:hover,
+    &:focus-within {
       &:before {
         opacity: 1;
       }
@@ -40,9 +41,24 @@
           transform: scale(1.1);
         }
       }
+
+      .icon-video {
+        svg {
+          transition: opacity 0.2s ease-out;
+        }
+
+        .icon-video--inactive {
+          opacity: 0;
+        }
+
+        .icon-video--active {
+          opacity: 1;
+        }
+      }
     }
     &.iastate22-card--linked-image {
-      &:hover {
+      &:hover,
+      &:focus-within {
         .arrow {
           width: rem(12);
         }
@@ -102,8 +118,16 @@
   transition: 0.2s color ease-in-out;
   margin-top: rem(5);
   display: inline-block;
+  background: transparent;
+  border: none;
   cursor: pointer;
-  &:hover {
+
+  &:has(.icon-video) {
+    display: inline-flex;
+  }
+
+  &:hover,
+  &:focus-visible {
     color: $iastate-red;
   }
   .iastate22-card--linked-image & {
@@ -117,6 +141,7 @@
     text-decoration: none;
     min-width: rem(249);
     text-align: left;
+    border: none;
     .arrow {
       inset: auto;
       transform: translate(#{rem(13)}, #{rem(13)});
@@ -128,7 +153,39 @@
         background-color: $iastate-gold;
       }
     }
+
+    .icon-video {
+      position: relative;
+      svg,
+      svg path {
+        fill: $iastate-gold;
+      }
+    }
   }
+  .icon-video {
+    padding-left: rem(40);
+    position: relative;
+    svg,
+    svg path {
+      fill: $iastate-maroon;
+    }
+
+    svg {
+      position: absolute;
+      left: rem(10);
+      top: rem(4);
+      transition: opacity 0.3s ease-out;
+
+      &.icon-video--inactive {
+        opacity: 1;
+      }
+
+      &.icon-video--active {
+        opacity: 0;
+      }
+    }
+  }
+
   .iastate22-card--profile-with-modal &,
   .iastate22-card--with-modal & {
     color: $iastate-red;

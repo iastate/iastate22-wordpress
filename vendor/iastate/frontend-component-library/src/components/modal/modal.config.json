@@ -20,6 +20,22 @@
         "required": true,
         "form_input_text": "Sign Up"
       }
+    },
+    {
+      "name": "with-video",
+      "context": {
+        "id": "video-modal",
+        "title": "Video Modal",
+        "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+        "video": {
+          "wallpaper": "../../img/IMG-Inline_Center_FPO.jpg",
+          "source": "youtube",
+          "title": "Your future starts now.",
+          "youtube_video_id": "LjOmcZkXVcU",
+          "vimeo_video_id": "",
+          "caption": "Video caption lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        }
+      }
     }
   ]
 }

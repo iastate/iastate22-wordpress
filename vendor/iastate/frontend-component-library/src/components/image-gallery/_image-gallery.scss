@@ -1,0 +1,236 @@
+.image-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: rem(40);
+
+  @include media-breakpoint-up(md) {
+    grid-gap: rem(14) rem(12);
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: 1fr 1fr 1fr;
+
+    .outer-pad & {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    .outer-pad & {
+      grid-template-columns: 1fr 1fr 1fr;
+      min-width: rem(1112);
+      position: relative;
+      left: calc(50% + 50px);
+      transform: translateX(-50%);
+      transition: left 0.15s ease-in-out;
+    }
+  }
+
+  @include media-breakpoint-up(xxl) {
+    .outer-pad & {
+      left: 50%;
+    }
+  }
+}
+
+.image-gallery__item {
+  position: relative;
+  overflow: hidden;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: rem(5);
+    background: $iastate-gold;
+    opacity: 0;
+    left: 0;
+    transition: opacity 0.3s ease-out;
+    z-index: 3;
+  }
+
+  // @include media-breakpoint-down(md) {
+  //   &:nth-child(n + 4) {
+  //     display: none;
+  //   }
+  // }
+
+  &:before {
+    top: 0;
+  }
+
+  &:after {
+    bottom: 0;
+  }
+
+  &:hover,
+  &:focus-within {
+    &:before,
+    &:after {
+      opacity: 1;
+      transition: opacity 0.2s ease-out;
+    }
+
+    .image-gallery__item-wrap {
+      &:before,
+      &:after {
+        opacity: 1;
+        transition: opacity 0.2s ease-out;
+      }
+    }
+
+    .image-gallery__image-wrap > img {
+      transition: transform 0.2s ease-out;
+      transform: scale(1.1);
+    }
+
+    .image-gallery__console > .icon {
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
+    }
+
+    .image-gallery__console {
+      width: 100%;
+      grid-template-rows: 1fr;
+      transition: grid-template-rows 0.2s ease-out, width 0.2s ease-out;
+    }
+
+    .image-gallery__console-wrap {
+      opacity: 1;
+      transition: opacity 0.2s 0.3s ease-out;
+    }
+  }
+}
+
+.image-gallery__item-wrap {
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    width: rem(5);
+    height: 100%;
+    background: $iastate-gold;
+    opacity: 0;
+    top: 0;
+    transition: opacity 0.3s ease-out;
+    z-index: 3;
+  }
+
+  &:before {
+    left: 0;
+  }
+
+  &:after {
+    right: 0;
+  }
+}
+
+.image-gallery__image-wrap {
+  position: relative;
+  aspect-ratio: 1/1;
+
+  > img {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transform: scale(1);
+    transition: transform 0.3s ease-out;
+  }
+}
+
+.image-gallery__image-contact {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  background-color: transparent;
+  z-index: 1;
+  border: none;
+}
+
+.image-gallery__console {
+  background: $iastate-red;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: rem(20);
+  z-index: 2;
+  width: rem(40);
+  height: auto;
+  display: grid;
+  justify-content: center;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s 0.2s ease-out, width 0.3s 0.2s ease-out;
+
+  > .icon {
+    position: absolute;
+    bottom: rem(6);
+    right: rem(12);
+    opacity: 1;
+    transition: opacity 0.3s 0.5s ease-out;
+  }
+}
+
+.image-gallery__console-wrap {
+  position: relative;
+  width: 100%;
+  min-width: rem(300);
+  max-width: rem(300);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: rem(4) rem(10);
+  transition: opacity 0.2s ease-in-out, width 0.3s ease-in-out;
+
+  @include media-breakpoint-up("sm") {
+    min-width: rem(320);
+    max-width: rem(340);
+    gap: rem(12) rem(28);
+  }
+
+  @include media-breakpoint-up("md") {
+    gap: rem(5) rem(10);
+  }
+
+  @include media-breakpoint-up("lg") {
+    gap: rem(12) rem(28);
+  }
+
+  > button,
+  > a {
+    position: relative;
+    z-index: 10;
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+
+    > .icon svg path,
+    .icon svg line {
+      transition: stroke 0.2s ease-in-out;
+    }
+
+    &:hover,
+    &:focus {
+      background: $iastate-red;
+      border-color: $border-gold;
+      color: $white;
+
+      > .icon svg path,
+      .icon svg line {
+        // fill: $iastate-gold;
+        stroke: $border-gold;
+      }
+    }
+  }
+}
+
+.iastate22-modal--image-download {
+  figure {
+    margin: 0;
+  }
+}

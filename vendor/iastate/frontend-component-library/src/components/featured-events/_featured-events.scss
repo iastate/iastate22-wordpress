@@ -55,7 +55,7 @@
 .featured-events__listing {
   @include media-breakpoint-up(lg) {
     margin-left: 7%;
-    flex: 1 0 auto;
+    flex: 1 2 auto;
   }
 }
 
@@ -77,12 +77,13 @@
   margin-bottom: 15px;
 
   .iastate22-link-secondary {
-    @include media-breakpoint-up(lg) {
-      font-size: rem(22);
-    }
+    // @include media-breakpoint-up(lg) {
+    //   font-size: rem(22);
+    // }
+    @extend .h4;
 
     .arrow {
-      bottom: 14px;
+      bottom: 12px;
     }
   }
 }

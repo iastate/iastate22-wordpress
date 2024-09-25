@@ -8,10 +8,12 @@ export class VideoEmbed {
   private vimeoMedia: HTMLElement;
   private player: any;
   private playButton: HTMLButtonElement;
+  private mediaModal: HTMLElement;
 
   constructor(element: HTMLElement) {
     if (!!element) {
       this.element = element;
+      this.mediaModal = this.element.parentElement.parentElement.closest(".iastate22-modal");
       this.init();
       this.media = this.element.querySelector(".video-embed__media-wrap");
       this.youtubeMedia = this.element.querySelector(".video-embed__video");
@@ -23,6 +25,9 @@ export class VideoEmbed {
     this.createPlayButton();
     this.handlePlayButtonClick();
     this.handlePlayButtonHover();
+    if (this.mediaModal !== null) {
+      this.stopVideo();
+    }
   }
 
   private createVideoPlayer() {
@@ -69,6 +74,33 @@ export class VideoEmbed {
       if (event.data == 0) {
         this.player.destroy();
         this.media.classList.remove("video-playing");
+      }
+    });
+  }
+
+  private stopVideo() {
+    this.mediaModal.addEventListener("click", () => {
+      setTimeout(() => {
+        if (
+          this.mediaModal.classList.contains("is-open") === false &&
+          this.media.classList.contains("video-playing") === true
+        ) {
+          this.player.pauseVideo();
+        }
+      }, 50);
+    });
+    window.addEventListener("keydown", (event) => {
+      const key = event.key || event.keyCode;
+      // Close the nav when the esc key is pressed while it's open
+      if (key === "Escape" || key === "Esc" || key === 27) {
+        setTimeout(() => {
+          if (
+            this.mediaModal.classList.contains("is-open") === false &&
+            this.media.classList.contains("video-playing") === true
+          ) {
+            this.player.pauseVideo();
+          }
+        }, 50);
       }
     });
   }

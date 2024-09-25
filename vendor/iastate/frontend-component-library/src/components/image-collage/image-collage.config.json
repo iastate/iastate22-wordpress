@@ -1,0 +1,67 @@
+{
+  "context": {
+    "image_one": {
+      "src": "../../img/IMG-Campus-Location-Large-Image.jpg",
+      "alt": "Image One"
+    },
+    "image_two": {
+      "src": "../../img/IMG_Inline_Left_FPO.jpg",
+      "alt": "Image Two"
+    },
+    "image_three": {
+      "src": "../../img/IMG-Campus-Location-Small-Image-2@2x.png",
+      "alt": "Image Three"
+    },
+    "caption": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur"
+  },
+  "variants": [
+    {
+      "name": "four-column",
+      "context": {
+        "image_one": {
+          "src": "../../img/carousel-slide_fpo.jpg",
+          "alt": "Image One"
+        },
+        "image_two": {
+          "src": "../../img/Component-Card-Image-3.jpg",
+          "alt": "Image Two"
+        },
+        "image_three": {
+          "src": "../../img/Component-Card-Image-2.jpg",
+          "alt": "Image Three"
+        },
+        "image_four": {
+          "src": "../../img/Component-Feature-Image-Small.jpg",
+          "alt": "Image Four"
+        },
+        "caption": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur"
+      }
+    },
+    {
+      "name": "five-column",
+      "context": {
+        "image_one": {
+          "src": "../../img/Component-Card-Image-1.jpg",
+          "alt": "Image One"
+        },
+        "image_two": {
+          "src": "../../img/Heroes-Kitchen_Sink.jpg",
+          "alt": "Image Two"
+        },
+        "image_three": {
+          "src": "../../img/IMG-Video_FPO@2x.png",
+          "alt": "Image Three"
+        },
+        "image_four": {
+          "src": "../../img/Component-Hero-Atmospheric_FPO@2x.png",
+          "alt": "Image Four"
+        },
+        "image_five": {
+          "src": "../../img/Component-Modal-Square-Image_FPO.jpg",
+          "alt": "Image Five"
+        },
+        "caption": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur"
+      }
+    }
+  ]
+}

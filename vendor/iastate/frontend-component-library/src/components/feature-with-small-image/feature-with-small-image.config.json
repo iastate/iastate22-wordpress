@@ -7,5 +7,47 @@
       "text": "Primary CTA Style",
       "url": "#"
     }
-  }
+  },
+  "variants": [
+    {
+      "name": "video",
+      "context": {
+        "image": "../../img/Component-Feature-Image-Small.jpg",
+        "title": "Heading 2 - This is a title of major section of a page",
+        "body_copy": "<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni lorem ipsem. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni lorem ipsem.</p>",
+        "buttons": [
+          {
+            "text": "Video Dolor Ipsum",
+            "modal": {
+              "id": "Video-Modal-FSMI-1",
+              "title": "Video Modal",
+              "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+              "video": {
+                "wallpaper": "../../img/IMG-Inline_Center_FPO.jpg",
+                "source": "youtube",
+                "title": "Your future starts now.",
+                "youtube_video_id": "LjOmcZkXVcU",
+                "vimeo_video_id": ""
+              }
+            }
+          },
+          {
+            "text": "Video Ipsum",
+            "modal": {
+              "id": "Video-Modal-FSMI-2",
+              "title": "Video Modal",
+              "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+              "video": {
+                "wallpaper": "../../img/IMG-Inline_Center_FPO.jpg",
+                "source": "youtube",
+                "title": "Your future starts now.",
+                "youtube_video_id": "LjOmcZkXVcU",
+                "vimeo_video_id": ""
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
 }

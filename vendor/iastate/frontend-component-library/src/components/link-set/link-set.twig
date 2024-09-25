@@ -2,7 +2,11 @@
   <ul>
     {% for link in links %}
     <li>
-      <a href="{{link.url}}" class="link-set__link{% if link.variant %} {{link.variant}}{% endif %}">{{link.text}}{% if link.variant %}<span class="arrow"></span>{% endif %}</a>
+      {% if link.variant == "link-video" or link.variant == "link-video--reverse" %}
+        {% include "@link-video" with link %}
+      {% else %}  
+        <a href="{{link.url}}" class="link-set__link{% if link.variant %} {{link.variant}}{% endif %}">{{link.text}}{% if link.variant %}<span class="arrow"></span>{% endif %}</a>
+      {% endif %}
     </li>
     {% endfor %}
   </ul>

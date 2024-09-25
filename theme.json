@@ -5,14 +5,14 @@
     "typography": {
       "fontFamilies": [
         {
-          "fontFamily": "\"Nimbus Sans\", sans-serif",
-          "slug": "nimbus-sans",
-          "name": "Nimbus Sans"
+          "fontFamily": "\"Arial\", \"Helvetica Neue\", sans-serif",
+          "slug": "isu-sans-serif",
+          "name": "Arial (Sans-Serif)"
         },
         {
           "fontFamily": "\"Merriweather\", serif",
-          "slug": "merriweather",
-          "name": "Merriweather"
+          "slug": "isu-serif",
+          "name": "Merriweather (Serif)"
         }
       ],
       "fontSizes": [
@@ -152,7 +152,7 @@
     },
     "typography": {
       "fontSize": "var(--wp--preset--font-size--extra-small)",
-      "fontFamily": "var(--wp--preset--font-family--nimbus-sans)",
+      "fontFamily": "var(--wp--preset--font-family--isu-sans-serif)",
       "lineHeight": "1.5"
     },
     "elements": {
@@ -161,7 +161,7 @@
           "text": "var(--wp--preset--color--iastate-burgundy)"
         },
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--nimbus-sans)",
+          "fontFamily": "var(--wp--preset--font-family--isu-sans-serif)",
           "fontWeight": "700",
           "textTransform": "color .2s ease-in-out"
         },
@@ -192,7 +192,7 @@
           "text": "var(--wp--preset--color--iastate-cardinal)"
         },
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--nimbus-sans)"
+          "fontFamily": "var(--wp--preset--font-family--isu-sans-serif)"
         }
       },
       "h4": {
@@ -200,7 +200,7 @@
           "text": "var(--wp--preset--color--iastate-burgundy)"
         },
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--nimbus-sans)"
+          "fontFamily": "var(--wp--preset--font-family--isu-sans-serif)"
         }
       },
       "h5": {
@@ -208,7 +208,7 @@
           "text": "var(--wp--preset--color--iastate-burgundy)"
         },
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--nimbus-sans)"
+          "fontFamily": "var(--wp--preset--font-family--isu-sans-serif)"
         }
       },
       "h6": {
@@ -216,7 +216,7 @@
           "text": "var(--wp--preset--color--iastate-burgundy)"
         },
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--nimbus-sans)"
+          "fontFamily": "var(--wp--preset--font-family--isu-sans-serif)"
         }
       }
     },

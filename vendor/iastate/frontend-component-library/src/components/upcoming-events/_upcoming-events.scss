@@ -68,4 +68,8 @@
 
 .upcoming-events__title {
   margin-bottom: 10px;
+
+  > .link-set__link {
+    @extend .h4;
+  }
 }

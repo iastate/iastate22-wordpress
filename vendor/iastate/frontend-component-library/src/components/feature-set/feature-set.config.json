@@ -38,5 +38,74 @@
         ]
       }
     ]
-  }
+  },
+  "variants": [
+    {
+      "name": "video",
+      "context": {
+        "callouts": [
+          {
+            "image": "../../img/Component-Featured-Image-Small_FPO.jpg",
+            "title": "Feature Title Lorem Ipsum Dolor",
+            "body_copy": "<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+            "button": {
+              "text": "Link Lorem Ipsum Dolor",
+              "modal": {
+                "id": "Video-Modal-FS-1",
+                "title": "Video Modal",
+                "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+                "video": {
+                  "wallpaper": "../../img/IMG-Inline_Center_FPO.jpg",
+                  "source": "youtube",
+                  "title": "Your future starts now.",
+                  "youtube_video_id": "LjOmcZkXVcU",
+                  "vimeo_video_id": ""
+                }
+              }
+            }
+          },
+          {
+            "image": "../../img/Component-Featured-Image-Small_FPO-2.jpg",
+            "title": "Feature Title Lorem Ipsum Dolor",
+            "body_copy": "<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+            "button": {
+              "text": "Link Lorem Ipsum Dolor",
+              "modal": {
+                "id": "Video-Modal-FS-2",
+                "title": "Video Modal",
+                "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+                "video": {
+                  "wallpaper": "../../img/IMG-Inline_Center_FPO.jpg",
+                  "source": "youtube",
+                  "title": "Your future starts now.",
+                  "youtube_video_id": "LjOmcZkXVcU",
+                  "vimeo_video_id": ""
+                }
+              }
+            }
+          },
+          {
+            "image": "../../img/Component-Featured-Image-Small_FPO.jpg",
+            "title": "Feature Title Lorem Ipsum Dolor",
+            "body_copy": "<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+            "button": {
+              "text": "Link Lorem Ipsum Dolor",
+              "modal": {
+                "id": "Video-Modal-FS-3",
+                "title": "Video Modal",
+                "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+                "video": {
+                  "wallpaper": "../../img/IMG-Inline_Center_FPO.jpg",
+                  "source": "youtube",
+                  "title": "Your future starts now.",
+                  "youtube_video_id": "LjOmcZkXVcU",
+                  "vimeo_video_id": ""
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
 }

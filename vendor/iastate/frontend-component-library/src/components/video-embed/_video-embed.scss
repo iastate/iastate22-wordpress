@@ -48,6 +48,7 @@
     }
     .video-embed__button {
       opacity: 0;
+      z-index: -1;
     }
     .video-embed__video {
       pointer-events: all;
@@ -64,7 +65,7 @@
   pointer-events: none;
 }
 
-.video-embed__button {
+.video-embed__button:not(.iastate22-blockquote__video-button) {
   z-index: 5;
   cursor: pointer;
   width: rem(60);

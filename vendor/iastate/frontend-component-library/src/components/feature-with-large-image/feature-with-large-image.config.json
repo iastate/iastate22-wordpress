@@ -2,7 +2,7 @@
   "context": {
     "image": "../../img/feature_with_large_image.jpg",
     "title": "Feature with H2 and Large Image",
-    "text": "<p>Nemo <a href=\"#\">enim ipsam voluptatem quia</a> voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni lorem ipsem.</p>",
+    "text": "<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni lorem ipsem.</p>",
     "button_set": {
       "items": [
         {
@@ -11,5 +11,67 @@
         }
       ]
     }
-  }
+  },
+  "variants": [
+    {
+      "name": "video",
+      "context": {
+        "image": "../../img/feature_with_large_image.jpg",
+        "title": "Feature with H2 and Large Image",
+        "text": "<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni lorem ipsem.</p>",
+        "button_set": {
+          "items": [
+            {
+              "text": "Primary CTA Style",
+              "video": {
+                "text": "Link Lorem Ipsum Dolor",
+                "modal": {
+                  "id": "Video-Modal-FLI-1",
+                  "title": "Video Modal",
+                  "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+                  "video": {
+                    "wallpaper": "../../img/IMG-Inline_Center_FPO.jpg",
+                    "source": "youtube",
+                    "title": "Your future starts now.",
+                    "youtube_video_id": "LjOmcZkXVcU",
+                    "vimeo_video_id": ""
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "video-embed",
+      "context": {
+        "image": "../../img/feature_with_large_image.jpg",
+        "title": "Feature with H2 and Large Image",
+        "text": "<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni lorem ipsem.</p>",
+        "button_set": {
+          "items": [
+            {
+              "text": "Primary CTA Style",
+              "video": {
+                "text": "Link Lorem Ipsum Dolor",
+                "modal": {
+                  "id": "Video-Modal-FLI-2",
+                  "title": "Video Modal",
+                  "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+                  "video": {
+                    "wallpaper": "../../img/IMG-Inline_Center_FPO.jpg",
+                    "source": "youtube",
+                    "title": "Your future starts now.",
+                    "youtube_video_id": "LjOmcZkXVcU",
+                    "vimeo_video_id": ""
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
 }

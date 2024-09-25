@@ -14,11 +14,8 @@
           {% for detail in event_details %}
             <dt>
               {% if detail.icon|length > 0 %}
-                <span class="icon">
-                  {{ source(detail.icon) }}
-                </span>
+                <span class="icon">{{ detail.icon }}</span>
               {% else %}
-                <span class="icon-spec"></span>
               {% endif %}
               <span class="visible-for-screen-readers">{{ detail.title }}</span>
             </dt>

@@ -1,0 +1,32 @@
+<div class="iastate22-modal iastate22-modal--image-download" id="{{ id }}" aria-hidden="false">
+  <div class="iastate22-modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="iastate22-modal__container{% if image %} iastate22-modal__container-with-media{% endif %}" id="{{ id }}-content" role="dialog" aria-modal="true" aria-labelledby="{{ id }}-title">
+      <button class="iastate22-modal__close" aria-label="Close modal" data-micromodal-close>
+        <i class="fa-light fa-xmark" aria-hidden="true"></i>
+      </button>
+      <figure>
+        {% if image %}
+          <div class="iastate22-modal__media">
+            <img src="{{ image|path }}" alt="" loading="lazy" width="400" height="400">
+            <a href="{{ image|path }}" class="iastate22-button iastate22-button--reverse" download>
+              <span class="text">Download</span>
+              <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14.397" viewbox="0 0 14 14.397">
+                  <g id="SVG_icon_download" transform="translate(-804.5 -1307.103)">
+                    <path id="Path_3234" data-name="Path 3234" d="M2463-10172.689v9.989" transform="translate(-1651.393 11479.792)" fill="none" stroke="#7c2529" stroke-width="2"/>
+                    <path id="Path_3235" data-name="Path 3235" d="M2443.81-10144l4.594,4.594L2453-10144" transform="translate(-1636.81 11457.059)" fill="none" stroke="#7c2529" stroke-width="2"/>
+                    <line id="Line_4" data-name="Line 4" x2="14" transform="translate(804.5 1320.5)" fill="none" stroke="#7c2529" stroke-width="2"/>
+                  </g>
+                </svg>
+              </span>
+            </a>
+          </div>
+        {% endif %}
+        <figcaption class="iastate22-modal__content">
+          <h2 class="iastate22-modal__title" id="{{ id }}-title">{{ title }}</h2>
+          <p>{{ content|raw }}</p>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</div>

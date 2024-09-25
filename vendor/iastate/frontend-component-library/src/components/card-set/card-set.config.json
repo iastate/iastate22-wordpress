@@ -35,5 +35,134 @@
         }
       }
     ]
-  }
+  },
+  "variants": [
+    {
+      "name": "linked-image-video",
+      "context": {
+        "cards": [
+          {
+            "type": "linked-image",
+            "image": "../../img/Component-Card-Image-1.jpg",
+            "video": {
+              "text": "Watch Lorem Ipsum Dolor",
+              "modal": {
+                "id": "Video-Modal-LIV-1",
+                "title": "Video Modal Image Card 1",
+                "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+                "video": {
+                  "wallpaper": "../../img/IMG-Inline_Center_FPO.jpg",
+                  "source": "youtube",
+                  "title": "Your future starts now.",
+                  "youtube_video_id": "LjOmcZkXVcU",
+                  "vimeo_video_id": ""
+                }
+              }
+            }
+          },
+          {
+            "type": "linked-image",
+            "image": "../../img/Component-Card-Image-2.jpg",
+            "video": {
+              "text": "Watch Ipsum Dolor",
+              "modal": {
+                "id": "Video-Modal-LIV-2",
+                "title": "Video Modal Image Card 2",
+                "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+                "video": {
+                  "wallpaper": "../../img/IMG-Inline_Center_FPO.jpg",
+                  "source": "youtube",
+                  "title": "Your future starts now.",
+                  "youtube_video_id": "LjOmcZkXVcU",
+                  "vimeo_video_id": ""
+                }
+              }
+            }
+          },
+          {
+            "type": "linked-image",
+            "image": "../../img/Component-Card-Image-3.jpg",
+            "video": {
+              "text": "Watch Lorem Ipsum Dolor",
+              "modal": {
+                "id": "Video-Modal-LIV-3",
+                "title": "Video Modal Image Card 3",
+                "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+                "video": {
+                  "wallpaper": "../../img/IMG-Inline_Center_FPO.jpg",
+                  "source": "youtube",
+                  "title": "Your future starts now.",
+                  "youtube_video_id": "LjOmcZkXVcU",
+                  "vimeo_video_id": ""
+                }
+              }
+            }
+          },
+          {
+            "type": "standard",
+            "title": "Card Title",
+            "body": "<p>Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur.</p>",
+            "image": "../../img/Component-Card-Image-1.jpg",
+            "video": {
+              "text": "Link Lorem Ipsum Dolor",
+              "modal": {
+                "id": "Video-Modal-1",
+                "title": "Video Modal",
+                "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+                "video": {
+                  "wallpaper": "../../img/IMG-Inline_Center_FPO.jpg",
+                  "source": "youtube",
+                  "title": "Your future starts now.",
+                  "youtube_video_id": "LjOmcZkXVcU",
+                  "vimeo_video_id": ""
+                }
+              }
+            }
+          },
+          {
+            "type": "standard",
+            "title": "Card Title",
+            "body": "<p>Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur.</p>",
+            "image": "../../img/Component-Card-Image-1.jpg",
+            "video": {
+              "text": "Link Lorem Ipsum Dolor",
+              "modal": {
+                "id": "Video-Modal-1",
+                "title": "Video Modal",
+                "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+                "video": {
+                  "wallpaper": "../../img/IMG-Inline_Center_FPO.jpg",
+                  "source": "youtube",
+                  "title": "Your future starts now.",
+                  "youtube_video_id": "LjOmcZkXVcU",
+                  "vimeo_video_id": ""
+                }
+              }
+            }
+          },
+          {
+            "type": "standard",
+            "title": "Card Title",
+            "body": "<p>Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur.</p>",
+            "image": "../../img/Component-Card-Image-1.jpg",
+            "video": {
+              "text": "Link Lorem Ipsum Dolor",
+              "modal": {
+                "id": "Video-Modal-1",
+                "title": "Video Modal",
+                "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+                "video": {
+                  "wallpaper": "../../img/IMG-Inline_Center_FPO.jpg",
+                  "source": "youtube",
+                  "title": "Your future starts now.",
+                  "youtube_video_id": "LjOmcZkXVcU",
+                  "vimeo_video_id": ""
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
 }

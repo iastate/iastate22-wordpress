@@ -1,0 +1,66 @@
+{% extends "@page" %}
+
+{% block header %}
+  {% include "@site-header--ecosystem" %}
+{% endblock %}
+
+{% block content %}
+  <div class="outer-pad">
+    {% include "@hero" with hero %}
+    <div class="paragraph-widget paragraph-widget--text-html">
+      <div class="text-content">
+        <h2>Feature - Small Image</h2>
+      </div>
+    </div>
+    <div class="paragraph-widget paragraph-widget--callout-with-image">
+      {% include "@feature-with-small-image--video" with callout_with_image %}
+    </div>
+    <div class="paragraph-widget paragraph-widget--text-html">
+      <div class="text-content">
+        <h2>Feature Set</h2>
+      </div>
+    </div>
+    <div class="paragraph-widget paragraph-widget--callout-set">
+      {% include "@feature-set--video" %}
+    </div>
+    <div class="paragraph-widget paragraph-widget--text-html">
+      <div class="text-content">
+        <h2>Blockquote</h2>
+      </div>
+    </div>
+    <div class="paragraph-widget paragraph-widget--blockquote">
+      {% include "@blockquote--video" with pull_quote_with_author_with_image %}
+    </div>
+    <div class="paragraph-widget paragraph-widget--text-html">
+      <div class="text-content">
+        <h2>Card Sets</h2>
+      </div>
+    </div>
+    <div class="paragraph-widget paragraph-widget--card-set">
+      {% include "@card-set--linked-image-video" with card_set_linked_image_video %}
+    </div>
+    <div class="paragraph-widget paragraph-widget--text-html">
+      <div class="text-content">
+        <h2>Feature - Large</h2>
+      </div>
+    </div>
+    <div class="paragraph-widget paragraph-widget--feature-with-large-image">
+      {% include "@feature-with-large-image--video" with feature_with_large_image %}
+    </div>
+    <div class="paragraph-widget paragraph-widget--text-html">
+      <div class="text-content">
+        <h2>Feature - Large with Intro</h2>
+      </div>
+    </div>
+    <div class="paragraph-widget paragraph-widget--callout-inset">
+      {% include "@feature-with-large-image-and-intro--video" with feature_with_large_image_and_intro %}
+    </div>
+    <div class="paragraph-widget paragraph-widget--callout-inset">
+      {% include "@feature-with-large-image-and-intro--video-links" with callout_inset %}
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {% include "@site-footer--ecosystem" %}
+{% endblock %}
