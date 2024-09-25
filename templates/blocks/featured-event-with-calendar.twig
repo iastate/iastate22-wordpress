@@ -50,11 +50,11 @@
 						{% if s < 3 and event.id != featured_event.id %}
 							{% set s = s+1 %}
 							<li class="featured-events__item">
-								<h4 class="featured-events__title">
+								<h3 class="featured-events__title">
 									<a href="{{ event.link|e('esc_url') }}"
 									   class="link-set__link iastate22-link-secondary">{{ event.post_title }}<span
 											class="arrow"></span></a>
-								</h4>
+								</h3>
 								<time
 									datetime="{{ event.event_start_date_start_date|date("Y-m-d") }}">{{ event.event_start_date_start_date|date() }}</time>
 							</li>
