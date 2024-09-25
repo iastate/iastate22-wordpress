@@ -1,0 +1,94 @@
+.link-video,
+.link-video--reverse {
+  display: inline-flex;
+  appearance: none;
+  margin: rem(10) 0;
+  padding: 0;
+  cursor: pointer;
+  color: $iastate-maroon;
+  font-family: $typeface-sans-serif;
+  font-weight: 700;
+  font-size: rem(18);
+  line-height: (25 / 18);
+  text-decoration: none;
+  border: none;
+  background: none;
+  position: relative;
+  transition: 0.2s text-decoration-color ease-in-out;
+
+  .icon-video {
+    padding-left: rem(40);
+    position: relative;
+    svg,
+    svg path {
+      fill: $iastate-maroon;
+    }
+
+    svg {
+      position: absolute;
+      left: rem(10);
+      top: rem(4);
+      transition: opacity 0.3s ease-out;
+
+      &.icon-video--inactive {
+        opacity: 1;
+      }
+
+      &.icon-video--active {
+        opacity: 0;
+
+        path {
+          fill: $iastate-maroon;
+        }
+      }
+    }
+  }
+
+  &:hover,
+  &:focus-visible {
+    // background-color: $iastate-maroon;
+    color: $iastate-maroon;
+    padding-right: rem(40);
+
+    svg.icon-video--inactive {
+      opacity: 0;
+    }
+
+    svg.icon-video--active {
+      opacity: 1;
+    }
+  }
+
+  &:has(.icon-video) {
+    &:hover,
+    &:focus-visible {
+      padding-right: rem(20);
+    }
+  }
+}
+
+.link-video--reverse {
+  color: $white;
+
+  .icon-video {
+    padding-left: rem(40);
+    position: relative;
+    svg,
+    svg path {
+      fill: $white;
+    }
+
+    svg.icon-video--active {
+      fill: $white;
+
+      path {
+        fill: $white;
+      }
+    }
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: $white;
+  }
+}

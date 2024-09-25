@@ -27,6 +27,10 @@
       display: block;
     }
 
+    .icon > svg path {
+      fill: $iastate-red;
+    }
+
     .icon-spec {
       background-color: $iastate-purple;
     }

@@ -1,0 +1,54 @@
+<div class="image-gallery">
+  {% for image in images %}
+    <article class="image-gallery__item">
+      <div class="image-gallery__item-wrap">
+        <div class="image-gallery__image-wrap">
+          <img src="{{ image.src }}" alt="{{ image.alt }}">
+          <button class="image-gallery__image-contact" tabindex="-1" data-micromodal-trigger={{ image.modal.id }}>
+            <span class="visible-for-screen-readers">{{ image.alt }}</span>
+          </button>
+        </div>
+        <div class="image-gallery__console">
+          <span class="icon">
+            <svg id="SVG_icon_plus" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewbox="0 0 14 14">
+              <path id="Divider_H2" d="M-14180.482-8025.184h14" transform="translate(14180.482 8032.184)" fill="none" stroke="#f1be48" stroke-width="2"/>
+              <path id="Divider_H2-2" data-name="Divider_H2" d="M0,0H14" transform="translate(7 0) rotate(90)" fill="none" stroke="#f1be48" stroke-width="2"/>
+            </svg>
+          </span>
+          <div class="image-gallery__console-wrap">
+            <button class="iastate22-button iastate22-button--reverse" data-micromodal-trigger={{ image.modal.id }}>
+              View
+              <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="7.551" height="12.273" viewbox="0 0 7.551 12.273">
+                  <path id="Button-Carrot-Burgundy" d="M-13572.751-6721.45l5.43,5.429-5.43,5.43" transform="translate(13573.458 6722.157)" fill="none" stroke="#7c2529" stroke-width="2"/>
+                </svg>
+              </span>
+            </button>
+            <a href="{{ image.src }}" class="iastate22-button iastate22-button--reverse" download>
+              Download
+              <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14.397" viewbox="0 0 14 14.397">
+                  <g id="SVG_icon_download" transform="translate(-804.5 -1307.103)">
+                    <path id="Path_3234" data-name="Path 3234" d="M2463-10172.689v9.989" transform="translate(-1651.393 11479.792)" fill="none" stroke="#7c2529" stroke-width="2"/>
+                    <path id="Path_3235" data-name="Path 3235" d="M2443.81-10144l4.594,4.594L2453-10144" transform="translate(-1636.81 11457.059)" fill="none" stroke="#7c2529" stroke-width="2"/>
+                    <line id="Line_4" data-name="Line 4" x2="14" transform="translate(804.5 1320.5)" fill="none" stroke="#7c2529" stroke-width="2"/>
+                  </g>
+                </svg>
+              </span>
+            </a>
+            {% for additional_button in image.additional_buttons %}
+              <a href="{{ additional_button.url }}" class="iastate22-button iastate22-button--reverse">{{ additional_button.text }}
+                <span class="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="7.551" height="12.273" viewbox="0 0 7.551 12.273">
+                    <path id="Button-Carrot-Burgundy" d="M-13572.751-6721.45l5.43,5.429-5.43,5.43" transform="translate(13573.458 6722.157)" fill="none" stroke="#7c2529" stroke-width="2"/>
+                  </svg>
+                </span>
+              </a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% include "@modal--image-download" with image.modal %}
+    </article>
+  {% endfor %}
+</div>

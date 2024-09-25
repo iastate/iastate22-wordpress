@@ -1,0 +1,11 @@
+<div class="card-set{% if teaser_news %} card-set--teaser{% elseif teaser_profile %} card-set--teaser {% elseif teaser_profile %} card-set--teaser{% endif %}">
+  <ul>
+    {% for card in cards %}
+      {% if card.type == "linked-image" %}
+        <li>{% include "@card--linked-image-with-video" with card %}</li>
+      {% elseif card.type == "standard" %}
+        <li>{% include "@card--with-video" with card %}</li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>

@@ -99,6 +99,7 @@ export class Card {
         if (!!this.href) {
           // Prevent redirect from occuring if a child link was clicked
           if (target.tagName !== "A") {
+            console.log(this.target);
             if (this.target === "_blank") {
               const newTab = window.open();
               newTab.location.href = this.href;

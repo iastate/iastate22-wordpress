@@ -141,3 +141,56 @@
     margin-top: rem(2);
   }
 }
+
+.iastate22-blockquote__video-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: rem(64);
+  height: rem(64);
+  background-color: $iastate-red;
+  border: solid rem(2) $white;
+  border-radius: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transform: translate(2%, -14%);
+  transition: background-color 0.3s ease-out;
+
+  @include media-breakpoint-up(xl) {
+    transform: translate(15%, 10%);
+  }
+
+  svg path {
+    transition: fill 0.3s ease-out;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background-color: $white;
+    transition: background-color 0.2s ease-out;
+
+    svg path {
+      transition: fill 0.2s ease-out;
+      fill: $iastate-maroon;
+    }
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: rem(-10);
+    right: rem(-1);
+    width: rem(332);
+    height: rem(332);
+
+    @include media-breakpoint-up(xl) {
+      bottom: rem(2);
+      right: rem(8);
+      width: rem(258);
+      height: rem(258);
+    }
+  }
+}

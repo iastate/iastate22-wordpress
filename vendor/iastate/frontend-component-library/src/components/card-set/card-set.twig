@@ -13,6 +13,10 @@
         <li>{% include "@card--news-article" with card %}</li>
       {% elseif teaser_event %}
         <li>{% include "@card--event" with card %}</li>
+      {% elseif video_modal %}
+        <li>{% include "@card--with-video" with card %}</li>
+      {% elseif linked_image_video_modal %}
+        <li>{% include "@card--linked-image-with-video" with card %}</li>
       {% else %}
         <li>{% include "@card" with card %}</li>
       {% endif %}

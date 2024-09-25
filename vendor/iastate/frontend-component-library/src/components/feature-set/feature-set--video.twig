@@ -1,0 +1,9 @@
+<div class="callout-set">
+  <ul>
+    {% for callout in callouts %}
+    <li>
+        {% include "@feature--video" with callout %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>

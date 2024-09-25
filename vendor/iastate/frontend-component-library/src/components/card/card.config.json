@@ -22,6 +22,50 @@
       }
     },
     {
+      "name": "with-video",
+      "context": {
+        "title": "Card Title",
+        "body": "<p>Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur.</p>",
+        "image": "../../img/Component-Card-Image-1.jpg",
+        "video": {
+          "text": "Link Lorem Ipsum Dolor",
+          "modal": {
+            "id": "Video-Modal-1",
+            "title": "Video Modal",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+            "video": {
+              "wallpaper": "../../img/IMG-Inline_Center_FPO.jpg",
+              "source": "youtube",
+              "title": "Your future starts now.",
+              "youtube_video_id": "LjOmcZkXVcU",
+              "vimeo_video_id": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "linked-image-with-video",
+      "context": {
+        "image": "../../img/IMG-HP_Find_My_Major_FPO.jpg",
+        "video": {
+          "text": "Find My Major Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et",
+          "modal": {
+            "id": "Video-Modal-1",
+            "title": "Video Modal",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+            "video": {
+              "wallpaper": "../../img/IMG-Inline_Center_FPO.jpg",
+              "source": "youtube",
+              "title": "Your future starts now.",
+              "youtube_video_id": "LjOmcZkXVcU",
+              "vimeo_video_id": ""
+            }
+          }
+        }
+      }
+    },
+    {
       "name": "profile-with-modal",
       "context": {
         "title": "Advocating for Social Justice",

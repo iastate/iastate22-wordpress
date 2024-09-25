@@ -20,6 +20,17 @@
   @include media-breakpoint-up(md) {
     display: inline-block;
   }
+
+  &:has(.icon-video) {
+    padding-right: rem(20);
+    display: inline-flex;
+  }
+
+  &:has(.icon) {
+    display: inline-flex;
+    padding-right: rem(40);
+  }
+
   .arrow {
     right: rem(17);
     top: rem(20);
@@ -32,12 +43,63 @@
     }
   }
 
-  &:hover {
+  .icon {
+    position: absolute;
+    padding-left: rem(10);
+    right: rem(16);
+    bottom: rem(8);
+  }
+
+  .icon-video {
+    padding-left: rem(40);
+    position: relative;
+    svg,
+    svg path {
+      fill: $iastate-maroon;
+    }
+
+    svg {
+      position: absolute;
+      left: rem(10);
+      top: rem(4);
+      transition: opacity 0.3s ease-out;
+
+      &.icon-video--inactive {
+        opacity: 1;
+      }
+
+      &.icon-video--active {
+        opacity: 0;
+
+        path {
+          fill: $white;
+        }
+      }
+    }
+  }
+
+  &:hover,
+  &:focus-visible {
     background-color: $iastate-maroon;
     color: $white;
     padding-right: rem(40);
     .arrow {
       width: rem(12);
+    }
+
+    svg.icon-video--inactive {
+      opacity: 0;
+    }
+
+    svg.icon-video--active {
+      opacity: 1;
+    }
+  }
+
+  &:has(.icon-video) {
+    &:hover,
+    &:focus-visible {
+      padding-right: rem(20);
     }
   }
 }
@@ -53,8 +115,59 @@
       background-color: $iastate-maroon;
     }
   }
-  &:hover {
+
+  .icon-video {
+    svg.icon-video--active {
+      path {
+        fill: $iastate-maroon;
+      }
+    }
+  }
+  &:hover,
+  &:focus-visible {
     background-color: $white;
     color: $iastate-maroon;
+  }
+}
+
+%iastate22-button--clear,
+.iastate22-button--clear {
+  border: none;
+  background: transparent;
+
+  .icon-video {
+    svg.icon-video--active {
+      path {
+        fill: $iastate-maroon;
+      }
+    }
+  }
+
+  &:hover,
+  &:focus-visible {
+    border: none;
+    background: transparent;
+    color: $iastate-maroon;
+  }
+}
+
+%iastate22-button--clear-reverse,
+.iastate22-button--clear-reverse {
+  border: none;
+  background: transparent;
+  color: $white;
+
+  .icon-video {
+    svg {
+      path {
+        fill: $white;
+      }
+    }
+  }
+
+  &:hover,
+  &:focus-visible {
+    border: none;
+    background: transparent;
   }
 }

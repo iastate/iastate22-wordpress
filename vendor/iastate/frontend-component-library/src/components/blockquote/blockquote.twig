@@ -3,6 +3,13 @@
     {% if portrait %}
       <div class="iastate22-blockquote__portrait">
         <img src="{{ portrait|path }}" alt="" loading="lazy" width="258" height="258">
+        {% if video %}
+        <button class="iastate22-blockquote__video-button" data-micromodal-trigger={{ video.modal.id }}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="30.873" height="18" viewBox="0 0 30.873 18">
+            <path d="M-980.032,12916a2.129,2.129,0,0,1-1.968-2.249v-13.5a2.129,2.129,0,0,1,1.968-2.25h16.93a2.131,2.131,0,0,1,1.974,2.25v13.507A2.13,2.13,0,0,1-963.1,12916Zm27.316-2.1-6.412-2.162v-9.481l6.412-2.159a1.093,1.093,0,0,1,.451-.1,1.167,1.167,0,0,1,1.138,1.2v11.6a1.218,1.218,0,0,1-.541,1.021,1.1,1.1,0,0,1-.593.175A1.115,1.115,0,0,1-952.716,12913.9Z" transform="translate(982 -12898)" fill="#fff"/>
+          </svg>
+        </button>
+        {% endif %}
       </div>
     {% endif %}
     <div class="iastate22-blockquote__text-wrap">
@@ -17,3 +24,7 @@
     </div>
   </div>
 </div>
+{% if video %}
+  {% include "@modal--with-video" with video.modal %}
+{% endif %}
+
