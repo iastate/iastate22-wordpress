@@ -39,7 +39,7 @@
 							{% set lp = loop.index - 1 %}
 							{% if profile_terms[lp]|length > 0 %}
 								<div class="form-item">
-									<label for="select-choice">{{ item.label }}</label>
+									<label for="{{ item.name|e('esc_attr') }}">{{ item.label }}</label>
 									<select class="iastate22-form--select" name="{{ item.name|e('esc_attr') }}"
 											id="{{ item.name|e('esc_attr') }}">
 										<option value=""></option>
