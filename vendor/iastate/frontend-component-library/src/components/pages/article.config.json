@@ -3,6 +3,7 @@
     "hero": {
       "headline": "Under Pressure",
       "subhead": "How ISU researchers solved one of the 20th century’s biggest scientific mysteries and helped end WWII.",
+      "date": "June 26, 2022",
       "attribution": "<p><strong>Author: Firstname Lastname</strong> | Image: Firstname Lastname</p>",
       "image": {
         "src": "../../img/Article_Hero.jpg",

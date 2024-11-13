@@ -2,7 +2,7 @@
   "context": {
     "image": "../../img/feature_with_large_image.jpg",
     "title": "Feature with H2 and Large Image",
-    "text": "<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni lorem ipsem.</p>",
+    "text": "<p>Nemo enim ipsam voluptatem quia voluptas sit <a href=\"#\">aspernatur</a> aut odit aut fugit, sed quia consequuntur magni lorem ipsem.</p>",
     "button_set": {
       "items": [
         {
@@ -18,7 +18,7 @@
       "context": {
         "image": "../../img/feature_with_large_image.jpg",
         "title": "Feature with H2 and Large Image",
-        "text": "<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni lorem ipsem.</p>",
+        "text": "<p>Nemo enim ipsam voluptatem quia voluptas sit <a href=\"#\">aspernatur</a> aut odit aut fugit, sed quia consequuntur magni lorem ipsem.</p>",
         "button_set": {
           "items": [
             {
@@ -48,7 +48,7 @@
       "context": {
         "image": "../../img/feature_with_large_image.jpg",
         "title": "Feature with H2 and Large Image",
-        "text": "<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni lorem ipsem.</p>",
+        "text": "<p>Nemo enim ipsam voluptatem quia voluptas sit <a href=\"#\">aspernatur</a> aut odit aut fugit, sed quia consequuntur magni lorem ipsem.</p>",
         "button_set": {
           "items": [
             {
@@ -57,6 +57,56 @@
                 "text": "Link Lorem Ipsum Dolor",
                 "modal": {
                   "id": "Video-Modal-FLI-2",
+                  "title": "Video Modal",
+                  "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+                  "video": {
+                    "wallpaper": "../../img/IMG-Inline_Center_FPO.jpg",
+                    "source": "youtube",
+                    "title": "Your future starts now.",
+                    "youtube_video_id": "LjOmcZkXVcU",
+                    "vimeo_video_id": ""
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "video-links",
+      "context": {
+        "image": "../../img/feature_with_large_image.jpg",
+        "title": "Feature with H2 and Large Image",
+        "text": "<p>Nemo enim ipsam voluptatem quia voluptas sit <a href=\"#\">aspernatur</a> aut odit aut fugit, sed quia consequuntur magni lorem ipsem.</p>",
+        "link_set": {
+          "links": [
+            {
+              "text": "Link Lorem Ipsum Dolor",
+              "variant": "link-video",
+              "video": {
+                "text": "Video Dolor Ipsum",
+                "modal": {
+                  "id": "Video-Modal-Vid-Inverse-1",
+                  "title": "Video Modal",
+                  "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
+                  "video": {
+                    "wallpaper": "../../img/IMG-Inline_Center_FPO.jpg",
+                    "source": "youtube",
+                    "title": "Your future starts now.",
+                    "youtube_video_id": "LjOmcZkXVcU",
+                    "vimeo_video_id": ""
+                  }
+                }
+              }
+            },
+            {
+              "text": "Link Lorem Dolar",
+              "variant": "link-video",
+              "video": {
+                "text": "Video Dolor Ipsum",
+                "modal": {
+                  "id": "Video-Modal-Vid-Inverse-2",
                   "title": "Video Modal",
                   "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
                   "video": {

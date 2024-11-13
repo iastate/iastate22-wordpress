@@ -83,8 +83,8 @@
 .caption {
   margin-top: rem(8);
   font-family: $typeface-sans-serif;
-  font-style: italic;
   font-size: rem(16);
+  color: $grey4;
   line-height: (26 / 16);
   @include media-breakpoint-up(lg) {
     font-size: rem(14);

@@ -174,8 +174,18 @@
   }
 }
 
+.hero--news-article__date {
+  //letter-spacing: rem(1);
+  //text-transform: uppercase;
+  color: $grey4;
+  margin-top: rem(20);
+}
+
 .hero--news-article__attribution {
   margin-top: rem(20);
+}
+.hero--news-article__date + .hero--news-article__attribution {
+  margin-top: rem(10);
 }
 
 .hero--news-article__media,
