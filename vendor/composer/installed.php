@@ -3,7 +3,7 @@
         'name' => 'iastate/wordpress-theme',
         'pretty_version' => 'dev-develop',
         'version' => 'dev-develop',
-        'reference' => 'f9d9c09e05e16ef1c354804a93ba7378ce44246d',
+        'reference' => '2439a33a9e8e5e8a2f342e33b7de10056e9faeb7',
         'type' => 'wordpress-theme',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -31,7 +31,7 @@
         'iastate/frontend-component-library' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '7a385f850499064a0bff8483bf8b6442fd002304',
+            'reference' => '663469d040266f6e9abcf6515f85a3b721d0f229',
             'type' => 'library',
             'install_path' => __DIR__ . '/../iastate/frontend-component-library',
             'aliases' => array(
@@ -42,7 +42,7 @@
         'iastate/wordpress-theme' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
-            'reference' => 'f9d9c09e05e16ef1c354804a93ba7378ce44246d',
+            'reference' => '2439a33a9e8e5e8a2f342e33b7de10056e9faeb7',
             'type' => 'wordpress-theme',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

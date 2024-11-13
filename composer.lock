@@ -218,12 +218,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/iastate/iastate22-frontend.git",
-                "reference": "7a385f850499064a0bff8483bf8b6442fd002304"
+                "reference": "663469d040266f6e9abcf6515f85a3b721d0f229"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/iastate/iastate22-frontend/zipball/7a385f850499064a0bff8483bf8b6442fd002304",
-                "reference": "7a385f850499064a0bff8483bf8b6442fd002304",
+                "url": "https://api.github.com/repos/iastate/iastate22-frontend/zipball/663469d040266f6e9abcf6515f85a3b721d0f229",
+                "reference": "663469d040266f6e9abcf6515f85a3b721d0f229",
                 "shasum": ""
             },
             "default-branch": true,
@@ -246,9 +246,9 @@
             "description": "Frontend component library for Iowa State University.",
             "support": {
                 "issues": "https://github.com/iastate/iastate22-frontend/issues",
-                "source": "https://github.com/iastate/iastate22-frontend/tree/1.0.75"
+                "source": "https://github.com/iastate/iastate22-frontend/tree/1.0.78"
             },
-            "time": "2024-09-25T13:37:36+00:00"
+            "time": "2024-11-07T21:52:14+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -927,16 +927,16 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v5.4.43",
+            "version": "v5.4.47",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "6be6a6a8af4818564e3726fc65cf936f34743cef"
+                "reference": "e13e8dfa8eaab2b0536ef365beddc2af723a9ac0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/6be6a6a8af4818564e3726fc65cf936f34743cef",
-                "reference": "6be6a6a8af4818564e3726fc65cf936f34743cef",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/e13e8dfa8eaab2b0536ef365beddc2af723a9ac0",
+                "reference": "e13e8dfa8eaab2b0536ef365beddc2af723a9ac0",
                 "shasum": ""
             },
             "require": {
@@ -996,7 +996,7 @@
                 "dump"
             ],
             "support": {
-                "source": "https://github.com/symfony/var-dumper/tree/v5.4.43"
+                "source": "https://github.com/symfony/var-dumper/tree/v5.4.47"
             },
             "funding": [
                 {
@@ -1012,7 +1012,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-08-30T16:01:46+00:00"
+            "time": "2024-11-08T15:21:10+00:00"
         }
     ],
     "aliases": [],
@@ -1020,7 +1020,7 @@
     "stability-flags": {
         "iastate/frontend-component-library": 20
     },
-    "prefer-stable": true,
+    "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],

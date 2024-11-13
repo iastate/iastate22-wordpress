@@ -5,14 +5,14 @@
 			  method="get">
 			<input type="hidden" name="post_type" value="post" tabindex="-1"/>
 			<div class="form-item">
-				<label for="name">Search</label>
+				<label for="s">Search</label>
 				{# Post(function('get_option' ,'page_for_posts')).link #}
 				<input class="iastate22-form--search" type="text" name="s" id="s"
 					   value="{{ function('get_search_query') }}" tabindex="1">
 			</div>
 			{% if categories|length > 0 %}
 				<div class="form-item">
-					<label for="select-choice">Category</label>
+					<label for="category_name">Category</label>
 					<select class="iastate22-form--select" name="category_name" id="category_name">
 						<option value=""></option>
 						{% for term in categories %}

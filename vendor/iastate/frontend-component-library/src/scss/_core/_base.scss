@@ -33,6 +33,36 @@ ol {
 }
 
 // basic page WYSIWYG image styles
+.text-content
+  figure:not(.alignleft, .align-left, .alignright, .align-right, .aligncenter, .align-center, .alignnone, .align-none) {
+  margin: rem(36) 0;
+  display: table;
+  max-width: 100%;
+  @include media-breakpoint-up(md) {
+    margin: rem(8) 0 rem(60);
+  }
+  @include media-breakpoint-up(lg) {
+    margin-top: rem(60);
+    margin-bottom: rem(60);
+  }
+  img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    width: 100%;
+  }
+  figcaption {
+    caption-side: bottom;
+    display: table-caption;
+    text-align: left;
+    @extend %caption;
+
+    @include media-breakpoint-up(lg) {
+      padding-right: rem(104);
+    }
+  }
+}
+
 .alignleft,
 .align-left,
 .alignright,

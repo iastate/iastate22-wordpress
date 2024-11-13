@@ -5,7 +5,7 @@
     "feature_with_large_image": {
       "image": "../../img/Feature-Image-Inset-Large_FPO.jpg",
       "title": "Inset Feature with H2 and Large Image",
-      "text": "<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni lorem ipsem.</p>",
+      "text": "<p>Nemo enim ipsam voluptatem quia voluptas sit <a href=\"#\">aspernatur</a> aut odit aut fugit, sed quia consequuntur magni lorem ipsem.</p>",
       "button_set": {
         "items": [
           {
@@ -25,7 +25,7 @@
         "feature_with_large_image": {
           "image": "../../img/Feature-Image-Inset-Large_FPO.jpg",
           "title": "Inset Feature with H2 and Large Image and intro",
-          "text": "<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni lorem ipsem.</p>",
+          "text": "<p>Nemo enim ipsam voluptatem quia voluptas sit <a href=\"#\">aspernatur</a> aut odit aut fugit, sed quia consequuntur magni lorem ipsem.</p>",
           "button_set": {
             "items": [
               {
@@ -59,7 +59,7 @@
         "feature_with_large_image_video_links": {
           "image": "../../img/Feature-Image-Inset-Large_FPO.jpg",
           "title": "Inset Feature with H2 and Large Image Video Links",
-          "text": "<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni lorem ipsem.</p>",
+          "text": "<p>Nemo enim ipsam voluptatem quia voluptas sit <a href=\"#\">aspernatur</a> aut odit aut fugit, sed quia consequuntur magni lorem ipsem.</p>",
           "link_set": {
             "links": [
               {

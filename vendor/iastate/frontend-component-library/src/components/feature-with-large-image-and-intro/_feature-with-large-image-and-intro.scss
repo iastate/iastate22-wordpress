@@ -48,6 +48,17 @@
         font-family: $typeface-sans-serif;
         font-weight: 700;
       }
+
+      &.text-content p > a:not(.iastate22-link-secondary):not(.iastate22-link-external):not(.link-tertiary) {
+        color: $white;
+        transition: text-decoration-color 0.3s ease-in-out, color 0.3s ease-in-out;
+
+        &:hover,
+        &:focus {
+          color: $iastate-gold;
+          // text-decoration-color: transparent;
+        }
+      }
     }
   }
   .iastate22-button {

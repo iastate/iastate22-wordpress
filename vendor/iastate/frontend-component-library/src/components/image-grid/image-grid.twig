@@ -1,4 +1,4 @@
-<div class="image-grid">
+<figure class="image-grid">
   <div class="image-grid__image">
     <img src="{{ image_one|path }}" alt="" width="627" height="418" loading="lazy">
   </div>
@@ -8,5 +8,5 @@
   <div class="image-grid__image">
     <img src="{{ image_three|path }}" alt="" width="303" height="202" loading="lazy">
   </div>
-  {% if caption %}<div class="image-grid__caption"><p>{{caption}}</p></div>{% endif %}
-</div>
+  {% if caption %}<figcaption class="image-grid__caption"><p>{{caption}}</p></figcaption>{% endif %}
+</figure>
