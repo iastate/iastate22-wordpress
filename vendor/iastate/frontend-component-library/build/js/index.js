@@ -6995,6 +6995,542 @@
     };
   },
   function(e, t, n) {
+    var i = n(30);
+    e.exports =
+      Array.isArray ||
+      function(e) {
+        return "Array" == i(e);
+      };
+  },
+  function(e, t, n) {
+    var i = n(5);
+    e.exports = i([].slice);
+  },
+  function(e, t, n) {
+    var i = n(30),
+      r = n(3);
+    e.exports = "process" == i(r.process);
+  },
+  function(e, t, n) {
+    var i = n(2),
+      r = n(5),
+      o = n(82),
+      s = n(8),
+      a = n(14),
+      l = n(15).f,
+      c = n(54),
+      u = n(131),
+      d = n(111),
+      f = n(65),
+      h = n(93),
+      p = !1,
+      g = f("meta"),
+      m = 0,
+      v = function(e) {
+        l(e, g, { value: { objectID: "O" + m++, weakData: {} } });
+      },
+      y = (e.exports = {
+        enable: function() {
+          (y.enable = function() {}), (p = !0);
+          var e = c.f,
+            t = r([].splice),
+            n = {};
+          (n[g] = 1),
+            e(n).length &&
+              ((c.f = function(n) {
+                for (var i = e(n), r = 0, o = i.length; r < o; r++)
+                  if (i[r] === g) {
+                    t(i, r, 1);
+                    break;
+                  }
+                return i;
+              }),
+              i({ target: "Object", stat: !0, forced: !0 }, { getOwnPropertyNames: u.f }));
+        },
+        fastKey: function(e, t) {
+          if (!s(e)) return "symbol" == typeof e ? e : ("string" == typeof e ? "S" : "P") + e;
+          if (!a(e, g)) {
+            if (!d(e)) return "F";
+            if (!t) return "E";
+            v(e);
+          }
+          return e[g].objectID;
+        },
+        getWeakData: function(e, t) {
+          if (!a(e, g)) {
+            if (!d(e)) return !0;
+            if (!t) return !1;
+            v(e);
+          }
+          return e[g].weakData;
+        },
+        onFreeze: function(e) {
+          return h && p && d(e) && !a(e, g) && v(e), e;
+        },
+      });
+    o[g] = !0;
+  },
+  function(e, t, n) {
+    "use strict";
+    var i = n(6);
+    e.exports = function() {
+      var e = i(this),
+        t = "";
+      return (
+        e.global && (t += "g"),
+        e.ignoreCase && (t += "i"),
+        e.multiline && (t += "m"),
+        e.dotAll && (t += "s"),
+        e.unicode && (t += "u"),
+        e.sticky && (t += "y"),
+        t
+      );
+    };
+  },
+  function(e, t, n) {
+    var i, r;
+    !(function(o, s) {
+      (i = [n(74), n(96), n(51), n(507), n(508), n(509)]),
+        void 0 ===
+          (r = function(e, t, n, i, r, s) {
+            return (function(e, t, n, i, r, o, s) {
+              "use strict";
+              var a = e.jQuery,
+                l = e.getComputedStyle,
+                c = e.console;
+              function u(e, t) {
+                for (e = i.makeArray(e); e.length; ) t.appendChild(e.shift());
+              }
+              var d = 0,
+                f = {};
+              function h(e, t) {
+                var n = i.getQueryElement(e);
+                if (n) {
+                  if (((this.element = n), this.element.flickityGUID)) {
+                    var r = f[this.element.flickityGUID];
+                    return r.option(t), r;
+                  }
+                  a && (this.$element = a(this.element)),
+                    (this.options = i.extend({}, this.constructor.defaults)),
+                    this.option(t),
+                    this._create();
+                } else c && c.error("Bad element for Flickity: " + (n || e));
+              }
+              (h.defaults = {
+                accessibility: !0,
+                cellAlign: "center",
+                freeScrollFriction: 0.075,
+                friction: 0.28,
+                namespaceJQueryEvents: !0,
+                percentPosition: !0,
+                resize: !0,
+                selectedAttraction: 0.025,
+                setGallerySize: !0,
+              }),
+                (h.createMethods = []);
+              var p = h.prototype;
+              i.extend(p, t.prototype),
+                (p._create = function() {
+                  var t = (this.guid = ++d);
+                  for (var n in ((this.element.flickityGUID = t),
+                  (f[t] = this),
+                  (this.selectedIndex = 0),
+                  (this.restingFrames = 0),
+                  (this.x = 0),
+                  (this.velocity = 0),
+                  (this.originSide = this.options.rightToLeft ? "right" : "left"),
+                  (this.viewport = document.createElement("div")),
+                  (this.viewport.className = "flickity-viewport"),
+                  this._createSlider(),
+                  (this.options.resize || this.options.watchCSS) && e.addEventListener("resize", this),
+                  this.options.on)) {
+                    var i = this.options.on[n];
+                    this.on(n, i);
+                  }
+                  h.createMethods.forEach(function(e) {
+                    this[e]();
+                  }, this),
+                    this.options.watchCSS ? this.watchCSS() : this.activate();
+                }),
+                (p.option = function(e) {
+                  i.extend(this.options, e);
+                }),
+                (p.activate = function() {
+                  this.isActive ||
+                    ((this.isActive = !0),
+                    this.element.classList.add("flickity-enabled"),
+                    this.options.rightToLeft && this.element.classList.add("flickity-rtl"),
+                    this.getSize(),
+                    u(this._filterFindCellElements(this.element.children), this.slider),
+                    this.viewport.appendChild(this.slider),
+                    this.element.appendChild(this.viewport),
+                    this.reloadCells(),
+                    this.options.accessibility &&
+                      ((this.element.tabIndex = 0), this.element.addEventListener("keydown", this)),
+                    this.emitEvent("activate"),
+                    this.selectInitialIndex(),
+                    (this.isInitActivated = !0),
+                    this.dispatchEvent("ready"));
+                }),
+                (p._createSlider = function() {
+                  var e = document.createElement("div");
+                  (e.className = "flickity-slider"), (e.style[this.originSide] = 0), (this.slider = e);
+                }),
+                (p._filterFindCellElements = function(e) {
+                  return i.filterFindElements(e, this.options.cellSelector);
+                }),
+                (p.reloadCells = function() {
+                  (this.cells = this._makeCells(this.slider.children)),
+                    this.positionCells(),
+                    this._getWrapShiftCells(),
+                    this.setGallerySize();
+                }),
+                (p._makeCells = function(e) {
+                  return this._filterFindCellElements(e).map(function(e) {
+                    return new r(e, this);
+                  }, this);
+                }),
+                (p.getLastCell = function() {
+                  return this.cells[this.cells.length - 1];
+                }),
+                (p.getLastSlide = function() {
+                  return this.slides[this.slides.length - 1];
+                }),
+                (p.positionCells = function() {
+                  this._sizeCells(this.cells), this._positionCells(0);
+                }),
+                (p._positionCells = function(e) {
+                  (e = e || 0), (this.maxCellHeight = (e && this.maxCellHeight) || 0);
+                  var t = 0;
+                  if (e > 0) {
+                    var n = this.cells[e - 1];
+                    t = n.x + n.size.outerWidth;
+                  }
+                  for (var i = this.cells.length, r = e; r < i; r++) {
+                    var o = this.cells[r];
+                    o.setPosition(t),
+                      (t += o.size.outerWidth),
+                      (this.maxCellHeight = Math.max(o.size.outerHeight, this.maxCellHeight));
+                  }
+                  (this.slideableWidth = t),
+                    this.updateSlides(),
+                    this._containSlides(),
+                    (this.slidesWidth = i ? this.getLastSlide().target - this.slides[0].target : 0);
+                }),
+                (p._sizeCells = function(e) {
+                  e.forEach(function(e) {
+                    e.getSize();
+                  });
+                }),
+                (p.updateSlides = function() {
+                  if (((this.slides = []), this.cells.length)) {
+                    var e = new o(this);
+                    this.slides.push(e);
+                    var t = "left" == this.originSide ? "marginRight" : "marginLeft",
+                      n = this._getCanCellFit();
+                    this.cells.forEach(function(i, r) {
+                      if (e.cells.length) {
+                        var s = e.outerWidth - e.firstMargin + (i.size.outerWidth - i.size[t]);
+                        n.call(this, r, s)
+                          ? e.addCell(i)
+                          : (e.updateTarget(), (e = new o(this)), this.slides.push(e), e.addCell(i));
+                      } else e.addCell(i);
+                    }, this),
+                      e.updateTarget(),
+                      this.updateSelectedSlide();
+                  }
+                }),
+                (p._getCanCellFit = function() {
+                  var e = this.options.groupCells;
+                  if (!e)
+                    return function() {
+                      return !1;
+                    };
+                  if ("number" == typeof e) {
+                    var t = parseInt(e, 10);
+                    return function(e) {
+                      return e % t != 0;
+                    };
+                  }
+                  var n = "string" == typeof e && e.match(/^(\d+)%$/),
+                    i = n ? parseInt(n[1], 10) / 100 : 1;
+                  return function(e, t) {
+                    return t <= (this.size.innerWidth + 1) * i;
+                  };
+                }),
+                (p._init = p.reposition = function() {
+                  this.positionCells(), this.positionSliderAtSelected();
+                }),
+                (p.getSize = function() {
+                  (this.size = n(this.element)),
+                    this.setCellAlign(),
+                    (this.cursorPosition = this.size.innerWidth * this.cellAlign);
+                });
+              var g = { center: { left: 0.5, right: 0.5 }, left: { left: 0, right: 1 }, right: { right: 0, left: 1 } };
+              (p.setCellAlign = function() {
+                var e = g[this.options.cellAlign];
+                this.cellAlign = e ? e[this.originSide] : this.options.cellAlign;
+              }),
+                (p.setGallerySize = function() {
+                  if (this.options.setGallerySize) {
+                    var e =
+                      this.options.adaptiveHeight && this.selectedSlide
+                        ? this.selectedSlide.height
+                        : this.maxCellHeight;
+                    this.viewport.style.height = e + "px";
+                  }
+                }),
+                (p._getWrapShiftCells = function() {
+                  if (this.options.wrapAround) {
+                    this._unshiftCells(this.beforeShiftCells), this._unshiftCells(this.afterShiftCells);
+                    var e = this.cursorPosition,
+                      t = this.cells.length - 1;
+                    (this.beforeShiftCells = this._getGapCells(e, t, -1)),
+                      (e = this.size.innerWidth - this.cursorPosition),
+                      (this.afterShiftCells = this._getGapCells(e, 0, 1));
+                  }
+                }),
+                (p._getGapCells = function(e, t, n) {
+                  for (var i = []; e > 0; ) {
+                    var r = this.cells[t];
+                    if (!r) break;
+                    i.push(r), (t += n), (e -= r.size.outerWidth);
+                  }
+                  return i;
+                }),
+                (p._containSlides = function() {
+                  if (this.options.contain && !this.options.wrapAround && this.cells.length) {
+                    var e = this.options.rightToLeft,
+                      t = e ? "marginRight" : "marginLeft",
+                      n = e ? "marginLeft" : "marginRight",
+                      i = this.slideableWidth - this.getLastCell().size[n],
+                      r = i < this.size.innerWidth,
+                      o = this.cursorPosition + this.cells[0].size[t],
+                      s = i - this.size.innerWidth * (1 - this.cellAlign);
+                    this.slides.forEach(function(e) {
+                      r
+                        ? (e.target = i * this.cellAlign)
+                        : ((e.target = Math.max(e.target, o)), (e.target = Math.min(e.target, s)));
+                    }, this);
+                  }
+                }),
+                (p.dispatchEvent = function(e, t, n) {
+                  var i = t ? [t].concat(n) : n;
+                  if ((this.emitEvent(e, i), a && this.$element)) {
+                    var r = (e += this.options.namespaceJQueryEvents ? ".flickity" : "");
+                    if (t) {
+                      var o = a.Event(t);
+                      (o.type = e), (r = o);
+                    }
+                    this.$element.trigger(r, n);
+                  }
+                }),
+                (p.select = function(e, t, n) {
+                  if (
+                    this.isActive &&
+                    ((e = parseInt(e, 10)),
+                    this._wrapSelect(e),
+                    (this.options.wrapAround || t) && (e = i.modulo(e, this.slides.length)),
+                    this.slides[e])
+                  ) {
+                    var r = this.selectedIndex;
+                    (this.selectedIndex = e),
+                      this.updateSelectedSlide(),
+                      n ? this.positionSliderAtSelected() : this.startAnimation(),
+                      this.options.adaptiveHeight && this.setGallerySize(),
+                      this.dispatchEvent("select", null, [e]),
+                      e != r && this.dispatchEvent("change", null, [e]),
+                      this.dispatchEvent("cellSelect");
+                  }
+                }),
+                (p._wrapSelect = function(e) {
+                  var t = this.slides.length;
+                  if (!(this.options.wrapAround && t > 1)) return e;
+                  var n = i.modulo(e, t),
+                    r = Math.abs(n - this.selectedIndex),
+                    o = Math.abs(n + t - this.selectedIndex),
+                    s = Math.abs(n - t - this.selectedIndex);
+                  !this.isDragSelect && o < r ? (e += t) : !this.isDragSelect && s < r && (e -= t),
+                    e < 0 ? (this.x -= this.slideableWidth) : e >= t && (this.x += this.slideableWidth);
+                }),
+                (p.previous = function(e, t) {
+                  this.select(this.selectedIndex - 1, e, t);
+                }),
+                (p.next = function(e, t) {
+                  this.select(this.selectedIndex + 1, e, t);
+                }),
+                (p.updateSelectedSlide = function() {
+                  var e = this.slides[this.selectedIndex];
+                  e &&
+                    (this.unselectSelectedSlide(),
+                    (this.selectedSlide = e),
+                    e.select(),
+                    (this.selectedCells = e.cells),
+                    (this.selectedElements = e.getCellElements()),
+                    (this.selectedCell = e.cells[0]),
+                    (this.selectedElement = this.selectedElements[0]));
+                }),
+                (p.unselectSelectedSlide = function() {
+                  this.selectedSlide && this.selectedSlide.unselect();
+                }),
+                (p.selectInitialIndex = function() {
+                  var e = this.options.initialIndex;
+                  if (this.isInitActivated) this.select(this.selectedIndex, !1, !0);
+                  else {
+                    if (e && "string" == typeof e) if (this.queryCell(e)) return void this.selectCell(e, !1, !0);
+                    var t = 0;
+                    e && this.slides[e] && (t = e), this.select(t, !1, !0);
+                  }
+                }),
+                (p.selectCell = function(e, t, n) {
+                  var i = this.queryCell(e);
+                  if (i) {
+                    var r = this.getCellSlideIndex(i);
+                    this.select(r, t, n);
+                  }
+                }),
+                (p.getCellSlideIndex = function(e) {
+                  for (var t = 0; t < this.slides.length; t++) {
+                    if (-1 != this.slides[t].cells.indexOf(e)) return t;
+                  }
+                }),
+                (p.getCell = function(e) {
+                  for (var t = 0; t < this.cells.length; t++) {
+                    var n = this.cells[t];
+                    if (n.element == e) return n;
+                  }
+                }),
+                (p.getCells = function(e) {
+                  e = i.makeArray(e);
+                  var t = [];
+                  return (
+                    e.forEach(function(e) {
+                      var n = this.getCell(e);
+                      n && t.push(n);
+                    }, this),
+                    t
+                  );
+                }),
+                (p.getCellElements = function() {
+                  return this.cells.map(function(e) {
+                    return e.element;
+                  });
+                }),
+                (p.getParentCell = function(e) {
+                  var t = this.getCell(e);
+                  return t || ((e = i.getParent(e, ".flickity-slider > *")), this.getCell(e));
+                }),
+                (p.getAdjacentCellElements = function(e, t) {
+                  if (!e) return this.selectedSlide.getCellElements();
+                  t = void 0 === t ? this.selectedIndex : t;
+                  var n = this.slides.length;
+                  if (1 + 2 * e >= n) return this.getCellElements();
+                  for (var r = [], o = t - e; o <= t + e; o++) {
+                    var s = this.options.wrapAround ? i.modulo(o, n) : o,
+                      a = this.slides[s];
+                    a && (r = r.concat(a.getCellElements()));
+                  }
+                  return r;
+                }),
+                (p.queryCell = function(e) {
+                  if ("number" == typeof e) return this.cells[e];
+                  if ("string" == typeof e) {
+                    if (e.match(/^[#\.]?[\d\/]/)) return;
+                    e = this.element.querySelector(e);
+                  }
+                  return this.getCell(e);
+                }),
+                (p.uiChange = function() {
+                  this.emitEvent("uiChange");
+                }),
+                (p.childUIPointerDown = function(e) {
+                  "touchstart" != e.type && e.preventDefault(), this.focus();
+                }),
+                (p.onresize = function() {
+                  this.watchCSS(), this.resize();
+                }),
+                i.debounceMethod(h, "onresize", 150),
+                (p.resize = function() {
+                  if (this.isActive) {
+                    this.getSize(),
+                      this.options.wrapAround && (this.x = i.modulo(this.x, this.slideableWidth)),
+                      this.positionCells(),
+                      this._getWrapShiftCells(),
+                      this.setGallerySize(),
+                      this.emitEvent("resize");
+                    var e = this.selectedElements && this.selectedElements[0];
+                    this.selectCell(e, !1, !0);
+                  }
+                }),
+                (p.watchCSS = function() {
+                  this.options.watchCSS &&
+                    (-1 != l(this.element, ":after").content.indexOf("flickity") ? this.activate() : this.deactivate());
+                }),
+                (p.onkeydown = function(e) {
+                  var t = document.activeElement && document.activeElement != this.element;
+                  if (this.options.accessibility && !t) {
+                    var n = h.keyboardHandlers[e.keyCode];
+                    n && n.call(this);
+                  }
+                }),
+                (h.keyboardHandlers = {
+                  37: function() {
+                    var e = this.options.rightToLeft ? "next" : "previous";
+                    this.uiChange(), this[e]();
+                  },
+                  39: function() {
+                    var e = this.options.rightToLeft ? "previous" : "next";
+                    this.uiChange(), this[e]();
+                  },
+                }),
+                (p.focus = function() {
+                  var t = e.pageYOffset;
+                  this.element.focus({ preventScroll: !0 }), e.pageYOffset != t && e.scrollTo(e.pageXOffset, t);
+                }),
+                (p.deactivate = function() {
+                  this.isActive &&
+                    (this.element.classList.remove("flickity-enabled"),
+                    this.element.classList.remove("flickity-rtl"),
+                    this.unselectSelectedSlide(),
+                    this.cells.forEach(function(e) {
+                      e.destroy();
+                    }),
+                    this.element.removeChild(this.viewport),
+                    u(this.slider.children, this.element),
+                    this.options.accessibility &&
+                      (this.element.removeAttribute("tabIndex"), this.element.removeEventListener("keydown", this)),
+                    (this.isActive = !1),
+                    this.emitEvent("deactivate"));
+                }),
+                (p.destroy = function() {
+                  this.deactivate(),
+                    e.removeEventListener("resize", this),
+                    this.allOff(),
+                    this.emitEvent("destroy"),
+                    a && this.$element && a.removeData(this.element, "flickity"),
+                    delete this.element.flickityGUID,
+                    delete f[this.guid];
+                }),
+                i.extend(p, s),
+                (h.data = function(e) {
+                  var t = (e = i.getQueryElement(e)) && e.flickityGUID;
+                  return t && f[t];
+                }),
+                i.htmlInit(h, "flickity"),
+                a && a.bridget && a.bridget("flickity", h);
+              return (
+                (h.setJQuery = function(e) {
+                  a = e;
+                }),
+                (h.Cell = r),
+                (h.Slide = o),
+                h
+              );
+            })(o, e, t, n, i, r, s);
+          }.apply(t, i)) || (e.exports = r);
+    })(window);
+  },
+  function(e, t, n) {
     "use strict";
     n.r(t),
       n.d(t, "Calendar", function() {
@@ -8698,542 +9234,6 @@
       return Object(i.V)(e.eventStore, e.eventUiBases, e.dateProfile.activeRange, t ? e.nextDayThreshold : null).fg;
     }
     const de = "6.1.5";
-  },
-  function(e, t, n) {
-    var i = n(30);
-    e.exports =
-      Array.isArray ||
-      function(e) {
-        return "Array" == i(e);
-      };
-  },
-  function(e, t, n) {
-    var i = n(5);
-    e.exports = i([].slice);
-  },
-  function(e, t, n) {
-    var i = n(30),
-      r = n(3);
-    e.exports = "process" == i(r.process);
-  },
-  function(e, t, n) {
-    var i = n(2),
-      r = n(5),
-      o = n(82),
-      s = n(8),
-      a = n(14),
-      l = n(15).f,
-      c = n(54),
-      u = n(131),
-      d = n(111),
-      f = n(65),
-      h = n(93),
-      p = !1,
-      g = f("meta"),
-      m = 0,
-      v = function(e) {
-        l(e, g, { value: { objectID: "O" + m++, weakData: {} } });
-      },
-      y = (e.exports = {
-        enable: function() {
-          (y.enable = function() {}), (p = !0);
-          var e = c.f,
-            t = r([].splice),
-            n = {};
-          (n[g] = 1),
-            e(n).length &&
-              ((c.f = function(n) {
-                for (var i = e(n), r = 0, o = i.length; r < o; r++)
-                  if (i[r] === g) {
-                    t(i, r, 1);
-                    break;
-                  }
-                return i;
-              }),
-              i({ target: "Object", stat: !0, forced: !0 }, { getOwnPropertyNames: u.f }));
-        },
-        fastKey: function(e, t) {
-          if (!s(e)) return "symbol" == typeof e ? e : ("string" == typeof e ? "S" : "P") + e;
-          if (!a(e, g)) {
-            if (!d(e)) return "F";
-            if (!t) return "E";
-            v(e);
-          }
-          return e[g].objectID;
-        },
-        getWeakData: function(e, t) {
-          if (!a(e, g)) {
-            if (!d(e)) return !0;
-            if (!t) return !1;
-            v(e);
-          }
-          return e[g].weakData;
-        },
-        onFreeze: function(e) {
-          return h && p && d(e) && !a(e, g) && v(e), e;
-        },
-      });
-    o[g] = !0;
-  },
-  function(e, t, n) {
-    "use strict";
-    var i = n(6);
-    e.exports = function() {
-      var e = i(this),
-        t = "";
-      return (
-        e.global && (t += "g"),
-        e.ignoreCase && (t += "i"),
-        e.multiline && (t += "m"),
-        e.dotAll && (t += "s"),
-        e.unicode && (t += "u"),
-        e.sticky && (t += "y"),
-        t
-      );
-    };
-  },
-  function(e, t, n) {
-    var i, r;
-    !(function(o, s) {
-      (i = [n(74), n(96), n(51), n(507), n(508), n(509)]),
-        void 0 ===
-          (r = function(e, t, n, i, r, s) {
-            return (function(e, t, n, i, r, o, s) {
-              "use strict";
-              var a = e.jQuery,
-                l = e.getComputedStyle,
-                c = e.console;
-              function u(e, t) {
-                for (e = i.makeArray(e); e.length; ) t.appendChild(e.shift());
-              }
-              var d = 0,
-                f = {};
-              function h(e, t) {
-                var n = i.getQueryElement(e);
-                if (n) {
-                  if (((this.element = n), this.element.flickityGUID)) {
-                    var r = f[this.element.flickityGUID];
-                    return r.option(t), r;
-                  }
-                  a && (this.$element = a(this.element)),
-                    (this.options = i.extend({}, this.constructor.defaults)),
-                    this.option(t),
-                    this._create();
-                } else c && c.error("Bad element for Flickity: " + (n || e));
-              }
-              (h.defaults = {
-                accessibility: !0,
-                cellAlign: "center",
-                freeScrollFriction: 0.075,
-                friction: 0.28,
-                namespaceJQueryEvents: !0,
-                percentPosition: !0,
-                resize: !0,
-                selectedAttraction: 0.025,
-                setGallerySize: !0,
-              }),
-                (h.createMethods = []);
-              var p = h.prototype;
-              i.extend(p, t.prototype),
-                (p._create = function() {
-                  var t = (this.guid = ++d);
-                  for (var n in ((this.element.flickityGUID = t),
-                  (f[t] = this),
-                  (this.selectedIndex = 0),
-                  (this.restingFrames = 0),
-                  (this.x = 0),
-                  (this.velocity = 0),
-                  (this.originSide = this.options.rightToLeft ? "right" : "left"),
-                  (this.viewport = document.createElement("div")),
-                  (this.viewport.className = "flickity-viewport"),
-                  this._createSlider(),
-                  (this.options.resize || this.options.watchCSS) && e.addEventListener("resize", this),
-                  this.options.on)) {
-                    var i = this.options.on[n];
-                    this.on(n, i);
-                  }
-                  h.createMethods.forEach(function(e) {
-                    this[e]();
-                  }, this),
-                    this.options.watchCSS ? this.watchCSS() : this.activate();
-                }),
-                (p.option = function(e) {
-                  i.extend(this.options, e);
-                }),
-                (p.activate = function() {
-                  this.isActive ||
-                    ((this.isActive = !0),
-                    this.element.classList.add("flickity-enabled"),
-                    this.options.rightToLeft && this.element.classList.add("flickity-rtl"),
-                    this.getSize(),
-                    u(this._filterFindCellElements(this.element.children), this.slider),
-                    this.viewport.appendChild(this.slider),
-                    this.element.appendChild(this.viewport),
-                    this.reloadCells(),
-                    this.options.accessibility &&
-                      ((this.element.tabIndex = 0), this.element.addEventListener("keydown", this)),
-                    this.emitEvent("activate"),
-                    this.selectInitialIndex(),
-                    (this.isInitActivated = !0),
-                    this.dispatchEvent("ready"));
-                }),
-                (p._createSlider = function() {
-                  var e = document.createElement("div");
-                  (e.className = "flickity-slider"), (e.style[this.originSide] = 0), (this.slider = e);
-                }),
-                (p._filterFindCellElements = function(e) {
-                  return i.filterFindElements(e, this.options.cellSelector);
-                }),
-                (p.reloadCells = function() {
-                  (this.cells = this._makeCells(this.slider.children)),
-                    this.positionCells(),
-                    this._getWrapShiftCells(),
-                    this.setGallerySize();
-                }),
-                (p._makeCells = function(e) {
-                  return this._filterFindCellElements(e).map(function(e) {
-                    return new r(e, this);
-                  }, this);
-                }),
-                (p.getLastCell = function() {
-                  return this.cells[this.cells.length - 1];
-                }),
-                (p.getLastSlide = function() {
-                  return this.slides[this.slides.length - 1];
-                }),
-                (p.positionCells = function() {
-                  this._sizeCells(this.cells), this._positionCells(0);
-                }),
-                (p._positionCells = function(e) {
-                  (e = e || 0), (this.maxCellHeight = (e && this.maxCellHeight) || 0);
-                  var t = 0;
-                  if (e > 0) {
-                    var n = this.cells[e - 1];
-                    t = n.x + n.size.outerWidth;
-                  }
-                  for (var i = this.cells.length, r = e; r < i; r++) {
-                    var o = this.cells[r];
-                    o.setPosition(t),
-                      (t += o.size.outerWidth),
-                      (this.maxCellHeight = Math.max(o.size.outerHeight, this.maxCellHeight));
-                  }
-                  (this.slideableWidth = t),
-                    this.updateSlides(),
-                    this._containSlides(),
-                    (this.slidesWidth = i ? this.getLastSlide().target - this.slides[0].target : 0);
-                }),
-                (p._sizeCells = function(e) {
-                  e.forEach(function(e) {
-                    e.getSize();
-                  });
-                }),
-                (p.updateSlides = function() {
-                  if (((this.slides = []), this.cells.length)) {
-                    var e = new o(this);
-                    this.slides.push(e);
-                    var t = "left" == this.originSide ? "marginRight" : "marginLeft",
-                      n = this._getCanCellFit();
-                    this.cells.forEach(function(i, r) {
-                      if (e.cells.length) {
-                        var s = e.outerWidth - e.firstMargin + (i.size.outerWidth - i.size[t]);
-                        n.call(this, r, s)
-                          ? e.addCell(i)
-                          : (e.updateTarget(), (e = new o(this)), this.slides.push(e), e.addCell(i));
-                      } else e.addCell(i);
-                    }, this),
-                      e.updateTarget(),
-                      this.updateSelectedSlide();
-                  }
-                }),
-                (p._getCanCellFit = function() {
-                  var e = this.options.groupCells;
-                  if (!e)
-                    return function() {
-                      return !1;
-                    };
-                  if ("number" == typeof e) {
-                    var t = parseInt(e, 10);
-                    return function(e) {
-                      return e % t != 0;
-                    };
-                  }
-                  var n = "string" == typeof e && e.match(/^(\d+)%$/),
-                    i = n ? parseInt(n[1], 10) / 100 : 1;
-                  return function(e, t) {
-                    return t <= (this.size.innerWidth + 1) * i;
-                  };
-                }),
-                (p._init = p.reposition = function() {
-                  this.positionCells(), this.positionSliderAtSelected();
-                }),
-                (p.getSize = function() {
-                  (this.size = n(this.element)),
-                    this.setCellAlign(),
-                    (this.cursorPosition = this.size.innerWidth * this.cellAlign);
-                });
-              var g = { center: { left: 0.5, right: 0.5 }, left: { left: 0, right: 1 }, right: { right: 0, left: 1 } };
-              (p.setCellAlign = function() {
-                var e = g[this.options.cellAlign];
-                this.cellAlign = e ? e[this.originSide] : this.options.cellAlign;
-              }),
-                (p.setGallerySize = function() {
-                  if (this.options.setGallerySize) {
-                    var e =
-                      this.options.adaptiveHeight && this.selectedSlide
-                        ? this.selectedSlide.height
-                        : this.maxCellHeight;
-                    this.viewport.style.height = e + "px";
-                  }
-                }),
-                (p._getWrapShiftCells = function() {
-                  if (this.options.wrapAround) {
-                    this._unshiftCells(this.beforeShiftCells), this._unshiftCells(this.afterShiftCells);
-                    var e = this.cursorPosition,
-                      t = this.cells.length - 1;
-                    (this.beforeShiftCells = this._getGapCells(e, t, -1)),
-                      (e = this.size.innerWidth - this.cursorPosition),
-                      (this.afterShiftCells = this._getGapCells(e, 0, 1));
-                  }
-                }),
-                (p._getGapCells = function(e, t, n) {
-                  for (var i = []; e > 0; ) {
-                    var r = this.cells[t];
-                    if (!r) break;
-                    i.push(r), (t += n), (e -= r.size.outerWidth);
-                  }
-                  return i;
-                }),
-                (p._containSlides = function() {
-                  if (this.options.contain && !this.options.wrapAround && this.cells.length) {
-                    var e = this.options.rightToLeft,
-                      t = e ? "marginRight" : "marginLeft",
-                      n = e ? "marginLeft" : "marginRight",
-                      i = this.slideableWidth - this.getLastCell().size[n],
-                      r = i < this.size.innerWidth,
-                      o = this.cursorPosition + this.cells[0].size[t],
-                      s = i - this.size.innerWidth * (1 - this.cellAlign);
-                    this.slides.forEach(function(e) {
-                      r
-                        ? (e.target = i * this.cellAlign)
-                        : ((e.target = Math.max(e.target, o)), (e.target = Math.min(e.target, s)));
-                    }, this);
-                  }
-                }),
-                (p.dispatchEvent = function(e, t, n) {
-                  var i = t ? [t].concat(n) : n;
-                  if ((this.emitEvent(e, i), a && this.$element)) {
-                    var r = (e += this.options.namespaceJQueryEvents ? ".flickity" : "");
-                    if (t) {
-                      var o = a.Event(t);
-                      (o.type = e), (r = o);
-                    }
-                    this.$element.trigger(r, n);
-                  }
-                }),
-                (p.select = function(e, t, n) {
-                  if (
-                    this.isActive &&
-                    ((e = parseInt(e, 10)),
-                    this._wrapSelect(e),
-                    (this.options.wrapAround || t) && (e = i.modulo(e, this.slides.length)),
-                    this.slides[e])
-                  ) {
-                    var r = this.selectedIndex;
-                    (this.selectedIndex = e),
-                      this.updateSelectedSlide(),
-                      n ? this.positionSliderAtSelected() : this.startAnimation(),
-                      this.options.adaptiveHeight && this.setGallerySize(),
-                      this.dispatchEvent("select", null, [e]),
-                      e != r && this.dispatchEvent("change", null, [e]),
-                      this.dispatchEvent("cellSelect");
-                  }
-                }),
-                (p._wrapSelect = function(e) {
-                  var t = this.slides.length;
-                  if (!(this.options.wrapAround && t > 1)) return e;
-                  var n = i.modulo(e, t),
-                    r = Math.abs(n - this.selectedIndex),
-                    o = Math.abs(n + t - this.selectedIndex),
-                    s = Math.abs(n - t - this.selectedIndex);
-                  !this.isDragSelect && o < r ? (e += t) : !this.isDragSelect && s < r && (e -= t),
-                    e < 0 ? (this.x -= this.slideableWidth) : e >= t && (this.x += this.slideableWidth);
-                }),
-                (p.previous = function(e, t) {
-                  this.select(this.selectedIndex - 1, e, t);
-                }),
-                (p.next = function(e, t) {
-                  this.select(this.selectedIndex + 1, e, t);
-                }),
-                (p.updateSelectedSlide = function() {
-                  var e = this.slides[this.selectedIndex];
-                  e &&
-                    (this.unselectSelectedSlide(),
-                    (this.selectedSlide = e),
-                    e.select(),
-                    (this.selectedCells = e.cells),
-                    (this.selectedElements = e.getCellElements()),
-                    (this.selectedCell = e.cells[0]),
-                    (this.selectedElement = this.selectedElements[0]));
-                }),
-                (p.unselectSelectedSlide = function() {
-                  this.selectedSlide && this.selectedSlide.unselect();
-                }),
-                (p.selectInitialIndex = function() {
-                  var e = this.options.initialIndex;
-                  if (this.isInitActivated) this.select(this.selectedIndex, !1, !0);
-                  else {
-                    if (e && "string" == typeof e) if (this.queryCell(e)) return void this.selectCell(e, !1, !0);
-                    var t = 0;
-                    e && this.slides[e] && (t = e), this.select(t, !1, !0);
-                  }
-                }),
-                (p.selectCell = function(e, t, n) {
-                  var i = this.queryCell(e);
-                  if (i) {
-                    var r = this.getCellSlideIndex(i);
-                    this.select(r, t, n);
-                  }
-                }),
-                (p.getCellSlideIndex = function(e) {
-                  for (var t = 0; t < this.slides.length; t++) {
-                    if (-1 != this.slides[t].cells.indexOf(e)) return t;
-                  }
-                }),
-                (p.getCell = function(e) {
-                  for (var t = 0; t < this.cells.length; t++) {
-                    var n = this.cells[t];
-                    if (n.element == e) return n;
-                  }
-                }),
-                (p.getCells = function(e) {
-                  e = i.makeArray(e);
-                  var t = [];
-                  return (
-                    e.forEach(function(e) {
-                      var n = this.getCell(e);
-                      n && t.push(n);
-                    }, this),
-                    t
-                  );
-                }),
-                (p.getCellElements = function() {
-                  return this.cells.map(function(e) {
-                    return e.element;
-                  });
-                }),
-                (p.getParentCell = function(e) {
-                  var t = this.getCell(e);
-                  return t || ((e = i.getParent(e, ".flickity-slider > *")), this.getCell(e));
-                }),
-                (p.getAdjacentCellElements = function(e, t) {
-                  if (!e) return this.selectedSlide.getCellElements();
-                  t = void 0 === t ? this.selectedIndex : t;
-                  var n = this.slides.length;
-                  if (1 + 2 * e >= n) return this.getCellElements();
-                  for (var r = [], o = t - e; o <= t + e; o++) {
-                    var s = this.options.wrapAround ? i.modulo(o, n) : o,
-                      a = this.slides[s];
-                    a && (r = r.concat(a.getCellElements()));
-                  }
-                  return r;
-                }),
-                (p.queryCell = function(e) {
-                  if ("number" == typeof e) return this.cells[e];
-                  if ("string" == typeof e) {
-                    if (e.match(/^[#\.]?[\d\/]/)) return;
-                    e = this.element.querySelector(e);
-                  }
-                  return this.getCell(e);
-                }),
-                (p.uiChange = function() {
-                  this.emitEvent("uiChange");
-                }),
-                (p.childUIPointerDown = function(e) {
-                  "touchstart" != e.type && e.preventDefault(), this.focus();
-                }),
-                (p.onresize = function() {
-                  this.watchCSS(), this.resize();
-                }),
-                i.debounceMethod(h, "onresize", 150),
-                (p.resize = function() {
-                  if (this.isActive) {
-                    this.getSize(),
-                      this.options.wrapAround && (this.x = i.modulo(this.x, this.slideableWidth)),
-                      this.positionCells(),
-                      this._getWrapShiftCells(),
-                      this.setGallerySize(),
-                      this.emitEvent("resize");
-                    var e = this.selectedElements && this.selectedElements[0];
-                    this.selectCell(e, !1, !0);
-                  }
-                }),
-                (p.watchCSS = function() {
-                  this.options.watchCSS &&
-                    (-1 != l(this.element, ":after").content.indexOf("flickity") ? this.activate() : this.deactivate());
-                }),
-                (p.onkeydown = function(e) {
-                  var t = document.activeElement && document.activeElement != this.element;
-                  if (this.options.accessibility && !t) {
-                    var n = h.keyboardHandlers[e.keyCode];
-                    n && n.call(this);
-                  }
-                }),
-                (h.keyboardHandlers = {
-                  37: function() {
-                    var e = this.options.rightToLeft ? "next" : "previous";
-                    this.uiChange(), this[e]();
-                  },
-                  39: function() {
-                    var e = this.options.rightToLeft ? "previous" : "next";
-                    this.uiChange(), this[e]();
-                  },
-                }),
-                (p.focus = function() {
-                  var t = e.pageYOffset;
-                  this.element.focus({ preventScroll: !0 }), e.pageYOffset != t && e.scrollTo(e.pageXOffset, t);
-                }),
-                (p.deactivate = function() {
-                  this.isActive &&
-                    (this.element.classList.remove("flickity-enabled"),
-                    this.element.classList.remove("flickity-rtl"),
-                    this.unselectSelectedSlide(),
-                    this.cells.forEach(function(e) {
-                      e.destroy();
-                    }),
-                    this.element.removeChild(this.viewport),
-                    u(this.slider.children, this.element),
-                    this.options.accessibility &&
-                      (this.element.removeAttribute("tabIndex"), this.element.removeEventListener("keydown", this)),
-                    (this.isActive = !1),
-                    this.emitEvent("deactivate"));
-                }),
-                (p.destroy = function() {
-                  this.deactivate(),
-                    e.removeEventListener("resize", this),
-                    this.allOff(),
-                    this.emitEvent("destroy"),
-                    a && this.$element && a.removeData(this.element, "flickity"),
-                    delete this.element.flickityGUID,
-                    delete f[this.guid];
-                }),
-                i.extend(p, s),
-                (h.data = function(e) {
-                  var t = (e = i.getQueryElement(e)) && e.flickityGUID;
-                  return t && f[t];
-                }),
-                i.htmlInit(h, "flickity"),
-                a && a.bridget && a.bridget("flickity", h);
-              return (
-                (h.setJQuery = function(e) {
-                  a = e;
-                }),
-                (h.Cell = r),
-                (h.Slide = o),
-                h
-              );
-            })(o, e, t, n, i, r, s);
-          }.apply(t, i)) || (e.exports = r);
-    })(window);
   },
   function(e, t, n) {
     var i = n(3),
@@ -11273,7 +11273,7 @@
       o = n(5),
       s = n(84),
       a = n(19),
-      l = n(61),
+      l = n(60),
       c = n(47),
       u = n(42),
       d = n(11),
@@ -11450,7 +11450,7 @@
       o = n(13),
       s = n(5),
       a = n(10),
-      l = n(62),
+      l = n(61),
       c = n(117),
       u = n(98),
       d = n(34),
@@ -11953,11 +11953,11 @@
       d = n(14),
       f = n(4),
       h = n(165),
-      p = n(59),
+      p = n(58),
       g = n(99),
       m = n(56),
       v = n(192),
-      y = n(60),
+      y = n(59),
       b = a.setImmediate,
       _ = a.clearImmediate,
       w = a.process,
@@ -12313,7 +12313,7 @@
      * https://flickity.metafizzy.co
      * Copyright 2015-2019 Metafizzy
      */ window,
-      (r = [n(63), n(510), n(512), n(513), n(514), n(515), n(516)]),
+      (r = [n(62), n(510), n(512), n(513), n(514), n(515), n(516)]),
       void 0 ===
         (o =
           "function" ==
@@ -13064,7 +13064,7 @@
   function(e, t, n) {
     "use strict";
     var i = n(3),
-      r = n(58),
+      r = n(57),
       o = n(17),
       s = n(40),
       a = i.TypeError,
@@ -13211,7 +13211,7 @@
       o = n(26),
       s = n(8),
       a = n(14),
-      l = n(59),
+      l = n(58),
       c = n(79),
       u = i.Function,
       d = r([].concat),
@@ -13248,7 +13248,7 @@
       c = n(136),
       u = n(69),
       d = n(7),
-      f = n(61).fastKey,
+      f = n(60).fastKey,
       h = n(21),
       p = h.set,
       g = h.getterFor;
@@ -13553,7 +13553,7 @@
       g = n(192),
       m = n(355),
       v = n(356),
-      y = n(60),
+      y = n(59),
       b = d.MutationObserver || d.WebKitMutationObserver,
       _ = d.document,
       w = d.process,
@@ -13740,7 +13740,7 @@
     "use strict";
     var i = n(5),
       r = n(70),
-      o = n(61).getWeakData,
+      o = n(60).getWeakData,
       s = n(6),
       a = n(8),
       l = n(42),
@@ -15911,7 +15911,7 @@
       d = n(124),
       f = n(4),
       h = n(14),
-      p = n(58),
+      p = n(57),
       g = n(11),
       m = n(8),
       v = n(31),
@@ -15931,7 +15931,7 @@
       R = n(15),
       M = n(85),
       I = n(97),
-      j = n(59),
+      j = n(58),
       P = n(19),
       N = n(98),
       L = n(101),
@@ -16173,7 +16173,7 @@
   },
   function(e, t, n) {
     var i = n(3),
-      r = n(58),
+      r = n(57),
       o = n(67),
       s = n(8),
       a = n(9)("species"),
@@ -16433,7 +16433,7 @@
     var i = n(2),
       r = n(3),
       o = n(4),
-      s = n(58),
+      s = n(57),
       a = n(8),
       l = n(16),
       c = n(17),
@@ -16666,7 +16666,7 @@
     );
   },
   function(e, t, n) {
-    n(2)({ target: "Array", stat: !0 }, { isArray: n(58) });
+    n(2)({ target: "Array", stat: !0 }, { isArray: n(57) });
   },
   function(e, t, n) {
     "use strict";
@@ -16736,7 +16736,7 @@
       r = n(107).left,
       o = n(49),
       s = n(53),
-      a = n(60);
+      a = n(59);
     i(
       { target: "Array", proto: !0, forced: !o("reduce") || (!a && s > 79 && s < 83) },
       {
@@ -16753,7 +16753,7 @@
       r = n(107).right,
       o = n(49),
       s = n(53),
-      a = n(60);
+      a = n(59);
     i(
       { target: "Array", proto: !0, forced: !o("reduceRight") || (!a && s > 79 && s < 83) },
       {
@@ -16767,7 +16767,7 @@
     "use strict";
     var i = n(2),
       r = n(5),
-      o = n(58),
+      o = n(57),
       s = r([].reverse),
       a = [1, 2];
     i(
@@ -16783,7 +16783,7 @@
     "use strict";
     var i = n(2),
       r = n(3),
-      o = n(58),
+      o = n(57),
       s = n(67),
       a = n(8),
       l = n(45),
@@ -16792,7 +16792,7 @@
       d = n(46),
       f = n(9),
       h = n(92),
-      p = n(59),
+      p = n(58),
       g = h("slice"),
       m = f("species"),
       v = r.Array,
@@ -18036,7 +18036,7 @@
       r = n(93),
       o = n(4),
       s = n(8),
-      a = n(61).onFreeze,
+      a = n(60).onFreeze,
       l = Object.freeze;
     i(
       {
@@ -18277,7 +18277,7 @@
   function(e, t, n) {
     var i = n(2),
       r = n(8),
-      o = n(61).onFreeze,
+      o = n(60).onFreeze,
       s = n(93),
       a = n(4),
       l = Object.preventExtensions;
@@ -18300,7 +18300,7 @@
   function(e, t, n) {
     var i = n(2),
       r = n(8),
-      o = n(61).onFreeze,
+      o = n(60).onFreeze,
       s = n(93),
       a = n(4),
       l = Object.seal;
@@ -18397,7 +18397,7 @@
       j = n(84),
       P = n(9),
       N = n(359),
-      L = n(60),
+      L = n(59),
       B = n(53),
       H = P("species"),
       z = "Promise",
@@ -19137,7 +19137,7 @@
       d = n(31),
       f = n(94),
       h = n(10),
-      p = n(62),
+      p = n(61),
       g = n(117),
       m = n(19),
       v = n(4),
@@ -19290,7 +19290,7 @@
   function(e, t, n) {
     var i = n(7),
       r = n(15),
-      o = n(62),
+      o = n(61),
       s = n(4),
       a = RegExp.prototype;
     i &&
@@ -19361,7 +19361,7 @@
       a = n(31),
       l = n(10),
       c = n(4),
-      u = n(62),
+      u = n(61),
       d = RegExp.prototype,
       f = d.toString,
       h = i(u),
@@ -19559,7 +19559,7 @@
       f = n(30),
       h = n(31),
       p = n(94),
-      g = n(62),
+      g = n(61),
       m = n(44),
       v = n(19),
       y = n(4),
@@ -19787,7 +19787,7 @@
       c = n(94),
       u = n(10),
       d = n(44),
-      f = n(62),
+      f = n(61),
       h = n(199),
       p = n(9),
       g = n(23),
@@ -20614,7 +20614,7 @@
     var i = n(12),
       r = n(122),
       o = n(4),
-      s = n(59),
+      s = n(58),
       a = i.aTypedArray;
     (0, i.exportTypedArrayMethod)(
       "slice",
@@ -20734,7 +20734,7 @@
       r = n(33),
       o = n(12),
       s = n(4),
-      a = n(59),
+      a = n(58),
       l = i.Int8Array,
       c = o.aTypedArray,
       u = o.exportTypedArrayMethod,
@@ -20815,7 +20815,7 @@
       r = n(3),
       o = n(5),
       s = n(70),
-      a = n(61),
+      a = n(60),
       l = n(110),
       c = n(202),
       u = n(8),
@@ -21109,7 +21109,7 @@
       }
   },
   function(e, t, n) {
-    var i = n(60);
+    var i = n(59);
     e.exports = function(e) {
       try {
         if (i) return Function('return require("' + e + '")')();
@@ -21174,7 +21174,7 @@
       o = n(193),
       s = n(26),
       a = n(56),
-      l = n(60),
+      l = n(59),
       c = r.process;
     i(
       { global: !0, enumerable: !0, noTargetGet: !0 },
@@ -21208,7 +21208,7 @@
       _ = n(27),
       w = n(17),
       E = n(56),
-      A = n(62),
+      A = n(61),
       S = n(132),
       x = s.Object,
       C = s.Date,
@@ -21570,7 +21570,7 @@
       o = n(33),
       s = n(11),
       a = n(43),
-      l = n(59),
+      l = n(58),
       c = n(56),
       u = /MSIE .\./.test(a),
       d = r.Function,
@@ -23454,12 +23454,12 @@
               cache: null,
               bail: null,
               profile: null,
-              color: { level: 2, hasBasic: !0, has256: !0, has16m: !1 },
-              colors: { level: 2, hasBasic: !0, has256: !0, has16m: !1 },
+              color: { level: 1, hasBasic: !0, has256: !1, has16m: !1 },
+              colors: { level: 1, hasBasic: !0, has256: !1, has16m: !1 },
               mode: "production",
               "info-verbosity": "info",
               infoVerbosity: "info",
-              $0: "/Users/sheng/Desktop/projects/iastate/iowa-state-frontend-dev/node_modules/.bin/webpack",
+              $0: "node_modules/.bin/webpack",
             }.DEBUG),
           e
         );
@@ -25563,7 +25563,7 @@
   function(e, t, n) {
     var i, r;
     !(function(o, s) {
-      (i = [n(63), n(511), n(51)]),
+      (i = [n(62), n(511), n(51)]),
         void 0 ===
           (r = function(e, t, n) {
             return (function(e, t, n, i) {
@@ -25870,7 +25870,7 @@
   function(e, t, n) {
     var i, r;
     window,
-      (i = [n(63), n(157), n(51)]),
+      (i = [n(62), n(157), n(51)]),
       void 0 ===
         (r = function(e, t, n) {
           return (function(e, t, n, i) {
@@ -26000,7 +26000,7 @@
   function(e, t, n) {
     var i, r;
     window,
-      (i = [n(63), n(157), n(51)]),
+      (i = [n(62), n(157), n(51)]),
       void 0 ===
         (r = function(e, t, n) {
           return (function(e, t, n, i) {
@@ -26104,7 +26104,7 @@
   function(e, t, n) {
     var i, r;
     window,
-      (i = [n(74), n(51), n(63)]),
+      (i = [n(74), n(51), n(62)]),
       void 0 ===
         (r = function(e, t, n) {
           return (function(e, t, n) {
@@ -26200,7 +26200,7 @@
   function(e, t, n) {
     var i, r;
     window,
-      (i = [n(63), n(51)]),
+      (i = [n(62), n(51)]),
       void 0 ===
         (r = function(e, t) {
           return (function(e, t, n) {
@@ -26280,7 +26280,7 @@
   function(e, t, n) {
     var i, r;
     window,
-      (i = [n(63), n(51)]),
+      (i = [n(62), n(51)]),
       void 0 ===
         (r = function(e, t) {
           return (function(e, t, n) {
@@ -27487,18 +27487,131 @@
   function(e, t, n) {
     "use strict";
     var i =
-      (this && this.__importDefault) ||
-      function(e) {
-        return e && e.__esModule ? e : { default: e };
-      };
+        (this && this.__awaiter) ||
+        function(e, t, n, i) {
+          return new (n || (n = Promise))(function(r, o) {
+            function s(e) {
+              try {
+                l(i.next(e));
+              } catch (e) {
+                o(e);
+              }
+            }
+            function a(e) {
+              try {
+                l(i.throw(e));
+              } catch (e) {
+                o(e);
+              }
+            }
+            function l(e) {
+              var t;
+              e.done
+                ? r(e.value)
+                : ((t = e.value),
+                  t instanceof n
+                    ? t
+                    : new n(function(e) {
+                        e(t);
+                      })).then(s, a);
+            }
+            l((i = i.apply(e, t || [])).next());
+          });
+        },
+      r =
+        (this && this.__generator) ||
+        function(e, t) {
+          var n,
+            i,
+            r,
+            o,
+            s = {
+              label: 0,
+              sent: function() {
+                if (1 & r[0]) throw r[1];
+                return r[1];
+              },
+              trys: [],
+              ops: [],
+            };
+          return (
+            (o = { next: a(0), throw: a(1), return: a(2) }),
+            "function" == typeof Symbol &&
+              (o[Symbol.iterator] = function() {
+                return this;
+              }),
+            o
+          );
+          function a(o) {
+            return function(a) {
+              return (function(o) {
+                if (n) throw new TypeError("Generator is already executing.");
+                for (; s; )
+                  try {
+                    if (
+                      ((n = 1),
+                      i &&
+                        (r = 2 & o[0] ? i.return : o[0] ? i.throw || ((r = i.return) && r.call(i), 0) : i.next) &&
+                        !(r = r.call(i, o[1])).done)
+                    )
+                      return r;
+                    switch (((i = 0), r && (o = [2 & o[0], r.value]), o[0])) {
+                      case 0:
+                      case 1:
+                        r = o;
+                        break;
+                      case 4:
+                        return s.label++, { value: o[1], done: !1 };
+                      case 5:
+                        s.label++, (i = o[1]), (o = [0]);
+                        continue;
+                      case 7:
+                        (o = s.ops.pop()), s.trys.pop();
+                        continue;
+                      default:
+                        if (!(r = (r = s.trys).length > 0 && r[r.length - 1]) && (6 === o[0] || 2 === o[0])) {
+                          s = 0;
+                          continue;
+                        }
+                        if (3 === o[0] && (!r || (o[1] > r[0] && o[1] < r[3]))) {
+                          s.label = o[1];
+                          break;
+                        }
+                        if (6 === o[0] && s.label < r[1]) {
+                          (s.label = r[1]), (r = o);
+                          break;
+                        }
+                        if (r && s.label < r[2]) {
+                          (s.label = r[2]), s.ops.push(o);
+                          break;
+                        }
+                        r[2] && s.ops.pop(), s.trys.pop();
+                        continue;
+                    }
+                    o = t.call(e, s);
+                  } catch (e) {
+                    (o = [6, e]), (i = 0);
+                  } finally {
+                    n = r = 0;
+                  }
+                if (5 & o[0]) throw o[1];
+                return { value: o[0] ? o[1] : void 0, done: !0 };
+              })([o, a]);
+            };
+          }
+        },
+      o =
+        (this && this.__importDefault) ||
+        function(e) {
+          return e && e.__esModule ? e : { default: e };
+        };
     Object.defineProperty(t, "__esModule", { value: !0 }), (t.EventCalendar = void 0);
-    var r = n(57),
-      o = i(n(525)),
-      s = i(n(530)),
-      a = i(n(531)),
-      l = n(57),
-      c = window.matchMedia("(max-width: 990px)"),
-      u = (function() {
+    var s = n(63),
+      a = o(n(525)),
+      l = o(n(530)),
+      c = o(n(531)),
+      u = window.matchMedia("(max-width: 990px)"),
+      d = (function() {
         function e(e) {
           e &&
             ((this.element = e),
@@ -27506,21 +27619,24 @@
             (this.calendarHeader = this.element.querySelector(".calendar__header")),
             (this.listButton = this.calendarHeader.querySelector(".calendar__views #list-btn")),
             (this.monthButton = this.calendarHeader.querySelector(".calendar__views #month-btn")),
-            (this.desktopView = "dayGridMonth"),
             (this.calendarSearch = this.element.querySelector(".calendar__search form #event-search")),
             (this.calendarCategories = this.element.querySelector(".calendar__categories #event-categories")),
             (this.calendarSearchButton = this.element.querySelector(".calendar__search form button[type=submit]")),
             (this.featuredCheck = this.element.querySelector(".calendar__categories-toggle #featured-events")),
-            (this.searchTerms = ["", ""]),
-            (this.currentPage = 1),
             (this.searchReset = this.element.querySelector(".calendar-reset")),
+            (this.desktopView = "dayGridMonth"),
+            (this.searchTerms = ["", ""]),
+            (this.cachedMedia = new Map()),
+            (this.currentPage = 1),
+            (this.apiRoot = "wp/v2/"),
+            (this.perPage = 25),
             this.init());
         }
         return (
           (e.prototype.init = function() {
             var e = this;
-            (this.calendar = new r.Calendar(this.eventCalendar, {
-              plugins: [o.default, s.default, a.default],
+            (this.calendar = new s.Calendar(this.eventCalendar, {
+              plugins: [a.default, l.default, c.default],
               initialView: "dayGridMonth",
               eventTimeFormat: { hour: "numeric", minute: "2-digit", meridiem: "short" },
               headerToolbar: { left: "prev,next today", center: "title", right: "" },
@@ -27554,13 +27670,10 @@
               viewDidMount: function(e) {},
             })),
               this.calendar.render(),
-              (this.apiRoot = "wp/v2/"),
               window.location.host.startsWith("localhost")
                 ? (this.pageUrl = window.location.protocol + "//isu-wp-composer.lndo.site/wp-json/")
                 : (this.pageUrl = MYSCRIPT.rootURL),
-              console.log("pageURL: "),
-              console.log(this.pageUrl),
-              fetch(this.pageUrl + this.apiRoot + "events?filter[posts_per_page]=-1")
+              this.localFetch("events", { page: 1, per_page: this.perPage })
                 .then(function(t) {
                   return e.initCalendar(t, null);
                 })
@@ -27592,124 +27705,197 @@
           }),
           (e.prototype.initCalendar = function(e, t) {
             var n = this;
-            (this.totalCount = e.headers.get("X-WP-Total")), (this.totalPages = e.headers.get("X-WP-TotalPages"));
+            (this.totalCount = Number(e.headers.get("X-WP-Total"))),
+              (this.totalPages = Number(e.headers.get("X-WP-TotalPages")));
             var i = window.location.search,
-              r = new URLSearchParams(i);
-            r.forEach(function(e, n) {
-              null === t ? (t = "?" + n + "=" + e) : (t += "&" + n + "=" + e);
-            });
-            for (var o = 1; o <= this.totalPages; o++)
-              null !== t
-                ? fetch(this.pageUrl + this.apiRoot + "events" + t + "&page=" + o)
-                    .then(function(e) {
-                      return e.json();
-                    })
-                    .then(function(e) {
-                      return n.tallyItems(e);
-                    })
-                : fetch(this.pageUrl + this.apiRoot + "events?page=" + o)
-                    .then(function(e) {
-                      return e.json();
-                    })
-                    .then(function(e) {
-                      return n.tallyItems(e);
-                    });
+              r = new URL(e.url),
+              o = new URLSearchParams(i);
+            new URLSearchParams(r.search).forEach(function(e, t) {
+              o.set(t, e);
+            }),
+              null !== t &&
+                new URLSearchParams(t).forEach(function(e, t) {
+                  o.set(t, e);
+                }),
+              o.has("page") || o.set("page", this.currentPage.toString()),
+              o.has("per_page") || o.set("per_page", this.perPage.toString()),
+              e.json().then(function(e) {
+                return n.tallyItems(e);
+              });
+            for (var s = Number(o.get("page")) + 1; s <= this.totalPages; s++)
+              o.set("page", "" + s),
+                this.localFetch("events", o)
+                  .then(function(e) {
+                    return e.json();
+                  })
+                  .then(function(e) {
+                    return n.tallyItems(e);
+                  });
+          }),
+          (e.prototype.getFetchURL = function(e, t) {
+            void 0 === t && (t = {});
+            var n = "" + this.pageUrl + this.apiRoot;
+            if (!(t instanceof URLSearchParams) && 0 === Object.keys(t).length) return new URL("" + e, n);
+            var i = t instanceof URLSearchParams ? t : new URLSearchParams(Object.entries(t));
+            return new URL(e + "?" + i, n);
           }),
           (e.prototype.tallyItems = function(e) {
-            var t = this;
-            e.forEach(function(e, n) {
-              !0 === t.featuredCheck.checked ? !0 === e.acf.featured && t.addItem(e) : t.addItem(e);
+            return i(this, void 0, void 0, function() {
+              var t = this;
+              return r(this, function(n) {
+                switch (n.label) {
+                  case 0:
+                    return [4, this._primeMediaCache(e)];
+                  case 1:
+                    return (
+                      n.sent(),
+                      e.forEach(function(e) {
+                        !0 === t.featuredCheck.checked
+                          ? !0 === e.acf.featured && t.aggregateEntry(e)
+                          : t.aggregateEntry(e);
+                      }),
+                      [2]
+                    );
+                }
+              });
             });
           }),
-          (e.prototype.addItem = function(e) {
-            var t = this;
-            e.featured_media
-              ? fetch(this.pageUrl + this.apiRoot + "media/" + e.featured_media)
-                  .then(function(e) {
-                    return e.json();
-                  })
-                  .then(function(n) {
-                    return t.addLocationCheck(e, n);
-                  })
-                  .catch(function(e) {
-                    return console.log(e);
-                  })
-              : this.addLocationCheck(e, "");
+          (e.prototype.localFetch = function(e, t) {
+            return void 0 === t && (t = {}), fetch(this.getFetchURL(e, t).toString());
           }),
-          (e.prototype.addLocationCheck = function(e, t) {
-            e.acf.location.length > 0 ? this.aggregateEntry(e, e.acf.location, t) : this.aggregateEntry(e, "", t);
-          }),
-          (e.prototype.aggregateEntry = function(e, t, n) {
-            var i = this,
-              r = "" !== n ? n.media_details.sizes.medium.source_url : void 0,
-              o =
-                null !== e.acf.event_start_date.start_time
-                  ? e.acf.event_start_date.start_date + " " + e.acf.event_start_date.start_time
-                  : e.acf.event_start_date.start_date,
-              s =
-                null !== e.acf.event_end_date.end_time
-                  ? e.acf.event_end_date.end_date + " " + e.acf.event_end_date.end_time
-                  : e.acf.event_end_date.end_date,
-              a = e.acf.event_start_date.full_day,
-              l = [];
-            e.event_tags.length > 0 &&
-              e.event_tags.forEach(function(e, t) {
-                fetch(i.pageUrl + i.apiRoot + "event_tags/" + e)
-                  .then(function(e) {
-                    return e.json();
-                  })
-                  .then(function(e) {
-                    return l.push(e);
-                  });
-              }),
-              this.calendar.addEvent({
-                title: e.title.rendered,
-                start: o,
-                end: s,
-                resourceId: e.id,
-                description: e.excerpt.rendered,
-                location: t,
-                interactive: !0,
-                url: e.link,
-                thumbnail: r,
-                allDay: a,
-                eventTags: l,
-                overlap: !0,
+          (e.prototype.getFeaturedMedia = function(e) {
+            return i(this, void 0, void 0, function() {
+              var t,
+                n = this;
+              return r(this, function(i) {
+                switch (i.label) {
+                  case 0:
+                    return e <= 0
+                      ? [
+                          2,
+                          new Promise(function(e) {
+                            e({});
+                          }),
+                        ]
+                      : ((t = Number(e)),
+                        this.cachedMedia.has(t)
+                          ? [
+                              2,
+                              new Promise(function(e) {
+                                e(n.cachedMedia.get(t));
+                              }),
+                            ]
+                          : [
+                              4,
+                              this.localFetch("media/" + t)
+                                .then(function(e) {
+                                  return e.json();
+                                })
+                                .then(function(e) {
+                                  n.cachedMedia.set(t, e);
+                                })
+                                .catch(function(e) {
+                                  return console.log(e);
+                                }),
+                            ]);
+                  case 1:
+                    return (
+                      i.sent(),
+                      [
+                        2,
+                        new Promise(function(e) {
+                          e(n.cachedMedia.get(t));
+                        }),
+                      ]
+                    );
+                }
               });
+            });
+          }),
+          (e.prototype.aggregateEntry = function(e) {
+            return i(this, void 0, void 0, function() {
+              var t,
+                n,
+                i,
+                o,
+                s,
+                a,
+                l,
+                c = this;
+              return r(this, function(r) {
+                switch (r.label) {
+                  case 0:
+                    return [4, this.getFeaturedMedia(e.featured_media)];
+                  case 1:
+                    return (
+                      (t = r.sent()),
+                      (n = 0 !== Object.keys(t).length ? t.media_details.sizes.medium.source_url : void 0),
+                      (i =
+                        null !== e.acf.event_start_date.start_time
+                          ? e.acf.event_start_date.start_date + " " + e.acf.event_start_date.start_time
+                          : e.acf.event_start_date.start_date),
+                      (o =
+                        null !== e.acf.event_end_date.end_time
+                          ? e.acf.event_end_date.end_date + " " + e.acf.event_end_date.end_time
+                          : e.acf.event_end_date.end_date),
+                      (s = e.acf.event_start_date.full_day),
+                      (a = e.acf.location.length > 0 ? e.acf.location : ""),
+                      (l = []),
+                      e.event_tags.length > 0 &&
+                        e.event_tags.forEach(function(e, t) {
+                          c.localFetch("event_tags/" + e)
+                            .then(function(e) {
+                              return e.json();
+                            })
+                            .then(function(e) {
+                              return l.push(e);
+                            });
+                        }),
+                      this.calendar.addEvent({
+                        title: e.title.rendered,
+                        start: i,
+                        end: o,
+                        resourceId: e.id,
+                        description: e.excerpt.rendered,
+                        location: a,
+                        interactive: !0,
+                        url: e.link,
+                        thumbnail: n,
+                        allDay: s,
+                        eventTags: l,
+                        overlap: !0,
+                      }),
+                      [2]
+                    );
+                }
+              });
+            });
           }),
           (e.prototype.runSearch = function(e) {
             var t = this;
             e.preventDefault();
-            var n = "";
+            var n = { page: 1, per_page: this.perPage };
             (this.searchTerms[0] = this.calendarSearch.value),
               (this.searchTerms[1] = this.calendarCategories.value),
               "" !== this.searchTerms[1]
                 ? "" !== this.searchTerms[0]
-                  ? ((n += "?search=" + this.searchTerms[0]), (n += "&event_tags=" + this.searchTerms[1]))
-                  : (n += "?event_tags=" + this.searchTerms[1])
-                : "" !== this.searchTerms[0] && (n += "?search=" + this.searchTerms[0]),
+                  ? ((n.search = this.searchTerms[0]), (n.event_tags = this.searchTerms[1]))
+                  : (n.event_tags = this.searchTerms[1])
+                : "" !== this.searchTerms[0] && (n.search = this.searchTerms[0]),
               this.calendar.removeAllEvents(),
-              n.length > 0
-                ? fetch(this.pageUrl + this.apiRoot + "events" + n + "&filter[posts_per_page]=-1")
-                    .then(function(e) {
-                      return t.initCalendar(e, n);
-                    })
-                    .catch(function(e) {
-                      return console.log(e);
-                    })
-                : fetch(this.pageUrl + this.apiRoot + "events?filter[posts_per_page]=-1")
-                    .then(function(e) {
-                      return t.initCalendar(e, null);
-                    })
-                    .catch(function(e) {
-                      return console.log(e);
-                    }),
+              this.localFetch("events", n)
+                .then(function(e) {
+                  return t.initCalendar(e, null);
+                })
+                .catch(function(e) {
+                  return console.log(e);
+                }),
               this.listButton.addEventListener("click", function(e) {
                 t.changeCalendar(e.target, "listWeek");
               });
           }),
           (e.prototype.breakpointCheck = function() {
-            c.matches
+            u.matches
               ? this.calendar.changeView("listWeek")
               : ((this.calendar.dayMaxEventRows = !0), this.calendar.changeView(this.desktopView));
           }),
@@ -27720,6 +27906,45 @@
             (this.desktopView = t),
               n && n.setAttribute("aria-pressed", "false"),
               e.setAttribute("aria-pressed", "true");
+          }),
+          (e.prototype._primeMediaCache = function(e) {
+            return i(this, void 0, void 0, function() {
+              var t,
+                n = this;
+              return r(this, function(i) {
+                return (t = e
+                  .map(function(e) {
+                    return e.featured_media;
+                  })
+                  .filter(function(e, t, n) {
+                    return e > 0 && n.indexOf(e) === t;
+                  })
+                  .filter(function(e) {
+                    return !n.cachedMedia.has(e);
+                  })).length <= 0
+                  ? [
+                      2,
+                      new Promise(function(e) {
+                        e();
+                      }),
+                    ]
+                  : [
+                      2,
+                      this.localFetch("media", { include: t.join(",") })
+                        .then(function(e) {
+                          return e.json();
+                        })
+                        .then(function(e) {
+                          return e.forEach(function(e) {
+                            n.cachedMedia.set(e.id, e);
+                          });
+                        })
+                        .catch(function(e) {
+                          return console.log(e);
+                        }),
+                    ];
+              });
+            });
           }),
           (e.prototype.fixHeaders = function(e) {
             var t = this.eventCalendar.querySelectorAll(".event-listing__title");
@@ -27814,10 +28039,10 @@
             );
           }),
           (e.prototype.buildDate = function(e) {
-            return l.formatDate(e, { month: "long", year: "numeric", day: "numeric", hour12: !0 });
+            return s.formatDate(e, { month: "long", year: "numeric", day: "numeric", hour12: !0 });
           }),
           (e.prototype.buildTime = function(e) {
-            return l.formatDate(e, { hour12: !0, hour: "numeric", minute: "2-digit" });
+            return s.formatDate(e, { hour12: !0, hour: "numeric", minute: "2-digit" });
           }),
           (e.prototype.resetSearch = function(e) {
             (this.calendarSearch.value = ""), (this.calendarCategories.value = ""), this.runSearch(e);
@@ -27825,9 +28050,9 @@
           e
         );
       })();
-    (t.EventCalendar = u),
+    (t.EventCalendar = d),
       (t.default = function() {
-        for (var e = document.querySelectorAll(".calendar"), t = 0; t < e.length; t++) new u(e[t]);
+        for (var e = document.querySelectorAll(".calendar"), t = 0; t < e.length; t++) new d(e[t]);
       });
   },
   function(e, t, n) {
@@ -27836,7 +28061,7 @@
       n.d(t, "default", function() {
         return o;
       });
-    var i = n(57),
+    var i = n(63),
       r = n(75),
       o = Object(i.createPlugin)({
         name: "@fullcalendar/daygrid",
@@ -31718,7 +31943,7 @@
   function(e, t, n) {
     "use strict";
     n.r(t);
-    var i = n(57),
+    var i = n(63),
       r = n(1),
       o = n(0),
       s = n(75);
@@ -32929,7 +33154,7 @@
   function(e, t, n) {
     "use strict";
     n.r(t);
-    var i = n(57),
+    var i = n(63),
       r = n(1),
       o = n(0);
     Object(r.Xb)(

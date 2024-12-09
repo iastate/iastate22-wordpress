@@ -1,10 +1,9 @@
-import { Calendar } from "@fullcalendar/core";
+import { Calendar, formatDate } from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
-import { formatDate } from "@fullcalendar/core";
 
-const mobileMQ = window.matchMedia("(max-width: 990px)");
+const MobileMQ = window.matchMedia("(max-width: 990px)");
 
 declare const MYSCRIPT: any;
 
@@ -22,11 +21,13 @@ export class EventCalendar {
   private desktopView: string;
   private pageUrl: string;
   private apiRoot: string;
+  private perPage: number;
   private totalCount: number;
   private totalPages: number;
   private currentPage: number;
   private searchTerms: Array<string>;
   private searchReset: HTMLButtonElement;
+  private cachedMedia: Map<number, object>;
 
   constructor(element: HTMLElement) {
     if (!!element) {
@@ -35,14 +36,17 @@ export class EventCalendar {
       this.calendarHeader = this.element.querySelector(".calendar__header");
       this.listButton = this.calendarHeader.querySelector(".calendar__views #list-btn");
       this.monthButton = this.calendarHeader.querySelector(".calendar__views #month-btn");
-      this.desktopView = "dayGridMonth";
       this.calendarSearch = this.element.querySelector(".calendar__search form #event-search");
       this.calendarCategories = this.element.querySelector(".calendar__categories #event-categories");
       this.calendarSearchButton = this.element.querySelector(".calendar__search form button[type=submit]");
       this.featuredCheck = this.element.querySelector(".calendar__categories-toggle #featured-events");
-      this.searchTerms = ["", ""];
-      this.currentPage = 1;
       this.searchReset = this.element.querySelector(".calendar-reset");
+      this.desktopView = "dayGridMonth";
+      this.searchTerms = ["", ""];
+      this.cachedMedia = new Map();
+      this.currentPage = 1;
+      this.apiRoot = "wp/v2/";
+      this.perPage = 25;
       this.init();
     }
   }
@@ -62,141 +66,163 @@ export class EventCalendar {
         right: "",
       },
       nextDayThreshold: "00:00:00",
-      eventMouseEnter: function(nfo) {
-        if (nfo.view.type === "dayGridMonth") {
-          nfo.el.classList.add("event-active");
-          let moreInfo = nfo.el.querySelector(".event-listing");
+      eventMouseEnter: function(eventHovering) {
+        if (eventHovering.view.type === "dayGridMonth") {
+          eventHovering.el.classList.add("event-active");
+          let moreInfo = eventHovering.el.querySelector(".event-listing");
           moreInfo.classList.add("on");
           setTimeout(() => {
             moreInfo.classList.add("active");
           }, 50);
         }
       },
-
-      eventMouseLeave: function(nfo) {
-        if (nfo.view.type === "dayGridMonth") {
-          nfo.el.classList.remove("event-active");
-          let moreInfo = nfo.el.querySelector(".event-listing");
+      eventMouseLeave: function(eventHovering) {
+        if (eventHovering.view.type === "dayGridMonth") {
+          eventHovering.el.classList.remove("event-active");
+          let moreInfo = eventHovering.el.querySelector(".event-listing");
           moreInfo.classList.remove("active");
           setTimeout(() => {
             moreInfo.classList.remove("on");
           }, 300);
         }
       },
-      eventDidMount: (nfo) => {
-        this.fixHeaders(nfo.view.type);
+      eventDidMount: (eventMount) => {
+        this.fixHeaders(eventMount.view.type);
       },
-      eventContent: (arg) => {
-        let arrayOfDomNodes = [this.buildEventDOM(arg)];
+      eventContent: (eventContent) => {
+        let arrayOfDomNodes = [this.buildEventDOM(eventContent)];
         return { domNodes: arrayOfDomNodes };
       },
-      viewDidMount: (arg) => {},
+      viewDidMount: (viewMount) => {},
     });
     this.calendar.render();
 
     // console.log(MYSCRIPT);
-    // Api Settings
-    this.apiRoot = "wp/v2/";
     // Forces the API location to look for the lando site if editing in Fractal
     if (window.location.host.startsWith("localhost")) {
       this.pageUrl = window.location.protocol + "//isu-wp-composer.lndo.site/wp-json/";
     } else {
       this.pageUrl = MYSCRIPT.rootURL;
     }
-    console.log("pageURL: ");
-    console.log(this.pageUrl);
-    fetch(this.pageUrl + this.apiRoot + "events?filter[posts_per_page]=-1")
+
+    this.localFetch("events", { page: 1, per_page: this.perPage })
       .then((response) => this.initCalendar(response, null))
-      .catch((err) => console.log(err));
-    this.listButton.addEventListener("click", (e) => {
-      this.changeCalendar(e.target, "listWeek");
-    });
+      .catch((error) => console.log(error));
 
-    this.monthButton.addEventListener("click", (e) => {
-      this.changeCalendar(e.target, "dayGridMonth");
+    this.listButton.addEventListener("click", (event) => {
+      this.changeCalendar(event.target, "listWeek");
     });
-
-    this.calendarSearchButton.addEventListener("click", (e) => {
-      this.runSearch(e);
+    this.monthButton.addEventListener("click", (event) => {
+      this.changeCalendar(event.target, "dayGridMonth");
     });
-    this.calendarCategories.addEventListener("change", (e) => {
-      this.runSearch(e);
+    this.calendarSearchButton.addEventListener("click", (event) => {
+      this.runSearch(event);
     });
-    this.featuredCheck.addEventListener("change", (e) => {
-      this.runSearch(e);
+    this.calendarCategories.addEventListener("change", (event) => {
+      this.runSearch(event);
     });
-    this.searchReset.addEventListener("click", (e) => {
-      this.resetSearch(e);
+    this.featuredCheck.addEventListener("change", (event) => {
+      this.runSearch(event);
     });
-
+    this.searchReset.addEventListener("click", (event) => {
+      this.resetSearch(event);
+    });
     window.addEventListener("resize", () => {
       this.breakpointCheck();
     });
     this.breakpointCheck();
   }
 
-  private initCalendar(dta: any, sstr: string) {
-    this.totalCount = dta.headers.get("X-WP-Total");
-    this.totalPages = dta.headers.get("X-WP-TotalPages");
+  private initCalendar(response: Response, search: string | URLSearchParams) {
+    this.totalCount = Number(response.headers.get("X-WP-Total"));
+    this.totalPages = Number(response.headers.get("X-WP-TotalPages"));
     // Tag check from URL Parameter
-    const qString = window.location.search;
-    const urlParams = new URLSearchParams(qString);
-    let paramCount = 0;
-    urlParams.forEach((el, i) => {
-      if (paramCount === 0 && sstr === null) {
-        sstr = "?" + i + "=" + el;
-      } else {
-        sstr += "&" + i + "=" + el;
-      }
-    });
+    let rootSearch = window.location.search,
+      responseURL = new URL(response.url);
+    const SearchParams = new URLSearchParams(rootSearch);
 
-    for (var p = 1; p <= this.totalPages; p++) {
-      if (sstr !== null) {
-        fetch(this.pageUrl + this.apiRoot + "events" + sstr + "&page=" + p + "")
-          .then((response) => response.json())
-          .then((json) => this.tallyItems(json));
-      } else {
-        fetch(this.pageUrl + this.apiRoot + "events?page=" + p + "")
-          .then((response) => response.json())
-          .then((json) => this.tallyItems(json));
-      }
+    new URLSearchParams(responseURL.search).forEach((value, key) => {
+      SearchParams.set(key, value);
+    });
+    if (search !== null) {
+      new URLSearchParams(search).forEach((value, key) => {
+        SearchParams.set(key, value);
+      });
+    }
+    if (!SearchParams.has("page")) {
+      SearchParams.set("page", this.currentPage.toString());
+    }
+    if (!SearchParams.has("per_page")) {
+      SearchParams.set("per_page", this.perPage.toString());
+    }
+
+    // We already have the first request so lets use it
+    response.json().then((json) => this.tallyItems(json));
+
+    let currentPage = Number(SearchParams.get("page"));
+    for (var pageNumber = currentPage + 1; pageNumber <= this.totalPages; pageNumber++) {
+      SearchParams.set("page", `${pageNumber}`);
+      this.localFetch("events", SearchParams)
+        .then((response) => response.json())
+        .then((json) => this.tallyItems(json));
     }
   }
 
-  private tallyItems(json) {
-    json.forEach((el, i) => {
+  private getFetchURL(url: string, params: object | URLSearchParams = {}): URL {
+    let baseURL = `${this.pageUrl}${this.apiRoot}`;
+    if (!(params instanceof URLSearchParams) && Object.keys(params).length === 0) {
+      return new URL(`${url}`, baseURL);
+    }
+    let searchParams = params instanceof URLSearchParams ? params : new URLSearchParams(Object.entries(params));
+    return new URL(`${url}?${searchParams}`, baseURL);
+  }
+
+  private async tallyItems(json) {
+    await this._primeMediaCache(json);
+    json.forEach((item) => {
       if (this.featuredCheck.checked === true) {
-        if (el.acf.featured === true) {
-          this.addItem(el);
+        if (item.acf.featured === true) {
+          this.aggregateEntry(item);
         }
       } else {
-        this.addItem(el);
+        this.aggregateEntry(item);
       }
     });
   }
 
-  private addItem(item) {
-    // Media Check
-    if (item.featured_media) {
-      fetch(this.pageUrl + this.apiRoot + "media/" + item.featured_media)
-        .then((response) => response.json())
-        .then((json) => this.addLocationCheck(item, json))
-        .catch((err) => console.log(err));
-    } else {
-      this.addLocationCheck(item, "");
-    }
+  private localFetch(url: string, params = {}): Promise<Response> {
+    return fetch(this.getFetchURL(url, params).toString());
   }
 
-  private addLocationCheck(item, featureImg) {
-    if (item.acf.location.length > 0) {
-      this.aggregateEntry(item, item.acf.location, featureImg);
-    } else {
-      this.aggregateEntry(item, "", featureImg);
+  private async getFeaturedMedia(mediaId: number): Promise<Object> {
+    if (mediaId <= 0) {
+      return new Promise<Object>((resolve) => {
+        resolve({});
+      });
     }
+    let imageId = Number(mediaId);
+    if (this.cachedMedia.has(imageId)) {
+      return new Promise<Object>((resolve) => {
+        resolve(this.cachedMedia.get(imageId));
+      });
+    }
+    await this.localFetch("media/" + imageId)
+      .then((response) => response.json())
+      .then((json) => {
+        this.cachedMedia.set(imageId, json);
+      })
+      .catch((error) => console.log(error));
+
+    return new Promise<Object>((resolve) => {
+      resolve(this.cachedMedia.get(imageId));
+    });
   }
 
-  private aggregateEntry(item, loc, fImg) {
-    let imgUrl: string = fImg !== "" ? fImg.media_details.sizes.medium.source_url : undefined,
+  private async aggregateEntry(item) {
+    let featuredImg = await this.getFeaturedMedia(item.featured_media),
+      // @ts-ignore
+      imgUrl: string =
+        Object.keys(featuredImg).length !== 0 ? featuredImg.media_details.sizes.medium.source_url : undefined,
       eventStartTime: string =
         item.acf.event_start_date.start_time !== null
           ? item.acf.event_start_date.start_date + " " + item.acf.event_start_date.start_time
@@ -206,12 +232,13 @@ export class EventCalendar {
           ? item.acf.event_end_date.end_date + " " + item.acf.event_end_date.end_time
           : item.acf.event_end_date.end_date,
       fullDay: boolean = item.acf.event_start_date.full_day,
-      evtTags: Array<string> = [];
+      location: string = item.acf.location.length > 0 ? item.acf.location : "",
+      eventTags: Array<string> = [];
     if (item.event_tags.length > 0) {
-      item.event_tags.forEach((el, i) => {
-        fetch(this.pageUrl + this.apiRoot + "event_tags/" + el)
+      item.event_tags.forEach((tag: string, index: any) => {
+        this.localFetch("event_tags/" + tag)
           .then((response) => response.json())
-          .then((json) => evtTags.push(json));
+          .then((json) => eventTags.push(json));
       });
     }
     this.calendar.addEvent({
@@ -220,49 +247,46 @@ export class EventCalendar {
       end: eventEndTime,
       resourceId: item.id,
       description: item.excerpt.rendered,
-      location: loc,
+      location: location,
       interactive: true,
       url: item.link,
       thumbnail: imgUrl,
       allDay: fullDay,
-      eventTags: evtTags,
+      eventTags: eventTags,
       overlap: true,
     });
   }
 
-  private runSearch(e) {
-    e.preventDefault();
-    let searchString: string = "";
+  private runSearch(event) {
+    event.preventDefault();
+    let searchParams: object = {
+      page: 1,
+      per_page: this.perPage,
+    };
     this.searchTerms[0] = this.calendarSearch.value;
     this.searchTerms[1] = this.calendarCategories.value;
     // This feels dirty
     if (this.searchTerms[1] !== "") {
       if (this.searchTerms[0] !== "") {
-        searchString += "?search=" + this.searchTerms[0];
-        searchString += "&event_tags=" + this.searchTerms[1];
+        searchParams["search"] = this.searchTerms[0];
+        searchParams["event_tags"] = this.searchTerms[1];
       } else {
-        searchString += "?event_tags=" + this.searchTerms[1];
+        searchParams["event_tags"] = this.searchTerms[1];
       }
     } else if (this.searchTerms[0] !== "") {
-      searchString += "?search=" + this.searchTerms[0];
+      searchParams["search"] = this.searchTerms[0];
     }
     this.calendar.removeAllEvents();
-    if (searchString.length > 0) {
-      fetch(this.pageUrl + this.apiRoot + "events" + searchString + "&filter[posts_per_page]=-1")
-        .then((response) => this.initCalendar(response, searchString))
-        .catch((err) => console.log(err));
-    } else {
-      fetch(this.pageUrl + this.apiRoot + "events?filter[posts_per_page]=-1")
-        .then((response) => this.initCalendar(response, null))
-        .catch((err) => console.log(err));
-    }
-    this.listButton.addEventListener("click", (e) => {
-      this.changeCalendar(e.target, "listWeek");
+    this.localFetch("events", searchParams)
+      .then((response) => this.initCalendar(response, null))
+      .catch((error) => console.log(error));
+    this.listButton.addEventListener("click", (event) => {
+      this.changeCalendar(event.target, "listWeek");
     });
   }
 
   private breakpointCheck() {
-    if (mobileMQ.matches) {
+    if (MobileMQ.matches) {
       this.calendar.changeView("listWeek");
       // this.calendar.destroy();
       // this.calendar.render();
@@ -275,43 +299,63 @@ export class EventCalendar {
 
   private changeCalendar(btn, view) {
     this.calendar.changeView(view);
-    let titls = this.eventCalendar.querySelectorAll(".event-listing__title");
-    let rent = btn.parentElement,
-      activ = rent.querySelector("button[aria-pressed=true]");
+    let titles = this.eventCalendar.querySelectorAll(".event-listing__title");
+    let btnParent = btn.parentElement,
+      activeBtn = btnParent.querySelector("button[aria-pressed=true]");
 
     this.desktopView = view;
-    if (activ) {
-      activ.setAttribute("aria-pressed", "false");
+    if (activeBtn) {
+      activeBtn.setAttribute("aria-pressed", "false");
     }
     btn.setAttribute("aria-pressed", "true");
   }
 
+  private async _primeMediaCache(json: { featured_media: number }[]): Promise<any> {
+    let uncachedMediaIds = json
+      .map((value) => value.featured_media) // get featured media id
+      .filter((value: number, index: any, array: Array<number>) => value > 0 && array.indexOf(value) === index) // only unique values greater than 0
+      .filter((value: number) => !this.cachedMedia.has(value)); // id is not already set in the media cache
+    if (uncachedMediaIds.length <= 0) {
+      return new Promise<void>((resolve) => {
+        resolve();
+      });
+    }
+    return this.localFetch("media", { include: uncachedMediaIds.join(",") })
+      .then((response) => response.json())
+      .then((json) =>
+        json.forEach((value: { id: number }) => {
+          this.cachedMedia.set(value.id, value);
+        })
+      )
+      .catch((error) => console.log(error));
+  }
+
   private fixHeaders(view) {
-    let titls = this.eventCalendar.querySelectorAll(".event-listing__title");
+    let titles = this.eventCalendar.querySelectorAll(".event-listing__title");
     if (view === "listWeek") {
-      titls.forEach((el, i) => {
-        if (el.querySelector("span") !== null) {
-          let titleLink = el.querySelector("span").getAttribute("data-href");
-          let titl = el.textContent;
-          el.innerHTML =
+      titles.forEach((title, index) => {
+        if (title.querySelector("span") !== null) {
+          let titleLink = title.querySelector("span").getAttribute("data-href");
+          let titleContent = title.textContent;
+          title.innerHTML =
             "<a href='" +
             titleLink +
             "'>" +
-            titl +
+            titleContent +
             "<svg xmlns='http://www.w3.org/2000/svg' width='13.338' height='12.273' viewBox='0 0 13.338 12.273'><g id='CTA_Secondary_Arrow' transform='translate(0 0.707)'><path id='Path_52' data-name='Path 52' d='M-13572.044-6709.884l-1.414-1.414,4.723-4.723-4.723-4.722,1.414-1.414,6.137,6.136Z' transform='translate(13579.245 6721.45)' fill='#7c2529'/><path id='Path_1510' data-name='Path 1510' d='M-15709.244-3614.516h-11.514v-2h11.514Z' transform='translate(15720.758 3620.946)' fill='#732b2c'/></g></svg></a>";
         }
       });
     } else {
-      let titls = this.eventCalendar.querySelectorAll(".event-listing__title");
-      titls.forEach((el, i) => {
-        if (el.querySelector("a") !== null) {
-          let titleLink = el.querySelector("a").getAttribute("href");
-          let titl = el.textContent;
-          el.innerHTML =
+      let titles = this.eventCalendar.querySelectorAll(".event-listing__title");
+      titles.forEach((title, index) => {
+        if (title.querySelector("a") !== null) {
+          let titleLink = title.querySelector("a").getAttribute("href");
+          let titleContent = title.textContent;
+          title.innerHTML =
             "<span data-href='" +
             titleLink +
             ">" +
-            titl +
+            titleContent +
             "<svg xmlns='http://www.w3.org/2000/svg' width='13.338' height='12.273' viewBox='0 0 13.338 12.273'><g id='CTA_Secondary_Arrow' transform='translate(0 0.707)'><path id='Path_52' data-name='Path 52' d='M-13572.044-6709.884l-1.414-1.414,4.723-4.723-4.723-4.722,1.414-1.414,6.137,6.136Z' transform='translate(13579.245 6721.45)' fill='#7c2529'/><path id='Path_1510' data-name='Path 1510' d='M-15709.244-3614.516h-11.514v-2h11.514Z' transform='translate(15720.758 3620.946)' fill='#732b2c'/></g></svg></span>";
         }
       });
@@ -320,9 +364,9 @@ export class EventCalendar {
 
   private buildEventDOM(arg) {
     let contentArea = document.createElement("div"),
-      ct = document.createElement("div");
+      contentWrapper = document.createElement("div");
 
-    ct.classList.add("event-wrap");
+    contentWrapper.classList.add("event-wrap");
     contentArea.classList.add("event-listing");
     if (arg.event.extendedProps.thumbnail !== undefined) {
       contentArea.innerHTML +=
@@ -368,7 +412,6 @@ export class EventCalendar {
     }
 
     // Event Link Markup:
-
     let contentLink = document.createElement("div"),
       endDate = arg.event.endStr.substring(0, 10).replace(/[^0-9]+/g, "") as Number,
       startDate = arg.event.startStr.substring(0, 10).replace(/[^0-9]+/g, "") as Number;
@@ -381,21 +424,21 @@ export class EventCalendar {
     if (arg.event.extendedProps.eventTags && arg.view.type === "listWeek") {
       contentBlock.innerHTML += "<div class='event-listing__tags'></div>";
       let tagBlock = contentBlock.querySelector(".event-listing__tags");
-      arg.event.extendedProps.eventTags.forEach((el, i) => {
-        tagBlock.innerHTML += "<span>" + el.name + "</span>";
+      arg.event.extendedProps.eventTags.forEach((tag, index) => {
+        tagBlock.innerHTML += "<span>" + tag.name + "</span>";
       });
     }
     if (arg.event.extendedProps.description) {
       contentBlock.innerHTML += "<div class='event-listing__desc'>" + arg.event.extendedProps.description + "</div>";
     }
 
-    ct.appendChild(contentArea);
-    ct.appendChild(contentLink);
-    return ct;
+    contentWrapper.appendChild(contentArea);
+    contentWrapper.appendChild(contentLink);
+    return contentWrapper;
   }
 
-  private buildDate(dte) {
-    let formattedDate = formatDate(dte, {
+  private buildDate(date) {
+    let formattedDate = formatDate(date, {
       month: "long",
       year: "numeric",
       day: "numeric",
@@ -404,8 +447,8 @@ export class EventCalendar {
     return formattedDate;
   }
 
-  private buildTime(dte) {
-    let formattedTime = formatDate(dte, {
+  private buildTime(time) {
+    let formattedTime = formatDate(time, {
       hour12: true,
       hour: "numeric",
       minute: "2-digit",
@@ -413,16 +456,16 @@ export class EventCalendar {
     return formattedTime;
   }
 
-  private resetSearch(e) {
+  private resetSearch(event) {
     this.calendarSearch.value = "";
     this.calendarCategories.value = "";
-    this.runSearch(e);
+    this.runSearch(event);
   }
 }
 
 export default function calendarInit() {
-  const calendars = document.querySelectorAll(".calendar") as NodeListOf<HTMLElement>;
-  for (let i = 0; i < calendars.length; i++) {
-    new EventCalendar(calendars[i]);
+  const Calendars = document.querySelectorAll(".calendar") as NodeListOf<HTMLElement>;
+  for (let i = 0; i < Calendars.length; i++) {
+    new EventCalendar(Calendars[i]);
   }
 }
