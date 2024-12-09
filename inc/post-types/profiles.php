@@ -2,6 +2,11 @@
 
 // Register Custom Profiles
 function custom_profiles() {
+
+  if (iastate22_wordpress_is_environment_compatible() !== true) {
+    return;
+  }
+
 	if ( true !== get_field( 'profiles_enabled', 'options' ) ) {
 		return;
 	}

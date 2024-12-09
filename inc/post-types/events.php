@@ -3,6 +3,10 @@
 
 function custom_event() {
 
+  if (iastate22_wordpress_is_environment_compatible() !== true) {
+    return;
+  }
+
 	if ( true !== get_field( 'events_options_enabled', 'options' ) ) {
 		return;
 	}
