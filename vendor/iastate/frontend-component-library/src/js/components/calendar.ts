@@ -1,4 +1,4 @@
-import { Calendar, formatDate } from "@fullcalendar/core";
+import { Calendar, EventContentArg, formatDate } from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
@@ -6,6 +6,17 @@ import listPlugin from "@fullcalendar/list";
 const MobileMQ = window.matchMedia("(max-width: 990px)");
 
 declare const MYSCRIPT: any;
+
+type NetworkEvent = {
+  id: number;
+  media_details: {
+    sizes: {
+      medium: {
+        source_url: string;
+      };
+    };
+  };
+};
 
 export class EventCalendar {
   private element: HTMLElement;
@@ -17,7 +28,7 @@ export class EventCalendar {
   private featuredCheck: HTMLInputElement;
   private monthButton: HTMLButtonElement;
   private listButton: HTMLButtonElement;
-  private calendar: any;
+  private calendar: Calendar;
   private desktopView: string;
   private pageUrl: string;
   private apiRoot: string;
@@ -27,7 +38,7 @@ export class EventCalendar {
   private currentPage: number;
   private searchTerms: Array<string>;
   private searchReset: HTMLButtonElement;
-  private cachedMedia: Map<number, object>;
+  private cachedMedia: Map<number, NetworkEvent>;
 
   constructor(element: HTMLElement) {
     if (!!element) {
@@ -59,7 +70,7 @@ export class EventCalendar {
         hour: "numeric",
         minute: "2-digit",
         meridiem: "short",
-      }, // uppercase H for 24-hour clock
+      },
       headerToolbar: {
         left: "prev,next today",
         center: "title",
@@ -87,7 +98,7 @@ export class EventCalendar {
         }
       },
       eventDidMount: (eventMount) => {
-        this.fixHeaders(eventMount.view.type);
+        //this.fixHeaders(eventMount.view.type);
       },
       eventContent: (eventContent) => {
         let arrayOfDomNodes = [this.buildEventDOM(eventContent)];
@@ -194,15 +205,15 @@ export class EventCalendar {
     return fetch(this.getFetchURL(url, params).toString());
   }
 
-  private async getFeaturedMedia(mediaId: number): Promise<Object> {
+  private async getFeaturedMedia(mediaId: number): Promise<NetworkEvent | null> {
     if (mediaId <= 0) {
-      return new Promise<Object>((resolve) => {
-        resolve({});
+      return new Promise<null>((resolve) => {
+        resolve(null);
       });
     }
     let imageId = Number(mediaId);
     if (this.cachedMedia.has(imageId)) {
-      return new Promise<Object>((resolve) => {
+      return new Promise<NetworkEvent>((resolve) => {
         resolve(this.cachedMedia.get(imageId));
       });
     }
@@ -213,51 +224,71 @@ export class EventCalendar {
       })
       .catch((error) => console.log(error));
 
-    return new Promise<Object>((resolve) => {
+    return new Promise<NetworkEvent | null>((resolve) => {
       resolve(this.cachedMedia.get(imageId));
     });
   }
 
   private async aggregateEntry(item) {
-    let featuredImg = await this.getFeaturedMedia(item.featured_media),
-      // @ts-ignore
-      imgUrl: string =
-        Object.keys(featuredImg).length !== 0 ? featuredImg.media_details.sizes.medium.source_url : undefined,
-      eventStartTime: string =
-        item.acf.event_start_date.start_time !== null
-          ? item.acf.event_start_date.start_date + " " + item.acf.event_start_date.start_time
-          : item.acf.event_start_date.start_date,
-      eventEndTime: string =
-        item.acf.event_end_date.end_time !== null
-          ? item.acf.event_end_date.end_date + " " + item.acf.event_end_date.end_time
-          : item.acf.event_end_date.end_date,
-      fullDay: boolean = item.acf.event_start_date.full_day,
-      location: string = item.acf.location.length > 0 ? item.acf.location : "",
-      eventTags: Array<string> = [];
+    if (item === undefined || item === null) {
+      return;
+    }
+    let newEvent: {
+        start: string;
+        end: string;
+        title: string;
+        resourceId: number;
+        description: string;
+        url: string;
+        allDay: boolean;
+        location: string;
+        overlap: boolean;
+        thumbnail?: string;
+        interactive: boolean;
+        eventTags: string[];
+      },
+      featuredImg: NetworkEvent;
+
+    newEvent = {
+      start: item.acf.event_start_date.start_date,
+      end: item.acf.event_end_date.end_date,
+      title: item.title.rendered,
+      resourceId: item.id,
+      description: item.excerpt.rendered,
+      url: item.link,
+      allDay: item.acf.event_start_date.full_day,
+      location: item.acf.location.length > 0 ? item.acf.location : "",
+      overlap: true,
+      thumbnail: null,
+      interactive: true,
+      eventTags: [],
+    };
+    featuredImg = await this.getFeaturedMedia(item.featured_media);
+
+    if (featuredImg !== null && Object.keys(featuredImg).length !== 0) {
+      newEvent.thumbnail = featuredImg.media_details.sizes.medium.source_url;
+    }
+    if (item.acf.event_start_date.start_time !== null) {
+      newEvent.start = item.acf.event_start_date.start_date + "T" + item.acf.event_start_date.start_time;
+    }
+    if (item.acf.event_end_date.end_date === null) {
+      newEvent.end = item.acf.event_start_date.start_date + "T" + item.acf.event_end_date.end_time;
+    } else {
+      newEvent.end = item.acf.event_end_date.end_date + "T" + item.acf.event_end_date.end_time;
+    }
+
     if (item.event_tags.length > 0) {
       item.event_tags.forEach((tag: string, index: any) => {
         this.localFetch("event_tags/" + tag)
           .then((response) => response.json())
-          .then((json) => eventTags.push(json));
+          .then((json) => newEvent.eventTags.push(json));
       });
     }
-    this.calendar.addEvent({
-      title: item.title.rendered,
-      start: eventStartTime,
-      end: eventEndTime,
-      resourceId: item.id,
-      description: item.excerpt.rendered,
-      location: location,
-      interactive: true,
-      url: item.link,
-      thumbnail: imgUrl,
-      allDay: fullDay,
-      eventTags: eventTags,
-      overlap: true,
-    });
+
+    this.calendar.addEvent(newEvent);
   }
 
-  private runSearch(event) {
+  private runSearch(event: Event) {
     event.preventDefault();
     let searchParams: object = {
       page: 1,
@@ -292,12 +323,12 @@ export class EventCalendar {
       // this.calendar.render();
       // The above code works! But isn't necessary at the moment.
     } else {
-      this.calendar.dayMaxEventRows = true;
+      //this.calendar.setOption('dayMaxEventRows', true);
       this.calendar.changeView(this.desktopView);
     }
   }
 
-  private changeCalendar(btn, view) {
+  private changeCalendar(btn, view: string): void {
     this.calendar.changeView(view);
     let titles = this.eventCalendar.querySelectorAll(".event-listing__title");
     let btnParent = btn.parentElement,
@@ -323,117 +354,80 @@ export class EventCalendar {
     return this.localFetch("media", { include: uncachedMediaIds.join(",") })
       .then((response) => response.json())
       .then((json) =>
-        json.forEach((value: { id: number }) => {
+        json.forEach((value: NetworkEvent) => {
           this.cachedMedia.set(value.id, value);
         })
       )
       .catch((error) => console.log(error));
   }
 
-  private fixHeaders(view) {
-    let titles = this.eventCalendar.querySelectorAll(".event-listing__title");
-    if (view === "listWeek") {
-      titles.forEach((title, index) => {
-        if (title.querySelector("span") !== null) {
-          let titleLink = title.querySelector("span").getAttribute("data-href");
-          let titleContent = title.textContent;
-          title.innerHTML =
-            "<a href='" +
-            titleLink +
-            "'>" +
-            titleContent +
-            "<svg xmlns='http://www.w3.org/2000/svg' width='13.338' height='12.273' viewBox='0 0 13.338 12.273'><g id='CTA_Secondary_Arrow' transform='translate(0 0.707)'><path id='Path_52' data-name='Path 52' d='M-13572.044-6709.884l-1.414-1.414,4.723-4.723-4.723-4.722,1.414-1.414,6.137,6.136Z' transform='translate(13579.245 6721.45)' fill='#7c2529'/><path id='Path_1510' data-name='Path 1510' d='M-15709.244-3614.516h-11.514v-2h11.514Z' transform='translate(15720.758 3620.946)' fill='#732b2c'/></g></svg></a>";
-        }
-      });
-    } else {
-      let titles = this.eventCalendar.querySelectorAll(".event-listing__title");
-      titles.forEach((title, index) => {
-        if (title.querySelector("a") !== null) {
-          let titleLink = title.querySelector("a").getAttribute("href");
-          let titleContent = title.textContent;
-          title.innerHTML =
-            "<span data-href='" +
-            titleLink +
-            ">" +
-            titleContent +
-            "<svg xmlns='http://www.w3.org/2000/svg' width='13.338' height='12.273' viewBox='0 0 13.338 12.273'><g id='CTA_Secondary_Arrow' transform='translate(0 0.707)'><path id='Path_52' data-name='Path 52' d='M-13572.044-6709.884l-1.414-1.414,4.723-4.723-4.723-4.722,1.414-1.414,6.137,6.136Z' transform='translate(13579.245 6721.45)' fill='#7c2529'/><path id='Path_1510' data-name='Path 1510' d='M-15709.244-3614.516h-11.514v-2h11.514Z' transform='translate(15720.758 3620.946)' fill='#732b2c'/></g></svg></span>";
-        }
-      });
-    }
-  }
-
-  private buildEventDOM(arg) {
+  private buildEventDOM(arg: EventContentArg) {
     let contentArea = document.createElement("div"),
-      contentWrapper = document.createElement("div");
+      contentWrapper = document.createElement("div"),
+      event = arg.event,
+      htmlArrow =
+        '<svg xmlns="http://www.w3.org/2000/svg" width="13.338" height="12.273" viewBox="0 0 13.338 12.273"><g id="CTA_Secondary_Arrow" transform="translate(0 0.707)"><path id="Path_52" data-name="Path 52" d="M-13572.044-6709.884l-1.414-1.414,4.723-4.723-4.723-4.722,1.414-1.414,6.137,6.136Z" transform="translate(13579.245 6721.45)" fill="#7c2529"/><path id="Path_1510" data-name="Path 1510" d="M-15709.244-3614.516h-11.514v-2h11.514Z" transform="translate(15720.758 3620.946)" fill="#732b2c"/></g></svg>';
+
+    contentArea.innerHTML += `<title>${event.title}</title>`;
 
     contentWrapper.classList.add("event-wrap");
     contentArea.classList.add("event-listing");
-    if (arg.event.extendedProps.thumbnail !== undefined) {
-      contentArea.innerHTML +=
-        "<div class='event-listing__image'><img src='" +
-        arg.event.extendedProps.thumbnail +
-        "' alt='" +
-        "alt" +
-        "'/></div>";
-    }
-    contentArea.innerHTML += "<div class='event-listing__content'></div>";
-    let contentBlock = contentArea.querySelector(".event-listing__content");
-    if (arg.event.url) {
-      contentBlock.innerHTML +=
-        "<h4 class='event-listing__title'><span data-href='" +
-        arg.event.url +
-        "'>" +
-        arg.event.title +
-        "<svg xmlns='http://www.w3.org/2000/svg' width='13.338' height='12.273' viewBox='0 0 13.338 12.273'><g id='CTA_Secondary_Arrow' transform='translate(0 0.707)'><path id='Path_52' data-name='Path 52' d='M-13572.044-6709.884l-1.414-1.414,4.723-4.723-4.723-4.722,1.414-1.414,6.137,6.136Z' transform='translate(13579.245 6721.45)' fill='#7c2529'/><path id='Path_1510' data-name='Path 1510' d='M-15709.244-3614.516h-11.514v-2h11.514Z' transform='translate(15720.758 3620.946)' fill='#732b2c'/></g></svg></span></h4>";
-    } else {
-      contentBlock.innerHTML += "<h4 class='event-listing__title'>" + arg.event.title + "</h4>";
-    }
-    contentBlock.innerHTML +=
-      "<time datetime ='" +
-      arg.event.startStr +
-      "' class='event-listing__date'><div class='event-listing__full-date'>" +
-      this.buildDate(arg.event.startStr) +
-      "</div>";
 
-    if (arg.event.allDay !== true) {
+    if (event.extendedProps.thumbnail !== undefined && event.extendedProps.thumbnail !== null) {
+      contentArea.innerHTML += `<div class="event-listing__image"><img src="${event.extendedProps.thumbnail}" alt="alt"></div>`;
+    }
+    contentArea.innerHTML += '<div class="event-listing__content"></div>';
+    let contentBlock = contentArea.querySelector(".event-listing__content");
+    if (event.url) {
+      contentBlock.innerHTML += `<h4 class="event-listing__title"><a href="${event.url}">${event.title}${htmlArrow}</a></h4>`;
+    } else {
+      contentBlock.innerHTML += `<h4 class="event-listing__title">${event.title}</h4>`;
+    }
+
+    contentBlock.innerHTML += `<time datetime="${
+      event.startStr
+    }" class="event-listing__date"><div class="event-listing__full-date">${this.buildDate(event.startStr)}</div>`;
+    if (event.allDay !== true) {
       let timeString: string;
-      if (arg.event.endStr !== "") {
-        timeString = this.buildTime(arg.event.startStr) + " to " + this.buildTime(arg.event.endStr);
+      if (event.endStr !== "") {
+        timeString = this.buildTime(event.startStr) + " to " + this.buildTime(event.endStr);
       } else {
-        timeString = this.buildTime(arg.event.startStr);
+        timeString = this.buildTime(event.startStr);
       }
-      contentBlock.querySelector("time").innerHTML +=
-        "<div class='event-listing__time'>" + timeString + "</div></time>";
+      contentBlock.querySelector("time").innerHTML += `<div class="event-listing__time">${timeString}</div></time>`;
     }
     contentBlock.innerHTML += "</time>";
 
-    if (arg.event.extendedProps.location) {
-      contentBlock.innerHTML += "<div class='event-listing__location'>" + arg.event.extendedProps.location + "</div>";
+    if (event.extendedProps.location) {
+      contentBlock.innerHTML += `<div class="event-listing__location">${event.extendedProps.location}</div>`;
     }
 
     // Event Link Markup:
     let contentLink = document.createElement("div"),
-      endDate = arg.event.endStr.substring(0, 10).replace(/[^0-9]+/g, "") as Number,
-      startDate = arg.event.startStr.substring(0, 10).replace(/[^0-9]+/g, "") as Number;
-    contentLink.classList.add("event-link");
-    if (arg.event.allDay !== true && endDate > startDate !== true) {
-      contentLink.innerHTML += "<div class='fc-event-time'>" + this.buildTime(arg.event.startStr) + "</div>";
-    }
-    contentLink.innerHTML += "<div class='fc-event-title'>" + arg.event.title + "</div>";
+      endDate = event.end instanceof Date ? event.end.getTime() : 0,
+      startDate = event.start instanceof Date ? event.start.getTime() : 0;
 
-    if (arg.event.extendedProps.eventTags && arg.view.type === "listWeek") {
-      contentBlock.innerHTML += "<div class='event-listing__tags'></div>";
+    contentLink.classList.add("event-link");
+
+    if (event.allDay !== true && endDate > startDate !== true) {
+      contentLink.innerHTML += `<div class="fc-event-time">${this.buildTime(event.startStr)}</div>`;
+    }
+    contentLink.innerHTML += `<div class="fc-event-title">${event.title}</div>`;
+
+    if (event.extendedProps.eventTags && arg.view.type === "listWeek") {
+      contentBlock.innerHTML += '<div class="event-listing__tags"></div>';
       let tagBlock = contentBlock.querySelector(".event-listing__tags");
-      arg.event.extendedProps.eventTags.forEach((tag, index) => {
-        tagBlock.innerHTML += "<span>" + tag.name + "</span>";
+      event.extendedProps.eventTags.forEach((tag, index) => {
+        tagBlock.innerHTML += `<span>${tag.name}</span>`;
       });
     }
-    if (arg.event.extendedProps.description) {
-      contentBlock.innerHTML += "<div class='event-listing__desc'>" + arg.event.extendedProps.description + "</div>";
+    if (event.extendedProps.description) {
+      contentBlock.innerHTML += `<div class="event-listing__desc">${event.extendedProps.description}</div>`;
     }
 
     contentWrapper.appendChild(contentArea);
     contentWrapper.appendChild(contentLink);
+
     return contentWrapper;
   }
 
