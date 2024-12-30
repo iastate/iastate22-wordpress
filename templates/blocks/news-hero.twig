@@ -1,13 +1,15 @@
 <div class="hero"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
 	<div class="hero__text-wrap">
 		{% include ['templates/partial/breadcrumbs.twig'] %}
-		<h1 class="hero__title">
-			{% if post.meta('hero_title') %}
-				{{ post.meta('hero_title') }}
-			{% else %}
-				{{ wp_title }}
-			{% endif %}
-		</h1>
+		{% if field.hero_title or wp_title %}
+			<h1 class="hero__title">
+				{% if fields.hero_title %}
+					{{ fields.hero_title }}
+				{% else %}
+					{{ wp_title }}
+				{% endif %}
+			</h1>
+		{% endif %}
 	</div>
 	{% if post.meta('hero_image') %}
 		<div class="hero__media">
