@@ -33,7 +33,8 @@
 						<div class="iastate22-card iastate22-card--linked-image">
 							{% if card.card.image %}
 								<div class="iastate22-card__media">
-									<img src="{{ card.card.image.url|e('esc_url') }}" alt="">
+									<img src="{{ card.card.image.url|e('esc_url') }}"
+									alt="{{ card.card.image.alt|e('esc_attr') }}">
 								</div>
 							{% endif %}
 							{% if card.card.card_link.url and card.card.card_link.title %}
@@ -49,8 +50,9 @@
 							class="iastate22-card iastate22-card--profile-with-modal" {% if clickable is defined %} data-clickable="{{ clickable|e('esc_attr') }}" {% endif %}>
 							{% if card.card.image %}
 								<div class="iastate22-card__media">
-									<img src="{{ card.card.image.url|e('esc_url') }}" alt="" loading="lazy" width="600"
-										 height="600">
+									<img src="{{ card.card.image.url|e('esc_url') }}"
+									alt="{{ card.card.image.alt|e('esc_attr') }}"
+									loading="lazy" width="600" height="600">
 								</div>
 							{% endif %}
 							<div class="iastate22-card__content">
@@ -88,7 +90,8 @@
 											{% if modal.modal_image.url|length > 0 %}
 												<div class="iastate22-modal__media-name-wrap">
 													<div class="iastate22-modal__media">
-														<img src="{{ modal.modal_image.url|e('esc_url') }}" alt=""
+														<img src="{{ modal.modal_image.url|e('esc_url') }}"
+														alt="{{ modal.modal_image.alt|e('esc_attr') }}"
 															 loading="lazy" width="207" height="197">
 													</div>
 													<div class="iastate22-modal__name-role-wrap">
