@@ -1,7 +1,7 @@
 <div class="personal-profile-info-card{% if not photo %} personal-profile-info-card--no-image{% endif %}">
 	{% if photo %}
 		<div class="personal-profile-info-card__media">
-			<img src="{{ photo.url|e('esc_url') }}" alt="{{ photo.description|e('esc_attr') }}">
+			<img src="{{ photo.url|e('esc_url') }}" alt="{{ photo.alt|e('esc_attr') }}"> 
 		</div>
 	{% endif %}
 
