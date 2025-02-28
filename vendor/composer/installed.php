@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'iastate/wordpress-theme',
-        'pretty_version' => 'dev-develop',
-        'version' => 'dev-develop',
-        'reference' => '2439a33a9e8e5e8a2f342e33b7de10056e9faeb7',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '1e2a0d4c19fa6549845063d33ba378228c77662e',
         'type' => 'wordpress-theme',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'altorouter/altorouter' => array(
-            'pretty_version' => '2.0.2',
-            'version' => '2.0.2.0',
-            'reference' => 'f6fede4f94ced7c22ba63a9b8af0bf2dc38e3cb2',
+            'pretty_version' => '2.0.3',
+            'version' => '2.0.3.0',
+            'reference' => '9931b976423f7334c94f7b5b348be8ab1da3415d',
             'type' => 'library',
             'install_path' => __DIR__ . '/../altorouter/altorouter',
             'aliases' => array(),
@@ -40,9 +40,9 @@
             'dev_requirement' => false,
         ),
         'iastate/wordpress-theme' => array(
-            'pretty_version' => 'dev-develop',
-            'version' => 'dev-develop',
-            'reference' => '2439a33a9e8e5e8a2f342e33b7de10056e9faeb7',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '1e2a0d4c19fa6549845063d33ba378228c77662e',
             'type' => 'wordpress-theme',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -103,9 +103,9 @@
             'dev_requirement' => false,
         ),
         'upstatement/routes' => array(
-            'pretty_version' => '0.9.1',
-            'version' => '0.9.1.0',
-            'reference' => 'cac3c844ab824e4039fd26edbea5402415aa6d0a',
+            'pretty_version' => '0.9.2',
+            'version' => '0.9.2.0',
+            'reference' => '196a4dbc06231e5f6eb760130b8aa42d47e3c22f',
             'type' => 'library',
             'install_path' => __DIR__ . '/../upstatement/routes',
             'aliases' => array(),

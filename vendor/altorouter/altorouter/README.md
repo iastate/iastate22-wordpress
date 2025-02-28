@@ -1,4 +1,5 @@
-# AltoRouter  [![Build Status](https://img.shields.io/travis/dannyvankooten/AltoRouter/master)](https://travis-ci.org/dannyvankooten/AltoRouter) [![Latest Stable Version](https://poser.pugx.org/altorouter/altorouter/v/stable.svg)](https://packagist.org/packages/altorouter/altorouter) [![License](https://poser.pugx.org/altorouter/altorouter/license.svg)](https://packagist.org/packages/altorouter/altorouter) [![Code Climate](https://codeclimate.com/github/dannyvankooten/AltoRouter/badges/gpa.svg)](https://codeclimate.com/github/dannyvankooten/AltoRouter) [![Test Coverage](https://codeclimate.com/github/dannyvankooten/AltoRouter/badges/coverage.svg)](https://codeclimate.com/github/dannyvankooten/AltoRouter)
+# AltoRouter  ![PHP status](https://github.com/dannyvankooten/AltoRouter/workflows/PHP/badge.svg) [![Latest Stable Version](https://poser.pugx.org/altorouter/altorouter/v/stable.svg)](https://packagist.org/packages/altorouter/altorouter) [![License](https://poser.pugx.org/altorouter/altorouter/license.svg)](https://packagist.org/packages/altorouter/altorouter)
+
 AltoRouter is a small but powerful routing class, heavily inspired by [klein.php](https://github.com/chriso/klein.php/).
 
 ```php
@@ -29,13 +30,13 @@ echo $router->generate('user-details', ['id' => 5]); // Output: "/users/5"
 
 ## Getting started
 
-You need PHP >= 5.6 to use AltoRouter, although we highly recommend you [use an officially supported PHP version](https://secure.php.net/supported-versions.php) that is not EOL.
+You need PHP >= 7.3 to use AltoRouter, although we highly recommend you [use an officially supported PHP version](https://secure.php.net/supported-versions.php) that is not EOL.
 
-- [Install AltoRouter](http://altorouter.com/usage/install.html)
-- [Rewrite all requests to AltoRouter](http://altorouter.com/usage/rewrite-requests.html)
-- [Map your routes](http://altorouter.com/usage/mapping-routes.html)
-- [Match requests](http://altorouter.com/usage/matching-requests.html)
-- [Process the request your preferred way](http://altorouter.com/usage/processing-requests.html)
+- [Install AltoRouter](https://dannyvankooten.github.io/AltoRouter//usage/install.html)
+- [Rewrite all requests to AltoRouter](https://dannyvankooten.github.io/AltoRouter//usage/rewrite-requests.html)
+- [Map your routes](https://dannyvankooten.github.io/AltoRouter//usage/mapping-routes.html)
+- [Match requests](https://dannyvankooten.github.io/AltoRouter//usage/matching-requests.html)
+- [Process the request your preferred way](https://dannyvankooten.github.io/AltoRouter//usage/processing-requests.html)
 
 ## Contributors
 - [Danny van Kooten](https://github.com/dannyvankooten)

@@ -4,7 +4,7 @@ Plugin Name: Routes
 Plugin URI: http://www.upstatement.com
 Description: Routes makes it easy to add custom routing to your WordPress site. That's why we call it Routes. That is all.
 Author: Jared Novack + Upstatement
-Version: 0.8.1
+Version: 0.9.2
 Author URI: http://upstatement.com/
 
 Usage:
@@ -50,7 +50,7 @@ class Routes {
 	 *                                  //stuff goes here
 	 *                              });
 	 */
-	public static function map($route, $callback, $args = array()) {
+	public static function map($route, $callback, $name = '') {
 		global $upstatement_routes;
 		if (!isset($upstatement_routes->router)) {
 			$upstatement_routes->router = new AltoRouter();
@@ -68,8 +68,8 @@ class Routes {
 			$upstatement_routes->router->setBasePath($base_path);
 		}
 		$route = self::convert_route($route);
-		$upstatement_routes->router->map('GET|POST|PUT|DELETE', trailingslashit($route), $callback, $args);
-		$upstatement_routes->router->map('GET|POST|PUT|DELETE', untrailingslashit($route), $callback, $args);
+		$upstatement_routes->router->map('GET|POST|PUT|DELETE', trailingslashit($route), $callback, $name);
+		$upstatement_routes->router->map('GET|POST|PUT|DELETE', untrailingslashit($route), $callback, $name);
 	}
 
 	/**
