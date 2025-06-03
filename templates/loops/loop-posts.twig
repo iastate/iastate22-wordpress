@@ -35,7 +35,11 @@
 								<a class="iastate22-link-secondary"
 								   href="{{ post.link|e('esc_url') }}">{{ post.post_title }}<span class="arrow"></span></a>
 							</h2>
-							<p class="hero-stories-feed-item__content-date">{{ post.date }}</p>
+							{% if post.type == 'page' %}
+								<p class="hero-stories-feed-item__content-date">{{ post.modified_date }}</p>
+								{% else %}
+									<p class="hero-stories-feed-item__content-date">{{ post.date }}</p>
+							{% endif %}
 						</div>
 					</div>
 				{% endfor %}
