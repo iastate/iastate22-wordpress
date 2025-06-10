@@ -3,41 +3,44 @@
 		<div class="hero-stories-feed-item-set">
 			<ul>
 				{% for post in posts %}
-					{% set maybe_thumbnail = null %}
-					{% if post.thumbnail %}
-						{% set maybe_thumbnail = post.thumbnail %}
-					{% elseif post.hero_image %}
-						{% set maybe_thumbnail = Image(post.meta('hero_image')) %}
-					{% endif %}
+					{%- set has_preview = post.preview|length > 0 ? true : false -%}
+					{%- set maybe_thumbnail = false -%}
+					{%- if post.thumbnail -%}
+						{%- set maybe_thumbnail = post.thumbnail -%}
+					{%- elseif post.hero_image -%}
+						{%- set maybe_thumbnail = Image(post.meta('hero_image')) -%}
+					{%- endif -%}
+					<li>
 					<div class="hero-stories-feed-item">
-						{% if maybe_thumbnail %}
+						{%- if maybe_thumbnail %}
 							<div class="hero-stories-feed-item__media">
 								<div class="hero-stories-feed-item__media-container">
 									<a href="{{ post.link|e('esc_url') }}">
-										<img class="hero-stories-feed-item__media-image"
-											 src="{{ maybe_thumbnail.src|e('esc_url') }}"
-											 alt="{{ maybe_thumbnail.alt|e('esc_attr') }}" loading="lazy">
+										<img class="hero-stories-feed-item__media-image img-fluid" src="{{ maybe_thumbnail.src|e('esc_url') }}" alt="{{ maybe_thumbnail.alt|e('esc_attr') }}" loading="lazy">
 									</a>
 								</div>
 							</div>
-						{% endif %}
-						<div class="hero-stories-feed-item__content">
+						{% endif -%}
+						<div class="hero-stories-feed-item__content {%- if has_preview %} hero-stories-feed-item__content__with_blurb {%- endif %}">
 							<div class="hero-stories-feed-item__content-tags">
 								<ul>
-									{% for term in post.terms %}
-										{% if term.taxonomy == "category" %}
+									{%- for term in post.terms -%}
+										{%- if term.taxonomy == "category" -%}
 											<li>{{ term.name }}</li>
-										{% endif %}
-									{% endfor %}
+										{%- endif -%}
+									{%- endfor -%}
 								</ul>
 							</div>
 							<h2 class="hero-stories-feed-item__title">
-								<a class="iastate22-link-secondary"
-								   href="{{ post.link|e('esc_url') }}">{{ post.post_title }}<span class="arrow"></span></a>
+								<a class="iastate22-link-secondary" href="{{ post.link|e('esc_url') }}">{{ post.post_title }}<span class="arrow"></span></a>
 							</h2>
-							<p class="hero-stories-feed-item__content-date">{{ post.date }}</p>
+              {% if has_preview %}
+                <div class="hero-stories-feed-item__content-blurb"><p>{{ post.preview.length(50).force.read_more(false) }}</p></div>
+              {% endif %}
+              <p class="hero-stories-feed-item__content-date">{{ post.date }}</p>
 						</div>
 					</div>
+          </li>
 				{% endfor %}
 			</ul>
 		</div>
