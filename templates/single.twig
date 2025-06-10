@@ -20,6 +20,7 @@
 			{% if post.meta('subhead') %}
 				<h2 class="hero--news-article__subhead">{{ post.meta('subhead') }}</h2>
 			{% endif %}
+			<div class="hero--news-article__date">{{ post.date }}</div>
 			{% if show_author %}
 				<div class="hero--news-article__attribution"><p><strong>Author: {{ post.author.name }}</strong></p>
 				</div>
