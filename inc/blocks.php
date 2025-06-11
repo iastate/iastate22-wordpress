@@ -5,7 +5,7 @@ use Timber\Timber;
 
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
-add_action( 'acf/init', 'idf_acf_init' );
+//add_action( 'acf/init', 'idf_acf_init' );
 
 // Register new custom block category, and add as first item in list.
 function idf_plugin_block_categories( $categories ) {
@@ -392,6 +392,130 @@ function idf_acf_init() {
 	) );
 }
 
+/**
+ * Register blocks with ACF components. Registration order determines position in the editor.
+ * @return void
+ */
+function idf_register_acf_blocks_natively() {
+
+	// Accordion
+	register_block_type( get_template_directory() . '/blocks/accordion' );
+
+	// Announcement
+	#register_block_type( get_template_directory() . '/blocks/announcement' );
+
+	// Blockquote
+	register_block_type( get_template_directory() . '/blocks/blockquote' );
+
+	// Body Content
+	register_block_type( get_template_directory() . '/blocks/text-content' );
+
+	// Button Set
+	register_block_type( get_template_directory() . '/blocks/button-set' );
+
+	// Call to Action - Image
+	register_block_type( get_template_directory() . '/blocks/cta-large' );
+
+	// Call to Action - Text
+	register_block_type( get_template_directory() . '/blocks/cta-small' );
+
+	// Card Set
+	register_block_type( get_template_directory() . '/blocks/cards' );
+
+	// Carousel
+	register_block_type( get_template_directory() . '/blocks/carousel' );
+
+	// Events - Cards
+	register_block_type( get_template_directory() . '/blocks/featured-events' );
+
+	// Events - List
+	register_block_type( get_template_directory() . '/blocks/upcoming-events' );
+
+	// Events - List (with Feature)
+	register_block_type( get_template_directory() . '/blocks/featured-event-with-calendar' );
+
+	// Feature - External
+	register_block_type( get_template_directory() . '/blocks/external-news-story' );
+
+	// Feature - Large
+	register_block_type( get_template_directory() . '/blocks/feature-with-large-image' );
+
+	// Feature - Large with Intro
+	register_block_type( get_template_directory() . '/blocks/callout-inset' );
+
+	// Feature - Small
+	register_block_type( get_template_directory() . '/blocks/callout-with-image' );
+
+	// Feature Set
+	register_block_type( get_template_directory() . '/blocks/callout-set' );
+
+	// Hero -- Directory (unused?)
+	#register_block_type( get_template_directory() . '/blocks/directory-hero' );
+
+	// Homepage Hero
+	register_block_type( get_template_directory() . '/blocks/landing-hero' );
+
+	// Image - Full Width
+	register_block_type( get_template_directory() . '/blocks/full-width-image' );
+
+	// Image Grid with Text
+	register_block_type( get_template_directory() . '/blocks/image-grid-with-text' );
+
+	// Link Block
+	register_block_type( get_template_directory() . '/blocks/link-block' );
+
+	// Link Set
+	register_block_type( get_template_directory() . '/blocks/link-set' );
+
+	// Multi Column Content
+	register_block_type( get_template_directory() . '/blocks/multi-column-content' );
+
+	// News - Cards
+	register_block_type( get_template_directory() . '/blocks/recent-articles' );
+
+	// News - Featured
+	register_block_type( get_template_directory() . '/blocks/featured-news' );
+
+	// News - Items
+	register_block_type( get_template_directory() . '/blocks/news-items' );
+
+	// Page Hero
+	register_block_type( get_template_directory() . '/blocks/interior-hero' );
+
+	// Statistics
+	register_block_type( get_template_directory() . '/blocks/statistic-with-text' );
+
+	// Table
+	register_block_type( get_template_directory() . '/blocks/tables' );
+
+	// Video
+	register_block_type( get_template_directory() . '/blocks/video' );
+}
+
+add_action( 'init', 'idf_register_acf_blocks_natively' );
+
+/**
+ * Render callback to prepare and display a registered block using Timber.
+ *
+ * @param    array    $attributes The block attributes.
+ * @param    string   $content The block content.
+ * @param    bool     $is_preview Whether the block is being rendered for editing preview.
+ * @param    int      $post_id The current post being edited or viewed.
+ * @param    WP_Block $wp_block The block instance (since WP 5.5).
+ * @return   void
+ */
+function idf_acf_unified_block_render_callback($block, $content = '', $is_preview = false, $post_id = 0, $wp_block = null) {
+	$context = apply_filters( 'idf_acf_block_render_context', array(), $block, $content, $is_preview );
+
+	// Create the slug of the block using the name property in the block.json.
+	$slug = str_replace( 'acf/', '', $block['name'] );
+
+	// Render the block.
+	Timber::render(
+			'templates/blocks/' . $slug . '.twig',
+			$context
+	);
+}
 
 function idf_acf_block_render_landing_hero( $block, $content = '', $is_preview = false ) {
 	$context = apply_filters( 'idf_acf_block_render_context', array(), $block, $content, $is_preview );
@@ -400,7 +524,9 @@ function idf_acf_block_render_landing_hero( $block, $content = '', $is_preview =
 		echo '<img src="' . $block['data']['preview_image_help'] . '" style="width:100%; height:auto;">';
 
 		return;
-	} elseif ( $is_preview ) {
+	}
+
+	if ( $is_preview ) {
 		echo 'Other condition';
 
 		return;
@@ -574,7 +700,7 @@ function idf_acf_block_render_recent_articles( $block, $content = '', $is_previe
 	$context = apply_filters( 'idf_acf_block_render_context', array(), $block, $content, $is_preview );
 
 	$postCount             = $context['fields']['news_stories'];
-	$context['post_count'] = intval( $postCount );
+	$context['post_count'] = (int) $postCount;
 	if ( $context['fields']['feed_style']['value'] == "syndicated" ) {
 		$order                      = $context['fields']['feed_order']['value'];
 		$cat                        = $context['fields']['feed_category'];
