@@ -13,5 +13,8 @@ include( get_template_directory() . '/inc/overrides.php' );
 include( get_template_directory() . '/inc/validation.php' );
 include( get_template_directory() . '/inc/breadcrumbs.php' );
 include( get_template_directory() . '/inc/search.php' );
-include( get_template_directory() . '/inc/post-types/events.php' );
-include( get_template_directory() . '/inc/post-types/profiles.php' );
+
+if ( function_exists( 'get_field' ) ) {
+	include( get_template_directory() . '/inc/post-types/events.php' );
+	include( get_template_directory() . '/inc/post-types/profiles.php' );
+}
