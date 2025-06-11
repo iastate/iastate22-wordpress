@@ -1,0 +1,24 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "apiVersion": 3,
+  "name": "acf/image-grid-with-text",
+  "title": "Image Grid with Text",
+  "description": "A set of decorative side cards with a gray outer background",
+  "category": "isu-blocks",
+  "icon": "grid-view",
+  "keywords": [
+    "image",
+    "grid",
+    "cta",
+    "feature",
+    "card"
+  ],
+  "supports": {
+    "anchor": true
+  },
+  "acf": {
+    "blockVersion": 2,
+    "mode": "edit",
+    "renderCallback": "idf_acf_block_render_image_grid_with_text"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "apiVersion": 3,
+  "name": "acf/cards",
+  "title": "Card Set",
+  "description": "A set of image cards",
+  "category": "isu-blocks",
+  "icon": "screenoptions",
+  "keywords": [
+    "card",
+    "cards",
+    "set"
+  ],
+  "supports": {
+    "anchor": true
+  },
+  "acf": {
+    "blockVersion": 2,
+    "mode": "edit",
+    "renderCallback": "idf_acf_block_render_cards"
+  }
+}

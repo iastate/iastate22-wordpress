@@ -1,0 +1,23 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "apiVersion": 3,
+  "name": "acf/statistic-with-text",
+  "title": "Statistics",
+  "description": "A split column layout with a decorative statistic option",
+  "category": "isu-blocks",
+  "icon": "analytics",
+  "keywords": [
+    "statistic",
+    "text",
+    "decorative",
+    "feature"
+  ],
+  "supports": {
+    "anchor": true
+  },
+  "acf": {
+    "blockVersion": 2,
+    "mode": "edit",
+    "renderCallback": "idf_acf_block_render_statistic_with_text"
+  }
+}

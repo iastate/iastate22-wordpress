@@ -1,0 +1,24 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "apiVersion": 3,
+  "name": "acf/carousel",
+  "title": "Carousel",
+  "description": "Carousel",
+  "category": "isu-blocks",
+  "icon": "images-alt2",
+  "keywords": [
+    "carousel",
+    "images",
+    "slide",
+    "show",
+    "slideshow"
+  ],
+  "supports": {
+    "anchor": true
+  },
+  "acf": {
+    "blockVersion": 2,
+    "mode": "edit",
+    "renderCallback": "idf_acf_block_render_carousel"
+  }
+}

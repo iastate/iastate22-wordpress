@@ -1,0 +1,23 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "apiVersion": 3,
+  "name": "acf/text-content",
+  "title": "Body Content",
+  "description": "Rich Text/WYSIWYG Editor",
+  "category": "isu-blocks",
+  "icon": "text",
+  "keywords": [
+    "text",
+    "paragraph",
+    "copy",
+    "editor"
+  ],
+  "supports": {
+    "anchor": true
+  },
+  "acf": {
+    "blockVersion": 2,
+    "mode": "edit",
+    "renderCallback": "idf_acf_block_render_text_content"
+  }
+}

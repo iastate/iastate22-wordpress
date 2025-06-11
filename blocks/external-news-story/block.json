@@ -1,0 +1,22 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "apiVersion": 3,
+  "name": "acf/external-news-story",
+  "title": "Feature - External",
+  "description": "A block display for an external news story",
+  "category": "isu-blocks",
+  "icon": "admin-links",
+  "keywords": [
+    "feature",
+    "news",
+    "story"
+  ],
+  "supports": {
+    "anchor": true
+  },
+  "acf": {
+    "blockVersion": 2,
+    "mode": "edit",
+    "renderCallback": "idf_acf_block_render_external_news_story"
+  }
+}

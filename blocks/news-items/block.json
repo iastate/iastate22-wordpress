@@ -1,0 +1,26 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "apiVersion": 3,
+  "name": "acf/news-items",
+  "title": "News - Items",
+  "description": "A stylized source-able block intended to highlight news stories",
+  "category": "isu-blocks",
+  "icon": "align-wide",
+  "keywords": [
+    "news",
+    "stories",
+    "story"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "anchor": true
+  },
+  "acf": {
+    "blockVersion": 2,
+    "mode": "edit",
+    "renderCallback": "idf_acf_block_render_news_stories"
+  }
+}
