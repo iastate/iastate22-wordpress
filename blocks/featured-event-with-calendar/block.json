@@ -22,6 +22,6 @@
   "acf": {
     "blockVersion": 2,
     "mode": "edit",
-    "renderCallback": "idf_acf_block_render_featured_event_with_calendar"
+    "renderCallback": "idf_acf_unified_block_render_callback"
   }
 }

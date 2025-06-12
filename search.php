@@ -20,21 +20,25 @@ $tq               = array();
 
 foreach ( $_GET as $key => $value ) {
 	if ( $key !== "post_type" && $key !== "search_letter" && $key !== "s" && strlen( $value ) ) {
-		array_push( $paramArray, [ $key, $value ] );
+		$paramArray[] = [ $key, $value ];
 	}
 }
+do_action('qm/debug', $paramArray);
+
 if ( get_query_var( "post_type" ) == "profiles" ) {
 	$search_letter = $_GET["search_letter"];
 	$tax_query     = array();
 	$meta_query    = array();
 
 	foreach ( $paramArray as $tax ) {
-		array_push( $tq, array(
-			'taxonomy' => $tax[0],
-			'field'    => 'slug',
-			'terms'    => $tax[1],
-		) );
+		$tq[] = array(
+				'taxonomy' => $tax[0],
+				'field'    => 'slug',
+				'terms'    => $tax[1],
+		);
 	}
+
+	do_action('qm/debug', $tq);
 
 	if ( count( $paramArray ) > 0 ) {
 		$tax_query = array(

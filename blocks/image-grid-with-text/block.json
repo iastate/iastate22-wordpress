@@ -19,6 +19,6 @@
   "acf": {
     "blockVersion": 2,
     "mode": "edit",
-    "renderCallback": "idf_acf_block_render_image_grid_with_text"
+    "renderCallback": "idf_acf_unified_block_render_callback"
   }
 }
