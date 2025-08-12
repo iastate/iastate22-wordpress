@@ -5,7 +5,7 @@
     {% else %}
       <img src="https://vumbnail.com/{{ hero.vimeo_id }}_large.jpg" alt="Video Poster">
     {% endif %}
-    <div class="ecosystem-home-hero__video" aria-label="Vimeo Video: {{ title }}" data-vimeo-muted="true" data-vimeo-loop="true" data-vimeo-background="true" data-vimeo-autoplay="true" data-vimeo-id="{{ hero.vimeo_id|striptags }}"></div>
+    <div class="ecosystem-home-hero__video" data-aria-label="Vimeo Video: {{ title }}" data-vimeo-muted="true" data-vimeo-loop="true" data-vimeo-background="true" data-vimeo-autoplay="true" data-vimeo-id="{{ hero.vimeo_id|striptags }}"></div>
   </div>
   <div class="ecosystem-home-hero__content">
     <h1 class="ecosystem-home-hero__title">{{ hero.title }}</h1>

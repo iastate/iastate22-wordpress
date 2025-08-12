@@ -34,7 +34,7 @@ export class SiteHeader {
       );
       this.focusableChildren = this.element.querySelectorAll("a, button, input");
       this.parentNavItems = this.element.querySelectorAll(".site-header__mega-menu-main-nav > ul > li");
-      this.searchBox = this.element.querySelector(".site-header__search");
+      this.searchBox = document.querySelector(".site-header__search");
       this.searchTrigger = AccessibilityUtilities.convertAnchorToButton(
         document.querySelector(".site-header__search-toggle")
       );
@@ -63,7 +63,7 @@ export class SiteHeader {
     this.handleParentLinkClicks();
     this.handleTransitionEnd();
     this.initMobileNav();
-    this.toggleVisibility();
+    //this.toggleVisibility();
     this.handleSearch();
     this.handleUtilityDropdown();
   }
@@ -123,10 +123,27 @@ export class SiteHeader {
       const key = event.key || event.keyCode;
       // Close the nav when the esc key is pressed while it's open
       if (key === "Escape" || key === "Esc" || key === 27) {
+        // hide search box
+        this.toggleSearch(false);
+        // hide utility dropdowns
+        this.hideUtilityDropdowns();
+
         if (this.visible) {
-          this.visible = false;
-          this.toggleVisibility();
-          this.openButton.focus();
+          // check to close a subnav first
+          let openSubNav = this.element.querySelector(
+            '.site-header__mega-menu-main-nav ul ul[aria-hidden="false"]'
+          ) as HTMLElement;
+          if (openSubNav) {
+            // hide nav section dropdowns
+            this.initiallyHideDropdowns();
+          } else {
+            // close the main nav
+            this.visible = false;
+            this.toggleVisibility();
+            this.openButton.focus();
+          }
+        } else {
+          this.initiallyHideDropdowns(); // always hide subnavs if not in mobile mode
         }
       }
     });
@@ -137,6 +154,10 @@ export class SiteHeader {
       const key = event.key || event.keyCode;
       // Close the nav when tabbing outside of it while it's open
       if (key === "Tab" || key === 9) {
+        this.checkNavSectionsTabFocus(event.target as HTMLElement);
+        this.checkSearchTabFocus(event.target as HTMLElement);
+        this.checkUtilityDropDownFocus(event.target as HTMLElement);
+
         if (this.visible && !this.element.contains(event.target as HTMLElement)) {
           this.visible = false;
           this.toggleVisibility();
@@ -160,7 +181,7 @@ export class SiteHeader {
       if (clickedViaKeyboard && this.visible) {
         setTimeout(() => {
           this.focusableChildren[0]?.focus();
-        }, 50);
+        }, 300);
       }
       // Reset state for subsequent click events
       clickedViaKeyboard = false;
@@ -186,6 +207,12 @@ export class SiteHeader {
       const target = event.target as HTMLElement;
       if (!!target.closest(".site-header__mega-menu-main-nav-dropdown-back")) {
         this.toggleNavSectionVisibility(this.selectedMainNavSectionIndex, false);
+        const parentLink = this.parentNavItems[this.selectedMainNavSectionIndex].querySelector(
+          ".site-header__mega-menu-main-nav-parent"
+        ) as HTMLAnchorElement;
+        if (parentLink) {
+          parentLink.focus();
+        }
         this.selectedMainNavSectionIndex = null;
       }
     });
@@ -204,6 +231,18 @@ export class SiteHeader {
         }
         this.toggleNavSectionVisibility(newIndex, newLinkClicked);
         this.selectedMainNavSectionIndex = newLinkClicked ? newIndex : null;
+        if (newLinkClicked) {
+          // with mobile the first focusable element is the back button, otherwise it's the parent link
+          const selector = this.visible ? "ul[aria-hidden=false] li button" : "ul[aria-hidden=false] li a";
+          const focusableChild = this.parentNavItems[newIndex]?.querySelector(selector) as
+            | HTMLAnchorElement
+            | HTMLButtonElement;
+          if (focusableChild) {
+            setTimeout(() => {
+              focusableChild.focus();
+            }, 300);
+          }
+        }
       }
     });
   }
@@ -230,6 +269,7 @@ export class SiteHeader {
         const backButton = document.createElement("BUTTON") as HTMLButtonElement;
         const parentLinkCloneArrow = document.createElement("SPAN") as HTMLElement;
         parentLink.classList.add("site-header__mega-menu-main-nav-parent");
+        parentLink.setAttribute("role", "button");
         parentLink.dataset.index = `${i}`;
         backButtonLI.classList.add("site-header__mega-menu-main-nav-dropdown-back-wrap");
         clonedParentLI.classList.add("site-header__mega-menu-main-nav-dropdown-parent-wrap");
@@ -258,6 +298,9 @@ export class SiteHeader {
         childList.insertBefore(backButtonLI, clonedParentLI);
       }
     }
+
+    const initialMenuState = mobileMQ.matches ? "true" : "false";
+    this.element.setAttribute("aria-hidden", initialMenuState);
   }
 
   public toggleVisibility() {
@@ -289,11 +332,30 @@ export class SiteHeader {
       if (!parentLink.classList.contains("site-header__parent-link-no-subnav")) {
         parentLink.setAttribute("aria-expanded", `${visible}`);
         childList.setAttribute("aria-hidden", `${!visible}`);
-        if (mobileMQ.matches) {
-          secondaryMenu.setAttribute("aria-hidden", `${visible}`);
-        }
+        // keep secondary menu open
+        //if (mobileMQ.matches) {
+        //  secondaryMenu.setAttribute("aria-hidden", `${visible}`);
+        //}
         for (let i = 0; i < focusableChildren.length; i++) {
           focusableChildren[i].setAttribute("tabindex", visible ? "0" : "-1");
+        }
+      }
+    }
+  }
+
+  private checkNavSectionsTabFocus(focusedElement: HTMLElement) {
+    const openSubNav = this.element.querySelector(
+      '.site-header__mega-menu-main-nav ul ul[aria-hidden="false"]'
+    ) as HTMLElement;
+    if (!!openSubNav) {
+      if (!openSubNav.contains(focusedElement)) {
+        const parentItem = openSubNav.closest("li") as HTMLElement;
+        if (parentItem) {
+          const parentLink = parentItem.querySelector(".site-header__mega-menu-main-nav-parent") as HTMLAnchorElement;
+          if (parentLink) {
+            const parentLinkIndex = parseInt(parentLink.dataset.index);
+            this.toggleNavSectionVisibility(parentLinkIndex, false);
+          }
         }
       }
     }
@@ -317,6 +379,28 @@ export class SiteHeader {
     }
   }
 
+  private toggleSearch(visibility: boolean) {
+    this.searchTrigger.setAttribute("aria-expanded", `${visibility}`);
+    this.searchFormDesktop.setAttribute("aria-hidden", `${!visibility}`);
+    this.closeSearchButton.setAttribute("aria-hidden", `${!visibility}`);
+    if (visibility) {
+      this.searchFormDesktop.style.visibility = "visible";
+      setTimeout(() => {
+        this.formInput.focus();
+      }, 300);
+    } else {
+      setTimeout(() => {
+        this.searchFormDesktop.style.visibility = "hidden";
+      }, 300);
+    }
+  }
+
+  private checkSearchTabFocus(focusedElement: HTMLElement) {
+    if (!this.searchBox.contains(focusedElement)) {
+      this.toggleSearch(false);
+    }
+  }
+
   private handleSearch() {
     if (this.searchTrigger) {
       this.searchTrigger.setAttribute("aria-expanded", "false");
@@ -329,20 +413,12 @@ export class SiteHeader {
         '.site-header__search-form-desktop button[type="submit"] .fa-iastate22-magnifying-glass'
       );
       this.searchTrigger.addEventListener("click", () => {
-        this.searchTrigger.setAttribute("aria-expanded", "true");
-        this.searchFormDesktop.setAttribute("aria-hidden", "false");
-        this.closeSearchButton.setAttribute("aria-hidden", "false");
-        this.searchFormDesktop.style.visibility = "visible";
-        setTimeout(() => {
-          this.formInput.focus();
-        }, 300);
+        this.toggleSearch(true);
       });
       this.closeSearchButton.addEventListener("click", () => {
-        this.searchTrigger.setAttribute("aria-expanded", "false");
-        this.searchFormDesktop.setAttribute("aria-hidden", "true");
-        this.closeSearchButton.setAttribute("aria-hidden", "true");
+        this.toggleSearch(false);
         setTimeout(() => {
-          this.searchFormDesktop.style.visibility = "hidden";
+          this.searchTrigger.focus();
         }, 300);
       });
       window.addEventListener("click", (e) => {
@@ -363,6 +439,28 @@ export class SiteHeader {
         }
       });
     }
+  }
+
+  private checkUtilityDropDownFocus(focusedElement: HTMLElement) {
+    let utilityMenus = document.querySelectorAll(".site-header__utility-dropdown-menu") as NodeListOf<HTMLElement>;
+    utilityMenus.forEach((menu) => {
+      if (!menu.contains(focusedElement)) {
+        let utilityTrigger = menu.parentNode.querySelector(
+          ".site-header__utility-dropdown-trigger"
+        ) as HTMLButtonElement;
+        utilityTrigger.setAttribute("aria-expanded", "false");
+        menu.setAttribute("aria-hidden", "true");
+      }
+    });
+  }
+
+  private hideUtilityDropdowns() {
+    this.utilityDropdownTrigger.forEach((el, i) => {
+      let utilityTrigger = el;
+      let utilityMenu = el.parentNode.querySelector(".site-header__utility-dropdown-menu");
+      utilityTrigger.setAttribute("aria-expanded", "false");
+      utilityMenu.setAttribute("aria-hidden", "true");
+    });
   }
 
   private handleUtilityDropdown() {

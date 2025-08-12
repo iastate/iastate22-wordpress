@@ -25,15 +25,15 @@
           <span class="visible-for-screen-readers">Search</span>
           <span class="fak fa-iastate22-magnifying-glass" aria-hidden="true"></span>
         </a>
+        <form class="site-header__search-form-desktop">
+          <label class="" for="searchDesktop">{{ search_label }}</label>
+          <input type="search" id="searchDesktop" name="search" placeholder="{{ search_label }}">
+          <button type="submit"><span class="fak fa-iastate22-magnifying-glass" aria-hidden="true"></span><span class="visible-for-screen-readers">Submit Search</span></button>
+        </form>
         <a href="#" class="site-header__search-close">
           <span class="visible-for-screen-readers">Close Search</span>
           <span class="fa-light fa-xmark"></span>
         </a>
-        <form class="site-header__search-form-desktop">
-          <label class="visible-for-screen-readers" for="searchDesktop">Search</label>
-          <input type="search" id="searchDesktop" name="search" placeholder="Search">
-          <button type="submit"><span class="fak fa-iastate22-magnifying-glass" aria-hidden="true"></span><span class="visible-for-screen-readers">Submit Search</span></button>
-        </form>
       </div>
       {% endif %}
       {% if utility_button %}<a class="site-header__utility-button" href="{{ utility_button.url }}">{{ utility_button.title }}<span></span></a>{% endif %}
@@ -50,7 +50,7 @@
     </a>
     <div class="site-header__mega-menu" id="site-header-mega-menu">
       <div class="site-header__mega-menu-inner">
-        <div class="site-header__mega-menu-scroller">
+        <div class="site-header__mega-menu-scroller" tabindex="-1">
           <noscript>
             <a href="#" role="button" class="nojs-close-menu">Close Main Menu</a>
           </noscript>
@@ -93,9 +93,11 @@
                   {% if utility_button %}<a class="site-header__utility-button" href="{{ utility_button.url }}">{{ utility_button.title }}<span></span></a>{% endif %}
                   {% if search_visible == true %}
                   <form class="site-header__search-form-mobile">
-                    <label class="visible-for-screen-readers" for="searchMobile">Search</label>
-                    <input type="search" id="searchMobile" name="search" placeholder="Search">
-                    <button type="submit"><span class="fak fa-iastate22-magnifying-glass" aria-hidden="true"></span><span class="visible-for-screen-readers">Submit Search</span></button>
+                    <label for="searchMobile">{{ search_label }}</label>
+                    <div class="search-group">
+                      <input type="search" id="searchMobile" name="search" placeholder="{{ search_label }}">
+                      <button type="submit"><span class="fak fa-iastate22-magnifying-glass" aria-hidden="true"></span><span class="visible-for-screen-readers">Submit Search</span></button>
+                    </div>
                   </form>
                   {% endif %}
                 </nav>

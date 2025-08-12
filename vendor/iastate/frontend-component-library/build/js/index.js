@@ -12188,7 +12188,9 @@
         }),
         (e.convertAnchorToButton = function(e) {
           if (e) {
-            for (var t = document.createElement("BUTTON"), n = 0; n < e.attributes.length; n++) {
+            var t = document.createElement("BUTTON");
+            t.setAttribute("tabindex", "0");
+            for (var n = 0; n < e.attributes.length; n++) {
               var i = e.attributes[n];
               "href" !== i.name && t.setAttribute(i.name, i.value);
             }
@@ -12206,20 +12208,23 @@
                 null !== i.attributeName &&
                 -1 !== ["aria-hidden", "hidden"].indexOf(i.attributeName) &&
                 i.target.nodeType === Node.ELEMENT_NODE
-              )
-                for (
-                  var r =
-                      ("hidden" === i.attributeName && null === i.oldValue) ||
-                      ("aria-hidden" === i.attributeName && ("false" === i.oldValue || null === i.oldValue)),
-                    o = i.target,
-                    s = o.querySelectorAll(e.focusableChildSelector),
-                    a = 0;
-                  a < s.length;
-                  a++
-                ) {
+              ) {
+                var r =
+                  ("hidden" === i.attributeName && null === i.oldValue) ||
+                  ("aria-hidden" === i.attributeName && ("false" === i.oldValue || null === i.oldValue));
+                if ("aria-hidden" === i.attributeName && null === i.oldValue)
+                  switch (i.target.getAttribute("aria-hidden")) {
+                    case "true":
+                      r = !0;
+                      break;
+                    case "false":
+                      r = !1;
+                  }
+                for (var o = i.target, s = o.querySelectorAll(e.focusableChildSelector), a = 0; a < s.length; a++) {
                   var l = s[a];
                   l.closest("[aria-hidden]") === o && (l.tabIndex = r ? -1 : 0);
                 }
+              }
             }
           }).observe(document.body, { subtree: !0, attributes: !0, attributeOldValue: !0 });
         }),
@@ -23910,7 +23915,7 @@
               )),
               (this.focusableChildren = this.element.querySelectorAll("a, button, input")),
               (this.parentNavItems = this.element.querySelectorAll(".site-header__mega-menu-main-nav > ul > li")),
-              (this.searchBox = this.element.querySelector(".site-header__search")),
+              (this.searchBox = document.querySelector(".site-header__search")),
               (this.searchTrigger = s.default.convertAnchorToButton(
                 document.querySelector(".site-header__search-toggle")
               )),
@@ -23936,7 +23941,6 @@
               this.handleParentLinkClicks(),
               this.handleTransitionEnd(),
               this.initMobileNav(),
-              this.toggleVisibility(),
               this.handleSearch(),
               this.handleUtilityDropdown();
           }),
@@ -23985,7 +23989,13 @@
             window.addEventListener("keydown", function(t) {
               var n = t.key || t.keyCode;
               ("Escape" !== n && "Esc" !== n && 27 !== n) ||
-                (e.visible && ((e.visible = !1), e.toggleVisibility(), e.openButton.focus()));
+                (e.toggleSearch(!1),
+                e.hideUtilityDropdowns(),
+                e.visible
+                  ? e.element.querySelector('.site-header__mega-menu-main-nav ul ul[aria-hidden="false"]')
+                    ? e.initiallyHideDropdowns()
+                    : ((e.visible = !1), e.toggleVisibility(), e.openButton.focus())
+                  : e.initiallyHideDropdowns());
             });
           }),
           (e.prototype.handleTabbing = function() {
@@ -23993,7 +24003,10 @@
             window.addEventListener("keyup", function(t) {
               var n = t.key || t.keyCode;
               ("Tab" !== n && 9 !== n) ||
-                (e.visible && !e.element.contains(t.target) && ((e.visible = !1), e.toggleVisibility()));
+                (e.checkNavSectionsTabFocus(t.target),
+                e.checkSearchTabFocus(t.target),
+                e.checkUtilityDropDownFocus(t.target),
+                e.visible && !e.element.contains(t.target) && ((e.visible = !1), e.toggleVisibility()));
             });
           }),
           (e.prototype.handleOpenButtonClick = function() {
@@ -24010,7 +24023,7 @@
                     setTimeout(function() {
                       var t;
                       null === (t = e.focusableChildren[0]) || void 0 === t || t.focus();
-                    }, 50),
+                    }, 300),
                   (t = !1);
               });
           }),
@@ -24026,23 +24039,38 @@
           (e.prototype.handleMobileBackButtonClicks = function() {
             var e = this;
             this.element.addEventListener("click", function(t) {
-              t.target.closest(".site-header__mega-menu-main-nav-dropdown-back") &&
-                (e.toggleNavSectionVisibility(e.selectedMainNavSectionIndex, !1),
-                (e.selectedMainNavSectionIndex = null));
+              if (t.target.closest(".site-header__mega-menu-main-nav-dropdown-back")) {
+                e.toggleNavSectionVisibility(e.selectedMainNavSectionIndex, !1);
+                var n = e.parentNavItems[e.selectedMainNavSectionIndex].querySelector(
+                  ".site-header__mega-menu-main-nav-parent"
+                );
+                n && n.focus(), (e.selectedMainNavSectionIndex = null);
+              }
             });
           }),
           (e.prototype.handleParentLinkClicks = function() {
             var e = this;
             this.element.addEventListener("click", function(t) {
-              var n = t.target.closest(".site-header__mega-menu-main-nav-parent");
-              if (n) {
+              var n,
+                i = t.target.closest(".site-header__mega-menu-main-nav-parent");
+              if (i) {
                 t.preventDefault();
-                var i = parseInt(n.dataset.index),
-                  r = i !== e.selectedMainNavSectionIndex;
-                null !== e.selectedMainNavSectionIndex &&
-                  e.toggleNavSectionVisibility(e.selectedMainNavSectionIndex, !1),
-                  e.toggleNavSectionVisibility(i, r),
-                  (e.selectedMainNavSectionIndex = r ? i : null);
+                var r = parseInt(i.dataset.index),
+                  o = r !== e.selectedMainNavSectionIndex;
+                if (
+                  (null !== e.selectedMainNavSectionIndex &&
+                    e.toggleNavSectionVisibility(e.selectedMainNavSectionIndex, !1),
+                  e.toggleNavSectionVisibility(r, o),
+                  (e.selectedMainNavSectionIndex = o ? r : null),
+                  o)
+                ) {
+                  var s = e.visible ? "ul[aria-hidden=false] li button" : "ul[aria-hidden=false] li a",
+                    a = null === (n = e.parentNavItems[r]) || void 0 === n ? void 0 : n.querySelector(s);
+                  a &&
+                    setTimeout(function() {
+                      a.focus();
+                    }, 300);
+                }
               }
             });
           }),
@@ -24062,19 +24090,20 @@
                 var i = document.createElement("LI"),
                   r = document.createElement("LI"),
                   o = t.querySelector("a"),
-                  a = document.createElement("A"),
-                  l = document.createElement("BUTTON"),
-                  c = document.createElement("SPAN");
+                  l = document.createElement("A"),
+                  c = document.createElement("BUTTON"),
+                  u = document.createElement("SPAN");
                 o.classList.add("site-header__mega-menu-main-nav-parent"),
+                  o.setAttribute("role", "button"),
                   (o.dataset.index = "" + e),
                   r.classList.add("site-header__mega-menu-main-nav-dropdown-back-wrap"),
                   i.classList.add("site-header__mega-menu-main-nav-dropdown-parent-wrap"),
-                  l.classList.add("site-header__mega-menu-main-nav-dropdown-back"),
-                  (l.innerHTML =
+                  c.classList.add("site-header__mega-menu-main-nav-dropdown-back"),
+                  (c.innerHTML =
                     '\n          <span class="site-header__mega-menu-main-nav-dropdown-back-icon" aria-hidden="true">&lt;</span>\n          <span class="site-header__mega-menu-main-nav-dropdown-back-label">Back</span>\n          <span class="visible-for-screen-readers"> to top level of menu</span>\n        '),
-                  a.classList.add("site-header__mega-menu-main-nav-dropdown-parent", "iastate22-link-secondary"),
-                  c.classList.add("arrow"),
-                  (a.textContent = Array.prototype.filter
+                  l.classList.add("site-header__mega-menu-main-nav-dropdown-parent", "iastate22-link-secondary"),
+                  u.classList.add("arrow"),
+                  (l.textContent = Array.prototype.filter
                     .call(o.childNodes, function(e) {
                       return e.nodeType === Node.TEXT_NODE;
                     })
@@ -24082,16 +24111,18 @@
                       return e.textContent;
                     })
                     .join("")),
-                  (a.href = o.getAttribute("href")),
-                  r.appendChild(l),
-                  "#" !== a.getAttribute("href")
-                    ? (i.appendChild(a), a.appendChild(c))
+                  (l.href = o.getAttribute("href")),
+                  r.appendChild(c),
+                  "#" !== l.getAttribute("href")
+                    ? (i.appendChild(l), l.appendChild(u))
                     : (s.default.convertAnchorToButton(o),
                       i.classList.add("site-header__mega-menu-main-nav-dropdown-parent-wrap-no-href")),
                   n.insertBefore(i, n.firstElementChild),
                   n.insertBefore(r, i);
               }
             }
+            var d = a.matches ? "true" : "false";
+            this.element.setAttribute("aria-hidden", d);
           }),
           (e.prototype.toggleVisibility = function() {
             if (a.matches) {
@@ -24109,13 +24140,24 @@
               var n = this.parentNavItems[e],
                 i = n.querySelector("button, a"),
                 r = n.querySelector("ul"),
-                o = null == r ? void 0 : r.querySelectorAll("a, button"),
-                s = document.querySelector(".site-header__mega-menu-secondary");
+                o = null == r ? void 0 : r.querySelectorAll("a, button");
+              document.querySelector(".site-header__mega-menu-secondary");
               if (!i.classList.contains("site-header__parent-link-no-subnav")) {
-                i.setAttribute("aria-expanded", "" + t),
-                  r.setAttribute("aria-hidden", "" + !t),
-                  a.matches && s.setAttribute("aria-hidden", "" + t);
-                for (var l = 0; l < o.length; l++) o[l].setAttribute("tabindex", t ? "0" : "-1");
+                i.setAttribute("aria-expanded", "" + t), r.setAttribute("aria-hidden", "" + !t);
+                for (var s = 0; s < o.length; s++) o[s].setAttribute("tabindex", t ? "0" : "-1");
+              }
+            }
+          }),
+          (e.prototype.checkNavSectionsTabFocus = function(e) {
+            var t = this.element.querySelector('.site-header__mega-menu-main-nav ul ul[aria-hidden="false"]');
+            if (t && !t.contains(e)) {
+              var n = t.closest("li");
+              if (n) {
+                var i = n.querySelector(".site-header__mega-menu-main-nav-parent");
+                if (i) {
+                  var r = parseInt(i.dataset.index);
+                  this.toggleNavSectionVisibility(r, !1);
+                }
               }
             }
           }),
@@ -24129,6 +24171,23 @@
               throw new Error('Event type "' + e + '" is not allowed for MegaMenu component.');
             for (var t = 0; t < this.eventHandlers[e].length; t++) this.eventHandlers[e][t]();
           }),
+          (e.prototype.toggleSearch = function(e) {
+            var t = this;
+            this.searchTrigger.setAttribute("aria-expanded", "" + e),
+              this.searchFormDesktop.setAttribute("aria-hidden", "" + !e),
+              this.closeSearchButton.setAttribute("aria-hidden", "" + !e),
+              e
+                ? ((this.searchFormDesktop.style.visibility = "visible"),
+                  setTimeout(function() {
+                    t.formInput.focus();
+                  }, 300))
+                : setTimeout(function() {
+                    t.searchFormDesktop.style.visibility = "hidden";
+                  }, 300);
+          }),
+          (e.prototype.checkSearchTabFocus = function(e) {
+            this.searchBox.contains(e) || this.toggleSearch(!1);
+          }),
           (e.prototype.handleSearch = function() {
             var e = this;
             if (this.searchTrigger) {
@@ -24141,20 +24200,12 @@
                   '.site-header__search-form-desktop button[type="submit"] .fa-iastate22-magnifying-glass'
                 );
               this.searchTrigger.addEventListener("click", function() {
-                e.searchTrigger.setAttribute("aria-expanded", "true"),
-                  e.searchFormDesktop.setAttribute("aria-hidden", "false"),
-                  e.closeSearchButton.setAttribute("aria-hidden", "false"),
-                  (e.searchFormDesktop.style.visibility = "visible"),
-                  setTimeout(function() {
-                    e.formInput.focus();
-                  }, 300);
+                e.toggleSearch(!0);
               }),
                 this.closeSearchButton.addEventListener("click", function() {
-                  e.searchTrigger.setAttribute("aria-expanded", "false"),
-                    e.searchFormDesktop.setAttribute("aria-hidden", "true"),
-                    e.closeSearchButton.setAttribute("aria-hidden", "true"),
+                  e.toggleSearch(!1),
                     setTimeout(function() {
-                      e.searchFormDesktop.style.visibility = "hidden";
+                      e.searchTrigger.focus();
                     }, 300);
                 }),
                 window.addEventListener("click", function(i) {
@@ -24174,6 +24225,22 @@
                     }, 300));
                 });
             }
+          }),
+          (e.prototype.checkUtilityDropDownFocus = function(e) {
+            document.querySelectorAll(".site-header__utility-dropdown-menu").forEach(function(t) {
+              t.contains(e) ||
+                (t.parentNode
+                  .querySelector(".site-header__utility-dropdown-trigger")
+                  .setAttribute("aria-expanded", "false"),
+                t.setAttribute("aria-hidden", "true"));
+            });
+          }),
+          (e.prototype.hideUtilityDropdowns = function() {
+            this.utilityDropdownTrigger.forEach(function(e, t) {
+              var n = e,
+                i = e.parentNode.querySelector(".site-header__utility-dropdown-menu");
+              n.setAttribute("aria-expanded", "false"), i.setAttribute("aria-hidden", "true");
+            });
           }),
           (e.prototype.handleUtilityDropdown = function() {
             var e = this;
@@ -24818,8 +24885,11 @@
           }),
           (e.prototype.createVideoPlayer = function() {
             var e = this.element.querySelector(".video-embed__video"),
-              t = e.dataset.vid;
-            (this.player = r.default(e, { videoId: t, playerVars: { rel: 0 } })), this.handlePlayerEvents();
+              t = e.dataset.ariaLabel,
+              n = e.dataset.vid;
+            (this.player = r.default(e, { videoId: n, playerVars: { rel: 0 } })),
+              t && e.setAttribute("aria-label", t),
+              this.handlePlayerEvents();
           }),
           (e.prototype.handlePlayButtonClick = function() {
             var e = this;
@@ -24866,10 +24936,16 @@
               });
           }),
           (e.prototype.playVimeoVid = function() {
-            var e = this;
-            new o.default(this.vimeoMedia).play().then(function() {
-              e.media.classList.contains("video-playing") || e.media.classList.add("video-playing");
-            });
+            var e = this,
+              t = new o.default(this.vimeoMedia),
+              n = this.vimeoMedia.dataset.ariaLabel;
+            t.on("loaded", function() {
+              var t = e.vimeoMedia.querySelector("iframe");
+              n && t && t.setAttribute("aria-label", n);
+            }),
+              t.play().then(function() {
+                e.media.classList.contains("video-playing") || e.media.classList.add("video-playing");
+              });
           }),
           (e.prototype.createPlayButton = function() {
             var e = document.createElement("BUTTON");
@@ -25080,11 +25156,13 @@
               });
           }),
           (e.prototype.createVideoPlayer = function() {
-            var e = this.playerRoot.getAttribute("data-vid"),
-              t = this.playerRoot.getAttribute("data-vimeo-id");
-            null !== e
+            var e = this,
+              t = this.playerRoot.getAttribute("data-vid"),
+              n = this.playerRoot.getAttribute("data-vimeo-id"),
+              i = this.playerRoot.dataset.ariaLabel;
+            null !== t
               ? ((this.player = r.default(this.playerRoot, {
-                  videoId: e,
+                  videoId: t,
                   playerVars: {
                     autoplay: this.reducedMotion ? 0 : 1,
                     controls: 0,
@@ -25094,14 +25172,19 @@
                     loop: 1,
                     modestbranding: 1,
                     rel: 0,
-                    playlist: e,
+                    playlist: t,
                     playsinline: 1,
                   },
                 })),
+                i && this.playerRoot.setAttribute("aria-label", i),
                 this.handlePlayerEvents(),
                 this.handlePlayButtonClick())
-              : null !== t
+              : null !== n
               ? ((this.vimPlayer = new o.default(this.playerRoot)),
+                this.vimPlayer.on("loaded", function() {
+                  var t = e.playerRoot.querySelector("iframe");
+                  i && t && t.setAttribute("aria-label", i);
+                }),
                 this.handleVimeoPlayerEvents(),
                 this.handleVimeoPlayButtonClick())
               : ((this.cdnVideo = this.element.querySelector(".ecosystem-home-hero__media video")),

@@ -47,7 +47,7 @@ export default class AccessibilityUtilities {
   public static convertAnchorToButton(anchor: HTMLAnchorElement): HTMLButtonElement {
     if (!!anchor) {
       const button = document.createElement("BUTTON") as HTMLButtonElement;
-
+      button.setAttribute("tabindex", "0");
       // Copy attributes from anchor to button
       for (let i = 0; i < anchor.attributes.length; i++) {
         const attribute = anchor.attributes[i];
@@ -81,9 +81,23 @@ export default class AccessibilityUtilities {
           ["aria-hidden", "hidden"].indexOf(mutation.attributeName) !== -1 &&
           mutation.target.nodeType === Node.ELEMENT_NODE
         ) {
-          const isHidden =
+          let isHidden =
             (mutation.attributeName === "hidden" && mutation.oldValue === null) ||
             (mutation.attributeName === "aria-hidden" && (mutation.oldValue === "false" || mutation.oldValue === null));
+          // old value null does not always mean that the element is hidden
+          if (mutation.attributeName === "aria-hidden" && mutation.oldValue === null) {
+            // If the element is not hidden, we need to check if it has aria-hidden set to true
+            const target = mutation.target as HTMLElement;
+            const ariaHidden = target.getAttribute("aria-hidden");
+            switch (ariaHidden) {
+              case "true":
+                isHidden = true;
+                break;
+              case "false":
+                isHidden = false;
+                break;
+            }
+          }
           const target = mutation.target as HTMLElement;
           const focusableChildren = target.querySelectorAll(this.focusableChildSelector) as NodeListOf<HTMLElement>;
           for (let i = 0; i < focusableChildren.length; i++) {
