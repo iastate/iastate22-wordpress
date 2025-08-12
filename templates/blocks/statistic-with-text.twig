@@ -1,22 +1,22 @@
-<div
-	class="paragraph-widget paragraph-widget--statistic-with-text"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
-	<div
-		class="statistic-with-text statistic-with-text--{{ fields.statistics_location }}{% if not fields.statistics_content.content %} statistic-with-text--full-width{% endif %}">
-		<div class="statistic">
-			{% if fields.statistics_label %}<h2 class="statistics__label">{{ fields.statistics_label }}</h2>{% endif %}
-			<ul>
-				{% for statistic in fields.statistics_content.statistics %}
-					<li>
-						<h3 class="statistic__title">{{ statistic.statistic }}</h3>
-						<div class="statistic__text">{{ statistic.text }}</div>
-					</li>
-				{% endfor %}
-			</ul>
-		</div>
-		{% if fields.statistics_content.content %}
-			<div class="statistic-with-text__text text-content">
-				{{ fields.statistics_content.content }}
-			</div>
-		{% endif %}
-	</div>
+<div class="paragraph-widget paragraph-widget--statistic-with-text"
+    {%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+  <div class="statistic-with-text statistic-with-text--{{ fields.statistics_location }}
+    {%- if not fields.statistics_content.content %} statistic-with-text--full-width{% endif %}">
+    <div class="statistic">
+      {% if fields.statistics_label %}<h2 class="statistics__label">{{ fields.statistics_label }}</h2>{% endif %}
+      <ul>
+        {% for statistic in fields.statistics_content.statistics %}
+          <li>
+            <h3 class="statistic__title">{{ statistic.statistic }}</h3>
+            <div class="statistic__text">{{ statistic.text }}</div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% if fields.statistics_content.content %}
+      <div class="statistic-with-text__text text-content">
+        {{ fields.statistics_content.content }}
+      </div>
+    {% endif %}
+  </div>
 </div>

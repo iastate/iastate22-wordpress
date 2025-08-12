@@ -21,8 +21,7 @@
 									class="arrow"></span></a>
 						</h3>
 						{% if event.event_start_date_full_day != true %}
-							<div
-								class="upcoming-events__time">{{ event.event_start_date_start_time|date('g:i a') }}</div>
+							<div class="upcoming-events__time">{{ event.event_start_date_start_time|date('g:i a') }}</div>
 						{% else %}
 							<div class="upcoming-events__time">All Day</div>
 						{% endif %}
@@ -31,8 +30,10 @@
 				{% endif %}
 			{% endfor %}
 		</dl>
-		<div class="upcoming-events__cta"><a href="{{ function('get_post_type_archive_link','events') }}"
-											 class="iastate22-button">Browse All Events<span class="arrow"></span></a>
+		<div class="upcoming-events__cta">
+			<a href="{{ function('get_post_type_archive_link','events') }}" class="iastate22-button">
+				Browse All Events<span class="arrow"></span>
+			</a>
 		</div>
 	</div>
 </div>

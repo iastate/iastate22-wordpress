@@ -1,5 +1,5 @@
-<div
-	class="paragraph-widget paragraph-widget--news-items"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--news-items"
+		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
 	<div class="news-items__wrap">
 		{% if fields.in_the_news_title|length > 0 %}
 			<div class="text-content">

@@ -11,13 +11,11 @@
 				{% else %}
 					<a href="{{ site.url|e('esc_url') }}">Home</a>
 				{% endif %}
-
 			</li>
 			{% if subnav_side_menu %}
 				{% for link in subnav_side_menu.items %}
 					<li>
 						<a href="{{ link.url|e('esc_url') }}">{{ link.title }}</a>
-
 						{% if link.children|length > 0 %}
 							<ul>
 								{% for child in link.children %}
@@ -57,7 +55,6 @@
 					{% endif %}
 				{% endfor %}
 			{% endif %}
-
 		</ul>
 	</div>
 </nav>
