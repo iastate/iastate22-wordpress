@@ -1,17 +1,15 @@
 {% macro video_youtube(youtubeId, title, cssClass='video-embed__video') -%}
 <img src="https://img.youtube.com/vi/{{ youtubeId|e('esc_url') }}/maxresdefault.jpg" alt="Video Poster">
 <div class="{{ cssClass }}" aria-label="YouTube Video: {{ title }}" data-vid="{{ youtubeId|e('esc_attr') }}"></div>
-{%- macro video_youtube %}
-
+{%- endmacro video_youtube %}
 
 {% macro video_vimeo(vimeoId, title, cssClass='video--vim') -%}
 <img src="https://vumbnail.com/{{ vimeoId|e('esc_url') }}.jpg" alt="Video Poster">
 <div class="{{ cssClass }}" aria-label="Vimeo Video: {{ title }}" data-vimeo-id="{{ vimeoId|e('esc_attr') }}"></div>
-{%- macro video_vimeo %}
-
+{%- endmacro video_vimeo %}
 
 {% macro video_local(videoSrc, videoMime, title, cssClass='', playOptions = ['autoplay']) -%}
 <video class="{{ cssClass }}" {% for option in playOptions -%}{{ option|e }} {% endfor -%}>
   <source src="{{ videoSrc|e('esc_url') }}" type="{{ videoMime|e('esc_attr') }}">
 </video>
-{%- macro video_local %}
+{%- endmacro video_local %}
