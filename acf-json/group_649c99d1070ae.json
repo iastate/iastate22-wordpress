@@ -3,6 +3,26 @@
     "title": "Theme Post Options",
     "fields": [
         {
+            "key": "field_649c99d17f834",
+            "label": "Story Subheading",
+            "name": "subhead",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 2,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
             "key": "field_64b1811be6048",
             "label": "Hero Image",
             "name": "hero_image",
@@ -28,26 +48,6 @@
             "preview_size": "medium"
         },
         {
-            "key": "field_649c99d17f834",
-            "label": "Story Subheading",
-            "name": "subhead",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "rows": 2,
-            "placeholder": "",
-            "new_lines": ""
-        },
-        {
             "key": "field_64b18187e6049",
             "label": "Use Featured Image as Hero",
             "name": "use_featured_image_as_hero",
@@ -69,11 +69,11 @@
         },
         {
             "key": "field_65245a6ff90fa",
-            "label": "Show\/Hide Post Author",
+            "label": "Show\/Hide Post Credits",
             "name": "show_author",
             "aria-label": "",
             "type": "true_false",
-            "instructions": "",
+            "instructions": "Toggle visibility of the post credits",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -81,11 +81,72 @@
                 "class": "",
                 "id": ""
             },
-            "message": "This shows or hides the post author, in the front end template.",
+            "message": "",
             "default_value": 1,
+            "allow_in_bindings": 1,
             "ui_on_text": "Show",
             "ui_off_text": "Hide",
             "ui": 1
+        },
+        {
+            "key": "field_689b9c32a5c21",
+            "label": "Credits",
+            "name": "credits",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "Manually set post credits. Empty values will default to WordPress",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "key": "field_689b9c3da5c22",
+                    "label": "Author",
+                    "name": "author",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_689b9c45a5c23",
+                    "label": "Image",
+                    "name": "image",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
         },
         {
             "key": "field_64b180d11ee13",
@@ -106,6 +167,24 @@
             "ui_on_text": "",
             "ui_off_text": "",
             "ui": 1
+        },
+        {
+            "key": "field_689ba36be0e3c",
+            "label": "Archive Banner",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "News articles older than two years will include a banner to inform users that the content may be outdated. Consider removing old content if it's no longer needed, or update the content to remove the banner.",
+            "new_lines": "wpautop",
+            "esc_html": 0
         }
     ],
     "location": [
@@ -126,5 +205,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1699469597
+    "modified": 1755030765
 }

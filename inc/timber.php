@@ -226,6 +226,16 @@ class StarterSite extends TimberSite {
 		$twig->addExtension( new StringLoaderExtension() );
 		$twig->addFilter( new \Timber\Twig_Filter( 'boolval', 'wp_validate_boolean' ) );
 
+		$twig->addFunction(
+				new \Timber\Twig_Function(
+						'is_post_expired',
+						array( $this, 'is_post_expired' ),
+						array(
+								'needs_context' => true,
+						)
+				)
+		);
+
 		$esc_attr = function ( Environment $env, $string ) {
 			return esc_attr( $string );
 		};
@@ -249,6 +259,44 @@ class StarterSite extends TimberSite {
 		wp_enqueue_script( 'fontawesome', 'https://kit.fontawesome.com/b658fac974.js', array(), '1.0.0', true );
 	}
 
+
+	/**
+	 * Check if a post is past the expiration date.
+	 *
+	 * @param array $context The Timber context
+	 * @param string $expiration [optional]
+	 * <p>A date/time string. Valid formats are explained in {@link https://secure.php.net/manual/en/datetime.formats.php Date and Time Formats}.</p>
+	 *
+	 * @return bool Returns true only if the post's modified date is earlier than the expiration date.
+	 * @throws WP_Exception DateTime error messages fed through {@see wp_trigger_error}
+	 */
+	function is_post_expired( $context, $expiration = '2 years ago' ) {
+		if ( ! isset( $context['post'] ) ) {
+			return false;
+		}
+
+		$post = $context['post'];
+
+		if ( ! $post instanceof \Timber\Post ) {
+			return false;
+		}
+
+		// only test post/news post types
+		if ( $post->post_type !== 'post' ) {
+			return false;
+		}
+
+		try {
+			$postDate       = new DateTimeImmutable( $post->modified_date( DateTimeInterface::RFC822 ) );
+			$expirationDate = new DateTimeImmutable( $expiration );
+		} catch ( \Exception $e ) {
+			wp_trigger_error( __FUNCTION__, $e->getMessage(), E_USER_ERROR );
+
+			return false;
+		}
+
+		return $expirationDate > $postDate;
+	}
 }
 
 new StarterSite();

@@ -1,27 +1,52 @@
 {% extends "base.twig" %}
+{% from 'macros/blocks.twig' import announcement as post_announcement %}
+
+{% set hero_image = null %}
+{% if post.use_featured_image_as_hero|boolval %}
+  {% set hero_image = post.thumbnail %}
+{% else %}
+  {% if post.meta('hero_image') %}
+    {% set hero_image = Image(post.hero_image) %}
+  {% endif %}
+{% endif %}
+
+{% set show_author =
+	post.meta('show_author') is null and post.meta('_meta_info') == 'hide_author' ? false :
+	post.show_author|default(true)|boolval %}
 
 {% block content %}
-	{% set hero_image = null %}
-	{% if post.use_featured_image_as_hero|boolval %}
-		{% set hero_image = post.thumbnail %}
-	{% else %}
-		{% if post.meta('hero_image') %}
-			{% set hero_image = Image(post.hero_image) %}
-		{% endif %}
-	{% endif %}
-	{% set show_author =
-		post.meta('show_author') is null and post.meta('_meta_info') == 'hide_author' ? false :
-		post.show_author|default(true)|boolval %}
 	<div class="outer-pad">
-		<p class="iastate-article__back-btn"><a href="{{ function('get_post_type_archive_link', 'post' ) }}">All
-				Articles</a></p>
+		{% if is_post_expired('2 years ago') -%}
+			{{- post_announcement(
+				'This is an archived story. The content, links and information may have changed since the publication date.',
+				'info',
+				'banner'
+			) -}}
+		{%- endif %}
+		<p class="iastate-article__back-btn">
+			<a href="{{ function('get_post_type_archive_link', post.type.slug ) }}">All Articles</a>
+    </p>
 		<div class="hero--news-article text-content">
 			<h1 class="hero--news-article__headline">{{ post.title }}</h1>
 			{% if post.meta('subhead') %}
 				<h2 class="hero--news-article__subhead">{{ post.meta('subhead') }}</h2>
 			{% endif %}
+			<div class="hero--news-article__date">
+				<time datetime="{{ post.date('Y-m-d') }}">{{ post.date }}</time>
+				{%- if post.date('U') != post.modified_date('U') %}
+						<span class="hero--news-article__modified-date">
+							| Updated: <time datetime="{{ post.modified_date('Y-m-d') }}">{{ post.modified_date }}</time>
+						</span>
+				{%- endif -%}
+			</div>
 			{% if show_author %}
-				<div class="hero--news-article__attribution"><p><strong>Author: {{ post.author.name }}</strong></p>
+				<div class="hero--news-article__attribution">
+					<p>
+						<strong>Author: {{ post.meta('credits').author|default(post.author.name)|e('html') }}</strong>
+						{%- if post.meta('credits').image %}
+						| Image: {{ post.meta('credits').image|e('html') }}
+						{%- endif -%}
+					</p>
 				</div>
 			{% endif %}
 			{% if hero_image %}

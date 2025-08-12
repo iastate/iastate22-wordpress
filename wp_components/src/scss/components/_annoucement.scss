@@ -1,0 +1,48 @@
+.home-announcement--banner {
+  max-width: 100%;
+  width: 100%;
+  margin: 1.125rem 0;
+
+  position: relative;
+  top: 0;
+  left: 0;
+  transform: unset;
+  -webkit-transform: unset;
+  background-color: #003d4c;
+  padding: .75rem 3.75rem .75rem 2.5rem;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  z-index: 0;
+  -webkit-transition: -webkit-transform .2s ease-in-out;
+  transition: -webkit-transform .2s ease-in-out;
+  transition: transform .2s ease-in-out;
+  transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
+}
+
+.max-bound .outer-pad {
+  .home-announcement--banner {
+    margin: 0 -2.25rem;
+    max-width: inherit;
+    width: inherit;
+
+    @media (min-width: 768px) {
+      margin-left: -4.375rem;
+      margin-right: -4.375rem;
+      padding-left: 4.375rem;
+    }
+
+    @media (min-width: 1200px) {
+      margin-left: -11.875rem;
+      margin-right: -18.625rem;
+      padding-left: calc(11.875rem - 6.75rem);
+    }
+
+    @media (min-width: 100rem) {
+      margin-left: calc(-11.875rem - ((100vw - 100rem) / 2));
+      margin-right: calc(-18.625rem - ((100vw - 100rem) / 2));
+      padding-left: calc(11.875rem + ((100vw - 100rem) / 2) - 6.75rem);
+    }
+  }
+}
