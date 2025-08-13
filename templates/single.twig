@@ -2,17 +2,13 @@
 {% from 'macros/blocks.twig' import announcement as post_announcement %}
 
 {% set hero_image = null %}
-{% if post.use_featured_image_as_hero|boolval %}
+{% if post.meta('use_featured_image_as_hero') %}
   {% set hero_image = post.thumbnail %}
 {% else %}
   {% if post.meta('hero_image') %}
-    {% set hero_image = Image(post.hero_image) %}
+    {% set hero_image = Image(post.meta('hero_image')) %}
   {% endif %}
 {% endif %}
-
-{% set show_author =
-	post.meta('show_author') is null and post.meta('_meta_info') == 'hide_author' ? false :
-	post.show_author|default(true)|boolval %}
 
 {% block content %}
 	<div class="outer-pad">
@@ -39,7 +35,7 @@
 						</span>
 				{%- endif -%}
 			</div>
-			{% if show_author %}
+			{% if post.meta('show_author')|boolval %}
 				<div class="hero--news-article__attribution">
 					<p>
 						<strong>Author: {{ post.meta('credits').author|default(post.author.name)|e('html') }}</strong>

@@ -118,8 +118,6 @@
   {%- set video = card.card.video.video_display_group -%}
   {%- set modalID = function('wp_unique_id', 'video-modal-') -%}
   {%- set modal = card.card.card_modal -%}
-  {{ function('do_action', 'qm/debug', video) }}
-  {{ function('do_action', 'qm/debug', modal) }}
   <div
       class="iastate22-card iastate22-card--linked-image" {% if clickable is defined %} data-clickable="{{ clickable|e('esc_attr') }}" {% endif %}>
     {% if card.card.image %}

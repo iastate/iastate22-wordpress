@@ -23,7 +23,6 @@ foreach ( $_GET as $key => $value ) {
 		$paramArray[] = [ $key, $value ];
 	}
 }
-do_action('qm/debug', $paramArray);
 
 if ( get_query_var( "post_type" ) == "profiles" ) {
 	$search_letter = $_GET["search_letter"];
@@ -37,8 +36,6 @@ if ( get_query_var( "post_type" ) == "profiles" ) {
 				'terms'    => $tax[1],
 		);
 	}
-
-	do_action('qm/debug', $tq);
 
 	if ( count( $paramArray ) > 0 ) {
 		$tax_query = array(

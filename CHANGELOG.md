@@ -11,6 +11,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Announcement editor block (Is a block the right implementation for this?)
 
+## [1.3.1] - 2025-08-13
+
+### Removed
+
+- Debug calls
+- Unused announcement template
+
+### Fixed
+
+- Post options logic (show author, hero image)
+
 ## [1.3.0] - 2025-08-13
 
 ### Added
@@ -23,6 +34,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Post archive banner for post older than 2 years
 - Post/News credit manual override
 - Post loop timestamp
+- Post announcement style
 
 ### Changed
 
@@ -31,6 +43,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Theme Option menu updated to vertical tab layout instead of horizontal across the top to better use space
 - Renamed some block labels to match Theme blocks
 - Updated vendor packages
+- BREAKING: Video Embed block JSON format changed. Manual update required
 
 ### Fixed
 
@@ -45,3 +58,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [unreleased]: https://github.com/iastate/iastate22-wordpress/compare/develop...HEAD
 [1.3.0]: https://github.com/iastate/iastate22-wordpress/compare/1.2.2...1.3.0
+[1.3.1]: https://github.com/iastate/iastate22-wordpress/compare/1.3.0...1.3.1
