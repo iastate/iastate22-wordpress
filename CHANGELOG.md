@@ -19,7 +19,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Social menu icons (Discord, Bluesky, ORCiD, Slack, WordPress)
 - 3rd party package requirements test before loading
 - Twig/Timber macros and conditional templates for easier reusability
+- Twig function `is_post_expired` to check if post needs announcement
 - Post archive banner for post older than 2 years
+- Post/News credit manual override
+- Post loop timestamp
 
 ### Changed
 
@@ -27,6 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Migrated ACF blocks to register natively with WP blocks
 - Theme Option menu updated to vertical tab layout instead of horizontal across the top to better use space
 - Renamed some block labels to match Theme blocks
+- Updated vendor packages
 
 ### Fixed
 
