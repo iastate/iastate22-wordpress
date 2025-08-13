@@ -12,7 +12,6 @@ add_filter( 'rest_event_query', function ( $args ) {
 
 	$ignore = array( 'page', 'per_page', 'search', 'order', 'orderby', 'slug' );
 
-
 	foreach ( $_GET as $key => $value ) {
 		if ( ! in_array( $key, $ignore ) ) {
 			$args['meta_query'][] = array(
@@ -31,7 +30,7 @@ add_filter( 'rest_event_query', function ( $args ) {
  * [list_searcheable_acf list all the custom fields we want to include in our search query]
  * @return [array] [list of custom fields]
  */
-function list_searcheable_acf() {
+function list_searchable_acf() {
 	return array( "title", "sub_title", "excerpt_short", "excerpt_long", "first_name", "last_name", "location" );
 }
 
@@ -78,12 +77,12 @@ function advanced_custom_search( $where, $wp_query ) {
 	$terms = $wp_query->query_vars['s'];
 
 	// explode search expression to get search terms
-	$exploded = explode( ' ', $terms );
-	if ( $exploded === false || count( $exploded ) == 0 ) {
-		$exploded = array( 0 => $terms );
+	$exploded_terms = explode( ' ', $terms );
+	if ( $exploded_terms === false || count( $exploded_terms ) == 0 ) {
+		$exploded_terms = array( 0 => $terms );
 	}
 
-	array_walk( $exploded, function ( &$value ) {
+	array_walk( $exploded_terms, function ( &$value ) {
 		$value = esc_sql( $value );
 	} );
 
@@ -91,9 +90,9 @@ function advanced_custom_search( $where, $wp_query ) {
 	$where = '';
 
 	// get searchable_acf, a list of advanced custom fields you want to search content in
-	$list_searcheable_acf = list_searcheable_acf();
+	$list_searchable_acf = list_searchable_acf();
 
-	foreach ( $exploded as $tag ) :
+	foreach ( $exploded_terms as $tag ) :
 		$where .= "
           AND (
             (" . $prefix . "posts.post_title LIKE '%$tag%')
@@ -103,11 +102,11 @@ function advanced_custom_search( $where, $wp_query ) {
 	              WHERE post_id = " . $prefix . "posts.ID
 	                AND (";
 
-		foreach ( $list_searcheable_acf as $searcheable_acf ) :
-			if ( $searcheable_acf == $list_searcheable_acf[0] ):
-				$where .= " (meta_key LIKE '%" . $searcheable_acf . "%' AND meta_value LIKE '%$tag%') ";
+		foreach ( $list_searchable_acf as $searchable_acf ) :
+			if ( $searchable_acf == $list_searchable_acf[0] ):
+				$where .= " (meta_key = '" . $searchable_acf . "' AND meta_value LIKE '%$tag%') ";
 			else :
-				$where .= " OR (meta_key LIKE '%" . $searcheable_acf . "%' AND meta_value LIKE '%$tag%') ";
+				$where .= " OR (meta_key = '" . $searchable_acf . "' AND meta_value LIKE '%$tag%') ";
 			endif;
 		endforeach;
 
