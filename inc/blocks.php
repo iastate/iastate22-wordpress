@@ -29,7 +29,7 @@ function idf_register_acf_blocks_natively() {
 
 	// Announcement
 	// Example: https://www.news.iastate.edu/news/stability-top-growing-opposition-bloomberg-steyer
-	register_block_type( get_template_directory() . '/blocks/announcement' );
+	//register_block_type( get_template_directory() . '/blocks/announcement' );
 
 	// Blockquote
 	register_block_type( get_template_directory() . '/blocks/blockquote' );
@@ -76,7 +76,7 @@ function idf_register_acf_blocks_natively() {
 	// Feature Set
 	register_block_type( get_template_directory() . '/blocks/callout-set' );
 
-	// Hero -- Directory (unused?)
+	// Hero - Directory. unused?
 	#register_block_type( get_template_directory() . '/blocks/directory-hero' );
 
 	// Homepage Hero
@@ -124,14 +124,15 @@ add_action( 'init', 'idf_register_acf_blocks_natively' );
 /**
  * Render callback to prepare and display a registered block using Timber.
  *
- * @param    array    $attributes The block attributes.
- * @param    string   $content The block content.
- * @param    bool     $is_preview Whether the block is being rendered for editing preview.
- * @param    int      $post_id The current post being edited or viewed.
- * @param    WP_Block $wp_block The block instance (since WP 5.5).
+ * @param array $attributes The block attributes.
+ * @param string $content The block content.
+ * @param bool $is_preview Whether the block is being rendered for editing preview.
+ * @param int $post_id The current post being edited or viewed.
+ * @param WP_Block $wp_block The block instance (since WP 5.5).
+ *
  * @return   void
  */
-function idf_acf_unified_block_render_callback($attributes, $content = '', $is_preview = false, $post_id = 0, $wp_block = null) {
+function idf_acf_unified_block_render_callback( $attributes, $content = '', $is_preview = false, $post_id = 0, $wp_block = null ) {
 	$context = apply_filters( 'idf_acf_block_render_context', array(), $attributes, $content, $is_preview, $post_id, $wp_block );
 
 	// Create the slug of the block using the name property in the block.json.
@@ -144,7 +145,7 @@ function idf_acf_unified_block_render_callback($attributes, $content = '', $is_p
 	);
 }
 
-function idf_acf_block_render_landing_hero( $attributes, $content = '', $is_preview = false, $post_id = 0, $wp_block = nul ) {
+function idf_acf_block_render_landing_hero( $attributes, $content = '', $is_preview = false, $post_id = 0, $wp_block = null ) {
 	$context = apply_filters( 'idf_acf_block_render_context', array(), $attributes, $content, $is_preview, $post_id, $wp_block );
 
 	if ( $is_preview && ! empty( $attributes['data'] ) ) {
@@ -162,7 +163,16 @@ function idf_acf_block_render_landing_hero( $attributes, $content = '', $is_prev
 	Timber::render( 'templates/blocks/landing-hero.twig', $context );
 }
 
-function idf_acf_block_render_interior_hero( $attributes, $content = '', $is_preview = false, $post_id = 0, $wp_block = nul ) {
+/**
+ * @param array $attributes The block attributes.
+ * @param string $content The block content.
+ * @param bool $is_preview Whether the block is being rendered for editing preview.
+ * @param int $post_id The current post being edited or viewed.
+ * @param WP_Block $wp_block The block instance (since WP 5.5).
+ *
+ * @return void
+ */
+function idf_acf_block_render_interior_hero( $attributes, $content = '', $is_preview = false, $post_id = 0, $wp_block = null ) {
 	$context = apply_filters( 'idf_acf_block_render_context', array(), $attributes, $content, $is_preview, $post_id, $wp_block );
 
 	$timber_post  = new Post();
@@ -173,26 +183,26 @@ function idf_acf_block_render_interior_hero( $attributes, $content = '', $is_pre
 		'sort_order'  => 'ASC',
 		'sort_column' => 'menu_order'
 	) );
-	$childrens    = array();
+	$children    = array();
 	foreach ( get_pages( $arg ) as $d ) {
 		$arr         = ( array(
 			'parent'      => $d->ID,
 			'sort_order'  => 'ASC',
 			'sort_column' => 'menu_order'
 		) );
-		$childrens[] = get_pages( $arr );
+		$children[] = get_pages( $arr );
 	}
 
 	$context['siblings']     = get_pages( $arg );
 	$context['current']      = $timber_post->ID;
-	$context['childrens']    = $childrens;
+	$context['childrens']    = $children;
 	$context['rent']         = $rent;
 	$context['parent_title'] = $parent_title;
 
 	Timber::render( 'templates/blocks/interior-hero.twig', $context );
 }
 
-function idf_acf_block_render_recent_articles( $attributes, $content = '', $is_preview = false, $post_id = 0, $wp_block = nul ) {
+function idf_acf_block_render_recent_articles( $attributes, $content = '', $is_preview = false, $post_id = 0, $wp_block = null ) {
 	$context = apply_filters( 'idf_acf_block_render_context', array(), $attributes, $content, $is_preview, $post_id, $wp_block );
 
 	$postCount             = $context['fields']['news_stories'];
