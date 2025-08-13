@@ -43,7 +43,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Theme Option menu updated to vertical tab layout instead of horizontal across the top to better use space
 - Renamed some block labels to match Theme blocks
 - Updated vendor packages
-- BREAKING: Video Embed block JSON format changed. Manual update required
+- BREAKING: Video Embed block JSON format changed. Manual update required. [Link to wiki](https://github.com/iastate/iastate22-wordpress/wiki/ACF-Field-Updates#manually-updating-acf-block-data)
 
 ### Fixed
 
