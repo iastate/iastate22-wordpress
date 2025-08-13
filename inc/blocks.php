@@ -132,7 +132,7 @@ add_action( 'init', 'idf_register_acf_blocks_natively' );
  * @return   void
  */
 function idf_acf_unified_block_render_callback($attributes, $content = '', $is_preview = false, $post_id = 0, $wp_block = null) {
-	$context = apply_filters( 'idf_acf_block_render_context', array(), $attributes, $content, $is_preview );
+	$context = apply_filters( 'idf_acf_block_render_context', array(), $attributes, $content, $is_preview, $post_id, $wp_block );
 
 	// Create the slug of the block using the name property in the block.json.
 	$slug = str_replace( 'acf/', '', $attributes['name'] );
@@ -144,8 +144,8 @@ function idf_acf_unified_block_render_callback($attributes, $content = '', $is_p
 	);
 }
 
-function idf_acf_block_render_landing_hero( $attributes, $content = '', $is_preview = false ) {
-	$context = apply_filters( 'idf_acf_block_render_context', array(), $attributes, $content, $is_preview );
+function idf_acf_block_render_landing_hero( $attributes, $content = '', $is_preview = false, $post_id = 0, $wp_block = nul ) {
+	$context = apply_filters( 'idf_acf_block_render_context', array(), $attributes, $content, $is_preview, $post_id, $wp_block );
 
 	if ( $is_preview && ! empty( $attributes['data'] ) ) {
 		echo '<img src="' . $attributes['data']['preview_image_help'] . '" style="width:100%; height:auto;">';
@@ -162,8 +162,8 @@ function idf_acf_block_render_landing_hero( $attributes, $content = '', $is_prev
 	Timber::render( 'templates/blocks/landing-hero.twig', $context );
 }
 
-function idf_acf_block_render_interior_hero( $attributes, $content = '', $is_preview = false ) {
-	$context = apply_filters( 'idf_acf_block_render_context', array(), $attributes, $content, $is_preview );
+function idf_acf_block_render_interior_hero( $attributes, $content = '', $is_preview = false, $post_id = 0, $wp_block = nul ) {
+	$context = apply_filters( 'idf_acf_block_render_context', array(), $attributes, $content, $is_preview, $post_id, $wp_block );
 
 	$timber_post  = new Post();
 	$rent         = $timber_post->post_parent;
@@ -192,8 +192,8 @@ function idf_acf_block_render_interior_hero( $attributes, $content = '', $is_pre
 	Timber::render( 'templates/blocks/interior-hero.twig', $context );
 }
 
-function idf_acf_block_render_recent_articles( $attributes, $content = '', $is_preview = false ) {
-	$context = apply_filters( 'idf_acf_block_render_context', array(), $attributes, $content, $is_preview );
+function idf_acf_block_render_recent_articles( $attributes, $content = '', $is_preview = false, $post_id = 0, $wp_block = nul ) {
+	$context = apply_filters( 'idf_acf_block_render_context', array(), $attributes, $content, $is_preview, $post_id, $wp_block );
 
 	$postCount             = $context['fields']['news_stories'];
 	$context['post_count'] = (int) $postCount;
@@ -217,16 +217,17 @@ function idf_acf_block_render_recent_articles( $attributes, $content = '', $is_p
  *
  * @return array
  */
-function idf_acf_block_initial_context( $context, $attributes, $content, $is_preview ) {
+function idf_acf_block_initial_context( $context, $attributes, $content, $is_preview, $post_id, $wp_block ) {
 	$context               = array_merge( Timber::context(), $context );
 	$context['block']      = $attributes;
 	$context['fields']     = get_fields();
 	$context['is_preview'] = $is_preview;
+	$context['postId']     = $post_id;
 
 	return $context;
 }
 
-add_filter( 'idf_acf_block_render_context', 'idf_acf_block_initial_context', 10, 4 );
+add_filter( 'idf_acf_block_render_context', 'idf_acf_block_initial_context', 10, 6 );
 
 /**
  * support the old anchor. delete after some time.
