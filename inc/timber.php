@@ -234,17 +234,34 @@ class StarterSite extends TimberSite {
 	}
 
 	function load_styles() {
-		wp_enqueue_style( 'screen', get_template_directory_uri() . '/vendor/iastate/frontend-component-library/build/css/index.css', array(), '0.0.1', 'screen' );
-		wp_enqueue_style( 'wp_only', get_template_directory_uri() . '/wp_components/build/css/index.css', array(), '0.0.1', 'screen' );
-		wp_enqueue_style( 'printcss', get_template_directory_uri() . '/vendor/iastate/frontend-component-library/build/css/print.css', array(), '0.0.1', 'print' );
-		wp_enqueue_style( 'default', get_template_directory_uri() . '/style.css', array(), '' );
+		$version = $this->public_version_key();
+		wp_enqueue_style( 'screen', get_template_directory_uri() . '/vendor/iastate/frontend-component-library/build/css/index.css', array(), $version, 'screen' );
+		wp_enqueue_style( 'printcss', get_template_directory_uri() . '/vendor/iastate/frontend-component-library/build/css/print.css', array(), $version, 'print' );
+		wp_enqueue_style( 'wp_only', get_template_directory_uri() . '/wp_components/build/css/index.css', array(), $version, 'screen' );
+		wp_enqueue_style( 'default', get_template_directory_uri() . '/style.css', array(), $version, 'all' );
 	}
 
 	function load_scripts() {
-		wp_enqueue_script( 'main', get_template_directory_uri() . '/vendor/iastate/frontend-component-library/build/js/index.js', array(), '1.0.0', true );
+		$version = $this->public_version_key();
+		wp_enqueue_script( 'main', get_template_directory_uri() . '/vendor/iastate/frontend-component-library/build/js/index.js', array(), $version, true );
 		wp_enqueue_script( 'fontawesome', 'https://kit.fontawesome.com/b658fac974.js', array(), '1.0.0', true );
 	}
 
+	/**
+	 * Get version key for public urls.
+	 *
+	 * Returns a random version string when WP_DEBUG is true.
+	 *
+	 * @return string
+	 * @since 1.3.2
+	 */
+	function public_version_key() {
+		if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
+			return rawurlencode( uniqid( $this->theme->get( 'Version' ) . '-', false ) );
+		}
+
+		return rawurlencode( $this->theme->get( 'Version' ) );
+	}
 
 	/**
 	 * Check if a post is past the expiration date.
@@ -255,6 +272,7 @@ class StarterSite extends TimberSite {
 	 *
 	 * @return bool Returns true only if the post's modified date is earlier than the expiration date.
 	 * @throws WP_Exception DateTime error messages fed through {@see wp_trigger_error}
+	 * @since 1.3.0
 	 */
 	function is_post_expired( $context, $expiration = '2 years ago' ) {
 		if ( ! isset( $context['post'] ) ) {

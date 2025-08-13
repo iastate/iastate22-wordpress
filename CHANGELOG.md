@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Announcement editor block (Is a block the right implementation for this?)
+- Cache busting urls for script and style files
+
+### Changed
+
+- Post revision compares only date instead of full timestamp
 
 ## [1.3.1] - 2025-08-13
 
