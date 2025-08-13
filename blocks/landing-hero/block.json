@@ -1,0 +1,28 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "apiVersion": 3,
+  "name": "acf/landing-hero",
+  "title": "Homepage Hero",
+  "description": "Home Hero Section",
+  "category": "isu-blocks",
+  "icon": "welcome-widgets-menus",
+  "keywords": [
+    "hero",
+    "heroes",
+    "top",
+    "landing"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "multiple": false,
+    "anchor": true
+  },
+  "acf": {
+    "blockVersion": 2,
+    "mode": "edit",
+    "renderCallback": "idf_acf_block_render_landing_hero"
+  }
+}

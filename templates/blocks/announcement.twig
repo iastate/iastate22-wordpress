@@ -1,0 +1,8 @@
+<div class="home-announcement">
+  {%- if fields.announcement_type == 'info' -%}
+    <span class="fak fa-iastate22-info-box" aria-hidden="true"></span>
+  {%- elseif fields.announcement_type == 'alert' -%}
+    <span class="fak fa-iastate22-exclamation-point" aria-hidden="true"></span>
+  {%- endif -%}
+  <div class="home-announcement__text">{{ fields.announcement_content|e('wp_kses_post') }}</div>
+</div>

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "apiVersion": 3,
+  "name": "acf/recent-articles",
+  "title": "News - Cards",
+  "description": "A set of up to three cards of the latest News Posts",
+  "category": "isu-blocks",
+  "icon": "align-wide",
+  "keywords": [
+    "news",
+    "recent",
+    "feed",
+    "newsfeed"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "anchor": true
+  },
+  "acf": {
+    "blockVersion": 2,
+    "mode": "edit",
+    "renderCallback": "idf_acf_block_render_recent_articles"
+  }
+}

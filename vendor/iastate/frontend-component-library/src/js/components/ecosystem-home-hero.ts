@@ -40,6 +40,7 @@ export class EcosystemHeroBackgroundVideo {
   private createVideoPlayer() {
     const videoId = this.playerRoot.getAttribute("data-vid");
     const vimeoId = this.playerRoot.getAttribute("data-vimeo-id");
+    const ariaLabel = this.playerRoot.dataset.ariaLabel;
     if (videoId !== null) {
       this.player = YoutubePlayer(this.playerRoot, {
         videoId,
@@ -56,10 +57,19 @@ export class EcosystemHeroBackgroundVideo {
           playsinline: 1,
         },
       });
+      if (ariaLabel) {
+        this.playerRoot.setAttribute("aria-label", ariaLabel);
+      }
       this.handlePlayerEvents();
       this.handlePlayButtonClick();
     } else if (vimeoId !== null) {
       this.vimPlayer = new VimeoPlayer(this.playerRoot);
+      this.vimPlayer.on("loaded", () => {
+        const vimIframe = this.playerRoot.querySelector("iframe");
+        if (ariaLabel && vimIframe) {
+          vimIframe.setAttribute("aria-label", ariaLabel);
+        }
+      });
       this.handleVimeoPlayerEvents();
       this.handleVimeoPlayButtonClick();
     } else {

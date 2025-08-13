@@ -1,5 +1,5 @@
-<div
-	class="paragraph-widget paragraph-widget--video-embed"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--video-embed"
+		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
 	<div class="video-embed">
 		<div class="video-embed__media-wrap">
 			{% if fields.video.video.poster_image.url %}

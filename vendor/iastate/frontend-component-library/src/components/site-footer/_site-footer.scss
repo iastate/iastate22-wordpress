@@ -210,7 +210,7 @@
           }
         }
         &:hover {
-          color: $iastate-gold;
+          /* color: $iastate-gold; remove hover color as is doesn't meet contrast standards */
           &:before {
             right: rem(-5);
           }
@@ -303,7 +303,7 @@
         text-underline-offset: rem(1);
         transition: 0.2s color ease-in-out;
         &:hover {
-          color: $iastate-gold;
+          /* color: $iastate-gold;/* hover does not meet contrast standards */
         }
       }
     }
@@ -396,10 +396,14 @@
         color: $white;
         transition: 0.2s color ease-in-out;
         &:hover {
-          color: $iastate-gold;
+          /* color: $iastate-gold; /* hover color doesnt' meet contrast standards */
         }
         &.site-footer__section-email {
           text-decoration: none;
+          text-decoration: underline;
+          text-decoration-thickness: rem(1);
+          text-underline-offset: rem(1);
+
           margin-bottom: rem(8);
           @include media-breakpoint-up(xl) {
             margin-bottom: rem(4);
@@ -434,7 +438,8 @@
     margin-top: rem(50);
     display: flex;
     align-items: center;
-    flex-direction: row-reverse;
+    /*flex-direction: row-reverse;*/
+    flex-direction: row; /*  put utility links before copy write */
     justify-content: space-between;
     padding-left: rem(82);
     padding-right: rem(82);
@@ -563,7 +568,7 @@
       color: $white;
       transition: 0.2s color ease-in-out;
       &:hover {
-        color: $iastate-gold;
+        /* color: $iastate-gold; /* hover does not meet contrast standards */
       }
     }
   }

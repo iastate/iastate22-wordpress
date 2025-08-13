@@ -1,0 +1,30 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "apiVersion": 3,
+  "name": "acf/directory-hero",
+  "title": "Hero -- Directory",
+  "description": "A plain ecosystem hero with search filtering options",
+  "category": "isu-blocks",
+  "icon": "align-wide",
+  "keywords": [
+    "faculty",
+    "staff",
+    "hero",
+    "directory",
+    "people",
+    "profiles"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "multiple": false,
+    "anchor": true
+  },
+  "acf": {
+    "blockVersion": 2,
+    "mode": "edit",
+    "renderCallback": "idf_acf_unified_block_render_callback"
+  }
+}

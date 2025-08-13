@@ -216,12 +216,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/iastate/iastate22-frontend.git",
-                "reference": "663469d040266f6e9abcf6515f85a3b721d0f229"
+                "reference": "2b4b006438691deb007316da3caafc9523fda8a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/iastate/iastate22-frontend/zipball/663469d040266f6e9abcf6515f85a3b721d0f229",
-                "reference": "663469d040266f6e9abcf6515f85a3b721d0f229",
+                "url": "https://api.github.com/repos/iastate/iastate22-frontend/zipball/2b4b006438691deb007316da3caafc9523fda8a8",
+                "reference": "2b4b006438691deb007316da3caafc9523fda8a8",
                 "shasum": ""
             },
             "default-branch": true,
@@ -244,13 +244,13 @@
             "description": "Frontend component library for Iowa State University.",
             "support": {
                 "issues": "https://github.com/iastate/iastate22-frontend/issues",
-                "source": "https://github.com/iastate/iastate22-frontend/tree/1.0.78"
+                "source": "https://github.com/iastate/iastate22-frontend/tree/1.0.79"
             },
-            "time": "2024-11-07T21:52:14+00:00"
+            "time": "2025-07-28T14:45:23+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.31.0",
+            "version": "v1.32.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
@@ -309,7 +309,7 @@
                 "portable"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.31.0"
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.32.0"
             },
             "funding": [
                 {
@@ -329,19 +329,20 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.31.0",
+            "version": "v1.32.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "85181ba99b2345b0ef10ce42ecac37612d9fd341"
+                "reference": "6d857f4d76bd4b343eac26d6b539585d2bc56493"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/85181ba99b2345b0ef10ce42ecac37612d9fd341",
-                "reference": "85181ba99b2345b0ef10ce42ecac37612d9fd341",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/6d857f4d76bd4b343eac26d6b539585d2bc56493",
+                "reference": "6d857f4d76bd4b343eac26d6b539585d2bc56493",
                 "shasum": ""
             },
             "require": {
+                "ext-iconv": "*",
                 "php": ">=7.2"
             },
             "provide": {
@@ -389,7 +390,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.31.0"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.32.0"
             },
             "funding": [
                 {
@@ -405,7 +406,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-09-09T11:45:10+00:00"
+            "time": "2024-12-23T08:48:59+00:00"
         },
         {
             "name": "symfony/polyfill-php72",
@@ -474,23 +475,23 @@
         },
         {
             "name": "timber/timber",
-            "version": "1.24.1",
+            "version": "1.24.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/timber/timber.git",
-                "reference": "f8f2e5a9f03eb67b7c20820e60aa8618f59aaf1d"
+                "reference": "777028eab0f64ba421e78a9effada68422a74b0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/timber/timber/zipball/f8f2e5a9f03eb67b7c20820e60aa8618f59aaf1d",
-                "reference": "f8f2e5a9f03eb67b7c20820e60aa8618f59aaf1d",
+                "url": "https://api.github.com/repos/timber/timber/zipball/777028eab0f64ba421e78a9effada68422a74b0d",
+                "reference": "777028eab0f64ba421e78a9effada68422a74b0d",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0",
                 "php": ">=7.2.5 || ^8.0",
                 "twig/cache-extension": "^1.5",
-                "twig/twig": "^1.44.7 || ^2.10",
+                "twig/twig": "^1.44.8 || ^2.16.1",
                 "upstatement/routes": "^0.9"
             },
             "require-dev": {
@@ -538,11 +539,15 @@
             },
             "funding": [
                 {
+                    "url": "https://github.com/timber",
+                    "type": "github"
+                },
+                {
                     "url": "https://opencollective.com/timber",
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-04-10T14:24:07+00:00"
+            "time": "2025-05-13T13:24:51+00:00"
         },
         {
             "name": "twig/cache-extension",
@@ -845,16 +850,16 @@
         },
         {
             "name": "symfony/polyfill-php80",
-            "version": "v1.31.0",
+            "version": "v1.32.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php80.git",
-                "reference": "60328e362d4c2c802a54fcbf04f9d3fb892b4cf8"
+                "reference": "0cc9dd0f17f61d8131e7df6b84bd344899fe2608"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/60328e362d4c2c802a54fcbf04f9d3fb892b4cf8",
-                "reference": "60328e362d4c2c802a54fcbf04f9d3fb892b4cf8",
+                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/0cc9dd0f17f61d8131e7df6b84bd344899fe2608",
+                "reference": "0cc9dd0f17f61d8131e7df6b84bd344899fe2608",
                 "shasum": ""
             },
             "require": {
@@ -905,7 +910,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/v1.31.0"
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.32.0"
             },
             "funding": [
                 {
@@ -921,7 +926,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-09-09T11:45:10+00:00"
+            "time": "2025-01-02T08:10:11+00:00"
         },
         {
             "name": "symfony/var-dumper",

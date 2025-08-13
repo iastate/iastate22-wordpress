@@ -30,8 +30,10 @@ export class VideoEmbed {
     }
   }
 
+  // This only created the youtube player
   private createVideoPlayer() {
     const playerRoot = this.element.querySelector(".video-embed__video") as HTMLElement;
+    const ariaLabel = playerRoot.dataset.ariaLabel;
     const videoId = playerRoot.dataset.vid;
     this.player = YoutubePlayer(playerRoot, {
       videoId,
@@ -39,6 +41,9 @@ export class VideoEmbed {
         rel: 0,
       },
     });
+    if (ariaLabel) {
+      playerRoot.setAttribute("aria-label", ariaLabel);
+    }
     this.handlePlayerEvents();
   }
 
@@ -105,8 +110,16 @@ export class VideoEmbed {
     });
   }
 
+  // This is only for the vimeo player
   private playVimeoVid() {
     let vimeoplayer = new VimeoPlayer(this.vimeoMedia);
+    const ariaLabel = this.vimeoMedia.dataset.ariaLabel;
+    vimeoplayer.on("loaded", () => {
+      const vimIFrame = this.vimeoMedia.querySelector("iframe");
+      if (ariaLabel && vimIFrame) {
+        vimIFrame.setAttribute("aria-label", ariaLabel);
+      }
+    });
     vimeoplayer.play().then(() => {
       if (!this.media.classList.contains("video-playing")) {
         this.media.classList.add("video-playing");

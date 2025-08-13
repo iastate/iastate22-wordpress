@@ -1,0 +1,21 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "apiVersion": 3,
+  "name": "acf/full-width-image",
+  "title": "Image - Full Width",
+  "description": "Full Width Image with optional lower CTA",
+  "category": "isu-blocks",
+  "icon": "format-image",
+  "keywords": [
+    "image",
+    "full"
+  ],
+  "supports": {
+    "anchor": true
+  },
+  "acf": {
+    "blockVersion": 2,
+    "mode": "edit",
+    "renderCallback": "idf_acf_unified_block_render_callback"
+  }
+}

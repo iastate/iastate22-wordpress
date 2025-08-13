@@ -191,7 +191,8 @@
           }
         ]
       }
-    ]
+    ],
+    "search_label": "Search Iowa State University"
   },
   "variants": [
     {
@@ -206,6 +207,7 @@
           "url": "#"
         },
         "search_visible": true,
+        "search_label": "Site Search",
         "utility_button": {
           "title": "Button",
           "url": "https://www.iastate.edu/"

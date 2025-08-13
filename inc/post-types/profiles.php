@@ -119,8 +119,8 @@ function acf_custom_post_type_changed_check( $value, $post_id, $field, $original
 	if ( 'options' !== $post_id ) {
 		return $value;
 	}
-	$current_value    = intval( get_field( 'profiles_enabled', 'options' ) );
-	$normalized_value = intval( $value );
+	$current_value    = (int) get_field( 'profiles_enabled', 'options' );
+	$normalized_value = (int) $value;
 
 	if ( $current_value !== $normalized_value ) {
 		// option changed, flush needed.

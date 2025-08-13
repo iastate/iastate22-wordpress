@@ -1,0 +1,21 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "apiVersion": 3,
+  "name": "acf/feature-with-large-image",
+  "title": "Feature - Large",
+  "description": "A large image with a CTA overlay",
+  "category": "isu-blocks",
+  "icon": "format-image",
+  "keywords": [
+    "feature",
+    "image"
+  ],
+  "supports": {
+    "anchor": true
+  },
+  "acf": {
+    "blockVersion": 2,
+    "mode": "edit",
+    "renderCallback": "idf_acf_unified_block_render_callback"
+  }
+}

@@ -1,0 +1,23 @@
+{% block video_youtube %}
+  <img src="https://img.youtube.com/vi/{{ video.youtube_video_id }}/maxresdefault.jpg" alt="Video Poster">
+  <div class="video-embed__video" aria-label="YouTube Video: {{ video.title }}"
+       data-vid="{{ video.youtube_video_id|e('esc_attr') }}"></div>
+{% endblock video_youtube %}
+
+{% block video_vimeo %}
+  <img src="https://vumbnail.com/{{ video.vimeo_video_id }}.jpg" alt="Video Poster">
+  <div class="video--vim" data-vimeo-id="{{ video.vimeo_video_id|e('esc_attr') }}"
+       aria-label="Vimeo Video: {{ video.video_title }}"></div>
+{% endblock video_vimeo %}
+
+{% block video_local %}
+  <video class="ecosystem-home-hero__video" autoplay muted loop>
+    <source src="{{ video.media_video.url|e('esc_url') }}" type="{{ video.media_video.mime_type|e('esc_attr') }}">
+  </video>
+{% endblock video_local %}
+
+{% block video_link %}
+  <video class="ecosystem-home-hero__video" autoplay muted loop>
+    <source src="{{ video.cdn|e('esc_url') }}">
+  </video>
+{% endblock video_link %}

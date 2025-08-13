@@ -1,9 +1,10 @@
 .hero {
-	.post-type-archive &,
-	.archive & {
-		margin-bottom: 60px;
-		@media (min-width: 992px) {
-			margin-bottom: 40px;
-		}
-	}
+  .post-type-archive &,
+  .archive & {
+    margin-bottom: 60px;
+
+    @media (min-width: 992px) {
+      margin-bottom: 40px;
+    }
+  }
 }

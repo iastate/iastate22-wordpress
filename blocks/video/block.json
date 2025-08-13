@@ -1,0 +1,22 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "apiVersion": 3,
+  "name": "acf/video",
+  "title": "Video",
+  "description": "A video player",
+  "category": "isu-blocks",
+  "icon": "video-alt3",
+  "keywords": [
+    "video",
+    "youtube",
+    "player"
+  ],
+  "supports": {
+    "anchor": true
+  },
+  "acf": {
+    "blockVersion": 2,
+    "mode": "edit",
+    "renderCallback": "idf_acf_unified_block_render_callback"
+  }
+}

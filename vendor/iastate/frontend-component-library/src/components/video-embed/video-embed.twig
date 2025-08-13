@@ -10,9 +10,9 @@
       {% endif %}
     {% endif %}
     {% if source == "youtube" %}
-      <div class="video-embed__video" aria-label="YouTube Video: {{ title }}" data-vid="{{ youtube_video_id }}"></div>
+      <div class="video-embed__video" data-aria-label="YouTube Video: {{ title }}" data-vid="{{ youtube_video_id }}"></div>
     {% elseif source == "vimeo" %}
-      <div data-vimeo-id="{{ vimeo_video_id }}" class="video--vim"></div>
+      <div data-aria-label="Vimeo Video: {{ title }}" data-vimeo-id="{{ vimeo_video_id }}" class="video--vim"></div>
     {% endif %}
   </div>
   {% if caption %}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "apiVersion": 3,
+  "name": "acf/featured-events",
+  "title": "Events - Cards",
+  "description": "A curated block of events",
+  "category": "isu-blocks",
+  "icon": "align-wide",
+  "keywords": [
+    "events",
+    "featured",
+    "calendar",
+    "dates"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "anchor": true
+  },
+  "acf": {
+    "blockVersion": 2,
+    "mode": "edit",
+    "renderCallback": "idf_acf_unified_block_render_callback"
+  }
+}

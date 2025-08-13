@@ -1,0 +1,22 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "apiVersion": 3,
+  "name": "acf/accordion",
+  "title": "Accordion",
+  "description": "A set of collapsable content areas",
+  "category": "isu-blocks",
+  "icon": "editor-justify",
+  "keywords": [
+    "accordion",
+    "menu",
+    "list"
+  ],
+  "supports": {
+    "anchor": true
+  },
+  "acf": {
+    "blockVersion": 2,
+    "mode": "edit",
+    "renderCallback": "idf_acf_unified_block_render_callback"
+  }
+}

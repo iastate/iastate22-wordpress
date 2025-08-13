@@ -1,0 +1,24 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "apiVersion": 3,
+  "name": "acf/callout-with-image",
+  "title": "Feature - Small",
+  "description": "A decorative image side card",
+  "category": "isu-blocks",
+  "icon": "embed-photo",
+  "keywords": [
+    "image",
+    "callout",
+    "cta",
+    "feature",
+    "card"
+  ],
+  "supports": {
+    "anchor": true
+  },
+  "acf": {
+    "blockVersion": 2,
+    "mode": "edit",
+    "renderCallback": "idf_acf_unified_block_render_callback"
+  }
+}

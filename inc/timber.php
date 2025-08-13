@@ -21,7 +21,21 @@ if ( file_exists( $composer_autoload ) ) {
  * This ensures that Timber is loaded and available as a PHP class.
  * If not, it gives an error message to help direct developers on where to activate
  */
-if ( iastate22_wordpress_is_environment_compatible() !== true ) {
+if ( ! class_exists( 'Timber' ) ) {
+	add_action(
+		'admin_notices',
+		static function () {
+			echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url( admin_url( 'plugins.php#timber' ) ) . '">' . esc_url( admin_url( 'plugins.php' ) ) . '</a></p></div>';
+		}
+	);
+
+	add_filter(
+		'template_include',
+		static function () {
+			return get_stylesheet_directory() . '/static/no-timber.html';
+		}
+	);
+
 	return;
 }
 
@@ -36,9 +50,19 @@ Timber::$dirname = array( 'templates', 'views' );
  */
 Timber::$autoescape = false;
 
-if ( function_exists( 'acf_add_options_page' ) ) {
-	acf_add_options_page();
-}
+add_action( 'acf/init', function () {
+	if ( function_exists( 'acf_add_options_page' ) ) {
+		acf_add_options_page(
+				array(
+						'page_title' => __( 'Theme General Settings' ),
+						'menu_title' => __( 'Options' ),
+						'menu_slug'  => 'acf-options',
+						'capability' => 'manage_options',
+						'autoload'   => true,
+				)
+		);
+	}
+} );
 
 /**
  * We're going to configure our theme inside a subclass of Timber\Site
@@ -50,8 +74,6 @@ class StarterSite extends TimberSite {
 		add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
 		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
 		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
-		add_action( 'init', array( $this, 'register_post_types' ) );
-		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'load_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'load_scripts' ) );
 		parent::__construct();
@@ -62,9 +84,6 @@ class StarterSite extends TimberSite {
 	 * @param string $context context['this'] Being the Twig's {{ this }}.
 	 */
 	public function add_to_context( array $context ) {
-		$defaults = array(
-			'menu' => 'Main Menu'
-		);
 		if ( has_nav_menu( 'main-menu' ) ) {
 			$context['main_menu'] = new TimberMenu( "main-menu" );
 		}
@@ -96,7 +115,7 @@ class StarterSite extends TimberSite {
 				'taxonomy'   => $item->name,
 				'hide_empty' => $slug,
 			) );
-			array_push( $profileTerms, $terms );
+			$profileTerms[] = $terms;
 		}
 		$context['profile_tax']   = $profileTax;
 		$context['profile_terms'] = $profileTerms;
@@ -207,7 +226,17 @@ class StarterSite extends TimberSite {
 		$twig->addExtension( new StringLoaderExtension() );
 		$twig->addFilter( new \Timber\Twig_Filter( 'boolval', 'wp_validate_boolean' ) );
 
-		$esc_attr          = function ( Environment $env, $string ) {
+		$twig->addFunction(
+				new \Timber\Twig_Function(
+						'is_post_expired',
+						array( $this, 'is_post_expired' ),
+						array(
+								'needs_context' => true,
+						)
+				)
+		);
+
+		$esc_attr = function ( Environment $env, $string ) {
 			return esc_attr( $string );
 		};
 		$escaper_extension = class_exists( 'Twig\Extension\EscaperExtension' ) ?
@@ -230,6 +259,44 @@ class StarterSite extends TimberSite {
 		wp_enqueue_script( 'fontawesome', 'https://kit.fontawesome.com/b658fac974.js', array(), '1.0.0', true );
 	}
 
+
+	/**
+	 * Check if a post is past the expiration date.
+	 *
+	 * @param array $context The Timber context
+	 * @param string $expiration [optional]
+	 * <p>A date/time string. Valid formats are explained in {@link https://secure.php.net/manual/en/datetime.formats.php Date and Time Formats}.</p>
+	 *
+	 * @return bool Returns true only if the post's modified date is earlier than the expiration date.
+	 * @throws WP_Exception DateTime error messages fed through {@see wp_trigger_error}
+	 */
+	function is_post_expired( $context, $expiration = '2 years ago' ) {
+		if ( ! isset( $context['post'] ) ) {
+			return false;
+		}
+
+		$post = $context['post'];
+
+		if ( ! $post instanceof \Timber\Post ) {
+			return false;
+		}
+
+		// only test post/news post types
+		if ( $post->post_type !== 'post' ) {
+			return false;
+		}
+
+		try {
+			$postDate       = new DateTimeImmutable( $post->modified_date( DateTimeInterface::RFC822 ) );
+			$expirationDate = new DateTimeImmutable( $expiration );
+		} catch ( \Exception $e ) {
+			wp_trigger_error( __FUNCTION__, $e->getMessage(), E_USER_ERROR );
+
+			return false;
+		}
+
+		return $expirationDate > $postDate;
+	}
 }
 
 new StarterSite();

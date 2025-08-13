@@ -1,0 +1,25 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "apiVersion": 3,
+  "name": "acf/callout-set",
+  "title": "Feature Set",
+  "description": "A set of decorative side cards with a gray outer background",
+  "category": "isu-blocks",
+  "icon": "embed-photo",
+  "keywords": [
+    "image",
+    "callout",
+    "cta",
+    "feature",
+    "set",
+    "cards"
+  ],
+  "supports": {
+    "anchor": true
+  },
+  "acf": {
+    "blockVersion": 2,
+    "mode": "edit",
+    "renderCallback": "idf_acf_unified_block_render_callback"
+  }
+}

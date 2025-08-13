@@ -1,0 +1,25 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "apiVersion": 3,
+  "name": "acf/announcement",
+  "title": "Announcement",
+  "description": "Intended to display underneath the hero section of the homepage to alert users to various items/initiatives. Outputs an icon, along with intro copy and a link",
+  "category": "isu-blocks",
+  "icon": "bell",
+  "keywords": [
+    "alert",
+    "announcement"
+  ],
+  "selectors": {
+    "root": ".home-announcement"
+  },
+  "acf": {
+    "blockVersion": 2,
+    "usePostMeta": true,
+    "mode": "edit",
+    "renderCallback": "idf_acf_unified_block_render_callback",
+    "postTypes": [
+      "page"
+    ]
+  }
+}

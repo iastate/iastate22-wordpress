@@ -640,9 +640,17 @@
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
+  overscroll-behavior-y: contain;
   @include media-breakpoint-up(xl) {
     overflow: initial;
     pointer-events: none;
+    overscroll-behavior-y: unset;
+  }
+  > div {
+    height: calc(100% + 1px); /* force scroll behavior to prevent scroll chaining */
+    @include media-breakpoint-up(xl) {
+      height: auto;
+    }
   }
 }
 
@@ -865,6 +873,9 @@
           line-height: (26 / 14);
           margin: 0;
           border-radius: 0;
+          &:focus-visible {
+            padding-right: 0;
+          }
           @include media-breakpoint-up(xxl) {
             font-size: rem(16);
             line-height: (26 / 16);
@@ -879,6 +890,9 @@
         .home & {
           @include media-breakpoint-up(xl) {
             color: $white;
+            &:focus-visible {
+              background-color: transparent;
+            }
           }
         }
         .headroom--not-top & {
@@ -1078,12 +1092,22 @@
           &.site-header__mega-menu-main-nav-dropdown-parent-wrap {
             margin-bottom: rem(20);
             @include media-breakpoint-up(xl) {
-              order: 1;
               width: 100% !important;
+              /*
+              order: 1;
               border-top: rem(2) solid $iastate-gold;
               margin-top: rem(45);
               margin-bottom: rem(-15);
               padding-top: rem(25);
+              */
+              /* move parent items to the top */
+              order: 0;
+              border-top: none;
+              border-bottom: rem(2) solid $iastate-gold;
+              margin-top: rem(0);
+              padding-top: rem(0);
+              padding-bottom: rem(25);
+              margin-bottom: rem(25);
             }
             &.site-header__mega-menu-main-nav-dropdown-parent-wrap-no-href {
               display: none;
@@ -1380,11 +1404,24 @@ a.site-header__mega-menu-main-nav-dropdown-parent {
     }
   }
 }
+.site-header__search-form-mobile {
+  label {
+    color: #ffffff;
+    font-weight: 700;
+  }
+  .search-group {
+    position: relative;
+  }
+}
 
 .site-header__search-form-desktop {
   display: none;
   @include media-breakpoint-up(xl) {
-    display: block;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-end;
+
     position: absolute;
     right: 0;
     top: rem(2);
@@ -1399,20 +1436,48 @@ a.site-header__mega-menu-main-nav-dropdown-parent {
     }
   }
   &[aria-hidden="false"] {
-    width: rem(270);
     visibility: visible;
+    /*width: fit-content;*/
+    /*width: rem(640);*/
+    label {
+      color: $iastate-maroon;
+      font-weight: 700;
+      white-space: nowrap;
+      flex: 1 0 auto;
+      text-align: right;
+      padding: rem(8) rem(20) rem(8) rem(20);
+      margin-right: 0;
+      background-color: rgba($white, 0.95);
+      border: rem(2) solid $iastate-maroon;
+      border-right: none;
+      position: relative;
+      z-index: 1;
+      /* unset for screen readers hide css */
+      clip: auto;
+      height: auto;
+      width: auto;
+    }
     button[type="submit"] {
       display: block;
       height: rem(44);
       min-width: rem(44);
       right: rem(44);
       top: rem(2);
+      z-index: 3;
     }
     input {
+      width: rem(270);
+      flex: 0 0 auto;
       border: rem(2) solid $iastate-maroon;
       pointer-events: all;
       padding: rem(8) rem(15);
+      position: relative;
+      z-index: 2;
     }
+  }
+  label {
+    transition: 0.2s width ease-in-out;
+    @extend %visible-for-screen-readers;
   }
   button[type="submit"] {
     @include media-breakpoint-up(xl) {
@@ -1425,6 +1490,7 @@ a.site-header__mega-menu-main-nav-dropdown-parent {
   input {
     border: rem(2) solid transparent;
     width: 100%;
+    max-width: rem(270);
     padding: 0;
     transition: 0.2s border-color ease-in-out;
     pointer-events: none;
@@ -1498,6 +1564,11 @@ a.site-header__mega-menu-main-nav-dropdown-parent {
   display: inline-block;
   text-decoration: none;
   pointer-events: none;
+  &:focus {
+    opacity: 1;
+    pointer-events: initial;
+    background-color: #ffffff;
+  }
 
   @include media-breakpoint-up(xl) {
     position: static;

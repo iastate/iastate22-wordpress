@@ -1,0 +1,23 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "apiVersion": 3,
+  "name": "acf/multi-column-content",
+  "title": "Multi Column Content",
+  "description": "Content column blocks. Maximum of 3",
+  "category": "isu-blocks",
+  "icon": "images-alt2",
+  "keywords": [
+    "columns",
+    "content",
+    "multi",
+    "layout"
+  ],
+  "supports": {
+    "anchor": true
+  },
+  "acf": {
+    "blockVersion": 2,
+    "mode": "edit",
+    "renderCallback": "idf_acf_unified_block_render_callback"
+  }
+}
