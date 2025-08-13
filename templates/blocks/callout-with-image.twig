@@ -3,7 +3,7 @@
 	<div class="callout-with-image">
 		<div class="callout-with-image__media">
 			<img src="{{ fields.callout_with_image.callout_image.url|e('esc_url') }}"
-				 alt="{{ fields.callout_with_image.callout_image.title|e('esc_attr') }}" width="622" height="414"/>
+				 alt="{{ fields.callout_with_image.callout_image.alt|e('esc_attr') }}" width="622" height="414"/>
 		</div>
 		<div class="callout-with-image__content text-content">
 			{% if fields.callout_with_image.callout_content.title %}

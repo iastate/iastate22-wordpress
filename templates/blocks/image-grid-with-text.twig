@@ -3,7 +3,7 @@
 	<div class="image-grid-with-text">
 		<div class="image-grid-with-text__content text-content">
 			{% if fields.image_grid_with_text.grid_content.title %}
-				<h2>{{ fields.image_grid_with_text.grid_content.title|striptags }}</h2>{% endif %}
+				<h2>{{ fields.image_grid_with_text.grid_content.title|e('esc_html') }}</h2>{% endif %}
 			{% if fields.image_grid_with_text.grid_content.content %}
 				<div>{{ fields.image_grid_with_text.grid_content.content }}</div>{% endif %}
 			{% if fields.image_grid_with_text.grid_content.link_url %}
@@ -21,20 +21,20 @@
 		<div class="image-grid">
 			{% if fields.image_grid_with_text.image_grid.main_image.url %}
 				<div class="image-grid__image">
-					<img src="{{ fields.image_grid_with_text.image_grid.main_image.url|e('esc_url') }}" alt=""
-						 width="627" height="418"/>
+					<img src="{{ fields.image_grid_with_text.image_grid.main_image.url|e('esc_url') }}"
+							 alt="{{ fields.image_grid_with_text.image_grid.main_image.alt|e('esc_attr') }}" width="627" height="418"/>
 				</div>
 			{% endif %}
 			{% if fields.image_grid_with_text.image_grid.left_image.url %}
 				<div class="image-grid__image">
-					<img src="{{ fields.image_grid_with_text.image_grid.left_image.url|e('esc_url') }}" alt=""
-						 width="303" height="202"/>
+					<img src="{{ fields.image_grid_with_text.image_grid.left_image.url|e('esc_url') }}"
+							 alt="{{ fields.image_grid_with_text.image_grid.left_image.alt|e('esc_attr') }}" width="303" height="202"/>
 				</div>
 			{% endif %}
 			{% if fields.image_grid_with_text.image_grid.right_image.url %}
 				<div class="image-grid__image">
-					<img src="{{ fields.image_grid_with_text.image_grid.right_image.url|e('esc_url') }}" alt=""
-						 width="303" height="202"/>
+					<img src="{{ fields.image_grid_with_text.image_grid.right_image.url|e('esc_url') }}"
+							 alt="{{ fields.image_grid_with_text.image_grid.right_image.alt|e('esc_attr') }}" width="303" height="202"/>
 				</div>
 			{% endif %}
 			{% if fields.image_grid_with_text.image_grid.image_caption %}

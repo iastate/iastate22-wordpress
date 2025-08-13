@@ -9,7 +9,7 @@
 						{% if callout.callout_image %}
 							<div class="iastate22-callout__media">
 								<img src="{{ callout.callout_image.url|e('esc_url') }}"
-									 alt="{{ callout.callout_image.title|e('esc_attr') }}" width="622" height="414"/>
+									 alt="{{ callout.callout_image.alt|e('esc_attr') }}" width="622" height="414"/>
 							</div>
 						{% endif %}
 						<div class="iastate22-callout__content text-content">
