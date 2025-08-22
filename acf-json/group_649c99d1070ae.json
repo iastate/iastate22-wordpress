@@ -1,6 +1,6 @@
 {
     "key": "group_649c99d1070ae",
-    "title": "Theme Post Options",
+    "title": "Post Options",
     "fields": [
         {
             "key": "field_649c99d17f834",
@@ -8,7 +8,7 @@
             "name": "subhead",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "",
+            "instructions": "(Optional) Appears under heading.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -18,6 +18,7 @@
             },
             "default_value": "",
             "maxlength": "",
+            "allow_in_bindings": 1,
             "rows": 2,
             "placeholder": "",
             "new_lines": ""
@@ -69,7 +70,7 @@
         },
         {
             "key": "field_65245a6ff90fa",
-            "label": "Show\/Hide Post Credits",
+            "label": "Post Credits",
             "name": "show_author",
             "aria-label": "",
             "type": "true_false",
@@ -94,9 +95,17 @@
             "name": "credits",
             "aria-label": "",
             "type": "group",
-            "instructions": "Manually set post credits. Empty values will default to WordPress",
+            "instructions": "You can override the author and image credits to a non-WordPress user account by using these fields.",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_65245a6ff90fa",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -131,7 +140,7 @@
                     "name": "image",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "(Optional) Image credit will not display if empty.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -145,6 +154,51 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": ""
+                }
+            ]
+        },
+        {
+            "key": "field_68a8a47fde8cf",
+            "label": "Archive Banner",
+            "name": "archive_banner",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "News articles older than two years will include a banner to inform users that the content may be outdated. Consider removing old content if it's no longer needed.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_68a8a4eade8d1",
+                    "label": "Visibility",
+                    "name": "visibility",
+                    "aria-label": "",
+                    "type": "radio",
+                    "instructions": "Manually override the display logic to toggle the banner’s visibility.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "default": "Default",
+                        "on": "On",
+                        "off": "Off"
+                    },
+                    "default_value": "default",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "allow_in_bindings": 1,
+                    "layout": "horizontal",
+                    "save_other_choice": 0
                 }
             ]
         },
@@ -169,12 +223,12 @@
             "ui": 1
         },
         {
-            "key": "field_689ba36be0e3c",
-            "label": "Archive Banner",
-            "name": "",
+            "key": "field_68a8adc52e2e6",
+            "label": "Last Updated",
+            "name": "last_updated_visibility",
             "aria-label": "",
-            "type": "message",
-            "instructions": "",
+            "type": "true_false",
+            "instructions": "Toggle the last update visibility.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -182,9 +236,12 @@
                 "class": "",
                 "id": ""
             },
-            "message": "News articles older than two years will include a banner to inform users that the content may be outdated. Consider removing old content if it's no longer needed, or update the content to remove the banner.",
-            "new_lines": "wpautop",
-            "esc_html": 0
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 1,
+            "ui_on_text": "Hide",
+            "ui_off_text": "Show",
+            "ui": 1
         }
     ],
     "location": [
@@ -200,10 +257,10 @@
     "position": "side",
     "style": "seamless",
     "label_placement": "top",
-    "instruction_placement": "field",
+    "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1755030765
+    "modified": 1755889462
 }

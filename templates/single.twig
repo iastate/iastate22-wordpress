@@ -29,7 +29,7 @@
 			{% endif %}
 			<div class="hero--news-article__date">
 				<time datetime="{{ post.date('Y-m-d') }}">{{ post.date }}</time>
-				{%- if post.date('YMD') != post.modified_date('YMD') %}
+				{%- if show_last_updated_date() %}
 						<span class="hero--news-article__modified-date">
 							| Updated: <time datetime="{{ post.modified_date('Y-m-d') }}">{{ post.modified_date }}</time>
 						</span>

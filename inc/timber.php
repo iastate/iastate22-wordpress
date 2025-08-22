@@ -222,6 +222,16 @@ class StarterSite extends TimberSite {
 				)
 		);
 
+		$twig->addFunction(
+				new \Timber\Twig_Function(
+						'show_last_updated_date',
+						array( $this, 'show_last_updated_date' ),
+						array(
+								'needs_context' => true,
+						)
+				)
+		);
+
 		$esc_attr = function ( Environment $env, $string ) {
 			return esc_attr( $string );
 		};
@@ -290,16 +300,84 @@ class StarterSite extends TimberSite {
 			return false;
 		}
 
+		if ( $post->has_field( 'archive_banner' ) ) {
+			$archive_banner = $post->get_field( 'archive_banner' );
+
+			if ( isset( $archive_banner['visibility'] ) ) {
+				switch ( $archive_banner['visibility'] ) {
+					case 'on':
+						return true;
+					case 'off':
+						return false;
+					case 'default':
+					default:
+						break;
+				}
+
+			}
+		}
+
 		try {
-			$postDate       = new DateTimeImmutable( $post->modified_date( DateTimeInterface::RFC822 ) );
-			$expirationDate = new DateTimeImmutable( $expiration );
+			$post_date       = new DateTimeImmutable( $post->date( DateTimeInterface::RFC822 ) );
+			$expiration_date = new DateTimeImmutable( $expiration );
 		} catch ( \Exception $e ) {
 			wp_trigger_error( __FUNCTION__, $e->getMessage(), E_USER_ERROR );
 
 			return false;
 		}
 
-		return $expirationDate > $postDate;
+		return $expiration_date > $post_date;
+	}
+
+	/**
+	 * Determine if the modified_date should be displayed.
+	 *
+	 * @param array $context The Timber context
+	 *
+	 * @return bool
+	 * @throws WP_Exception
+	 * @since 1.3.2
+	 */
+	function show_last_updated_date( $context ) {
+		if ( ! isset( $context['post'] ) ) {
+			return true;
+		}
+
+		$post = $context['post'];
+
+		if ( ! $post instanceof \Timber\Post ) {
+			return true;
+		}
+
+		$post_date     = $post->date( 'Y-m-d' );
+		$modified_date = $post->modified_date( 'Y-m-d' );
+
+		// Don't show if modified on the same day
+		if ( $post_date === $modified_date ) {
+			return false;
+		}
+
+		try {
+			$post_datetime     = new DateTimeImmutable( $post->date( DateTimeInterface::RFC822 ) );
+			$modified_datetime = new DateTimeImmutable( $post->modified_date( DateTimeInterface::RFC822 ) );
+		} catch ( \Exception $e ) {
+			wp_trigger_error( __FUNCTION__, $e->getMessage(), E_USER_ERROR );
+
+			return true;
+		}
+
+		// Don't show if published date is in the future
+		if ( $modified_datetime < $post_datetime ) {
+			return false;
+		}
+
+		// Manual override
+		if ( $post->has_field( 'last_updated_visibility' ) &&
+		     true === $post->get_field( 'last_updated_visibility' ) ) {
+			return false;
+		}
+
+		return true;
 	}
 }
 
