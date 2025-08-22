@@ -232,6 +232,16 @@ class StarterSite extends TimberSite {
 				)
 		);
 
+		$twig->addFunction(
+				new \Timber\Twig_Function(
+						'show_post_author',
+						array( $this, 'show_post_author' ),
+						array(
+								'needs_context' => true,
+						)
+				)
+		);
+
 		$esc_attr = function ( Environment $env, $string ) {
 			return esc_attr( $string );
 		};
@@ -338,7 +348,7 @@ class StarterSite extends TimberSite {
 	 * @throws WP_Exception
 	 * @since 1.3.2
 	 */
-	function show_last_updated_date( $context ) {
+	function show_theme_author( $context ) {
 		if ( ! isset( $context['post'] ) ) {
 			return true;
 		}
@@ -378,6 +388,32 @@ class StarterSite extends TimberSite {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Determine if the author credits should be displayed.
+	 *
+	 * @param array $context The Timber context
+	 *
+	 * @return bool
+	 * @since 1.3.3
+	 */
+	function show_post_author( $context ) {
+		if ( ! isset( $context['post'] ) ) {
+			return true;
+		}
+
+		$post = $context['post'];
+
+		if ( ! $post instanceof \Timber\Post ) {
+			return true;
+		}
+
+		if ( ! $post->has_field( 'show_author' ) ) {
+			return true;
+		}
+
+		return (bool) $post->get_field( 'show_author' );
 	}
 }
 

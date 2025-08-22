@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Announcement editor block (Is a block the right implementation for this?)
 
+### Fixed
+
+- Show author check did not work as expected for posts with no ACF meta data
+
 ---
 
 ## [1.3.2] - 2025-08-22

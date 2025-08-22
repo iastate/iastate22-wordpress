@@ -35,7 +35,7 @@
 						</span>
 				{%- endif -%}
 			</div>
-			{% if post.meta('show_author')|boolval %}
+			{% if show_post_author() %}
 				<div class="hero--news-article__attribution">
 					<p>
 						<strong>Author: {{ post.meta('credits').author|default(post.author.name)|e('html') }}</strong>
