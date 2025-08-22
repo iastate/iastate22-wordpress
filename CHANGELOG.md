@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Archive banner check references published date instead of modified date
 - HTML alt attribute for images changed to use media library text in blocks (Image grid with text, Callout with image, Callout set)
 - Post Option ACF fields
   - Updated text
