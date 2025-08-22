@@ -10,11 +10,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Announcement editor block (Is a block the right implementation for this?)
-- Cache busting urls for script and style files
+
+---
+
+## [1.3.2] - 2025-08-22
+
+### Added
+
+- Last updated time visibility check for Posts
+- Archive banner visibility toggle for Posts
+- Theme version in urls for script and style files to help with clearing browser cache on updates
 
 ### Changed
 
-- Post revision compares only date instead of full timestamp
+- HTML alt attribute for images changed to use media library text in blocks (Image grid with text, Callout with image, Callout set)
+- Post Option ACF fields
+  - Updated text
+  - Added fields (archive banner visibility toggle, last updated visibility toggle)
+  - Credit override fields are conditional on credit visibility
+
+--- 
 
 ## [1.3.1] - 2025-08-13
 
@@ -26,6 +41,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Post options logic (show author, hero image)
+
+---
 
 ## [1.3.0] - 2025-08-13
 
@@ -64,3 +81,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [unreleased]: https://github.com/iastate/iastate22-wordpress/compare/master...develop
 [1.3.0]: https://github.com/iastate/iastate22-wordpress/compare/1.2.2...1.3.0
 [1.3.1]: https://github.com/iastate/iastate22-wordpress/compare/1.3.0...1.3.1
+[1.3.2]: https://github.com/iastate/iastate22-wordpress/compare/1.3.1...1.3.2
