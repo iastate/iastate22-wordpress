@@ -11,9 +11,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Announcement editor block (Is a block the right implementation for this?)
 
+---
+
+## [1.3.3] - 2025-09-02
+
 ### Fixed
 
-- Show author check did not work as expected for posts with no ACF meta data
+- Show author check did not work as expected for posts with no ACF metadata
+- Table block not displaying on public view
 
 ---
 
@@ -87,3 +92,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.3.0]: https://github.com/iastate/iastate22-wordpress/compare/1.2.2...1.3.0
 [1.3.1]: https://github.com/iastate/iastate22-wordpress/compare/1.3.0...1.3.1
 [1.3.2]: https://github.com/iastate/iastate22-wordpress/compare/1.3.1...1.3.2
+[1.3.3]: https://github.com/iastate/iastate22-wordpress/compare/1.3.2...1.3.3
