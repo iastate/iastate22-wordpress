@@ -1,0 +1,27 @@
+<div class="paragraph-widget paragraph-widget--table"
+    {%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+  <div class="iastate22-table" role="region" tabindex="0"
+       aria-labelledby="{{ fields.table_caption.caption_id|e('esc_attr') }}">
+    <table>
+      <caption id="{{ fields.table_caption.caption_id|e('esc_attr') }}">
+				{{- fields.table_caption.caption -}}
+			</caption>
+      <thead>
+      <tr>
+        {% for header in fields.table_headers %}
+          <th>{{ header.header }}</th>
+        {% endfor %}
+      </tr>
+      </thead>
+      <tbody>
+      {% for row in fields.table_rows %}
+        <tr>
+          {% for column in row.table_column %}
+            <td>{{ column.column_copy }}</td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
