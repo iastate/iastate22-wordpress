@@ -1,17 +1,22 @@
+{%- set is_home = function('is_home') -%}
 <div class="paragraph-widget paragraph-widget--filter-form">
 	<div class="filter-form">
-		{% if function('is_home') %}
-			<h2 class="filter-form__label">All Stories</h2>
-			<form class="iastate22-form iastate22-form--inline" id="searchform" action="{{ post.link|e('esc_url') }}" method="get">
+		<h2 class="filter-form__label">
+			{%- if is_home -%}
+				All Stories
+			{%- else -%}
+				Site Search
+			{%- endif -%}
+		</h2>
+		<form class="iastate22-form iastate22-form--inline" id="searchform" method="get"
+					action="{{ ( is_home ? post.link : site.home )|e('esc_url') }}">
+			{% if is_home %}
 				<input type="hidden" name="post_type" value="post" tabindex="-1"/>
-		{% else %}
-			<h2 class="filter-form__label">Site Search</h2>
-			<form class="iastate22-form iastate22-form--inline" id="searchform" action="{{ site.home|e('esc_url') }}" method="get">
-		{% endif %}
+			{% endif %}
 			<div class="form-item">
 				<label for="s">Search</label>
 				<input class="iastate22-form--search" type="text" name="s" id="s"
-					   value="{{ function('get_search_query') }}" tabindex="1">
+							 value="{{ function('get_search_query') }}" tabindex="1">
 			</div>
 			{% if categories|length > 0 %}
 				<div class="form-item">
