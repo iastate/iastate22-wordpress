@@ -1,12 +1,15 @@
 <div class="paragraph-widget paragraph-widget--filter-form">
 	<div class="filter-form">
-		<h2 class="filter-form__label">All Stories</h2>
-		<form class="iastate22-form iastate22-form--inline" id="searchform" action="{{ site.link|e('esc_url') }}"
-			  method="get">
-			<input type="hidden" name="post_type" value="post" tabindex="-1"/>
+		{% if function('is_home') %}
+			<h2 class="filter-form__label">All Stories</h2>
+			<form class="iastate22-form iastate22-form--inline" id="searchform" action="{{ post.link|e('esc_url') }}" method="get">
+				<input type="hidden" name="post_type" value="post" tabindex="-1"/>
+		{% else %}
+			<h2 class="filter-form__label">Site Search</h2>
+			<form class="iastate22-form iastate22-form--inline" id="searchform" action="{{ site.home|e('esc_url') }}" method="get">
+		{% endif %}
 			<div class="form-item">
 				<label for="s">Search</label>
-				{# Post(function('get_option' ,'page_for_posts')).link #}
 				<input class="iastate22-form--search" type="text" name="s" id="s"
 					   value="{{ function('get_search_query') }}" tabindex="1">
 			</div>
@@ -15,15 +18,15 @@
 					<label for="category_name">Category</label>
 					<select class="iastate22-form--select" name="category_name" id="category_name">
 						<option value=""></option>
-						{% for term in categories %}
-							{% if term.count > 0 %}
-								<option value="{{ term.slug|e('esc_attr') }}"
-									{% if function('get_query_var', 'category_name') == term.slug %}
+						{% for term in categories -%}
+							{%- if term.count > 0 -%}
+								<option
+										value="{{ term.slug|e('esc_attr') }}" {% if function('get_query_var', 'category_name') == term.slug -%}
 										selected
-									{% endif %}
+									{%- endif -%}
 								>{{ term.name }}</option>
-							{% endif %}
-						{% endfor %}
+							{%- endif -%}
+						{%- endfor %}
 					</select>
 				</div>
 			{% endif %}
@@ -33,15 +36,15 @@
 					<label for="tag">Tag</label>
 					<select class="iastate22-form--select" name="tag" id="tag">
 						<option value=""></option>
-						{% for term in tags %}
-							{% if term.count > 0 %}
-								<option value="{{ term.slug|e('esc_attr') }}"
-									{% if function('get_query_var', 'tag') == term.slug %}
+						{% for term in tags -%}
+							{%- if term.count > 0 -%}
+								<option
+										value="{{ term.slug|e('esc_attr') }}" {% if function('get_query_var', 'tag') == term.slug -%}
 										selected
-									{% endif %}
+									{%- endif -%}
 								>{{ term.name }}</option>
-							{% endif %}
-						{% endfor %}
+							{%- endif -%}
+						{%- endfor %}
 					</select>
 				</div>
 			{% endif %}
