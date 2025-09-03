@@ -498,16 +498,21 @@ class StarterSite extends TimberSite {
 		$preview_settings = $context['options']['news_page_options'];
 
 		if ( isset( $preview_settings['show_preview'] ) && $preview_settings['show_preview'] ) {
-			if ( 'profiles' === $post->type()->slug ) {
-				$first_name = $post->get_field( 'first_name' );
-				$last_name  = $post->get_field( 'last_name' );
+			if ( empty( $post->post_excerpt ) ) {
+				switch ( $post->type()->slug ) {
+					case 'profiles':
+						$first_name = $post->get_field( 'first_name' );
+						$last_name  = $post->get_field( 'last_name' );
 
-				$post->post_excerpt = sprintf(
-						'%s',
-						esc_html( $last_name . ', ' . $first_name ),
-				);
-			} elseif ( 'events' === $post->type()->slug ) {
-				$post->post_excerpt = $post->get_field( 'location' );
+						$post->post_excerpt = sprintf(
+								'%s',
+								esc_html( $last_name . ', ' . $first_name ),
+						);
+						break;
+					case 'events':
+						$post->post_excerpt = $post->get_field( 'location' );
+						break;
+				}
 			}
 
 			$preview        = $post->preview();
