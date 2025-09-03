@@ -212,35 +212,31 @@ class StarterSite extends TimberSite {
 		$twig->addExtension( new StringLoaderExtension() );
 		$twig->addFilter( new \Timber\Twig_Filter( 'boolval', 'wp_validate_boolean' ) );
 
-		$twig->addFunction(
-				new \Timber\Twig_Function(
-						'is_post_expired',
-						array( $this, 'is_post_expired' ),
-						array(
-								'needs_context' => true,
-						)
-				)
-		);
-
-		$twig->addFunction(
-				new \Timber\Twig_Function(
-						'show_last_updated_date',
-						array( $this, 'show_last_updated_date' ),
-						array(
-								'needs_context' => true,
-						)
-				)
-		);
-
-		$twig->addFunction(
-				new \Timber\Twig_Function(
-						'show_post_author',
-						array( $this, 'show_post_author' ),
-						array(
-								'needs_context' => true,
-						)
-				)
-		);
+		$twig->addFunction( new \Timber\Twig_Function(
+				'is_post_expired',
+				array( $this, 'is_post_expired' ),
+				array( 'needs_context' => true, )
+		) );
+		$twig->addFunction( new \Timber\Twig_Function(
+				'show_last_updated_date',
+				array( $this, 'show_last_updated_date' ),
+				array( 'needs_context' => true, )
+		) );
+		$twig->addFunction( new \Timber\Twig_Function(
+				'show_post_author',
+				array( $this, 'show_theme_post_author' ),
+				array( 'needs_context' => true, )
+		) );
+		$twig->addFunction( new \Timber\Twig_Function(
+				'theme_post_thumbnail',
+				array( $this, 'get_theme_post_thumbnail' ),
+				array( 'needs_context' => true, )
+		) );
+		$twig->addFunction( new \Timber\Twig_Function(
+				'theme_post_preview',
+				array( $this, 'get_theme_post_preview' ),
+				array( 'needs_context' => true, )
+		) );
 
 		$esc_attr = function ( Environment $env, $string ) {
 			return esc_attr( $string );
@@ -289,17 +285,20 @@ class StarterSite extends TimberSite {
 	 * @param array $context The Timber context
 	 * @param string $expiration [optional]
 	 * <p>A date/time string. Valid formats are explained in {@link https://secure.php.net/manual/en/datetime.formats.php Date and Time Formats}.</p>
+	 * @param \Timber\Post|null $post
 	 *
 	 * @return bool Returns true only if the post's modified date is earlier than the expiration date.
 	 * @throws WP_Exception DateTime error messages fed through {@see wp_trigger_error}
 	 * @since 1.3.0
 	 */
-	function is_post_expired( $context, $expiration = '2 years ago' ) {
-		if ( ! isset( $context['post'] ) ) {
-			return false;
-		}
+	function is_post_expired( $context, $expiration = '2 years ago', $post = null ) {
+		if ( null === $post ) {
+			if ( ! isset( $context['post'] ) ) {
+				return false;
+			}
 
-		$post = $context['post'];
+			$post = $context['post'];
+		}
 
 		if ( ! $post instanceof \Timber\Post ) {
 			return false;
@@ -343,17 +342,20 @@ class StarterSite extends TimberSite {
 	 * Determine if the modified_date should be displayed.
 	 *
 	 * @param array $context The Timber context
+	 * @param \Timber\Post|null $post
 	 *
 	 * @return bool
 	 * @throws WP_Exception
 	 * @since 1.3.2
 	 */
-	function show_theme_author( $context ) {
-		if ( ! isset( $context['post'] ) ) {
-			return true;
-		}
+	function show_last_updated_date( $context, $post = null ) {
+		if ( null === $post ) {
+			if ( ! isset( $context['post'] ) ) {
+				return false;
+			}
 
-		$post = $context['post'];
+			$post = $context['post'];
+		}
 
 		if ( ! $post instanceof \Timber\Post ) {
 			return true;
@@ -394,16 +396,19 @@ class StarterSite extends TimberSite {
 	 * Determine if the author credits should be displayed.
 	 *
 	 * @param array $context The Timber context
+	 * @param \Timber\Post|null $post
 	 *
 	 * @return bool
 	 * @since 1.3.3
 	 */
-	function show_post_author( $context ) {
-		if ( ! isset( $context['post'] ) ) {
-			return true;
-		}
+	function show_theme_post_author( $context, $post = null ) {
+		if ( null === $post ) {
+			if ( ! isset( $context['post'] ) ) {
+				return true;
+			}
 
-		$post = $context['post'];
+			$post = $context['post'];
+		}
 
 		if ( ! $post instanceof \Timber\Post ) {
 			return true;
@@ -414,6 +419,106 @@ class StarterSite extends TimberSite {
 		}
 
 		return (bool) $post->get_field( 'show_author' );
+	}
+
+	/**
+	 * Return either the post or theme's thumbnail
+	 *
+	 * @param array $context The Timber context
+	 * @param \Timber\Post|null $post
+	 *
+	 * @return \Timber\Image|null
+	 * @since 1.3.4
+	 */
+	function get_theme_post_thumbnail( $context, $post = null ) {
+		if ( null === $post ) {
+			if ( ! isset( $context['post'] ) ) {
+				return null;
+			}
+
+			$post = $context['post'];
+		}
+
+		if ( ! $post instanceof \Timber\Post ) {
+			return null;
+		}
+
+		$thumbnail = $post->thumbnail();
+
+		if ( $thumbnail instanceof \Timber\Image ) {
+			return $thumbnail;
+		}
+
+		if ( $post->has_field( 'hero_image' ) ) {
+			$thumbnail = $post->get_field( 'hero_image' );
+
+			if ( isset( $thumbnail['ID'] ) ) {
+				return new \Timber\Image( $thumbnail['ID'] );
+			}
+		}
+
+		if ( 'profiles' === $post->type()->slug && $post->has_field( 'photo' ) ) {
+			$thumbnail = $post->get_field( 'photo' );
+
+			if ( isset( $thumbnail['ID'] ) ) {
+				return new \Timber\Image( $thumbnail['ID'] );
+			}
+		}
+
+
+		return null;
+	}
+
+	/**
+	 * Return and configure the post preview if checks are passed
+	 *
+	 * @param array $context The Timber context
+	 * @param \Timber\Post|null $post
+	 *
+	 * @return \Timber\PostPreview|null
+	 * @since 1.3.4
+	 */
+	function get_theme_post_preview( $context, $post = null ) {
+		if ( null === $post ) {
+			if ( ! isset( $context['post'] ) ) {
+				return null;
+			}
+
+			$post = $context['post'];
+		}
+
+		if ( ! $post instanceof \Timber\Post ) {
+			return null;
+		}
+
+		if ( ! isset( $context['options']['news_page_options'] ) ) {
+			return null;
+		}
+
+		$preview_settings = $context['options']['news_page_options'];
+
+		if ( isset( $preview_settings['show_preview'] ) && $preview_settings['show_preview'] ) {
+			if ( 'profiles' === $post->type()->slug ) {
+				$first_name = $post->get_field( 'first_name' );
+				$last_name  = $post->get_field( 'last_name' );
+
+				$post->post_excerpt = sprintf(
+						'%s',
+						esc_html( $last_name . ', ' . $first_name ),
+				);
+			}
+
+			$preview        = $post->preview();
+			$preview_length = $preview_settings['preview_length'] ?? 50;
+			$read_more      = ! empty( $preview_settings['read_more'] ) ? esc_html( $preview_settings['read_more'] ) : false;
+
+			return $preview
+					->length( (int) $preview_length )
+					->force( true )
+					->read_more( $read_more );
+		}
+
+		return null;
 	}
 }
 

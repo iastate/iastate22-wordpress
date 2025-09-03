@@ -66,6 +66,87 @@
             "ui_on_text": "",
             "ui_off_text": "",
             "ui": 1
+        },
+        {
+            "key": "field_68b86d1dda2b9",
+            "label": "Show Preview",
+            "name": "show_preview",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Show preview in list views",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_68b86d95da2ba",
+            "label": "Preview Length",
+            "name": "preview_length",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "The maximum amount of words (not letters) for the preview",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_68b86d1dda2b9",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 50,
+            "min": 0,
+            "max": 500,
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "Words"
+        },
+        {
+            "key": "field_68b8745164033",
+            "label": "Read More",
+            "name": "read_more",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Defines the text to be used for the \"Read More\" link. Empty value disables text.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_68b86d1dda2b9",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 250,
+            "allow_in_bindings": 0,
+            "placeholder": "Read More",
+            "prepend": "...",
+            "append": ""
         }
     ],
     "location": [
@@ -86,5 +167,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1689354126
+    "modified": 1756919979
 }

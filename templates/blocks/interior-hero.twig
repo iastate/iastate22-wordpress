@@ -1,3 +1,4 @@
+{% if function('is_singular') %}
 <div class="hero"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
 	<div class="hero__text-wrap">
 		{% include ['templates/partial/breadcrumbs.twig'] %}
@@ -23,3 +24,4 @@
 		</div>
 	{% endif %}
 </div>
+{% endif %}

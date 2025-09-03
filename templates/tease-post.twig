@@ -2,15 +2,21 @@
 	class="tease tease-{{ post.post_type|e('esc_attr') }} iastate22-card iastate22-card--teaser iastate22-card--teaser-news clickable"
 	id="tease-{{ post.ID }}" data-clickable="true">
 	{% block content %}
-		{% if post.thumbnail %}
+		{%- set post_preview = theme_post_preview(post) -%}
+		{%- set post_thumbnail = theme_post_thumbnail(post) -%}
+		{% if post_thumbnail %}
 			<div class="iastate22-card__media">
-				<img src="{{ post.thumbnail.src|e('esc_url') }}" alt="{{ post.thumbnail.alt|e('esc_attr') }}" loading="lazy" />
+				<img src="{{ post_thumbnail.src|e('esc_url') }}" alt="{{ post_thumbnail.alt|e('esc_attr') }}" loading="lazy" />
 			</div>
 		{% endif %}
 		<div class="iastate22-card__content">
 			<a href="{{ post.link|e('esc_url') }}" class="iastate22-card__cta">{{ post.title }}</a>
-			<p class="iastate22-card__content-body">{{ post.preview.length(25).read_more(false) }}</p>
-			<p class="iastate22-card__content-date">{{ post.date }}</p>
+			{%- if post_preview %}
+				<p class="iastate22-card__content-body">{{ post_preview }}</p>
+			{% endif -%}
+			{%- if post.type.slug == 'post' %}
+				<p class="iastate22-card__content-date">{{ post.date }}</p>
+			{% endif -%}
 		</div>
 	{% endblock %}
 </div>

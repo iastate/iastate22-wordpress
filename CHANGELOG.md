@@ -13,6 +13,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.3.4] - 2025-09-02
+
+### Added
+
+- Post Preview Options
+  - Added ACF fields in General Settings (Show Preview, Preview Length, Read More)
+  - Added Timber Functions (`get_theme_post_thumbnail()`, `get_theme_post_preview()`)
+  - Default visibility is off
+
+### Fixed 
+
+- Post loops now format thumbnails and previews the same as Blog Home page
+- Hide hero block from excerpt/preview content
+
+---
+
 ## [1.3.3] - 2025-09-02
 
 ### Fixed
@@ -93,3 +109,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.3.1]: https://github.com/iastate/iastate22-wordpress/compare/1.3.0...1.3.1
 [1.3.2]: https://github.com/iastate/iastate22-wordpress/compare/1.3.1...1.3.2
 [1.3.3]: https://github.com/iastate/iastate22-wordpress/compare/1.3.2...1.3.3
+[1.3.4]: https://github.com/iastate/iastate22-wordpress/compare/1.3.3...1.3.4
