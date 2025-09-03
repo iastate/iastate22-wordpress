@@ -6,7 +6,7 @@
 					{%- set post_preview = theme_post_preview(post) -%}
 					{%- set post_thumbnail = theme_post_thumbnail(post) -%}
 					<li>
-						<div class="hero-stories-feed-item">
+						<div class="hero-stories-feed-item feed-item-type-{{ post.type.slug|e('esc_attr') }}">
 						{%- if post_thumbnail %}
 							<div class="hero-stories-feed-item__media">
 								<div class="hero-stories-feed-item__media-container">
@@ -19,9 +19,12 @@
 						<div class="hero-stories-feed-item__content {%- if post_preview %} hero-stories-feed-item__content__with_blurb {%- endif %}">
 							<div class="hero-stories-feed-item__content-tags">
 								<ul>
+									{%- if function('is_search') -%}
+										<li>{{ post.type.labels.singular_name|e('esc_html') }}</li>
+									{%- endif -%}
 									{%- for term in post.terms -%}
 										{%- if term.taxonomy == "category" -%}
-											<li>{{ term.name }}</li>
+											<li>{{ term.name|e('esc_html') }}</li>
 										{%- endif -%}
 									{%- endfor -%}
 								</ul>
@@ -34,6 +37,9 @@
               {% endif %}
 							{%- if post.type.slug == 'post' %}
 								<p class="hero-stories-feed-item__content-date">{{ post.date }}</p>
+							{% elseif post.type.slug == 'events' %}
+								{%- from 'macros/event-time.twig' import event_short_timeframe as event_string -%}
+								<p class="hero-stories-feed-item__content-date">{{ event_string(post) }}</p>
 							{% endif %}
 						</div>
 					</div>

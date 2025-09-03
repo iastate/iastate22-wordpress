@@ -506,6 +506,8 @@ class StarterSite extends TimberSite {
 						'%s',
 						esc_html( $last_name . ', ' . $first_name ),
 				);
+			} elseif ( 'events' === $post->type()->slug ) {
+				$post->post_excerpt = $post->get_field( 'location' );
 			}
 
 			$preview        = $post->preview();
@@ -514,7 +516,7 @@ class StarterSite extends TimberSite {
 
 			return $preview
 					->length( (int) $preview_length )
-					->force( true )
+					->force( false )
 					->read_more( $read_more );
 		}
 

@@ -1,0 +1,75 @@
+{% macro event_timeframe(post) -%}
+  {%- if post.meta('event_end_date_end_date')|length > 0
+    and post.meta('event_start_date_start_date')|length > 0 -%}
+    {%- set start_date = post.meta('event_start_date_start_date') -%}
+    {%- set end_date = post.meta('event_end_date_end_date') -%}
+    {%- set event_date = start_date|date('l, F d Y')~" to "~ end_date|date('l, F d Y') -%}
+  {%- elseif post.meta('event_start_date_start_date')|length > 0 -%}
+    {%- set start_date = post.meta('event_start_date_start_date') -%}
+    {%- set event_date = start_date|date('l, F d Y') -%}
+  {%- endif -%}
+  {%- if post.meta('event_end_date_end_time')|length > 0 and post.meta('event_start_date_start_time')|length > 0 -%}
+    {%- set start_time = post.meta('event_start_date_start_time') -%}
+    {%- set end_time = post.meta('event_end_date_end_time') -%}
+    {%- set event_time = "from " ~ start_time|date('g:ia') ~ " to " ~ end_time|date('g:ia') -%}
+  {%- elseif post.meta('event_start_date_start_time')|length > 0 -%}
+    {%- set start_time = post.meta('event_start_date_start_time') -%}
+    {%- set event_time = "at " ~ start_time|date('g:ia') -%}
+  {%- endif -%}
+  {%- if event_date|length > 0 and end_date > start_date -%}
+    {%- set event_string = event_date -%}
+  {%- elseif event_date|length > 0 and post.meta("event_start_date_full_day") == true -%}
+    {%- set event_string = event_date -%}
+  {%- elseif event_date|length > 0 and event_time|length > 0 -%}
+    {%- set event_string = event_date ~ " " ~ event_time -%}
+  {%- elseif event_date|length > 0 -%}
+    {%- set event_string = event_date -%}
+  {%- endif -%}
+  {%- if post.meta('recurring_event') == true -%}
+    {%- if post.meta('recurring_event_date_event_end_date')|length > 0 and post.meta('recurring_event_date_event_start_date')|length > 0 -%}
+      {%- set start_date = post.meta('recurring_event_date_event_start_date') -%}
+      {%- set end_date = post.meta('recurring_event_date_event_end_date') -%}
+      {%- set event_date = "from "~start_date|date('l, F d Y')~" until "~ end_date|date('l, F d Y') -%}
+    {%- elseif post.meta('recurring_event_date_event_start_date')|length > 0 -%}
+      {%- set start_date = post.meta('recurring_event_date_event_start_date') -%}
+      {%- set event_date = "starting "~start_date|date('l, F d Y') -%}
+    {%- endif -%}
+    {%- if post.meta('recurring_event_date_end_time')|length > 0 and post.meta('recurring_event_date_start_time')|length > 0 -%}
+      {%- set start_time = post.meta('recurring_event_date_start_time') -%}
+      {%- set end_time = post.meta('recurring_event_date_end_time') -%}
+      {%- set event_time = "from " ~ start_time|date('g:ia') ~ " to " ~ end_time|date('g:ia') -%}
+    {%- elseif post.meta('recurring_event_date_start_time')|length > 0 -%}
+      {%- set start_time = post.meta('recurring_event_date_start_time') -%}
+      {%- set event_time = "at " ~ start_time|date('g:ia') -%}
+    {%- endif -%}
+    {%- if event_date|length > 0 and event_time|length > 0 -%}
+      {%- set event_string = "Recurring Event " ~ event_date ~ " " ~ event_time -%}
+    {%- elseif event_date|length > 0 -%}
+      {%- set event_string = event_date -%}
+    {%- endif -%}
+  {%- endif -%}
+  {{- event_string|e('html') -}}
+{%- endmacro event_timeframe %}
+
+{% macro event_short_timeframe(post) -%}
+  {%- if post.meta('event_end_date_end_date')|length > 0
+    and post.meta('event_start_date_start_date')|length > 0 -%}
+    {%- set start_date = post.meta('event_start_date_start_date') -%}
+    {%- set end_date = post.meta('event_end_date_end_date') -%}
+    {%- set event_date = start_date|date()~" to "~ end_date|date() -%}
+  {%- elseif post.meta('event_start_date_start_date')|length > 0 -%}
+    {%- set start_date = post.meta('event_start_date_start_date') -%}
+    {%- set event_date = start_date|date() -%}
+  {%- endif -%}
+  {%- if event_date|length > 0 and end_date > start_date -%}
+    {%- set event_string = event_date -%}
+  {%- elseif event_date|length > 0 and post.meta("event_start_date_full_day") == true -%}
+    {%- set event_string = event_date -%}
+  {%- elseif event_date|length > 0 and event_time|length > 0 -%}
+    {%- set event_string = event_date ~ " " ~ event_time -%}
+  {%- elseif event_date|length > 0 -%}
+    {%- set event_string = event_date -%}
+  {%- endif -%}
+
+  {{- event_string|e('html') -}}
+{%- endmacro event_short_timeframe %}
