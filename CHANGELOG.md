@@ -7,9 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+---
+
+## [1.3.5] - 2025-09-02
+
 ### Added
 
-- Announcement editor block (Is a block the right implementation for this?)
+- Event post formatted in loop
+- Search form context (blog vs. full site)
+- Post type for loops
+  - Added post label in tag list for full site search
+  - Added class for specific post_type
+
+### Changed 
+
+- Search form doesn't limit post_type if doing a full search
 
 ---
 
@@ -110,3 +122,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.3.2]: https://github.com/iastate/iastate22-wordpress/compare/1.3.1...1.3.2
 [1.3.3]: https://github.com/iastate/iastate22-wordpress/compare/1.3.2...1.3.3
 [1.3.4]: https://github.com/iastate/iastate22-wordpress/compare/1.3.3...1.3.4
+[1.3.5]: https://github.com/iastate/iastate22-wordpress/compare/1.3.4...1.3.5
