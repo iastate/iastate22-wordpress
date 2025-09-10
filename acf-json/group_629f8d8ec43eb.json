@@ -65,6 +65,7 @@
                         "id": ""
                     },
                     "layout": "block",
+                    "parent_repeater": "field_629f8d8ec6c93",
                     "sub_fields": [
                         {
                             "key": "field_629f8d8ec9482",
@@ -122,7 +123,7 @@
                             },
                             "layout": "block",
                             "pagination": 0,
-                            "min": 1,
+                            "min": 0,
                             "max": 0,
                             "collapsed": "field_629f778f6e70d",
                             "button_label": "Add CTA",
@@ -172,8 +173,7 @@
                                 }
                             ]
                         }
-                    ],
-                    "parent_repeater": "field_629f8d8ec6c93"
+                    ]
                 }
             ]
         }
@@ -196,5 +196,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1689691474
+    "modified": 1757515652
 }
