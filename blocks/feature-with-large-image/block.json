@@ -1,6 +1,6 @@
 {
   "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
-  "apiVersion": 3,
+  "apiVersion": 2,
   "name": "acf/feature-with-large-image",
   "title": "Feature - Large",
   "description": "A large image with a CTA overlay",

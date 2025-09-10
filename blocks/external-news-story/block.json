@@ -1,6 +1,6 @@
 {
   "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
-  "apiVersion": 3,
+  "apiVersion": 2,
   "name": "acf/external-news-story",
   "title": "Feature - External",
   "description": "A block display for an external news story",

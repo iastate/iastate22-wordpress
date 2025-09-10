@@ -1,6 +1,6 @@
 {
   "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
-  "apiVersion": 3,
+  "apiVersion": 2,
   "name": "acf/blockquote",
   "title": "Blockquote",
   "description": "A decorative blockquote with attribution",

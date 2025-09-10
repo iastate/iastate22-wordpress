@@ -1,6 +1,6 @@
 {
   "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
-  "apiVersion": 3,
+  "apiVersion": 2,
   "name": "acf/accordion",
   "title": "Accordion",
   "description": "A set of collapsable content areas",

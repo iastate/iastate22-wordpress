@@ -1,6 +1,6 @@
 {
   "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
-  "apiVersion": 3,
+  "apiVersion": 2,
   "name": "acf/tables",
   "title": "Table",
   "description": "A Data Table",

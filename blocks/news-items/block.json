@@ -1,6 +1,6 @@
 {
   "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
-  "apiVersion": 3,
+  "apiVersion": 2,
   "name": "acf/news-items",
   "title": "News - Items",
   "description": "A stylized source-able block intended to highlight news stories",

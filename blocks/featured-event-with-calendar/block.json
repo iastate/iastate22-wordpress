@@ -1,6 +1,6 @@
 {
   "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
-  "apiVersion": 3,
+  "apiVersion": 2,
   "name": "acf/featured-event-with-calendar",
   "title": "Events - List (with Feature)",
   "description": "A featured event card with a listing of the next four events",

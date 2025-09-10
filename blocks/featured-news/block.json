@@ -1,6 +1,6 @@
 {
   "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
-  "apiVersion": 3,
+  "apiVersion": 2,
   "name": "acf/featured-news",
   "title": "News - Featured",
   "description": "A featured news block with the option to switch between a two and form item side feed.",

@@ -1,6 +1,6 @@
 {
   "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
-  "apiVersion": 3,
+  "apiVersion": 2,
   "name": "acf/image-grid-with-text",
   "title": "Image Grid with Text",
   "description": "A set of decorative side cards with a gray outer background",

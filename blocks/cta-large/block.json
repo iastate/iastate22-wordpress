@@ -1,6 +1,6 @@
 {
   "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
-  "apiVersion": 3,
+  "apiVersion": 2,
   "name": "acf/cta-large",
   "title": "Call to Action - Image",
   "description": "A large CTA banner with a background image",

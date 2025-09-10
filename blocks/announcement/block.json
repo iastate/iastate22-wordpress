@@ -1,6 +1,6 @@
 {
   "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
-  "apiVersion": 3,
+  "apiVersion": 2,
   "name": "acf/announcement",
   "title": "Announcement",
   "description": "Intended to display underneath the hero section of the homepage to alert users to various items/initiatives. Outputs an icon, along with intro copy and a link",

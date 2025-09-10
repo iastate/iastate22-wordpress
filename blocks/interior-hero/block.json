@@ -1,6 +1,6 @@
 {
   "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
-  "apiVersion": 3,
+  "apiVersion": 2,
   "name": "acf/interior-hero",
   "title": "Page Hero",
   "description": "Displays H1 page title and navigation breadcrumbs. Use on all pages (other than site homepage)",

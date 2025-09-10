@@ -1,6 +1,6 @@
 {
   "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
-  "apiVersion": 3,
+  "apiVersion": 2,
   "name": "acf/callout-set",
   "title": "Feature Set",
   "description": "A set of decorative side cards with a gray outer background",

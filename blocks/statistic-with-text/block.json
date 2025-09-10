@@ -1,6 +1,6 @@
 {
   "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
-  "apiVersion": 3,
+  "apiVersion": 2,
   "name": "acf/statistic-with-text",
   "title": "Statistics",
   "description": "A split column layout with a decorative statistic option",

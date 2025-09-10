@@ -1,6 +1,6 @@
 {
   "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
-  "apiVersion": 3,
+  "apiVersion": 2,
   "name": "acf/callout-inset",
   "title": "Feature - Large with Intro",
   "description": "A large image with a CTA overlay inset in a content area",
