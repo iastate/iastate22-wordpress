@@ -414,11 +414,13 @@ class StarterSite extends TimberSite {
 			return true;
 		}
 
-		if ( ! $post->has_field( 'show_author' ) ) {
+		$show_author = $post->get_field( 'show_author' );
+
+		if ( ! is_bool( $show_author ) ) {
 			return true;
 		}
 
-		return (bool) $post->get_field( 'show_author' );
+		return $show_author;
 	}
 
 	/**
