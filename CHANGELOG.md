@@ -9,6 +9,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.3.6] - 2025-09-10
+
+### Fixed 
+
+- Edit/Preview mode not showing in some cases
+  - Revert Block API version (`3`-->`2`)
+- Author credit toggle
+  - `has_field()` did not work as expected for ACF "true/false" fields
+
+### Changed
+
+- Removed minimum for optional button rows in Blocks (Call to Action: Small, Feature Set, Feature with Small Image)
+
+---
+
 ## [1.3.5] - 2025-09-02
 
 ### Added
@@ -123,3 +138,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.3.3]: https://github.com/iastate/iastate22-wordpress/compare/1.3.2...1.3.3
 [1.3.4]: https://github.com/iastate/iastate22-wordpress/compare/1.3.3...1.3.4
 [1.3.5]: https://github.com/iastate/iastate22-wordpress/compare/1.3.4...1.3.5
+[1.3.6]: https://github.com/iastate/iastate22-wordpress/compare/1.3.5...1.3.6
