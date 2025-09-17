@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- "News - Item" block would not render on public side
+- "Video" block did not show values in edit view
+
+### Removed
+
+- Local editor validation script since ACF Pro supports it since 6.4
+
 ---
 
 ## [1.3.6] - 2025-09-10
@@ -139,3 +148,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.3.4]: https://github.com/iastate/iastate22-wordpress/compare/1.3.3...1.3.4
 [1.3.5]: https://github.com/iastate/iastate22-wordpress/compare/1.3.4...1.3.5
 [1.3.6]: https://github.com/iastate/iastate22-wordpress/compare/1.3.5...1.3.6
+[1.3.7]: https://github.com/iastate/iastate22-wordpress/compare/1.3.6...1.3.7

@@ -11,7 +11,7 @@
  * @param $wp_block
  *
  * @return array
- * @since 1.3.x
+ * @since 1.3.7
  */
 function idf_acf_block_shim_video( $context, $attributes, $content, $is_preview, $post_id, $wp_block ) {
 
