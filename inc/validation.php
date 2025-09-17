@@ -165,4 +165,4 @@ function my_acf_input_admin_footer() {
 	<?php
 }
 
-add_action( 'acf/input/admin_footer', 'my_acf_input_admin_footer' );
+//add_action( 'acf/input/admin_footer', 'my_acf_input_admin_footer' );

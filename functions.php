@@ -10,7 +10,8 @@ include( get_template_directory() . '/inc/blocks.php' );
 include( get_template_directory() . '/inc/editor.php' );
 include( get_template_directory() . '/inc/menus.php' );
 include( get_template_directory() . '/inc/overrides.php' );
-include( get_template_directory() . '/inc/validation.php' );
+// Since ACF 6.4, validation is supported
+//include( get_template_directory() . '/inc/validation.php' );
 include( get_template_directory() . '/inc/breadcrumbs.php' );
 include( get_template_directory() . '/inc/search.php' );
 
