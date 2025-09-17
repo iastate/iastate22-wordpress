@@ -138,6 +138,8 @@ function idf_acf_unified_block_render_callback( $attributes, $content = '', $is_
 	// Create the slug of the block using the name property in the block.json.
 	$slug = str_replace( 'acf/', '', $attributes['name'] );
 
+	$context = apply_filters( sprintf( 'idf_acf_block_render_context_%s', $slug ), $context, $attributes, $content, $is_preview, $post_id, $wp_block );
+
 	// Render the block.
 	Timber::render(
 			'templates/blocks/' . $slug . '.twig',
