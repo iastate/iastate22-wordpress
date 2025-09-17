@@ -1,25 +1,26 @@
+{% set video = fields.shim ? fields.shim : fields.video_group.video %}
 <div class="paragraph-widget paragraph-widget--video-embed"
 		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
 	<div class="video-embed">
 		<div class="video-embed__media-wrap">
-			{% if fields.video.video.poster_image.url %}
-				<img src="{{ fields.video.video.poster_image.url|e('esc_url') }}"
-					 alt="{{ fields.video.video.poster_image.alt|e('esc_attr') }}"
-					 width="{{ fields.video.video.poster_image.width|e('esc_attr') }}"
-					 height="{{ fields.video.video.poster_image.height|e('esc_attr') }}"/>
+			{% if video.poster_image.url %}
+				<img src="{{ video.poster_image.url|e('esc_url') }}"
+					 alt="{{ video.poster_image.alt|e('esc_attr') }}"
+					 width="{{ video.poster_image.width|e('esc_attr') }}"
+					 height="{{ video.poster_image.height|e('esc_attr') }}"/>
 			{% else %}
-				{% if fields.video.video.source == "youtube" %}
-					<img src="https://img.youtube.com/vi/{{ fields.video.video.youtube_video_id }}/maxresdefault.jpg"
+				{% if video.source == "youtube" %}
+					<img src="https://img.youtube.com/vi/{{ video.youtube_video_id }}/maxresdefault.jpg"
 						 alt="Video Poster">
-				{% elseif fields.video.video.source == "vimeo" %}
-					<img src="https://vumbnail.com/{{ fields.video.video.vimeo_video_id }}.jpg" alt="Video Poster">
+				{% elseif video.source == "vimeo" %}
+					<img src="https://vumbnail.com/{{ video.vimeo_video_id }}.jpg" alt="Video Poster">
 				{% endif %}
 			{% endif %}
-			{% if fields.video.video.source == "youtube" %}
-				<div class="video-embed__video" aria-label="YouTube Video: {{ fields.video.video.title }}"
-					 data-vid="{{ fields.video.video.youtube_video_id|e('esc_attr') }}"></div>
-			{% elseif fields.video.video.source == "vimeo" %}
-				<div data-vimeo-id="{{ fields.video.video.vimeo_video_id|e('esc_attr') }}" class="video--vim"></div>
+			{% if video.source == "youtube" %}
+				<div class="video-embed__video" aria-label="YouTube Video: {{ video.title }}"
+					 data-vid="{{ video.youtube_video_id|e('esc_attr') }}"></div>
+			{% elseif video.source == "vimeo" %}
+				<div data-vimeo-id="{{ video.vimeo_video_id|e('esc_attr') }}" class="video--vim"></div>
 			{% endif %}
 		</div>
 		{% if fields.media_caption_toggle == true %}

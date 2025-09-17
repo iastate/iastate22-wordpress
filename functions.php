@@ -7,6 +7,7 @@
 include( get_template_directory() . '/inc/acf-pro.php' );
 include( get_template_directory() . '/inc/timber.php' );
 include( get_template_directory() . '/inc/blocks.php' );
+include( get_template_directory() . '/inc/blocks-shim.php' );
 include( get_template_directory() . '/inc/editor.php' );
 include( get_template_directory() . '/inc/menus.php' );
 include( get_template_directory() . '/inc/overrides.php' );
