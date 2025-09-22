@@ -93,57 +93,6 @@ class StarterSite extends TimberSite {
 		}
 		$context['options'] = get_fields( 'options' );
 		$context['site']    = $this;
-		$profileTax         = get_object_taxonomies( array( 'post_type' => 'profiles' ), 'objects' );
-		$profileTerms       = array();
-		foreach ( $profileTax as $item ) {
-			$slug  = $item->name;
-			$terms = get_terms( array(
-				'taxonomy'   => $item->name,
-				'hide_empty' => $slug,
-			) );
-			$profileTerms[] = $terms;
-		}
-		$context['profile_tax']   = $profileTax;
-		$context['profile_terms'] = $profileTerms;
-		$context['post_tax']      = get_object_taxonomies( array( 'post_type' => 'post' ), 'objects' );
-		$context['categories']    = Timber::get_terms( 'categories' );
-		$context['tags']          = Timber::get_terms( 'tags' );
-		if ( function_exists( 'bcn_display' ) ) {
-			$context['breadcrumbs'] = bcn_display( true );
-		}
-		$next_four       = array(
-			'post_type'      => 'events',
-			'meta_key'       => 'event_start_date_start_date',
-			'posts_per_page' => - 1,
-			'orderby'        => 'meta_value',
-			'order'          => 'ASC',
-			'meta_query'     => array(
-				array(
-					'key'     => 'event_start_date_start_date',
-					'compare' => '>=',
-					'value'   => date( "Ymd" ),
-					'type'    => 'DATE'
-				)
-			)
-		);
-		$upcoming_events = array(
-			'post_type'      => 'events',
-			'meta_key'       => 'event_start_date_start_date',
-			'posts_per_page' => - 1,
-			'orderby'        => 'meta_value',
-			'order'          => 'ASC',
-			'meta_query'     => array(
-				array(
-					'key'     => 'event_start_date_start_date',
-					'compare' => '>=',
-					'value'   => date( "Ymd" ),
-					'type'    => 'DATE'
-				)
-			)
-		);
-
-		$context['next_four']       = new PostQuery( $next_four );
-		$context['upcoming_events'] = new PostQuery( $upcoming_events );
 
 		return $context;
 	}
@@ -322,7 +271,6 @@ class StarterSite extends TimberSite {
 					default:
 						break;
 				}
-
 			}
 		}
 

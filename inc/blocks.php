@@ -138,7 +138,7 @@ function idf_acf_unified_block_render_callback( $attributes, $content = '', $is_
 	// Create the slug of the block using the name property in the block.json.
 	$slug = str_replace( 'acf/', '', $attributes['name'] );
 
-	$context = apply_filters( sprintf( 'idf_acf_block_render_context_%s', $slug ), $context, $attributes, $content, $is_preview, $post_id, $wp_block );
+	$context = apply_filters( sprintf( 'idf_acf_block_render_context/%s', $slug ), $context, $attributes, $content, $is_preview, $post_id, $wp_block );
 
 	// Render the block.
 	Timber::render(
@@ -163,62 +163,6 @@ function idf_acf_block_render_landing_hero( $attributes, $content = '', $is_prev
 	}
 
 	Timber::render( 'templates/blocks/landing-hero.twig', $context );
-}
-
-/**
- * @param array $attributes The block attributes.
- * @param string $content The block content.
- * @param bool $is_preview Whether the block is being rendered for editing preview.
- * @param int $post_id The current post being edited or viewed.
- * @param WP_Block $wp_block The block instance (since WP 5.5).
- *
- * @return void
- */
-function idf_acf_block_render_interior_hero( $attributes, $content = '', $is_preview = false, $post_id = 0, $wp_block = null ) {
-	$context = apply_filters( 'idf_acf_block_render_context', array(), $attributes, $content, $is_preview, $post_id, $wp_block );
-
-	$timber_post  = new Post();
-	$rent         = $timber_post->post_parent;
-	$parent_title = get_the_title( $rent );
-	$arg          = ( array(
-		'parent'      => $rent,
-		'sort_order'  => 'ASC',
-		'sort_column' => 'menu_order'
-	) );
-	$children    = array();
-	foreach ( get_pages( $arg ) as $d ) {
-		$arr         = ( array(
-			'parent'      => $d->ID,
-			'sort_order'  => 'ASC',
-			'sort_column' => 'menu_order'
-		) );
-		$children[] = get_pages( $arr );
-	}
-
-	$context['siblings']     = get_pages( $arg );
-	$context['current']      = $timber_post->ID;
-	$context['childrens']    = $children;
-	$context['rent']         = $rent;
-	$context['parent_title'] = $parent_title;
-
-	Timber::render( 'templates/blocks/interior-hero.twig', $context );
-}
-
-function idf_acf_block_render_recent_articles( $attributes, $content = '', $is_preview = false, $post_id = 0, $wp_block = null ) {
-	$context = apply_filters( 'idf_acf_block_render_context', array(), $attributes, $content, $is_preview, $post_id, $wp_block );
-
-	$postCount             = $context['fields']['news_stories'];
-	$context['post_count'] = (int) $postCount;
-
-	if ( $context['fields']['feed_style']['value'] == "syndicated" ) {
-		$order                      = $context['fields']['feed_order']['value'];
-		$cat                        = $context['fields']['feed_category'];
-		$tag                        = $context['fields']['feed_tags'];
-		$argh                       = 'post_type=post&numberposts=' . $postCount . '&category=' . $cat . '&tag_id=' . $tag . '&orderby=date&order=' . $order . '';
-		$context['recent_articles'] = Timber::get_posts( $argh ); // uses wp_query format.
-	}
-
-	Timber::render( 'templates/blocks/recent-articles.twig', $context );
 }
 
 /**

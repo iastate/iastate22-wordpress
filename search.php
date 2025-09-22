@@ -12,11 +12,13 @@
 use Timber\PostQuery;
 use Timber\Timber;
 
-$templates        = array( 'search.twig' );
-$context          = Timber::context();
-$context['title'] = 'Search results for: ' . get_search_query();
-$paramArray       = array();
-$tq               = array();
+$templates             = array( 'search.twig' );
+$context               = Timber::context();
+$context['title']      = 'Search results for: ' . get_search_query();
+$context['categories'] = Timber::get_terms( 'categories' );
+$context['tags']       = Timber::get_terms( 'tags' );
+$paramArray            = array();
+$tq                    = array();
 
 foreach ( $_GET as $key => $value ) {
 	if ( $key !== "post_type" && $key !== "search_letter" && $key !== "s" && strlen( $value ) ) {

@@ -16,6 +16,19 @@ $context         = Timber::context();
 $context['post'] = $timber_post;
 $profileToggle   = $context["options"]["profiles_enabled"];
 
+$profileTax         = get_object_taxonomies( array( 'post_type' => 'profiles' ), 'objects' );
+$profileTerms       = array();
+foreach ( $profileTax as $item ) {
+	$slug  = $item->name;
+	$terms = get_terms( array(
+			'taxonomy'   => $item->name,
+			'hide_empty' => $slug,
+	) );
+	$profileTerms[] = $terms;
+}
+$context['profile_tax']   = $profileTax;
+$context['profile_terms'] = $profileTerms;
+
 if ( post_password_required( $timber_post->ID ) ) {
 	Timber::render( 'single-password.twig', $context );
 } else {

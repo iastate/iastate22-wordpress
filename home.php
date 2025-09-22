@@ -7,9 +7,11 @@ use Timber\Post;
 use Timber\PostQuery;
 use Timber\Timber;
 
-$context          = Timber::context();
-$context['title'] = wp_title( '', false );
-$templates        = array( 'front-page.twig', 'home.twig', 'index.twig' );
+$templates             = array( 'front-page.twig', 'home.twig', 'index.twig' );
+$context               = Timber::context();
+$context['title']      = wp_title( '', false );
+$context['categories'] = Timber::get_terms( 'categories' );
+$context['tags']       = Timber::get_terms( 'tags' );
 
 if ( 'page' === get_option( 'show_on_front' ) ) {
 	$context['post'] = new Post( get_option( 'page_for_posts' ) );

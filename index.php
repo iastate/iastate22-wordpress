@@ -17,12 +17,12 @@ use Timber\Post;
 use Timber\PostQuery;
 use Timber\Timber;
 
+$templates        = array( 'index.twig' );
 $timber_post      = new Post();
 $context          = Timber::context();
 $context['post']  = $timber_post;
 $context['title'] = wp_title( '', false );
 $context['posts'] = new PostQuery();
-$templates        = array( 'index.twig' );
 
 if ( is_home() ) {
 	array_unshift( $templates, 'front-page.twig', 'home.twig' );
