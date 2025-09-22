@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - "News - Item" block would not render on public side
 - "Video" block did not show values in edit view
+- News search filter not filtering on tags
 
 ### Removed
 
