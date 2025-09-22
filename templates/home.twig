@@ -16,7 +16,7 @@
         {% include ['templates/partial/recent-articles.twig'] with recent_articles %}
         {% include ['templates/partial/news-items.twig'] %} #}
 		{% endif %}
-		{% include ['templates/partial/news-filter.twig'] %}
+		{% include ['templates/partial/news-filter.twig'] with { reset: true } %}
 		{% include ['templates/loops/loop-posts.twig'] %}
 		{% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
 	</div>

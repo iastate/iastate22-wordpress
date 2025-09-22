@@ -90,13 +90,13 @@ function the_breadcrumb() {
 			$parent_id   = $post->post_parent;
 			$breadcrumbs = array();
 			while ( $parent_id ) {
-				$page          = get_page( $parent_id );
+				$page          = get_post( $parent_id );
 				$breadcrumbs[] = '<li><a href="' . get_permalink( $page->ID ) . '">' . get_the_title( $page->ID ) . '</a></li>';
 				$parent_id     = $page->post_parent;
 			}
 			$breadcrumbs = array_reverse( $breadcrumbs );
-			for ( $i = 0; $i < count( $breadcrumbs ); $i ++ ) {
-				echo $breadcrumbs[ $i ];
+			foreach ( $breadcrumbs as $i => $iValue ) {
+				echo $iValue;
 				if ( $i != count( $breadcrumbs ) - 1 ) {
 					echo ' ' . $delimiter . ' ';
 				}
