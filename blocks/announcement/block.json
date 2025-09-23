@@ -17,7 +17,7 @@
     "blockVersion": 2,
     "usePostMeta": true,
     "mode": "edit",
-    "renderCallback": "idf_acf_unified_block_render_callback",
+    "renderCallback": "Iastate22_Blocks::render_block",
     "postTypes": [
       "page"
     ]
