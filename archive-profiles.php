@@ -19,23 +19,23 @@ use Timber\Timber;
 
 $templates = array( 'archive-profiles.twig', 'index.twig' );
 
-$context       = Timber::context();
-$paramArray    = array();
-$tq            = array();
+$context     = Timber::context();
+$param_array = array();
+$tq          = array();
 $search_letter = "";
 $tax_query     = array();
 $meta_query    = array();
-$profileToggle = $context["options"]["profiles_enabled"];
+$profile_toggle = $context["options"]["profiles_enabled"];
 
-foreach ( $paramArray as $tax ) {
-	array_push( $tq, array(
-		'taxonomy' => $tax[0],
-		'field'    => 'slug',
-		'terms'    => $tax[1],
-	) );
+foreach ( $param_array as $tax_param ) {
+	$tq[] = array(
+			'taxonomy' => $tax_param[0],
+			'field'    => 'slug',
+			'terms'    => $tax_param[1],
+	);
 }
 
-if ( count( $paramArray ) > 0 ) {
+if ( count( $param_array ) > 0 ) {
 	$tax_query = array(
 		'relation' => 'AND',
 		$tq
@@ -105,7 +105,7 @@ if ( is_day() ) {
 
 $context['posts']    = new PostQuery( $arr );
 $context['allposts'] = new PostQuery( $argh );
-if ( $profileToggle === false ) {
+if ( $profile_toggle === false ) {
 	Timber::render( '404.twig', $context );
 } else {
 	Timber::render( $templates, $context );

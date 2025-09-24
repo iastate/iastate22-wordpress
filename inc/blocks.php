@@ -2,6 +2,8 @@
 
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
+add_action( 'init', array( Iastate22_Blocks::class, 'init' ) );
+
 /**
  * Register new custom block category, and add as first item in list.
  *
@@ -21,16 +23,6 @@ function idf_plugin_block_categories( $categories ) {
 }
 
 add_action( 'block_categories_all', 'idf_plugin_block_categories', 10, 2 );
-
-/**
- * Register blocks with ACF components. Registration order determines position in the editor.
- * @return void
- */
-function idf_register_acf_blocks_natively() {
-	Iastate22_Blocks::init();
-}
-
-add_action( 'init', 'idf_register_acf_blocks_natively' );
 
 /**
  * Filters the content of a single block.

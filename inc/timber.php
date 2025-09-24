@@ -5,7 +5,6 @@
  */
 
 use Timber\Menu as TimberMenu;
-use Timber\PostQuery;
 use Timber\Site as TimberSite;
 use Timber\Timber;
 use Twig\Environment;
@@ -36,7 +35,7 @@ Timber::$dirname = array( 'templates', 'views' );
  */
 Timber::$autoescape = false;
 
-add_action( 'acf/init', function () {
+add_action( 'acf/init', static function () {
 	if ( function_exists( 'acf_add_options_page' ) ) {
 		acf_add_options_page(
 				array(
@@ -67,7 +66,7 @@ class StarterSite extends TimberSite {
 
 	/** This is where you add some context
 	 *
-	 * @param string $context context['this'] Being the Twig's {{ this }}.
+	 * @param array $context context['this'] Being the Twig's {{ this }}.
 	 */
 	public function add_to_context( array $context ) {
 		if ( has_nav_menu( 'main-menu' ) ) {
@@ -198,7 +197,7 @@ class StarterSite extends TimberSite {
 		return $twig;
 	}
 
-	function load_styles() {
+	public function load_styles() {
 		$version = $this->public_version_key();
 		wp_enqueue_style( 'screen', get_template_directory_uri() . '/vendor/iastate/frontend-component-library/build/css/index.css', array(), $version, 'screen' );
 		wp_enqueue_style( 'printcss', get_template_directory_uri() . '/vendor/iastate/frontend-component-library/build/css/print.css', array(), $version, 'print' );
@@ -206,7 +205,7 @@ class StarterSite extends TimberSite {
 		wp_enqueue_style( 'default', get_template_directory_uri() . '/style.css', array(), $version, 'all' );
 	}
 
-	function load_scripts() {
+	public function load_scripts() {
 		$version = $this->public_version_key();
 		wp_enqueue_script( 'main', get_template_directory_uri() . '/vendor/iastate/frontend-component-library/build/js/index.js', array(), $version, true );
 		wp_enqueue_script( 'fontawesome', 'https://kit.fontawesome.com/b658fac974.js', array(), '1.0.0', true );
@@ -220,7 +219,7 @@ class StarterSite extends TimberSite {
 	 * @return string
 	 * @since 1.3.2
 	 */
-	function public_version_key() {
+	public function public_version_key() {
 		if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
 			return rawurlencode( uniqid( $this->theme->get( 'Version' ) . '-', false ) );
 		}
@@ -240,7 +239,7 @@ class StarterSite extends TimberSite {
 	 * @throws WP_Exception DateTime error messages fed through {@see wp_trigger_error}
 	 * @since 1.3.0
 	 */
-	function is_post_expired( $context, $expiration = '2 years ago', $post = null ) {
+	public function is_post_expired( $context, $expiration = '2 years ago', $post = null ) {
 		if ( null === $post ) {
 			if ( ! isset( $context['post'] ) ) {
 				return false;
@@ -296,7 +295,7 @@ class StarterSite extends TimberSite {
 	 * @throws WP_Exception
 	 * @since 1.3.2
 	 */
-	function show_last_updated_date( $context, $post = null ) {
+	public function show_last_updated_date( $context, $post = null ) {
 		if ( null === $post ) {
 			if ( ! isset( $context['post'] ) ) {
 				return false;
@@ -349,7 +348,7 @@ class StarterSite extends TimberSite {
 	 * @return bool
 	 * @since 1.3.3
 	 */
-	function show_theme_post_author( $context, $post = null ) {
+	public function show_theme_post_author( $context, $post = null ) {
 		if ( null === $post ) {
 			if ( ! isset( $context['post'] ) ) {
 				return true;
@@ -380,7 +379,7 @@ class StarterSite extends TimberSite {
 	 * @return \Timber\Image|null
 	 * @since 1.3.4
 	 */
-	function get_theme_post_thumbnail( $context, $post = null ) {
+	public function get_theme_post_thumbnail( $context, $post = null ) {
 		if ( null === $post ) {
 			if ( ! isset( $context['post'] ) ) {
 				return null;
@@ -428,7 +427,7 @@ class StarterSite extends TimberSite {
 	 * @return \Timber\PostPreview|null
 	 * @since 1.3.4
 	 */
-	function get_theme_post_preview( $context, $post = null ) {
+	public function get_theme_post_preview( $context, $post = null ) {
 		if ( null === $post ) {
 			if ( ! isset( $context['post'] ) ) {
 				return null;

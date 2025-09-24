@@ -17,6 +17,7 @@ class Iastate22_Blocks {
 	 * Register all resources for theme blocks
 	 *
 	 * @return void
+	 * @since 1.3.7
 	 */
 	public static function init() {
 		self::register_blocks();
@@ -27,6 +28,7 @@ class Iastate22_Blocks {
 	 * Register blocks with ACF components. Registration order determines position in the editor.
 	 *
 	 * @return void
+	 * @since 1.3.7 moved from "blocks.php"
 	 */
 	public static function register_blocks() {
 		$template_directory = get_template_directory();
@@ -100,6 +102,7 @@ class Iastate22_Blocks {
 	 * registers class functions to block filters
 	 *
 	 * @return void
+	 * @since 1.3.7
 	 */
 	public static function register_hooks() {
 		add_filter( 'idf_acf_block_render_context',
@@ -129,6 +132,7 @@ class Iastate22_Blocks {
 	 * @param WP_Block $wp_block The block instance (since WP 5.5).
 	 *
 	 * @return void
+	 * @since 1.3.7 moved from "blocks.php"
 	 */
 	public static function render_block( $attributes, $content = '', $is_preview = false, $post_id = 0, $wp_block = null ) {
 		/**
@@ -181,13 +185,14 @@ class Iastate22_Blocks {
 	 *
 	 * @return array
 	 * @see 'idf_acf_block_render_context'
+	 * @since 1.3.7 moved from "blocks.php"
 	 */
 	public static function set_initial_context( $context, $attributes, $content, $is_preview, $post_id, $wp_block ) {
 		$context               = array_merge( Timber::context(), $context );
 		$context['block']      = $attributes;
 		$context['fields']     = get_fields();
-		$context['is_preview'] = $is_preview;
-		$context['postId']     = $post_id;
+		$context['is_preview'] = (bool) $is_preview;
+		$context['postId']     = (int) $post_id;
 
 		return $context;
 	}
@@ -199,6 +204,7 @@ class Iastate22_Blocks {
 	 *
 	 * @deprecated setting 'deprecated' to remember to remove sometime in the future.
 	 * @see 'idf_acf_block_render_context'
+	 * @since 1.3.7 moved from "blocks.php"
 	 */
 	public static function legacy_anchor_support( $context ) {
 		if ( ! isset( $context['fields'], $context['block'] ) ) {
@@ -400,16 +406,21 @@ class Iastate22_Blocks {
 	 * @since 1.3.7
 	 */
 	public static function render_recent_articles( $context, $attributes, $content, $is_preview, $post_id, $wp_block ) {
-		$context['post_count'] = (int) $context['fields']['news_stories'];
+		if ( ! isset( $context['fields'] ) ) {
+			return $context;
+		}
 
-		if ( "syndicated" === $context['fields']['feed_style']['value'] ) {
+		$fields                = $context['fields'];
+		$context['post_count'] = (int) $fields['news_stories'];
+
+		if ( "syndicated" === $fields['feed_style']['value'] ) {
 			$context['recent_articles'] = Timber::get_posts( array(
 					'post_type'   => 'post',
 					'orderby'     => 'date',
 					'numberposts' => $context['post_count'],
-					'category'    => $context['fields']['feed_category'],
-					'tag_id'      => $context['fields']['feed_tags'],
-					'order'       => $context['fields']['feed_order']['value'],
+					'category'    => $fields['feed_category'],
+					'tag_id'      => $fields['feed_tags'],
+					'order'       => $fields['feed_order']['value'],
 			) );
 		}
 
