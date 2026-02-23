@@ -1,6 +1,6 @@
 {
   "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
-  "apiVersion": 2,
+  "apiVersion": 3,
   "name": "acf/button-set",
   "title": "Button Set",
   "description": "Link Buttons",
@@ -16,8 +16,8 @@
     "anchor": true
   },
   "acf": {
-    "blockVersion": 2,
-    "mode": "edit",
+    "blockVersion": 3,
+    "mode": "auto",
     "renderCallback": "Iastate22_Blocks::render_block"
   }
 }

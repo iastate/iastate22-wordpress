@@ -1,6 +1,6 @@
 {
   "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
-  "apiVersion": 2,
+  "apiVersion": 3,
   "name": "acf/featured-event-with-calendar",
   "title": "Events - List (with Feature)",
   "description": "A featured event card with a listing of the next four events",
@@ -20,8 +20,8 @@
     "anchor": true
   },
   "acf": {
-    "blockVersion": 2,
-    "mode": "edit",
+    "blockVersion": 3,
+    "mode": "auto",
     "renderCallback": "Iastate22_Blocks::render_block"
   }
 }
