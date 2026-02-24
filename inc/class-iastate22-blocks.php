@@ -76,6 +76,8 @@ class Iastate22_Blocks {
 		#register_block_type( $template_directory . '/blocks/directory-hero' );
 		// Image - Full Width
 		register_block_type( $template_directory . '/blocks/full-width-image' );
+		// Image - Full Width
+		register_block_type( $template_directory . '/blocks/image-gallery' );
 		// Image Grid with Text
 		register_block_type( $template_directory . '/blocks/image-grid-with-text' );
 		// Link Block
