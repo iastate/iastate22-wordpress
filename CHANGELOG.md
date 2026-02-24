@@ -7,7 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed 
 
+- Profile taxonomy public slug changed (/_tax-slug_/)
+  - `Department` changed from "~~locations~~"->"**area**"
+  - `Affiliation` changed from "~~division~~"->"**affiliation**"
+- Profile taxonomy pages use the same layout as directory list
 ---
 
 ## [1.4.0] - 2026-02-23

@@ -1,0 +1,15 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="outer-pad">
+		<div class="hero hero--top-level-lp hero--top-level-lp--no-media">
+			<div class="hero__text-wrap">
+				{% include ['templates/partial/breadcrumbs.twig'] %}
+
+				<h1 class="hero__title">{{ title }}</h1>
+			</div>
+		</div>
+
+		{% include ['partial/profile-search.twig'] %}
+	</div>
+{% endblock %}
