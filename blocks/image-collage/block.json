@@ -5,7 +5,7 @@
   "title": "Image Collage",
   "description": "3-5 images styled in a grid with optional caption",
   "category": "isu-blocks",
-  "icon": "images-alt2",
+  "icon": "format-gallery",
   "keywords": [
     "image",
     "collage"
