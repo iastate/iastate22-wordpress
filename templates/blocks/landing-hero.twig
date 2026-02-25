@@ -9,19 +9,33 @@
 {% elseif fields.ecosystem == "plain" %}
 	{% set heroClass = "ecosystem-home-hero ecosystem-home-hero--no-image" %}
 {% endif %}
-<div
-	class="{{ heroClass|e('esc_attr') }}"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+{%- if is_preview -%}
+	<style>
+      .block-editor .ecosystem-home-hero {
+          position: inherit;
+          margin: 0;
+      }
+      .block-editor .ecosystem-home-hero.ecosystem-home-hero--no-image::before {
+          content: none;
+      }
+      .block-editor .ecosystem-home-hero.ecosystem-home-hero--supporting-image {
+          margin: 0;
+      }
+      .block-editor .ecosystem-home-hero--supporting-image .ecosystem-home-hero__media {
+          right: 0;
+      }
+	</style>
+{%- endif -%}
+<div class="{{ heroClass|e('esc_attr') }}"
+		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}
+>
 	{% if fields.ecosystem == "supporting_image" or fields.ecosystem == "plain" %}
 		<div class="ecosystem-home-hero__content">
 			<h1 class="ecosystem-home-hero__title">
 				{% if fields.hero_title|length > 0 %}
 					{{ fields.hero_title }}
 				{% else %}
-					{% set title = "" %}
-					{% for post in posts %}
-						{% set title = post.post_title %}
-					{% endfor %}
-					{{ title }}
+					{{ function('get_the_title') }}
 				{% endif %}
 			</h1>
 			{% if fields.buttons %}
@@ -31,8 +45,8 @@
 							{% if button.link_url %}
 								<li>
 									<a class="iastate22-button"
-									   href="{{ button.link_url|e('esc_url') }}">{{ button.label }}<span
-											class="arrow"></span>
+										 href="{{ is_preview ? '#' : button.link_url|e('esc_url') }}">{{ button.label }}<span
+												class="arrow"></span>
 									</a>
 								</li>
 							{% endif %}
@@ -81,11 +95,7 @@
 				{% if fields.hero_title|length > 0 %}
 					{{ fields.hero_title }}
 				{% else %}
-					{% set title = "" %}
-					{% for post in posts %}
-						{% set title = post.post_title %}
-					{% endfor %}
-					{{ title }}
+					{{ function('get_the_title') }}
 				{% endif %}
 			</h1>
 			{% if fields.buttons %}
@@ -95,8 +105,8 @@
 							{% if button.link_url %}
 								<li>
 									<a class="iastate22-button"
-									   href="{{ button.link_url|e('esc_url') }}">{{ button.label }}<span
-											class="arrow"></span>
+										 href="{{ is_preview ? '#' : button.link_url|e('esc_url') }}">{{ button.label }}<span
+												class="arrow"></span>
 									</a>
 								</li>
 							{% endif %}
