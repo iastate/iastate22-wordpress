@@ -13,6 +13,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `Department` changed from "~~locations~~"->"**area**"
   - `Affiliation` changed from "~~division~~"->"**affiliation**"
 - Profile taxonomy pages use the same layout as directory list
+
+### Removed 
+
+- Email anchor wrapper for profile email icon, flagged by accessibility 
+
 ---
 
 ## [1.4.0] - 2026-02-23
