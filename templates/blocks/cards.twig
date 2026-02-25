@@ -1,5 +1,22 @@
-<div
-	class="paragraph-widget paragraph-widget--card-set"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+{% if is_preview %}
+	<style>
+      .block-editor .paragraph-widget--card-set {
+          margin: 0;
+      }
+      .block-editor .card-set::after {
+          left: 0;
+          right: 0;
+      }
+			.block-editor .card-set > ul {
+					margin: 0;
+			}
+			.block-editor .card-set > ul > li {
+					padding-right: .5rem;
+			}
+	</style>
+{% endif %}
+<div class="paragraph-widget paragraph-widget--card-set"
+		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	<div class="card-set">
 		<ul>
 			{% for card in fields.cards %}
@@ -8,24 +25,23 @@
 						<div class="iastate22-card clickable">
 							{% if card.card.image %}
 								<div class="iastate22-card__media">
-									<img src="{{ card.card.image.url|e('esc_url') }}"
-										 alt="{{ card.card.image.alt|e('esc_attr') }}"
-										 width="{{ card.card.image.width|e('esc_attr') }}"
-										 height="{{ card.card.image.height|e('esc_attr') }}">
+									<img src="{{ card.card.image.url|e('esc_url') }}" loading="lazy"
+											 alt="{{ card.card.image.alt|e('esc_attr') }}"
+											 width="{{ card.card.image.width|e('esc_attr') }}"
+											 height="{{ card.card.image.height|e('esc_attr') }}">
 								</div>
 							{% endif %}
 							<div class="iastate22-card__content">
 								{% if card.card.title %}
 									<h2 class="iastate22-card__title">
-										<a href="{{ card.card.card_link.url|e('esc_url') }}"{% if card.card.card_link.target == "_blank" %} target="_blank"{% endif %}>{{ card.card.title }}</a>
+										{{ _self.link(card.card.title, card.card_link.url, card.card_link.target, null, is_preview) }}
 									</h2>
 								{% endif %}
 								<div class="iastate22-card__body text-content">
 									{{ card.card.content }}
 								</div>
 								{% if card.card.card_link.url and card.card.card_link.title %}
-									<a href="{{ card.card.card_link.url|e('esc_url') }}"
-									   class="iastate22-card__cta"{% if card.card.card_link.target == "_blank" %} target="_blank"{% endif %}>{{ card.card.card_link.title }}</a>
+									{{ _self.link(card.card.card_link.title, card.card.card_link.url, card.card.card_link.target, "iastate22-card__cta", is_preview) }}
 								{% endif %}
 							</div>
 						</div>
@@ -33,26 +49,23 @@
 						<div class="iastate22-card iastate22-card--linked-image">
 							{% if card.card.image %}
 								<div class="iastate22-card__media">
-									<img src="{{ card.card.image.url|e('esc_url') }}"
-									alt="{{ card.card.image.alt|e('esc_attr') }}">
+									<img src="{{ card.card.image.url|e('esc_url') }}" loading="lazy"
+											 alt="{{ card.card.image.alt|e('esc_attr') }}">
 								</div>
 							{% endif %}
 							{% if card.card.card_link.url and card.card.card_link.title %}
-								<a class="iastate22-card__cta"
-								   href="{{ card.card.card_link.url|e('esc_url') }}"{% if card.card.card_link.target == "_blank" %} target="_blank"{% endif %}>{{ card.card.card_link.title }}
-									<span class="arrow"></span>
-								</a>
+								{{ _self.link(card.card.card_link.title~"<span class=\"arrow\"></span>", card.card.card_link.url, card.card.card_link.target, "iastate22-card__cta", is_preview) }}
 							{% endif %}
 						</div>
 					{% elseif card.card.card_type == "profile_with_modal" %}
 						{% set modal = card.card.card_modal %}
 						<div
-							class="iastate22-card iastate22-card--profile-with-modal" {% if clickable is defined %} data-clickable="{{ clickable|e('esc_attr') }}" {% endif %}>
+								class="iastate22-card iastate22-card--profile-with-modal" {% if clickable is defined %} data-clickable="{{ clickable|e('esc_attr') }}" {% endif %}>
 							{% if card.card.image %}
 								<div class="iastate22-card__media">
 									<img src="{{ card.card.image.url|e('esc_url') }}"
-									alt="{{ card.card.image.alt|e('esc_attr') }}"
-									loading="lazy" width="600" height="600">
+											 alt="{{ card.card.image.alt|e('esc_attr') }}"
+											 loading="lazy" width="600" height="600">
 								</div>
 							{% endif %}
 							<div class="iastate22-card__content">
@@ -75,24 +88,24 @@
 								{% endfor %}
 								{% set modalID = modalID|join %}
 								<button class="iastate22-card__cta"
-										data-micromodal-trigger="{{ modalID|e('esc_attr') }}">{{ card.card.modal_cta }}</button>
+												data-micromodal-trigger="{{ modalID|e('esc_attr') }}">{{ card.card.modal_cta }}</button>
 								<div class="iastate22-modal iastate22-card--profile-with-modal"
-									 id="{{ modalID|e('esc_attr') }}" aria-hidden="false">
+										 id="{{ modalID|e('esc_attr') }}" aria-hidden="false">
 									<div class="iastate22-modal__overlay" tabindex="-1" data-micromodal-close>
 										<div
-											class="iastate22-modal__container{% if modal.modal_image.url|length > 0 %} iastate22-modal__container-with-media"{% endif %}
-											id="{{ modalID }}-content" role="dialog" aria-modal="true"
-											aria-labelledby="{{ modalID }}-title">
+												class="iastate22-modal__container{% if modal.modal_image.url|length > 0 %} iastate22-modal__container-with-media"{% endif %}
+												id="{{ modalID }}-content" role="dialog" aria-modal="true"
+												aria-labelledby="{{ modalID }}-title">
 											<button class="iastate22-modal__close" aria-label="Close modal"
-													data-micromodal-close>
+															data-micromodal-close>
 												<i class="fa-light fa-xmark" aria-hidden="true"></i>
 											</button>
 											{% if modal.modal_image.url|length > 0 %}
 												<div class="iastate22-modal__media-name-wrap">
 													<div class="iastate22-modal__media">
 														<img src="{{ modal.modal_image.url|e('esc_url') }}"
-														alt="{{ modal.modal_image.alt|e('esc_attr') }}"
-															 loading="lazy" width="207" height="197">
+																 alt="{{ modal.modal_image.alt|e('esc_attr') }}"
+																 loading="lazy" width="207" height="197">
 													</div>
 													<div class="iastate22-modal__name-role-wrap">
 														<div class="iastate22-card__name">
@@ -108,13 +121,13 @@
 											{% endif %}
 											<div class="iastate22-modal__content">
 												<h2 class="iastate22-modal__title"
-													id="{{ modalID }}-title">{{ card.card.title }}</h2>
+														id="{{ modalID }}-title">{{ card.card.title }}</h2>
 												<div
-													class="iastate22-modal__body-content text-content">{{ modal.modal_content|raw }}</div>
+														class="iastate22-modal__body-content text-content">{{ modal.modal_content|raw }}</div>
 												<div class="iastate22-modal__content-cta">
 													<p>{{ modal.modal_cta.cta_intro }}</p>
 													{% if modal.modal_cta.link.url and modal.modal_cta.link.title %}
-														<a href="{{ modal.modal_cta.link.url|e('esc_url') }}"{% if modal.modal_cta.link.target == "_blank" %} target="_blank"{% endif %}>{{ modal.modal_cta.link.title }}</a>
+														{{ _self.link(modal.modal_cta.link.title,  modal.modal_cta.link.url, modal.modal_cta.link.target, null, is_preview) }}
 													{% endif %}
 												</div>
 											</div>
@@ -129,3 +142,9 @@
 		</ul>
 	</div>
 </div>
+{%- macro link(content, href, target, class, is_preview) -%}
+	<a href="{{ is_preview ? '#' : href|e('esc_url') }}"
+		 {%- if class %}class="{{ class|e('esc_attr') }}"{%- endif -%}
+			{%- if target == "_blank" %} target="_blank"{%- endif -%}>
+		{{ content|e('esc_html') }}</a>
+{%- endmacro link -%}
