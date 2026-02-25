@@ -1,38 +1,62 @@
-<div
-	class="paragraph-widget paragraph-widget--carousel"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+{%- if is_preview -%}
+	<style>
+      .block-editor .paragraph-widget.paragraph-widget--carousel {
+          margin: 0;
+      }
+      .block-editor .iastate22-carousel-holder .carousel__nav-previous,
+      .block-editor .iastate22-carousel-holder .carousel__nav-next {
+          transform: inherit;
+      }
+      .block-editor .carousel__slide {
+          border: var(--wp--preset--color--iastate-dark-gray) double 1rem;
+          padding: 0 2rem 1rem 2rem;
+      }
+      .block-editor .carousel__slide .carousel_section_header {
+          font-size: 2rem;
+          text-align: center;
+          text-decoration: underline;
+          color: var(--wp--preset--color--iastate-dark-gray);
+      }
+	</style>
+{%- endif -%}
+<div class="paragraph-widget paragraph-widget--carousel"
+		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	<div class="iastate22-carousel-holder">
 		<div class="iastate22-carousel">
 			{% for slide in fields.carousel %}
 				<div class="carousel__slide">
+					{%- if is_preview -%}
+						<div class="carousel_section_header">Slide {{ loop.index|e('esc_html') }}</div>
+					{%- endif -%}
 					{% if slide.carousel_content == "image" %}
 						<div class="carousel__slide-image"
-							 style="background-image:url({{ slide.carousel_image.url }})"></div>
+								 style="background-image:url({{ slide.carousel_image.url }})"></div>
 					{% elseif slide.carousel_content == "video" %}
 						<div class="video-embed">
 							<div class="video-embed__media-wrap">
 								{% if slide.carousel_video.video.poster_image.url %}
 									<img src="{{ slide.carousel_video.video.poster_image.url|e('esc_url') }}"
-										 alt="{{ slide.carousel_video.video.poster_image.alt|e('esc_attr') }}"
-										 width="{{ slide.carousel_video.video.poster_image.width|e('esc_attr') }}"
-										 height="{{ slide.carousel_video.video.poster_image.height|e('esc_attr') }}"/>
+											 alt="{{ slide.carousel_video.video.poster_image.alt|e('esc_attr') }}"
+											 width="{{ slide.carousel_video.video.poster_image.width|e('esc_attr') }}"
+											 height="{{ slide.carousel_video.video.poster_image.height|e('esc_attr') }}"/>
 								{% else %}
 									{% if slide.carousel_video.video.source == "youtube" %}
 										<img
-											src="https://img.youtube.com/vi/{{ slide.carousel_video.video.youtube_video_id }}/maxresdefault.jpg"
-											alt="Video Poster">
+												src="https://img.youtube.com/vi/{{ slide.carousel_video.video.youtube_video_id }}/maxresdefault.jpg"
+												alt="Video Poster">
 									{% elseif slide.carousel_video.video.source == "vimeo" %}
 										<img
-											src="https://vumbnail.com/{{ slide.carousel_video.video.vimeo_video_id }}.jpg"
-											alt="Video Poster">
+												src="https://vumbnail.com/{{ slide.carousel_video.video.vimeo_video_id }}.jpg"
+												alt="Video Poster">
 									{% endif %}
 								{% endif %}
 								{% if slide.carousel_video.video.source == "youtube" %}
 									<div class="video-embed__video"
-										 data-aria-label="YouTube Video: {{ slide.carousel_video.video.title }}"
-										 data-vid="{{ slide.carousel_video.video.youtube_video_id|e('esc_attr') }}"></div>
+											 data-aria-label="YouTube Video: {{ slide.carousel_video.video.title }}"
+											 data-vid="{{ slide.carousel_video.video.youtube_video_id|e('esc_attr') }}"></div>
 								{% elseif slide.carousel_video.video.source == "vimeo" %}
 									<div data-vimeo-id="{{ slide.carousel_video.video.vimeo_video_id|e('esc_attr') }}"
-										 class="video--vim"></div>
+											 class="video--vim"></div>
 								{% endif %}
 							</div>
 							{% if fields.media_caption_toggle == true %}
