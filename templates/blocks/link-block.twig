@@ -1,5 +1,12 @@
-<div
-	class="paragraph-widget paragraph-widget--link-block"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+{%- if is_preview -%}
+	<style>
+      .block-editor .paragraph-widget--link-block {
+          margin: 1rem 0;
+      }
+	</style>
+{%- endif -%}
+<div class="paragraph-widget paragraph-widget--link-block"
+		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	<div class="link-block">
 		<h2>{{ fields.title }}</h2>
 		<div class="link-set">
@@ -11,9 +18,9 @@
 						{% else %}
 							{% set link_text = link.url.title %}
 						{% endif %}
-						<a href="{{ link.url.url|e('esc_url') }}"
-						   class="link-set__link iastate22-link-secondary"{% if link.url.target|length > 0 %} target="{{ link.url.target|e('esc_attr') }}"{% endif %}>{{ link_text }}
-							<span class="arrow"></span></a>
+						<a href="{{ is_preview ? '#' : link.url.url|e('esc_url') }}" class="link-set__link iastate22-link-secondary"
+								{%- if link.url.target|length > 0 %} target="{{ link.url.target|e('esc_attr') }}"{%- endif -%}>
+							{{ link_text }}<span class="arrow"></span></a>
 					</li>
 				{% endfor %}
 			</ul>
