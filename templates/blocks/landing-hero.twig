@@ -13,7 +13,7 @@
 		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	{% if fields.ecosystem == "supporting_image" or fields.ecosystem == "plain" %}
 		<div class="ecosystem-home-hero__content">
-			<h1 class="ecosystem-home-hero__title">
+			<h1 class="ecosystem-home-hero__title" {{ acf_inline_text('hero_title') }}>
 				{% if fields.hero_title|length > 0 %}
 					{{ fields.hero_title }}
 				{% else %}
@@ -41,7 +41,7 @@
 	{% if fields.ecosystem == "plain" %}
 
 	{% else %}
-		<div class="ecosystem-home-hero__media">
+		<div class="ecosystem-home-hero__media" {{ acf_inline_toolbar('hero_image') }}>
 			{% if fields.hero_image.hero_image %}
 				<img src="{{ fields.hero_image.hero_image.url|e('esc_url') }}"
 					 alt="{{ fields.hero_image.hero_image.alt|e('esc_attr') }}"
@@ -73,7 +73,7 @@
 	{% endif %}
 	{% if fields.ecosystem == "featured_image" or fields.ecosystem == "atmospheric_image" or fields.ecosystem == "video" %}
 		<div class="ecosystem-home-hero__content">
-			<h1 class="ecosystem-home-hero__title">
+			<h1 class="ecosystem-home-hero__title" {{ acf_inline_text('hero_title') }}>
 				{% if fields.hero_title|length > 0 %}
 					{{ fields.hero_title }}
 				{% else %}
