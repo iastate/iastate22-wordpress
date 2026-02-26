@@ -20,6 +20,7 @@
   "acf": {
     "blockVersion": 3,
     "mode": "auto",
-    "renderCallback": "Iastate22_Blocks::render_block"
+    "renderCallback": "Iastate22_Blocks::render_block",
+    "hideFieldsInSidebar": true
   }
 }
