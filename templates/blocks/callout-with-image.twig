@@ -1,8 +1,18 @@
-<div
-	class="paragraph-widget paragraph-widget--callout-with-image"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+{%- if is_preview -%}
+	<style>
+      .block-editor .paragraph-widget--callout-with-image {
+          margin: 1rem 0;
+      }
+			.block-editor .paragraph-widget--callout-with-image .callout-with-image__media{
+					margin: 0;
+			}
+	</style>
+{%- endif -%}
+<div class="paragraph-widget paragraph-widget--callout-with-image"
+		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	<div class="callout-with-image">
 		<div class="callout-with-image__media">
-			<img src="{{ fields.callout_with_image.callout_image.url|e('esc_url') }}"
+			<img src="{{ fields.callout_with_image.callout_image.url|e('esc_url') }}" loading="lazy"
 				 alt="{{ fields.callout_with_image.callout_image.alt|e('esc_attr') }}" width="622" height="414"/>
 		</div>
 		<div class="callout-with-image__content text-content">
@@ -25,8 +35,8 @@
 									{% elseif item.link_style == "minimal" %}
 										{% set linkClass = "link-set__link link-tertiary" %}
 									{% endif %}
-									<a class="{{ linkClass|e('esc_attr') }}"
-									   href="{{ item.link_url|e('esc_url') }}" {% if item.link_style == "external" %} target="_blank" {% endif %}>
+									<a class="{{ linkClass|e('esc_attr') }}" href="{{ is_preview ? '#' : item.link_url|e('esc_url') }}"
+											{%- if not is_preview and item.link_style == "external" %} target="_blank"{%- endif -%}>
 										{{ item.label }}
 										<span class="arrow"></span>
 									</a>
