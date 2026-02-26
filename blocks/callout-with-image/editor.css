@@ -5,3 +5,7 @@
 .block-editor .paragraph-widget--callout-with-image .callout-with-image__media {
 	margin: 0;
 }
+
+.block-editor .paragraph-widget--callout-with-image span.arrow {
+	display: none;
+}

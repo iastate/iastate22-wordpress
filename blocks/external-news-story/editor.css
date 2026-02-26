@@ -1,3 +1,7 @@
 .block-editor .paragraph-widget--external-news-story {
 	margin: 1rem 0;
 }
+
+.block-editor .paragraph-widget--external-news-story span.arrow {
+	display: none;
+}

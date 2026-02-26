@@ -14,3 +14,7 @@
 	margin: 0;
 	width: 100%;
 }
+
+.block-editor .paragraph-widget--callout-set span.arrow {
+	display: none;
+}

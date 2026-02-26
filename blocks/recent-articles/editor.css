@@ -1,7 +1,3 @@
-.block-editor .iastate22-card--recent-article .iastate22-card__title {
-	word-break: break-word;
-}
-
 .block-editor .recent-articles .card-set::after {
 	width: 100%;
 	left: 0;

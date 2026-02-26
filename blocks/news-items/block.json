@@ -21,5 +21,6 @@
     "mode": "auto",
     "renderCallback": "Iastate22_Blocks::render_block",
     "hideFieldsInSidebar": true
-  }
+  },
+  "editorStyle": "file:./editor.css"
 }

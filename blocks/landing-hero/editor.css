@@ -14,3 +14,7 @@
 .block-editor .ecosystem-home-hero--supporting-image .ecosystem-home-hero__media {
 	right: 0;
 }
+
+.block-editor .ecosystem-home-hero span.arrow {
+	display: none;
+}

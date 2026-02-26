@@ -7,3 +7,7 @@
 	overflow: scroll;
 	top: 0;
 }
+
+.block-editor .call-to-action--large span.arrow {
+	display: none;
+}

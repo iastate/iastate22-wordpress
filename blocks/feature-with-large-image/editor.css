@@ -2,9 +2,13 @@
 	margin: 2rem 0;
 }
 
-.block-editor .feature-with-large-image::before {
+.block-editor .paragraph-widget--feature-with-large-image .feature-with-large-image::before {
 	left: 0;
 	width: 100%;
 	transform: initial;
 	top: -1rem;
+}
+
+.block-editor .paragraph-widget--feature-with-large-image span.arrow {
+	display: none;
 }

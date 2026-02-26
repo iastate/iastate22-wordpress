@@ -1,3 +1,7 @@
 .block-editor .paragraph-widget--callout-inset {
 	margin: 1rem 0 3rem 0;
 }
+
+.block-editor .paragraph-widget--callout-inset span.arrow {
+	display: none;
+}

@@ -18,5 +18,6 @@
     "blockVersion": 3,
     "mode": "auto",
     "renderCallback": "Iastate22_Blocks::render_block"
-  }
+  },
+  "editorStyle": "file:./editor.css"
 }
