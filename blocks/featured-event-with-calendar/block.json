@@ -13,11 +13,9 @@
     "dates"
   ],
   "supports": {
-    "align": [
-      "wide",
-      "full"
-    ],
-    "anchor": true
+    "anchor": true,
+    "align": false,
+    "alignWide": false
   },
   "acf": {
     "blockVersion": 3,

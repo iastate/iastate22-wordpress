@@ -1,16 +1,3 @@
-{%- if is_preview -%}
-	<style>
-      .block-editor .paragraph-widget--feature-with-large-image {
-          margin: 2rem 0;
-      }
-      .block-editor .feature-with-large-image::before {
-          left: 0;
-          width: 100%;
-          transform: initial;
-          top: -1rem;
-      }
-	</style>
-{%- endif -%}
 <div class="paragraph-widget paragraph-widget--feature-with-large-image"
 		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	<div class="feature-with-large-image">

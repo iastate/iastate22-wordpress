@@ -1,20 +1,3 @@
-{%- if is_preview -%}
-	<style>
-      .block-editor .paragraph-widget--callout-set {
-          margin: 1rem 0;
-      }
-      .block-editor .paragraph-widget--callout-set .iastate22-callout__media {
-          margin: 0;
-      }
-      .block-editor .paragraph-widget--callout-set .callout-set::before {
-          left: 0;
-      }
-      .block-editor .paragraph-widget--callout-set .iastate22-callout--no-image .iastate22-callout__content {
-          margin: 0;
-          width: 100%;
-      }
-	</style>
-{%- endif -%}
 <div class="paragraph-widget paragraph-widget--callout-set"
 		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	<div class="callout-set">

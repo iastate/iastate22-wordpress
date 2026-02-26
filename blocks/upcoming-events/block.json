@@ -13,10 +13,8 @@
     "dates"
   ],
   "supports": {
-    "align": [
-      "wide",
-      "full"
-    ],
+    "alignWide": false,
+    "align": false,
     "anchor": true
   },
   "acf": {

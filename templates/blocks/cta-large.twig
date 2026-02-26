@@ -1,16 +1,3 @@
-{%- if is_preview -%}
-	<style>
-      .block-editor .paragraph-widget--call-to-action--large {
-          margin: 0;
-      }
-
-      .block-editor .call-to-action--large .call-to-action__copy-wrap {
-          height: 100%;
-          overflow: scroll;
-          top: 0;
-      }
-	</style>
-{%- endif -%}
 <div class="paragraph-widget paragraph-widget--call-to-action--large"
 		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	<div class="call-to-action call-to-action--large">

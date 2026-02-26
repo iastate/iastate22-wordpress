@@ -1,13 +1,3 @@
-{%- if is_preview -%}
-	<style>
-      .block-editor .paragraph-widget--image-grid-with-text {
-          margin: 1rem 0;
-      }
-      .block-editor .paragraph-widget--image-grid-with-text .image-grid {
-          margin: 0;
-      }
-	</style>
-{%- endif -%}
 <div class="paragraph-widget paragraph-widget--image-grid-with-text"
 		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	<div class="image-grid-with-text">

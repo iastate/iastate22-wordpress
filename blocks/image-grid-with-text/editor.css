@@ -1,0 +1,7 @@
+.block-editor .paragraph-widget--image-grid-with-text {
+	margin: 1rem 0;
+}
+
+.block-editor .paragraph-widget--image-grid-with-text .image-grid {
+	margin: 0;
+}

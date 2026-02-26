@@ -13,7 +13,9 @@
     "feature"
   ],
   "supports": {
-    "anchor": true
+    "anchor": true,
+    "align": false,
+    "alignWide": false
   },
   "acf": {
     "blockVersion": 3,

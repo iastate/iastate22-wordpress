@@ -1,10 +1,3 @@
-{%- if is_preview -%}
-	<style>
-      .block-editor .paragraph-widget--video-embed {
-          margin: 1rem 0;
-      }
-	</style>
-{%- endif -%}
 {%- set video = fields.shim ? fields.shim : fields.video_group.video -%}
 <div class="paragraph-widget paragraph-widget--video-embed"
 		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>

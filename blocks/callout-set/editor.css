@@ -1,0 +1,16 @@
+.block-editor .paragraph-widget--callout-set {
+	margin: 1rem 0;
+}
+
+.block-editor .paragraph-widget--callout-set .iastate22-callout__media {
+	margin: 0;
+}
+
+.block-editor .paragraph-widget--callout-set .callout-set::before {
+	left: 0;
+}
+
+.block-editor .paragraph-widget--callout-set .iastate22-callout--no-image .iastate22-callout__content {
+	margin: 0;
+	width: 100%;
+}

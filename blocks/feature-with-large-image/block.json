@@ -11,11 +11,14 @@
     "image"
   ],
   "supports": {
-    "anchor": true
+    "anchor": true,
+    "align": false,
+    "alignWide": false
   },
   "acf": {
     "blockVersion": 3,
     "mode": "auto",
     "renderCallback": "Iastate22_Blocks::render_block"
-  }
+  },
+  "editorStyle": "file:./editor.css"
 }

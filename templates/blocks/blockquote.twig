@@ -1,10 +1,3 @@
-{%- if is_preview -%}
-	<style>
-      .block-editor .paragraph-widget--blockquote {
-margin: 0;
-      }
-	</style>
-{%- endif -%}
 <div class="paragraph-widget paragraph-widget--blockquote"
 		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	<div class="iastate22-blockquote
@@ -13,7 +6,7 @@ margin: 0;
 		<div class="iastate22-blockquote__inner-wrap">
 			{% if fields.blockquote_image %}
 				<div class="iastate22-blockquote__portrait">
-					<img src="{{ fields.blockquote_image.url|e('esc_url') }}"
+					<img src="{{ fields.blockquote_image.url|e('esc_url') }}" loading="lazy"
 							 alt="{{ fields.blockquote_image.alt|e('esc_attr') }}"
 							 width="{{ fields.blockquote_image.width|e('esc_attr') }}"
 							 height="{{ fields.blockquote_image.height|e('esc_attr') }}"/>

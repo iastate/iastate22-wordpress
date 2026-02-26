@@ -1,0 +1,16 @@
+.block-editor .paragraph-widget--card-set {
+	margin: 1rem 0;
+}
+
+.block-editor .card-set::after {
+	left: 0;
+	right: 0;
+}
+
+.block-editor .card-set > ul {
+	margin: 0;
+}
+
+.block-editor .card-set > ul > li {
+	padding-right: 0.5rem;
+}

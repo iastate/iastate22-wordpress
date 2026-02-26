@@ -9,26 +9,8 @@
 {% elseif fields.ecosystem == "plain" %}
 	{% set heroClass = "ecosystem-home-hero ecosystem-home-hero--no-image" %}
 {% endif %}
-{%- if is_preview -%}
-	<style>
-      .block-editor .ecosystem-home-hero {
-          position: inherit;
-          margin: 0;
-      }
-      .block-editor .ecosystem-home-hero.ecosystem-home-hero--no-image::before {
-          content: none;
-      }
-      .block-editor .ecosystem-home-hero.ecosystem-home-hero--supporting-image {
-          margin: 0;
-      }
-      .block-editor .ecosystem-home-hero--supporting-image .ecosystem-home-hero__media {
-          right: 0;
-      }
-	</style>
-{%- endif -%}
 <div class="{{ heroClass|e('esc_attr') }}"
-		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}
->
+		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	{% if fields.ecosystem == "supporting_image" or fields.ecosystem == "plain" %}
 		<div class="ecosystem-home-hero__content">
 			<h1 class="ecosystem-home-hero__title">

@@ -1,0 +1,11 @@
+.block-editor .paragraph-widget--multicolumn-content .multi-column-content {
+	margin: 0;
+}
+
+.block-editor .paragraph-widget--multicolumn-content .multi-column-content .multi-column-content__column {
+	padding-right: 2rem;
+}
+
+.block-editor .paragraph-widget--multicolumn-content .multi-column-content .multi-column-content__column:last-child {
+	padding-right: 0;
+}
