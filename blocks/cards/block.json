@@ -12,6 +12,7 @@
     "set"
   ],
   "supports": {
+    "customClassName": false,
     "anchor": true,
     "align": false,
     "alignWide": false
