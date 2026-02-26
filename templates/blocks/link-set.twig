@@ -1,5 +1,5 @@
-<div
-	class="paragraph-widget paragraph-widget--link-set"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--link-set"
+		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	<div class="link-set">
 		<ul>
 			{% for item in fields.links %}
@@ -13,9 +13,9 @@
 							{% set linkClass = "link-set__link link-tertiary" %}
 						{% endif %}
 						<a class="{{ linkClass|e('esc_attr') }}"
-						   href="{{ item.link_url|e('esc_url') }}"{% if item.link_style == "external" %} target="_blank"{% endif %}>
-							{{ item.label }}
-							<span class="arrow"></span>
+							 href="{{ is_preview ? '#' : item.link_url|e('esc_url') }}"
+								{%- if not is_preview and item.link_style == "external" %} target="_blank"{%- endif -%}>
+							{{ item.label }} <span class="arrow"></span>
 						</a>
 					</li>
 				{% endif %}
