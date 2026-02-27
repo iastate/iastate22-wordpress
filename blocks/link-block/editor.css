@@ -1,7 +1,7 @@
-.block-editor .paragraph-widget--link-block {
+.editor-styles-wrapper .paragraph-widget--link-block {
 	margin: 1rem 0;
 }
 
-.block-editor .paragraph-widget--link-block span.arrow {
+.editor-styles-wrapper .paragraph-widget--link-block span.arrow {
 	display: none;
 }

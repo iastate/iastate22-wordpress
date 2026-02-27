@@ -1,7 +1,7 @@
-.block-editor .paragraph-widget--upcoming-events .upcoming-events {
+.editor-styles-wrapper .paragraph-widget--upcoming-events .upcoming-events {
 	margin: 0;
 }
 
-.block-editor .paragraph-widget--upcoming-events span.arrow {
+.editor-styles-wrapper .paragraph-widget--upcoming-events span.arrow {
 	display: none;
 }

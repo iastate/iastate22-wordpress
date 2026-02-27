@@ -1,7 +1,7 @@
-.block-editor .paragraph-widget--news-items span.arrow {
+.editor-styles-wrapper .paragraph-widget--news-items span.arrow {
 	display: none;
 }
 
-.block-editor .paragraph-widget--news-items {
+.editor-styles-wrapper .paragraph-widget--news-items {
 	background: #f5f5f5;
 }

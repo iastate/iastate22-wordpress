@@ -1,18 +1,18 @@
-.block-editor .paragraph-widget.paragraph-widget--carousel {
+.editor-styles-wrapper .paragraph-widget.paragraph-widget--carousel {
 	margin: 1rem 0;
 }
 
-.block-editor .iastate22-carousel-holder .carousel__nav-previous,
-.block-editor .iastate22-carousel-holder .carousel__nav-next {
+.editor-styles-wrapper .iastate22-carousel-holder .carousel__nav-previous,
+.editor-styles-wrapper .iastate22-carousel-holder .carousel__nav-next {
 	transform: inherit;
 }
 
-.block-editor .carousel__slide {
+.editor-styles-wrapper .carousel__slide {
 	border: var(--wp--preset--color--iastate-dark-gray) double 1rem;
 	padding: 0 2rem 1rem 2rem;
 }
 
-.block-editor .carousel__slide .carousel_section_header {
+.editor-styles-wrapper .carousel__slide .carousel_section_header {
 	font-size: 2rem;
 	text-align: center;
 	text-decoration: underline;

@@ -1,11 +1,11 @@
-.block-editor .paragraph-widget--callout-with-image {
+.editor-styles-wrapper .paragraph-widget--callout-with-image {
 	margin: 1rem 0;
 }
 
-.block-editor .paragraph-widget--callout-with-image .callout-with-image__media {
+.editor-styles-wrapper .paragraph-widget--callout-with-image .callout-with-image__media {
 	margin: 0;
 }
 
-.block-editor .paragraph-widget--callout-with-image span.arrow {
+.editor-styles-wrapper .paragraph-widget--callout-with-image span.arrow {
 	display: none;
 }

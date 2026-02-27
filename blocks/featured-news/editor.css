@@ -1,7 +1,7 @@
-.block-editor .featured-news {
+.editor-styles-wrapper .featured-news {
 	margin: 2rem 0;
 }
 
-.block-editor .featured-news span.arrow {
+.editor-styles-wrapper .featured-news span.arrow {
 	display: none;
 }

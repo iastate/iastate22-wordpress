@@ -3,8 +3,7 @@
       {%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
     <div class="hero__text-wrap">
       {% include ['templates/partial/breadcrumbs.twig'] %}
-      <h1 class="hero__title"
-          {{ acf_inline_text('hero_title') }}>
+      <h1 class="hero__title" {{ acf_inline_text('hero_title') }}>
         {% if fields.hero_title %}
           {{ fields.hero_title }}
         {% else %}
@@ -26,5 +25,3 @@
     {%- endif %}
   </div>
 {% endif %}
-
-

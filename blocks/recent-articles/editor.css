@@ -1,4 +1,4 @@
-.block-editor .recent-articles .card-set::after {
+.editor-styles-wrapper .recent-articles .card-set::after {
 	width: 100%;
 	left: 0;
 }

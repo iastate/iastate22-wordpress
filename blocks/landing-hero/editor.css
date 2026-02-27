@@ -1,20 +1,20 @@
-.block-editor .ecosystem-home-hero {
+.editor-styles-wrapper .ecosystem-home-hero {
 	position: inherit;
 	margin: 1rem 0;
 }
 
-.block-editor .ecosystem-home-hero.ecosystem-home-hero--no-image::before {
+.editor-styles-wrapper .ecosystem-home-hero.ecosystem-home-hero--no-image::before {
 	content: none;
 }
 
-.block-editor .ecosystem-home-hero.ecosystem-home-hero--supporting-image {
+.editor-styles-wrapper .ecosystem-home-hero.ecosystem-home-hero--supporting-image {
 	margin: 0;
 }
 
-.block-editor .ecosystem-home-hero--supporting-image .ecosystem-home-hero__media {
+.editor-styles-wrapper .ecosystem-home-hero--supporting-image .ecosystem-home-hero__media {
 	right: 0;
 }
 
-.block-editor .ecosystem-home-hero span.arrow {
+.editor-styles-wrapper .ecosystem-home-hero span.arrow {
 	display: none;
 }

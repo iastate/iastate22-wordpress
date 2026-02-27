@@ -1,14 +1,14 @@
-.block-editor .paragraph-widget--feature-with-large-image {
+.editor-styles-wrapper .paragraph-widget--feature-with-large-image {
 	margin: 2rem 0;
 }
 
-.block-editor .paragraph-widget--feature-with-large-image .feature-with-large-image::before {
+.editor-styles-wrapper .paragraph-widget--feature-with-large-image .feature-with-large-image::before {
 	left: 0;
 	width: 100%;
 	transform: initial;
 	top: -1rem;
 }
 
-.block-editor .paragraph-widget--feature-with-large-image span.arrow {
+.editor-styles-wrapper .paragraph-widget--feature-with-large-image span.arrow {
 	display: none;
 }

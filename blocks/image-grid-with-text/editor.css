@@ -1,11 +1,11 @@
-.block-editor .paragraph-widget--image-grid-with-text {
+.editor-styles-wrapper .paragraph-widget--image-grid-with-text {
 	margin: 1rem 0;
 }
 
-.block-editor .paragraph-widget--image-grid-with-text .image-grid {
+.editor-styles-wrapper .paragraph-widget--image-grid-with-text .image-grid {
 	margin: 0;
 }
 
-.block-editor .paragraph-widget--image-grid-with-text span.arrow {
+.editor-styles-wrapper .paragraph-widget--image-grid-with-text span.arrow {
 	display: none;
 }
