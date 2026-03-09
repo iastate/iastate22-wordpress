@@ -79,7 +79,7 @@ function custom_profiles() {
 		),
 		// Control the slugs used for this taxonomy
 		'rewrite'      => array(
-			'slug'         => 'locations', // This controls the base slug that will display before each term
+			'slug'         => 'area',
 			'with_front'   => false, // Don't display the category base before "/locations/"
 			'hierarchical' => true // This will allow URL's like "/locations/boston/cambridge/"
 		),
@@ -105,9 +105,9 @@ function custom_profiles() {
 		),
 		// Control the slugs used for this taxonomy
 		'rewrite'      => array(
-			'slug'         => 'division', // This controls the base slug that will display before each term
+			'slug'         => 'affiliation',
 			'with_front'   => false, // Don't display the category base before "/locations/"
-			'hierarchical' => true // This will allow URL's like "/locations/boston/cambridge/"
+			'hierarchical' => true
 		),
 	) );
 
