@@ -34,6 +34,9 @@ if ( is_day() ) {
 } elseif ( is_category() ) {
 	$context['title'] = single_cat_title( '', false );
 	array_unshift( $templates, 'archive-' . get_query_var( 'cat' ) . '.twig' );
+} elseif ( is_tax() ) {
+	$context['title'] = single_term_title( '', false );
+	array_unshift( $templates, 'archive-' . get_query_var( 'taxonomy' ) . '.twig' );
 } elseif ( is_post_type_archive() ) {
 	$context['title'] = post_type_archive_title( '', false );
 	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
