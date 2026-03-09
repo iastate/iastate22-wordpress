@@ -503,6 +503,10 @@ class StarterSite extends TimberSite {
 			return '';
 		}
 
+		if ( ! function_exists( 'acf_inline_text_editing_attrs' ) ) {
+			return '';
+		}
+
 		return acf_inline_text_editing_attrs( $field_name, $args );
 	}
 
@@ -515,6 +519,11 @@ class StarterSite extends TimberSite {
 		if ( isset( $context['is_preview'] ) && true !== $context['is_preview'] ) {
 			return '';
 		}
+		
+		if ( ! function_exists( 'acf_inline_toolbar_editing_attrs' ) ) {
+			return '';
+		}
+
 		if ( is_string( $fields ) ) {
 			$fields = array( $fields );
 		}
