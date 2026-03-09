@@ -1,0 +1,130 @@
+{%- set showView = 'view' not in fields.button_links -%}
+{%- set showDownload = 'download' not in fields.button_links -%}
+{%- set showModalDownload = 'modal_link' not in fields.button_links -%}
+<div class="paragraph-widget paragraph-widget--image-gallery">
+  <div class="image-gallery">
+    {% for image in fields.image_gallery %}
+      {% set modalId = ( 'image-modal-' ~ image.name )|e('esc_attr') %}
+      <article class="image-gallery__item">
+        <div class="image-gallery__item-wrap">
+          <div class="image-gallery__image-wrap">
+            <img src="{{ _self.image_size_select(image)|e('esc_url') }}" alt="{{ image.alt|e('esc_attr') }}">
+            <button class="image-gallery__image-contact" tabindex="-1" data-micromodal-trigger={{ modalId }}>
+              <span class="visible-for-screen-readers">{{ image.alt|e('esc_html') }}</span>
+            </button>
+          </div>
+          {% if showView or showDownload %}
+          <div class="image-gallery__console">
+          <span class="icon">
+            <svg id="SVG_icon_plus" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewbox="0 0 14 14">
+              <path id="Divider_H2" d="M-14180.482-8025.184h14" transform="translate(14180.482 8032.184)" fill="none"
+                    stroke="#f1be48" stroke-width="2"/>
+              <path id="Divider_H2-2" data-name="Divider_H2" d="M0,0H14" transform="translate(7 0) rotate(90)"
+                    fill="none" stroke="#f1be48" stroke-width="2"/>
+            </svg>
+          </span>
+            <div class="image-gallery__console-wrap">
+              {% if showView %}
+                <button class="iastate22-button iastate22-button--reverse" data-micromodal-trigger={{ modalId }}>
+                  View
+                  <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="7.551" height="12.273" viewbox="0 0 7.551 12.273">
+                  <path id="Button-Carrot-Burgundy" d="M-13572.751-6721.45l5.43,5.429-5.43,5.43"
+                        transform="translate(13573.458 6722.157)" fill="none" stroke="#7c2529" stroke-width="2"/>
+                </svg>
+              </span>
+                </button>
+              {% endif %}
+              {% if showDownload %}
+                <a href="{{ image.url|e('esc_url') }}" class="iastate22-button iastate22-button--reverse" download>
+                  <span class="text">Download</span>
+                  <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14.397" viewbox="0 0 14 14.397">
+                  <g id="SVG_icon_download" transform="translate(-804.5 -1307.103)">
+                    <path id="Path_3234" data-name="Path 3234" d="M2463-10172.689v9.989"
+                          transform="translate(-1651.393 11479.792)" fill="none" stroke="#7c2529" stroke-width="2"/>
+                    <path id="Path_3235" data-name="Path 3235" d="M2443.81-10144l4.594,4.594L2453-10144"
+                          transform="translate(-1636.81 11457.059)" fill="none" stroke="#7c2529" stroke-width="2"/>
+                    <line id="Line_4" data-name="Line 4" x2="14" transform="translate(804.5 1320.5)" fill="none"
+                          stroke="#7c2529" stroke-width="2"/>
+                  </g>
+                </svg>
+              </span>
+                </a>
+              {% endif %}
+              {#
+              {% for additional_button in image.additional_buttons %}
+                <a href="{{ additional_button.url }}"
+                   class="iastate22-button iastate22-button--reverse">{{ additional_button.text }}
+                  <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="7.551" height="12.273" viewbox="0 0 7.551 12.273">
+                      <path id="Button-Carrot-Burgundy" d="M-13572.751-6721.45l5.43,5.429-5.43,5.43"
+                            transform="translate(13573.458 6722.157)" fill="none" stroke="#7c2529" stroke-width="2"/>
+                    </svg>
+                  </span>
+                </a>
+              {% endfor %}
+              #}
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        {% if showView %}
+          <div class="iastate22-modal iastate22-modal--image-download" id="{{ modalId }}" aria-hidden="false">
+            <div class="iastate22-modal__overlay" tabindex="-1" data-micromodal-close>
+              <div class="iastate22-modal__container{% if image %} iastate22-modal__container-with-media{% endif %}"
+                   id="{{ modalId }}-content" role="dialog" aria-modal="true" aria-labelledby="{{ modalId }}-title">
+                <button class="iastate22-modal__close" aria-label="Close modal" data-micromodal-close>
+                  <i class="fa-light fa-xmark" aria-hidden="true"></i>
+                </button>
+                <figure>
+                  {% if image %}
+                    <div class="iastate22-modal__media">
+                      <img src="{{ image.url|e('esc_url') }}" alt="{{ image.alt|e('esc_attr') }}" loading="lazy"
+                           width="400" height="400">
+                      {% if showModalDownload %}
+                        <a href="{{ image.url|e('esc_url') }}" class="iastate22-button iastate22-button--reverse"
+                           download>
+                          <span class="text">Download</span><span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14.397" viewbox="0 0 14 14.397">
+                  <g id="SVG_icon_download" transform="translate(-804.5 -1307.103)">
+                    <path id="Path_3234" data-name="Path 3234" d="M2463-10172.689v9.989"
+                          transform="translate(-1651.393 11479.792)" fill="none" stroke="#7c2529" stroke-width="2"/>
+                    <path id="Path_3235" data-name="Path 3235" d="M2443.81-10144l4.594,4.594L2453-10144"
+                          transform="translate(-1636.81 11457.059)" fill="none" stroke="#7c2529" stroke-width="2"/>
+                    <line id="Line_4" data-name="Line 4" x2="14" transform="translate(804.5 1320.5)" fill="none"
+                          stroke="#7c2529" stroke-width="2"/>
+                  </g>
+                </svg></span>
+                        </a>
+                      {% endif %}
+                    </div>
+                  {% endif %}
+                  <figcaption class="iastate22-modal__content">
+                    <h2 class="iastate22-modal__title" id="{{ modalId }}-title">{{ image.title|e('esc_html') }}</h2>
+                    {%- if image.caption %}
+                      <p>{{ image.caption|e('esc_html') }}</p>
+                    {% endif -%}
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+</div>
+{%- macro image_size_select(image) -%}
+  {%- if not image.sizes or image.height < 300 -%}
+    {{- image.url -}}
+  {%- else -%}
+    {%- if image.sizes.medium_large -%}
+      {{- image.sizes.medium_large -}}
+    {%- elseif image.sizes.large -%}
+      {{- image.sizes.large -}}
+    {%- else -%}
+      {{- image.url -}}
+    {%- endif -%}
+  {%- endif -%}
+{%- endmacro image_size_select -%}
