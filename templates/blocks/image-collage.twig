@@ -4,7 +4,7 @@ id="{{ block.anchor|e('esc_attr') }}"{%- endif %}>
     <div class="image-collage__wrap">
       {% for image in fields.image_collage %}
         <div class="image-collage__image-{{ _self.int_to_word(loop.index)|e('esc_attr') }}">
-          <img src="{{ image.url|e('esc_url') }}" alt="{{ image.alt|e('esc_attr') }}" loading="lazy">
+          {{ media_image(image, {size:'large'}) }}
         </div>
       {% endfor %}
     </div>

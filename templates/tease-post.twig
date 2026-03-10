@@ -6,7 +6,7 @@
 		{%- set post_thumbnail = theme_post_thumbnail(post) -%}
 		{% if post_thumbnail %}
 			<div class="iastate22-card__media">
-				<img src="{{ post_thumbnail.src|e('esc_url') }}" alt="{{ post_thumbnail.alt|e('esc_attr') }}" loading="lazy" />
+				{{ media_image(post_thumbnail, {size:'medium', placeholder: true}) }}
 			</div>
 		{% endif %}
 		<div class="iastate22-card__content">

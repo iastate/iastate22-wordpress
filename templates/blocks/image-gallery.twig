@@ -8,7 +8,7 @@
       <article class="image-gallery__item">
         <div class="image-gallery__item-wrap">
           <div class="image-gallery__image-wrap">
-            <img src="{{ _self.image_size_select(image)|e('esc_url') }}" alt="{{ image.alt|e('esc_attr') }}">
+            {{ media_image(image, {size:'medium'}) }}
             <button class="image-gallery__image-contact" tabindex="-1" data-micromodal-trigger={{ modalId }}>
               <span class="visible-for-screen-readers">{{ image.alt|e('esc_html') }}</span>
             </button>
@@ -80,8 +80,7 @@
                 <figure>
                   {% if image %}
                     <div class="iastate22-modal__media">
-                      <img src="{{ image.url|e('esc_url') }}" alt="{{ image.alt|e('esc_attr') }}" loading="lazy"
-                           width="400" height="400">
+                      {{ media_image(image, {size:'large'}) }}
                       {% if showModalDownload %}
                         <a href="{{ image.url|e('esc_url') }}" class="iastate22-button iastate22-button--reverse"
                            download>
@@ -115,16 +114,3 @@
     {% endfor %}
   </div>
 </div>
-{%- macro image_size_select(image) -%}
-  {%- if not image.sizes or image.height < 300 -%}
-    {{- image.url -}}
-  {%- else -%}
-    {%- if image.sizes.medium_large -%}
-      {{- image.sizes.medium_large -}}
-    {%- elseif image.sizes.large -%}
-      {{- image.sizes.large -}}
-    {%- else -%}
-      {{- image.url -}}
-    {%- endif -%}
-  {%- endif -%}
-{%- endmacro image_size_select -%}

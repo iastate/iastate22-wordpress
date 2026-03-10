@@ -155,7 +155,7 @@ class StarterSite extends TimberSite {
 	 * @param Environment $twig get extension.
 	 *
 	 * @throws \Twig\Error\RuntimeError
-*/
+	 */
 	public function add_to_twig( $twig ) {
 		$twig->addExtension( new StringLoaderExtension() );
 		$twig->addFilter( new \Timber\Twig_Filter( 'boolval', 'wp_validate_boolean' ) );
@@ -184,6 +184,11 @@ class StarterSite extends TimberSite {
 				'theme_post_preview',
 				array( $this, 'get_theme_post_preview' ),
 				array( 'needs_context' => true, )
+		) );
+		$twig->addFunction( new \Timber\Twig_Function(
+				'media_image',
+				array( $this, 'get_attachment_image_wrapper' ),
+				array( 'needs_context' => false, )
 		) );
 
 		$esc_attr = function ( Environment $env, $string ) {
@@ -475,6 +480,40 @@ class StarterSite extends TimberSite {
 		}
 
 		return null;
+	}
+
+	/**
+	 * @param int|mixed $attachment_id
+	 * @param string|array $attr
+	 *
+	 * @return string
+	 */
+	public function get_attachment_image_wrapper( $attachment_id, $options = [], $attr = '' ) {
+		$html        = '';
+		$size        = $options['size'] ?? 'large';
+		$icon        = $options['icon'] ?? false;
+		$placeholder = (bool) ( $options['placeholder'] ?? false );
+
+		if ( ! is_scalar( $attachment_id ) ) {
+			if ( is_array( $attachment_id ) ) {
+				$attachment_id = $attachment_id['ID'] ?? null;
+			}
+			if ( $attachment_id instanceof \Timber\Image ) {
+				$attachment_id = (int) $attachment_id->ID;
+			}
+		}
+
+		if ( ! empty( $attachment_id ) ) {
+			$html = wp_get_attachment_image( $attachment_id, $size, $icon, $attr );
+		}
+
+		if ( $placeholder && empty( $html ) ) {
+			return sprintf( '<img class="bg-placeholder" src="%s" alt="Placeholder" decoding="async" loading="lazy">',
+					esc_url( $this->theme->uri . '/img/placeholder.png' )
+			);
+		}
+
+		return $html;
 	}
 }
 

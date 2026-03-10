@@ -47,7 +47,7 @@
 			{% endif %}
 			{% if hero_image %}
 				<div class="hero--news-article__media">
-					<img src="{{ hero_image.src|e('esc_url') }}" alt="{{ hero_image.alt|e('esc_attr') }}">
+					{{ media_image(hero_image, {size:'full', placeholder: true}) }}
 				</div>
 			{% endif %}
 		</div>

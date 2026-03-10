@@ -47,12 +47,7 @@
 	{% else %}
 		<div class="ecosystem-home-hero__media">
 			{% if fields.hero_image.hero_image %}
-				<img src="{{ fields.hero_image.hero_image.url|e('esc_url') }}"
-					 alt="{{ fields.hero_image.hero_image.alt|e('esc_attr') }}"
-					 width="{{ fields.hero_image.hero_image.width|e('esc_attr') }}"
-					 height="{{ fields.hero_image.hero_image.height|e('esc_attr') }}">
-			{% else %}
-				<img class="bg-placeholder" src="{{ theme.path()~'/img/placeholder.png' }}" alt="Placeholder">
+				{{ media_image(fields.hero_image.hero_image, {size: 'full', placeholder: true}) }}
 			{% endif %}
 			{% if fields.ecosystem == "video" %}
 				{% if fields.video.source == "youtube" %}

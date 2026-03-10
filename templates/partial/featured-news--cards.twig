@@ -11,8 +11,7 @@
 				</div>
 				<div class="featured-news__large-article__image-container">
 					{% if thumbNail %}
-						<img class="featured-news__large-article__image" src="{{ thumbNail.src|striptags }}"
-							 alt="{{ thumbNail.alt|striptags }}">
+						{{ media_image(thumbNail, {size:'large'}, {class:'featured-news__large-article__image'}) }}
 					{% endif %}
 				</div>
 				<div class="featured-news__large-article__tags">
@@ -44,8 +43,7 @@
 				<div class="featured-news__small-article__container">
 					{% if thumbNail != false %}
 						<div class="featured-news__small-article__image-container">
-							<img class="featured-news__small-article__image" src="{{ thumbNail.src|striptags }}"
-								 alt="{{ thumbNail.alt|striptags }}">
+							{{ media_image(thumbNail, {size:'medium'}, {class:'featured-news__small-article__image'}) }}
 						</div>
 					{% endif %}
 					{% if story.terms|length > 0 %}

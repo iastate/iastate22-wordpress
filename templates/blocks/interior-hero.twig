@@ -12,9 +12,7 @@
 	</div>
 	{% if fields.hero_image %}
 		<div class="hero__media">
-			<img src="{{ fields.hero_image.url|e('esc_url') }}" alt="{{ fields.hero_image.alt|e('esc_attr') }}"
-				 width="{{ fields.hero_image.width|e('esc_attr') }}"
-				 height="{{ fields.hero_image.height|e('esc_attr') }}">
+			{{ media_image(fields.hero_image, {size:'full', placeholder: true}) }}
 		</div>
 	{% endif %}
 

@@ -11,10 +11,7 @@
 						<div class="video-embed">
 							<div class="video-embed__media-wrap">
 								{% if slide.carousel_video.video.poster_image.url %}
-									<img src="{{ slide.carousel_video.video.poster_image.url|e('esc_url') }}"
-										 alt="{{ slide.carousel_video.video.poster_image.alt|e('esc_attr') }}"
-										 width="{{ slide.carousel_video.video.poster_image.width|e('esc_attr') }}"
-										 height="{{ slide.carousel_video.video.poster_image.height|e('esc_attr') }}"/>
+									{{ media_image(slide.carousel_video.video.poster_image, {size:'full'}) }}
 								{% else %}
 									{% if slide.carousel_video.video.source == "youtube" %}
 										<img

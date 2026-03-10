@@ -21,20 +21,17 @@
 		<div class="image-grid">
 			{% if fields.image_grid_with_text.image_grid.main_image.url %}
 				<div class="image-grid__image">
-					<img src="{{ fields.image_grid_with_text.image_grid.main_image.url|e('esc_url') }}"
-							 alt="{{ fields.image_grid_with_text.image_grid.main_image.alt|e('esc_attr') }}" width="627" height="418"/>
+					{{ media_image(fields.image_grid_with_text.image_grid.main_image, {size:'large'}) }}
 				</div>
 			{% endif %}
 			{% if fields.image_grid_with_text.image_grid.left_image.url %}
 				<div class="image-grid__image">
-					<img src="{{ fields.image_grid_with_text.image_grid.left_image.url|e('esc_url') }}"
-							 alt="{{ fields.image_grid_with_text.image_grid.left_image.alt|e('esc_attr') }}" width="303" height="202"/>
+					{{ media_image(fields.image_grid_with_text.image_grid.left_image, {size:'medium'}) }}
 				</div>
 			{% endif %}
 			{% if fields.image_grid_with_text.image_grid.right_image.url %}
 				<div class="image-grid__image">
-					<img src="{{ fields.image_grid_with_text.image_grid.right_image.url|e('esc_url') }}"
-							 alt="{{ fields.image_grid_with_text.image_grid.right_image.alt|e('esc_attr') }}" width="303" height="202"/>
+					{{ media_image(fields.image_grid_with_text.image_grid.right_image, {size:'medium'}) }}
 				</div>
 			{% endif %}
 			{% if fields.image_grid_with_text.image_grid.image_caption %}

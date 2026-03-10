@@ -19,10 +19,7 @@
 							<div class="iastate22-card iastate22-card--recent-article clickable">
 								{% if maybe_thumbnail %}
 									<div class="iastate22-card__media">
-										<img src="{{ maybe_thumbnail.src|e('esc_url') }}"
-											 alt="{{ maybe_thumbnail.alt|e('esc_attr') }}" loading="lazy"
-											 width="{{ maybe_thumbnail.width|e('esc_attr') }}"
-											 height="{{ maybe_thumbnail.height|e('esc_attr') }}">
+										{{ media_image(maybe_thumbnail, {size:'medium'}) }}
 									</div>
 								{% endif %}
 
@@ -61,10 +58,7 @@
 						<div class="iastate22-card iastate22-card--recent-article clickable">
 							{% if maybe_thumbnail %}
 								<div class="iastate22-card__media">
-									<img src="{{ maybe_thumbnail.src|e('esc_url') }}"
-										 alt="{{ maybe_thumbnail.alt|e('esc_attr') }}" loading="lazy"
-										 width="{{ maybe_thumbnail.width|e('esc_attr') }}"
-										 height="{{ maybe_thumbnail.height|e('esc_attr') }}">
+									{{ media_image(maybe_thumbnail, {size:'medium'}) }}
 								</div>
 							{% endif %}
 
@@ -99,10 +93,7 @@
 						<div class="iastate22-card iastate22-card--recent-article clickable">
 							{% if maybe_thumbnail %}
 								<div class="iastate22-card__media">
-									<img src="{{ maybe_thumbnail.src|e('esc_url') }}"
-										 alt="{{ maybe_thumbnail.alt|e('esc_attr') }}" loading="lazy"
-										 width="{{ maybe_thumbnail.width|e('esc_attr') }}"
-										 height="{{ maybe_thumbnail.height|e('esc_attr') }}">
+									{{ media_image(maybe_thumbnail, {size:'medium'}) }}
 								</div>
 							{% endif %}
 							<div class="iastate22-card__content">
@@ -136,10 +127,7 @@
 						<div class="iastate22-card iastate22-card--recent-article clickable">
 							{% if maybe_thumbnail %}
 								<div class="iastate22-card__media">
-									<img src="{{ maybe_thumbnail.src|e('esc_url') }}"
-										 alt="{{ maybe_thumbnail.alt|e('esc_attr') }}" loading="lazy"
-										 width="{{ maybe_thumbnail.width|e('esc_attr') }}"
-										 height="{{ maybe_thumbnail.height|e('esc_attr') }}">
+									{{ media_image(maybe_thumbnail, {size:'medium'}) }}
 								</div>
 							{% endif %}
 

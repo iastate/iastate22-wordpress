@@ -7,10 +7,7 @@
 		<div class="external-news-story__flex-wrap">
 			{% if fields.story.thumbnail %}
 				<div class="external-news-story__media">
-					<img src="{{ fields.story.thumbnail.url|e('esc_url') }}"
-						 alt="{{ fields.story.thumbnail.alt|e('esc_attr') }}"
-						 width="{{ fields.story.thumbnail.width|e('esc_attr') }}"
-						 height="{{ fields.story.thumbnail.height|e('esc_attr') }}"/>
+					{{ media_image(fields.story.thumbnail, {size:'medium'}) }}
 				</div>
 			{% endif %}
 			<div class="external-news-story__content text-content">

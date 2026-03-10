@@ -15,9 +15,7 @@
 					{% endif %}
 					{% if thumbnail %}
 						<div class="iastate22-card__media">
-							<img src="{{ thumbnail.src|e('esc_url') }}" alt="{{ thumbnail.alt|e('esc_attr') }}"
-								 loading="lazy" width="{{ thumbnail.width|e('esc_attr') }}"
-								 height="{{ thumbnail.height|e('esc_attr') }}">
+							{{ media_image(thumbnail, {size:'medium'}) }}
 						</div>
 					{% endif %}
 					<div class="iastate22-card__content">
