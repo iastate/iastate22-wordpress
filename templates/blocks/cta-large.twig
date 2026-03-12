@@ -1,3 +1,4 @@
+{%- from "templates/macros/buttons.twig" import button -%}
 <div
 	class="paragraph-widget paragraph-widget--call-to-action--large"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
 	<div class="call-to-action call-to-action--large">
@@ -10,8 +11,9 @@
 			<div class="iastate22-button-set">
 				<ul>
 					{% for item in fields.callout_content.callout_cta %}
-						<li><a class="iastate22-button" href="{{ item.link_url|e('esc_url') }}">{{ item.link_text }}
-								<span class="arrow"></span></a></li>
+						<li>
+							{{- button(item.link_text, item.link_url) -}}
+						</li>
 					{% endfor %}
 				</ul>
 			</div>

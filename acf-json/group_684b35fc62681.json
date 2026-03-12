@@ -1,0 +1,210 @@
+{
+    "key": "group_684b35fc62681",
+    "title": "Helper - Video Display",
+    "fields": [
+        {
+            "key": "field_684b35fc51456",
+            "label": "Video Settings",
+            "name": "video_display_group",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_684b362951457",
+                    "label": "Title",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_684b364751458",
+                    "label": "Source",
+                    "name": "source",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "-- select one -- :": "-- select one -- :",
+                        "youtube": "YouTube",
+                        "vimeo": "Vimeo",
+                        "direct": "Video Link",
+                        "media_gallery": "Media Gallery"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0
+                },
+                {
+                    "key": "field_684b366751459",
+                    "label": "Youtube Video",
+                    "name": "youtube_video",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Enter the 11 digit YouTube video ID in the field below",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_684b364751458",
+                                "operator": "==",
+                                "value": "youtube"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": 11,
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_684b367b5145a",
+                    "label": "Vimeo Video",
+                    "name": "vimeo_video",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Enter the Vimeo video ID code",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_684b364751458",
+                                "operator": "==",
+                                "value": "vimeo"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": 10,
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_684b368a5145b",
+                    "label": "Direct Link",
+                    "name": "direct_link",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "Enter the URL of the site that you would like to link a video from",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_684b364751458",
+                                "operator": "==",
+                                "value": "direct"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_684b369a5145c",
+                    "label": "Local File",
+                    "name": "local_file",
+                    "aria-label": "",
+                    "type": "file",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_684b364751458",
+                                "operator": "==",
+                                "value": "media_gallery"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_size": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "allow_in_bindings": 0
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "current_user",
+                "operator": "!=",
+                "value": "logged_in"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1773094122
+}

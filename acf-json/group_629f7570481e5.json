@@ -20,15 +20,19 @@
                 "button": "Button",
                 "standard": "Standard",
                 "minimal": "Minimal",
-                "external": "External"
+                "external": "External",
+                "video": "Video"
             },
             "default_value": "button",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
+            "allow_in_bindings": 1,
             "ui": 0,
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_629f75704b112",
@@ -65,6 +69,36 @@
                 "id": ""
             },
             "return_format": "url"
+        },
+        {
+            "key": "field_69af42b2c803a",
+            "label": "Video",
+            "name": "video",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_629f75704b0c9",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_684b35fc62681"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
         }
     ],
     "location": [
@@ -85,5 +119,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1693322209
+    "display_title": "",
+    "modified": 1773093837
 }

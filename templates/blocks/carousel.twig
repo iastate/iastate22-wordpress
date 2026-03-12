@@ -6,7 +6,7 @@
 				<div class="carousel__slide">
 					{% if slide.carousel_content == "image" %}
 						<div class="carousel__slide-image"
-							 style="background-image:url({{ slide.carousel_image.url }})"></div>
+								 style="background-image:url({{ slide.carousel_image.url }})"></div>
 					{% elseif slide.carousel_content == "video" %}
 						<div class="video-embed">
 							<div class="video-embed__media-wrap">
@@ -15,21 +15,21 @@
 								{% else %}
 									{% if slide.carousel_video.video.source == "youtube" %}
 										<img
-											src="https://img.youtube.com/vi/{{ slide.carousel_video.video.youtube_video_id }}/maxresdefault.jpg"
-											alt="Video Poster">
+												src="https://img.youtube.com/vi/{{ slide.carousel_video.video.youtube_video_id }}/maxresdefault.jpg"
+												alt="Video Poster">
 									{% elseif slide.carousel_video.video.source == "vimeo" %}
 										<img
-											src="https://vumbnail.com/{{ slide.carousel_video.video.vimeo_video_id }}.jpg"
-											alt="Video Poster">
+												src="https://vumbnail.com/{{ slide.carousel_video.video.vimeo_video_id }}.jpg"
+												alt="Video Poster">
 									{% endif %}
 								{% endif %}
 								{% if slide.carousel_video.video.source == "youtube" %}
 									<div class="video-embed__video"
-										 data-aria-label="YouTube Video: {{ slide.carousel_video.video.title }}"
-										 data-vid="{{ slide.carousel_video.video.youtube_video_id|e('esc_attr') }}"></div>
+											 data-aria-label="YouTube Video: {{ slide.carousel_video.video.title }}"
+											 data-vid="{{ slide.carousel_video.video.youtube_video_id|e('esc_attr') }}"></div>
 								{% elseif slide.carousel_video.video.source == "vimeo" %}
-									<div data-vimeo-id="{{ slide.carousel_video.video.vimeo_video_id|e('esc_attr') }}"
-										 class="video--vim"></div>
+									<div class="video--vim"
+											 data-vimeo-id="{{ slide.carousel_video.video.vimeo_video_id|e('esc_attr') }}"></div>
 								{% endif %}
 							</div>
 							{% if fields.media_caption_toggle == true %}
@@ -38,15 +38,15 @@
 						</div>
 					{% endif %}
 					<div class="carousel__slide-content">
-						{% if slide.carousel_caption %}
+						{% if slide.carousel_caption -%}
 							<div class="carousel__slide-content-caption">{{ slide.carousel_caption }}</div>
-						{% endif %}
-						{% if slide.title %}
+						{%- endif %}
+						{% if slide.title -%}
 							<h3 class="carousel__slide-content-title">{{ slide.title }}</h3>
-						{% endif %}
-						{% if slide.carousel_copy %}
+						{% endif -%}
+						{% if slide.carousel_copy -%}
 							<div class="carousel__slide-content-body">{{ slide.carousel_copy }}</div>
-						{% endif %}
+						{%- endif %}
 					</div>
 				</div>
 			{% endfor %}
