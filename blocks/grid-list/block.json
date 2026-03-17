@@ -1,0 +1,21 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "apiVersion": 2,
+  "name": "acf/grid-list",
+  "title": "Grid List",
+  "description": "List of icons with a link",
+  "category": "isu-blocks",
+  "icon": "format-gallery",
+  "keywords": [
+    "icon",
+    "grid"
+  ],
+  "supports": {
+    "anchor": true
+  },
+  "acf": {
+    "blockVersion": 2,
+    "mode": "edit",
+    "renderCallback": "Iastate22_Blocks::render_block"
+  }
+}

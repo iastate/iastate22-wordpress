@@ -1,0 +1,35 @@
+<div class="paragraph-widget paragraph-widget--grid-list"
+		{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+	<div class="grid-list">
+		{% if fields.title %}
+			<h2 class="grid-list__label">{{ fields.title }}</h2>
+		{% endif %}
+		{% if fields.sub_title %}
+			<h3 class="grid-list__sublabel">{{ fields.sub_title }}</h3>
+		{% endif %}
+		<ul>
+			{% for item in fields.grid -%}
+			{{ action('qm/debug', item) }}
+			<li>
+				{% if item.link|length > 0 %}<a href="{{ item.link }}" class="grid-list__item">{% else %}<div class="grid-list__item">{% endif %}
+
+						{%- if item.acf_fc_layout == 'media_library' -%}
+							<div class="grid-list__image">
+									<img src="{{ item['media-icon']|e('esc_url') }}" alt="" loading="lazy" width="130" height="130">
+							</div>
+						{%- elseif item.acf_fc_layout == 'custom_url' -%}
+							<div class="grid-list__image">
+								<img src="{{ item['url-icon']|e('esc_url') }}" alt="" loading="lazy" width="130" height="130">
+							</div>
+						{%- endif -%}
+
+						{%- if item.label -%}
+							<span class="grid-list__text">{{ item.label }}</span>
+						{%- endif -%}
+
+				{% if item.link|length > 0 %}</a>{% else %}</div>{% endif %}
+			</li>
+			{%- endfor %}
+		</ul>
+	</div>
+</div>

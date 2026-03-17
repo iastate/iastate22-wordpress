@@ -72,11 +72,13 @@ class Iastate22_Blocks {
 		register_block_type( $template_directory . '/blocks/callout-with-image' );
 		// Feature Set
 		register_block_type( $template_directory . '/blocks/callout-set' );
+		// Grid List
+		register_block_type( $template_directory . '/blocks/grid-list' );
 		// Hero - Directory. unused?
 		#register_block_type( $template_directory . '/blocks/directory-hero' );
 		// Image - Full Width
 		register_block_type( $template_directory . '/blocks/full-width-image' );
-    // Image - Collage
+		// Image - Collage
 		register_block_type( $template_directory . '/blocks/image-collage' );
 		// Image - Gallery
 		register_block_type( $template_directory . '/blocks/image-gallery' );
@@ -124,6 +126,12 @@ class Iastate22_Blocks {
 				array( self::class, 'render_interior_hero' ), 10, 6 );
 		add_filter( 'idf_acf_block_render_context/recent-articles',
 				array( self::class, 'render_recent_articles' ), 10, 6 );
+
+		add_filter( 'acf/fields/icon_picker/tabs',
+				array( self::class, 'grid_list_icon_tabs' ), 10, 1 );
+		add_filter( 'acf/fields/icon_picker/theme/icons',
+				array( self::class, 'grid_list_icons' ), 10, 1 );
+
 	}
 
 	/**
@@ -431,4 +439,167 @@ class Iastate22_Blocks {
 		return $context;
 	}
 
+	/**
+	 * @param array $tabs
+	 */
+	public static function grid_list_icon_tabs( $tabs ): array {
+		$tabs['theme'] = 'Theme';
+		
+		return $tabs;
+	}
+
+	/**
+	 * @param array $icons
+	 */
+	public static function grid_list_icons( $icons ): array {
+		$base_url = get_template_directory_uri() . '/img/icons/';
+
+		return array(
+				array(
+						'url'   => $base_url . 'multicolor-icon-financial-aid.svg',
+						'key'   => 'multicolor-financial-aid',
+						'label' => 'Multi-color Financial Aid',
+				),
+				array(
+						'url'   => $base_url . 'multicolor-icon-graduate.svg',
+						'key'   => 'multicolor-graduate',
+						'label' => 'Multi-color Graduate',
+				),
+				array(
+						'url'   => $base_url . 'multicolor-icon-international.svg',
+						'key'   => 'multicolor-international',
+						'label' => 'Multi-color International',
+				),
+				array(
+						'url'   => $base_url . 'multicolor-icon-military-non-traditional.svg',
+						'key'   => 'multicolor-non-traditional',
+						'label' => 'Multi-color Non-traditional',
+				),
+				array(
+						'url'   => $base_url . 'multicolor-icon-non-degree.svg',
+						'key'   => 'multicolor-non-degree',
+						'label' => 'Multi-color Non-Degree',
+				),
+				array(
+						'url'   => $base_url . 'multicolor-icon-scholarships.svg',
+						'key'   => 'multicolor-scholarships',
+						'label' => 'Multi-color Scholarships',
+				),
+				array(
+						'url'   => $base_url . 'multicolor-icon-student-accessibility.svg',
+						'key'   => 'multicolor-accessibility',
+						'label' => 'Multi-color Accessibility',
+				),
+				array(
+						'url'   => $base_url . 'multicolor-icon-transfer.svg',
+						'key'   => 'multicolor-transfer',
+						'label' => 'Multi-color Transfer',
+				),
+				array(
+						'url'   => $base_url . 'multicolor-icon-tuition-fees.svg',
+						'key'   => 'multicolor-tuition-fees',
+						'label' => 'Multi-color Fees',
+				),
+				array(
+						'url'   => $base_url . 'multicolor-icon-undergraduate.svg',
+						'key'   => 'multicolor-undergraduate',
+						'label' => 'Multi-color Undergraduate',
+				),
+				array(
+						'url'   => $base_url . 'SVG_Call_Icon.svg',
+						'key'   => 'phone-1',
+						'label' => 'Phone',
+				),
+				array(
+						'url'   => $base_url . 'phone.svg',
+						'key'   => 'phone-2',
+						'label' => 'Phone',
+				),
+				array(
+						'url'   => $base_url . 'SVG_Cost_Icon.svg',
+						'key'   => 'cost',
+						'label' => 'Cost',
+				),
+				array(
+						'url'   => $base_url . 'SVG_Email_Icon.svg',
+						'key'   => 'email-1',
+						'label' => 'Email',
+				),
+				array(
+						'url'   => $base_url . 'email.svg',
+						'key'   => 'email-2',
+						'label' => 'Email',
+				),
+				array(
+						'url'   => $base_url . 'SVG_Location_Icon.svg',
+						'key'   => 'location',
+						'label' => 'Location',
+				),
+				array(
+						'url'   => $base_url . 'SVG_Time_Icon.svg',
+						'key'   => 'time',
+						'label' => 'Time',
+				),
+				array(
+						'url'   => $base_url . 'SVG_Website_Icon.svg',
+						'key'   => 'website',
+						'label' => 'Website',
+				),
+				array(
+						'url'   => $base_url . 'link-arrow.svg',
+						'key'   => 'link-arrow',
+						'label' => 'Link arrow',
+				),
+				array(
+						'url'   => $base_url . 'calendar.svg',
+						'key'   => 'calendar',
+						'label' => 'Calendar',
+				),
+				array(
+						'url'   => $base_url . 'arrow-up-from-right-sqaure.svg', // URL of the icon.
+						'key'   => 'square-arrow-right', // Saved as the value in the icon picker field.
+						'label' => 'Square Arrow', // Name of the card used in search.
+				),
+				array(
+						'url'   => $base_url . 'exclamation-point.svg',
+						'key'   => 'exclamation-point',
+						'label' => 'Exclamation Point',
+				),
+				array(
+						'url'   => $base_url . 'info-box.svg',
+						'key'   => 'info-box',
+						'label' => 'Info Box',
+				),
+				array(
+						'url'   => $base_url . 'magnifying-glass.svg',
+						'key'   => 'magnifying-glass',
+						'label' => 'Magnifying Glass',
+				),
+				array(
+						'url'   => $base_url . 'map-pin.svg',
+						'key'   => 'map-pin',
+						'label' => 'Map Pin',
+				),
+				array(
+						'url'   => $base_url . 'tag.svg',
+						'key'   => 'tag',
+						'label' => 'Tag',
+				),
+				array(
+						'url'   => $base_url . 'video-play-icon.svg',
+						'key'   => 'video-play',
+						'label' => 'Video Play',
+				),
+				array(
+						'url'   => $base_url . 'flicker.svg',
+						'key'   => 'flicker',
+						'label' => 'Flicker',
+				),
+				array(
+						'url'   => $base_url . 'instagram.svg',
+						'key'   => 'instagram',
+						'label' => 'Instagram',
+				),
+		);
+	}
 }
