@@ -1,0 +1,7 @@
+.editor-styles-wrapper .paragraph-widget--news-items span.arrow {
+	display: none;
+}
+
+.editor-styles-wrapper .paragraph-widget--news-items {
+	background: #f5f5f5;
+}

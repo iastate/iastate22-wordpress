@@ -1,5 +1,5 @@
-<div
-	class="paragraph-widget paragraph-widget--card-set"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--card-set"
+		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	<div class="card-set">
 		<ul>
 			{% for item in Post(fields.directory) %}
@@ -7,7 +7,7 @@
 					<div class="iastate22-card clickable">
 						{% if item.photo %}
 							<div class="iastate22-card__media">
-								<img src="{{ Image(item.photo).src }}" alt="{{ Image(item.photo).alt }}">
+								<img src="{{ Image(item.photo).src }}" alt="{{ Image(item.photo).alt }}" loading="lazy">
 							</div>
 						{% endif %}
 						<div class="iastate22-card__content">
@@ -20,8 +20,9 @@
 								{{ item.titles_0_title }}
 							</div>
 							{% if item.guid %}
-								<a href="{{ item.guid|e('esc_url') }}" class="iastate22-card__cta">View More <span
-										class="visible-for-screen-readers">about {{ item.post_title }}</span></a>
+								<a href="{{ is_preview ? '#' : item.guid|e('esc_url') }}" class="iastate22-card__cta">
+									View More
+									<span class="visible-for-screen-readers">about {{ item.post_title }}</span></a>
 							{% endif %}
 						</div>
 					</div>

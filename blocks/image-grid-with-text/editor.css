@@ -1,0 +1,11 @@
+.editor-styles-wrapper .paragraph-widget--image-grid-with-text {
+	margin: 1rem 0;
+}
+
+.editor-styles-wrapper .paragraph-widget--image-grid-with-text .image-grid {
+	margin: 0;
+}
+
+.editor-styles-wrapper .paragraph-widget--image-grid-with-text span.arrow {
+	display: none;
+}

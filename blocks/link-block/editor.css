@@ -1,0 +1,7 @@
+.editor-styles-wrapper .paragraph-widget--link-block {
+	margin: 1rem 0;
+}
+
+.editor-styles-wrapper .paragraph-widget--link-block span.arrow {
+	display: none;
+}

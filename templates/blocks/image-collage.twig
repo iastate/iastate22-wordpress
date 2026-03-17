@@ -10,7 +10,7 @@ id="{{ block.anchor|e('esc_attr') }}"{%- endif %}>
     </div>
     {% if fields.caption %}
       <div class="image-collage__caption">
-        <p>{{ fields.caption|e('esc_html') }}</p>
+        <p {{ acf_inline_text('caption') }}>{{ fields.caption|e('esc_html') }}</p>
       </div>
     {% endif %}
   </div>

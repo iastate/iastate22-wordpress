@@ -1,19 +1,20 @@
-{% set video = fields.shim ? fields.shim : fields.video_group.video %}
+{%- set video = fields.shim ? fields.shim : fields.video_group.video -%}
 <div class="paragraph-widget paragraph-widget--video-embed"
-		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	<div class="video-embed">
 		<div class="video-embed__media-wrap">
 			{% if video.poster_image.url %}
-				<img src="{{ video.poster_image.url|e('esc_url') }}"
+				<img src="{{ video.poster_image.url|e('esc_url') }}" loading="lazy"
 					 alt="{{ video.poster_image.alt|e('esc_attr') }}"
 					 width="{{ video.poster_image.width|e('esc_attr') }}"
 					 height="{{ video.poster_image.height|e('esc_attr') }}"/>
 			{% else %}
 				{% if video.source == "youtube" %}
 					<img src="https://img.youtube.com/vi/{{ video.youtube_video_id }}/maxresdefault.jpg"
-						 alt="Video Poster">
+						 alt="Video Poster" loading="lazy">
 				{% elseif video.source == "vimeo" %}
-					<img src="https://vumbnail.com/{{ video.vimeo_video_id }}.jpg" alt="Video Poster">
+					<img src="https://vumbnail.com/{{ video.vimeo_video_id }}.jpg" alt="Video Poster"
+					loading="lazy">
 				{% endif %}
 			{% endif %}
 			{% if video.source == "youtube" %}

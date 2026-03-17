@@ -1,6 +1,6 @@
 {
   "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
-  "apiVersion": 2,
+  "apiVersion": 3,
   "name": "acf/news-items",
   "title": "News - Items",
   "description": "A stylized source-able block intended to highlight news stories",
@@ -12,15 +12,16 @@
     "story"
   ],
   "supports": {
-    "align": [
-      "wide",
-      "full"
-    ],
-    "anchor": true
+    "customClassName": false,
+    "anchor": true,
+    "align": false,
+    "alignWide": false
   },
   "acf": {
-    "blockVersion": 2,
-    "mode": "edit",
-    "renderCallback": "Iastate22_Blocks::render_block"
-  }
+    "blockVersion": 3,
+    "mode": "auto",
+    "renderCallback": "Iastate22_Blocks::render_block",
+    "hideFieldsInSidebar": true
+  },
+  "editorStyle": "file:./editor.css"
 }

@@ -1,0 +1,13 @@
+.editor-styles-wrapper .paragraph-widget--call-to-action--large {
+	margin: 1rem 0;
+}
+
+.editor-styles-wrapper .call-to-action--large .call-to-action__copy-wrap {
+	height: 100%;
+	overflow: scroll;
+	top: 0;
+}
+
+.editor-styles-wrapper .call-to-action--large span.arrow {
+	display: none;
+}

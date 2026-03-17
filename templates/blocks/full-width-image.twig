@@ -1,11 +1,13 @@
-<div
-	class="paragraph-widget paragraph-widget--full-width-image"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--full-width-image"
+		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	<figure class="full-width-image">
 		{% if fields.image.url %}
-			<img src="{{ fields.image.url|e('esc_url') }}" alt="{{ fields.image.alt|e('esc_attr') }}">
+			<img src="{{ fields.image.url|e('esc_url') }}" alt="{{ fields.image.alt|e('esc_attr') }}"
+			loading="lazy">
 		{% endif %}
 		{% if fields.image_caption_toggle == true %}
-			<figcaption class="full-width-image__caption text-content">{{ fields.image_caption }}</figcaption>
+			<figcaption class="full-width-image__caption text-content"
+			>{{ fields.image_caption }}</figcaption>
 		{% endif %}
 	</figure>
 </div>

@@ -1,4 +1,5 @@
-<div class="recent-articles"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+<div class="recent-articles"
+		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	{% if fields.section_title|length > 0 %}
 		<div class="text-content">
 			<h2>{{ fields.section_title }}</h2>
@@ -20,12 +21,11 @@
 								{% if maybe_thumbnail %}
 									<div class="iastate22-card__media">
 										<img src="{{ maybe_thumbnail.src|e('esc_url') }}"
-											 alt="{{ maybe_thumbnail.alt|e('esc_attr') }}" loading="lazy"
-											 width="{{ maybe_thumbnail.width|e('esc_attr') }}"
-											 height="{{ maybe_thumbnail.height|e('esc_attr') }}">
+												 alt="{{ maybe_thumbnail.alt|e('esc_attr') }}" loading="lazy"
+												 width="{{ maybe_thumbnail.width|e('esc_attr') }}"
+												 height="{{ maybe_thumbnail.height|e('esc_attr') }}">
 									</div>
 								{% endif %}
-
 								<div class="iastate22-card__content">
 									<div class="iastate22-card__content-tags">
 										<ul class="iastate22-card__content-tags__list">
@@ -37,8 +37,8 @@
 										</ul>
 									</div>
 									<h2 class="iastate22-card__title">
-										<a class="iastate22-link-secondary" href="{{ article.link|e('esc_url') }}"
-										   target="_blank">{{ article.post_title }}</a>
+										<a class="iastate22-link-secondary" href="{{ is_preview ? '#' : article.link|e('esc_url') }}"
+												{%- if not is_preview %} target="_blank"{%- endif -%}>{{ article.post_title }}</a>
 									</h2>
 									<p class="iastate22-card__date">{{ article.post_date|date("F d, Y") }}</p>
 								</div>
@@ -62,12 +62,11 @@
 							{% if maybe_thumbnail %}
 								<div class="iastate22-card__media">
 									<img src="{{ maybe_thumbnail.src|e('esc_url') }}"
-										 alt="{{ maybe_thumbnail.alt|e('esc_attr') }}" loading="lazy"
-										 width="{{ maybe_thumbnail.width|e('esc_attr') }}"
-										 height="{{ maybe_thumbnail.height|e('esc_attr') }}">
+											 alt="{{ maybe_thumbnail.alt|e('esc_attr') }}" loading="lazy"
+											 width="{{ maybe_thumbnail.width|e('esc_attr') }}"
+											 height="{{ maybe_thumbnail.height|e('esc_attr') }}">
 								</div>
 							{% endif %}
-
 							<div class="iastate22-card__content">
 								<div class="iastate22-card__content-tags">
 									<ul class="iastate22-card__content-tags__list">
@@ -79,8 +78,8 @@
 									</ul>
 								</div>
 								<h2 class="iastate22-card__title">
-									<a class="iastate22-link-secondary" href="{{ Post(article).link }}"
-									   target="_blank">{{ article.post_title }}</a>
+									<a class="iastate22-link-secondary" href="{{ is_preview ? '#' : Post(article).link }}"
+											{%- if not is_preview %} target="_blank"{%- endif -%}>{{ article.post_title }}</a>
 								</h2>
 								<p class="iastate22-card__date">{{ article.post_date|date("F d, Y") }}</p>
 							</div>
@@ -100,9 +99,9 @@
 							{% if maybe_thumbnail %}
 								<div class="iastate22-card__media">
 									<img src="{{ maybe_thumbnail.src|e('esc_url') }}"
-										 alt="{{ maybe_thumbnail.alt|e('esc_attr') }}" loading="lazy"
-										 width="{{ maybe_thumbnail.width|e('esc_attr') }}"
-										 height="{{ maybe_thumbnail.height|e('esc_attr') }}">
+											 alt="{{ maybe_thumbnail.alt|e('esc_attr') }}" loading="lazy"
+											 width="{{ maybe_thumbnail.width|e('esc_attr') }}"
+											 height="{{ maybe_thumbnail.height|e('esc_attr') }}">
 								</div>
 							{% endif %}
 							<div class="iastate22-card__content">
@@ -116,8 +115,9 @@
 									</ul>
 								</div>
 								<h2 class="iastate22-card__title">
-									<a class="iastate22-link-secondary" href="{{ Post(article).link }}"
-									   target="_blank">{{ article.post_title }}</a>
+									<a class="iastate22-link-secondary" href="{{ is_preview ? '#' : Post(article).link }}"
+											{%- if not is_preview %} target="_blank"{%- endif -%}>
+										{{ article.post_title }}</a>
 								</h2>
 								<p class="iastate22-card__date">{{ article.post_date|date("F d, Y") }}</p>
 							</div>
@@ -137,12 +137,11 @@
 							{% if maybe_thumbnail %}
 								<div class="iastate22-card__media">
 									<img src="{{ maybe_thumbnail.src|e('esc_url') }}"
-										 alt="{{ maybe_thumbnail.alt|e('esc_attr') }}" loading="lazy"
-										 width="{{ maybe_thumbnail.width|e('esc_attr') }}"
-										 height="{{ maybe_thumbnail.height|e('esc_attr') }}">
+											 alt="{{ maybe_thumbnail.alt|e('esc_attr') }}" loading="lazy"
+											 width="{{ maybe_thumbnail.width|e('esc_attr') }}"
+											 height="{{ maybe_thumbnail.height|e('esc_attr') }}">
 								</div>
 							{% endif %}
-
 							<div class="iastate22-card__content">
 								<div class="iastate22-card__content-tags">
 									<ul class="iastate22-card__content-tags__list">
@@ -154,8 +153,9 @@
 									</ul>
 								</div>
 								<h2 class="iastate22-card__title">
-									<a class="iastate22-link-secondary" href="{{ Post(article).link }}"
-									   target="_blank">{{ article.post_title }}</a>
+									<a class="iastate22-link-secondary" href="{{ is_preview ? '#' : Post(article).link }}"
+											{%- if not is_preview %} target="_blank"{% endif %}>
+										{{ article.post_title }}</a>
 								</h2>
 								<p class="iastate22-card__date">{{ article.post_date|date("F d, Y") }}</p>
 							</div>

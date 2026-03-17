@@ -36,7 +36,7 @@
                 </button>
               {% endif %}
               {% if showDownload %}
-                <a href="{{ image.url|e('esc_url') }}" class="iastate22-button iastate22-button--reverse" download>
+                <a href="{{ is_preview ? '#' : image.url|e('esc_url') }}" class="iastate22-button iastate22-button--reverse" download>
                   <span class="text">Download</span>
                   <span class="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14.397" viewbox="0 0 14 14.397">
@@ -69,7 +69,7 @@
           </div>
         </div>
         {% endif %}
-        {% if showView %}
+        {% if showView and not is_preview %}
           <div class="iastate22-modal iastate22-modal--image-download" id="{{ modalId }}" aria-hidden="false">
             <div class="iastate22-modal__overlay" tabindex="-1" data-micromodal-close>
               <div class="iastate22-modal__container{% if image %} iastate22-modal__container-with-media{% endif %}"

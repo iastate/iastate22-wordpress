@@ -1,6 +1,6 @@
 {
   "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
-  "apiVersion": 2,
+  "apiVersion": 3,
   "name": "acf/announcement",
   "title": "Announcement",
   "description": "Intended to display underneath the hero section of the homepage to alert users to various items/initiatives. Outputs an icon, along with intro copy and a link",
@@ -14,9 +14,9 @@
     "root": ".home-announcement"
   },
   "acf": {
-    "blockVersion": 2,
+    "blockVersion": 3,
     "usePostMeta": true,
-    "mode": "edit",
+    "mode": "auto",
     "renderCallback": "Iastate22_Blocks::render_block",
     "postTypes": [
       "page"

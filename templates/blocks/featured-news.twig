@@ -5,7 +5,8 @@
 {% elseif featuredStory.hero_image %}
 	{% set maybe_thumbnail = Image(featuredStory.meta('hero_image')) %}
 {% endif %}
-<div class="featured-news"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+<div class="featured-news"
+		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	<div class="featured-news-container">
 		<div class="featured-news__large-article">
 			<div class="featured-news__large-article__container">
@@ -15,9 +16,9 @@
 				<div class="featured-news__large-article__image-container">
 					{% if maybe_thumbnail %}
 						<img class="featured-news__large-article__image" src="{{ maybe_thumbnail.src|e('esc_url') }}"
-							 alt="{{ maybe_thumbnail.alt|e('esc_attr') }}">
+							 alt="{{ maybe_thumbnail.alt|e('esc_attr') }}" loading="lazy">
 					{% else %}
-						<img class="featured-news__large-article__image bg-placeholder"
+						<img class="featured-news__large-article__image bg-placeholder" loading="lazy"
 							 src="{{ theme.path()~'/img/placeholder.png' }}" alt="No Thumbnail Available">
 					{% endif %}
 				</div>
@@ -30,8 +31,10 @@
 						{% endfor %}
 					</ul>
 				</div>
-				<h2 class="featured-news__large-article__title"><a href="{{ featuredStory.link|e('esc_url') }}"
-																   class="iastate22-link-secondary">{{ featuredStory.post_title }}
+				<h2 class="featured-news__large-article__title">
+					<a class="iastate22-link-secondary"
+						 href="{{ is_preview ? '#' : featuredStory.link|e('esc_url') }}">
+						{{ featuredStory.post_title }}
 						<span class="arrow"></span></a></h2>
 				<p class="featured-news__large-article__excerpt">{{ featuredStory.post_excerpt }}</p>
 				<p class="featured-news__date">{{ featuredStory.post_date|date() }}</p>
@@ -52,9 +55,9 @@
 						<div class="featured-news__small-article__image-container">
 							{% if thumbNail != false %}
 								<img class="featured-news__small-article__image" src="{{ thumbNail.src|striptags }}"
-									 alt="{{ thumbNail.alt|striptags }}">
+									 alt="{{ thumbNail.alt|striptags }}" loading="lazy">
 							{% else %}
-								<img class="featured-news__small-article__image bg-placeholder"
+								<img class="featured-news__small-article__image bg-placeholder" loading="lazy"
 									 src="{{ theme.path()~'/img/placeholder.png' }}" alt="No Thumbnail Available">
 							{% endif %}
 						</div>
@@ -69,8 +72,10 @@
 								</ul>
 							</div>
 						{% endif %}
-						<h2 class="featured-news__small-article__title"><a href="{{ story.link|e('esc_url') }}"
-																		   class="iastate22-link-secondary">{{ story.post_title }}
+						<h2 class="featured-news__small-article__title">
+							<a class="iastate22-link-secondary"
+								 href="{{ is_preview ? '#' : story.link|e('esc_url') }}">
+								{{ story.post_title }}
 								<span class="arrow"></span></a></h2>
 						<p class="featured-news__date">{{ story.post_date|date() }}</p>
 					</div>
@@ -88,8 +93,10 @@
 								{% endfor %}
 							</ul>
 						</div>
-						<h2 class="featured-news__small-article__title"><a href="{{ story.link|e('esc_url') }}"
-																		   class="iastate22-link-secondary">{{ story.post_title }}
+						<h2 class="featured-news__small-article__title">
+							<a class="iastate22-link-secondary"
+								 href="{{ is_preview ? '#' : story.link|e('esc_url') }}">
+								{{ story.post_title }}
 								<span class="arrow"></span></a></h2>
 						<p class="featured-news__date">{{ story.post_date|date() }}</p>
 					</div>

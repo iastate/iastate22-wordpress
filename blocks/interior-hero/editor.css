@@ -1,0 +1,12 @@
+.editor-styles-wrapper .hero {
+	margin: 1rem 0;
+}
+
+.editor-styles-wrapper .hero .hero__subnav-wrap {
+	position: inherit;
+	right: 0;
+}
+
+.editor-styles-wrapper .hero .subnav .subnav__toggle {
+	display: block;
+}

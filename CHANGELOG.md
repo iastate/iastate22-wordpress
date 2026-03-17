@@ -12,16 +12,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - New Block: Image Collage
 - New Block: Image Gallery
 
-### Changed 
+### Changed
 
+- ACF Block migrated to v3
 - Profile taxonomy public slug changed (/_tax-slug_/)
   - `Department` changed from "~~locations~~"->"**area**"
   - `Affiliation` changed from "~~division~~"->"**affiliation**"
 - Profile taxonomy pages use the same layout as directory list
 
-### Removed 
+### Removed
 
-- Email anchor wrapper for profile email icon, flagged by accessibility 
+- Email anchor wrapper for profile email icon, flagged by accessibility
 
 ---
 
@@ -51,7 +52,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.3.6] - 2025-09-10
 
-### Fixed 
+### Fixed
 
 - Edit/Preview mode not showing in some cases
   - Revert Block API version (`3`-->`2`)
@@ -74,7 +75,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added post label in tag list for full site search
   - Added class for specific post_type
 
-### Changed 
+### Changed
 
 - Search form doesn't limit post_type if doing a full search
 
@@ -89,7 +90,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added Timber Functions (`get_theme_post_thumbnail()`, `get_theme_post_preview()`)
   - Default visibility is off
 
-### Fixed 
+### Fixed
 
 - Post loops now format thumbnails and previews the same as Blog Home page
 - Hide hero block from excerpt/preview content
@@ -122,7 +123,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added fields (archive banner visibility toggle, last updated visibility toggle)
   - Credit override fields are conditional on credit visibility
 
---- 
+---
 
 ## [1.3.1] - 2025-08-13
 

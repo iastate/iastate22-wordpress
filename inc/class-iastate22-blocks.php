@@ -362,6 +362,10 @@ class Iastate22_Blocks {
 	 * @since 1.3.7
 	 */
 	public static function render_interior_hero( $context, $attributes, $content, $is_preview, $post_id, $wp_block ) {
+		if ( $is_preview ) {
+			return $context;
+		}
+
 		if ( isset( $context['childrens'] ) ) {
 			return $context;
 		}

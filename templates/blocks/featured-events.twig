@@ -1,5 +1,5 @@
-<div
-	class="paragraph-widget paragraph-widget--card-set"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--card-set"
+		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	<div class="card-set">
 		<h2 class="card-set__title">{{ fields.title }}</h2>
 		<ul>
@@ -13,13 +13,13 @@
 						{% if thumbnail %}
 							<div class="iastate22-card__media">
 								<img src="{{ thumbnail.src|e('esc_url') }}" alt="{{ thumbnail.alt|e('esc_attr') }}"
-									 loading="lazy" width="{{ thumbnail.width|e('esc_attr') }}"
-									 height="{{ thumbnail.height|e('esc_attr') }}">
+										 loading="lazy" width="{{ thumbnail.width|e('esc_attr') }}"
+										 height="{{ thumbnail.height|e('esc_attr') }}">
 							</div>
 						{% endif %}
 						<div class="iastate22-card__content">
 							<h2 class="iastate22-card__title">
-								<a href="{{ event.link }}}" target="_blank">{{ event.post_title }}</a>
+								<a href="{{ is_preview ? '#' : event.link }}"{% if not is_preview %} target="_blank"{%- endif -%}>{{ event.post_title }}</a>
 							</h2>
 							<div class="iastate22-card__body">
 								<time class="iastate22-card__time" datetime="{{ event.event_date|date("Y-m-d") }}">

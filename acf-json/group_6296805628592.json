@@ -6,6 +6,7 @@
             "key": "field_62968065e21a2",
             "label": "Rich Text\/WYSIWYG",
             "name": "text_content",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -16,6 +17,7 @@
                 "id": ""
             },
             "default_value": "",
+            "allow_in_bindings": 0,
             "tabs": "all",
             "toolbar": "full",
             "media_upload": 1,
@@ -40,5 +42,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1660757666
+    "display_title": "",
+    "modified": 1773765387
 }

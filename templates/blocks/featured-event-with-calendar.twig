@@ -1,10 +1,10 @@
-<div
-	class="paragraph-widget paragraph-widget--upcoming-events"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+<div class="paragraph-widget paragraph-widget--upcoming-events"
+		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	<div class="featured-events">
 		<header class="featured-events__header">
-			<h2>{{ fields.title }}</h2><a href="{{ function('get_post_type_archive_link','events') }}"
-										  class="link-set__link link-tertiary">View All Events<span
-					class="arrow"></span></a>
+			<h2>{{ fields.title }}</h2><a href="{{ is_preview ? '#' : function('get_post_type_archive_link','events') }}"
+																		class="link-set__link link-tertiary">View All Events<span
+						class="arrow"></span></a>
 		</header>
 		<div class="featured-events__wrap">
 			<div class="featured-events__card">
@@ -16,14 +16,14 @@
 					{% if thumbnail %}
 						<div class="iastate22-card__media">
 							<img src="{{ thumbnail.src|e('esc_url') }}" alt="{{ thumbnail.alt|e('esc_attr') }}"
-								 loading="lazy" width="{{ thumbnail.width|e('esc_attr') }}"
-								 height="{{ thumbnail.height|e('esc_attr') }}">
+									 loading="lazy" width="{{ thumbnail.width|e('esc_attr') }}"
+									 height="{{ thumbnail.height|e('esc_attr') }}">
 						</div>
 					{% endif %}
 					<div class="iastate22-card__content">
 						<h2 class="iastate22-card__title">
-							<a href="{{ featured_event.link|e('esc_url') }}"
-							   target="_blank">{{ featured_event.post_title }}</a>
+							<a href="{{ is_preview ? '#' : featured_event.link|e('esc_url') }}"
+									{%- if not is_preview %} target="_blank"{% endif %}>{{ featured_event.post_title }}</a>
 						</h2>
 						<div class="iastate22-card__body text-content">
 							{{ featured_event.excerpt }}
@@ -38,7 +38,8 @@
 								</div>
 							{% endif %}
 							<time class="iastate22-card__time"
-								  datetime="{{ featured_event.event_start_date_start_date|date("M-d-Y") }}">{{ featured_event.event_start_date_start_date|date() }}</time>
+										datetime="{{ featured_event.event_start_date_start_date|date("M-d-Y") }}">
+								{{ featured_event.event_start_date_start_date|date() }}</time>
 						</div>
 					</div>
 				</div>
@@ -51,12 +52,12 @@
 							{% set s = s+1 %}
 							<li class="featured-events__item">
 								<h3 class="featured-events__title">
-									<a href="{{ event.link|e('esc_url') }}"
-									   class="link-set__link iastate22-link-secondary">{{ event.post_title }}<span
-											class="arrow"></span></a>
+									<a href="{{ is_preview ? '#' : event.link|e('esc_url') }}"
+										 class="link-set__link iastate22-link-secondary">{{ event.post_title }}<span
+												class="arrow"></span></a>
 								</h3>
-								<time
-									datetime="{{ event.event_start_date_start_date|date("Y-m-d") }}">{{ event.event_start_date_start_date|date() }}</time>
+								<time datetime="{{ event.event_start_date_start_date|date("Y-m-d") }}">
+									{{ event.event_start_date_start_date|date() }}</time>
 							</li>
 						{% endif %}
 					{% endfor %}

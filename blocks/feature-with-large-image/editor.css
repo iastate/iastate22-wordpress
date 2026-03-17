@@ -1,0 +1,14 @@
+.editor-styles-wrapper .paragraph-widget--feature-with-large-image {
+	margin: 2rem 0;
+}
+
+.editor-styles-wrapper .paragraph-widget--feature-with-large-image .feature-with-large-image::before {
+	left: 0;
+	width: 100%;
+	transform: initial;
+	top: -1rem;
+}
+
+.editor-styles-wrapper .paragraph-widget--feature-with-large-image span.arrow {
+	display: none;
+}
