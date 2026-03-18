@@ -35,6 +35,10 @@ Steps when releasing:
 - Commit (or merge) and push master to origin.
 - Tag `1.0.1` (the new release version), and push to origin. The tag is what composer uses to define a new release.
 
+### Changes
+
+A list of package modifications can be found in [CHANGELOG.MD](./CHANGELOG.md)
+
 ### What's here?
 
 - `inc/` is a folder for theme functions. It serves the purpose of the functions.php file in a more organized way.
