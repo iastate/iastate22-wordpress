@@ -1,0 +1,29 @@
+.editor-styles-wrapper .home-social-follow,
+.editor-styles-wrapper .home-social {
+	margin: 1rem 0;
+	padding-left: 1rem;
+}
+
+.editor-styles-wrapper .home-social-follow .home-social-follow__social-links li a {
+	border: 0.125rem dashed var(--wp--preset--color--pale-pink);
+	color: var(--wp--preset--color--iastate-burgundy);
+	text-decoration: inherit;
+}
+
+.editor-styles-wrapper .home-social .home-social__social-links li a {
+	border: 0.125rem dashed var(--wp--preset--color--iastate-gold);
+	text-decoration: inherit;
+}
+
+.editor-styles-wrapper .home-social-follow .home-social-follow__social-links li a:hover {
+	color: #fff;
+}
+
+.editor-styles-wrapper .home-social-follow__images-wrap::before,
+.editor-styles-wrapper .home-social-follow__images-wrap::after,
+.editor-styles-wrapper .home-social__images-wrap::before,
+.editor-styles-wrapper .home-social__images-wrap::after {
+	width: 100%;
+	left: 0;
+	height: 1rem;
+}
