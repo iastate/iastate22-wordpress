@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+---
+
+## [1.4.1] - 2026-04-02
+
+### Changed
+
+- Moved template logic into Theme class
+
+### Fixed
+
+- Profile taxonomy wasn't showing on the search page
 
 ---
 
@@ -166,3 +177,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.3.6]: https://github.com/iastate/iastate22-wordpress/compare/1.3.5...1.3.6
 [1.3.7]: https://github.com/iastate/iastate22-wordpress/compare/1.3.6...1.3.7
 [1.4.0]: https://github.com/iastate/iastate22-wordpress/compare/1.3.7...1.4.0
+[1.4.1]: https://github.com/iastate/iastate22-wordpress/compare/1.4.0...1.4.1
