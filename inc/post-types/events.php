@@ -7,7 +7,7 @@ function custom_event() {
     return;
   }
 
-	if ( true !== get_field( 'events_options_enabled', 'options' ) ) {
+	if ( true !== StarterSite::is_post_type_events_active() ) {
 		return;
 	}
 

@@ -5,6 +5,7 @@
  */
 
 use Timber\Menu as TimberMenu;
+use Timber\PostQuery;
 use Timber\Site as TimberSite;
 use Timber\Timber;
 use Twig\Environment;
@@ -92,6 +93,8 @@ class StarterSite extends TimberSite {
 		}
 		$context['options'] = get_fields( 'options' );
 		$context['site']    = $this;
+
+		$this->maybe_load_profile_taxonomy_context( $context );
 
 		return $context;
 	}
@@ -475,6 +478,231 @@ class StarterSite extends TimberSite {
 		}
 
 		return null;
+	}
+
+	/**
+	 * Load profile taxonomy into Timber context when conditions are met.
+	 *
+	 * @param &$context
+	 *
+	 * @return bool true if context has been loaded
+	 */
+	protected function maybe_load_profile_taxonomy_context( &$context ): bool {
+		if ( true !== static::is_post_type_profile_active() ) {
+			return false;
+		}
+
+		$queried_object = get_queried_object();
+
+		// Search pages will be one of these 2 queried objects
+		if ( ! $queried_object instanceof WP_Post_Type && ! $queried_object instanceof WP_Term ) {
+			return false;
+		}
+
+		// Load when `profiles` are the Post Object Type
+		if ( ( $queried_object instanceof WP_Post_Type ) && $queried_object->name !== 'profiles' ) {
+			return false;
+		}
+
+		// Load when either associated taxonomies are the queried object
+		if ( ( $queried_object instanceof WP_Term ) && ! in_array( $queried_object->taxonomy,
+						array(
+								'affiliation',
+								'department'
+						),
+						true ) ) {
+			return false;
+		}
+
+		$profileTerms = array();
+		$profileTax   = get_object_taxonomies(
+				array(
+						'post_type' => 'profiles'
+				),
+				'objects'
+		);
+
+		foreach ( $profileTax as $item ) {
+			$slug           = $item->name;
+			$terms          = get_terms(
+					array(
+							'taxonomy'   => $item->name,
+							'hide_empty' => $slug,
+					)
+			);
+			$profileTerms[] = $terms;
+		}
+
+		$context['profile_tax']   = $profileTax;
+		$context['profile_terms'] = $profileTerms;
+
+		return true;
+	}
+
+	/**
+	 * Alter WP query for Profile searching
+	 *
+	 * @param array $context
+	 *
+	 * @return bool true if context has been loaded
+	 */
+	public static function maybe_load_profile_search_context( array &$context ): bool {
+		if ( true !== static::is_post_type_profile_active() ) {
+			return false;
+		}
+		if ( get_query_var( 'post_type' ) !== 'profiles' ) {
+			return false;
+		}
+
+		$search_letter = get_query_var( 'search_letter' );
+		$paged         = get_query_var( 'paged', 1 );
+		$s             = get_query_var( 's' );
+		$tax_query     = array();
+		$meta_query    = array();
+		$param_array   = array();
+		$tax_params    = array();
+
+		foreach ( $_GET as $key => $value ) {
+			if ( $key !== "post_type" && $key !== "search_letter" && $key !== "s" && strlen( $value ) ) {
+				$param_array[] = [ $key, $value ];
+			}
+		}
+
+		foreach ( $param_array as $tax ) {
+			$tax_params[] = array(
+					'taxonomy' => $tax[0],
+					'field'    => 'slug',
+					'terms'    => $tax[1],
+			);
+		}
+
+		if ( count( $param_array ) > 0 ) {
+			$tax_query = array(
+					'relation' => 'AND',
+					$tax_params
+			);
+		}
+
+		if ( ! empty( $search_letter ) ) {
+			$meta_query = array(
+					array(
+							'key'     => 'last_name',
+							'value'   => "^[" . $search_letter . "]",
+							'compare' => 'REGEXP'
+					)
+			);
+		}
+
+		$arr  = array(
+				'post_type'  => 'profiles',
+				'order'      => 'ASC',
+				'orderby'    => array(
+						'last_name_clause'  => 'ASC',
+						'first_name_clause' => 'ASC',
+				),
+				'meta_key'   => 'last_name',
+				'paged'      => $paged,
+				's'          => $s,
+				'tax_query'  => $tax_query,
+				'meta_query' => array(
+						'relation'          => 'AND',
+						'last_name_clause'  => array(
+								'key'     => 'last_name',
+								'compare' => 'EXISTS'
+						),
+						'first_name_clause' => array(
+								'key'     => 'first_name',
+								'compare' => 'EXISTS'
+						),
+						$meta_query
+				)
+		);
+		$argh = array(
+				'post_type'      => 'profiles',
+				'posts_per_page' => - 1,
+				'order'          => 'DESC',
+				'orderby'        => 'meta_value',
+				'paged'          => $paged,
+				's'              => $s,
+				'tax_query'      => $tax_query,
+				'meta_query'     => array(
+						'relation'          => 'AND',
+						'last_name_clause'  => array(
+								'key'     => 'last_name',
+								'compare' => 'EXISTS'
+						),
+						'first_name_clause' => array(
+								'key'     => 'first_name',
+								'compare' => 'EXISTS'
+						),
+						$meta_query
+				)
+		);
+
+		$context['posts']    = new PostQuery( $arr );
+		$context['allposts'] = new PostQuery( $argh );
+
+		// This works for the search filter, but not the search query or Taxonomies.
+		return true;
+	}
+
+	/**
+	 * Configure title and templates for archive pages.
+	 *
+	 * @param array &$context
+	 * @param array &$templates
+	 */
+	public static function set_archive_title_context( array &$context, array &$templates ): void {
+		$context['title'] = 'Archive';
+
+		if ( is_day() ) {
+			$context['title'] = 'Archive: ' . get_the_date( 'D M Y' );
+		} elseif ( is_month() ) {
+			$context['title'] = 'Archive: ' . get_the_date( 'M Y' );
+		} elseif ( is_year() ) {
+			$context['title'] = 'Archive: ' . get_the_date( 'Y' );
+		} elseif ( is_tag() ) {
+			$context['title'] = single_tag_title( '', false );
+		} elseif ( is_category() ) {
+			$context['title'] = single_cat_title( '', false );
+			array_unshift( $templates, 'archive-' . get_query_var( 'cat' ) . '.twig' );
+		} elseif ( is_post_type_archive() ) {
+			$context['title'] = post_type_archive_title( '', false );
+			array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
+		}
+
+	}
+
+	/**
+	 * Check if the Profile post type is active.
+	 *
+	 * @return bool|null true if post type is active, null is returned if called before settings are loaded
+	 */
+	public static function is_post_type_profile_active(): ?bool {
+		if ( did_action( 'init' ) < 1 ) {
+			return null;
+		}
+
+		return true === get_field( 'profiles_enabled', 'options' );
+	}
+
+	/**
+	 * Check if the Event post type is active.
+	 *
+	 * @return bool|null true if post type is active, null is returned if called before settings are loaded
+	 */
+	public static function is_post_type_events_active(): ?bool {
+		if ( did_action( 'init' ) < 1 ) {
+			return null;
+		}
+
+		$acf_event_option = get_field( 'events_options', 'options' );
+
+		if ( ! is_array( $acf_event_option ) ) {
+			return false;
+		}
+
+		return (bool) ( $acf_event_option['enabled'] ?? false );
 	}
 }
 
