@@ -14,12 +14,11 @@ use Timber\Timber;
 $timber_post     = Timber::query_post();
 $context         = Timber::context();
 $context['post'] = $timber_post;
-$eventsToggle    = $context["options"]["events_options"]["enabled"];
 
 if ( post_password_required( $timber_post->ID ) ) {
 	Timber::render( 'single-password.twig', $context );
 } else {
-	if ( $eventsToggle === false ) {
+	if ( true !== StarterSite::is_post_type_events_active() ) {
 		Timber::render( '404.twig', $context );
 	} else {
 		Timber::render( array( 'single-events.twig' ), $context );

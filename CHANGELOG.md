@@ -16,13 +16,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - ACF Block migrated to v3
 - Profile taxonomy public slug changed (/_tax-slug_/)
-  - `Department` changed from "~~locations~~"->"**area**"
-  - `Affiliation` changed from "~~division~~"->"**affiliation**"
+    - `Department` changed from "~~locations~~"->"**area**"
+    - `Affiliation` changed from "~~division~~"->"**affiliation**"
 - Profile taxonomy pages use the same layout as directory list
 
 ### Removed
 
 - Email anchor wrapper for profile email icon, flagged by accessibility
+
+---
+
+## [1.4.1] - 2026-04-02
+
+### Changed
+
+- Moved template logic into Theme class
+
+### Fixed
+
+- Profile taxonomy wasn't showing on the search page
 
 ---
 
@@ -182,4 +194,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.3.6]: https://github.com/iastate/iastate22-wordpress/compare/1.3.5...1.3.6
 [1.3.7]: https://github.com/iastate/iastate22-wordpress/compare/1.3.6...1.3.7
 [1.4.0]: https://github.com/iastate/iastate22-wordpress/compare/1.3.7...1.4.0
+[1.4.1]: https://github.com/iastate/iastate22-wordpress/compare/1.4.0...1.4.1
 [1.5.0]: https://github.com/iastate/iastate22-wordpress/compare/1.4.0...1.5.0

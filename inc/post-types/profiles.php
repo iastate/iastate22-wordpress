@@ -7,7 +7,7 @@ function custom_profiles() {
     return;
   }
 
-	if ( true !== get_field( 'profiles_enabled', 'options' ) ) {
+	if ( true !== StarterSite::is_post_type_profile_active() ) {
 		return;
 	}
 
