@@ -7,18 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+---
+
+## [1.5.0] - 2026-04-30
+
 ### Added
 
-- New Block: Image Collage
-- New Block: Image Gallery
+- New Block: `Image Collage`
+  - [Fractal Reference: Image Collage](https://www.theme.iastate.edu/iastate22/fractal/components/detail/image-collage--default.html)
+- New Block: `Image Gallery`
+  - [Fractal Reference: Image Gallery](https://www.theme.iastate.edu/iastate22/fractal/components/detail/image-gallery.html)
+- New Block: `Home Social`
+  - [Fractal Reference: Home Social](https://www.theme.iastate.edu/iastate22/fractal/components/detail/home-social--default.html)
+- Many blocks have additional custom editor styles for v3, since "preview" is the only view option now
+- Some blocks have a slightly different "Preview" for block editor vs. live view
+- ACF inline editor wrappers for Timber
 
 ### Changed
 
-- ACF Block migrated to v3
-- Profile taxonomy public slug changed (/_tax-slug_/)
-    - `Department` changed from "~~locations~~"->"**area**"
-    - `Affiliation` changed from "~~division~~"->"**affiliation**"
-- Profile taxonomy pages use the same layout as directory list
+- theme.json file migrated to v3
+- All ACF Blocks migrated to v3
+  - See [issue #72](https://github.com/iastate/iastate22-wordpress/issues/72) for background
+- `Profile` taxonomy slugs changed (/_tax-slug_/)
+    - `Department` changed from "~~locations~~" -> "**department**"
+    - `Affiliation` changed from "~~division~~" -> "**affiliation**"
+- `Profile` taxonomy pages now use the same layout as directory list
+- Side nav query optimization for `Page Hero` block
 
 ### Removed
 
@@ -195,4 +209,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.3.7]: https://github.com/iastate/iastate22-wordpress/compare/1.3.6...1.3.7
 [1.4.0]: https://github.com/iastate/iastate22-wordpress/compare/1.3.7...1.4.0
 [1.4.1]: https://github.com/iastate/iastate22-wordpress/compare/1.4.0...1.4.1
-[1.5.0]: https://github.com/iastate/iastate22-wordpress/compare/1.4.0...1.5.0
+[1.5.0]: https://github.com/iastate/iastate22-wordpress/compare/1.4.1...1.5.0
