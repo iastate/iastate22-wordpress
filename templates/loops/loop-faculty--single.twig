@@ -21,18 +21,13 @@
 			<li>
 				<div class="faculty-staff-feed-item">
 					<div class="faculty-staff-feed-item__media">
-						{% if Image(post._thumbnail_id) %}
-							{% set thumb = Image(post._thumbnail_id) %}
-						{% endif %}
 						{% if Image(post._thumbnail_id).src %}
 							<div class="faculty-staff-feed-item__media-container">
-								<img class="faculty-staff-feed-item__media-image" src="{{ thumb.src|e('esc_url') }}"
-									 alt="{{ thumb.alt|e('esc_attr') }}" loading="lazy">
+								{{ media_image(post._thumbnail_id, {size:'medium'}, {class:'faculty-staff-feed-item__media-image'}) }}
 							</div>
 						{% elseif photo != null %}
 							<div class="faculty-staff-feed-item__media-container">
-								<img class="faculty-staff-feed-item__media-image" src="{{ photo.url|e('esc_url') }}"
-									 alt="{{ photo.alt|e('esc_attr') }}" loading="lazy">
+								{{ media_image(photo, {size:'medium'}, {class:'faculty-staff-feed-item__media-image'}) }}
 							</div>
 						{% endif %}
 					</div>

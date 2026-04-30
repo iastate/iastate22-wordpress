@@ -15,8 +15,7 @@
 						<div class="iastate22-card iastate22-card--recent-article clickable">
 							{% if thumbNail.id != NULL %}
 								<div class="iastate22-card__media">
-									<img src="{{ thumbNail.src|e('esc_url') }}" alt="{{ thumbNail.alt|e('esc_attr') }}"
-										 loading="lazy" width="600" height="600">
+									{{ media_image(thumbNail, {size:'medium'}) }}
 								</div>
 							{% endif %}
 

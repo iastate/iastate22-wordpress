@@ -7,8 +7,7 @@
 					<div class="iastate22-callout{% if not callout.callout_image %} iastate22-callout--no-image{% endif %}">
 						{% if callout.callout_image %}
 							<div class="iastate22-callout__media">
-								<img src="{{ callout.callout_image.url|e('esc_url') }}" loading="lazy"
-										 alt="{{ callout.callout_image.alt|e('esc_attr') }}" width="622" height="414"/>
+								{{ media_image(callout.callout_image, {size:'full'}) }}
 							</div>
 						{% endif %}
 						<div class="iastate22-callout__content text-content">

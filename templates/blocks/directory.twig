@@ -7,7 +7,7 @@
 					<div class="iastate22-card clickable">
 						{% if item.photo %}
 							<div class="iastate22-card__media">
-								<img src="{{ Image(item.photo).src }}" alt="{{ Image(item.photo).alt }}" loading="lazy">
+								{{ media_image(item.photo, {size:'medium'}) }}
 							</div>
 						{% endif %}
 						<div class="iastate22-card__content">
