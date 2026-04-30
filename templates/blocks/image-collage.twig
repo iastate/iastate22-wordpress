@@ -1,0 +1,41 @@
+<div class="paragraph-widget paragraph-widget--image-collage" {% if block.anchor -%}
+id="{{ block.anchor|e('esc_attr') }}"{%- endif %}>
+  <div class="{{ _self.class_wrapper(fields.image_collage|length) }}">
+    <div class="image-collage__wrap">
+      {% for image in fields.image_collage %}
+        <div class="image-collage__image-{{ _self.int_to_word(loop.index)|e('esc_attr') }}">
+          <img src="{{ image.url|e('esc_url') }}" alt="{{ image.alt|e('esc_attr') }}" loading="lazy">
+        </div>
+      {% endfor %}
+    </div>
+    {% if fields.caption %}
+      <div class="image-collage__caption">
+        <p {{ acf_inline_text('caption') }}>{{ fields.caption|e('esc_html') }}</p>
+      </div>
+    {% endif %}
+  </div>
+</div>
+{%- macro class_wrapper(size) -%}
+  {%- if size == 4 -%}
+    image-collage--four-col
+  {%- elseif size == 5 -%}
+    image-collage--five-col
+  {%- else -%}
+    image-collage
+  {%- endif -%}
+{%- endmacro class_wrapper -%}
+{%- macro int_to_word(index) -%}
+  {%- if index == 1 -%}
+    one
+  {%- elseif index == 2 -%}
+    two
+  {%- elseif index == 3 -%}
+    three
+  {%- elseif index == 4 -%}
+    four
+  {%- elseif index == 5 -%}
+    five
+  {%- else -%}
+    {{- index -}}
+  {%- endif -%}
+{%- endmacro int_to_word -%}

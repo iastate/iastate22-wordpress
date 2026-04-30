@@ -123,13 +123,13 @@ class StarterSite extends TimberSite {
 		 * to output valid HTML5.
 		 */
 		add_theme_support(
-			'html5',
-			array(
-				'comment-form',
-				'comment-list',
-				'gallery',
-				'caption',
-			)
+				'html5',
+				array(
+						'comment-form',
+						'comment-list',
+						'gallery',
+						'caption',
+				)
 		);
 
 		/*
@@ -138,16 +138,16 @@ class StarterSite extends TimberSite {
 		 * See: https://codex.wordpress.org/Post_Formats
 		 */
 		add_theme_support(
-			'post-formats',
-			array(
-				'aside',
-				'image',
-				'video',
-				'quote',
-				'link',
-				'gallery',
-				'audio',
-			)
+				'post-formats',
+				array(
+						'aside',
+						'image',
+						'video',
+						'quote',
+						'link',
+						'gallery',
+						'audio',
+				)
 		);
 
 		add_theme_support( 'menus' );
@@ -158,7 +158,7 @@ class StarterSite extends TimberSite {
 	 * @param Environment $twig get extension.
 	 *
 	 * @throws \Twig\Error\RuntimeError
-*/
+	 */
 	public function add_to_twig( $twig ) {
 		$twig->addExtension( new StringLoaderExtension() );
 		$twig->addFilter( new \Timber\Twig_Filter( 'boolval', 'wp_validate_boolean' ) );
@@ -188,13 +188,29 @@ class StarterSite extends TimberSite {
 				array( $this, 'get_theme_post_preview' ),
 				array( 'needs_context' => true, )
 		) );
+		$twig->addFunction( new \Timber\Twig_Function(
+				'acf_inline_text',
+				array( $this, 'acf_inline_text_editing_wrapper' ),
+				array(
+						'needs_context' => true,
+						'is_safe'       => true,
+				)
+		) );
+		$twig->addFunction( new \Timber\Twig_Function(
+				'acf_inline_toolbar',
+				array( $this, 'acf_inline_toolbar_editing_wrapper' ),
+				array(
+						'needs_context' => true,
+						'is_safe'       => true,
+				)
+		) );
 
-		$esc_attr = function ( Environment $env, $string ) {
+		$esc_attr          = function ( Environment $env, $string ) {
 			return esc_attr( $string );
 		};
 		$escaper_extension = class_exists( 'Twig\Extension\EscaperExtension' ) ?
-			$twig->getExtension( 'Twig\Extension\EscaperExtension' ) :
-			$twig->getExtension( 'Twig\Extension\CoreExtension' );
+				$twig->getExtension( 'Twig\Extension\EscaperExtension' ) :
+				$twig->getExtension( 'Twig\Extension\CoreExtension' );
 		$escaper_extension->setEscaper( 'esc_attr', $esc_attr );
 
 		return $twig;
@@ -206,12 +222,6 @@ class StarterSite extends TimberSite {
 		wp_enqueue_style( 'printcss', get_template_directory_uri() . '/vendor/iastate/frontend-component-library/build/css/print.css', array(), $version, 'print' );
 		wp_enqueue_style( 'wp_only', get_template_directory_uri() . '/wp_components/build/css/index.css', array(), $version, 'screen' );
 		wp_enqueue_style( 'default', get_template_directory_uri() . '/style.css', array(), $version, 'all' );
-	}
-
-	public function load_scripts() {
-		$version = $this->public_version_key();
-		wp_enqueue_script( 'main', get_template_directory_uri() . '/vendor/iastate/frontend-component-library/build/js/index.js', array(), $version, true );
-		wp_enqueue_script( 'fontawesome', 'https://kit.fontawesome.com/b658fac974.js', array(), '1.0.0', true );
 	}
 
 	/**
@@ -228,6 +238,12 @@ class StarterSite extends TimberSite {
 		}
 
 		return rawurlencode( $this->theme->get( 'Version' ) );
+	}
+
+	public function load_scripts() {
+		$version = $this->public_version_key();
+		wp_enqueue_script( 'main', get_template_directory_uri() . '/vendor/iastate/frontend-component-library/build/js/index.js', array(), $version, true );
+		wp_enqueue_script( 'fontawesome', 'https://kit.fontawesome.com/b658fac974.js', array(), '1.0.0', true );
 	}
 
 	/**
@@ -478,6 +494,44 @@ class StarterSite extends TimberSite {
 		}
 
 		return null;
+	}
+
+	/**
+	 * ACF text wrapper
+	 *
+	 * @return string
+	 */
+	public function acf_inline_text_editing_wrapper( $context, $field_name, $args = array() ) {
+		if ( isset( $context['is_preview'] ) && true !== $context['is_preview'] ) {
+			return '';
+		}
+
+		if ( ! function_exists( 'acf_inline_text_editing_attrs' ) ) {
+			return '';
+		}
+
+		return acf_inline_text_editing_attrs( $field_name, $args );
+	}
+
+	/**
+	 * ACF toolbar wrapper
+	 *
+	 * @return string
+	 */
+	public function acf_inline_toolbar_editing_wrapper( $context, $fields, $args = array() ) {
+		if ( isset( $context['is_preview'] ) && true !== $context['is_preview'] ) {
+			return '';
+		}
+		
+		if ( ! function_exists( 'acf_inline_toolbar_editing_attrs' ) ) {
+			return '';
+		}
+
+		if ( is_string( $fields ) ) {
+			$fields = array( $fields );
+		}
+
+		return acf_inline_toolbar_editing_attrs( $fields, $args );
 	}
 
 	/**

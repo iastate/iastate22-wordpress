@@ -1,6 +1,6 @@
 {
   "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
-  "apiVersion": 2,
+  "apiVersion": 3,
   "name": "acf/accordion",
   "title": "Accordion",
   "description": "A set of collapsable content areas",
@@ -12,11 +12,15 @@
     "list"
   ],
   "supports": {
-    "anchor": true
+    "customClassName": false,
+    "anchor": true,
+    "align": false,
+    "alignWide": false
   },
   "acf": {
-    "blockVersion": 2,
-    "mode": "edit",
-    "renderCallback": "Iastate22_Blocks::render_block"
+    "blockVersion": 3,
+    "mode": "auto",
+    "renderCallback": "Iastate22_Blocks::render_block",
+    "hideFieldsInSidebar": true
   }
 }

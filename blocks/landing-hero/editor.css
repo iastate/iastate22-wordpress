@@ -1,0 +1,20 @@
+.editor-styles-wrapper .ecosystem-home-hero {
+	position: inherit;
+	margin: 1rem 0;
+}
+
+.editor-styles-wrapper .ecosystem-home-hero.ecosystem-home-hero--no-image::before {
+	content: none;
+}
+
+.editor-styles-wrapper .ecosystem-home-hero.ecosystem-home-hero--supporting-image {
+	margin: 0;
+}
+
+.editor-styles-wrapper .ecosystem-home-hero--supporting-image .ecosystem-home-hero__media {
+	right: 0;
+}
+
+.editor-styles-wrapper .ecosystem-home-hero span.arrow {
+	display: none;
+}

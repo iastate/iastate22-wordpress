@@ -1,0 +1,75 @@
+{
+    "key": "group_699de89b39672",
+    "title": "Image Collage",
+    "fields": [
+        {
+            "key": "field_699de89b276ab",
+            "label": "Image Collage",
+            "name": "image_collage",
+            "aria-label": "",
+            "type": "gallery",
+            "instructions": "Adjust position of images in order of appearance. 3-5 Images required",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min": 3,
+            "max": 5,
+            "min_width": 300,
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg,jpeg,png,gif,webp",
+            "insert": "append",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_699dea877259a",
+            "label": "Caption",
+            "name": "caption",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": 2,
+            "placeholder": "About these images...",
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/image-collage"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1771965283
+}

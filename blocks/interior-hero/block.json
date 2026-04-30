@@ -1,6 +1,6 @@
 {
   "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
-  "apiVersion": 2,
+  "apiVersion": 3,
   "name": "acf/interior-hero",
   "title": "Page Hero",
   "description": "Displays H1 page title and navigation breadcrumbs. Use on all pages (other than site homepage)",
@@ -13,16 +13,16 @@
     "interior"
   ],
   "supports": {
-    "align": [
-      "wide",
-      "full"
-    ],
     "multiple": false,
-    "anchor": true
+    "customClassName": false,
+    "anchor": true,
+    "align": false,
+    "alignWide": false
   },
   "acf": {
-    "blockVersion": 2,
-    "mode": "edit",
+    "blockVersion": 3,
+    "mode": "auto",
     "renderCallback": "Iastate22_Blocks::render_block"
-  }
+  },
+  "editorStyle": "file:./editor.css"
 }

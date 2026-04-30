@@ -1,6 +1,6 @@
 {
   "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
-  "apiVersion": 2,
+  "apiVersion": 3,
   "name": "acf/upcoming-events",
   "title": "Events - List",
   "description": "A listing of the next four upcoming events",
@@ -13,15 +13,15 @@
     "dates"
   ],
   "supports": {
-    "align": [
-      "wide",
-      "full"
-    ],
+    "customClassName": false,
+    "alignWide": false,
+    "align": false,
     "anchor": true
   },
   "acf": {
-    "blockVersion": 2,
-    "mode": "edit",
+    "blockVersion": 3,
+    "mode": "auto",
     "renderCallback": "Iastate22_Blocks::render_block"
-  }
+  },
+  "editorStyle": "file:./editor.css"
 }

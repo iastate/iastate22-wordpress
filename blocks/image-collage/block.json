@@ -1,0 +1,25 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "apiVersion": 3,
+  "name": "acf/image-collage",
+  "title": "Image Collage",
+  "description": "3-5 images styled in a grid with optional caption",
+  "category": "isu-blocks",
+  "icon": "format-gallery",
+  "keywords": [
+    "image",
+    "collage"
+  ],
+  "supports": {
+    "customClassName": false,
+    "anchor": true,
+    "align": false,
+    "alignWide": false
+  },
+  "acf": {
+    "blockVersion": 3,
+    "mode": "auto",
+    "renderCallback": "Iastate22_Blocks::render_block"
+  },
+  "editorStyle": "file:./editor.css"
+}

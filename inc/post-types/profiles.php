@@ -60,7 +60,6 @@ function custom_profiles() {
 	);
 	register_post_type( 'profiles', $args );
 	register_taxonomy( 'department', 'profiles', array(
-		// Hierarchical taxonomy (like categories)
 		'hierarchical' => true,
 		'show_in_rest' => true,
 		// This array of options controls the labels displayed in the WordPress Admin UI
@@ -77,16 +76,14 @@ function custom_profiles() {
 			'new_item_name'     => __( 'New Department or Unit' ),
 			'menu_name'         => __( 'Department or Unit' ),
 		),
-		// Control the slugs used for this taxonomy
 		'rewrite'      => array(
-			'slug'         => 'locations', // This controls the base slug that will display before each term
-			'with_front'   => false, // Don't display the category base before "/locations/"
-			'hierarchical' => true // This will allow URL's like "/locations/boston/cambridge/"
+			'slug'         => 'department',
+			'with_front'   => false, // Don't display the category base before `slug`
+			'hierarchical' => true // This will allow URL's like "/slug/boston/cambridge/"
 		),
 	) );
 
 	register_taxonomy( 'affiliation', 'profiles', array(
-		// Hierarchical taxonomy (like categories)
 		'hierarchical' => true,
 		'show_in_rest' => true,
 		// This array of options controls the labels displayed in the WordPress Admin UI
@@ -103,11 +100,10 @@ function custom_profiles() {
 			'new_item_name'     => __( 'New Affiliation Name' ),
 			'menu_name'         => __( 'Affiliation' ),
 		),
-		// Control the slugs used for this taxonomy
 		'rewrite'      => array(
-			'slug'         => 'division', // This controls the base slug that will display before each term
-			'with_front'   => false, // Don't display the category base before "/locations/"
-			'hierarchical' => true // This will allow URL's like "/locations/boston/cambridge/"
+			'slug'         => 'affiliation',
+			'with_front'   => false, // Don't display the category base before `slug`
+			'hierarchical' => true // This will allow URL's like "/slug/boston/cambridge/"
 		),
 	) );
 

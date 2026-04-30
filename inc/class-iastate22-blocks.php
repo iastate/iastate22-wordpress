@@ -74,8 +74,14 @@ class Iastate22_Blocks {
 		register_block_type( $template_directory . '/blocks/callout-set' );
 		// Hero - Directory. unused?
 		#register_block_type( $template_directory . '/blocks/directory-hero' );
+		// Home Social
+		register_block_type( $template_directory . '/blocks/home-social' );
 		// Image - Full Width
 		register_block_type( $template_directory . '/blocks/full-width-image' );
+    // Image - Collage
+		register_block_type( $template_directory . '/blocks/image-collage' );
+		// Image - Gallery
+		register_block_type( $template_directory . '/blocks/image-gallery' );
 		// Image Grid with Text
 		register_block_type( $template_directory . '/blocks/image-grid-with-text' );
 		// Link Block
@@ -358,35 +364,49 @@ class Iastate22_Blocks {
 	 * @since 1.3.7
 	 */
 	public static function render_interior_hero( $context, $attributes, $content, $is_preview, $post_id, $wp_block ) {
+		if ( $is_preview ) {
+			return $context;
+		}
+
+		if ( isset( $context['sidenav'] ) ) {
+			return $context;
+		}
+
 		if ( isset( $context['childrens'] ) ) {
 			return $context;
 		}
 
-		$timber_post  = new Post();
-		$parent       = $timber_post->post_parent;
-		$parent_title = get_the_title( $parent );
-		$children     = array();
-		$query        = array(
+		// Skip queries of menu is turned off
+		if ( empty( $attributes['data']['subnav_toggle'] ) ) {
+			return $context;
+		}
+
+		$data           = array();
+		$current        = new Post( $post_id );
+		$parent         = $current->post_parent;
+		$sibling_query  = array(
 				'parent'      => $parent,
 				'sort_order'  => 'ASC',
 				'sort_column' => 'menu_order'
 		);
+		$children_query = array(
+				'parent'      => $current->ID,
+				'sort_order'  => 'ASC',
+				'sort_column' => 'menu_order'
+		);
 
-		foreach ( get_pages( $query ) as $page_parent ) {
-			$sub_pages_query = ( array(
-					'parent'      => $page_parent->ID,
-					'sort_order'  => 'ASC',
-					'sort_column' => 'menu_order'
-			) );
+		$siblings                 = get_pages( $sibling_query );
+		$children = get_pages( $children_query );
 
-			$children[] = get_pages( $sub_pages_query );
-		}
+		$data['siblings'] = $siblings;
+		$data['children'] = $children;
+		$data['current']  = $current->ID;
+		$data['parent']   = $parent > 0 ? array(
+				'ID'    => $parent,
+				'title' => get_the_title( $parent ),
+		) : null;
 
-		$context['siblings']     = get_pages( $query );
-		$context['current']      = $timber_post->ID;
-		$context['childrens']    = $children;
-		$context['rent']         = $parent;
-		$context['parent_title'] = $parent_title;
+		$context['sidenav'] = $data;
 
 		return $context;
 	}

@@ -9,6 +9,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.5.0] - 2026-04-30
+
+### Added
+
+- New Block: `Image Collage`
+  - [Fractal Reference: Image Collage](https://www.theme.iastate.edu/iastate22/fractal/components/detail/image-collage--default.html)
+- New Block: `Image Gallery`
+  - [Fractal Reference: Image Gallery](https://www.theme.iastate.edu/iastate22/fractal/components/detail/image-gallery.html)
+- New Block: `Home Social`
+  - [Fractal Reference: Home Social](https://www.theme.iastate.edu/iastate22/fractal/components/detail/home-social--default.html)
+- Many blocks have additional custom editor styles for v3, since "preview" is the only view option now
+- Some blocks have a slightly different "Preview" for block editor vs. live view
+- ACF inline editor wrappers for Timber
+
+### Changed
+
+- theme.json file migrated to v3
+- All ACF Blocks migrated to v3
+  - See [issue #72](https://github.com/iastate/iastate22-wordpress/issues/72) for background
+- `Profile` taxonomy slugs changed (/_tax-slug_/)
+    - `Department` changed from "~~locations~~" -> "**department**"
+    - `Affiliation` changed from "~~division~~" -> "**affiliation**"
+- `Profile` taxonomy pages now use the same layout as directory list
+- Side nav query optimization for `Page Hero` block
+
+### Removed
+
+- Email anchor wrapper for profile email icon, flagged by accessibility
+
+---
+
 ## [1.4.1] - 2026-04-02
 
 ### Changed
@@ -47,7 +78,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.3.6] - 2025-09-10
 
-### Fixed 
+### Fixed
 
 - Edit/Preview mode not showing in some cases
   - Revert Block API version (`3`-->`2`)
@@ -70,7 +101,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added post label in tag list for full site search
   - Added class for specific post_type
 
-### Changed 
+### Changed
 
 - Search form doesn't limit post_type if doing a full search
 
@@ -85,7 +116,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added Timber Functions (`get_theme_post_thumbnail()`, `get_theme_post_preview()`)
   - Default visibility is off
 
-### Fixed 
+### Fixed
 
 - Post loops now format thumbnails and previews the same as Blog Home page
 - Hide hero block from excerpt/preview content
@@ -118,7 +149,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added fields (archive banner visibility toggle, last updated visibility toggle)
   - Credit override fields are conditional on credit visibility
 
---- 
+---
 
 ## [1.3.1] - 2025-08-13
 
@@ -178,3 +209,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.3.7]: https://github.com/iastate/iastate22-wordpress/compare/1.3.6...1.3.7
 [1.4.0]: https://github.com/iastate/iastate22-wordpress/compare/1.3.7...1.4.0
 [1.4.1]: https://github.com/iastate/iastate22-wordpress/compare/1.4.0...1.4.1
+[1.5.0]: https://github.com/iastate/iastate22-wordpress/compare/1.4.1...1.5.0

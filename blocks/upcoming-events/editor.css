@@ -1,0 +1,7 @@
+.editor-styles-wrapper .paragraph-widget--upcoming-events .upcoming-events {
+	margin: 0;
+}
+
+.editor-styles-wrapper .paragraph-widget--upcoming-events span.arrow {
+	display: none;
+}

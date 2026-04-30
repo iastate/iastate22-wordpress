@@ -1,6 +1,6 @@
 {
   "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
-  "apiVersion": 2,
+  "apiVersion": 3,
   "name": "acf/callout-inset",
   "title": "Feature - Large with Intro",
   "description": "A large image with a CTA overlay inset in a content area",
@@ -12,11 +12,15 @@
     "image"
   ],
   "supports": {
-    "anchor": true
+    "customClassName": false,
+    "anchor": true,
+    "align": false,
+    "alignWide": false
   },
   "acf": {
-    "blockVersion": 2,
-    "mode": "edit",
+    "blockVersion": 3,
+    "mode": "auto",
     "renderCallback": "Iastate22_Blocks::render_block"
-  }
+  },
+  "editorStyle": "file:./editor.css"
 }

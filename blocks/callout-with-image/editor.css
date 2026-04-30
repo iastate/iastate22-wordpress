@@ -1,0 +1,11 @@
+.editor-styles-wrapper .paragraph-widget--callout-with-image {
+	margin: 1rem 0;
+}
+
+.editor-styles-wrapper .paragraph-widget--callout-with-image .callout-with-image__media {
+	margin: 0;
+}
+
+.editor-styles-wrapper .paragraph-widget--callout-with-image span.arrow {
+	display: none;
+}

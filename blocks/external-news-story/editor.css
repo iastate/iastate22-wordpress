@@ -1,0 +1,7 @@
+.editor-styles-wrapper .paragraph-widget--external-news-story {
+	margin: 1rem 0;
+}
+
+.editor-styles-wrapper .paragraph-widget--external-news-story span.arrow {
+	display: none;
+}

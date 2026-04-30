@@ -1,0 +1,16 @@
+.editor-styles-wrapper .paragraph-widget--card-set {
+	margin: 1rem 0;
+}
+
+.editor-styles-wrapper .card-set::after {
+	left: 0;
+	right: 0;
+}
+
+.editor-styles-wrapper .card-set > ul {
+	margin: 0;
+}
+
+.editor-styles-wrapper .card-set > ul > li {
+	padding-right: 0.5rem;
+}
