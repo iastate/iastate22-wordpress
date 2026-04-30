@@ -1,0 +1,63 @@
+{%- set class_prefix = ( fields.type == 'follow' ) ? 'home-social-follow' : 'home-social' -%}
+{%- set custom_menu = ( fields.link_type == 'default' ) ? true : false -%}
+<div class="paragraph-widget paragraph-widget--home-social"
+		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
+	<div class="{{ class_prefix|e('esc_attr') }}">
+		<div class="{{ class_prefix|e('esc_attr') }}__headline-icons-wrap">
+			{% if fields.title or is_preview %}
+				<h2 class="{{ class_prefix|e('esc_attr') }}__headline" {{ acf_inline_text('title') }}>
+					{{ fields.title }}
+				</h2>
+			{% endif %}
+			<ul class="{{ class_prefix|e('esc_attr') }}__social-links">
+				{%- if custom_menu -%}
+					{%- if is_preview and fields.social_media is empty -%}
+						<li>
+							<span>(+ Add item)</span>
+						</li>
+					{%- endif -%}
+					{%- for item in fields.social_media %}
+						<li>
+							{{ _self.social_link(item.network|capitalize, item.url, item.network|lower, is_preview) }}
+						</li>
+					{% endfor -%}
+				{%- elseif social_menu -%}
+					{%- for link in social_menu.items %}
+						<li>
+							{{ _self.social_link(link.title, link.url, link.network|lower, is_preview) }}
+						</li>
+					{% endfor -%}
+				{% elseif is_preview %}
+					<li>
+						<span>(Social Menu is empty)</span>
+					</li>
+				{%- endif -%}
+			</ul>
+		</div>
+		{% if fields.images|length > 0 %}
+			<div class="{{ class_prefix|e('esc_attr') }}__images-wrap" {{ acf_inline_toolbar('images') }}>
+				{% for image in fields.images %}
+					<div class="{{ class_prefix|e('esc_attr') }}__images-image">
+						<img src="{{ image.url|e('esc_url') }}" alt="{{ image.alt|e('esc_attr') }}" width="301" height="301"/>
+					</div>
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
+</div>
+{%- macro social_link(label, url, icon, is_preview) -%}
+	<a href="{{ is_preview ? '#' : url|e('esc_url') }}"{% if not is_preview %} target="_blank" {%- endif -%}>
+		{% if is_preview or icon is empty %}
+			<span title="{{ label|e('esc_attr') }}">{{ label|first|capitalize|e('esc_html') }}</span>
+		{%- elseif icon == "instagram" -%}
+			<i class="fak fa-iastate22-{{ icon|e('esc_attr') }}" aria-hidden="true"></i>
+		{%- elseif icon == "podcast" -%}
+			<i class="web-social-icon fa-solid fa-{{ icon|e('esc_attr') }}" aria-hidden="true"></i>
+		{%- elseif icon == "comments" or icon == "address-book" -%}
+			<i class="fa-solid fa-{{ icon|e('esc_attr') }}" aria-hidden="true"></i>
+		{%- else -%}
+			<i class="fa-brands fa-{{ icon|default('wordpress-simple')|e('esc_attr') }}" aria-hidden="true"></i>
+		{%- endif -%}
+		<span class="visible-for-screen-readers">{{ label|capitalize|e('esc_html') }}</span>
+	</a>
+{%- endmacro social_link -%}
