@@ -40,7 +40,7 @@
             {%- if menu_post.meta("hide_from_sidebar") != true %}
               <li>
                 {%- if post_sibling %}
-                  <a href="{{ menu_post.link }}"{% if menu_post.ID == current %} aria-current="page"{% endif %}>{{ menu_post.post_title }}</a>
+                  <a href="{{ menu_post.link }}"{% if menu_post.ID == sidenav.current %} aria-current="page"{% endif %}>{{ menu_post.post_title }}</a>
                 {% else %}
                   <span class="lw_separator_title"></span>
                 {% endif -%}
