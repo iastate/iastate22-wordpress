@@ -13,7 +13,7 @@
 								<div>{{ ct.text_content }}</div>
 							{%- elseif ct.acf_fc_layout == "image" -%}
 								{{ media_image(ct.image, {size:'large', placeholder: true}) }}
-							{% endif %}
+							{%- endif %}
 						{% endfor %}
 					{% endfor %}
 				</div>
