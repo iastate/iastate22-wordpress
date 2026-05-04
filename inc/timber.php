@@ -5,6 +5,7 @@
  */
 
 use Timber\Menu as TimberMenu;
+use Timber\Post as TimberPost;
 use Timber\PostQuery;
 use Timber\Site as TimberSite;
 use Timber\Timber;
@@ -49,6 +50,32 @@ add_action( 'acf/init', static function () {
 		);
 	}
 } );
+
+/**
+ * Modified Timber post class
+ */
+class StarterPost extends TimberPost {
+	/**
+	 * {@inheritDoc}
+	 *
+	 * - Patched pagination's bad behavior of overriding global `$post` object with Timber class.
+	 *
+	 * @return array
+	 */
+	public function pagination() {
+		global $post;
+		$old_global_post = $post;
+
+		$ret = parent::pagination();
+
+		if ( ! $post instanceof WP_Post
+		     && $old_global_post instanceof WP_Post ) {
+			$post = $old_global_post;
+		}
+
+		return $ret;
+	}
+}
 
 /**
  * We're going to configure our theme inside a subclass of Timber\Site

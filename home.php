@@ -3,7 +3,6 @@
  * Home template
  */
 
-use Timber\Post;
 use Timber\PostQuery;
 use Timber\Timber;
 
@@ -14,7 +13,7 @@ $context['categories'] = Timber::get_terms( 'categories' );
 $context['tags']       = Timber::get_terms( 'tags' );
 
 if ( 'page' === get_option( 'show_on_front' ) ) {
-	$context['post'] = new Post( get_option( 'page_for_posts' ) );
+	$context['post'] = new StarterPost( get_option( 'page_for_posts' ) );
 }
 
 $context['posts'] = new PostQuery( array(

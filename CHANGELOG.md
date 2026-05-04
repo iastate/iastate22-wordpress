@@ -15,6 +15,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Hard-coded image HTML to use media wrapper
 
+### Fixed
+
+- Corrupted Core block `core\footnote`.
+  - In some cases, Timber can assign its own `\Timber\Post` class into the `global $post` of WordPress, when it should be `WP_Post`. Which can have many unintended consequences, see [Global_Variables](https://codex.wordpress.org/Global_Variables) of the Codex. Some blocks like the `core/footnote` do a class check on the global post before setting the block's context [`if ( $post instanceof WP_Post )...`]. In some situations, those checks will fail because it will see the Timber class instead.
+  - Due to the nature of this bug, it could also have fixed other odd errors happening in the theme.
+
 ---
 
 ## [1.5.0] - 2026-04-30
