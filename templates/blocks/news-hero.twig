@@ -11,8 +11,7 @@
 	</div>
 	{% if post.meta('hero_image') %}
 		<div class="hero__media">
-			<img src="{{ post.meta('hero_image').url }}" alt="{{ post.meta('hero_image').alt }}"
-				 width="{{ post.meta('hero_image').width }}" height="{{ post.meta('hero_image').height }}">
+			{{ media_image(post.meta('hero_image'), {size:'full', placeholder: true}) }}
 		</div>
 	{% endif %}
 </div>

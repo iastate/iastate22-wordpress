@@ -2,8 +2,7 @@
 		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	<figure class="full-width-image">
 		{% if fields.image.url %}
-			<img src="{{ fields.image.url|e('esc_url') }}" alt="{{ fields.image.alt|e('esc_attr') }}"
-			loading="lazy">
+			{{ media_image(fields.image, {size:'full'}) }}
 		{% endif %}
 		{% if fields.image_caption_toggle == true %}
 			<figcaption class="full-width-image__caption text-content"

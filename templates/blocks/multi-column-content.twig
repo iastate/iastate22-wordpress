@@ -12,9 +12,7 @@
 							{% if ct.acf_fc_layout == "text_content" -%}
 								<div>{{ ct.text_content }}</div>
 							{%- elseif ct.acf_fc_layout == "image" -%}
-								<img src="{{ ct.image.url|e('esc_url') }}" alt="{{ ct.image.alt|e('esc_attr') }}"
-										 width="{{ ct.image.width|e('esc_attr') }}" height="{{ ct.image.height|e('esc_attr') }}"
-										 loading="lazy">
+								{{ media_image(ct.image, {size:'large', placeholder: true}) }}
 							{%- endif %}
 						{% endfor %}
 					{% endfor %}

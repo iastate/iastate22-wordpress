@@ -11,7 +11,7 @@
 							<div class="hero-stories-feed-item__media">
 								<div class="hero-stories-feed-item__media-container">
 									<a href="{{ post.link|e('esc_url') }}">
-										<img class="hero-stories-feed-item__media-image img-fluid" src="{{ post_thumbnail.src|e('esc_url') }}" alt="{{ post_thumbnail.alt|e('esc_attr') }}" loading="lazy">
+										{{ media_image(post_thumbnail, {size:'medium'}, {class:'hero-stories-feed-item__media-image img-fluid'}) }}
 									</a>
 								</div>
 							</div>

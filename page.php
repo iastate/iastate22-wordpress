@@ -21,14 +21,13 @@
  * @since    Timber 0.1
  */
 
-use Timber\Post;
 use Timber\Timber;
 
 global $post, $page, $pages, $multipage;
 
 setup_postdata( $post );
 
-$timber_post = new Post();
+$timber_post = new StarterPost();
 $context = Timber::context();
 $context['post'] = $timber_post;
 

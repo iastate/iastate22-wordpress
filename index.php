@@ -13,12 +13,11 @@
  * @since   Timber 0.1
  */
 
-use Timber\Post;
 use Timber\PostQuery;
 use Timber\Timber;
 
 $templates        = array( 'index.twig' );
-$timber_post      = new Post();
+$timber_post      = new StarterPost();
 $context          = Timber::context();
 $context['post']  = $timber_post;
 $context['title'] = wp_title( '', false );

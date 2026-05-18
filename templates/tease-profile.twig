@@ -4,7 +4,7 @@
 	{% block content %}
 		{% if post.photo %}
 			<div class="iastate22-card__media">
-				<img src="{{ Image(post.photo).src|e('esc_url') }}" alt="{{ Image(post.photo).alt|e('esc_attr') }}"/>
+				{{ media_image(post.photo, {size:'medium'}) }}
 			</div>
 		{% endif %}
 		<div class="iastate22-card__content">

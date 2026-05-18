@@ -6,10 +6,7 @@
 		<div class="iastate22-blockquote__inner-wrap">
 			{% if fields.blockquote_image %}
 				<div class="iastate22-blockquote__portrait">
-					<img src="{{ fields.blockquote_image.url|e('esc_url') }}" loading="lazy"
-							 alt="{{ fields.blockquote_image.alt|e('esc_attr') }}"
-							 width="{{ fields.blockquote_image.width|e('esc_attr') }}"
-							 height="{{ fields.blockquote_image.height|e('esc_attr') }}"/>
+					{{ media_image(fields.blockquote_image, {size:'medium'}) }}
 				</div>
 			{% endif %}
 			<div class="iastate22-blockquote__text-wrap">

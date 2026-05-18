@@ -1,6 +1,5 @@
 <?php
 
-use Timber\Post;
 use Timber\PostQuery;
 use Timber\Timber;
 
@@ -382,7 +381,7 @@ class Iastate22_Blocks {
 		}
 
 		$data           = array();
-		$current        = new Post( $post_id );
+		$current        = new StarterPost( $post_id );
 		$parent         = $current->post_parent;
 		$sibling_query  = array(
 				'parent'      => $parent,

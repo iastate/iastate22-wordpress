@@ -38,7 +38,11 @@
 			<div class="{{ class_prefix|e('esc_attr') }}__images-wrap" {{ acf_inline_toolbar('images') }}>
 				{% for image in fields.images %}
 					<div class="{{ class_prefix|e('esc_attr') }}__images-image">
-						<img src="{{ image.url|e('esc_url') }}" alt="{{ image.alt|e('esc_attr') }}" width="301" height="301"/>
+						{%- if fields.images|length > 1 -%}
+							{{ media_image(image, {size:'medium'}) }}
+						{%- else -%}
+							{{ media_image(image, {size:'large'}) }}
+						{%- endif -%}
 					</div>
 				{% endfor %}
 			</div>
