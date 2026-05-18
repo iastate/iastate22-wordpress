@@ -7,13 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+---
+
+## [1.5.1] - 2026-05-18
+
 ### Added
 
-- Media wrapper for twig templates
+- WordPress Media wrapper for Twig templates
 
 ### Changed
 
-- Hard-coded image HTML to use media wrapper
+- Hard-coded images to use WordPress media wrapper
 
 ### Fixed
 
