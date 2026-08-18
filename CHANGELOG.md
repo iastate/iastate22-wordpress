@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+--- 
+
+## [1.6.0] - 2026-08-18
+
+### Added 
+
+- Plugin: Relevanssi Premium Multi-Site Search support
+- Post Loop action hooks
+
+### Removed
+
+- Profile images using WP theme size classes
+
 ---
 
 ## [1.5.2] - 2026-05-26
@@ -224,14 +237,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -------
 
 [unreleased]: https://github.com/iastate/iastate22-wordpress/compare/master...develop
-[1.3.0]: https://github.com/iastate/iastate22-wordpress/compare/1.2.2...1.3.0
-[1.3.1]: https://github.com/iastate/iastate22-wordpress/compare/1.3.0...1.3.1
-[1.3.2]: https://github.com/iastate/iastate22-wordpress/compare/1.3.1...1.3.2
-[1.3.3]: https://github.com/iastate/iastate22-wordpress/compare/1.3.2...1.3.3
-[1.3.4]: https://github.com/iastate/iastate22-wordpress/compare/1.3.3...1.3.4
-[1.3.5]: https://github.com/iastate/iastate22-wordpress/compare/1.3.4...1.3.5
-[1.3.6]: https://github.com/iastate/iastate22-wordpress/compare/1.3.5...1.3.6
-[1.3.7]: https://github.com/iastate/iastate22-wordpress/compare/1.3.6...1.3.7
-[1.4.0]: https://github.com/iastate/iastate22-wordpress/compare/1.3.7...1.4.0
-[1.4.1]: https://github.com/iastate/iastate22-wordpress/compare/1.4.0...1.4.1
-[1.5.0]: https://github.com/iastate/iastate22-wordpress/compare/1.4.1...1.5.0
+[1.3.0]: https://github.com/iastate/iastate22-wordpress/compare/1.2.0...1.3.0
+[1.4.0]: https://github.com/iastate/iastate22-wordpress/compare/1.3.0...1.4.0
+[1.5.0]: https://github.com/iastate/iastate22-wordpress/compare/1.4.0...1.5.0
+[1.6.0]: https://github.com/iastate/iastate22-wordpress/compare/1.5.0...1.6.0

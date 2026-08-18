@@ -20,3 +20,8 @@ if ( function_exists( 'get_field' ) ) {
 	include( get_template_directory() . '/inc/post-types/events.php' );
 	include( get_template_directory() . '/inc/post-types/profiles.php' );
 }
+
+if ( is_plugin_active('relevanssi-premium/relevanssi.php')){
+	include( get_template_directory() . '/inc/plugins/class-relevanssi-premium.php' );
+	add_action( 'init', array( Iastate22_Plugin_Relevanssi_Premium::get_instance(), 'init' ) );
+}

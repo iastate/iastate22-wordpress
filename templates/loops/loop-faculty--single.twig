@@ -23,11 +23,11 @@
 					<div class="faculty-staff-feed-item__media">
 						{% if Image(post._thumbnail_id).src %}
 							<div class="faculty-staff-feed-item__media-container">
-								{{ media_image(post._thumbnail_id, {size:'medium'}, {class:'faculty-staff-feed-item__media-image'}) }}
+								{{ media_image(post._thumbnail_id, {}, {class:'faculty-staff-feed-item__media-image'}) }}
 							</div>
 						{% elseif photo != null %}
 							<div class="faculty-staff-feed-item__media-container">
-								{{ media_image(photo, {size:'medium'}, {class:'faculty-staff-feed-item__media-image'}) }}
+								{{ media_image(photo, {}, {class:'faculty-staff-feed-item__media-image'}) }}
 							</div>
 						{% endif %}
 					</div>

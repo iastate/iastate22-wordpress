@@ -2,7 +2,9 @@
 	<div class="paragraph-widget paragraph-widget--hero-stories-feed-item-set">
 		<div class="hero-stories-feed-item-set">
 			<ul>
+				{% do action('iastate22_loop_start') %}
 				{% for post in posts %}
+					{% do action('iastate22_loop_post', post) %}
 					{%- set post_preview = theme_post_preview(post) -%}
 					{%- set post_thumbnail = theme_post_thumbnail(post) -%}
 					<li>
@@ -20,7 +22,7 @@
 							<div class="hero-stories-feed-item__content-tags">
 								<ul>
 									{%- if function('is_search') -%}
-										<li>{{ post.type.labels.singular_name|e('esc_html') }}</li>
+										<li>{{ (post.type.labels ? post.type.labels.singular_name : post.type|title )|e('esc_html') }}</li>
 									{%- endif -%}
 									{%- for term in post.terms -%}
 										{%- if term.taxonomy == "category" -%}
@@ -45,6 +47,7 @@
 					</div>
           </li>
 				{% endfor %}
+				{% do action('iastate22_loop_end') %}
 			</ul>
 		</div>
 	</div>

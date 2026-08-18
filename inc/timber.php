@@ -446,6 +446,10 @@ class StarterSite extends TimberSite {
 		$thumbnail = $post->thumbnail();
 
 		if ( $thumbnail instanceof \Timber\Image ) {
+			if ( null === $thumbnail->file ) {
+				return null;
+			}
+
 			return $thumbnail;
 		}
 
