@@ -28,11 +28,11 @@
 							{% endif %}
 							{% if Image(post._thumbnail_id).src %}
 								<div class="faculty-staff-card__media-container">
-									{{ media_image(thumb, {size:'thumbnail'}, {class:'faculty-staff-card__media-image'}) }}
+									{{ media_image(thumb, {}, {class:'faculty-staff-card__media-image'}) }}
 								</div>
 							{% elseif photo != null %}
 								<div class="faculty-staff-card__media-container">
-									{{ media_image(photo, {size:'thumbnail'},{class:'faculty-staff-card__media-image'}) }}
+									{{ media_image(photo, {},{class:'faculty-staff-card__media-image'}) }}
 								</div>
 							{% endif %}
 						</div>
