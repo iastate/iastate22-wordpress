@@ -14,7 +14,7 @@
 						{% set link_target = item.link_url['target'] ? item.link_url['target'] : '_self' %}
 						<li>
 							<a class="iastate22-button"
-								href="{{ is_preview ? '#' : link_url|e('esc_url') }}" target={{ link_target }}>{{ item.link_text }}
+								href="{{ is_preview ? '#' : link_url|e('esc_url') }}" target={{ link_target|e('esc_attr') }}>{{ item.link_text }}
 								<span class="arrow"></span>
 							</a>
 						</li>
