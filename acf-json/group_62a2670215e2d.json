@@ -140,7 +140,8 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "url",
+                            "return_format": "array",
+                            "allow_in_bindings": 1,
                             "parent_repeater": "field_6363d571e8d8f"
                         }
                     ]
@@ -166,5 +167,8 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1669084130
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1793289209
 }
