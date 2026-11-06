@@ -4,6 +4,8 @@
 		<ul>
 			{% for item in fields.links %}
 				{% if item.link_url %}
+					{% set link_url = item.link_url['url'] %}
+					{% set link_target = item.link_url['target'] %}
 					<li>
 						{% if item.link_style == "standard" %}
 							{% set linkClass = "link-set__link iastate22-link-secondary" %}
@@ -13,8 +15,8 @@
 							{% set linkClass = "link-set__link link-tertiary" %}
 						{% endif %}
 						<a class="{{ linkClass|e('esc_attr') }}"
-							 href="{{ is_preview ? '#' : item.link_url|e('esc_url') }}"
-								{%- if not is_preview and item.link_style == "external" %} target="_blank"{%- endif -%}>
+							 href="{{ is_preview ? '#' : link_url|e('esc_url') }}"
+								{%- if not is_preview and (link_target == "_blank" or item.link_style == "external") %} target="_blank"{%- endif -%}>
 							{{ item.label }} <span class="arrow"></span>
 						</a>
 					</li>

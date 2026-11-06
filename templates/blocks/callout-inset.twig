@@ -15,7 +15,8 @@
 				<div class="iastate22-button-set">
 					<ul>
 						<li>
-							<a class="iastate22-button" href="{{ is_preview ? '#' : fields.inset.link.url|e('esc_url') }}">
+							<a class="iastate22-button" href="{{ is_preview ? '#' : fields.inset.link.url['url']|e('esc_url') }}"
+									{%- if not is_preview and fields.inset.link.url['target'] == "_blank" %} target="_blank"{%- endif -%}>
 								{{ fields.inset.link.label }}<span class="arrow"></span></a>
 						</li>
 					</ul>

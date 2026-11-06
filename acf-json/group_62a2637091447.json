@@ -133,7 +133,8 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "url"
+                            "return_format": "array",
+                            "allow_in_bindings": 1
                         }
                     ]
                 }
@@ -158,5 +159,8 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1693340353
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1793995252
 }

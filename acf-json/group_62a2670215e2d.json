@@ -17,7 +17,6 @@
                 "id": ""
             },
             "return_format": "array",
-            "preview_size": "medium",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -25,7 +24,9 @@
             "max_width": "",
             "max_height": "",
             "max_size": "",
-            "mime_types": "jpg, jpeg, png"
+            "mime_types": "jpg, jpeg, png, avif, webp",
+            "allow_in_bindings": 1,
+            "preview_size": "medium"
         },
         {
             "key": "field_62a2670219454",
@@ -170,5 +171,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1793289209
+    "modified": 1793994725
 }

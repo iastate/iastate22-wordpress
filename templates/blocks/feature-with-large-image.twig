@@ -11,11 +11,12 @@
 			{% if fields.callout.content -%}
 				<div class="feature-with-large-image__text">{{ fields.callout.content }}</div>
 			{%- endif %}
-			{% if fields.callout.link.url and fields.callout.link.label -%}
+			{% if fields.callout.link.url['url'] and fields.callout.link.label -%}
 				<div class="iastate22-button-set">
 					<ul>
 						<li>
-							<a class="iastate22-button" href="{{ is_preview ? '#' : fields.callout.link.url|e('esc_url') }}">
+							<a class="iastate22-button" href="{{ is_preview ? '#' : fields.callout.link.url['url']|e('esc_url') }}"
+									{%- if not is_preview and fields.callout.link.url['target'] == "_blank" %} target="_blank"{%- endif -%}>
 								{{ fields.callout.link.label }}<span
 										class="arrow"></span></a>
 						</li>

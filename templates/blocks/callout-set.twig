@@ -21,6 +21,8 @@
 								<div class="link-set">
 									<ul>
 										{% for item in callout.callout_content.callout_ctas %}
+										{% set link_url = item.link_url['url'] %}
+										{% set link_target = item.link_url['target'] %}
 											<li>
 												{% if item.link_style == "button" %}
 													{% set linkClass = "link-set__link iastate22-button" %}
@@ -31,8 +33,8 @@
 												{% elseif item.link_style == "minimal" %}
 													{% set linkClass = "link-set__link link-tertiary" %}
 												{% endif %}
-												<a class="{{ linkClass|e('esc_attr') }}" href="{{ is_preview ? '#' : item.link_url|e('esc_url') }}"
-														{%- if not is_preview and item.link_style == "external" %} target="_blank"{%- endif -%}>
+												<a class="{{ linkClass|e('esc_attr') }}" href="{{ is_preview ? '#' : link_url|e('esc_url') }}"
+														{%- if not is_preview and (link_target == "_blank" or item.link_style == "external") %} target="_blank"{%- endif -%}>
 													{{ item.label }}
 													<span class="arrow"></span>
 												</a>
