@@ -48,11 +48,12 @@
 			<ul>
 			{% if post_count == 3 %}
 				{% for key, article in fields.pick_three %}
+					{% set article_post = Post(article) %}
 					{% set maybe_thumbnail = null %}
-					{% if article.thumbnail %}
-						{% set maybe_thumbnail = article.thumbnail %}
-					{% elseif article.hero_image %}
-						{% set maybe_thumbnail = Image(article.meta('hero_image')) %}
+					{% if article_post.thumbnail %}
+						{% set maybe_thumbnail = article_post.thumbnail %}
+					{% elseif article_post.meta('hero_image') %}
+						{% set maybe_thumbnail = Image(article_post.meta('hero_image')) %}
 					{% endif %}
 					<li>
 						<div class="iastate22-card iastate22-card--recent-article clickable">
@@ -82,11 +83,12 @@
 				{% endfor %}
 			{% elseif post_count == 6 %}
 				{% for key, article in fields.pick_six %}
+					{% set article_post = Post(article) %}
 					{% set maybe_thumbnail = null %}
-					{% if article.thumbnail %}
-						{% set maybe_thumbnail = article.thumbnail %}
-					{% elseif article.hero_image %}
-						{% set maybe_thumbnail = Image(article.meta('hero_image')) %}
+					{% if article_post.thumbnail %}
+						{% set maybe_thumbnail = article_post.thumbnail %}
+					{% elseif article_post.meta('hero_image') %}
+						{% set maybe_thumbnail = Image(article_post.meta('hero_image')) %}
 					{% endif %}
 					<li>
 						<div class="iastate22-card iastate22-card--recent-article clickable">
@@ -117,11 +119,12 @@
 				{% endfor %}
 			{% elseif post_count == 9 %}
 				{% for key, article in fields.pick_nine %}
+					{% set article_post = Post(article) %}
 					{% set maybe_thumbnail = null %}
-					{% if article.thumbnail %}
-						{% set maybe_thumbnail = article.thumbnail %}
-					{% elseif article.hero_image %}
-						{% set maybe_thumbnail = Image(article.meta('hero_image')) %}
+					{% if article_post.thumbnail %}
+						{% set maybe_thumbnail = article_post.thumbnail %}
+					{% elseif article_post.meta('hero_image') %}
+						{% set maybe_thumbnail = Image(article_post.meta('hero_image')) %}
 					{% endif %}
 					<li>
 						<div class="iastate22-card iastate22-card--recent-article clickable">
