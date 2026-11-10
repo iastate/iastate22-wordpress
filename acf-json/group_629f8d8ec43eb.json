@@ -46,7 +46,8 @@
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": "jpg, jpeg, png",
+                    "mime_types": "jpg, jpeg, png, avif, webp",
+                    "allow_in_bindings": 1,
                     "preview_size": "medium",
                     "parent_repeater": "field_629f8d8ec6c93"
                 },
@@ -196,5 +197,8 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1757515652
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1793992881
 }
