@@ -12,28 +12,29 @@
 			{% if fields.callout_with_image.callout_content.callout_ctas %}
 				<div class="link-set">
 					<ul>
-						{% for item in fields.callout_with_image.callout_content.callout_ctas %}
-							{% if item.link_url|length > 0 %}
-								{% set link_url = item.link_url['url'] %}
-								{% set link_target = item.link_url['target'] %}
+						{% for item in fields.callout_with_image.callout_content.callout_ctas -%}
+							{%- if item.link_url|length > 0 %}
+								{%- set link_url = item.link_url['url'] -%}
+								{%- set link_target = item.link_url['target'] ? item.link_url['target'] : '_self' -%}
 								<li>
-									{% if item.link_style == "button" %}
-										{% set linkClass = "link-set__link iastate22-button" %}
-									{% elseif item.link_style == "standard" %}
-										{% set linkClass = "link-set__link iastate22-link-secondary" %}
-									{% elseif item.link_style == "external" %}
-										{% set linkClass = "link-set__link iastate22-link-external" %}
-									{% elseif item.link_style == "minimal" %}
-										{% set linkClass = "link-set__link link-tertiary" %}
-									{% endif %}
+									{%- if item.link_style == "button" -%}
+										{%- set linkClass = "link-set__link iastate22-button" -%}
+									{%- elseif item.link_style == "standard" -%}
+										{%- set linkClass = "link-set__link iastate22-link-secondary" -%}
+									{%- elseif item.link_style == "external" -%}
+										{%- set linkClass = "link-set__link iastate22-link-external" -%}
+										{%- set link_target = "_blank" -%}
+									{%- elseif item.link_style == "minimal" -%}
+										{%- set linkClass = "link-set__link link-tertiary" -%}
+									{%- endif -%}
 									<a class="{{ linkClass|e('esc_attr') }}" href="{{ is_preview ? '#' : link_url|e('esc_url') }}"
-											{%- if not is_preview and (link_target == "_blank" or item.link_style == "external") %} target="_blank"{%- endif -%}>
+									   target="{{ link_target|e('esc_attr') }}">
 										{{ item.label }}
 										<span class="arrow"></span>
 									</a>
 								</li>
-							{% endif %}
-						{% endfor %}
+							{% endif -%}
+						{%- endfor %}
 					</ul>
 				</div>
 			{% endif %}
