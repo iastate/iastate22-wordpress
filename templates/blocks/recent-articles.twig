@@ -65,7 +65,7 @@
 							<div class="iastate22-card__content">
 								<div class="iastate22-card__content-tags">
 									<ul class="iastate22-card__content-tags__list">
-										{% for term in Post(article).terms %}
+										{% for term in article_post.terms %}
 											{% if term.taxonomy == "category" %}
 												<li class="iastate22-card__content-tags__list-item">{{ term.name }}</li>
 											{% endif %}
@@ -73,10 +73,10 @@
 									</ul>
 								</div>
 								<h2 class="iastate22-card__title">
-									<a class="iastate22-link-secondary" href="{{ is_preview ? '#' : Post(article).link }}"
-											{%- if not is_preview %} target="_blank"{%- endif -%}>{{ article.post_title }}</a>
+									<a class="iastate22-link-secondary" href="{{ is_preview ? '#' : article_post.link }}"
+											{%- if not is_preview %} target="_blank"{%- endif -%}>{{ article_post.post_title }}</a>
 								</h2>
-								<p class="iastate22-card__date">{{ article.post_date|date("F d, Y") }}</p>
+								<p class="iastate22-card__date">{{ article_post.date("F d, Y") }}</p>
 							</div>
 						</div>
 					</li>
@@ -100,7 +100,7 @@
 							<div class="iastate22-card__content">
 								<div class="iastate22-card__content-tags">
 									<ul class="iastate22-card__content-tags__list">
-										{% for term in Post(article).terms %}
+										{% for term in article_post.terms %}
 											{% if term.taxonomy == "category" %}
 												<li class="iastate22-card__content-tags__list-item">{{ term.name }}</li>
 											{% endif %}
@@ -108,11 +108,11 @@
 									</ul>
 								</div>
 								<h2 class="iastate22-card__title">
-									<a class="iastate22-link-secondary" href="{{ is_preview ? '#' : Post(article).link }}"
+									<a class="iastate22-link-secondary" href="{{ is_preview ? '#' : article_post.link }}"
 											{%- if not is_preview %} target="_blank"{%- endif -%}>
-										{{ article.post_title }}</a>
+										{{ article_post.post_title }}</a>
 								</h2>
-								<p class="iastate22-card__date">{{ article.post_date|date("F d, Y") }}</p>
+								<p class="iastate22-card__date">{{ article_post.date("F d, Y") }}</p>
 							</div>
 						</div>
 					</li>
@@ -136,7 +136,7 @@
 							<div class="iastate22-card__content">
 								<div class="iastate22-card__content-tags">
 									<ul class="iastate22-card__content-tags__list">
-										{% for term in Post(article).terms %}
+										{% for term in article_post.terms %}
 											{% if term.taxonomy == "category" %}
 												<li class="iastate22-card__content-tags__list-item">{{ term.name }}</li>
 											{% endif %}
@@ -144,11 +144,11 @@
 									</ul>
 								</div>
 								<h2 class="iastate22-card__title">
-									<a class="iastate22-link-secondary" href="{{ is_preview ? '#' : Post(article).link }}"
+									<a class="iastate22-link-secondary" href="{{ is_preview ? '#' : article_post.link }}"
 											{%- if not is_preview %} target="_blank"{% endif %}>
-										{{ article.post_title }}</a>
+										{{ article_post.post_title }}</a>
 								</h2>
-								<p class="iastate22-card__date">{{ article.post_date|date("F d, Y") }}</p>
+								<p class="iastate22-card__date">{{ article_post.date("F d, Y") }}</p>
 							</div>
 						</div>
 					</li>
