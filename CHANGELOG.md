@@ -9,6 +9,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 --- 
 
+## [1.6.1] - 2026-11-10
+
+__Heads Up: Run [ACF fields sync](https://www.advancedcustomfields.com/resources/synchronized-json/) if locally managed__
+
+### Fixed 
+
+- Open in new tab support for blocks:
+  - Call to Action - Text
+  - Call to Action - Image
+  - Link Set
+  - Feature Set
+  - Feature - Small
+  - Feature - Large
+  - Feature - Large with Intro
+- News - Cards block did not display featured image for "Curated Selection" style
+
+--- 
+
 ## [1.6.0] - 2026-08-18
 
 ### Added 
@@ -241,3 +259,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.4.0]: https://github.com/iastate/iastate22-wordpress/compare/1.3.0...1.4.0
 [1.5.0]: https://github.com/iastate/iastate22-wordpress/compare/1.4.0...1.5.0
 [1.6.0]: https://github.com/iastate/iastate22-wordpress/compare/1.5.0...1.6.0
+[1.6.1]: https://github.com/iastate/iastate22-wordpress/compare/1.6.0...1.6.1
