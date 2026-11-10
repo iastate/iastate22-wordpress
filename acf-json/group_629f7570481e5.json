@@ -28,7 +28,9 @@
             "allow_null": 0,
             "ui": 0,
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_629f75704b112",
@@ -64,7 +66,8 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "url"
+            "return_format": "array",
+            "allow_in_bindings": 1
         }
     ],
     "location": [
@@ -85,5 +88,8 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1693322209
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1793995071
 }

@@ -12,9 +12,11 @@
 			<ul>
 				{% for item in fields.callout_content.callout_ctas %}
 					{% if item.link_url %}
+						{%- set link_url = item.link_url['url'] -%}
+						{%- set link_target = item.link_style == 'external' ? '_blank' :  ( item.link_url['target'] ? item.link_url['target'] : '_self' ) -%}
 						<li>
-							<a class="iastate22-button" href="{{ is_preview ? '#' : item.link_url|e('esc_url') }}"
-									{%- if item.external == true and not is_preview %} target="_blank"{%- endif -%}>
+							<a class="iastate22-button" href="{{ is_preview ? '#' : link_url|e('esc_url') }}"
+							   target="{{ link_target|e('esc_attr') }}">
 								{{ item.label }}<span class="arrow"></span></a>
 						</li>
 					{% endif %}
