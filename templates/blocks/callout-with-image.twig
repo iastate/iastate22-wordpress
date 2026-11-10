@@ -18,16 +18,16 @@
 								{%- set link_target = item.link_url['target'] ? item.link_url['target'] : '_self' -%}
 								<li>
 									{%- if item.link_style == "button" -%}
-										{%- set linkClass = "link-set__link iastate22-button" -%}
+										{%- set link_class = "link-set__link iastate22-button" -%}
 									{%- elseif item.link_style == "standard" -%}
-										{%- set linkClass = "link-set__link iastate22-link-secondary" -%}
+										{%- set link_class = "link-set__link iastate22-link-secondary" -%}
 									{%- elseif item.link_style == "external" -%}
-										{%- set linkClass = "link-set__link iastate22-link-external" -%}
+										{%- set link_class = "link-set__link iastate22-link-external" -%}
 										{%- set link_target = "_blank" -%}
 									{%- elseif item.link_style == "minimal" -%}
-										{%- set linkClass = "link-set__link link-tertiary" -%}
+										{%- set link_class = "link-set__link link-tertiary" -%}
 									{%- endif -%}
-									<a class="{{ linkClass|e('esc_attr') }}" href="{{ is_preview ? '#' : link_url|e('esc_url') }}"
+									<a class="{{ link_class|e('esc_attr') }}" href="{{ is_preview ? '#' : link_url|e('esc_url') }}"
 									   target="{{ link_target|e('esc_attr') }}">
 										{{ item.label }}
 										<span class="arrow"></span>
