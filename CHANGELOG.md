@@ -13,6 +13,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 __Heads Up: Run [ACF fields sync](https://www.advancedcustomfields.com/resources/synchronized-json/) if locally managed__
 
+### Added
+
+- AVIF & WebP image upload support for blocks:
+  - Call to Action - Image
+  - Feature Set
+  - Feature - Small
+
 ### Fixed 
 
 - Open in new tab support for blocks:
