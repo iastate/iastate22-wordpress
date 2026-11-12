@@ -685,10 +685,15 @@ class StarterSite extends TimberSite {
 		$meta_query    = array();
 		$param_array   = array();
 		$tax_params    = array();
+		$tax_query_ids = array(
+				'affiliation',
+				'department',
+		);
 
-		foreach ( $_GET as $key => $value ) {
-			if ( $key !== "post_type" && $key !== "search_letter" && $key !== "s" && strlen( $value ) ) {
-				$param_array[] = [ $key, $value ];
+		foreach ( $tax_query_ids as $tax_id ) {
+			$tax_var = get_query_var( $tax_id );
+			if ( null !== $tax_var && "" !== $tax_var ) {
+				$param_array[] = [ $tax_id, $tax_var ];
 			}
 		}
 

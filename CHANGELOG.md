@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Limit profile search terms to known taxonomy names
+
 --- 
 
 ## [1.6.2] - 2026-11-10
