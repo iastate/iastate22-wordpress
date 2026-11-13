@@ -13,7 +13,7 @@
     "dates"
   ],
   "supports": {
-    "customClassName": false,
+    "customClassName": true,
     "alignWide": false,
     "align": false,
     "anchor": true

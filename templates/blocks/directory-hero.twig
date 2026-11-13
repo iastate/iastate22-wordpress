@@ -4,7 +4,7 @@
 	{% set activeLetters = activeLetters|merge([post.meta('last_name')|first|lower]) %}
 {% endfor %}
 <div
-	class="faculty-staff-directory-header"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
+	class="faculty-staff-directory-header {{ block.className|e('esc_attr') }}"{% if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
 	<div class="ecosystem-home-hero ecosystem-home-hero--no-image">
 		<div class="ecosystem-home-hero__content">
 			{% include ['templates/partial/breadcrumbs.twig'] %}

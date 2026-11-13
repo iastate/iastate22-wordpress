@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--image-collage" {% if block.anchor -%}
+<div class="paragraph-widget paragraph-widget--image-collage {{ block.className|e('esc_attr') }}" {% if block.anchor -%}
 id="{{ block.anchor|e('esc_attr') }}"{%- endif %}>
   <div class="{{ _self.class_wrapper(fields.image_collage|length) }}">
     <div class="image-collage__wrap">

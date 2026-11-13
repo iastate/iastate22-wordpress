@@ -11,7 +11,7 @@
     "follow"
   ],
   "supports": {
-    "customClassName": false,
+    "customClassName": true,
     "anchor": true,
     "align": false,
     "alignWide": false

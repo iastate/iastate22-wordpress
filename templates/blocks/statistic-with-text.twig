@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--statistic-with-text"
+<div class="paragraph-widget paragraph-widget--statistic-with-text {{ block.className|e('esc_attr') }}"
     {%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{% endif %}>
   <div class="statistic-with-text statistic-with-text--{{ fields.statistics_location }}
     {%- if not fields.statistics_content.content %} statistic-with-text--full-width{%- endif -%}">

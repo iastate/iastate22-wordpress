@@ -1,7 +1,7 @@
 {%- set showView = 'view' not in fields.button_links -%}
 {%- set showDownload = 'download' not in fields.button_links -%}
 {%- set showModalDownload = 'modal_link' not in fields.button_links -%}
-<div class="paragraph-widget paragraph-widget--image-gallery">
+<div class="paragraph-widget paragraph-widget--image-gallery {{ block.className|e('esc_attr') }}">
   <div class="image-gallery">
     {% for image in fields.image_gallery %}
       {% set modalId = ( 'image-modal-' ~ image.name )|e('esc_attr') %}

@@ -10,6 +10,9 @@
     "alert",
     "announcement"
   ],
+  "supports": {
+    "customClassName": true
+  },
   "selectors": {
     "root": ".home-announcement"
   },

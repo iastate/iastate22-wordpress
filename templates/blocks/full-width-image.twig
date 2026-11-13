@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--full-width-image"
+<div class="paragraph-widget paragraph-widget--full-width-image {{ block.className|e('esc_attr') }}"
 		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	<figure class="full-width-image">
 		{% if fields.image.url %}

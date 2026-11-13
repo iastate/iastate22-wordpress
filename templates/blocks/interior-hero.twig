@@ -1,5 +1,5 @@
 {% if function('is_singular') or is_preview %}
-	<div class="hero"
+	<div class="hero {{ block.className|e('esc_attr') }}"
 			{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 		<div class="hero__text-wrap">
 			{% include ['templates/partial/breadcrumbs.twig'] %}

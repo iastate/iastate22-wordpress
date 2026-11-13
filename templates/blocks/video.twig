@@ -1,5 +1,5 @@
 {%- set video = fields.shim ? fields.shim : fields.video_group.video -%}
-<div class="paragraph-widget paragraph-widget--video-embed"
+<div class="paragraph-widget paragraph-widget--video-embed {{ block.className|e('esc_attr') }}"
 		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	<div class="video-embed">
 		<div class="video-embed__media-wrap">
