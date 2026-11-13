@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--text-html"
+<div class="paragraph-widget paragraph-widget--text-html {{ block.className|e('esc_attr') }}"
 		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	<div class="text-content">
 		{{ fields.text_content }}

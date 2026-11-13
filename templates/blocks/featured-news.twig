@@ -5,7 +5,7 @@
 {% elseif featuredStory.hero_image %}
 	{% set maybe_thumbnail = Image(featuredStory.meta('hero_image')) %}
 {% endif %}
-<div class="featured-news"
+<div class="featured-news {{ block.className|e('esc_attr') }}"
 		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	<div class="featured-news-container">
 		<div class="featured-news__large-article">

@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--blockquote"
+<div class="paragraph-widget paragraph-widget--blockquote {{ block.className|e('esc_attr') }}"
 		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	<div class="iastate22-blockquote
 		{%- if fields.blockquote_image %} iastate22-blockquote--with-image{%- else %} iastate22-blockquote--with-no-image{%- endif -%}

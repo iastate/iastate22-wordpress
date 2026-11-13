@@ -1,5 +1,5 @@
 {%- set id = random(1111,9999) -%}
-<div class="paragraph-widget paragraph-widget--accordion"
+<div class="paragraph-widget paragraph-widget--accordion {{ block.className|e('esc_attr') }}"
 		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	<div class="accordion accordion-flush" id="accordionFlush{{ id }}">
 		{%- set counter = 0 -%}

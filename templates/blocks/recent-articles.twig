@@ -1,4 +1,4 @@
-<div class="recent-articles"
+<div class="recent-articles {{ block.className|e('esc_attr') }}"
 		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	{% if fields.section_title|length > 0 %}
 		<div class="text-content">

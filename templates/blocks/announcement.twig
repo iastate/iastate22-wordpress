@@ -1,4 +1,4 @@
-<div class="home-announcement">
+<div class="home-announcement {{ block.className|e('esc_attr') }}">
   {%- if fields.announcement_type == 'info' -%}
     <span class="fak fa-iastate22-info-box" aria-hidden="true"></span>
   {%- elseif fields.announcement_type == 'alert' -%}

@@ -1,6 +1,6 @@
 {%- set class_prefix = ( fields.type == 'follow' ) ? 'home-social-follow' : 'home-social' -%}
 {%- set custom_menu = ( fields.link_type == 'default' ) ? true : false -%}
-<div class="paragraph-widget paragraph-widget--home-social"
+<div class="paragraph-widget paragraph-widget--home-social {{ block.className|e('esc_attr') }}"
 		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	<div class="{{ class_prefix|e('esc_attr') }}">
 		<div class="{{ class_prefix|e('esc_attr') }}__headline-icons-wrap">

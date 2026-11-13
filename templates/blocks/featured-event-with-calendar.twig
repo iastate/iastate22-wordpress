@@ -1,4 +1,4 @@
-<div class="paragraph-widget paragraph-widget--upcoming-events"
+<div class="paragraph-widget paragraph-widget--upcoming-events {{ block.className|e('esc_attr') }}"
 		{%- if block.anchor|length > 0 %} id="{{ block.anchor|e('esc_attr') }}"{%- endif -%}>
 	<div class="featured-events">
 		<header class="featured-events__header">
