@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e2204e029a3e23568fb7083f3d43532f",
+    "content-hash": "6788a9fbcb7fa989bd3f6b77562a6692",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -62,7 +62,8 @@
             "support": {
                 "source": "https://github.com/dannyvankooten/AltoRouter/tree/2.0.3"
             },
-            "time": "2025-01-05T20:33:28+00:00"
+            "time": "2025-01-05T20:33:28+00:00",
+            "published-time": "2025-01-07T16:53:50+00:00"
         },
         {
             "name": "composer/installers",
@@ -208,45 +209,8 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-06-24T20:46:46+00:00"
-        },
-        {
-            "name": "iastate/frontend-component-library",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/iastate/iastate22-frontend.git",
-                "reference": "5b00e66cd0eee5b77c69d0bab964531455fe9560"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/iastate/iastate22-frontend/zipball/5b00e66cd0eee5b77c69d0bab964531455fe9560",
-                "reference": "5b00e66cd0eee5b77c69d0bab964531455fe9560",
-                "shasum": ""
-            },
-            "default-branch": true,
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "iastate Web Development Services",
-                    "email": "webdev@iastate.edu",
-                    "homepage": "https://webdev.its.iastate.edu/",
-                    "role": "Developer"
-                },
-                {
-                    "name": "idfive",
-                    "email": "code@idfive.com",
-                    "homepage": "https://idfive.com/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Frontend component library for Iowa State University.",
-            "support": {
-                "issues": "https://github.com/iastate/iastate22-frontend/issues",
-                "source": "https://github.com/iastate/iastate22-frontend/tree/master"
-            },
-            "time": "2026-06-22T17:13:58+00:00"
+            "time": "2024-06-24T20:46:46+00:00",
+            "published-time": "2024-06-24T21:01:36+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -329,7 +293,8 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-04-10T16:19:22+00:00"
+            "time": "2026-04-10T16:19:22+00:00",
+            "published-time": "2026-04-26T14:44:50+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -414,7 +379,8 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-10-28T09:35:49+00:00"
+            "time": "2026-10-28T09:35:49+00:00",
+            "published-time": "2026-10-28T10:07:45+00:00"
         },
         {
             "name": "symfony/polyfill-php72",
@@ -479,7 +445,8 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-09-09T11:45:10+00:00"
+            "time": "2024-09-09T11:45:10+00:00",
+            "published-time": "2024-09-09T12:24:36+00:00"
         },
         {
             "name": "timber/timber",
@@ -555,7 +522,8 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2025-05-13T13:24:51+00:00"
+            "time": "2025-05-13T13:24:51+00:00",
+            "published-time": "2025-05-13T14:02:20+00:00"
         },
         {
             "name": "twig/cache-extension",
@@ -627,7 +595,8 @@
                 }
             ],
             "abandoned": "twig/cache-extra",
-            "time": "2020-10-04T09:56:48+00:00"
+            "time": "2020-10-04T09:56:48+00:00",
+            "published-time": "2020-10-04T09:58:28+00:00"
         },
         {
             "name": "twig/twig",
@@ -707,7 +676,8 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-09-09T17:53:56+00:00"
+            "time": "2024-09-09T17:53:56+00:00",
+            "published-time": "2024-09-09T17:54:12+00:00"
         },
         {
             "name": "upstatement/routes",
@@ -763,7 +733,8 @@
                 "source": "https://github.com/Upstatement/routes",
                 "wiki": "https://github.com/Upstatement/routes/wiki"
             },
-            "time": "2025-02-25T18:07:09+00:00"
+            "time": "2025-02-25T18:07:09+00:00",
+            "published-time": "2025-02-25T18:08:57+00:00"
         }
     ],
     "packages-dev": [
@@ -810,7 +781,8 @@
                 "issues": "https://github.com/nlemoine/timber-dump-extension/issues",
                 "source": "https://github.com/nlemoine/timber-dump-extension/tree/master"
             },
-            "time": "2019-03-05T10:25:36+00:00"
+            "time": "2019-03-05T10:25:36+00:00",
+            "published-time": "2019-03-05T10:25:55+00:00"
         },
         {
             "name": "hellonico/twig-dump-extension",
@@ -853,8 +825,9 @@
                 "issues": "https://github.com/nlemoine/twig-dump-extension/issues",
                 "source": "https://github.com/nlemoine/twig-dump-extension/tree/1.2.0"
             },
-            "abandoned": "symfony/twig-bridge",
-            "time": "2022-07-12T15:30:32+00:00"
+            "abandoned": true,
+            "time": "2022-07-12T15:30:32+00:00",
+            "published-time": "2022-07-12T15:30:48+00:00"
         },
         {
             "name": "symfony/polyfill-php80",
@@ -938,7 +911,8 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-09-25T15:50:05+00:00"
+            "time": "2026-09-25T15:50:05+00:00",
+            "published-time": "2026-09-30T10:23:35+00:00"
         },
         {
             "name": "symfony/var-dumper",
@@ -1031,20 +1005,19 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-08-30T20:10:04+00:00"
+            "time": "2026-08-30T20:10:04+00:00",
+            "published-time": "2026-10-15T06:52:08+00:00"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "iastate/frontend-component-library": 20
-    },
-    "prefer-stable": true,
+    "stability-flags": {},
+    "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {},
     "platform-dev": {},
     "platform-overrides": {
         "php": "7.4"
     },
-    "plugin-api-version": "2.9.0"
+    "plugin-api-version": "2.11.0"
 }

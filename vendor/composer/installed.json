@@ -211,47 +211,6 @@
             "install-path": "./installers"
         },
         {
-            "name": "iastate/frontend-component-library",
-            "version": "dev-master",
-            "version_normalized": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/iastate/iastate22-frontend.git",
-                "reference": "5b00e66cd0eee5b77c69d0bab964531455fe9560"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/iastate/iastate22-frontend/zipball/5b00e66cd0eee5b77c69d0bab964531455fe9560",
-                "reference": "5b00e66cd0eee5b77c69d0bab964531455fe9560",
-                "shasum": ""
-            },
-            "time": "2026-06-22T17:13:58+00:00",
-            "default-branch": true,
-            "type": "library",
-            "installation-source": "dist",
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "iastate Web Development Services",
-                    "email": "webdev@iastate.edu",
-                    "homepage": "https://webdev.its.iastate.edu/",
-                    "role": "Developer"
-                },
-                {
-                    "name": "idfive",
-                    "email": "code@idfive.com",
-                    "homepage": "https://idfive.com/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Frontend component library for Iowa State University.",
-            "support": {
-                "issues": "https://github.com/iastate/iastate22-frontend/issues",
-                "source": "https://github.com/iastate/iastate22-frontend/tree/master"
-            },
-            "install-path": "../iastate/frontend-component-library"
-        },
-        {
             "name": "symfony/polyfill-ctype",
             "version": "v1.37.0",
             "version_normalized": "1.37.0.0",

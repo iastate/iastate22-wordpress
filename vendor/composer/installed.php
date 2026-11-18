@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'iastate/wordpress-theme',
-        'pretty_version' => 'dev-master',
-        'version' => 'dev-master',
-        'reference' => '1a58283e5b0fa3864582b87331d08f5dd0008765',
+        'pretty_version' => 'dev-develop',
+        'version' => 'dev-develop',
+        'reference' => 'f1209059b8c1a179feb495960cefe10fb0d40b34',
         'type' => 'wordpress-theme',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -28,21 +28,10 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-        'iastate/frontend-component-library' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
-            'reference' => '5b00e66cd0eee5b77c69d0bab964531455fe9560',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../iastate/frontend-component-library',
-            'aliases' => array(
-                0 => '9999999-dev',
-            ),
-            'dev_requirement' => false,
-        ),
         'iastate/wordpress-theme' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
-            'reference' => '1a58283e5b0fa3864582b87331d08f5dd0008765',
+            'pretty_version' => 'dev-develop',
+            'version' => 'dev-develop',
+            'reference' => 'f1209059b8c1a179feb495960cefe10fb0d40b34',
             'type' => 'wordpress-theme',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
