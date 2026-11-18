@@ -15,6 +15,7 @@
     "profiles"
   ],
   "supports": {
+    "customClassName": true,
     "align": [
       "wide",
       "full"

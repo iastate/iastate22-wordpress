@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Support for "Additional CSS Class(es)" in the Block's Advanced menu
+
 ### Changed
 
 - Limit profile search terms to known taxonomy names
