@@ -250,8 +250,8 @@ class StarterSite extends TimberSite {
 
 	public function load_styles() {
 		$version = $this->public_version_key();
-		wp_enqueue_style( 'screen', get_template_directory_uri() . '/vendor/iastate/frontend-component-library/build/css/index.css', array(), $version, 'screen' );
-		wp_enqueue_style( 'printcss', get_template_directory_uri() . '/vendor/iastate/frontend-component-library/build/css/print.css', array(), $version, 'print' );
+		wp_enqueue_style( 'screen', get_template_directory_uri() . '/assets/iastate22/style.css', array(), $version, 'screen' );
+		wp_enqueue_style( 'printcss', get_template_directory_uri() . '/assets/iastate22/print.css', array(), $version, 'print' );
 		wp_enqueue_style( 'wp_only', get_template_directory_uri() . '/wp_components/build/css/index.css', array(), $version, 'screen' );
 		wp_enqueue_style( 'default', get_template_directory_uri() . '/style.css', array(), $version, 'all' );
 	}
@@ -274,7 +274,7 @@ class StarterSite extends TimberSite {
 
 	public function load_scripts() {
 		$version = $this->public_version_key();
-		wp_enqueue_script( 'main', get_template_directory_uri() . '/vendor/iastate/frontend-component-library/build/js/index.js', array(), $version, true );
+		wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/iastate22/script.js', array(), $version, true );
 		wp_enqueue_script( 'fontawesome', 'https://kit.fontawesome.com/b658fac974.js', array(), '1.0.0', true );
 	}
 
