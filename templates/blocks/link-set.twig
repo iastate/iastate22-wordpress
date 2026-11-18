@@ -3,25 +3,25 @@
 	<div class="link-set">
 		<ul>
 			{% for item in fields.links %}
-				{% if item.link_url %}
-					{% set link_url = item.link_url['url'] %}
-					{% set link_target = item.link_url['target'] %}
+				{%- if item.link_url -%}
+					{%- set link_url = item.link_url['url'] -%}
+					{%- set link_target = item.link_url['target'] ? item.link_url['target'] : '_self' -%}
 					<li>
-						{% if item.link_style == "standard" %}
-							{% set linkClass = "link-set__link iastate22-link-secondary" %}
-						{% elseif item.link_style == "external" %}
-							{% set linkClass = "link-set__link iastate22-link-external" %}
-						{% elseif item.link_style == "minimal" %}
-							{% set linkClass = "link-set__link link-tertiary" %}
-						{% endif %}
-						<a class="{{ linkClass|e('esc_attr') }}"
-							 href="{{ is_preview ? '#' : link_url|e('esc_url') }}"
-								{%- if not is_preview and (link_target == "_blank" or item.link_style == "external") %} target="_blank"{%- endif -%}>
+						{%- if item.link_style == "standard" -%}
+							{%- set link_class = "link-set__link iastate22-link-secondary" -%}
+						{%- elseif item.link_style == "external" -%}
+							{%- set link_class = "link-set__link iastate22-link-external" -%}
+							{%- set link_target = "_blank" -%}
+						{%- elseif item.link_style == "minimal" -%}
+							{%- set link_class = "link-set__link link-tertiary" -%}
+						{%- endif -%}
+						<a class="{{ link_class|e('esc_attr') }}" href="{{ is_preview ? '#' : link_url|e('esc_url') }}"
+						   target="{{ link_target|e('esc_attr') }}">
 							{{ item.label }} <span class="arrow"></span>
 						</a>
 					</li>
-				{% endif %}
-			{% endfor %}
+				{%- endif -%}
+			{%- endfor %}
 		</ul>
 	</div>
 </div>
