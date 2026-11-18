@@ -4,8 +4,8 @@
 			<a href="https://www.iastate.edu/"
 			   class="site-header__logo{% if not options.parent_unit.name %} site-header__logo-no-parent-unit{% endif %}">
 				<img
-					src="{{ "https://cdn.theme.iastate.edu/img/iastate22/iowa-state-university-logo-no-tagline-red.svg" }}"
-					alt="Iowa State University">
+						src="{{ "https://cdn.theme.iastate.edu/img/iastate22/iowa-state-university-logo-no-tagline-red.svg" }}"
+						alt="Iowa State University" loading="lazy" width="224" height="17">
 			</a>
 			{% if options.parent_unit.name %}<a class="site-header__parent-unit-name"
 												href="{{ options.parent_unit.url|e('esc_url') }}">{{ options.parent_unit.name }}</a>{% endif %}
@@ -92,15 +92,17 @@
 													   {% endif %}href="{{ link.url|e('esc_url') }}"
 													   {% if link.newtab %}target="_blank"{% endif %}>{{ link.title }}</a>
 													{% if link.children|length %}
-														<ul{% if link.children|length > 5 %} class="two-column-dropdown"{% endif %}>
-															{% for child in link.children %}
-																<li>
-																	<a class="link-tertiary"
-																	   href="{{ child.url|e('esc_url') }}">{{ child.title }}
-																		<span class="arrow"></span></a>
-																</li>
-															{% endfor %}
-														</ul>
+														<div class="site-header__mega-menu-subnav-wrap">
+															<ul{% if link.children|length > 5 %} class="two-column-dropdown"{% endif %}>
+																{% for child in link.children %}
+																	<li>
+																		<a class="link-tertiary"
+																			 href="{{ child.url|e('esc_url') }}">{{ child.title }}
+																			<span class="arrow"></span></a>
+																	</li>
+																{% endfor %}
+															</ul>
+														</div>
 													{% endif %}
 												</li>
 											{% endfor %}
